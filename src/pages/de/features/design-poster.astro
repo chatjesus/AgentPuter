@@ -1,12 +1,19 @@
 ---
-import Layout from '../../../layouts/Layout.astro';
-import Header from '../../../components/de/Header.astro';
-import Footer from '../../../components/de/Footer.astro';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const otherScenarios = [
+  { slug: "financial-report",  icon: "📊", tag: "FINANCE",      title: "Automatisierung von Quartalsfinanzberichten" },
+  { slug: "system-diagram",    icon: "📐", tag: "ENGINEERING",  title: "Automatische Erstellung von Systemarchitekturen" },
+  { slug: "audio-production",  icon: "🎵", tag: "AUDIO",        title: "Podcast- & Audio-Postproduktion" },
+  { slug: "tech-docs",         icon: "📝", tag: "DOCS",         title: "Generator für technische Dokumentationen" },
+];
 ---
 
 <Layout
-  title="Marketing-Poster-Batch-Generierung — AgentPuter"
-  description="Describe your campaign, get pixel-perfect SVG/PNG posters in seconds."
+  title="Marketing-Poster Stapelverarbeitung — AgentPuter"
+  description="Beschreiben Sie Ihre Kampagne, erhalten Sie pixelgenaue SVG/PNG-Poster in Sekunden. AgentPuter nutzt die Inkscape CLI für die Stapelausgabe von Vektordesigns."
 >
   <Header activePage="features" />
   <main class="relative z-10">
@@ -14,7 +21,7 @@ import Footer from '../../../components/de/Footer.astro';
     <!-- Hero -->
     <section class="relative pt-32 pb-16 lg:pt-40 lg:pb-20 overflow-hidden">
       <div class="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] to-[#0D0D14]"></div>
-      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(A78BFA4D,transparent_60%)]" style="background: radial-gradient(ellipse at top left, #A78BFA0D, transparent 60%)"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(167,139,250,0.05),transparent_60%)]"></div>
       <div class="relative max-w-5xl mx-auto px-6 lg:px-20">
         <a href="/de/features" class="inline-flex items-center gap-2 text-xs font-mono text-[#4B5563] hover:text-[#A78BFA] transition-colors mb-8">
           ← zurück zu Funktionen
@@ -25,13 +32,17 @@ import Footer from '../../../components/de/Footer.astro';
           <span class="text-xs font-mono text-[#4A4A6A] px-2.5 py-1 rounded border border-[#1E1E2E]">Inkscape</span>
         </div>
         <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
-          Marketing-Poster<br/>Batch-Generierung
+          Marketing-Poster<br/>Stapelverarbeitung
         </h1>
-        <p class="text-[#9CA3AF] text-lg mb-10 max-w-2xl">Ein Satz → KI erstellt Design → Hi-Res PNG/SVG exportieren</p>
+        <p class="text-[#9CA3AF] text-lg mb-10 max-w-2xl">
+          Ein Satz → KI erstellt Design → Export hochauflösender PNG/SVG
+        </p>
         <div class="flex flex-wrap gap-3">
-              <span class="inline-flex items-center gap-2 px-4 py-2 bg-[#111111] border border-[#A78BFA]/20 rounded-full text-xs text-[#94A3B8] font-mono">① Thema & Text beschreiben</span>
-              <span class="inline-flex items-center gap-2 px-4 py-2 bg-[#111111] border border-[#A78BFA]/20 rounded-full text-xs text-[#94A3B8] font-mono">② Agent erstellt SVG-Layout</span>
-              <span class="inline-flex items-center gap-2 px-4 py-2 bg-[#111111] border border-[#A78BFA]/20 rounded-full text-xs text-[#94A3B8] font-mono">③ Batch-Export PNG/SVG</span>
+          {["① Thema & Text beschreiben", "② Agent erstellt SVG-Layout", "③ Stapel-Export PNG/SVG"].map((step) => (
+            <span class="inline-flex items-center gap-2 px-4 py-2 bg-[#111111] border border-[#A78BFA]/20 rounded-full text-xs text-[#94A3B8] font-mono">
+              {step}
+            </span>
+          ))}
         </div>
       </div>
     </section>
@@ -39,49 +50,54 @@ import Footer from '../../../components/de/Footer.astro';
     <!-- Session Log -->
     <section class="py-12 lg:py-20">
       <div class="max-w-5xl mx-auto px-6 lg:px-20">
-        <p class="font-mono text-xs font-semibold tracking-[0.2em] mb-8" style="color:#A78BFA">// AGENT-SITZUNGSPROTOKOLL</p>
+        <p class="font-mono text-xs text-[#A78BFA] font-semibold tracking-[0.2em] mb-8">// AGENT SESSION LOG</p>
         <div class="flex flex-col gap-4">
 
           <div class="flex items-start gap-4">
             <div class="shrink-0 w-8 h-8 rounded-full bg-[#1E293B] flex items-center justify-center text-xs font-mono text-[#94A3B8]">U</div>
             <div class="bg-[#111827] border border-[#1E293B] rounded-2xl rounded-tl-sm px-5 py-4 max-w-xl">
-              <p class="text-[#E2E8F0] text-sm">"Erstelle Sommerschluss-Poster in 3 Größen: 1080×1920, 1200×628, 1080×1080. Markenfarbe #FF6B35, Überschrift fett weiß, Promo-Code SUMMER25."</p>
+              <p class="text-[#E2E8F0] text-sm">"Erstelle Summer-Sale-Poster in 3 Größen: 1080×1920, 1200×628, 1080×1080. Markenfarbe ist #FF6B35, Überschrift fett weiß, inklusive Promo-Code SUMMER25."</p>
             </div>
           </div>
 
           <div class="flex items-start gap-4 flex-row-reverse">
-            <div class="shrink-0 w-8 h-8 rounded-full border flex items-center justify-center text-xs font-mono" style="background:#0C1020;border-color:#A78BFA4D;color:#A78BFA">AP</div>
-            <div class="rounded-2xl rounded-tr-sm px-5 py-4 max-w-xl border" style="background:#0D1020;border-color:#A78BFA26">
-              <p class="text-[#94A3B8] text-xs font-mono mb-3">// Ausführungsreihenfolge planen</p>
+            <div class="shrink-0 w-8 h-8 rounded-full bg-[#16101F] border border-[#A78BFA]/30 flex items-center justify-center text-xs font-mono text-[#A78BFA]">AP</div>
+            <div class="bg-[#100D18] border border-[#A78BFA]/15 rounded-2xl rounded-tr-sm px-5 py-4 max-w-xl">
+              <p class="text-[#94A3B8] text-xs font-mono mb-3">// Planning 3-variant batch design</p>
               <ul class="text-[#CBD5E1] text-sm space-y-1.5">
-                <li class="flex gap-2"><span class="text-[#A78BFA]">→</span> Basis-SVG-Canvas mit Markenpalette erstellen</li>
-                <li class="flex gap-2"><span class="text-[#A78BFA]">→</span> Textebenen gestalten: Überschrift, Untertext, Promo-Code</li>
-                <li class="flex gap-2"><span class="text-[#A78BFA]">→</span> Verlaufshintergrund + Dekorationselemente anwenden</li>
-                <li class="flex gap-2"><span class="text-[#A78BFA]">→</span> 3 Größenvarianten in 2x-Auflösung exportieren</li>
+                <li class="flex gap-2"><span class="text-[#A78BFA]">→</span> Basis-SVG-Leinwand mit Markenpalette erstellen</li>
+                <li class="flex gap-2"><span class="text-[#A78BFA]">→</span> Textebenen zusammenstellen: Überschrift, Untertitel, Promo-Code</li>
+                <li class="flex gap-2"><span class="text-[#A78BFA]">→</span> Verlaufshintergrund + dekorative Elemente anwenden</li>
+                <li class="flex gap-2"><span class="text-[#A78BFA]">→</span> 3 Größenvarianten in 2-facher Auflösung exportieren</li>
               </ul>
             </div>
           </div>
 
-          
           <div class="bg-[#080810] border border-[#1E1E2E] rounded-2xl p-6 font-mono text-xs">
             <div class="flex items-center gap-2 mb-5">
-              <span class="w-3 h-3 rounded-full bg-[#FF5F57]"></span><span class="w-3 h-3 rounded-full bg-[#FEBC2E]"></span><span class="w-3 h-3 rounded-full bg-[#28C840]"></span>
+              <span class="w-3 h-3 rounded-full bg-[#FF5F57]"></span>
+              <span class="w-3 h-3 rounded-full bg-[#FEBC2E]"></span>
+              <span class="w-3 h-3 rounded-full bg-[#28C840]"></span>
               <span class="text-[#4B5563] ml-2">agentputer — ap-design executor</span>
             </div>
             <div class="space-y-1.5">
               <p><span class="text-[#2A2A3A]">$ </span><span class="text-[#94A3B8]">ap-design canvas --size 1080x1920 --bg "#FF6B35"</span></p>
-              <p class="text-[#4ADE80] pl-4">✓ Canvas created: 1080×1920px, brand orange base</p>
+              <p class="text-[#4ADE80] pl-4">✓ Leinwand erstellt: 1080×1920px, Basis in Marken-Orange</p>
               <p class="mt-3"><span class="text-[#2A2A3A]">$ </span><span class="text-[#94A3B8]">ap-design text --content "SUMMER SALE" --weight bold --color white --size 96</span></p>
-              <p class="text-[#4ADE80] pl-4">✓ Text layer: headline positioned at y=340, centered</p>
+              <p class="text-[#4ADE80] pl-4">✓ Textebene: Überschrift positioniert bei y=340, zentriert</p>
+              <p class="mt-3"><span class="text-[#2A2A3A]">$ </span><span class="text-[#94A3B8]">ap-design text --content "UP TO 50% OFF" --size 48 --color "rgba(255,255,255,0.85)"</span></p>
+              <p class="text-[#4ADE80] pl-4">✓ Untertitel-Ebene mit Deckkraft-Effekt hinzugefügt</p>
               <p class="mt-3"><span class="text-[#2A2A3A]">$ </span><span class="text-[#94A3B8]">ap-design badge --text "SUMMER25" --style pill --color white --bg "#1A1A1A"</span></p>
-              <p class="text-[#4ADE80] pl-4">✓ Promo badge element inserted</p>
+              <p class="text-[#4ADE80] pl-4">✓ Promo-Badge-Element eingefügt</p>
               <p class="mt-3"><span class="text-[#2A2A3A]">$ </span><span class="text-[#94A3B8]">ap-design batch --variants 3 --sizes "1080x1920,1200x628,1080x1080" --export png 2x</span></p>
-              <p class="text-[#4ADE80] pl-4">✓ Exported: 3 PNG files, 3 SVG masters</p>
+              <p class="text-[#4ADE80] pl-4">✓ Exportiert: 3 PNG-Dateien, 3 SVG-Master</p>
             </div>
             <div class="mt-5 pt-4 border-t border-[#1E1E2E] flex items-center justify-between">
               <span class="text-[#4B5563]">elapsed: 23s · 6 files</span>
-              <div class="flex items-center gap-2 rounded-lg px-3 py-1.5 border" style="background:#100D18;border-color:#A78BFA33">
-                <span style="color:#A78BFA">🎨</span><span style="color:#A78BFA">summer-sale-poster × 3</span><span class="text-[#4B5563] ml-2">PNG + SVG</span>
+              <div class="flex items-center gap-2 bg-[#100D18] border border-[#A78BFA]/20 rounded-lg px-3 py-1.5">
+                <span class="text-[#A78BFA]">🎨</span>
+                <span class="text-[#A78BFA]">summer-sale-poster × 3</span>
+                <span class="text-[#4B5563] ml-2">PNG + SVG</span>
               </div>
             </div>
           </div>
@@ -93,50 +109,24 @@ import Footer from '../../../components/de/Footer.astro';
     <!-- Capabilities -->
     <section class="py-12 lg:py-16 bg-[#080810]">
       <div class="max-w-5xl mx-auto px-6 lg:px-20">
-        <p class="font-mono text-xs font-semibold tracking-[0.2em] mb-8" style="color:#A78BFA">// WAS DIESES SZENARIO UNTERSTÜTZT</p>
+        <p class="font-mono text-xs text-[#A78BFA] font-semibold tracking-[0.2em] mb-8">// WHAT THIS SCENARIO SUPPORTS</p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {[
+            { icon: "🖼️", title: "Jede Leinwandgröße", desc: "Instagram, Facebook, Twitter/X, LinkedIn, Druckformate — alles aus einem einzigen Basisdesign." },
+            { icon: "✏️", title: "Vollständige Textkontrolle", desc: "Schriftfamilie, Stärke, Größe, Farbe, Zeilenhöhe, Zeichenabstand — alles skriptbar." },
+            { icon: "🎨", title: "Vektorpfad-Operationen", desc: "Formen zeichnen, Verläufe anwenden, Pfade beschneiden, Filter — vollständige SVG-Knoten-Manipulation." },
+            { icon: "📦", title: "Stapel-Export von Varianten", desc: "Erstellen Sie 50 Sprachvarianten, Farbschemata oder A/B-Testversionen mit einem Befehl." },
+            { icon: "📐", title: "Pixelgenaue Ausrichtung", desc: "Koordinatenbasierte Positionierung — kein Raten, keine Drag-and-Drop-Ausrichtungsprobleme." },
+            { icon: "🔁", title: "Vorlagen-Wiederverwendung", desc: "Definieren Sie einmal eine Markenvorlage, tauschen Sie Inhaltsvariablen für jede Kampagne aus." },
+          ].map((cap) => (
             <div class="flex gap-4 bg-[#0D0D1A] border border-[#1E1E2E] rounded-xl p-5">
-              <span class="text-2xl shrink-0 mt-0.5">🖼️</span>
+              <span class="text-2xl shrink-0 mt-0.5">{cap.icon}</span>
               <div>
-                <h3 class="text-white text-sm font-semibold mb-1">Beliebige Canvas-Größe</h3>
-                <p class="text-[#6B7280] text-xs leading-relaxed">Instagram, Facebook, Twitter/X, LinkedIn, Druckgrößen — alles aus einem Basisdesign.</p>
+                <h3 class="text-white text-sm font-semibold mb-1">{cap.title}</h3>
+                <p class="text-[#6B7280] text-xs leading-relaxed">{cap.desc}</p>
               </div>
             </div>
-            <div class="flex gap-4 bg-[#0D0D1A] border border-[#1E1E2E] rounded-xl p-5">
-              <span class="text-2xl shrink-0 mt-0.5">✏️</span>
-              <div>
-                <h3 class="text-white text-sm font-semibold mb-1">Volle Textkontrolle</h3>
-                <p class="text-[#6B7280] text-xs leading-relaxed">Schriftfamilie, -stärke, -größe, Farbe, Zeilenhöhe — alles skriptbar.</p>
-              </div>
-            </div>
-            <div class="flex gap-4 bg-[#0D0D1A] border border-[#1E1E2E] rounded-xl p-5">
-              <span class="text-2xl shrink-0 mt-0.5">🎨</span>
-              <div>
-                <h3 class="text-white text-sm font-semibold mb-1">Vektorpfad-Operationen</h3>
-                <p class="text-[#6B7280] text-xs leading-relaxed">Formen zeichnen, Verläufe anwenden, Clip-Pfade, Filter — volle SVG-Knotenmanipulation.</p>
-              </div>
-            </div>
-            <div class="flex gap-4 bg-[#0D0D1A] border border-[#1E1E2E] rounded-xl p-5">
-              <span class="text-2xl shrink-0 mt-0.5">📦</span>
-              <div>
-                <h3 class="text-white text-sm font-semibold mb-1">Batch-Variantenexport</h3>
-                <p class="text-[#6B7280] text-xs leading-relaxed">50 Sprachvarianten, Farbthemen oder A/B-Testversionen mit einem Befehl generieren.</p>
-              </div>
-            </div>
-            <div class="flex gap-4 bg-[#0D0D1A] border border-[#1E1E2E] rounded-xl p-5">
-              <span class="text-2xl shrink-0 mt-0.5">📐</span>
-              <div>
-                <h3 class="text-white text-sm font-semibold mb-1">Pixelgenaue Ausrichtung</h3>
-                <p class="text-[#6B7280] text-xs leading-relaxed">Koordinatenbasierte Positionierung — kein Rätselraten, kein Drag-and-Drop.</p>
-              </div>
-            </div>
-            <div class="flex gap-4 bg-[#0D0D1A] border border-[#1E1E2E] rounded-xl p-5">
-              <span class="text-2xl shrink-0 mt-0.5">🔁</span>
-              <div>
-                <h3 class="text-white text-sm font-semibold mb-1">Vorlagen-Wiederverwendung</h3>
-                <p class="text-[#6B7280] text-xs leading-relaxed">Eine Markenvorlage definieren, Inhaltsvariablen für jede Kampagne tauschen.</p>
-              </div>
-            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -144,40 +134,18 @@ import Footer from '../../../components/de/Footer.astro';
     <!-- Other Scenarios -->
     <section class="py-12 lg:py-16">
       <div class="max-w-5xl mx-auto px-6 lg:px-20">
-        <p class="font-mono text-xs text-[#4B5563] font-semibold tracking-[0.2em] mb-6">// ANDERE SZENARIEN</p>
+        <p class="font-mono text-xs text-[#4B5563] font-semibold tracking-[0.2em] mb-6">// OTHER SCENARIOS</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <a href="/de/features/financial-report" class="group flex items-center gap-4 bg-[#111111] hover:bg-[#161622] border border-[#1E1E2E] hover:border-[#A78BFA]/20 rounded-xl px-5 py-4 transition-all">
-              <span class="text-2xl">📊</span>
+          {otherScenarios.map((s) => (
+            <a href={`/de/features/${s.slug}`} class="group flex items-center gap-4 bg-[#111111] hover:bg-[#161622] border border-[#1E1E2E] hover:border-[#A78BFA]/20 rounded-xl px-5 py-4 transition-all">
+              <span class="text-2xl">{s.icon}</span>
               <div class="flex-1 min-w-0">
-                <span class="text-xs font-mono text-[#4A4A6A] block mb-0.5">FINANCE</span>
-                <span class="text-sm text-[#94A3B8] group-hover:text-white transition-colors truncate block">Quartals-Finanzbericht Automatisierung</span>
+                <span class="text-xs font-mono text-[#4A4A6A] block mb-0.5">{s.tag}</span>
+                <span class="text-sm text-[#94A3B8] group-hover:text-white transition-colors truncate block">{s.title}</span>
               </div>
               <span class="text-[#2A2A3A] group-hover:text-[#A78BFA] transition-colors">→</span>
             </a>
-            <a href="/de/features/system-diagram" class="group flex items-center gap-4 bg-[#111111] hover:bg-[#161622] border border-[#1E1E2E] hover:border-[#A78BFA]/20 rounded-xl px-5 py-4 transition-all">
-              <span class="text-2xl">📐</span>
-              <div class="flex-1 min-w-0">
-                <span class="text-xs font-mono text-[#4A4A6A] block mb-0.5">ENGINEERING</span>
-                <span class="text-sm text-[#94A3B8] group-hover:text-white transition-colors truncate block">Systemarchitektur Auto-Zeichnung</span>
-              </div>
-              <span class="text-[#2A2A3A] group-hover:text-[#A78BFA] transition-colors">→</span>
-            </a>
-            <a href="/de/features/audio-production" class="group flex items-center gap-4 bg-[#111111] hover:bg-[#161622] border border-[#1E1E2E] hover:border-[#A78BFA]/20 rounded-xl px-5 py-4 transition-all">
-              <span class="text-2xl">🎵</span>
-              <div class="flex-1 min-w-0">
-                <span class="text-xs font-mono text-[#4A4A6A] block mb-0.5">AUDIO</span>
-                <span class="text-sm text-[#94A3B8] group-hover:text-white transition-colors truncate block">Podcast & Audio Nachbearbeitung</span>
-              </div>
-              <span class="text-[#2A2A3A] group-hover:text-[#A78BFA] transition-colors">→</span>
-            </a>
-            <a href="/de/features/tech-docs" class="group flex items-center gap-4 bg-[#111111] hover:bg-[#161622] border border-[#1E1E2E] hover:border-[#A78BFA]/20 rounded-xl px-5 py-4 transition-all">
-              <span class="text-2xl">📝</span>
-              <div class="flex-1 min-w-0">
-                <span class="text-xs font-mono text-[#4A4A6A] block mb-0.5">DOCS</span>
-                <span class="text-sm text-[#94A3B8] group-hover:text-white transition-colors truncate block">Technische Dokumentations generierung</span>
-              </div>
-              <span class="text-[#2A2A3A] group-hover:text-[#A78BFA] transition-colors">→</span>
-            </a>
+          ))}
         </div>
       </div>
     </section>
@@ -185,12 +153,12 @@ import Footer from '../../../components/de/Footer.astro';
     <!-- CTA -->
     <section class="py-12 lg:py-20">
       <div class="max-w-5xl mx-auto px-6 lg:px-20">
-        <div class="rounded-2xl p-8 md:p-12 text-center border" style="background:#0D1020;border-color:#A78BFA33">
-          <p class="font-mono text-xs tracking-[0.2em] mb-4" style="color:#A78BFA">// IHREN AGENT EINSETZEN</p>
+        <div class="bg-[#100D18] border border-[#A78BFA]/20 rounded-2xl p-8 md:p-12 text-center">
+          <p class="font-mono text-xs text-[#A78BFA] tracking-[0.2em] mb-4">// DEPLOY YOUR AGENT</p>
           <h2 class="text-white text-2xl md:text-3xl font-bold mb-4">Bereit, Ihren Design-Workflow zu automatisieren?</h2>
-          <p class="text-[#6B7280] text-sm mb-8 max-w-md mx-auto">Einmal beschreiben, sofort 50 Varianten generieren. Keine Figma-Plugins, kein manuelles Skalieren.</p>
+          <p class="text-[#6B7280] text-sm mb-8 max-w-md mx-auto">Einmal beschreiben, sofort 50 Varianten generieren. Keine Figma-Plugins, keine manuelle Größenanpassung.</p>
           <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="https://app.agentputer.com/sign-up" class="btn-primary text-sm py-3 px-8 font-mono">[LOSLEGEN]</a>
+            <a href="https://app.agentputer.com/sign-up" class="btn-primary text-sm py-3 px-8 font-mono">[JETZT STARTEN]</a>
             <a href="/de/features" class="btn-secondary text-sm py-3 px-8 font-mono">[ALLE SZENARIEN]</a>
           </div>
         </div>

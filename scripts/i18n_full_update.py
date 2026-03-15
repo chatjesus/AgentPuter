@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-i18n_full_update.py — Full i18n pipeline for AgentPuter features/tools redesign
+i18n_full_update.py �?Full i18n pipeline for AgentPuter features/tools redesign
 
 Tasks:
   1. Fix all lang features.astro (remove UseCases/ComparisonTable/Architecture/SecurityTrust)
@@ -112,20 +112,20 @@ TRANSLATE:
 - All heading text (h1, h2, h3, h4)
 - All paragraph/description text
 - Button labels like [GET STARTED], [ALL SCENARIOS]
-- The "← back to features" link text
+- The "�?back to features" link text
 - User message text inside dialogs
 - Agent plan step descriptions (the readable text, not code)
 - Capability card titles and descriptions
 - CTA section titles and descriptions
 - Tag labels like FINANCE, DESIGN, ENGINEERING, AUDIO, DOCS (keep in English)
-- Step pills text like "① Upload CSV / spreadsheet"
+- Step pills text like "�?Upload CSV / spreadsheet"
 
 LINK RULES (critical):
-- href="/features/SLUG" → href="/LANG_CODE/features/SLUG"
-- href="/features" → href="/LANG_CODE/features"
-- href="/tools" → href="/LANG_CODE/tools"
-- href="/pricing" → href="/LANG_CODE/pricing"
-- All https:// links → unchanged
+- href="/features/SLUG" �?href="/LANG_CODE/features/SLUG"
+- href="/features" �?href="/LANG_CODE/features"
+- href="/tools" �?href="/LANG_CODE/tools"
+- href="/pricing" �?href="/LANG_CODE/pricing"
+- All https:// links �?unchanged
 
 OUTPUT: Return ONLY the translated Astro code. No markdown fences, no explanation.
 """
@@ -184,7 +184,12 @@ def create_lang_scenario_pages(client):
                 print(f"  [SKIP] Source {slug}.astro not found")
                 continue
 
-            print(f"  [{done:02d}/{total}] {slug} → {lang_code} ({lang_name})", end=" ... ")
+            # Skip already translated files (resume support)
+            if out_path.exists() and out_path.stat().st_size > 500:
+                print(f"  [{done:02d}/{total}] {slug} -> {lang_code}  [skip]")
+                continue
+
+            print(f"  [{done:02d}/{total}] {slug} -> {lang_code} ({lang_name})", end=" ... ")
             sys.stdout.flush()
 
             content = src_path.read_text(encoding="utf-8")
@@ -198,8 +203,7 @@ def create_lang_scenario_pages(client):
 
             # Rate limiting: be nice to the API
             time.sleep(1.5)
-
-        print(f"  → {lang_code} done")
+        print(f"  [{lang_code}] done")
 
 
 # ─── Main ───────────────────────────────────────────────────────────────────────
@@ -278,7 +282,7 @@ def main():
             client = google_genai.Client(
                 vertexai=True,
                 project=project_id,
-                location="us-central1",
+                location="global",
                 credentials=creds,
             )
         else:

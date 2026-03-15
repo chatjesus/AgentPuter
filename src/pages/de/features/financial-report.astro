@@ -1,12 +1,19 @@
 ---
-import Layout from '../../../layouts/Layout.astro';
-import Header from '../../../components/de/Header.astro';
-import Footer from '../../../components/de/Footer.astro';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const otherScenarios = [
+  { slug: "design-poster",     icon: "🎨", tag: "DESIGN",       title: "Stapelgenerierung von Marketing-Postern" },
+  { slug: "system-diagram",    icon: "📐", tag: "ENGINEERING",  title: "Automatisches Zeichnen von Systemarchitekturen" },
+  { slug: "audio-production",  icon: "🎵", tag: "AUDIO",        title: "Podcast- & Audio-Postproduktion" },
+  { slug: "tech-docs",         icon: "📝", tag: "DOCS",         title: "Generator für technische Dokumentation" },
+];
 ---
 
 <Layout
-  title="Quartals-Finanzbericht-Automatisierung — AgentPuter"
-  description="Upload raw data, get a 28-page professional PDF in 2 minutes."
+  title="Automatisierung von Quartalsfinanzberichten — AgentPuter"
+  description="Rohdaten hochladen, in 2 Minuten ein professionelles 28-seitiges PDF erhalten. AgentPuter nutzt LibreOffice headless, um Diagramme, Tabellen und formatierte Finanzberichte zu erstellen."
 >
   <Header activePage="features" />
   <main class="relative z-10">
@@ -14,7 +21,7 @@ import Footer from '../../../components/de/Footer.astro';
     <!-- Hero -->
     <section class="relative pt-32 pb-16 lg:pt-40 lg:pb-20 overflow-hidden">
       <div class="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] to-[#0D0D14]"></div>
-      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(38BDF84D,transparent_60%)]" style="background: radial-gradient(ellipse at top left, #38BDF80D, transparent 60%)"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(56,189,248,0.05),transparent_60%)]"></div>
       <div class="relative max-w-5xl mx-auto px-6 lg:px-20">
         <a href="/de/features" class="inline-flex items-center gap-2 text-xs font-mono text-[#4B5563] hover:text-[#38BDF8] transition-colors mb-8">
           ← zurück zu Funktionen
@@ -25,13 +32,18 @@ import Footer from '../../../components/de/Footer.astro';
           <span class="text-xs font-mono text-[#4A4A6A] px-2.5 py-1 rounded border border-[#1E1E2E]">LibreOffice</span>
         </div>
         <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
-          Quartals-Finanzbericht-<br/>Automatisierung
+          Automatisierung von<br/>Quartalsfinanzberichten
         </h1>
-        <p class="text-[#9CA3AF] text-lg mb-10 max-w-2xl">Daten hochladen → KI generiert Diagramme → Professionelles PDF exportieren</p>
+        <p class="text-[#9CA3AF] text-lg mb-10 max-w-2xl">
+          Daten hochladen → KI generiert Diagramme → Professionelles PDF exportieren
+        </p>
+        <!-- 3-step workflow -->
         <div class="flex flex-wrap gap-3">
-              <span class="inline-flex items-center gap-2 px-4 py-2 bg-[#111111] border border-[#38BDF8]/20 rounded-full text-xs text-[#94A3B8] font-mono">① CSV / Tabelle hochladen</span>
-              <span class="inline-flex items-center gap-2 px-4 py-2 bg-[#111111] border border-[#38BDF8]/20 rounded-full text-xs text-[#94A3B8] font-mono">② Agent strukturiert + Charts</span>
-              <span class="inline-flex items-center gap-2 px-4 py-2 bg-[#111111] border border-[#38BDF8]/20 rounded-full text-xs text-[#94A3B8] font-mono">③ 28-seitiges PDF exportiert</span>
+          {["① CSV / Tabelle hochladen", "② Agent strukturiert + Diagramme", "③ 28-seitiges PDF exportiert"].map((step, i) => (
+            <span class="inline-flex items-center gap-2 px-4 py-2 bg-[#111111] border border-[#38BDF8]/20 rounded-full text-xs text-[#94A3B8] font-mono">
+              {step}
+            </span>
+          ))}
         </div>
       </div>
     </section>
@@ -39,50 +51,59 @@ import Footer from '../../../components/de/Footer.astro';
     <!-- Session Log -->
     <section class="py-12 lg:py-20">
       <div class="max-w-5xl mx-auto px-6 lg:px-20">
-        <p class="font-mono text-xs font-semibold tracking-[0.2em] mb-8" style="color:#38BDF8">// AGENT-SITZUNGSPROTOKOLL</p>
+        <p class="font-mono text-xs text-[#38BDF8] font-semibold tracking-[0.2em] mb-8">// AGENT SESSION LOG</p>
+
         <div class="flex flex-col gap-4">
 
+          <!-- User message -->
           <div class="flex items-start gap-4">
             <div class="shrink-0 w-8 h-8 rounded-full bg-[#1E293B] flex items-center justify-center text-xs font-mono text-[#94A3B8]">U</div>
             <div class="bg-[#111827] border border-[#1E293B] rounded-2xl rounded-tl-sm px-5 py-4 max-w-xl">
-              <p class="text-[#E2E8F0] text-sm">"Erstelle einen Q1-Finanzbericht aus unseren Verkaufsdaten. Mit Diagrammen, einer Zusammenfassungstabelle, als PDF exportiert."</p>
+              <p class="text-[#E2E8F0] text-sm">"Erstelle einen Q1-Finanzbericht aus unseren Verkaufsdaten. Füge Diagramme und eine Übersichtstabelle hinzu und exportiere das Ganze als PDF."</p>
             </div>
           </div>
 
+          <!-- Agent plan -->
           <div class="flex items-start gap-4 flex-row-reverse">
-            <div class="shrink-0 w-8 h-8 rounded-full border flex items-center justify-center text-xs font-mono" style="background:#0C1020;border-color:#38BDF84D;color:#38BDF8">AP</div>
-            <div class="rounded-2xl rounded-tr-sm px-5 py-4 max-w-xl border" style="background:#0D1020;border-color:#38BDF826">
-              <p class="text-[#94A3B8] text-xs font-mono mb-3">// Ausführungsreihenfolge planen</p>
+            <div class="shrink-0 w-8 h-8 rounded-full bg-[#0C1929] border border-[#38BDF8]/30 flex items-center justify-center text-xs font-mono text-[#38BDF8]">AP</div>
+            <div class="bg-[#0D1520] border border-[#38BDF8]/15 rounded-2xl rounded-tr-sm px-5 py-4 max-w-xl">
+              <p class="text-[#94A3B8] text-xs font-mono mb-3">// Planning execution sequence</p>
               <ul class="text-[#CBD5E1] text-sm space-y-1.5">
-                <li class="flex gap-2"><span class="text-[#38BDF8]">→</span> Q1-sales.csv parsen (147 Zeilen, 6 Spalten)</li>
-                <li class="flex gap-2"><span class="text-[#38BDF8]">→</span> Summen, MoM-Wachstum, Kategorieaufschlüsselung berechnen</li>
-                <li class="flex gap-2"><span class="text-[#38BDF8]">→</span> Balken- und Liniendiagramme via ap-docs chart generieren</li>
+                <li class="flex gap-2"><span class="text-[#38BDF8]">→</span> Q1-sales.csv analysieren (147 Zeilen, 6 Spalten)</li>
+                <li class="flex gap-2"><span class="text-[#38BDF8]">→</span> Summen, MoM-Wachstum, Kategorien-Aufschlüsselung berechnen</li>
+                <li class="flex gap-2"><span class="text-[#38BDF8]">→</span> Balken- + Liniendiagramme via ap-docs chart generieren</li>
                 <li class="flex gap-2"><span class="text-[#38BDF8]">→</span> Enterprise-Berichtsvorlage anwenden</li>
                 <li class="flex gap-2"><span class="text-[#38BDF8]">→</span> Als PDF mit automatisch generiertem Inhaltsverzeichnis exportieren</li>
               </ul>
             </div>
           </div>
 
-          
+          <!-- CLI Execution Block -->
           <div class="bg-[#080810] border border-[#1E1E2E] rounded-2xl p-6 font-mono text-xs">
             <div class="flex items-center gap-2 mb-5">
-              <span class="w-3 h-3 rounded-full bg-[#FF5F57]"></span><span class="w-3 h-3 rounded-full bg-[#FEBC2E]"></span><span class="w-3 h-3 rounded-full bg-[#28C840]"></span>
+              <span class="w-3 h-3 rounded-full bg-[#FF5F57]"></span>
+              <span class="w-3 h-3 rounded-full bg-[#FEBC2E]"></span>
+              <span class="w-3 h-3 rounded-full bg-[#28C840]"></span>
               <span class="text-[#4B5563] ml-2">agentputer — ap-docs executor</span>
             </div>
             <div class="space-y-1.5">
               <p><span class="text-[#2A2A3A]">$ </span><span class="text-[#94A3B8]">ap-docs new --type report --template enterprise-q1</span></p>
-              <p class="text-[#4ADE80] pl-4">✓ Created: Q1-Financial-Report.docx (template applied)</p>
+              <p class="text-[#4ADE80] pl-4">✓ Erstellt: Q1-Financial-Report.docx (Vorlage angewendet)</p>
               <p class="mt-3"><span class="text-[#2A2A3A]">$ </span><span class="text-[#94A3B8]">ap-docs chart --data q1-sales.csv --type bar --title "Monthly Revenue"</span></p>
-              <p class="text-[#4ADE80] pl-4">✓ Chart inserted: 1920×800px, 3 data series</p>
+              <p class="text-[#4ADE80] pl-4">✓ Diagramm eingefügt: 1920×800px, 3 Datenserien</p>
+              <p class="mt-3"><span class="text-[#2A2A3A]">$ </span><span class="text-[#94A3B8]">ap-docs chart --data q1-sales.csv --type line --title "Growth Trend"</span></p>
+              <p class="text-[#4ADE80] pl-4">✓ Diagramm eingefügt: Trendlinie mit Anmerkungen</p>
               <p class="mt-3"><span class="text-[#2A2A3A]">$ </span><span class="text-[#94A3B8]">ap-docs table --data q1-summary.csv --style financial</span></p>
-              <p class="text-[#4ADE80] pl-4">✓ Summary table: 6 columns × 14 rows, auto-formatted</p>
+              <p class="text-[#4ADE80] pl-4">✓ Zusammenfassungstabelle: 6 Spalten × 14 Zeilen, auto-formatiert</p>
               <p class="mt-3"><span class="text-[#2A2A3A]">$ </span><span class="text-[#94A3B8]">ap-docs export --pdf --toc --pages-auto</span></p>
-              <p class="text-[#4ADE80] pl-4">✓ Exported: Q1-Financial-Report.pdf — 28 pages</p>
+              <p class="text-[#4ADE80] pl-4">✓ Exportiert: Q1-Financial-Report.pdf — 28 Seiten</p>
             </div>
             <div class="mt-5 pt-4 border-t border-[#1E1E2E] flex items-center justify-between">
               <span class="text-[#4B5563]">elapsed: 1m 47s</span>
-              <div class="flex items-center gap-2 rounded-lg px-3 py-1.5 border" style="background:#0A1A0F;border-color:#38BDF833">
-                <span style="color:#38BDF8">📄</span><span style="color:#38BDF8">Q1-Financial-Report.pdf</span><span class="text-[#4B5563] ml-2">28 pages · 2.4 MB</span>
+              <div class="flex items-center gap-2 bg-[#0A1A0F] border border-[#4ADE80]/20 rounded-lg px-3 py-1.5">
+                <span class="text-[#4ADE80]">📄</span>
+                <span class="text-[#4ADE80]">Q1-Financial-Report.pdf</span>
+                <span class="text-[#4B5563] ml-2">28 pages · 2.4 MB</span>
               </div>
             </div>
           </div>
@@ -94,50 +115,24 @@ import Footer from '../../../components/de/Footer.astro';
     <!-- Capabilities -->
     <section class="py-12 lg:py-16 bg-[#080810]">
       <div class="max-w-5xl mx-auto px-6 lg:px-20">
-        <p class="font-mono text-xs font-semibold tracking-[0.2em] mb-8" style="color:#38BDF8">// WAS DIESES SZENARIO UNTERSTÜTZT</p>
+        <p class="font-mono text-xs text-[#38BDF8] font-semibold tracking-[0.2em] mb-8">// WHAT THIS SCENARIO SUPPORTS</p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {[
+            { icon: "📊", title: "Multi-Diagramm-Generierung", desc: "Balken-, Linien-, Torten- und Kombi-Diagramme werden automatisch aus CSV/Excel-Daten eingefügt." },
+            { icon: "📋", title: "Enterprise-Vorlagen", desc: "Branchenspezifische .dotx-Vorlagen mit Logo, Kopfzeilen und Standard-Fußzeilen anwenden." },
+            { icon: "📑", title: "Auto-Inhaltsverzeichnis + Seitenzahlen", desc: "Inhaltsverzeichnis aus Überschriften generiert. Seitenzahlen, Abschnittsumbrüche." },
+            { icon: "🔢", title: "Formel- & Makro-Ausführung", desc: "LibreOffice Basic-Makros ausführen, um Summen zu berechnen und bedingte Formatierungen anzuwenden." },
+            { icon: "📄", title: "Multi-Format-Export", desc: "Ausgabe als PDF, DOCX, XLSX oder ODS. Schriftarten und Layout bleiben erhalten." },
+            { icon: "⚡", title: "Stapel-Berichtsgenerierung", desc: "Dieselbe Vorlage für 50 Regionen/Abteilungen parallel ausführen." },
+          ].map((cap) => (
             <div class="flex gap-4 bg-[#0D0D1A] border border-[#1E1E2E] rounded-xl p-5">
-              <span class="text-2xl shrink-0 mt-0.5">📊</span>
+              <span class="text-2xl shrink-0 mt-0.5">{cap.icon}</span>
               <div>
-                <h3 class="text-white text-sm font-semibold mb-1">Multi-Diagramm-Generierung</h3>
-                <p class="text-[#6B7280] text-xs leading-relaxed">Balken-, Linien-, Torten- und Kombi-Diagramme automatisch aus CSV/Excel-Daten eingefügt.</p>
+                <h3 class="text-white text-sm font-semibold mb-1">{cap.title}</h3>
+                <p class="text-[#6B7280] text-xs leading-relaxed">{cap.desc}</p>
               </div>
             </div>
-            <div class="flex gap-4 bg-[#0D0D1A] border border-[#1E1E2E] rounded-xl p-5">
-              <span class="text-2xl shrink-0 mt-0.5">📋</span>
-              <div>
-                <h3 class="text-white text-sm font-semibold mb-1">Enterprise-Vorlagen</h3>
-                <p class="text-[#6B7280] text-xs leading-relaxed">Markenspezifische .dotx-Vorlagen mit Logo, Kopfzeilen und Standardfußzeilen anwenden.</p>
-              </div>
-            </div>
-            <div class="flex gap-4 bg-[#0D0D1A] border border-[#1E1E2E] rounded-xl p-5">
-              <span class="text-2xl shrink-0 mt-0.5">📑</span>
-              <div>
-                <h3 class="text-white text-sm font-semibold mb-1">Automatisches Inhaltsverz. + Seitenzahlen</h3>
-                <p class="text-[#6B7280] text-xs leading-relaxed">Inhaltsverzeichnis aus Überschriften generiert. Seitenzahlen, Abschnittsumbrüche.</p>
-              </div>
-            </div>
-            <div class="flex gap-4 bg-[#0D0D1A] border border-[#1E1E2E] rounded-xl p-5">
-              <span class="text-2xl shrink-0 mt-0.5">🔢</span>
-              <div>
-                <h3 class="text-white text-sm font-semibold mb-1">Formel- & Makroausführung</h3>
-                <p class="text-[#6B7280] text-xs leading-relaxed">LibreOffice Basic-Makros zum Berechnen von Summen und bedingter Formatierung.</p>
-              </div>
-            </div>
-            <div class="flex gap-4 bg-[#0D0D1A] border border-[#1E1E2E] rounded-xl p-5">
-              <span class="text-2xl shrink-0 mt-0.5">📄</span>
-              <div>
-                <h3 class="text-white text-sm font-semibold mb-1">Multi-Format-Export</h3>
-                <p class="text-[#6B7280] text-xs leading-relaxed">Ausgabe als PDF, DOCX, XLSX oder ODS. Schriften und Layout beibehalten.</p>
-              </div>
-            </div>
-            <div class="flex gap-4 bg-[#0D0D1A] border border-[#1E1E2E] rounded-xl p-5">
-              <span class="text-2xl shrink-0 mt-0.5">⚡</span>
-              <div>
-                <h3 class="text-white text-sm font-semibold mb-1">Batch-Berichtsgenerierung</h3>
-                <p class="text-[#6B7280] text-xs leading-relaxed">Dieselbe Vorlage für 50 Regionen/Abteilungen parallel ausführen.</p>
-              </div>
-            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -145,40 +140,18 @@ import Footer from '../../../components/de/Footer.astro';
     <!-- Other Scenarios -->
     <section class="py-12 lg:py-16">
       <div class="max-w-5xl mx-auto px-6 lg:px-20">
-        <p class="font-mono text-xs text-[#4B5563] font-semibold tracking-[0.2em] mb-6">// ANDERE SZENARIEN</p>
+        <p class="font-mono text-xs text-[#4B5563] font-semibold tracking-[0.2em] mb-6">// OTHER SCENARIOS</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <a href="/de/features/design-poster" class="group flex items-center gap-4 bg-[#111111] hover:bg-[#161622] border border-[#1E1E2E] hover:border-[#38BDF8]/20 rounded-xl px-5 py-4 transition-all">
-              <span class="text-2xl">🎨</span>
+          {otherScenarios.map((s) => (
+            <a href={`/de/features/${s.slug}`} class="group flex items-center gap-4 bg-[#111111] hover:bg-[#161622] border border-[#1E1E2E] hover:border-[#38BDF8]/20 rounded-xl px-5 py-4 transition-all">
+              <span class="text-2xl">{s.icon}</span>
               <div class="flex-1 min-w-0">
-                <span class="text-xs font-mono text-[#4A4A6A] block mb-0.5">DESIGN</span>
-                <span class="text-sm text-[#94A3B8] group-hover:text-white transition-colors truncate block">Marketing-Poster Batch-Generierung</span>
+                <span class="text-xs font-mono text-[#4A4A6A] block mb-0.5">{s.tag}</span>
+                <span class="text-sm text-[#94A3B8] group-hover:text-white transition-colors truncate block">{s.title}</span>
               </div>
               <span class="text-[#2A2A3A] group-hover:text-[#38BDF8] transition-colors">→</span>
             </a>
-            <a href="/de/features/system-diagram" class="group flex items-center gap-4 bg-[#111111] hover:bg-[#161622] border border-[#1E1E2E] hover:border-[#38BDF8]/20 rounded-xl px-5 py-4 transition-all">
-              <span class="text-2xl">📐</span>
-              <div class="flex-1 min-w-0">
-                <span class="text-xs font-mono text-[#4A4A6A] block mb-0.5">ENGINEERING</span>
-                <span class="text-sm text-[#94A3B8] group-hover:text-white transition-colors truncate block">Systemarchitektur Auto-Zeichnung</span>
-              </div>
-              <span class="text-[#2A2A3A] group-hover:text-[#38BDF8] transition-colors">→</span>
-            </a>
-            <a href="/de/features/audio-production" class="group flex items-center gap-4 bg-[#111111] hover:bg-[#161622] border border-[#1E1E2E] hover:border-[#38BDF8]/20 rounded-xl px-5 py-4 transition-all">
-              <span class="text-2xl">🎵</span>
-              <div class="flex-1 min-w-0">
-                <span class="text-xs font-mono text-[#4A4A6A] block mb-0.5">AUDIO</span>
-                <span class="text-sm text-[#94A3B8] group-hover:text-white transition-colors truncate block">Podcast & Audio Nachbearbeitung</span>
-              </div>
-              <span class="text-[#2A2A3A] group-hover:text-[#38BDF8] transition-colors">→</span>
-            </a>
-            <a href="/de/features/tech-docs" class="group flex items-center gap-4 bg-[#111111] hover:bg-[#161622] border border-[#1E1E2E] hover:border-[#38BDF8]/20 rounded-xl px-5 py-4 transition-all">
-              <span class="text-2xl">📝</span>
-              <div class="flex-1 min-w-0">
-                <span class="text-xs font-mono text-[#4A4A6A] block mb-0.5">DOCS</span>
-                <span class="text-sm text-[#94A3B8] group-hover:text-white transition-colors truncate block">Technische Dokumentations generierung</span>
-              </div>
-              <span class="text-[#2A2A3A] group-hover:text-[#38BDF8] transition-colors">→</span>
-            </a>
+          ))}
         </div>
       </div>
     </section>
@@ -186,12 +159,12 @@ import Footer from '../../../components/de/Footer.astro';
     <!-- CTA -->
     <section class="py-12 lg:py-20">
       <div class="max-w-5xl mx-auto px-6 lg:px-20">
-        <div class="rounded-2xl p-8 md:p-12 text-center border" style="background:#0D1020;border-color:#38BDF833">
-          <p class="font-mono text-xs tracking-[0.2em] mb-4" style="color:#38BDF8">// IHREN AGENT EINSETZEN</p>
+        <div class="bg-[#0D0D1A] border border-[#38BDF8]/20 rounded-2xl p-8 md:p-12 text-center">
+          <p class="font-mono text-xs text-[#38BDF8] tracking-[0.2em] mb-4">// DEPLOY YOUR AGENT</p>
           <h2 class="text-white text-2xl md:text-3xl font-bold mb-4">Bereit, Ihre Berichte zu automatisieren?</h2>
-          <p class="text-[#6B7280] text-sm mb-8 max-w-md mx-auto">AgentPuter übernimmt den gesamten Workflow — von Rohdaten bis zum boardroomfähigen PDF. Kein manuelles Formatieren mehr.</p>
+          <p class="text-[#6B7280] text-sm mb-8 max-w-md mx-auto">AgentPuter übernimmt den gesamten Workflow — von Rohdaten bis zum präsentationsreifen PDF. Nie wieder manuelle Formatierung.</p>
           <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="https://app.agentputer.com/sign-up" class="btn-primary text-sm py-3 px-8 font-mono">[LOSLEGEN]</a>
+            <a href="https://app.agentputer.com/sign-up" class="btn-primary text-sm py-3 px-8 font-mono">[JETZT STARTEN]</a>
             <a href="/de/features" class="btn-secondary text-sm py-3 px-8 font-mono">[ALLE SZENARIEN]</a>
           </div>
         </div>

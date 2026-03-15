@@ -11,6 +11,7 @@ import ComparisonTable from '../components/features/ComparisonTable.astro';
 import Architecture from '../components/features/Architecture.astro';
 import SecurityTrust from '../components/features/SecurityTrust.astro';
 import FeaturesCTA from '../components/features/FeaturesCTA.astro';
+import ScenarioCards from '../components/features/ScenarioCards.astro';
 
 // Features 页面结构化数据 - FAQPage schema（提升搜索引擎 rich results 展示）
 const faqSchema = {
@@ -103,6 +104,7 @@ const breadcrumbSchema = {
   <Header activePage="features" />
   <main class="relative z-10">
     <FeaturesHero />
+    <ScenarioCards />
     <BeforeAfter />
     <CommunityVoices />
     <CoreRoles />

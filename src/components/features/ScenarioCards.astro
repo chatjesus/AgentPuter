@@ -1,0 +1,137 @@
+---
+// ScenarioCards — Scenario-based solution showcase for Features page
+// Each card links to a dedicated feature scenario page
+
+interface Scenario {
+  slug: string;
+  icon: string;
+  tag: string;
+  tagClass: string;
+  num: string;
+  title: string;
+  subtitle: string;
+  desc: string;
+  output: string;
+  engine: string;
+}
+
+const scenarios: Scenario[] = [
+  {
+    slug: "financial-report",
+    icon: "📊",
+    tag: "FINANCE",
+    tagClass: "text-[#38BDF8] bg-[#38BDF8]/10",
+    num: "01",
+    title: "Quarterly Financial Report Automation",
+    subtitle: "Upload data → AI generates charts → Export professional PDF",
+    desc: "Forget manual spreadsheets. AgentPuter reads your data, uses LibreOffice to generate a complete financial report with charts, table of contents, and standard formatting — 28 pages in 2 minutes.",
+    output: "Q1-Financial-Report.pdf · 28 pages",
+    engine: "ap-docs",
+  },
+  {
+    slug: "design-poster",
+    icon: "🎨",
+    tag: "DESIGN",
+    tagClass: "text-[#A78BFA] bg-[#A78BFA]/10",
+    num: "02",
+    title: "Marketing Poster Batch Generation",
+    subtitle: "One sentence → AI creates design → Export hi-res PNG/SVG",
+    desc: "Describe your theme, brand colors, and copy. AgentPuter calls Inkscape to generate pixel-perfect vector posters with support for batch variant output.",
+    output: "summer-sale-poster.svg · 1920×1080",
+    engine: "ap-design",
+  },
+  {
+    slug: "system-diagram",
+    icon: "📐",
+    tag: "ENGINEERING",
+    tagClass: "text-[#FBBF24] bg-[#FBBF24]/10",
+    num: "03",
+    title: "System Architecture Auto-Drawing",
+    subtitle: "Describe architecture → AI layouts → Export SVG/PNG",
+    desc: "Describe your microservices, data flows, and network topology in natural language. AgentPuter uses Draw.io CLI to produce precise, professional architecture diagrams.",
+    output: "microservice-arch.svg · Vector editable",
+    engine: "ap-diagrams",
+  },
+  {
+    slug: "audio-production",
+    icon: "🎵",
+    tag: "AUDIO",
+    tagClass: "text-[#4ADE80] bg-[#4ADE80]/10",
+    num: "04",
+    title: "Podcast & Audio Post-Production",
+    subtitle: "Upload recording → AI denoise & edit → Export broadcast MP3",
+    desc: "Meeting recordings, podcast episodes, course audio — AgentPuter auto-denoises, normalizes volume, and trims silence. One command, professional post-production output.",
+    output: "podcast-ep12-final.mp3 · 128kbps",
+    engine: "ap-audio",
+  },
+  {
+    slug: "tech-docs",
+    icon: "📝",
+    tag: "DOCS",
+    tagClass: "text-[#38BDF8] bg-[#38BDF8]/10",
+    num: "05",
+    title: "Technical Documentation Generator",
+    subtitle: "API specs → AI formats → Export Word/PDF",
+    desc: "Paste your API definitions, feature specs, or interface descriptions. AgentPuter generates professionally formatted technical documentation with table of contents, compatible with enterprise templates.",
+    output: "api-reference-v2.docx · Enterprise format",
+    engine: "ap-docs",
+  },
+];
+---
+
+<section class="py-16 lg:py-24">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20">
+    <!-- Section header -->
+    <div class="mb-12">
+      <div class="font-mono text-accent text-xs font-semibold tracking-[0.2em] mb-4">
+        // SCENARIO SOLUTIONS
+      </div>
+      <h2 class="text-white text-3xl md:text-4xl font-bold mb-4">
+        Real Problems. Real Output.
+      </h2>
+      <p class="text-[#9CA3AF] text-base max-w-2xl">
+        Every feature is a complete workflow — from your request to a downloadable file.
+        No hallucinations, no summaries. Real files from real software.
+      </p>
+    </div>
+
+    <!-- Scenario List -->
+    <div class="flex flex-col gap-4">
+      {scenarios.map((s) => (
+        <a
+          href={`/features/${s.slug}`}
+          class="group flex items-start gap-6 md:gap-8 bg-[#111111] hover:bg-[#161622] border border-[#1E1E2E] hover:border-accent/20 rounded-2xl p-6 md:p-8 transition-all duration-200"
+        >
+          <!-- Number + Icon -->
+          <div class="shrink-0 flex flex-col items-center gap-2 w-12">
+            <span class="text-[#2A2A3A] font-mono text-xs">{s.num}</span>
+            <span class="text-3xl">{s.icon}</span>
+          </div>
+
+          <!-- Content -->
+          <div class="flex-1 min-w-0">
+            <div class="flex flex-wrap items-center gap-3 mb-2">
+              <span class={`text-xs font-bold font-mono px-2 py-0.5 rounded ${s.tagClass}`}>
+                {s.tag}
+              </span>
+              <span class="text-xs text-[#4A4A6A] font-mono">{s.engine}</span>
+            </div>
+            <h3 class="text-white text-lg font-bold mb-1 group-hover:text-accent transition-colors">
+              {s.title}
+            </h3>
+            <p class="text-[#6B7280] text-sm mb-2">{s.subtitle}</p>
+            <p class="text-[#4B5563] text-sm leading-relaxed hidden md:block">{s.desc}</p>
+          </div>
+
+          <!-- Output + Arrow -->
+          <div class="shrink-0 flex flex-col items-end justify-between gap-4 min-w-0">
+            <div class="bg-[#0D0D1A] px-3 py-1.5 rounded-lg font-mono text-xs text-[#6B7280] whitespace-nowrap hidden lg:block">
+              📄 {s.output}
+            </div>
+            <span class="text-[#2A2A3A] group-hover:text-accent transition-colors text-xl">→</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

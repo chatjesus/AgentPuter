@@ -1,0 +1,21 @@
+﻿---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import FeaturesHero from '../../components/features/FeaturesHero.astro';
+import ScenarioCards from '../../components/ru/features/ScenarioCards.astro';
+import BeforeAfter from '../../components/features/BeforeAfter.astro';
+import CoreRoles from '../../components/features/CoreRoles.astro';
+import FeaturesCTA from '../../components/features/FeaturesCTA.astro';
+---
+<Layout title="Функции - AgentPuter" description="Сценарные решения AgentPuter">
+  <Header activePage="features" />
+  <main class="relative z-10">
+    <FeaturesHero />
+    <ScenarioCards />
+    <BeforeAfter />
+    <CoreRoles />
+    <FeaturesCTA />
+  </main>
+  <Footer />
+</Layout>

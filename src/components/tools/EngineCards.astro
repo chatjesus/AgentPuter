@@ -1,0 +1,221 @@
+---
+// EngineCards — CLI engine showcase for Tools page
+// Styled in CLI-Anything terminal card aesthetic
+
+interface Engine {
+  id: string;
+  icon: string;
+  name: string;
+  underlying: string;
+  color: string;
+  colorBg: string;
+  colorBorder: string;
+  badge: string;
+  tagline: string;
+  desc: string;
+  caps: string[];
+  cmds: string[];
+  scenarios: string[];
+}
+
+const engines: Engine[] = [
+  {
+    id: "ap-docs",
+    icon: "📄",
+    name: "ap-docs",
+    underlying: "LibreOffice",
+    color: "#38BDF8",
+    colorBg: "rgba(56,189,248,0.08)",
+    colorBorder: "rgba(56,189,248,0.2)",
+    badge: "158 ✓",
+    tagline: "Writer · Calc · Impress · Draw — Headless mode",
+    desc: "Full headless control of the LibreOffice suite. Generate Word/Excel/PPT/PDF with macros, templates, and charts. Thousands of validated command sequences.",
+    caps: ["Writer Docs", "Calc Spreadsheets", "Impress Presentations", "Draw Graphics", "PDF Export", "Template Apply"],
+    cmds: [
+      "ap-docs new --type report",
+      "ap-docs chart --data file.csv",
+      "ap-docs export --pdf --toc",
+      "ap-docs macro run --name monthly",
+    ],
+    scenarios: ["Quarterly Reports", "Tech Docs", "Contract Drafting"],
+  },
+  {
+    id: "ap-design",
+    icon: "🎨",
+    name: "ap-design",
+    underlying: "Inkscape",
+    color: "#A78BFA",
+    colorBg: "rgba(167,139,250,0.08)",
+    colorBorder: "rgba(167,139,250,0.2)",
+    badge: "203 ✓",
+    tagline: "SVG Vector · Poster · Icon · Logo · Pixel Export",
+    desc: "Precise CLI control over SVG nodes, paths, filters, and text layout via Inkscape. Export PNG/SVG/PDF at any resolution, pixel-perfect.",
+    caps: ["SVG Vector Art", "Poster Design", "Icon Generation", "Path Operations", "Filter Effects", "Batch Export"],
+    cmds: [
+      "ap-design canvas --size 1080x1920",
+      "ap-design text --weight bold --color white",
+      "ap-design export --png 2x",
+      "ap-design batch --variants 10",
+    ],
+    scenarios: ["Marketing Posters", "Brand Assets", "UI Icons"],
+  },
+  {
+    id: "ap-diagrams",
+    icon: "📐",
+    name: "ap-diagrams",
+    underlying: "Draw.io (diagrams.net)",
+    color: "#FBBF24",
+    colorBg: "rgba(251,191,36,0.08)",
+    colorBorder: "rgba(251,191,36,0.2)",
+    badge: "138 ✓",
+    tagline: "Flowcharts · Architecture · ER · Sequence · UML",
+    desc: "Programmatically create professional technical diagrams via the draw.io CLI. Built-in AWS/GCP/Azure icon libraries. Supports C4 Model, UML, and more.",
+    caps: ["Microservice Architecture", "Network Topology", "ER Database Diagrams", "Business Flows", "Sequence Diagrams", "UML Class Diagrams"],
+    cmds: [
+      "ap-diagrams new --type microservice",
+      "ap-diagrams add node --label 'API Gateway'",
+      "ap-diagrams export --svg --theme dark",
+      "ap-diagrams from-schema --input db.sql",
+    ],
+    scenarios: ["System Architecture", "DB Design", "Business Process"],
+  },
+  {
+    id: "ap-audio",
+    icon: "🎵",
+    name: "ap-audio",
+    underlying: "sox + ffmpeg",
+    color: "#4ADE80",
+    colorBg: "rgba(74,222,128,0.08)",
+    colorBorder: "rgba(74,222,128,0.2)",
+    badge: "141 ✓",
+    tagline: "Denoise · Edit · Convert · Loudness Normalize",
+    desc: "sox handles audio effects and analysis; ffmpeg manages codec and container conversion. Batch processing supported, covering podcasts, courses, and music production.",
+    caps: ["Smart Denoising", "Silence Detection & Trim", "EBU R128 Loudness Norm", "Format Conversion", "Multi-track Mix", "Audio Analysis"],
+    cmds: [
+      "ap-audio denoise --input raw.wav",
+      "ap-audio loudnorm --target -14 LUFS",
+      "ap-audio convert --mp3 128k",
+      "ap-audio trim --remove-silence",
+    ],
+    scenarios: ["Podcast Post-Prod", "Course Recording", "Meeting Audio"],
+  },
+];
+---
+
+<section class="py-16 lg:py-24 bg-[#080810]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20">
+    <!-- Section header -->
+    <div class="mb-12">
+      <div class="font-mono text-accent text-xs font-semibold tracking-[0.2em] mb-4">
+        // BUILT-IN ENGINES
+      </div>
+      <h2 class="text-white text-3xl md:text-4xl font-bold mb-4">
+        4 Software Engines. <span class="text-accent">640+</span> Validated Commands.
+      </h2>
+      <p class="text-[#9CA3AF] text-base max-w-2xl mb-6">
+        Every AgentPuter capability is powered by a real software engine — controlled via CLI, not GUI screenshots.
+        Stable APIs, real file output, fully local processing.
+      </p>
+      <div class="flex gap-6 text-xs text-[#4B5563] font-mono">
+        <span><span class="text-accent">640+</span> validated command sequences</span>
+        <span><span class="text-accent">4</span> engines covering core scenarios</span>
+        <span><span class="text-accent">100%</span> local processing</span>
+      </div>
+    </div>
+
+    <!-- Engine Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      {engines.map((e) => (
+        <div
+          class="bg-[#0D0D1A] rounded-2xl p-6 md:p-7 border transition-all duration-200 hover:-translate-y-0.5"
+          style={`border-color: ${e.colorBorder};`}
+        >
+          <!-- Card Header -->
+          <div class="flex items-start justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <span class="text-3xl">{e.icon}</span>
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="font-bold font-mono text-base" style={`color: ${e.color}`}>{e.name}</span>
+                  <span
+                    class="text-xs font-bold font-mono px-2 py-0.5 rounded"
+                    style={`color: ${e.color}; background: ${e.colorBg};`}
+                  >
+                    {e.badge}
+                  </span>
+                </div>
+                <p class="text-[#4A4A6A] text-xs mt-0.5">{e.underlying}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tagline -->
+          <p class="text-xs font-mono mb-3" style={`color: ${e.color}; opacity: 0.7;`}>
+            {e.tagline}
+          </p>
+
+          <!-- Description -->
+          <p class="text-[#6B7280] text-xs leading-relaxed mb-5">{e.desc}</p>
+
+          <!-- Capability Tags -->
+          <div class="flex flex-wrap gap-2 mb-5">
+            {e.caps.map((c) => (
+              <span
+                class="text-xs px-2.5 py-1 rounded font-mono"
+                style={`background: ${e.colorBg}; color: ${e.color};`}
+              >
+                {c}
+              </span>
+            ))}
+          </div>
+
+          <!-- Command Block -->
+          <div class="bg-black/40 rounded-xl p-4 space-y-1.5 mb-5 font-mono">
+            {e.cmds.map((cmd) => (
+              <p class="text-xs">
+                <span class="text-[#2A2A3A]">$ </span>
+                <span class="text-[#94A3B8]">{cmd}</span>
+              </p>
+            ))}
+          </div>
+
+          <!-- Scenario Tags -->
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div class="flex flex-wrap gap-2">
+              {e.scenarios.map((s) => (
+                <span class="text-xs text-[#4B5563] border border-[#1E1E2E] px-2 py-0.5 rounded font-mono">
+                  {s}
+                </span>
+              ))}
+            </div>
+            <a href="/features" class="text-xs font-mono transition-colors" style={`color: ${e.color};`}>
+              See use cases →
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Methodology footnote -->
+    <div class="mt-12 pt-8 border-t border-[#1E1E2E]">
+      <p class="font-mono text-xs text-accent font-bold tracking-widest mb-3">// WHY CLI, NOT GUI?</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-xs text-[#4B5563] leading-relaxed">
+        <div>
+          <p class="text-[#94A3B8] font-semibold mb-1">Stable API</p>
+          CLI interfaces don't break with UI updates. One integration works long-term. Screenshot-based approaches fail after every software release.
+        </div>
+        <div>
+          <p class="text-[#94A3B8] font-semibold mb-1">Precise Control</p>
+          Directly manipulate files, coordinates, and parameters. No visual alignment needed — pixel-perfect output every time.
+        </div>
+        <div>
+          <p class="text-[#94A3B8] font-semibold mb-1">Batchable</p>
+          The same command runs 100+ tasks concurrently. GUI automation can only click one thing at a time.
+        </div>
+      </div>
+      <p class="text-[#2A2A3A] text-xs font-mono mt-4">
+        // Based on CLI-Anything by HKUDS Lab (MIT License) · Extended & internalized by AgentPuter
+      </p>
+    </div>
+  </div>
+</section>

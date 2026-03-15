@@ -1,0 +1,25 @@
+﻿---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import MatrixRain from '../../components/MatrixRain.astro';
+import EngineCards from '../../components/ru/tools/EngineCards.astro';
+
+const APP_URL = 'https://app.agentputer.com';
+---
+<Layout title="Инструменты - AgentPuter" description="Движки AgentPuter: ap-docs, ap-design, ap-diagrams, ap-audio">
+  <MatrixRain />
+  <Header activePage="tools" />
+  <main class="relative z-10">
+    <section class="relative pt-32 pb-12 lg:pt-40 lg:pb-16 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-dark-primary via-dark-primary to-dark-secondary"></div>
+      <div class="relative max-w-7xl mx-auto px-6 lg:px-20 text-center">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.2em] mb-6">4 ВСТРОЕННЫХ ДВИЖКА</div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Что умеет ваш AI-агент?</h1>
+        <p class="text-text-secondary text-lg max-w-2xl mx-auto">Один агент. Сотни сценариев использования.</p>
+      </div>
+    </section>
+    <EngineCards />
+  </main>
+  <Footer />
+</Layout>

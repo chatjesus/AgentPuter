@@ -1,0 +1,91 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/fr/Header.astro';
+import Hero from '../../components/fr/Hero.astro';
+import PainPoints from '../../components/fr/PainPoints.astro';
+import Solution from '../../components/fr/Solution.astro';
+import HowItWorks from '../../components/fr/HowItWorks.astro';
+import CTA from '../../components/fr/CTA.astro';
+import Footer from '../../components/fr/Footer.astro';
+import MatrixRain from '../../components/MatrixRain.astro';
+
+
+// 主页 FAQPage 结构化数据（GEO 核心：让 AI 搜索引擎可引用）
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: `Qu'est-ce qu'AgentPuter ?`,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `AgentPuter est une plateforme d'agents IA active 24/7. Elle se connecte à Telegram, WhatsApp, Slack, Discord et plus, avec plus de 500 compétences intégrées. Aucune programmation nécessaire.`,
+      },
+    },
+    {
+      '@type': 'Question',
+      name: `Comment fonctionne AgentPuter ?`,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `AgentPuter fournit un environnement d'exécution cloud 24/7. Vous connectez vos canaux de messagerie, configurez des compétences et votre agent IA gère les tâches de manière autonome.`,
+      },
+    },
+    {
+      '@type': 'Question',
+      name: `Faut-il savoir programmer ?`,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `Non. AgentPuter est conçu pour les utilisateurs non techniques. Configurez votre agent en 2 minutes, connectez vos apps de messagerie et commencez à automatiser sans écrire de code.`,
+      },
+    },
+    {
+      '@type': 'Question',
+      name: `Mes données sont-elles en sécurité ?`,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `Oui. AgentPuter agit comme proxy de confidentialité entre vous et les LLMs. Les identifiants sont chiffrés en AES-256, les clés API sont gérées côté serveur et jamais exposées aux modèles d'IA.`,
+      },
+    },
+  ],
+};
+
+// SoftwareApplication 结构化数据
+const softwareSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'AgentPuter',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Cloud',
+  url: 'https://www.agentputer.com',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', description: 'Free during beta' },
+};
+
+---
+
+<Layout
+  title="AgentPuter - Votre IA ne dort jamais"
+  description="AgentPuter donne à votre AI Agent un ordinateur cloud dédié qui ne s'éteint jamais. Exécutez OpenClaw, ClawBot, MoltBot 24/7, avec authentification persistante, agents parallèles et accès à distance."
+  tags={['AgentPuter', 'AI Agent', 'Runtime cloud', 'OpenClaw', 'ClawBot', 'IA 24/7', 'Automatisation IA', 'Ordinateur pour Agent']}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} slot="head" />
+  <MatrixRain />
+  <Header />
+  <main class="relative z-10">
+    <Hero />
+    <div style="content-visibility: auto; contain-intrinsic-size: auto 600px;">
+      <PainPoints />
+    </div>
+    <div style="content-visibility: auto; contain-intrinsic-size: auto 800px;">
+      <Solution />
+    </div>
+    <div style="content-visibility: auto; contain-intrinsic-size: auto 600px;">
+      <HowItWorks />
+    </div>
+    <div style="content-visibility: auto; contain-intrinsic-size: auto 400px;">
+      <CTA />
+    </div>
+  </main>
+  <Footer />
+</Layout>

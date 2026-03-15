@@ -1,0 +1,82 @@
+---
+// コミュニティの声 - 実際のユーザーからの引用（クリックで元の投稿に移動）
+const quotes = [
+  {
+    text: '「AIエージェントを監視なしで実行させたら、2時間で200ドルも消費してしまった。エージェントはまだ動いていて、電話をかけ、お金を使い、ただ…暴走していた。」',
+    source: 'HN · anupsingh123',
+    color: '#FF6B6B',
+    url: 'https://news.ycombinator.com/item?id=43496782',
+  },
+  {
+    text: '「780人以上が、完全なシステムアクセス権を持つAIエージェントをパブリックインターネットにデプロイした。認証なし。IPフィルタリングなし。ただ…オープンな状態で。」',
+    source: 'Threads · @uddeshya_agrawal',
+    color: '#FF6B6B',
+    url: 'https://www.threads.net/@uddeshya_agrawal',
+  },
+  {
+    text: '「約1時間で終わるはずのタスクが、繰り返されるミスのせいで5〜6時間以上かかる。エージェントは、ほんの数分前まで使っていた手順に突然従わなくなる。」',
+    source: 'GitHub Issue · Claude Code #13919',
+    color: '#FF6B6B',
+    url: 'https://github.com/anthropics/claude-code/issues/13919',
+  },
+  {
+    text: '「エージェントはしばしば、環境変数、ファイル、CLI、ブラウザ、APIキーなど、広範なローカルアクセスを必要とする。これにより、『ローカルマシンは安全』という通常の前提が揺らいでしまう。」',
+    source: 'HN · xinbenlv',
+    color: '#FFD700',
+    url: 'https://news.ycombinator.com/user?id=xinbenlv',
+  },
+  {
+    text: '「現在のMCP仕様はツールの相互作用に焦点を当てているが、リクエストごとの認可はほとんど未定義のままだ。初期のOAuthスコープだけに頼るのでは不十分だ。」',
+    source: 'HN · Pomerium (YC)',
+    color: '#FFD700',
+    url: 'https://news.ycombinator.com/item?id=43496782',
+  },
+  {
+    text: '「LLMには一切秘密情報を渡してはいけない。昇格された権限を必要とするものはすべて、認証情報を保持するプロキシを介して行うべきだ。」',
+    source: 'HN · bilbo-b-baggins',
+    color: '#00FF41',
+    url: 'https://news.ycombinator.com/item?id=43496782',
+  },
+];
+---
+
+<section class="relative py-20 bg-[#0A0A0A]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20">
+    <div class="flex flex-col items-center text-center mb-12">
+      <span class="block text-xs font-mono font-semibold tracking-[2px] text-[#FF6B6B] mb-6">// 開発者のリアルな悩み</span>
+      <h2 class="text-2xl md:text-[28px] font-bold text-white leading-snug max-w-[700px]">
+        これらは仮説上の問題ではありません。<br/>開発者たちが日々口にしている現実です。
+      </h2>
+    </div>
+    
+    <!-- 引用カードグリッド -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+      {quotes.map((q) => (
+        <a 
+          href={q.url} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="block bg-[#1A1A1A] rounded-xl border border-[#222222] p-6 transition-all duration-300 hover:border-[#444444] hover:-translate-y-1 hover:shadow-lg group"
+        >
+          <p class="text-sm text-[#94A3B8] leading-relaxed mb-4">
+            {q.text}
+          </p>
+          <div class="flex items-center gap-2">
+            <span class="text-[#333333]">—</span>
+            <span class="font-mono text-[11px] group-hover:underline" style={`color: ${q.color}`}>
+              {q.source}
+            </span>
+            <span class="text-[#333333] text-xs ml-auto opacity-0 group-hover:opacity-100 transition-opacity">↗</span>
+          </div>
+        </a>
+      ))}
+    </div>
+    
+    <!-- 下部のまとめ -->
+    <div class="flex justify-center">
+      <div class="inline-flex items-center px-8 py-4 bg-[#111111] border border-[#00FF4140] rounded-lg">
+        <span class="font-mono text-sm font-semibold text-accent">&gt; AgentPuterは、まさにこれらの問題を解決するために作られました。</span>
+      </div>
+    </div>
+  </div>
+</section>

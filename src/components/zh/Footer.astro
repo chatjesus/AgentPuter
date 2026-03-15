@@ -1,0 +1,132 @@
+---
+// Footer component - Chinese version
+
+const footerLinks = {
+  product: [
+    { name: '功能', href: '/zh/features' },
+    { name: '价格', href: '#pricing' },
+    { name: '文档', href: '/zh/docs' },
+  ],
+  company: [
+    { name: '关于', href: '#' },
+    { name: '博客', href: '/zh/blog/' },
+    { name: '招聘', href: '#' },
+  ],
+  contact: [
+    { name: 'oscarzamora199907@gmail.com', href: 'mailto:oscarzamora199907@gmail.com' },
+    { name: 'Twitter', href: 'https://twitter.com/agentputer' },
+    { name: 'Discord', href: 'https://discord.gg/agentputer' },
+  ],
+  legal: [
+    { name: '隐私', href: '#' },
+    { name: '条款', href: '#' },
+    { name: '安全', href: '#' },
+  ],
+};
+
+const socialLinks = [
+  { name: 'GitHub', href: 'https://github.com/agentputer' },
+];
+---
+
+<footer class="bg-dark-secondary border-t border-accent/20">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20 py-12 lg:py-16">
+    <!-- Top Section -->
+    <div class="flex flex-col lg:flex-row justify-between gap-12 mb-12">
+      <!-- Brand -->
+      <div class="lg:max-w-xs">
+        <a href="/zh/" class="inline-block mb-4">
+          <span class="font-mono text-xl font-bold">
+            <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span>
+          </span>
+        </a>
+        <p class="text-text-muted text-sm font-mono">
+          <span class="text-terminal-cyan">//</span> 你的 AI 永不休眠
+        </p>
+      </div>
+      
+      <!-- Links Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 font-mono">
+        <!-- Product -->
+        <div>
+          <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/产品</h4>
+          <ul class="space-y-3">
+            {footerLinks.product.map((link) => (
+              <li>
+                <a href={link.href} class="text-text-muted text-sm hover:text-accent transition-colors">
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <!-- Company -->
+        <div>
+          <h4 class="text-terminal-orange font-bold mb-4 text-sm">/公司</h4>
+          <ul class="space-y-3">
+            {footerLinks.company.map((link) => (
+              <li>
+                <a href={link.href} class="text-text-muted text-sm hover:text-accent transition-colors">
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <!-- Contact -->
+        <div>
+          <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/联系</h4>
+          <ul class="space-y-3">
+            {footerLinks.contact.map((link) => (
+              <li>
+                <a href={link.href} target={link.href.startsWith('mailto:') ? undefined : '_blank'} rel={link.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'} class="text-text-muted text-sm hover:text-accent transition-colors break-all">
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <!-- Legal -->
+        <div>
+          <h4 class="text-terminal-blue font-bold mb-4 text-sm">/法律</h4>
+          <ul class="space-y-3">
+            {footerLinks.legal.map((link) => (
+              <li>
+                <a href={link.href} class="text-text-muted text-sm hover:text-accent transition-colors">
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Divider -->
+    <div class="border-t border-accent/20 pt-8">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4 font-mono">
+        <!-- Copyright -->
+        <p class="text-text-dark text-sm">
+          /* © 2026 AgentPuter. 保留所有权利。 */
+        </p>
+        
+        <!-- Social Links -->
+        <div class="flex items-center gap-6">
+          {socialLinks.map((link) => (
+            <a 
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-text-muted text-sm hover:text-accent transition-colors"
+            >
+              {link.name}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

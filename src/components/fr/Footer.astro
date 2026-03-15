@@ -1,0 +1,131 @@
+---
+// Composant de pied de page
+
+const footerLinks = {
+  product: [
+    { name: 'Fonctionnalités', href: '/fr/features' },
+    { name: 'Tarifs', href: '/pricing' },
+    { name: 'Docs', href: '/fr/docs' },
+  ],
+  company: [
+    { name: 'À propos', href: '#' },
+    { name: 'Blog', href: '/fr/blog/' },
+  ],
+  contact: [
+    { name: 'oscarzamora199907@gmail.com', href: 'mailto:oscarzamora199907@gmail.com' },
+    { name: 'Twitter', href: 'https://twitter.com/agentputer' },
+    { name: 'Discord', href: 'https://discord.gg/agentputer' },
+  ],
+  legal: [
+    { name: 'Confidentialité', href: '/privacy' },
+    { name: 'Conditions', href: '/terms' },
+    { name: 'Sécurité', href: '/privacy#data-security' },
+  ],
+};
+
+const socialLinks = [
+  { name: 'GitHub', href: 'https://github.com/agentputer' },
+];
+---
+
+<footer class="bg-dark-secondary border-t border-accent/20">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20 py-12 lg:py-16">
+    <!-- Top Section -->
+    <div class="flex flex-col lg:flex-row justify-between gap-12 mb-12">
+      <!-- Brand -->
+      <div class="lg:max-w-xs">
+        <a href="/fr/" class="inline-block mb-4">
+          <span class="font-mono text-xl font-bold">
+            <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span>
+          </span>
+        </a>
+        <p class="text-text-muted text-sm font-mono">
+          <span class="text-terminal-cyan">//</span> Votre IA ne dort jamais
+        </p>
+      </div>
+      
+      <!-- Links Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 font-mono">
+        <!-- Product -->
+        <div>
+          <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/produit</h4>
+          <ul class="space-y-3">
+            {footerLinks.product.map((link) => (
+              <li>
+                <a href={link.href} class="text-text-muted text-sm hover:text-accent transition-colors">
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <!-- Company -->
+        <div>
+          <h4 class="text-terminal-orange font-bold mb-4 text-sm">/entreprise</h4>
+          <ul class="space-y-3">
+            {footerLinks.company.map((link) => (
+              <li>
+                <a href={link.href} class="text-text-muted text-sm hover:text-accent transition-colors">
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <!-- Contact -->
+        <div>
+          <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/contact</h4>
+          <ul class="space-y-3">
+            {footerLinks.contact.map((link) => (
+              <li>
+                <a href={link.href} target={link.href.startsWith('mailto:') ? undefined : '_blank'} class="text-text-muted text-sm hover:text-accent transition-colors break-all">
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <!-- Legal -->
+        <div>
+          <h4 class="text-terminal-blue font-bold mb-4 text-sm">/légal</h4>
+          <ul class="space-y-3">
+            {footerLinks.legal.map((link) => (
+              <li>
+                <a href={link.href} class="text-text-muted text-sm hover:text-accent transition-colors">
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Divider -->
+    <div class="border-t border-accent/20 pt-8">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4 font-mono">
+        <!-- Copyright -->
+        <p class="text-text-dark text-sm">
+          /* © 2026 AgentPuter. Tous droits réservés. */
+        </p>
+        
+        <!-- Social Links -->
+        <div class="flex items-center gap-6">
+          {socialLinks.map((link) => (
+            <a 
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-text-muted text-sm hover:text-accent transition-colors"
+            >
+              {link.name}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

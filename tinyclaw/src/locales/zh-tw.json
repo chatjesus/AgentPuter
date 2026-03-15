@@ -1,0 +1,348 @@
+{
+  "meta": {
+    "title": "TinyClaw — 1 分鐘內部署 OpenClaw",
+    "description": "一鍵部署您自己的 24/7 全天候 AI 助理，由 OpenClaw 提供支援。無需伺服器、無需 SSH、無需技術設定。選擇您的 AI 模型，連接 Telegram，並在 60 秒內完成部署。免費試用 7 天，之後 $29.99/月。",
+    "og_description": "一鍵部署您自己的 24/7 全天候 AI 助理。無需伺服器、無需 SSH、無需煩惱。選擇 Claude、GPT 或 Gemini，並透過 Telegram 連接。"
+  },
+  "nav": {
+    "brand": "TinyClaw.dev",
+    "blog": "部落格",
+    "contact": "聯絡客服"
+  },
+  "hero": {
+    "title_line1": "部署 OpenClaw",
+    "title_line2": "在 1 分鐘內",
+    "subtitle": "避免所有技術複雜性，並在 1 分鐘內一鍵部署您自己的 24/7 全天候運作 OpenClaw 實例。"
+  },
+  "models": {
+    "heading": "您想要哪個模型作為預設？"
+  },
+  "channels": {
+    "heading": "您想要使用哪個管道傳送訊息？",
+    "coming_soon": "即將推出"
+  },
+  "cta": {
+    "button": "使用 Google 登入",
+    "note": "登入以部署您的 AI 助理並連接您的管道。",
+    "slots": "雲端伺服器數量有限 — 僅剩 {count} 個"
+  },
+  "comparison": {
+    "label": "比較",
+    "title_line1": "傳統方法",
+    "title_line2": "vs TinyClaw",
+    "traditional": "傳統方法",
+    "tinyclaw": "TinyClaw",
+    "total": "總計",
+    "total_time": "60 min",
+    "tinyclaw_time": "<1 min",
+    "tinyclaw_desc": "選擇模型、連接 Telegram、部署 — 在 1 分鐘內完成。",
+    "tinyclaw_subdesc": "伺服器、SSH 和 OpenClaw 環境已設定完成，等待分配。簡單、安全且快速地連接到您的 bot。",
+    "non_technical_note": "如果您不熟悉技術，請將這些時間乘以 10 — 您必須先學習每個步驟才能執行。",
+    "steps": [
+      {
+        "label": "購買本機虛擬機器",
+        "time": "15 min"
+      },
+      {
+        "label": "建立 SSH 金鑰並安全地儲存",
+        "time": "10 min"
+      },
+      {
+        "label": "透過 SSH 連接到伺服器",
+        "time": "5 min"
+      },
+      {
+        "label": "安裝 Node.js 和 NPM",
+        "time": "5 min"
+      },
+      {
+        "label": "安裝 OpenClaw",
+        "time": "7 min"
+      },
+      {
+        "label": "設定 OpenClaw",
+        "time": "10 min"
+      },
+      {
+        "label": "連接到 AI 提供者",
+        "time": "4 min"
+      },
+      {
+        "label": "與 Telegram 配對",
+        "time": "4 min"
+      }
+    ]
+  },
+  "usecases": {
+    "heading": "OpenClaw 可以為您做什麼？",
+    "subheading": "一個助理，數千個用例",
+    "ps": "PS. 您可以透過自然語言新增任意數量的用例",
+    "rows": [
+      [
+        "閱讀並總結電子郵件",
+        "起草回覆和後續追蹤",
+        "即時翻譯訊息",
+        "整理您的收件匣",
+        "回覆支援工單",
+        "總結長篇文件",
+        "在會議前通知",
+        "從聊天中安排會議"
+      ],
+      [
+        "提醒您截止日期",
+        "規劃您的一週",
+        "記錄會議筆記",
+        "跨時區同步",
+        "報稅",
+        "追蹤費用和收據",
+        "比較保險報價",
+        "管理訂閱"
+      ],
+      [
+        "執行薪資計算",
+        "協商退款",
+        "尋找優惠券",
+        "在網路上尋找最優惠的價格",
+        "尋找折扣碼",
+        "降價提醒",
+        "比較產品規格",
+        "協商交易"
+      ],
+      [
+        "撰寫合約和保密協議",
+        "研究競爭對手",
+        "篩選並確定潛在客戶的優先順序",
+        "產生發票",
+        "從要點建立簡報",
+        "預訂旅行和飯店",
+        "從食材中尋找食譜",
+        "起草社交貼文"
+      ],
+      [
+        "監控新聞和警報",
+        "設定並追蹤目標",
+        "篩選冷開發",
+        "起草職位描述",
+        "執行站立會議摘要",
+        "追蹤 OKR 和 KPI"
+      ]
+    ]
+  },
+  "footer": {
+    "built_by": "用 ❤️ 打造，由",
+    "privacy": "隱私權政策",
+    "terms": "服務條款"
+  },
+  "setup": {
+    "connect_telegram": "連接 Telegram",
+    "how_to_get_token": "如何取得您的 bot 權杖？",
+    "step1_open": "開啟 Telegram 並前往",
+    "step2_type": "開始聊天並輸入",
+    "step3_follow": "按照提示為您的 bot 命名並選擇使用者名稱。",
+    "step4_copy": "BotFather 將傳送一則包含您的 bot 權杖的訊息。複製整個權杖（看起來像一長串數字和字母）。",
+    "step5_paste": "將權杖貼到下面的欄位中，然後按一下「儲存並連接」。",
+    "enter_token": "輸入 bot 權杖",
+    "invalid_token": "權杖格式無效。它應該看起來像 1234567890:ABCdefGH...",
+    "connecting": "正在連接...",
+    "save_connect": "儲存並連接 ✓",
+    "global_search": "全域搜尋",
+    "model_heading": "您想要哪個模型作為預設？",
+    "channel_heading": "您想要使用哪個管道傳送訊息？",
+    "coming_soon": "即將推出",
+    "connected": "已連接",
+    "sign_out": "登出",
+    "deploy_btn": "部署 OpenClaw",
+    "redirecting_checkout": "正在重新導向至結帳...",
+    "pricing": "每月 $29.99 美元，隨時可以取消。",
+    "pricing_credits": "包含專用 VPS、所有模型和來自 ClawHub 的無限技能。",
+    "trial_badge": "7 天免費試用",
+    "trial_for_7_days": "7 天內",
+    "trial_then_price": "之後 $29.99/月 · 隨時取消",
+    "trial_pricing_line": "免費試用 7 天 · 之後 $29.99/月 · 隨時可以取消。",
+    "slots": "雲端伺服器數量有限 — 僅剩 {count} 個",
+    "loading": "載入中...",
+    "network_error": "網路錯誤。請重試。",
+    "checkout_failed": "啟動結帳失敗",
+    "channel_optional": "可選 — 付款後可以設定",
+    "connect_telegram_now": "現在連接 Telegram 嗎？",
+    "setup_telegram_token": "設定 Telegram Token",
+    "skip_after_payment": "（跳過並在付款後進行）",
+    "connect_discord_now": "現在連接 Discord 嗎？",
+    "setup_discord_token": "設定 Discord Bot Token",
+    "whatsapp_no_token": "無需 Token！",
+    "whatsapp_qr_hint": "付款後，在您的 Dashboard 掃描 QR code 以連接 WhatsApp。",
+    "plan_heading": "選擇您的方案",
+    "plan_selected": "✓ 已選擇",
+    "plan_starter_label": "入門版",
+    "plan_starter_first_month": "首月",
+    "plan_starter_then": "之後 $9.99/mo",
+    "plan_starter_feat1": "1 個 AI 代理",
+    "plan_starter_feat2": "所有頻道",
+    "plan_starter_feat3": "隨時取消",
+    "plan_pro_label": "專業版",
+    "plan_pro_no_trial": "無試用期",
+    "plan_pro_feat1": "專用雲端電腦",
+    "plan_pro_feat2": "所有頻道",
+    "plan_pro_feat3": "隨時取消",
+    "pricing_starter_today": "今天 $1.99",
+    "pricing_starter_note": "· 1 個月存取權 · 之後 $9.99/mo ·"
+  },
+  "creating": {
+    "setting_up": "正在設定您的 AI 代理...",
+    "model_label": "模型：",
+    "preparing": "正在準備您的環境...",
+    "creating_cloud": "正在設定您的專用 AI 雲端...",
+    "almost_done": "快完成了！",
+    "time_hint": "這大約需要 2 分鐘",
+    "error_title": "發生錯誤",
+    "error_desc": "設定失敗。請重試或聯絡客服。",
+    "retry": "重試",
+    "checking": "正在檢查存取權...",
+    "loading": "載入中...",
+    "contact_support": "花費太長時間？聯絡客服",
+    "contact_support_short": "聯絡客服"
+  },
+  "dashboard": {
+    "agent_ready": "您的 AI 代理已準備就緒！",
+    "running_model": "正在執行 {model} · 24/7 線上",
+    "sign_out": "登出",
+    "webchat_title": "OpenClaw WebChat",
+    "webchat_desc": "直接在瀏覽器中與您的 AI 聊天",
+    "open_webchat": "開啟 WebChat →",
+    "vps_demo": "VPS 佈建（示範模式）",
+    "webchat_pending": "WebChat 將在佈建真實 VPS 後可用",
+    "telegram_title": "Telegram Bot",
+    "telegram_connected": "已連接",
+    "telegram_pair_now": "立即配對",
+    "telegram_connected_msg": "Telegram 已連接！",
+    "telegram_ready": "您的 AI 已準備好在 Telegram 上聊天",
+    "telegram_step1": "透過 Telegram 上的 @BotFather 建立一個 bot，然後將權杖貼到下面。",
+    "telegram_configure": "設定 Bot 權杖",
+    "telegram_configuring": "正在設定 Bot...",
+    "telegram_step2": "傳送任何訊息到您的 Telegram Bot — 您將收到一個配對代碼。在下面輸入以連接。",
+    "telegram_pair_placeholder": "輸入配對代碼",
+    "telegram_pairing": "正在配對...",
+    "telegram_connect": "連接 Telegram",
+    "telegram_paired": "配對成功！",
+    "telegram_refreshing": "正在重新整理...",
+    "telegram_failed": "設定 bot 失敗。請重試。",
+    "telegram_pair_failed": "配對失敗。請重試。",
+    "telegram_how_to_title": "📋 如何取得 Bot Token：",
+    "telegram_guide_step1": "開啟 Telegram，搜尋 @BotFather",
+    "telegram_guide_step2": "傳送",
+    "telegram_guide_step3": "為你的 Bot 取名與使用者名稱",
+    "telegram_guide_step4": "BotFather 會傳給你一個 Token，複製它",
+    "telegram_guide_step5": "將 Token 貼到下方輸入框",
+    "telegram_token_saved": "✅ Token 已儲存！還差最後一步：",
+    "telegram_pair_guide_step1": "開啟你的 Telegram Bot，傳送任何訊息（例如 hi）",
+    "telegram_pair_guide_step2": "Bot 會回覆一組配對碼",
+    "telegram_pair_guide_step3": "將配對碼輸入下方完成連接",
+    "vps_title": "VPS 存取權（進階）",
+    "vps_ip": "IP 位址",
+    "vps_port": "閘道連接埠",
+    "vps_ssh": "SSH 命令",
+    "vps_password": "Root 密碼",
+    "subscription_title": "Pro 訂閱",
+    "subscription_status": "狀態：{status}",
+    "subscription_renews": "續訂 {date}",
+    "manage_subscription": "管理訂閱",
+    "manage_loading": "載入中...",
+    "manage_failed": "開啟訂閱入口網站失敗",
+    "model_switch_btn": "切換",
+    "model_switching": "正在切換...",
+    "model_current": "目前",
+    "model_switch_note": "切換需要約 30 秒。您的代理將重新啟動。",
+    "model_switching_desc": "正在使用新模型重新啟動您的代理...",
+    "model_switch_success": "已切換到 {model}",
+    "model_switch_failed": "模型切換失敗。請重試。",
+    "powered_by": "由",
+    "discord_setup_now": "立即設定",
+    "discord_token_configured": "Discord Bot 權杖已設定",
+    "discord_step1_title": "步驟 1 — 邀請您的 bot 加入伺服器",
+    "discord_step1_note": "也請在 Bot → Privileged Gateway Intents 下啟用 Message Content Intent。",
+    "discord_step2_title": "步驟 2 — 在 Discord 中授權您自己",
+    "discord_step2_desc": "傳送任何訊息到您的 bot（DM 或在伺服器中 @提及）。它將回覆一個配對代碼。",
+    "discord_step2_cmd_note": "在 WebChat → 終端機中執行此命令以核准您的帳戶。每個使用者只需要執行一次。",
+    "discord_how_to": "🤖 如何取得您的 Discord Bot 權杖：",
+    "discord_step_new_app": "新增應用程式",
+    "discord_step_add_bot": "Bot",
+    "discord_step_add_bot2": "新增 Bot",
+    "discord_step_reset_token": "重設權杖",
+    "discord_step_intent": "訊息內容意圖",
+    "discord_step_url_gen": "OAuth2 → URL 產生器",
+    "discord_configured": "Discord Bot 已設定！",
+    "discord_reloading": "正在重新載入...",
+    "discord_configuring": "正在設定 Discord Bot...",
+    "discord_connect_btn": "連接 Discord Bot",
+    "discord_failed": "設定 Discord 失敗。",
+    "whatsapp_scan_to_connect": "掃描以連接",
+    "whatsapp_linked": "已連結",
+    "whatsapp_no_token_desc": "WhatsApp 不需要權杖 — 只需在此處啟用它並掃描 QR 碼以連結您的帳戶。",
+    "whatsapp_activating": "正在啟用…",
+    "whatsapp_activate_btn": "⚡ 啟用 WhatsApp",
+    "whatsapp_activate_failed": "啟用 WhatsApp 失敗。請重試。",
+    "whatsapp_activated": "✅ WhatsApp 管道已啟用 — 使用您的手機掃描下面的 QR 碼以連結您的帳戶。",
+    "whatsapp_scan_instructions": "📱 使用 WhatsApp 掃描 → 設定 → 已連結的裝置 → 連結裝置",
+    "whatsapp_qr_expired": "QR 碼已過期 — 重新整理",
+    "whatsapp_qr_generating": "正在產生 QR 碼…",
+    "whatsapp_qr_placeholder": "QR 碼將顯示在此處",
+    "whatsapp_qr_no_qr": "未傳回 QR 碼。",
+    "whatsapp_qr_expires_hint": "QR 碼將在約 60 秒後過期。如果它變成灰色，請按一下「重新整理」。",
+    "whatsapp_refresh_qr": "🔄 重新整理 QR 碼",
+    "whatsapp_generate_qr": "📷 產生 QR 碼",
+    "whatsapp_open_webchat": "開啟 WebChat",
+    "whatsapp_step2_title": "步驟 2 — 掃描後，按一下以套用",
+    "whatsapp_step2_desc": "在 WhatsApp 顯示 Google Chrome (openclaw) 在「已連結的裝置」中後，按一下下方以重新啟動您的代理並載入工作階段。",
+    "whatsapp_applying": "正在重新啟動代理… (~60 秒)",
+    "whatsapp_apply_btn": "✅ 我已掃描 — 套用連接",
+    "whatsapp_apply_failed": "套用失敗。請重試。",
+    "whatsapp_live_title": "🎉 WhatsApp 已上線！",
+    "whatsapp_live_desc": "您的 AI 代理現在已連接到 WhatsApp。傳送訊息到您自己的號碼以開始聊天。",
+    "feishu_title": "飛書",
+    "feishu_connect_now": "立即接入",
+    "feishu_connected": "已連接",
+    "feishu_desc": "將您的 AI 助理接入飛書，方便使用者直接透過飛書與 AI 對話。",
+    "feishu_app_id_label": "App ID",
+    "feishu_app_id_placeholder": "cli_xxxxxxxxxxxxxxxxx",
+    "feishu_app_secret_label": "App Secret",
+    "feishu_app_secret_placeholder": "請輸入 App Secret",
+    "feishu_verify_token_label": "Verification Token",
+    "feishu_verify_token_placeholder": "請輸入 Verification Token",
+    "feishu_encrypt_key_label": "Encrypt Key（選填）",
+    "feishu_encrypt_key_placeholder": "未開啟加密則留空",
+    "feishu_webhook_url_label": "Webhook URL（填入飛書後台）",
+    "feishu_save_btn": "儲存並連接",
+    "feishu_saving": "儲存中...",
+    "feishu_save_failed": "儲存失敗，請確認憑證是否正確。",
+    "feishu_configured_title": "✅ 飛書已接入",
+    "feishu_configured_desc": "AI 助理已成功接入飛書，使用者可直接向機器人傳送訊息開始對話。",
+    "feishu_how_to": "如何設定",
+    "feishu_step_create_app": "1. 前往 open.feishu.cn/app → 建立自建應用",
+    "feishu_step_add_bot": "2. 在應用功能中開啟「機器人」",
+    "feishu_step_enable_events": "3. 訂閱事件：im.message.receive_v1",
+    "feishu_step_set_webhook": "4. 將請求地址設為下方的 Webhook URL",
+    "feishu_step_get_tokens": "5. 將 App ID、App Secret 和 Verification Token 填入本頁面"
+  },
+  "faq": [
+    {
+      "q": "什麼是 TinyClaw？",
+      "a": "TinyClaw 是一個用於 OpenClaw 的一鍵部署平台，OpenClaw 是一個開放原始碼 AI 助理框架。它讓您可以在 1 分鐘內部署您自己的 24/7 全天候 AI 助理，並連接到 Telegram，而無需任何技術設定。"
+    },
+    {
+      "q": "使用 TinyClaw 部署 OpenClaw 需要多長時間？",
+      "a": "不到 1 分鐘。傳統設定需要 60 分鐘以上的終端機命令。TinyClaw 會自動處理所有伺服器佈建、OpenClaw 安裝和管道設定。"
+    },
+    {
+      "q": "TinyClaw 支援哪些 AI 模型？",
+      "a": "TinyClaw 支援 Anthropic 的 Claude Opus 4.6、OpenAI 的 GPT-5.2 和 Google 的 Gemini 3。您可以在設定期間選擇您偏好的模型。"
+    },
+    {
+      "q": "TinyClaw 的費用是多少？",
+      "a": "TinyClaw 提供 7 天免費試用，之後每月 $29.99 美元，其中包括專用雲端伺服器、24/7 正常運作時間、自動更新和 Telegram 整合。"
+    },
+    {
+      "q": "OpenClaw AI 助理可以做什麼？",
+      "a": "OpenClaw 可以閱讀和總結電子郵件、起草回覆、翻譯訊息、安排會議、報稅、追蹤費用、撰寫合約、研究競爭對手、產生發票以及數千個其他任務 — 所有這些都透過 Telegram 以自然語言完成。"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+---
+// 比較表 - ターミナル風比較マトリックス
+---
+
+<section class="relative py-20 bg-[#0A0A0A]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20 flex flex-col items-center">
+    <span class="block text-xs font-mono font-semibold tracking-[2px] text-accent mb-6">他社との比較</span>
+    <h2 class="text-2xl md:text-[32px] font-bold text-white mb-10 text-center">AgentPuter vs その他</h2>
+    
+    <!-- ターミナル比較マトリックス -->
+    <div class="w-full max-w-[1000px] rounded-xl border border-[#00FF4130] overflow-hidden bg-[#0D1117]">
+      <!-- ターミナルヘッダー -->
+      <div class="flex items-center gap-2 px-4 h-9 bg-[#252525]">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#EF4444]"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-[#F59E0B]"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-[#22C55E]"></span>
+        <span class="ml-2 text-[#64748B] font-mono text-[11px]">agentputer — 比較マトリックス</span>
+      </div>
+      
+      <!-- ターミナルコンテンツ -->
+      <div class="p-5 overflow-x-auto">
+        <pre class="font-mono text-xs md:text-[13px] leading-relaxed"><span class="text-[#00BFFF]">$ agentputer compare --all</span>
+
+<span class="text-accent">  項目            PC利用      プラグイン    Claude      OpenClaw    AgentPuter</span>
+<span class="text-[#333333]">  ──────────────────────────────────────────────────────────────────────────</span>
+<span class="text-[#94A3B8]">  永続性          なし          限定的        限定的      ローカル      <span class="text-accent">✓ 完全</span></span>
+<span class="text-[#94A3B8]">  24/7稼働        なし          なし          なし        手動        <span class="text-accent">✓ 自動</span></span>
+<span class="text-[#94A3B8]">  認証管理        なし          ベンダー      ベンダー    手動        <span class="text-accent">✓ 自動</span></span>
+<span class="text-[#94A3B8]">  マルチエージェント   なし          なし          なし        なし        <span class="text-accent">✓ 対応</span></span>
+<span class="text-[#94A3B8]">  リモートアクセス    クラウド      クラウド      クラウド    なし        <span class="text-accent">✓ 対応</span></span>
+<span class="text-[#94A3B8]">  監査証跡        部分的        なし          なし        部分的      <span class="text-accent">✓ 完全</span></span>
+<span class="text-[#94A3B8]">  コスト管理       なし          なし          なし        なし        <span class="text-accent">✓ 対応</span></span>
+<span class="text-[#94A3B8]">  インジェクション防御  なし          なし          なし        なし        <span class="text-accent">✓ プロキシ</span></span>
+
+<span class="text-[#94A3B8]">  プライバシー      クラウド      クラウド      クラウド    <span class="text-accent">✓ ローカル</span>  <span class="text-accent">✓ ローカル</span></span>
+<span class="text-[#94A3B8]">  利用のハードル     低            中            低          高          <span class="text-accent">✓ 低</span></span>
+
+<span class="text-accent font-bold">  結果: AgentPuter ████████████████████ 10/10 ✓</span></pre>
+      </div>
+    </div>
+  </div>
+</section>

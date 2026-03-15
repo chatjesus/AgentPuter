@@ -1,0 +1,262 @@
+[
+  {
+    "id": 19,
+    "slug": "openclaw-vs-nanobot",
+    "title_hint": "OpenClaw vs Nanobot: When 4,000 Lines Beat 174K Stars",
+    "type": "comparison",
+    "search_queries": [
+      "nanobot agent framework HKU 4000 lines 2026",
+      "openclaw vs nanobot comparison minimal agent",
+      "nanobot AI agent university of hong kong github"
+    ],
+    "angle": "Compare OpenClaw's full-stack approach vs Nanobot's minimalist 4,000-line design from HKU researchers. When is less actually more? Cover architecture, use cases, performance, community size.",
+    "keywords": ["OpenClaw", "Nanobot", "agent framework", "comparison", "minimal agent"]
+  },
+  {
+    "id": 20,
+    "slug": "openclaw-mcp-guide",
+    "title_hint": "OpenClaw MCP: Connect Any Tool in 5 Minutes (2026 Guide)",
+    "type": "tutorial",
+    "search_queries": [
+      "openclaw MCP model context protocol tools 2026",
+      "MCP server openclaw integration tutorial",
+      "model context protocol specification tools agents"
+    ],
+    "angle": "Practical guide to connecting external tools via MCP in OpenClaw. Cover what MCP is, how OpenClaw implements it, step-by-step setup for popular servers (filesystem, GitHub, database, Notion), and custom server creation.",
+    "keywords": ["OpenClaw", "MCP", "Model Context Protocol", "tools", "integration"]
+  },
+  {
+    "id": 21,
+    "slug": "memos-plugin-deep-dive",
+    "title_hint": "The MemOS Plugin: How External Memory Cuts Token Costs 72%",
+    "type": "technical",
+    "search_queries": [
+      "MemOS openclaw plugin token cost reduction LOCOMO benchmark",
+      "MemTensor MemOS cloud plugin architecture",
+      "openclaw memory plugin external structured memory 2026"
+    ],
+    "angle": "Deep dive into MemOS Cloud Plugin — architecture (recall/add lifecycle), LOCOMO benchmark results (72% token reduction), comparison with lossless-claw approach, when to use which, and setup guide.",
+    "keywords": ["MemOS", "OpenClaw", "memory", "token cost", "plugin"]
+  },
+  {
+    "id": 22,
+    "slug": "openclaw-mobile",
+    "title_hint": "OpenClaw on Mobile: iOS App, Telegram Bots, WhatsApp — What Actually Works",
+    "type": "review",
+    "search_queries": [
+      "openclaw iOS app store mobile 2026",
+      "openclaw telegram bot setup mobile experience",
+      "openclaw whatsapp integration mobile agent"
+    ],
+    "angle": "Honest review of every way to use OpenClaw from your phone — native iOS app (coming), Telegram bot, WhatsApp, Discord mobile, WebChat PWA. Pros/cons, latency, feature gaps, screenshots.",
+    "keywords": ["OpenClaw", "mobile", "iOS", "Telegram", "WhatsApp"]
+  },
+  {
+    "id": 23,
+    "slug": "morning-briefing-agent",
+    "title_hint": "Build a 24/7 Morning Briefing Agent with OpenClaw (Step by Step)",
+    "type": "tutorial",
+    "search_queries": [
+      "openclaw morning briefing agent setup tutorial 2026",
+      "AI daily briefing automation agent",
+      "openclaw scheduled tasks cron heartbeat morning summary"
+    ],
+    "angle": "End-to-end tutorial: build an agent that wakes you up every morning with news digest, calendar summary, priority inbox, and weather. Cover SOUL.md config, heartbeat scheduling, channel setup, skill selection, and cost estimate.",
+    "keywords": ["OpenClaw", "morning briefing", "automation", "tutorial", "scheduled tasks"]
+  },
+  {
+    "id": 24,
+    "slug": "agent-framework-wars-2026",
+    "title_hint": "OpenClaw vs AutoGPT vs CrewAI vs LangGraph: The 2026 Agent Framework Wars",
+    "type": "comparison",
+    "search_queries": [
+      "openclaw vs autogpt vs crewai vs langgraph comparison 2026",
+      "best AI agent framework 2026 comparison",
+      "agent framework benchmark comparison multi-agent"
+    ],
+    "angle": "Comprehensive comparison matrix of the top 4 agent frameworks in 2026. Architecture approach, language, multi-agent support, context management, community size, cost, ease of use, and production readiness.",
+    "keywords": ["OpenClaw", "AutoGPT", "CrewAI", "LangGraph", "agent framework", "comparison"]
+  },
+  {
+    "id": 25,
+    "slug": "openclaw-plugin-system",
+    "title_hint": "How OpenClaw's Plugin System Works: Context Engines, Channels, and Tools",
+    "type": "technical",
+    "search_queries": [
+      "openclaw plugin system architecture slots registry 2026",
+      "openclaw context engine plugin channel plugin",
+      "openclaw plugin development guide custom plugin"
+    ],
+    "angle": "Developer-focused deep dive into OpenClaw's plugin architecture — slot types (contextEngine, channel, tool), lifecycle hooks, registry system, config-driven resolution, and how to build your own plugin.",
+    "keywords": ["OpenClaw", "plugin", "architecture", "context engine", "development"]
+  },
+  {
+    "id": 26,
+    "slug": "openclaw-on-any-hardware",
+    "title_hint": "Running OpenClaw on a Raspberry Pi 5, Mac Mini, Old Laptop, or $5 VPS",
+    "type": "tutorial",
+    "search_queries": [
+      "openclaw raspberry pi 5 setup performance 2026",
+      "openclaw mac mini m2 m4 deployment home server",
+      "openclaw cheap VPS hosting under $5 month"
+    ],
+    "angle": "Hardware-focused guide: minimum specs, performance benchmarks per device, Ollama + local model recommendations per hardware tier, Docker vs bare metal, power consumption and cost analysis.",
+    "keywords": ["OpenClaw", "Raspberry Pi", "Mac Mini", "VPS", "hardware", "self-hosting"]
+  },
+  {
+    "id": 27,
+    "slug": "openclaw-ollama-local",
+    "title_hint": "OpenClaw + Ollama: The Complete Local-First Agent Setup (No API Keys Needed)",
+    "type": "tutorial",
+    "search_queries": [
+      "openclaw ollama local model setup guide 2026",
+      "openclaw no API key local LLM private",
+      "ollama qwen3 llama openclaw integration"
+    ],
+    "angle": "Complete guide to running OpenClaw 100% locally — no cloud API, no data leaving your machine. Ollama setup, model selection (Qwen 3, Llama 3.3), local embeddings, performance tuning, and what you give up vs cloud models.",
+    "keywords": ["OpenClaw", "Ollama", "local", "privacy", "self-hosted", "no API key"]
+  },
+  {
+    "id": 28,
+    "slug": "skill-economy-deep-dive",
+    "title_hint": "The OpenClaw Skill Economy: Who's Building, What's Selling, What's Free",
+    "type": "analysis",
+    "search_queries": [
+      "openclaw skills marketplace clawhub economy 2026",
+      "openclaw community skills most popular downloads",
+      "AI agent skills marketplace business model"
+    ],
+    "angle": "Market analysis of the OpenClaw skill ecosystem — ClawHub stats, top skills by category, emerging skill developers, monetization patterns, skill quality distribution, and what it means for the agent economy.",
+    "keywords": ["OpenClaw", "skills", "marketplace", "ClawHub", "economy"]
+  },
+  {
+    "id": 29,
+    "slug": "openclaw-for-teams",
+    "title_hint": "OpenClaw for Teams: Shared Memory, Role Routing, and Multi-Tenant Setup",
+    "type": "technical",
+    "search_queries": [
+      "openclaw team deployment multi-tenant shared memory 2026",
+      "openclaw enterprise team setup multiple agents",
+      "AI agent team collaboration shared context"
+    ],
+    "angle": "Enterprise/team use case guide — deploying OpenClaw for a team of 5-50 people. Shared memory pools, role-based routing, per-user agent isolation, cost allocation, audit trails, and security boundaries.",
+    "keywords": ["OpenClaw", "teams", "enterprise", "multi-tenant", "shared memory"]
+  },
+  {
+    "id": 30,
+    "slug": "soul-md-patterns",
+    "title_hint": "Prompt Engineering for Agents: 12 SOUL.md Patterns That Actually Work",
+    "type": "tutorial",
+    "search_queries": [
+      "openclaw SOUL.md best practices prompt engineering agent 2026",
+      "SOUL.md examples templates community",
+      "agent system prompt patterns that work"
+    ],
+    "angle": "Curated collection of 12 proven SOUL.md patterns from the community — the minimalist, the specialist, the cost-conscious, the security-hardened, the polyglot, etc. Each with explanation, full example, and trade-offs.",
+    "keywords": ["SOUL.md", "prompt engineering", "OpenClaw", "patterns", "templates"]
+  },
+  {
+    "id": 31,
+    "slug": "openclaw-automation-layer",
+    "title_hint": "Heartbeat, Cron Jobs, and Scheduled Tasks: OpenClaw's Automation Layer",
+    "type": "technical",
+    "search_queries": [
+      "openclaw heartbeat cron scheduled tasks automation 2026",
+      "openclaw timer recurring tasks background",
+      "AI agent scheduling automated workflows"
+    ],
+    "angle": "Deep technical guide to OpenClaw's scheduling capabilities — heartbeat mechanics, cron-style scheduling, event-driven triggers, sleep/wake patterns, and how to build a fully autonomous agent workflow.",
+    "keywords": ["OpenClaw", "heartbeat", "cron", "automation", "scheduled tasks"]
+  },
+  {
+    "id": 32,
+    "slug": "migrate-to-openclaw",
+    "title_hint": "Migrating from ChatGPT / Claude Desktop to OpenClaw: What You Gain and Lose",
+    "type": "comparison",
+    "search_queries": [
+      "chatgpt vs openclaw comparison migration 2026",
+      "claude desktop vs openclaw agent persistent",
+      "switch from chatgpt to openclaw guide"
+    ],
+    "angle": "Honest migration guide for users considering the switch from ChatGPT/Claude Desktop to OpenClaw. Feature comparison, learning curve, cost analysis, what's better (persistence, autonomy, customization), what's worse (setup complexity, no built-in model).",
+    "keywords": ["OpenClaw", "ChatGPT", "Claude Desktop", "migration", "comparison"]
+  },
+  {
+    "id": 33,
+    "slug": "openclaw-security-hardening",
+    "title_hint": "OpenClaw Security Hardening: The Production Deployment Checklist",
+    "type": "tutorial",
+    "search_queries": [
+      "openclaw security hardening production checklist 2026",
+      "openclaw prompt injection defense configuration",
+      "openclaw firewall sandbox security best practices"
+    ],
+    "angle": "Actionable security checklist for production OpenClaw deployments — network isolation, tool sandboxing, prompt injection defense config, secret management, audit logging, automatic updates, and monitoring.",
+    "keywords": ["OpenClaw", "security", "hardening", "production", "checklist"]
+  },
+  {
+    "id": 34,
+    "slug": "voice-mode-talk-api",
+    "title_hint": "Voice Mode, Talk API, and Real-Time Audio: OpenClaw's Next Interface",
+    "type": "analysis",
+    "search_queries": [
+      "openclaw voice mode talk API audio 2026",
+      "openclaw speech to text real time voice",
+      "AI agent voice interface talk mode"
+    ],
+    "angle": "Coverage of OpenClaw's emerging voice capabilities — Talk API, silence timeout (3.8), real-time audio streaming, voice-to-voice conversation, multilingual support, and what this means for agent UX.",
+    "keywords": ["OpenClaw", "voice", "Talk API", "audio", "speech"]
+  },
+  {
+    "id": 35,
+    "slug": "own-agent-vs-chatgpt-pro",
+    "title_hint": "The Economics of Running Your Own AI Agent vs Paying for ChatGPT Pro ($200/month)",
+    "type": "analysis",
+    "search_queries": [
+      "chatgpt pro $200 month vs openclaw self-hosted cost comparison 2026",
+      "is chatgpt pro worth it vs running own agent",
+      "AI subscription vs self-hosted agent cost analysis"
+    ],
+    "angle": "Pure cost/value analysis — ChatGPT Pro ($200/mo) vs OpenClaw self-hosted (under $30/mo) vs AgentPuter Pro ($30/mo). What you get at each price point, TCO over 12 months, capability comparison, and who should choose what.",
+    "keywords": ["ChatGPT Pro", "OpenClaw", "cost comparison", "self-hosted", "economics"]
+  },
+  {
+    "id": 36,
+    "slug": "second-brain-agent",
+    "title_hint": "OpenClaw + Notion / Obsidian / Linear: Building Your Second Brain Agent",
+    "type": "tutorial",
+    "search_queries": [
+      "openclaw notion integration MCP knowledge base 2026",
+      "openclaw obsidian vault AI agent second brain",
+      "AI agent knowledge management PKM integration"
+    ],
+    "angle": "Integration tutorial: connect OpenClaw to your existing knowledge tools (Notion, Obsidian, Linear) via MCP. Build an agent that reads, writes, and searches your knowledge base autonomously.",
+    "keywords": ["OpenClaw", "Notion", "Obsidian", "Linear", "second brain", "knowledge management"]
+  },
+  {
+    "id": 37,
+    "slug": "tinyclaw-infrastructure",
+    "title_hint": "How We Deploy 500 OpenClaw Agents on TinyClaw (Infrastructure Deep Dive)",
+    "type": "technical",
+    "search_queries": [
+      "tinyclaw infrastructure docker container management",
+      "openclaw multi-tenant deployment docker VPS",
+      "AI agent hosting infrastructure at scale"
+    ],
+    "angle": "Our own infrastructure story — Docker containers per user, port allocation, SSH automation, Stripe-triggered provisioning, health monitoring, automatic updates, and lessons learned running 500+ agents.",
+    "keywords": ["TinyClaw", "infrastructure", "Docker", "deployment", "scale"]
+  },
+  {
+    "id": 38,
+    "slug": "state-of-ai-agents-2026",
+    "title_hint": "The State of AI Agents in 2026: What Worked, What Didn't, What's Next",
+    "type": "analysis",
+    "search_queries": [
+      "state of AI agents 2026 review analysis",
+      "AI agent industry overview 2026 trends failures",
+      "agent framework ecosystem 2026 landscape"
+    ],
+    "angle": "Year-in-review style piece covering the AI agent landscape: OpenClaw's rise, framework consolidation, enterprise adoption, security incidents, cost evolution, multimodal agents, and predictions for 2027.",
+    "keywords": ["AI agents", "2026", "state of", "industry", "trends", "predictions"]
+  }
+]

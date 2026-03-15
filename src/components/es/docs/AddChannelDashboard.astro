@@ -1,0 +1,148 @@
+---
+// Página Añadir Canal - Flujo de configuración paso a paso estilo Dashboard
+// Corresponde al nodo de diseño TgPg1
+---
+
+<div class="min-h-screen bg-[#0A0A0A]">
+  <!-- Navegación superior del Dashboard (estilo breadcrumb) -->
+  <header class="w-full h-16 bg-[#0A0A0A] border-b border-[#222222] flex items-center justify-between px-6 lg:px-10">
+    <p class="text-[#94A3B8] font-mono text-[14px]">
+      <a href="/" class="text-accent hover:underline">&gt;_ AgentPuter</a>
+      <span class="text-[#333]">  /  </span>
+      <a href="https://app.agentputer.com" class="hover:text-white transition-colors">Dashboard</a>
+      <span class="text-[#333]">  /  </span>
+      <span class="text-white">Mi Primer Agente</span>
+      <span class="text-[#333]">  /  </span>
+      <span class="text-accent">Añadir Canal</span>
+    </p>
+    <span class="text-white text-[14px] hidden sm:block">Fan ▼</span>
+  </header>
+
+  <!-- Cuerpo principal de la página -->
+  <div class="max-w-[1040px] mx-auto px-6 lg:px-12 py-8">
+    <!-- Enlace de regreso (modo de vista previa del Dashboard, apunta al Dashboard real) -->
+    <a href="https://app.agentputer.com" class="text-[#00BFFF] text-[14px] hover:underline mb-5 inline-block">
+      ← Volver al Pod
+    </a>
+
+    <!-- Título -->
+    <p class="text-[#666666] font-mono text-[12px] font-semibold tracking-[2px] mb-2">
+      // AÑADIR CANAL
+    </p>
+    <p class="text-[#999999] text-[16px] leading-relaxed mb-6 max-w-[700px]">
+      Conecta OpenClaw a tus plataformas de mensajería.<br/>
+      OpenClaw es compatible con más de 15 canales. Elige uno para empezar.
+    </p>
+
+    <!-- Selector de canales -->
+    <div class="flex flex-wrap gap-3 mb-8">
+      <!-- Telegram (estado seleccionado) -->
+      <button class="bg-[#0088cc] text-white font-semibold text-[14px] px-5 py-2.5 rounded-lg cursor-default">
+        ✈️ Telegram
+      </button>
+      <!-- WebChat -->
+      <button class="bg-[#111] border border-[#333] text-[#888] text-[14px] px-5 py-2.5 rounded-lg hover:border-[#555] transition-colors cursor-pointer">
+        💬 WebChat
+      </button>
+      <!-- Gris Próximamente -->
+      <button class="bg-[#111] border border-[#222] text-[#444] text-[14px] px-5 py-2.5 rounded-lg cursor-not-allowed" disabled>
+        📱 WhatsApp
+      </button>
+      <button class="bg-[#111] border border-[#222] text-[#444] text-[14px] px-5 py-2.5 rounded-lg cursor-not-allowed" disabled>
+        📢 Slack
+      </button>
+      <button class="bg-[#111] border border-[#222] text-[#444] text-[14px] px-5 py-2.5 rounded-lg cursor-not-allowed" disabled>
+        🎮 Discord
+      </button>
+      <span class="text-[#333] text-[13px] self-center">+ más</span>
+    </div>
+
+    <!-- Contenedor de pasos -->
+    <div class="bg-[#111111] rounded-2xl border border-[#222222] overflow-hidden mb-8">
+      <!-- Paso 1 -->
+      <div class="border-b border-[#222222] p-8">
+        <h3 class="text-white text-[18px] font-semibold mb-4">
+          Paso 1: Crea tu Bot de Telegram
+        </h3>
+        <div class="w-full h-px bg-[#333333] mb-4"></div>
+        <div class="text-[#999999] text-[14px] leading-[1.8] whitespace-pre-line mb-5">① Abre Telegram y busca @BotFather
+② Envía el comando /newbot
+③ Sigue las instrucciones para nombrar tu bot
+④ Copia el Bot Token
+     (tiene este aspecto: 123456:ABC-DEF1234ghIkl-zyx57W2v...)</div>
+        <a
+          href="https://t.me/BotFather"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block border border-[#00BFFF] text-[#00BFFF] font-semibold text-[13px] px-5 py-2.5 rounded-md hover:bg-[#00BFFF]/10 transition-colors"
+        >
+          Abrir @BotFather en Telegram →
+        </a>
+      </div>
+
+      <!-- Paso 2 -->
+      <div class="border-b border-[#222222] p-8">
+        <h3 class="text-white text-[18px] font-semibold mb-4">
+          Paso 2: Introduce tu Bot Token
+        </h3>
+        <div class="w-full h-px bg-[#333333] mb-4"></div>
+        <div class="w-full h-12 bg-[#1A1A1A] rounded-lg border border-[#333333] flex items-center px-4 mb-4">
+          <span class="text-[#666666] font-mono text-[14px]">Pega tu Bot Token aquí...</span>
+        </div>
+        <button class="bg-accent text-[#0A0A0A] font-semibold text-[14px] px-6 py-3 rounded-lg hover:bg-accent-dark transition-colors">
+          Conectar Telegram →
+        </button>
+      </div>
+
+      <!-- Paso 3 -->
+      <div class="p-8">
+        <h3 class="text-white text-[18px] font-semibold mb-4">
+          Paso 3: DM Pairing (Seguridad de OpenClaw)
+        </h3>
+        <div class="w-full h-px bg-[#333333] mb-4"></div>
+        <div class="text-[#999999] text-[14px] leading-[1.8] whitespace-pre-line mb-5">① Abre Telegram y envía cualquier mensaje a tu bot
+② Recibirás un código de DM pairing (seguridad de OpenClaw)
+③ Apruébalo en el Dashboard o CLI:
+   agentputer pairing approve telegram &lt;code&gt;
+
+⚠️ El DM Pairing es la seguridad integrada de OpenClaw.
+Los remitentes desconocidos deben ser aprobados antes de poder chatear.</div>
+        <div class="w-[240px] h-14 bg-[#1A1A1A] rounded-lg border border-[#333333] flex items-center justify-center mb-4">
+          <span class="text-[#666666] font-mono text-[18px]">Introduce el código...</span>
+        </div>
+        <button class="bg-accent text-[#0A0A0A] font-semibold text-[14px] px-6 py-3 rounded-lg hover:bg-accent-dark transition-colors">
+          Verificar y Conectar →
+        </button>
+      </div>
+    </div>
+
+    <!-- Estado de éxito -->
+    <div class="bg-[#111111] rounded-2xl border-2 border-accent p-8 flex flex-col items-center text-center">
+      <span class="text-[40px] mb-4">🎉</span>
+      <h3 class="text-accent text-[24px] font-bold mb-3">
+        ¡Telegram Conectado!
+      </h3>
+      <p class="text-[#999999] text-[15px] leading-relaxed max-w-[500px] mb-6">
+        Tu bot @my_agent_bot ahora está vinculado a tu agente OpenClaw.<br/>
+        ¡Envía cualquier mensaje para empezar a chatear!<br/>
+        OpenClaw se encarga de toda la IA, tú solo hablas.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a
+          href="https://t.me/my_agent_bot"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-accent text-[#0A0A0A] font-semibold text-[14px] px-6 py-3 rounded-lg hover:bg-accent-dark transition-colors"
+        >
+          Abrir @my_agent_bot en Telegram →
+        </a>
+        <a
+          href="https://app.agentputer.com"
+          class="border border-white text-white font-semibold text-[14px] px-6 py-3 rounded-lg hover:bg-white/10 transition-colors"
+        >
+          Volver al Dashboard →
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,83 @@
+---
+// 繁體中文首頁 - 重定向至部落格
+// 未來可建立完整繁中首頁，目前提供基本入口
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/zh/Header.astro';
+import Footer from '../../components/zh/Footer.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('zh-tw-blog')).sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+).slice(0, 3);
+---
+
+<Layout
+  title="AgentPuter - 您的 AI 永不休眠（繁體中文）"
+  description="AgentPuter 為您的 AI Agent 提供專屬雲端電腦，永不關機。7×24 運行 OpenClaw，支援持久化認證、多 Agent 並行。"
+  tags={['AgentPuter', 'AI Agent', '雲端執行環境', 'OpenClaw', '7×24 AI', 'AI 自動化']}
+>
+  <Header />
+  <main class="relative z-10 pt-28 pb-20 min-h-screen">
+    <div class="max-w-5xl mx-auto px-6 lg:px-8 text-center">
+      <div class="terminal max-w-2xl mx-auto mb-12">
+        <div class="terminal-header">
+          <span class="terminal-dot terminal-dot-red"></span>
+          <span class="terminal-dot terminal-dot-yellow"></span>
+          <span class="terminal-dot terminal-dot-green"></span>
+          <span class="ml-3 text-text-muted text-xs font-mono">agentputer.sh</span>
+        </div>
+        <div class="terminal-body text-left">
+          <p class="mb-2">
+            <span class="terminal-prompt">$</span>
+            <span class="text-white ml-2">./start-agent.sh --lang zh-TW</span>
+          </p>
+          <p class="terminal-success">AgentPuter 已啟動。您的 AI 永不休眠。</p>
+          <p class="mt-4 text-text-muted text-sm">
+            7×24 雲端執行環境 · OpenClaw · ClawBot · 多 Agent 並行
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+        <a
+          href="https://app.agentputer.com"
+          class="px-8 py-4 bg-accent text-dark font-bold font-mono rounded-lg hover:bg-accent/90 transition-colors"
+        >
+          免費開始使用
+        </a>
+        <a
+          href="/zh-tw/blog/"
+          class="px-8 py-4 border border-accent/30 text-accent font-mono rounded-lg hover:border-accent hover:bg-accent/5 transition-colors"
+        >
+          閱讀部落格
+        </a>
+      </div>
+
+      {posts.length > 0 && (
+        <div class="text-left">
+          <h2 class="text-xl font-bold font-mono text-white mb-6">
+            <span class="text-accent">// </span>最新文章
+          </h2>
+          <div class="space-y-4">
+            {posts.map((post) => (
+              <a href={`/zh-tw/blog/${post.slug}/`} class="block group">
+                <article class="bg-dark-secondary/50 border border-dark-tertiary rounded-xl p-5 hover:border-accent/40 transition-all">
+                  <h3 class="text-white font-semibold group-hover:text-accent transition-colors mb-1">
+                    {post.data.title}
+                  </h3>
+                  <p class="text-text-secondary text-sm">{post.data.description}</p>
+                </article>
+              </a>
+            ))}
+          </div>
+          <div class="mt-8">
+            <a href="/zh-tw/blog/" class="font-mono text-sm text-accent hover:underline">
+              查看所有文章 →
+            </a>
+          </div>
+        </div>
+      )}
+    </div>
+  </main>
+  <Footer />
+</Layout>

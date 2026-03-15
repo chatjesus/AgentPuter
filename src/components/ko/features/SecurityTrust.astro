@@ -1,0 +1,26 @@
+---
+// 보안 및 신뢰
+const badges = [
+  { icon: '🔐', title: 'AES-256', desc: '저장 및 전송 시\n암호화' },
+  { icon: '🛡️', title: '격리된 VPS', desc: '각 Pod는 독립된\n자체 환경에서 실행' },
+  { icon: '📡', title: '전체 SSH Root 권한', desc: '당신의 VPS,\n당신의 규칙' },
+  { icon: '🗑️', title: '원클릭 데이터 삭제', desc: '모든 데이터를\n즉시 파기' },
+  { icon: '👁️', title: '사용자 개입', desc: '민감한 작업은\n사용자 승인 필요' },
+];
+---
+
+<section class="relative py-16 bg-[#0A0A0A]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20">
+    <span class="block text-xs font-mono font-semibold tracking-[2px] text-accent mb-8">보안 및 신뢰</span>
+    
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+      {badges.map((b) => (
+        <div class="flex flex-col items-center text-center bg-[#111111] border border-[#222222] rounded-xl p-5 transition-all duration-300 hover:border-accent/20">
+          <span class="text-2xl mb-2">{b.icon}</span>
+          <span class="font-mono text-sm font-semibold text-white mb-1">{b.title}</span>
+          <span class="text-xs text-[#666666] leading-relaxed whitespace-pre-line">{b.desc}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,117 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/ja/Header.astro';
+import Footer from '../../components/ja/Footer.astro';
+import FeaturesHero from '../../components/ja/features/FeaturesHero.astro';
+import BeforeAfter from '../../components/ja/features/BeforeAfter.astro';
+import CommunityVoices from '../../components/ja/features/CommunityVoices.astro';
+import CoreRoles from '../../components/ja/features/CoreRoles.astro';
+import UseCases from '../../components/ja/features/UseCases.astro';
+import ComparisonTable from '../../components/ja/features/ComparisonTable.astro';
+import Architecture from '../../components/ja/features/Architecture.astro';
+import SecurityTrust from '../../components/ja/features/SecurityTrust.astro';
+import FeaturesCTA from '../../components/ja/features/FeaturesCTA.astro';
+
+// Features 页面结构化数据 - FAQPage schema
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'AgentPuterとは何ですか？',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'AgentPuterはAIエージェント専用のクラウドインフラです。永続的なワークスペース、プライバシープロキシ、コンテキストマネージャー、統一ツールインターフェース、完全なアカウンタビリティログを備えた24時間365日のランタイム環境を提供します。',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'AgentPuterはどのように私のデータを保護しますか？',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'AgentPuterは、あなたと大規模言語モデル（LLM）との間のプライバシープロキシとして機能します。すべてのデータはモデルに送信される前に匿名化され、認証情報はAES-256で暗号化されて保存されます。APIキーはサーバーサイドで管理され、モデルに公開されることはありません。PIIは自動的に検出され、匿名化されます。',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '私のAIエージェントはAgentPuterで何ができますか？',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'あなたのエージェントは、オフィスワーク（レポート、メール）、リサーチ（ウェブ検索、メモ）、開発（コーディング、テスト、デプロイ）、クリエイティブタスク（デザイン、コンテンツ生成）などを、すべて自律的に、独自の永続的なワークスペースで処理できます。',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'AgentPuterはChatGPTやClaudeとどう違いますか？',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'チャットインターフェースとは異なり、AgentPuterはあなたのエージェントに本物のコンピューターを提供します。24時間365日のオンライン稼働、永続的なファイルストレージ、自動化された権限管理、マルチエージェント対応、完全な監査ログ、コスト管理、そしてプロンプトインジェクション防御を備えています。',
+      },
+    },
+  ],
+};
+
+// SoftwareApplication schema
+const softwareSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'AgentPuter',
+  applicationCategory: 'DeveloperApplication',
+  operatingSystem: 'Cloud',
+  inLanguage: 'ja',
+  description: 'あなたのAIエージェントに欠けているインフラ層。プライバシープロキシ、コンテキストマネージャー、永続的なワークスペースを備えた、AIエージェントのために作られた本物のコンピューターです。',
+  url: 'https://www.agentputer.com/ja/features',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+    description: 'ベータ期間中は無料',
+  },
+  featureList: [
+    'プライバシープロキシ、AES-256暗号化',
+    '長期コンテキストマネージャー',
+    '統一ツールインターフェース（7つのコアツール）',
+    '永続的なワークスペースとファイルシステム',
+    'アカウンタビリティログとHuman-in-the-loop',
+    '24時間365日のクラウドランタイム',
+    'マルチエージェントの並列実行',
+    'コスト管理と予算制限',
+  ],
+};
+
+// BreadcrumbList schema
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://www.agentputer.com/ja/' },
+    { '@type': 'ListItem', position: 2, name: '機能', item: 'https://www.agentputer.com/ja/features' },
+  ],
+};
+---
+
+<Layout
+  title="機能 - AgentPuter | あなたのエージェントに欠けているインフラ層"
+  description="AgentPuterの5つのコア機能：プライバシープロキシ、コンテキストマネージャー、統一インターフェース、永続的ワークスペース、アカウンタビリティログを詳しく解説。他ソリューションとの比較もご覧ください。"
+  tags={['AgentPuter 機能', 'AIエージェント インフラ', 'プライバシープロキシ', 'コンテキスト管理', '永続的ワークスペース', 'AIセキュリティ', 'AIエージェント プラットフォーム', 'クラウドランタイム']}
+>
+  <!-- Features 页面专属结构化数据 -->
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} slot="head" />
+
+  <Header />
+  <main class="relative z-10">
+    <FeaturesHero />
+    <BeforeAfter />
+    <CommunityVoices />
+    <CoreRoles />
+    <UseCases />
+    <ComparisonTable />
+    <Architecture />
+    <SecurityTrust />
+    <FeaturesCTA />
+  </main>
+  <Footer />
+</Layout>

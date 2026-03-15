@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.astro/
+
+# Environment files
+.env
+.env.local
+.env.production
+.env.vercel
+**/.env.vercel
+web/.env.local
+web/.env
+
+# Credentials (API keys, secrets)
+credentials/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+.cursor/
+# 但共享 Cursor Rules（团队规范）
+!.cursor/rules/
+!tinyclaw/.cursor/rules/
+
+# Wrangler
+.wrangler/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Cache
+.cache/
+__pycache__/
+**/__pycache__/
+
+# Next.js
+web/.next/

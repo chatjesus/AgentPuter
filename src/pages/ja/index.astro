@@ -1,0 +1,91 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/ja/Header.astro';
+import Hero from '../../components/ja/Hero.astro';
+import PainPoints from '../../components/ja/PainPoints.astro';
+import Solution from '../../components/ja/Solution.astro';
+import HowItWorks from '../../components/ja/HowItWorks.astro';
+import CTA from '../../components/ja/CTA.astro';
+import Footer from '../../components/ja/Footer.astro';
+import MatrixRain from '../../components/MatrixRain.astro';
+
+
+// 主页 FAQPage 结构化数据（GEO 核心：让 AI 搜索引擎可引用）
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: `AgentPuterとは何ですか？`,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `AgentPuterは24時間365日稼働するAIエージェントプラットフォームです。Telegram、WhatsApp、Slack、Discordなどに対応し、500以上のスキルを搭載。コーディング不要で2分でセットアップできます。`,
+      },
+    },
+    {
+      '@type': 'Question',
+      name: `AgentPuterはどのように動作しますか？`,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `AgentPuterは24時間365日のクラウドランタイムを提供します。メッセージチャネルを接続してスキルを設定すれば、AIエージェントが自律的にタスクを処理します。`,
+      },
+    },
+    {
+      '@type': 'Question',
+      name: `コーディングスキルは必要ですか？`,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `いいえ。AgentPuterは非技術ユーザー向けに設計されています。シンプルなインターフェースで2分でセットアップし、メッセージアプリを接続してすぐに自動化を開始できます。`,
+      },
+    },
+    {
+      '@type': 'Question',
+      name: `データは安全ですか？`,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `はい。AgentPuterはあなたとLLMの間のプライバシープロキシとして機能します。すべての認証情報はAES-256で暗号化され、APIキーはサーバー側で管理されAIモデルに公開されません。`,
+      },
+    },
+  ],
+};
+
+// SoftwareApplication 结构化数据
+const softwareSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'AgentPuter',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Cloud',
+  url: 'https://www.agentputer.com',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', description: 'Free during beta' },
+};
+
+---
+
+<Layout
+  title="AgentPuter - あなたのAIは眠らない"
+  description="AgentPuterは、あなたのAIエージェントに、決してシャットダウンしない専用のクラウドコンピュータを提供します。OpenClaw、ClawBot、MoltBotを24/7で実行し、永続的な認証、複数エージェントの並列実行、リモートアクセスをサポート。"
+  tags={['AgentPuter', 'AIエージェント', 'クラウドランタイム', 'OpenClaw', 'ClawBot', '24/7 AI', 'AI自動化', 'エージェントコンピュータ']}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} slot="head" />
+  <MatrixRain />
+  <Header />
+  <main class="relative z-10">
+    <Hero />
+    <div style="content-visibility: auto; contain-intrinsic-size: auto 600px;">
+      <PainPoints />
+    </div>
+    <div style="content-visibility: auto; contain-intrinsic-size: auto 800px;">
+      <Solution />
+    </div>
+    <div style="content-visibility: auto; contain-intrinsic-size: auto 600px;">
+      <HowItWorks />
+    </div>
+    <div style="content-visibility: auto; contain-intrinsic-size: auto 400px;">
+      <CTA />
+    </div>
+  </main>
+  <Footer />
+</Layout>

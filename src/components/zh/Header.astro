@@ -1,0 +1,77 @@
+---
+// Header component - Chinese version
+import LanguageSwitcher from '../LanguageSwitcher.astro';
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-dark-primary md:bg-dark-primary/95 md:backdrop-blur-lg border-b border-accent/20">
+  <nav class="max-w-7xl mx-auto px-6 lg:px-20 h-20 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/zh/" class="flex items-center gap-2 group">
+      <span class="font-mono text-xl font-bold">
+        <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span>
+      </span>
+    </a>
+    
+    <!-- Desktop Navigation -->
+    <div class="hidden md:flex items-center gap-8 font-mono">
+      <a href="/zh/features" class="text-text-secondary hover:text-accent transition-colors text-sm">
+        /功能
+      </a>
+      <a href="#pricing" class="text-text-secondary hover:text-accent transition-colors text-sm">
+        /价格
+      </a>
+      <a href="/zh/blog/" class="text-text-secondary hover:text-accent transition-colors text-sm">
+        /博客
+      </a>
+      <a href="/zh/docs" class="text-text-secondary hover:text-accent transition-colors text-sm">
+        /文档
+      </a>
+      <LanguageSwitcher />
+      <a href="https://app.agentputer.com/sign-up" class="text-sm py-2.5 px-6 bg-accent text-dark-primary font-bold rounded hover:bg-accent-dark transition-colors">
+        [开始]
+      </a>
+    </div>
+    
+    <!-- Mobile Menu Button -->
+    <button 
+      id="mobile-menu-btn-zh"
+      class="md:hidden p-2 text-text-secondary hover:text-white"
+      aria-label="Toggle menu"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </nav>
+  
+  <!-- Mobile Menu -->
+  <div id="mobile-menu-zh" class="hidden md:hidden bg-dark-secondary border-t border-dark-tertiary">
+    <div class="px-6 py-4 space-y-4">
+      <a href="/zh/features" class="block text-text-secondary hover:text-white transition-colors">
+        功能
+      </a>
+      <a href="#pricing" class="block text-text-secondary hover:text-white transition-colors">
+        价格
+      </a>
+      <a href="/zh/blog/" class="block text-text-secondary hover:text-white transition-colors">
+        博客
+      </a>
+      <a href="/zh/docs" class="block text-text-secondary hover:text-white transition-colors">
+        文档
+      </a>
+      <div class="lang-mobile-wrapper"></div>
+      <a href="https://app.agentputer.com/sign-up" class="btn-primary w-full justify-center text-sm py-3">
+        开始使用
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const menuBtn = document.getElementById('mobile-menu-btn-zh');
+  const mobileMenu = document.getElementById('mobile-menu-zh');
+  
+  menuBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+</script>

@@ -1,0 +1,27 @@
+---
+// Маршрут страницы детального просмотра статьи русского блога
+import { getCollection } from 'astro:content';
+import RuBlogPost from '../../../layouts/RuBlogPost.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('ru-blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<RuBlogPost
+  title={post.data.title}
+  description={post.data.description}
+  date={post.data.date}
+  author={post.data.author}
+  readingTime={post.data.readingTime}
+  tags={post.data.tags}
+>
+  <Content />
+</RuBlogPost>

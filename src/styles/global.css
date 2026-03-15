@@ -1,0 +1,332 @@
+/* Google Fonts 已移到 Layout.astro <head> 中用 <link> 预加载，不再用 @import 阻塞渲染 */
+
+/* CLS 优化：回退字体 size-adjust，减少 Web 字体加载时的布局偏移 */
+@font-face {
+  font-family: 'Inter Fallback';
+  src: local('Arial'), local('Helvetica Neue'), local('Helvetica');
+  size-adjust: 107%;
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono Fallback';
+  src: local('Courier New'), local('Courier'), local('monospace');
+  size-adjust: 112%;
+  ascent-override: 78%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-dark-primary text-text-primary font-sans antialiased;
+  }
+  
+  ::selection {
+    @apply bg-accent/30 text-white;
+  }
+}
+
+@layer components {
+  /* Terminal window styles */
+  .terminal {
+    @apply bg-dark-secondary rounded-2xl border border-dark-tertiary overflow-hidden;
+  }
+  
+  .terminal-header {
+    @apply flex items-center gap-2 px-4 h-10 bg-dark-tertiary;
+  }
+  
+  .terminal-dot {
+    @apply w-3 h-3 rounded-full;
+  }
+  
+  .terminal-dot-red { @apply bg-error; }
+  .terminal-dot-yellow { @apply bg-warning; }
+  .terminal-dot-green { @apply bg-success; }
+  
+  .terminal-body {
+    @apply p-5 font-mono text-sm leading-relaxed;
+  }
+  
+  .terminal-prompt {
+    @apply text-accent;
+  }
+  
+  .terminal-output {
+    @apply text-text-secondary;
+  }
+  
+  .terminal-success {
+    @apply text-success;
+  }
+  
+  /* Cursor blink animation */
+  .cursor-blink::after {
+    content: '█';
+    @apply animate-blink text-accent;
+  }
+  
+  /* Button styles */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-8 py-4 bg-accent text-dark-primary 
+           font-semibold rounded-lg transition-all duration-200
+           hover:bg-accent-dark hover:shadow-lg hover:shadow-accent/25;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-8 py-4 
+           border border-dark-tertiary text-white font-medium rounded-lg
+           transition-all duration-200 hover:border-accent hover:text-accent;
+  }
+  
+  /* Card styles */
+  .card {
+    @apply bg-dark-tertiary rounded-xl p-6 border border-transparent
+           transition-all duration-300 hover:border-accent/30;
+  }
+  
+  .card-danger {
+    @apply border-danger/50 hover:border-danger;
+  }
+  
+  /* Section badge */
+  .section-badge {
+    @apply inline-block px-4 py-2 text-xs font-semibold tracking-widest
+           rounded-full border;
+  }
+  
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-accent to-accent-dark bg-clip-text text-transparent;
+  }
+}
+
+@layer utilities {
+  /* CLS 优化：不改变布局的隐藏类（visibility 替代 display:none） */
+  .cls-hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  /* Custom scrollbar */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-dark-secondary;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-dark-tertiary rounded-full;
+  }
+  
+  /* Glow effects - green terminal */
+  .glow-accent {
+    box-shadow: 0 0 40px rgba(0, 255, 65, 0.15);
+  }
+  
+  /* Glow effects - orange */
+  .glow-orange {
+    box-shadow: 0 0 40px rgba(255, 170, 51, 0.15);
+  }
+  
+  /* Glow effects - blue/cyan */
+  .glow-blue {
+    box-shadow: 0 0 40px rgba(0, 191, 255, 0.15);
+  }
+  
+  /* Text glow effect - green */
+  .text-glow {
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.5), 0 0 20px rgba(0, 255, 65, 0.3), 0 0 30px rgba(0, 255, 65, 0.2);
+  }
+  
+  .text-glow-strong {
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.8), 0 0 20px rgba(0, 255, 65, 0.5), 0 0 40px rgba(0, 255, 65, 0.3);
+  }
+  
+  /* Text glow - orange */
+  .text-glow-orange {
+    text-shadow: 0 0 10px rgba(255, 170, 51, 0.6), 0 0 20px rgba(255, 170, 51, 0.4), 0 0 30px rgba(255, 170, 51, 0.2);
+  }
+  
+  /* Text glow - blue */
+  .text-glow-blue {
+    text-shadow: 0 0 10px rgba(0, 191, 255, 0.6), 0 0 20px rgba(0, 191, 255, 0.4), 0 0 30px rgba(0, 191, 255, 0.2);
+  }
+  
+  /* Scanline effect - 桌面端才显示 */
+  .scanlines {
+    position: relative;
+  }
+  
+  @media (min-width: 768px) {
+    .scanlines::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.1),
+        rgba(0, 0, 0, 0.1) 1px,
+        transparent 1px,
+        transparent 2px
+      );
+      pointer-events: none;
+      z-index: 10;
+      will-change: transform; /* GPU 加速 */
+    }
+  }
+  
+  /* CRT flicker effect - 降低频率，移动端禁用 */
+  @media (min-width: 768px) {
+    .crt-flicker {
+      animation: crt-flicker 3s ease-in-out infinite;
+    }
+  }
+  
+  @keyframes crt-flicker {
+    0%, 100% { opacity: 0.98; }
+    50% { opacity: 1; }
+  }
+  
+  /* Glitch effect - 桌面端才启用伪元素动画 */
+  .glitch {
+    position: relative;
+  }
+  
+  @media (min-width: 768px) {
+    .glitch::before,
+    .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      will-change: clip-path, transform;
+    }
+    
+    .glitch::before {
+      animation: glitch-1 2s infinite linear alternate-reverse;
+      color: #ff0000;
+      z-index: -1;
+    }
+    
+    .glitch::after {
+      animation: glitch-2 3s infinite linear alternate-reverse;
+      color: #00ff41;
+      z-index: -2;
+    }
+  }
+  
+  @keyframes glitch-1 {
+    0%, 100% { clip-path: inset(0 0 95% 0); transform: translate(-2px, 0); }
+    25% { clip-path: inset(50% 0 30% 0); transform: translate(2px, 0); }
+    50% { clip-path: inset(20% 0 60% 0); transform: translate(-1px, 0); }
+    75% { clip-path: inset(80% 0 5% 0); transform: translate(1px, 0); }
+  }
+  
+  @keyframes glitch-2 {
+    0%, 100% { clip-path: inset(95% 0 0 0); transform: translate(2px, 0); }
+    25% { clip-path: inset(30% 0 50% 0); transform: translate(-2px, 0); }
+    50% { clip-path: inset(60% 0 20% 0); transform: translate(1px, 0); }
+    75% { clip-path: inset(5% 0 80% 0); transform: translate(-1px, 0); }
+  }
+  
+  /* Matrix rain grid background */
+  .matrix-grid {
+    background-image: 
+      linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+  
+  /* Pulse border */
+  .pulse-border {
+    animation: pulse-border 2s ease-in-out infinite;
+  }
+  
+  @keyframes pulse-border {
+    0%, 100% { border-color: rgba(0, 255, 65, 0.3); }
+    50% { border-color: rgba(0, 255, 65, 0.8); }
+  }
+  
+  /* Typing cursor */
+  .typing-cursor::after {
+    content: '█';
+    animation: blink 1s step-end infinite;
+    color: #00ff41;
+  }
+  
+  /* Floating particles - 桌面端才启用 */
+  .particles {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  @media (min-width: 768px) {
+    .particles::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(circle, rgba(0, 255, 65, 0.15) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: float-particles 20s linear infinite;
+      pointer-events: none;
+      will-change: transform;
+    }
+  }
+  
+  @keyframes float-particles {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-60px); }
+  }
+  
+  /* Neon box */
+  .neon-box {
+    box-shadow: 
+      0 0 5px rgba(0, 255, 65, 0.2),
+      0 0 10px rgba(0, 255, 65, 0.2),
+      0 0 20px rgba(0, 255, 65, 0.1),
+      inset 0 0 5px rgba(0, 255, 65, 0.05);
+  }
+  
+  /* Hover lift effect */
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 40px rgba(0, 255, 65, 0.2);
+  }
+  
+  /* Data stream effect for background */
+  .data-stream {
+    background: linear-gradient(180deg, 
+      transparent 0%,
+      rgba(0, 255, 65, 0.02) 50%,
+      transparent 100%
+    );
+    background-size: 100% 200%;
+    animation: data-stream 3s ease infinite;
+  }
+  
+  @keyframes data-stream {
+    0%, 100% { background-position: 0% 0%; }
+    50% { background-position: 0% 100%; }
+  }
+}

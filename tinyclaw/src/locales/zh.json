@@ -1,0 +1,348 @@
+{
+  "meta": {
+    "title": "TinyClaw — 1 分钟部署 OpenClaw",
+    "description": "一键部署您自己的 24/7 AI 助手，由 OpenClaw 驱动。无需服务器，无需 SSH，无需技术设置。选择您的 AI 模型，连接 Telegram，并在 1 分钟内完成部署。免费试用 7 天，之后 $29.99/月。",
+    "og_description": "一键部署您自己的 24/7 AI 助手。无需服务器，无需 SSH，告别繁琐。选择 Claude、GPT 或 Gemini，并通过 Telegram 连接。"
+  },
+  "nav": {
+    "brand": "TinyClaw.dev",
+    "blog": "博客",
+    "contact": "联系支持"
+  },
+  "hero": {
+    "title_line1": "部署 OpenClaw",
+    "title_line2": "只需 1 分钟",
+    "subtitle": "避免所有技术复杂性，一键部署您自己的 24/7 全天候 OpenClaw 实例，耗时 <1 min。"
+  },
+  "models": {
+    "heading": "您希望哪个模型作为默认模型？"
+  },
+  "channels": {
+    "heading": "您想使用哪个渠道发送消息？",
+    "coming_soon": "敬请期待"
+  },
+  "cta": {
+    "button": "使用 Google 账号登录",
+    "note": "登录以部署您的 AI 助手并连接您的渠道。",
+    "slots": "云服务器数量有限 — 仅剩 {count} 个"
+  },
+  "comparison": {
+    "label": "对比",
+    "title_line1": "传统方法",
+    "title_line2": "与 TinyClaw",
+    "traditional": "传统方法",
+    "tinyclaw": "TinyClaw",
+    "total": "总计",
+    "total_time": "60 分钟",
+    "tinyclaw_time": "<1 min",
+    "tinyclaw_desc": "选择模型，连接 Telegram，部署 — 1 分钟内完成。",
+    "tinyclaw_subdesc": "服务器、SSH 和 OpenClaw 环境已经设置好，等待分配。简单、安全、快速地连接到您的 bot。",
+    "non_technical_note": "如果您不熟悉技术，请将这些时间乘以 10 — 您必须先学习每个步骤才能进行操作。",
+    "steps": [
+      {
+        "label": "购买本地虚拟机",
+        "time": "15 分钟"
+      },
+      {
+        "label": "创建 SSH 密钥并安全存储",
+        "time": "10 分钟"
+      },
+      {
+        "label": "通过 SSH 连接到服务器",
+        "time": "5 分钟"
+      },
+      {
+        "label": "安装 Node.js 和 NPM",
+        "time": "5 分钟"
+      },
+      {
+        "label": "安装 OpenClaw",
+        "time": "7 分钟"
+      },
+      {
+        "label": "设置 OpenClaw",
+        "time": "10 分钟"
+      },
+      {
+        "label": "连接到 AI 提供商",
+        "time": "4 分钟"
+      },
+      {
+        "label": "与 Telegram 配对",
+        "time": "4 分钟"
+      }
+    ]
+  },
+  "usecases": {
+    "heading": "OpenClaw 可以为您做什么？",
+    "subheading": "一个助手，数千个用例",
+    "ps": "PS. 您可以通过自然语言添加任意数量的用例",
+    "rows": [
+      [
+        "阅读并总结电子邮件",
+        "起草回复和跟进",
+        "实时翻译消息",
+        "整理您的收件箱",
+        "回复支持工单",
+        "总结长篇文档",
+        "在会议前通知",
+        "从聊天中安排会议"
+      ],
+      [
+        "提醒您截止日期",
+        "计划您的一周",
+        "记录会议纪要",
+        "跨时区同步",
+        "报税",
+        "跟踪费用和收据",
+        "比较保险报价",
+        "管理订阅"
+      ],
+      [
+        "运行工资计算",
+        "协商退款",
+        "查找优惠券",
+        "在线查找最优惠的价格",
+        "查找折扣代码",
+        "降价提醒",
+        "比较产品规格",
+        "协商交易"
+      ],
+      [
+        "撰写合同和保密协议",
+        "研究竞争对手",
+        "筛选和优先排序潜在客户",
+        "生成发票",
+        "从要点创建演示文稿",
+        "预订旅行和酒店",
+        "从食材中查找食谱",
+        "起草社交帖子"
+      ],
+      [
+        "监控新闻和警报",
+        "设置和跟踪目标",
+        "筛选陌生外联",
+        "起草职位描述",
+        "运行站立会议摘要",
+        "跟踪 OKR 和 KPI"
+      ]
+    ]
+  },
+  "footer": {
+    "built_by": "用 ❤️ 构建者",
+    "privacy": "隐私政策",
+    "terms": "服务条款"
+  },
+  "setup": {
+    "connect_telegram": "连接 Telegram",
+    "how_to_get_token": "如何获取您的 bot 令牌？",
+    "step1_open": "打开 Telegram 并转到",
+    "step2_type": "开始聊天并输入",
+    "step3_follow": "按照提示命名您的 bot 并选择用户名。",
+    "step4_copy": "BotFather 将向您发送一条包含您的 bot 令牌的消息。复制整个令牌（它看起来像一长串数字和字母）。",
+    "step5_paste": "将令牌粘贴到下面的字段中，然后单击“保存并连接”。",
+    "enter_token": "输入 bot 令牌",
+    "invalid_token": "令牌格式无效。它应该看起来像 1234567890:ABCdefGH...",
+    "connecting": "正在连接...",
+    "save_connect": "保存并连接 ✓",
+    "global_search": "全局搜索",
+    "model_heading": "您希望哪个模型作为默认模型？",
+    "channel_heading": "您想使用哪个渠道发送消息？",
+    "coming_soon": "敬请期待",
+    "connected": "已连接",
+    "sign_out": "退出",
+    "deploy_btn": "部署 OpenClaw",
+    "redirecting_checkout": "正在重定向到结账...",
+    "pricing": "每月 $29.99，随时可以取消。",
+    "pricing_credits": "包括专用 VPS、所有模型和来自 ClawHub 的无限技能。",
+    "trial_badge": "7 天免费试用",
+    "trial_for_7_days": "免费 7 天",
+    "trial_then_price": "之后 $29.99/月 · 随时取消",
+    "trial_pricing_line": "免费试用 7 天 · 之后 $29.99/月 · 随时取消。",
+    "slots": "云服务器数量有限 — 仅剩 {count} 个",
+    "loading": "正在加载...",
+    "network_error": "网络错误。请重试。",
+    "checkout_failed": "启动结账失败",
+    "channel_optional": "可选 — 可以在付款后设置",
+    "connect_telegram_now": "现在连接 Telegram 吗？",
+    "setup_telegram_token": "设置 Telegram token",
+    "skip_after_payment": "（跳过并在付款后进行）",
+    "connect_discord_now": "现在连接 Discord 吗？",
+    "setup_discord_token": "设置 Discord Bot token",
+    "whatsapp_no_token": "无需 token！",
+    "whatsapp_qr_hint": "付款后，在您的 Dashboard 中扫描 QR code 以连接 WhatsApp。",
+    "plan_heading": "选择您的计划",
+    "plan_selected": "✓ 已选择",
+    "plan_starter_label": "STARTER",
+    "plan_starter_first_month": "首月",
+    "plan_starter_then": "然后 $9.99/mo",
+    "plan_starter_feat1": "1 个 AI agent",
+    "plan_starter_feat2": "所有渠道",
+    "plan_starter_feat3": "随时取消",
+    "plan_pro_label": "PRO",
+    "plan_pro_no_trial": "无试用",
+    "plan_pro_feat1": "专用云计算机",
+    "plan_pro_feat2": "所有渠道",
+    "plan_pro_feat3": "随时取消",
+    "pricing_starter_today": "今天 $1.99",
+    "pricing_starter_note": "· 1 个月访问权限 · 然后 $9.99/mo ·"
+  },
+  "creating": {
+    "setting_up": "正在设置您的 AI 代理...",
+    "model_label": "模型：",
+    "preparing": "正在准备您的环境...",
+    "creating_cloud": "正在设置您的专用 AI 云...",
+    "almost_done": "即将完成！",
+    "time_hint": "这大约需要 2 分钟",
+    "error_title": "出了点问题",
+    "error_desc": "设置失败。请重试或联系支持。",
+    "retry": "重试",
+    "checking": "正在检查访问权限...",
+    "loading": "正在加载...",
+    "contact_support": "时间太长？联系支持",
+    "contact_support_short": "联系支持"
+  },
+  "dashboard": {
+    "agent_ready": "您的 AI 代理已准备就绪！",
+    "running_model": "正在运行 {model} · 24/7 在线",
+    "sign_out": "退出",
+    "webchat_title": "OpenClaw WebChat",
+    "webchat_desc": "直接在浏览器中与您的 AI 聊天",
+    "open_webchat": "打开 WebChat →",
+    "vps_demo": "VPS 预配置（演示模式）",
+    "webchat_pending": "WebChat 将在配置真正的 VPS 后可用",
+    "telegram_title": "Telegram Bot",
+    "telegram_connected": "已连接",
+    "telegram_pair_now": "立即配对",
+    "telegram_connected_msg": "Telegram 已连接！",
+    "telegram_ready": "您的 AI 已准备好在 Telegram 上聊天",
+    "telegram_step1": "通过 Telegram 上的 @BotFather 创建一个 bot，然后将令牌粘贴到下面。",
+    "telegram_configure": "配置 Bot 令牌",
+    "telegram_configuring": "正在配置 Bot...",
+    "telegram_step2": "向您的 Telegram Bot 发送任何消息 — 您将收到一个配对代码。在下面输入它以进行连接。",
+    "telegram_pair_placeholder": "输入配对代码",
+    "telegram_pairing": "正在配对...",
+    "telegram_connect": "连接 Telegram",
+    "telegram_paired": "配对成功！",
+    "telegram_refreshing": "正在刷新...",
+    "telegram_failed": "配置 bot 失败。请重试。",
+    "telegram_pair_failed": "配对失败。请重试。",
+    "telegram_how_to_title": "📋 如何获取 Bot Token：",
+    "telegram_guide_step1": "打开 Telegram，搜索 @BotFather",
+    "telegram_guide_step2": "发送",
+    "telegram_guide_step3": "为你的 Bot 起一个名字和用户名",
+    "telegram_guide_step4": "BotFather 会发给你一个 Token，复制它",
+    "telegram_guide_step5": "将 Token 粘贴到下方输入框",
+    "telegram_token_saved": "✅ Token 已保存！还差最后一步：",
+    "telegram_pair_guide_step1": "打开你的 Telegram Bot，发送任意消息（例如 hi）",
+    "telegram_pair_guide_step2": "Bot 会回复一个配对码",
+    "telegram_pair_guide_step3": "将配对码输入下方完成绑定",
+    "vps_title": "VPS 访问（高级）",
+    "vps_ip": "IP 地址",
+    "vps_port": "网关端口",
+    "vps_ssh": "SSH 命令",
+    "vps_password": "Root 密码",
+    "subscription_title": "Pro 订阅",
+    "subscription_status": "状态：{status}",
+    "subscription_renews": "续订 {date}",
+    "manage_subscription": "管理订阅",
+    "manage_loading": "正在加载...",
+    "manage_failed": "打开订阅门户失败",
+    "model_switch_btn": "切换",
+    "model_switching": "正在切换...",
+    "model_current": "当前",
+    "model_switch_note": "切换需要约 30 秒。您的代理将重新启动。",
+    "model_switching_desc": "正在使用新模型重新启动您的代理...",
+    "model_switch_success": "已切换到 {model}",
+    "model_switch_failed": "模型切换失败。请重试。",
+    "powered_by": "由...驱动",
+    "discord_setup_now": "立即设置",
+    "discord_token_configured": "Discord Bot 令牌已配置",
+    "discord_step1_title": "步骤 1 — 邀请您的 bot 加入服务器",
+    "discord_step1_note": "还要在 Bot → Privileged Gateway Intents 下启用 Message Content Intent。",
+    "discord_step2_title": "步骤 2 — 在 Discord 中授权您自己",
+    "discord_step2_desc": "向您的 bot 发送任何消息（DM 或在服务器中 @提及）。它将回复一个配对代码。",
+    "discord_step2_cmd_note": "在 WebChat → 终端中运行此命令以批准您的帐户。每个用户只需一次。",
+    "discord_how_to": "🤖 如何获取您的 Discord Bot 令牌：",
+    "discord_step_new_app": "新应用程序",
+    "discord_step_add_bot": "Bot",
+    "discord_step_add_bot2": "添加 Bot",
+    "discord_step_reset_token": "重置令牌",
+    "discord_step_intent": "消息内容意图",
+    "discord_step_url_gen": "OAuth2 → URL 生成器",
+    "discord_configured": "Discord Bot 已配置！",
+    "discord_reloading": "正在重新加载...",
+    "discord_configuring": "正在配置 Discord Bot...",
+    "discord_connect_btn": "连接 Discord Bot",
+    "discord_failed": "配置 Discord 失败。",
+    "whatsapp_scan_to_connect": "扫描以连接",
+    "whatsapp_linked": "已连接",
+    "whatsapp_no_token_desc": "WhatsApp 不需要令牌 — 只需在此处激活它并扫描二维码以链接您的帐户。",
+    "whatsapp_activating": "正在激活…",
+    "whatsapp_activate_btn": "⚡ 激活 WhatsApp",
+    "whatsapp_activate_failed": "启用 WhatsApp 失败。请重试。",
+    "whatsapp_activated": "✅ WhatsApp 渠道已激活 — 使用您的手机扫描下面的二维码以链接您的帐户。",
+    "whatsapp_scan_instructions": "📱 使用 WhatsApp 扫描 → 设置 → 链接的设备 → 链接设备",
+    "whatsapp_qr_expired": "二维码已过期 — 刷新",
+    "whatsapp_qr_generating": "正在生成二维码…",
+    "whatsapp_qr_placeholder": "二维码将在此处显示",
+    "whatsapp_qr_no_qr": "未返回二维码。",
+    "whatsapp_qr_expires_hint": "二维码将在约 60 秒后过期。如果它变成灰色，请单击“刷新”。",
+    "whatsapp_refresh_qr": "🔄 刷新二维码",
+    "whatsapp_generate_qr": "📷 生成二维码",
+    "whatsapp_open_webchat": "打开 WebChat",
+    "whatsapp_step2_title": "步骤 2 — 扫描后，单击以应用",
+    "whatsapp_step2_desc": "在 WhatsApp 显示 Google Chrome (openclaw) 在“链接的设备”中后，单击下面以重新启动您的代理并加载会话。",
+    "whatsapp_applying": "正在重新启动代理…（约 60 秒）",
+    "whatsapp_apply_btn": "✅ 我已扫描 — 应用连接",
+    "whatsapp_apply_failed": "应用失败。请重试。",
+    "whatsapp_live_title": "🎉 WhatsApp 已上线！",
+    "whatsapp_live_desc": "您的 AI 代理现在已连接到 WhatsApp。向您自己的号码发送消息以开始聊天。",
+    "feishu_title": "飞书",
+    "feishu_connect_now": "立即接入",
+    "feishu_connected": "已连接",
+    "feishu_desc": "将您的 AI 助理接入飞书，方便国内用户直接通过飞书与 AI 对话。",
+    "feishu_app_id_label": "App ID",
+    "feishu_app_id_placeholder": "cli_xxxxxxxxxxxxxxxxx",
+    "feishu_app_secret_label": "App Secret",
+    "feishu_app_secret_placeholder": "请输入 App Secret",
+    "feishu_verify_token_label": "Verification Token",
+    "feishu_verify_token_placeholder": "请输入 Verification Token",
+    "feishu_encrypt_key_label": "Encrypt Key（可选）",
+    "feishu_encrypt_key_placeholder": "未开启加密则留空",
+    "feishu_webhook_url_label": "Webhook URL（填入飞书后台）",
+    "feishu_save_btn": "保存并连接",
+    "feishu_saving": "保存中...",
+    "feishu_save_failed": "保存失败，请检查凭证是否正确。",
+    "feishu_configured_title": "✅ 飞书已接入",
+    "feishu_configured_desc": "AI 助理已成功接入飞书，用户可直接向机器人发消息开始对话。",
+    "feishu_how_to": "如何配置",
+    "feishu_step_create_app": "1. 前往 open.feishu.cn/app → 创建自建应用",
+    "feishu_step_add_bot": "2. 在应用功能中开启「机器人」",
+    "feishu_step_enable_events": "3. 订阅事件：im.message.receive_v1",
+    "feishu_step_set_webhook": "4. 将请求地址设为下方的 Webhook URL",
+    "feishu_step_get_tokens": "5. 将 App ID、App Secret 和 Verification Token 填入本页面"
+  },
+  "faq": [
+    {
+      "q": "什么是 TinyClaw？",
+      "a": "TinyClaw 是 OpenClaw 的一键部署平台，OpenClaw 是一个开源 AI 助手框架。它让您可以在 1 分钟内部署您自己的 24/7 AI 助手，并连接到 Telegram，无需任何技术设置。"
+    },
+    {
+      "q": "使用 TinyClaw 部署 OpenClaw 需要多长时间？",
+      "a": "不到 1 分钟。传统的设置需要 60 多分钟的终端命令。TinyClaw 会自动处理所有服务器预配置、OpenClaw 安装和渠道配置。"
+    },
+    {
+      "q": "TinyClaw 支持哪些 AI 模型？",
+      "a": "TinyClaw 支持 Anthropic 的 Claude Opus 4.6、OpenAI 的 GPT-5.2 和 Google 的 Gemini 3。您可以在设置过程中选择您喜欢的模型。"
+    },
+    {
+      "q": "TinyClaw 的费用是多少？",
+      "a": "TinyClaw 提供 7 天免费试用。之后每月 $29.99，包括专用云服务器、24/7 正常运行时间、自动更新和 Telegram 集成。"
+    },
+    {
+      "q": "OpenClaw AI 助手可以做什么？",
+      "a": "OpenClaw 可以阅读和总结电子邮件、起草回复、翻译消息、安排会议、报税、跟踪费用、撰写合同、研究竞争对手、生成发票以及数千个其他任务 — 所有这些都通过 Telegram 的自然语言完成。"
+    }
+  ]
+}

@@ -1,0 +1,167 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/fr/Header.astro';
+import Footer from '../../components/fr/Footer.astro';
+import MatrixRain from '../../components/MatrixRain.astro';
+
+const pricingSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'AgentPuter Pro',
+  description: 'Votre propre agent IA qui travaille 24h/24. Claude 4.5 inclus. Configuration en 2 minutes.',
+  brand: { '@type': 'Brand', name: 'AgentPuter' },
+  offers: {
+    '@type': 'Offer',
+    price: '29.00',
+    priceCurrency: 'USD',
+    availability: 'https://schema.org/InStock',
+    priceValidUntil: '2027-12-31',
+    url: 'https://app.agentputer.com/subscribe',
+  },
+};
+const APP_URL = 'https://app.agentputer.com';
+---
+<Layout title="Tarifs - AgentPuter | Votre Agent IA Toujours Actif" description="AgentPuter Pro : 29,99$/mois. Votre agent IA personnel actif 24h/24. Claude 4.5 inclus, plus de 15 canaux de messagerie, 500+ compétences. Sans programmation." tags={['AgentPuter', 'Tarifs', 'Agent IA', 'Automatisation IA', 'Sans code']}>
+  <fragment slot="head"><script type="application/ld+json" set:html={JSON.stringify(pricingSchema)} /></fragment>
+  <MatrixRain />
+  <Header activePage="pricing" />
+  <main class="relative z-10">
+    <section class="relative pt-32 pb-12 lg:pt-40 lg:pb-16 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-dark-primary via-dark-primary to-dark-secondary"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,255,65,0.06),transparent_50%)]"></div>
+      <div class="relative max-w-7xl mx-auto px-6 lg:px-20 text-center">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.2em] mb-6">TARIFS : TRANSPARENTS</div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Des Tarifs Simples et Prévisibles</h1>
+        <p class="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+          Pas de frais cachés. Pas de factures surprises. Annulez à tout moment.<br /><span class="text-accent font-semibold">Plan Pro disponible</span> — démarrez en 2 minutes.
+        </p>
+      </div>
+    </section>
+    <section class="pb-8">
+      <div class="max-w-4xl mx-auto px-6 lg:px-20">
+        <div class="bg-accent/5 border border-accent/15 rounded-xl p-6 md:p-8">
+          <h3 class="text-white font-bold text-lg mb-4">💡 Tout est inclus — inscrivez-vous et commencez</h3>
+          <div class="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10">
+            <div><span class="text-accent font-semibold text-sm">Pro (Tout-en-un)</span><p class="text-text-muted text-sm mt-1 leading-relaxed">Modèle IA, hébergement cloud, canaux de messagerie — tout inclus. Pas de clés API. Pas de configuration. Fonctionne immédiatement.</p></div>
+            <span class="text-text-dark font-bold text-sm hidden md:block">OU</span>
+            <div><span class="text-terminal-blue font-semibold text-sm">Starter (bientôt)</span><p class="text-text-muted text-sm mt-1 leading-relaxed">Vous avez déjà votre propre clé API IA ? Utilisez notre plateforme à un prix réduit — 9$/mois.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 lg:py-16">
+      <div class="max-w-7xl mx-auto px-6 lg:px-20">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-end max-w-5xl mx-auto">
+          <div class="bg-dark-secondary rounded-2xl border border-dark-tertiary p-8 relative opacity-80">
+            <div class="font-mono text-text-muted text-xs font-semibold tracking-[0.15em] mb-6">STARTER — BIENTÔT</div>
+            <div class="flex items-end gap-1 mb-2"><span class="text-5xl font-bold text-white">$9</span><span class="text-text-dark text-base mb-1">/mois</span></div>
+            <p class="text-text-muted text-sm mb-6">Pour les utilisateurs qui ont déjà une clé API IA</p>
+            <div class="border-t border-dark-tertiary mb-6"></div>
+            <ul class="space-y-3 text-sm mb-8">
+              <li class="text-text-muted">✓ Toujours actif — fonctionne 24h/24</li><li class="text-text-muted">✓ Plus de 15 canaux de messagerie</li><li class="text-text-muted">✓ Plus de 500 compétences intégrées</li>
+              <li class="text-text-muted">✓ Tableau de bord visuel</li><li class="text-text-muted">✓ Environnement cloud dédié</li><li class="text-text-muted">✓ Sans programmation</li>
+              <li class="pt-3 border-t border-dark-tertiary text-text-dark">✗ Modèle IA NON inclus</li>
+              <li class="text-text-dark pl-4">Vous utilisez votre propre clé API</li>
+            </ul>
+            <button disabled class="w-full py-3.5 rounded-lg border border-dark-tertiary text-text-muted font-semibold text-sm cursor-not-allowed">Rejoindre la liste d'attente</button>
+          </div>
+          <div class="bg-dark-secondary rounded-2xl border-2 border-accent p-8 relative shadow-lg shadow-accent/10 md:-mt-4">
+            <div class="flex items-center gap-3 mb-6"><span class="text-terminal-magenta font-mono text-xs font-bold">★ DISPONIBLE MAINTENANT</span><span class="font-mono text-text-muted text-xs font-semibold tracking-[0.15em]">PRO</span></div>
+            <div class="flex items-end gap-1 mb-2"><span class="text-6xl font-bold text-white">$29.99</span><span class="text-text-dark text-base mb-2">/mois</span></div>
+            <p class="text-text-muted text-sm mb-6">Votre agent IA qui ne dort jamais. Tout inclus.</p>
+            <div class="border-t border-dark-tertiary mb-6"></div>
+            <ul class="space-y-3 text-sm mb-8">
+              <li class="text-text-muted">✓ Toujours actif — 24h/24, ne s'arrête jamais</li><li class="text-text-muted">✓ Connecté à Telegram, WhatsApp, Slack et plus</li><li class="text-text-muted">✓ 500+ compétences intégrées (recherche, traduction, résumé...)</li>
+              <li class="text-text-muted">✓ Tableau de bord visuel — sans programmation</li><li class="text-text-muted">✓ Ordinateur cloud dédié, entièrement géré</li><li class="text-text-muted">✓ Configuration en 2 minutes</li>
+              <li class="pt-3 border-t border-dark-tertiary text-accent">✓ Claude 4.5 IA inclus</li>
+              <li class="text-accent/70 pl-4">Valeur ~20$/mois, inclus gratuitement</li><li class="text-accent/70 pl-4">Aucune clé API requise</li>
+            </ul>
+            <a href={`${APP_URL}/sign-up`} class="block w-full py-3.5 rounded-lg bg-accent text-dark-primary font-bold text-sm text-center hover:bg-accent-dark transition-colors">Commencer — 29,99$/mois</a>
+            <p class="text-text-dark text-xs text-center mt-3 font-mono">Annulez quand vous voulez · Sans programmation</p>
+          </div>
+          <div class="bg-dark-secondary rounded-2xl border border-dark-tertiary p-8 relative opacity-80">
+            <div class="font-mono text-text-muted text-xs font-semibold tracking-[0.15em] mb-6">TEAM — BIENTÔT</div>
+            <div class="flex items-end gap-1 mb-2"><span class="text-4xl font-bold text-white">$59</span><span class="text-text-dark text-base mb-1">/mois</span></div>
+            <p class="text-text-muted text-sm mb-6">Gérez plusieurs agents IA pour votre équipe</p>
+            <div class="border-t border-dark-tertiary mb-6"></div>
+            <ul class="space-y-3 text-sm mb-8">
+              <li class="text-text-muted">✓ 3 agents IA fonctionnant 24h/24</li><li class="text-text-muted">✓ Meilleures performances par agent</li><li class="text-text-muted">✓ Tous les canaux de messagerie</li>
+              <li class="text-text-muted">✓ 500+ compétences intégrées</li><li class="text-text-muted">✓ Support prioritaire</li><li class="text-text-muted">✓ Workflows multi-agents</li>
+              <li class="pt-3 border-t border-dark-tertiary text-text-muted">✓ Modèle IA INCLUS</li>
+              <li class="text-text-dark pl-4">3x quota d'utilisation IA</li><li class="text-text-dark pl-4">Modèles Claude 4.5 + Opus</li>
+            </ul>
+            <button disabled class="w-full py-3.5 rounded-lg border border-dark-tertiary text-text-muted font-semibold text-sm cursor-not-allowed">Rejoindre la liste d'attente</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 lg:py-16">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-8">// POURQUOI AGENTPUTER</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-dark-secondary rounded-xl border border-dark-tertiary p-6">
+            <span class="text-text-muted text-xs font-semibold">vs Le faire soi-même</span>
+            <p class="text-error font-bold mt-2">Des heures de configuration + connaissances techniques requises</p>
+            <p class="text-success text-sm mt-2 leading-relaxed">AgentPuter Pro 29,99$/mois = 2 minutes de configuration. Sans code. Sans gestion de serveur. Ça marche.</p>
+          </div>
+          <div class="bg-dark-secondary rounded-xl border border-dark-tertiary p-6">
+            <span class="text-text-muted text-xs font-semibold">vs Abonnement ChatGPT / Claude</span>
+            <p class="text-error font-bold mt-2">20$/mois = Vous tapez, il répond. C'est tout.</p>
+            <p class="text-success text-sm mt-2 leading-relaxed">AgentPuter Pro 29,99$/mois = Une IA qui travaille seule 24h/24, connectée à vos apps et qui agit.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 lg:py-20">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-4">// POURQUOI "TOUJOURS ACTIF" EST IMPORTANT</div>
+        <h2 class="text-white text-2xl font-bold mb-3">Votre IA continue de travailler pendant que vous dormez.</h2>
+        <p class="text-text-muted text-sm mb-8 leading-relaxed">ChatGPT s'arrête quand vous fermez le navigateur. AgentPuter non. Il surveille, répond et agit 24 heures sur 24.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-dark-secondary rounded-xl border border-accent/20 p-5"><span class="text-2xl mb-2 block">⚡</span><span class="text-accent font-bold text-lg">Configuration en 2 minutes</span><p class="text-text-muted text-sm mt-1">Cliquez, connectez, c'est fait. Sans téléchargement, sans code, sans attente.</p></div>
+          <div class="bg-dark-secondary rounded-xl border border-terminal-blue/20 p-5"><span class="text-2xl mb-2 block">🔌</span><span class="text-terminal-blue font-bold text-lg">15+ canaux</span><p class="text-text-muted text-sm mt-1">Telegram, WhatsApp, Slack, Discord, Email — tout connecté.</p></div>
+          <div class="bg-dark-secondary rounded-xl border border-terminal-magenta/20 p-5"><span class="text-2xl mb-2 block">🧠</span><span class="text-terminal-magenta font-bold text-lg">Claude 4.5 intégré</span><p class="text-text-muted text-sm mt-1">IA haut de gamme incluse. Pas d'abonnement séparé.</p></div>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 lg:py-16 bg-dark-secondary/50">
+      <div class="max-w-3xl mx-auto px-6 lg:px-20">
+        <h2 class="text-2xl font-bold text-white mb-8 text-center">Questions Fréquentes</h2>
+        <div class="space-y-4" id="faq-list">
+          <div class="faq-item border border-dark-tertiary rounded-lg overflow-hidden"><button class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between text-white font-medium hover:bg-dark-tertiary/50 transition-colors"><span>Ai-je besoin de compétences techniques ?</span><span class="faq-icon text-accent font-mono text-sm">+</span></button><div class="faq-content hidden px-6 pb-4 text-text-muted text-sm leading-relaxed">Non. AgentPuter est conçu pour les personnes qui ne programment pas. Inscrivez-vous, choisissez votre modèle IA, connectez votre app de messagerie — c'est fait. Tout est géré pour vous.</div></div>
+          <div class="faq-item border border-dark-tertiary rounded-lg overflow-hidden"><button class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between text-white font-medium hover:bg-dark-tertiary/50 transition-colors"><span>Quel modèle IA est inclus ?</span><span class="faq-icon text-accent font-mono text-sm">+</span></button><div class="faq-content hidden px-6 pb-4 text-text-muted text-sm leading-relaxed">Le plan Pro inclut Claude 4.5 d'Anthropic — l'un des modèles IA les plus performants disponibles. Environ 20$/mois d'utilisation IA est inclus dans votre abonnement. Aucune clé API requise.</div></div>
+          <div class="faq-item border border-dark-tertiary rounded-lg overflow-hidden"><button class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between text-white font-medium hover:bg-dark-tertiary/50 transition-colors"><span>Puis-je annuler à tout moment ?</span><span class="faq-icon text-accent font-mono text-sm">+</span></button><div class="faq-content hidden px-6 pb-4 text-text-muted text-sm leading-relaxed">Oui — annulez quand vous voulez depuis votre tableau de bord. Votre agent IA reste actif jusqu'à la fin de la période de facturation en cours. Pas de frais d'annulation, pas d'engagement.</div></div>
+          <div class="faq-item border border-dark-tertiary rounded-lg overflow-hidden"><button class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between text-white font-medium hover:bg-dark-tertiary/50 transition-colors"><span>En quoi est-ce différent de ChatGPT ?</span><span class="faq-icon text-accent font-mono text-sm">+</span></button><div class="faq-content hidden px-6 pb-4 text-text-muted text-sm leading-relaxed">ChatGPT est un chatbot — vous posez une question, il répond. AgentPuter vous donne un agent IA qui fonctionne 24h/24 de manière autonome, se connecte à vos apps et agit même quand vous n'êtes pas devant votre ordinateur.</div></div>
+          <div class="faq-item border border-dark-tertiary rounded-lg overflow-hidden"><button class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between text-white font-medium hover:bg-dark-tertiary/50 transition-colors"><span>Que peut vraiment faire l'agent IA ?</span><span class="faq-icon text-accent font-mono text-sm">+</span></button><div class="faq-content hidden px-6 pb-4 text-text-muted text-sm leading-relaxed">500+ compétences intégrées : recherche, traduction, résumé, rédaction de mails, analyse de données, planification, surveillance du marché et plus. Vous pouvez aussi lui apprendre de nouvelles tâches en langage naturel — sans code.</div></div>
+        </div>
+      </div>
+    </section>
+    <section class="py-16 lg:py-24">
+      <div class="max-w-7xl mx-auto px-6 lg:px-20">
+        <div class="relative overflow-hidden rounded-2xl bg-dark-secondary border-2 border-accent/50 p-8 md:p-16 glow-accent neon-box">
+          <div class="absolute inset-0 opacity-5"><div class="absolute inset-0" style="background-image: linear-gradient(rgba(0,255,65,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,65,0.1) 1px, transparent 1px); background-size: 20px 20px;"></div></div>
+          <div class="relative text-center">
+            <div class="font-mono text-accent text-sm mb-4">> prêt_à_démarrer</div>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-accent text-glow-strong mb-4 font-mono">Prêt à commencer ?</h2>
+            <p class="text-text-secondary text-lg mb-10 max-w-xl mx-auto font-mono">29,99$/mois. Configuration en 2 minutes. Votre agent IA ne dort jamais.</p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href={`${APP_URL}/sign-up`} class="btn-primary text-sm py-4 px-10 font-mono">[COMMENCER MAINTENANT]</a>
+              <a href="mailto:oscarzamora199907@gmail.com" class="btn-secondary text-sm py-4 px-10 font-mono">[POSER UNE QUESTION]</a>
+            </div>
+            <p class="text-text-muted text-xs font-mono mt-6">// Annulez quand vous voulez · Sans programmation · Sans frais cachés</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+<script is:inline>
+  document.querySelectorAll('.faq-toggle').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = btn.closest('.faq-item'); var content = item.querySelector('.faq-content'); var icon = item.querySelector('.faq-icon');
+      document.querySelectorAll('.faq-item').forEach(function(other) { if (other !== item) { other.querySelector('.faq-content').classList.add('hidden'); other.querySelector('.faq-icon').textContent = '+'; } });
+      content.classList.toggle('hidden'); icon.textContent = content.classList.contains('hidden') ? '+' : '−';
+    });
+  });
+</script>

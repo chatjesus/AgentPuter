@@ -1,0 +1,139 @@
+{
+  "categories": {
+    "howto": {
+      "label": "How-to Tutorials",
+      "topics": [
+        { "slug": "how-to-build-telegram-ai-bot", "keyword": "how to build telegram ai bot", "title_hint": "How to Build a Telegram AI Bot in 2026 (Step-by-Step Guide)" },
+        { "slug": "deploy-ai-agent-on-vps", "keyword": "deploy ai agent on vps", "title_hint": "Deploy an AI Agent on a VPS: Complete Guide" },
+        { "slug": "how-to-run-claude-on-your-own-server", "keyword": "run claude on your own server", "title_hint": "How to Run Claude on Your Own Server (Self-Hosted Guide)" },
+        { "slug": "how-to-create-whatsapp-ai-chatbot", "keyword": "whatsapp ai chatbot", "title_hint": "Create a WhatsApp AI Chatbot: Full Tutorial" },
+        { "slug": "how-to-set-up-discord-ai-bot", "keyword": "discord ai bot setup", "title_hint": "Set Up a Discord AI Bot with Claude or GPT" },
+        { "slug": "how-to-automate-customer-support-with-ai", "keyword": "automate customer support ai", "title_hint": "How to Automate Customer Support with AI Agents" },
+        { "slug": "how-to-use-mcp-protocol", "keyword": "mcp protocol tutorial", "title_hint": "How to Use MCP Protocol: A Practical Guide" },
+        { "slug": "how-to-connect-ai-agent-to-google-calendar", "keyword": "ai agent google calendar", "title_hint": "Connect Your AI Agent to Google Calendar" },
+        { "slug": "how-to-build-ai-personal-assistant", "keyword": "build ai personal assistant", "title_hint": "Build Your Own AI Personal Assistant (No Code)" },
+        { "slug": "how-to-self-host-ai-chatbot", "keyword": "self host ai chatbot", "title_hint": "Self-Host an AI Chatbot: Docker + VPS Guide" },
+        { "slug": "how-to-fine-tune-ai-agent-personality", "keyword": "fine tune ai agent personality", "title_hint": "Fine-Tune Your AI Agent's Personality with soul.md" },
+        { "slug": "how-to-monitor-ai-agent-uptime", "keyword": "monitor ai agent uptime", "title_hint": "Monitor AI Agent Uptime: Tools & Best Practices" },
+        { "slug": "how-to-add-memory-to-ai-chatbot", "keyword": "ai chatbot memory", "title_hint": "Add Long-Term Memory to Your AI Chatbot" },
+        { "slug": "how-to-build-multi-agent-system", "keyword": "multi agent system tutorial", "title_hint": "Build a Multi-Agent AI System Step by Step" },
+        { "slug": "how-to-use-ai-agent-for-research", "keyword": "ai agent for research", "title_hint": "Use AI Agents for Automated Research" },
+        { "slug": "how-to-deploy-ai-agent-without-coding", "keyword": "deploy ai agent no code", "title_hint": "Deploy an AI Agent Without Writing Any Code" },
+        { "slug": "how-to-secure-your-ai-agent", "keyword": "secure ai agent", "title_hint": "Secure Your AI Agent: Authentication & Access Control" },
+        { "slug": "how-to-integrate-ai-agent-with-slack", "keyword": "ai agent slack integration", "title_hint": "Integrate an AI Agent with Slack in 5 Minutes" },
+        { "slug": "how-to-use-ai-for-email-management", "keyword": "ai email management", "title_hint": "Use AI to Manage Your Email Inbox Automatically" },
+        { "slug": "how-to-build-ai-writing-assistant", "keyword": "build ai writing assistant", "title_hint": "Build an AI Writing Assistant for Your Team" },
+        { "slug": "how-to-create-ai-coding-assistant", "keyword": "create ai coding assistant", "title_hint": "Create Your Own AI Coding Assistant" },
+        { "slug": "how-to-use-ai-for-data-analysis", "keyword": "ai data analysis tutorial", "title_hint": "Use AI Agents for Data Analysis: Beginner Guide" },
+        { "slug": "how-to-setup-ai-agent-on-raspberry-pi", "keyword": "ai agent raspberry pi", "title_hint": "Run an AI Agent on Raspberry Pi" },
+        { "slug": "how-to-build-ai-chatbot-for-website", "keyword": "ai chatbot for website", "title_hint": "Build an AI Chatbot for Your Website (Free)" },
+        { "slug": "how-to-schedule-ai-agent-tasks", "keyword": "schedule ai agent tasks", "title_hint": "Schedule AI Agent Tasks with Cron & Automation" }
+      ]
+    },
+    "comparison": {
+      "label": "Tool Comparisons",
+      "topics": [
+        { "slug": "openclaw-vs-autogpt", "keyword": "openclaw vs autogpt", "title_hint": "OpenClaw vs AutoGPT: Which AI Agent Framework Wins in 2026?" },
+        { "slug": "openclaw-vs-langchain", "keyword": "openclaw vs langchain", "title_hint": "OpenClaw vs LangChain: Key Differences Explained" },
+        { "slug": "openclaw-vs-crewai", "keyword": "openclaw vs crewai", "title_hint": "OpenClaw vs CrewAI: Multi-Agent Frameworks Compared" },
+        { "slug": "best-ai-agent-framework-2026", "keyword": "best ai agent framework 2026", "title_hint": "Best AI Agent Frameworks in 2026: Complete Ranking" },
+        { "slug": "claude-vs-gpt-for-ai-agents", "keyword": "claude vs gpt for agents", "title_hint": "Claude vs GPT for AI Agents: Which Model is Better?" },
+        { "slug": "gemini-vs-claude-for-coding", "keyword": "gemini vs claude coding", "title_hint": "Gemini vs Claude for Coding: Head-to-Head Comparison" },
+        { "slug": "self-hosted-vs-cloud-ai-agent", "keyword": "self hosted vs cloud ai agent", "title_hint": "Self-Hosted vs Cloud AI Agent: Pros, Cons & Cost" },
+        { "slug": "best-ai-chatbot-platforms-2026", "keyword": "best ai chatbot platforms 2026", "title_hint": "10 Best AI Chatbot Platforms in 2026" },
+        { "slug": "openclaw-vs-chatdev", "keyword": "openclaw vs chatdev", "title_hint": "OpenClaw vs ChatDev: AI Agent Comparison" },
+        { "slug": "best-telegram-ai-bots", "keyword": "best telegram ai bots", "title_hint": "Best Telegram AI Bots: Top Picks for 2026" },
+        { "slug": "chatgpt-vs-openclaw", "keyword": "chatgpt vs openclaw", "title_hint": "ChatGPT vs OpenClaw: Why You Need Your Own Agent" },
+        { "slug": "best-open-source-ai-assistants", "keyword": "best open source ai assistants", "title_hint": "7 Best Open-Source AI Assistants You Can Self-Host" },
+        { "slug": "best-ai-tools-for-developers", "keyword": "best ai tools for developers", "title_hint": "25 Best AI Tools for Developers in 2026" },
+        { "slug": "mac-mini-vs-vps-for-ai", "keyword": "mac mini vs vps for ai", "title_hint": "Mac Mini vs VPS for Running AI: Which Is Better?" },
+        { "slug": "best-ai-agent-hosting-providers", "keyword": "best ai agent hosting", "title_hint": "Best AI Agent Hosting Providers Compared" }
+      ]
+    },
+    "usecase": {
+      "label": "Industry Use Cases",
+      "topics": [
+        { "slug": "ai-assistant-for-real-estate", "keyword": "ai assistant for real estate", "title_hint": "AI Assistant for Real Estate Agents: Complete Guide" },
+        { "slug": "ai-chatbot-for-ecommerce", "keyword": "ai chatbot for ecommerce", "title_hint": "AI Chatbot for E-Commerce: Boost Sales by 30%" },
+        { "slug": "ai-agent-for-law-firms", "keyword": "ai agent for law firms", "title_hint": "AI Agents for Law Firms: Automate Legal Research" },
+        { "slug": "ai-assistant-for-healthcare", "keyword": "ai assistant for healthcare", "title_hint": "AI Assistants in Healthcare: Use Cases & Benefits" },
+        { "slug": "ai-for-small-business", "keyword": "ai for small business", "title_hint": "AI for Small Business: 10 Ways to Save Time & Money" },
+        { "slug": "ai-agent-for-education", "keyword": "ai agent for education", "title_hint": "AI Agents in Education: Personalized Tutoring at Scale" },
+        { "slug": "ai-chatbot-for-restaurants", "keyword": "ai chatbot for restaurants", "title_hint": "AI Chatbot for Restaurants: Handle Orders & Reservations" },
+        { "slug": "ai-assistant-for-freelancers", "keyword": "ai assistant for freelancers", "title_hint": "AI Assistant for Freelancers: Automate Your Workflow" },
+        { "slug": "ai-for-content-creators", "keyword": "ai for content creators", "title_hint": "AI Tools for Content Creators: The 2026 Stack" },
+        { "slug": "ai-agent-for-recruiting", "keyword": "ai agent for recruiting", "title_hint": "AI Agents for Recruiting: Screen Candidates Faster" },
+        { "slug": "ai-chatbot-for-saas", "keyword": "ai chatbot for saas", "title_hint": "Build an AI Chatbot for Your SaaS Product" },
+        { "slug": "ai-for-financial-advisors", "keyword": "ai for financial advisors", "title_hint": "AI for Financial Advisors: Automate Client Communication" },
+        { "slug": "ai-agent-for-marketing", "keyword": "ai agent for marketing", "title_hint": "AI Agents for Marketing: Automate Campaigns" },
+        { "slug": "ai-assistant-for-project-management", "keyword": "ai assistant for project management", "title_hint": "AI Assistant for Project Management: Jira + AI Agent" },
+        { "slug": "ai-for-customer-onboarding", "keyword": "ai for customer onboarding", "title_hint": "AI for Customer Onboarding: Reduce Churn by 40%" },
+        { "slug": "ai-chatbot-for-travel-agency", "keyword": "ai chatbot travel agency", "title_hint": "AI Chatbot for Travel Agencies: Book Trips Automatically" },
+        { "slug": "ai-agent-for-social-media", "keyword": "ai agent social media management", "title_hint": "AI Agent for Social Media Management" },
+        { "slug": "ai-for-accounting-firms", "keyword": "ai for accounting firms", "title_hint": "AI for Accounting Firms: Automate Bookkeeping" },
+        { "slug": "ai-assistant-for-sales-teams", "keyword": "ai assistant for sales teams", "title_hint": "AI Assistant for Sales Teams: Close More Deals" },
+        { "slug": "ai-for-nonprofit-organizations", "keyword": "ai for nonprofits", "title_hint": "AI for Nonprofits: Do More with Less" }
+      ]
+    },
+    "technical": {
+      "label": "Technical Deep Dives",
+      "topics": [
+        { "slug": "mcp-protocol-explained", "keyword": "mcp protocol explained", "title_hint": "MCP Protocol Explained: The Future of AI Agent Communication" },
+        { "slug": "running-claude-on-your-own-server", "keyword": "running claude on own server", "title_hint": "Running Claude on Your Own Server: Architecture Deep Dive" },
+        { "slug": "ai-agent-architecture-patterns", "keyword": "ai agent architecture patterns", "title_hint": "AI Agent Architecture Patterns: A Technical Guide" },
+        { "slug": "understanding-ai-agent-memory", "keyword": "ai agent memory systems", "title_hint": "Understanding AI Agent Memory: Short-Term vs Long-Term" },
+        { "slug": "ai-agent-security-best-practices", "keyword": "ai agent security", "title_hint": "AI Agent Security: Best Practices for 2026" },
+        { "slug": "ai-agent-tool-calling-explained", "keyword": "ai agent tool calling", "title_hint": "AI Agent Tool Calling: How It Works Under the Hood" },
+        { "slug": "ai-agent-cost-optimization", "keyword": "ai agent cost optimization", "title_hint": "AI Agent Cost Optimization: Reduce Your Bill by 60%" },
+        { "slug": "ai-agent-observability", "keyword": "ai agent observability monitoring", "title_hint": "AI Agent Observability: Logs, Metrics & Traces" },
+        { "slug": "ai-agent-rate-limiting", "keyword": "ai agent rate limiting", "title_hint": "Rate Limiting for AI Agents: Protect Your API Budget" },
+        { "slug": "ai-agent-context-window-management", "keyword": "ai context window management", "title_hint": "AI Agent Context Window Management: Strategies & Tips" },
+        { "slug": "docker-for-ai-agents", "keyword": "docker for ai agents", "title_hint": "Docker for AI Agents: Containerize Your AI Stack" },
+        { "slug": "ai-agent-plugin-system-design", "keyword": "ai agent plugin system", "title_hint": "Designing an AI Agent Plugin System" },
+        { "slug": "ai-agent-testing-strategies", "keyword": "ai agent testing", "title_hint": "Testing AI Agents: Strategies & Frameworks" },
+        { "slug": "ai-agent-scaling-guide", "keyword": "scaling ai agents", "title_hint": "Scaling AI Agents: From 1 to 1000 Users" },
+        { "slug": "ai-agent-prompt-engineering", "keyword": "ai agent prompt engineering", "title_hint": "Prompt Engineering for AI Agents: Advanced Techniques" }
+      ]
+    },
+    "tools_guide": {
+      "label": "Tool Usage Guides",
+      "topics": [
+        { "slug": "best-free-pdf-converter", "keyword": "best free pdf converter", "title_hint": "Best Free PDF Converter: Online Tools Compared" },
+        { "slug": "ai-text-summarizer-guide", "keyword": "ai text summarizer", "title_hint": "AI Text Summarizer: How It Works & Best Options" },
+        { "slug": "best-json-formatter-online", "keyword": "best json formatter online", "title_hint": "Best JSON Formatter Online: Developer's Pick" },
+        { "slug": "best-qr-code-generator-free", "keyword": "best qr code generator free", "title_hint": "Best Free QR Code Generator: Top 5 in 2026" },
+        { "slug": "ai-email-writer-tools", "keyword": "ai email writer tools", "title_hint": "AI Email Writer Tools: Write Professional Emails in Seconds" },
+        { "slug": "best-ai-code-explainer", "keyword": "ai code explainer tools", "title_hint": "AI Code Explainer: Understand Any Code Instantly" },
+        { "slug": "best-regex-generator-tools", "keyword": "regex generator tools", "title_hint": "Best Regex Generator Tools for Developers" },
+        { "slug": "ai-resume-optimizer-review", "keyword": "ai resume optimizer", "title_hint": "AI Resume Optimizer: Get Past ATS Filters" },
+        { "slug": "best-image-compressor-online", "keyword": "best image compressor online", "title_hint": "Best Image Compressor Online: Reduce File Size 80%" },
+        { "slug": "best-cron-expression-generator", "keyword": "cron expression generator", "title_hint": "Best Cron Expression Generator Tools" },
+        { "slug": "ai-translator-comparison", "keyword": "best ai translator", "title_hint": "Best AI Translator: Google vs DeepL vs AI Tools" },
+        { "slug": "ai-sql-generator-guide", "keyword": "ai sql generator", "title_hint": "AI SQL Generator: Write Queries Without SQL Knowledge" },
+        { "slug": "best-base64-encoder-decoder", "keyword": "base64 encoder decoder online", "title_hint": "Best Base64 Encoder/Decoder Online" },
+        { "slug": "ai-text-rewriter-comparison", "keyword": "ai text rewriter", "title_hint": "AI Text Rewriter: Best Paraphrasing Tools in 2026" },
+        { "slug": "best-markdown-editor-online", "keyword": "best markdown editor online", "title_hint": "Best Markdown Editor Online: Write & Preview Instantly" }
+      ]
+    },
+    "trends": {
+      "label": "Trends & Analysis",
+      "topics": [
+        { "slug": "ai-agents-2026-trends", "keyword": "ai agents 2026 trends", "title_hint": "AI Agents in 2026: Top 10 Trends You Need to Know" },
+        { "slug": "manus-ai-review", "keyword": "manus ai review", "title_hint": "Manus AI Review: Is It Worth the Hype?" },
+        { "slug": "future-of-personal-ai-assistants", "keyword": "future of personal ai assistants", "title_hint": "The Future of Personal AI Assistants" },
+        { "slug": "ai-agent-market-2026", "keyword": "ai agent market size 2026", "title_hint": "AI Agent Market in 2026: Size, Growth & Predictions" },
+        { "slug": "open-source-ai-movement", "keyword": "open source ai movement", "title_hint": "The Open-Source AI Movement: Why It Matters" },
+        { "slug": "ai-replacing-saas", "keyword": "ai replacing saas", "title_hint": "Is AI Replacing SaaS? The Agent-First Future" },
+        { "slug": "ai-agent-for-everyone", "keyword": "ai agent for everyone", "title_hint": "AI Agent for Everyone: The Democratization of AI" },
+        { "slug": "ai-agent-vs-chatbot", "keyword": "ai agent vs chatbot difference", "title_hint": "AI Agent vs Chatbot: What's the Difference?" },
+        { "slug": "why-ai-agents-need-their-own-computer", "keyword": "ai agent dedicated computer", "title_hint": "Why Your AI Agent Needs Its Own Computer" },
+        { "slug": "ai-agent-privacy-concerns", "keyword": "ai agent privacy", "title_hint": "AI Agent Privacy: What You Need to Know" },
+        { "slug": "rise-of-ai-agent-hosting", "keyword": "ai agent hosting platforms", "title_hint": "The Rise of AI Agent Hosting Platforms" },
+        { "slug": "ai-agents-will-kill-apps", "keyword": "ai agents kill apps", "title_hint": "Will AI Agents Kill Traditional Apps?" },
+        { "slug": "ai-first-companies-2026", "keyword": "ai first companies 2026", "title_hint": "AI-First Companies to Watch in 2026" },
+        { "slug": "cost-of-running-ai-agent-2026", "keyword": "cost of running ai agent", "title_hint": "Real Cost of Running an AI Agent in 2026" },
+        { "slug": "ai-agent-ecosystem-explained", "keyword": "ai agent ecosystem", "title_hint": "The AI Agent Ecosystem Explained" }
+      ]
+    }
+  }
+}

@@ -1,0 +1,133 @@
+---
+// 문서 - 채널 추가 하위 페이지 콘텐츠 컴포넌트
+// 지원 채널, 설정 단계, DM Pairing 설명 표시
+---
+
+<div class="flex-1 bg-[#0A0A0A] px-6 lg:px-16 py-10 lg:py-12 max-w-[960px]">
+  <!-- 경로 -->
+  <p class="text-[#555] text-[12px] mb-4">
+    문서  &gt;  시작하기  &gt;  채널 추가
+  </p>
+
+  <!-- 제목 -->
+  <h1 class="text-[32px] font-bold text-white mb-3">채널 추가</h1>
+  <p class="text-[#999] text-[15px] leading-relaxed mb-8">
+    OpenClaw를 메시징 플랫폼에 연결하세요.<br/>
+    OpenClaw는 15개 이상의 채널을 지원합니다. 하나 또는 여러 개를 추가할 수 있습니다.
+  </p>
+
+  <!-- 1.0 지원 채널 -->
+  <h2 class="text-accent font-mono text-[12px] font-semibold tracking-[2px] mb-4">
+    1.0 지원 채널
+  </h2>
+
+  <!-- 채널 그리드: 1.0 -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 max-w-[600px]">
+    <!-- Telegram -->
+    <div class="bg-[#111] rounded-xl border border-[#0088cc]/25 p-5 flex flex-col gap-2">
+      <span class="text-[#0088cc] text-[18px] font-bold">✈️  Telegram</span>
+      <p class="text-[#888] text-[13px] leading-snug">가장 인기 있는 채널입니다. @BotFather로 봇을 만들고 token을 붙여넣으세요.</p>
+      <span class="text-[#4ADE80] text-[11px]">설정 시간: 약 2분</span>
+      <a
+        href="/docs/add-channel#telegram"
+        class="mt-1 inline-block bg-[#0088cc] text-white text-[12px] font-semibold px-4 py-2 rounded-md hover:bg-[#0077b5] transition-colors w-fit"
+      >
+        Telegram 추가하기 →
+      </a>
+    </div>
+
+    <!-- WebChat -->
+    <div class="bg-[#111] rounded-xl border border-accent/25 p-5 flex flex-col gap-2">
+      <span class="text-accent text-[18px] font-bold">💬  WebChat</span>
+      <p class="text-[#888] text-[13px] leading-snug">내장 기능. 설정이 필요 없습니다. Dashboard에서 접근하세요.</p>
+      <span class="text-[#4ADE80] text-[11px]">설정 시간: 0분 (자동)</span>
+      <span class="inline-block bg-accent/10 border border-accent text-accent text-[12px] font-semibold px-4 py-2 rounded-md w-fit">
+        이미 활성화됨 ✓
+      </span>
+    </div>
+  </div>
+
+  <!-- 1.1+ 버전 출시 예정 -->
+  <h3 class="text-[#555] font-mono text-[12px] font-semibold tracking-[2px] mb-3">
+    1.1+ 버전 출시 예정
+  </h3>
+  <div class="flex flex-wrap gap-3 mb-10">
+    {['📱 WhatsApp', '📢 Slack', '🎮 Discord', '🔐 Signal', '📧 Google Chat', '🍎 iMessage', '💼 Teams', '🌐 Matrix'].map((ch) => (
+      <span class="bg-[#111] border border-[#222] rounded-lg px-4 py-2 text-[#444] text-[13px]">
+        {ch}
+      </span>
+    ))}
+  </div>
+
+  <!-- Telegram 단계별 안내 -->
+  <div id="telegram" class="bg-[#0D1117] rounded-xl border border-[#0088cc]/25 p-7 lg:p-8 mb-8 max-w-[800px]">
+    <h2 class="text-[#0088cc] text-[20px] font-bold mb-6">
+      ✈️  Telegram 추가하기 — 단계별 안내
+    </h2>
+
+    <!-- 1단계 -->
+    <div class="flex gap-3 mb-6">
+      <span class="w-7 h-7 min-w-[28px] bg-[#0088cc] rounded-full flex items-center justify-center text-white text-[14px] font-bold">1</span>
+      <div>
+        <p class="text-white text-[16px] font-semibold">@BotFather로 봇 생성하기</p>
+        <p class="text-[#888] text-[13px]">Telegram 열기 → @BotFather 검색 → /newbot 입력 → 봇 이름 지정 → token 받기</p>
+      </div>
+    </div>
+
+    <!-- 2단계 -->
+    <div class="flex gap-3 mb-6">
+      <span class="w-7 h-7 min-w-[28px] bg-[#0088cc] rounded-full flex items-center justify-center text-white text-[14px] font-bold">2</span>
+      <div>
+        <p class="text-white text-[16px] font-semibold">Dashboard에 Token 붙여넣기</p>
+        <p class="text-[#888] text-[13px] mb-2">Dashboard → 채널 → Telegram 추가 → token 붙여넣기 → 연결</p>
+        <div class="w-full max-w-[500px] h-9 bg-[#1A1A1A] rounded-md border border-[#333] flex items-center px-3">
+          <span class="text-[#555] font-mono text-[13px]">123456:ABCDefGhIJKlmNoPQRsTUVwxyz...</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3단계 -->
+    <div class="flex gap-3 mb-6">
+      <span class="w-7 h-7 min-w-[28px] bg-[#0088cc] rounded-full flex items-center justify-center text-white text-[14px] font-bold">3</span>
+      <div>
+        <p class="text-white text-[16px] font-semibold">DM Pairing (OpenClaw 보안 기능)</p>
+        <p class="text-[#888] text-[13px] mb-3">봇에게 아무 메시지나 보내기 → 페어링 코드 받기 → Dashboard에서 승인하기</p>
+        <!-- DM Pairing 경고 -->
+        <div class="max-w-[500px] bg-[#FFAA33]/5 border border-[#FFAA33]/25 rounded-md p-3 flex flex-col gap-1.5">
+          <p class="text-[#FFAA33] text-[12px] font-semibold">⚠️  DM Pairing은 OpenClaw의 보안 기능입니다</p>
+          <p class="text-[#FFAA33] text-[12px] leading-snug">
+            알 수 없는 발신자는 페어링 코드를 받게 됩니다. Dashboard 또는 CLI를 통해 승인하세요:<br/>
+            <code class="font-mono">agentputer pairing approve telegram &lt;code&gt;</code>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 성공 상태 -->
+    <div class="bg-accent/5 border border-accent/25 rounded-lg p-4 flex items-start gap-3">
+      <span class="text-accent text-[16px] font-bold">✓</span>
+      <div>
+        <p class="text-accent text-[16px] font-bold">Telegram 연결 완료!</p>
+        <p class="text-[#4ADE80] text-[13px] leading-snug">
+          이제 @my_agent_bot이 OpenClaw 에이전트에 연결되었습니다.<br/>
+          아무 메시지나 보내 대화를 시작해 보세요. 예: '무엇을 할 수 있니?'
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLI 대체 방안 -->
+  <p class="text-[#666] text-[12px] mb-2">또는 CLI 사용:</p>
+  <div class="max-w-[500px] bg-[#0D1117] rounded-md border border-[#333] p-3 font-mono text-[12px] space-y-0.5 mb-10">
+    <p class="text-accent">$ agentputer channels add telegram</p>
+    <p class="text-[#888]">? 봇 token: 123456:ABCDefGhIJKlmNoPQRsTUVwxyz</p>
+    <p class="text-[#4ADE80]">✓ Telegram 채널이 Pod my-agent에 추가되었습니다</p>
+  </div>
+
+  <!-- 페이지네이션 -->
+  <div class="flex items-center gap-4 text-[13px]">
+    <a href="/docs#quick-start" class="text-[#00BFFF] hover:underline">←  빠른 시작</a>
+    <span class="text-[#333]">|</span>
+    <a href="/docs#skills" class="text-[#00BFFF] hover:underline">Skills & ClawHub  →</a>
+  </div>
+</div>

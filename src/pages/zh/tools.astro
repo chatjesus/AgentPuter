@@ -1,0 +1,208 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/zh/Header.astro';
+import Footer from '../../components/zh/Footer.astro';
+import MatrixRain from '../../components/MatrixRain.astro';
+
+const APP_URL = 'https://app.agentputer.com';
+
+const useCases = [
+  {
+    category: '研究与分析',
+    icon: '',
+    color: 'accent',
+    items: ["全天候监控行业新闻","追踪竞争对手动态","总结长篇报告与 PDF","实时翻译文档","汇编每日市场简报","研究公司与趋势"],
+  },
+  {
+    category: '沟通',
+    icon: '',
+    color: 'accent',
+    items: ["自动起草邮件回复","管理 Telegram/Slack 消息","实时翻译对话","回答客户问题","安排跟进事项","总结长篇对话记录"],
+  },
+  {
+    category: '效率提升',
+    icon: '',
+    color: 'accent',
+    items: ["整理日历与任务","自动记录会议纪要","设置智能提醒","从笔记创建演示文稿","跨项目追踪截止日期","按计划生成报告"],
+  },
+  {
+    category: '财务与商业',
+    icon: '',
+    color: 'accent',
+    items: ["追踪支出与收据","监控股票价格与提醒","生成发票","比较报价与提案","计算 ROI 方案","汇总财务报告"],
+  },
+  {
+    category: '内容与写作',
+    icon: '',
+    color: 'accent',
+    items: ["起草博客文章","撰写社交媒体内容","创建新闻通讯","编辑与校对文档","生成产品描述","撰写合同与 NDA"],
+  },
+  {
+    category: '数据与自动化',
+    icon: '',
+    color: 'accent',
+    items: ["抓取与整理网页数据","监控网站变化","自动分类收到的信息","生成每日/每周摘要","交叉参考多个来源","构建自定义工作流"],
+  }
+];
+---
+<Layout title="工具与用例 - AgentPuter | 您的 AI 助手能做什么？" description="探索 500+ 种您的全天候 AI 助手可以完成的任务。研究、自动化、沟通、分析——无需编程。查看真实用例。" tags={['AgentPuter', 'AI 工具', 'AI 用例', 'AI 自动化', '无代码 AI', 'AI 助手']}>
+  <MatrixRain />
+  <Header activePage="tools" />
+  <main class="relative z-10">
+    <section class="relative pt-32 pb-12 lg:pt-40 lg:pb-16 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-dark-primary via-dark-primary to-dark-secondary"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,255,65,0.06),transparent_50%)]"></div>
+      <div class="relative max-w-7xl mx-auto px-6 lg:px-20 text-center">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.2em] mb-6">500+ 内置技能</div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">您的 AI 助手能做什么？</h1>
+        <p class="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-4">一个助手，无数用例。<br />用自然语言告诉它你需要什么——它会搞定剩下的。</p>
+        <p class="text-text-muted text-sm max-w-xl mx-auto">您的 AI 助手全天候运行，连接您常用的应用，即使在您睡觉时也能处理任务。无需编程，无需配置，只需描述您的需求。</p>
+      </div>
+    </section>
+    <section class="py-8 overflow-hidden">
+      <div class="relative">
+        <div class="flex animate-scroll-left gap-4 whitespace-nowrap">
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">阅读并总结邮件</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">自动起草回复</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">翻译消息</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">监控股票价格</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">追踪竞争对手新闻</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">总结报告</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">安排会议</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">生成发票</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">研究竞争对手</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">撰写社交帖子</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">创建演示文稿</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">在线寻找最优价格</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">阅读并总结邮件</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">自动起草回复</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">翻译消息</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">监控股票价格</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">追踪竞争对手新闻</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">总结报告</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">安排会议</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">生成发票</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">研究竞争对手</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">撰写社交帖子</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">创建演示文稿</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">在线寻找最优价格</span>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 lg:py-20">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-4 text-center">// 旧方式 vs 新方式</div>
+        <h2 class="text-white text-2xl md:text-3xl font-bold mb-12 text-center">停止手动处理一切</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-dark-secondary rounded-2xl border border-dark-tertiary p-8">
+            <div class="text-error font-mono text-xs font-bold mb-4">没有 AGENTPUTER</div>
+            <ul class="space-y-4 text-sm">
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-error mt-0.5">✗</span><span>每天早上手动查看新闻网站</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-error mt-0.5">✗</span><span>在应用之间复制粘贴以翻译消息</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-error mt-0.5">✗</span><span>花数小时阅读和总结报告</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-error mt-0.5">✗</span><span>离开时错过重要更新</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-error mt-0.5">✗</span><span>AI 只在您坐在电脑前时才工作</span></li>
+            </ul>
+          </div>
+          <div class="bg-dark-secondary rounded-2xl border-2 border-accent/50 p-8">
+            <div class="text-accent font-mono text-xs font-bold mb-4">使用 AGENTPUTER</div>
+            <ul class="space-y-4 text-sm">
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-accent mt-0.5">✓</span><span>AI 监控新闻并发送每日简报</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-accent mt-0.5">✓</span><span>在所有渠道自动翻译消息</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-accent mt-0.5">✓</span><span>发送 PDF，几秒内获得摘要</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-accent mt-0.5">✓</span><span>AI 全天候工作——即使在周末</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-accent mt-0.5">✓</span><span>您的助手运行在自己的云端——始终在线</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 lg:py-20">
+      <div class="max-w-7xl mx-auto px-6 lg:px-20">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-4 text-center">// 用例</div>
+        <h2 class="text-white text-2xl md:text-3xl font-bold mb-4 text-center">一个助手，数百种用例</h2>
+        <p class="text-text-muted text-center text-sm mb-12 max-w-lg mx-auto">通过自然语言教 AI 助手新任务，无需编程。</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {useCases.map((category) => (
+            <div class="bg-dark-secondary rounded-2xl border border-dark-tertiary p-6 hover:border-accent/30 transition-colors">
+              <div class="flex items-center gap-3 mb-4">
+                <h3 class="text-white font-bold">{category.category}</h3>
+              </div>
+              <ul class="space-y-2.5">
+                {category.items.map((item) => (
+                  <li class="text-text-muted text-sm flex items-start gap-2">
+                    <span class="text-accent mt-0.5 text-xs">●</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <p class="text-text-dark text-xs font-mono text-center mt-8">// 您可以通过自然语言添加任意数量的用例</p>
+      </div>
+    </section>
+    <section class="py-12 lg:py-20 bg-dark-secondary/50">
+      <div class="max-w-4xl mx-auto px-6 lg:px-20">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-4 text-center">// 工作原理</div>
+        <h2 class="text-white text-2xl md:text-3xl font-bold mb-12 text-center">3 步。2 分钟。完成。</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-accent/10 border border-accent/30 flex items-center justify-center mx-auto mb-4"><span class="text-accent font-mono font-bold text-xl">1</span></div>
+            <h3 class="text-white font-bold mb-2">注册</h3><p class="text-text-muted text-sm">创建账户。浏览无需信用卡。</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-terminal-cyan/10 border border-terminal-cyan/30 flex items-center justify-center mx-auto mb-4"><span class="text-terminal-cyan font-mono font-bold text-xl">2</span></div>
+            <h3 class="text-white font-bold mb-2">连接您的应用</h3><p class="text-text-muted text-sm">连接 Telegram、WhatsApp、Slack 或 15+ 渠道中的任意一个。</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-terminal-magenta/10 border border-terminal-magenta/30 flex items-center justify-center mx-auto mb-4"><span class="text-terminal-magenta font-mono font-bold text-xl">3</span></div>
+            <h3 class="text-white font-bold mb-2">告诉它要做什么</h3><p class="text-text-muted text-sm">用自然语言描述任务。您的 AI 助手处理剩下的——全天候。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 lg:py-20">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20 text-center">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-4">// 在您工作的地方工作</div>
+        <h2 class="text-white text-2xl md:text-3xl font-bold mb-4">连接 15+ 渠道</h2>
+        <p class="text-text-muted text-sm mb-10 max-w-lg mx-auto">您的 AI 助手在您已使用的地方与您见面——无需学习新应用。</p>
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <span class="px-5 py-2.5 bg-dark-secondary border border-accent/30 rounded-full text-accent text-sm font-medium">Telegram</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-accent/30 rounded-full text-accent text-sm font-medium">WhatsApp</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-accent/30 rounded-full text-accent text-sm font-medium">Slack</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-accent/30 rounded-full text-accent text-sm font-medium">Discord</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Email</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Web Chat</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">SMS</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Line</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">WeChat</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Twitter/X</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Instagram</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">+4 more</span>
+        </div>
+      </div>
+    </section>
+    <section class="py-16 lg:py-24">
+      <div class="max-w-7xl mx-auto px-6 lg:px-20">
+        <div class="relative overflow-hidden rounded-2xl bg-dark-secondary border-2 border-accent/50 p-8 md:p-16 glow-accent neon-box">
+          <div class="absolute inset-0 opacity-5"><div class="absolute inset-0" style="background-image: linear-gradient(rgba(0,255,65,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,65,0.1) 1px, transparent 1px); background-size: 20px 20px;"></div></div>
+          <div class="relative text-center">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-accent text-glow-strong mb-4 font-mono">您的 AI 助手等待着您</h2>
+            <p class="text-text-secondary text-lg mb-10 max-w-xl mx-auto" set:html="$29.99/月。2 分钟完成设置。全天候运行。<br />无需编程。无需 API Key。一切已包含。"></p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href={`${APP_URL}/sign-up`} class="btn-primary text-sm py-4 px-10 font-mono">[立即开始 — $29.99/月]</a>
+              <a href="/zh/pricing" class="btn-secondary text-sm py-4 px-10 font-mono">[查看价格]</a>
+            </div>
+            <p class="text-text-muted text-xs font-mono mt-6">// 随时取消 · 无需编程 · 无隐藏费用</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+<style>
+  @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  .animate-scroll-left { animation: scroll-left 30s linear infinite; }
+</style>

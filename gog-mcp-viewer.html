@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GOG — Google Workspace MCP Skill</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --border: #1e1e2e;
+    --accent: #4ade80;
+    --accent2: #60a5fa;
+    --accent3: #f472b6;
+    --accent4: #fb923c;
+    --accent5: #a78bfa;
+    --text: #e2e8f0;
+    --muted: #64748b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Space Grotesk', sans-serif;
+    min-height: 100vh;
+  }
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image:
+      linear-gradient(rgba(74,222,128,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(74,222,128,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none; z-index: 0;
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 48px 24px; position: relative; z-index: 1; }
+
+  /* Hero */
+  .hero {
+    display: flex; align-items: flex-start; gap: 28px;
+    margin-bottom: 48px; padding: 40px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 20px;
+    position: relative; overflow: hidden;
+    animation: fadeUp 0.5s ease both;
+  }
+  .hero::after {
+    content: ''; position: absolute; top: -60px; right: -60px;
+    width: 220px; height: 220px;
+    background: radial-gradient(circle, rgba(74,222,128,0.12), transparent 70%);
+    border-radius: 50%; pointer-events: none;
+  }
+  .hero-icon {
+    width: 76px; height: 76px;
+    background: linear-gradient(135deg, #4ade80, #22c55e);
+    border-radius: 20px; display: flex; align-items: center; justify-content: center;
+    font-size: 38px; font-weight: 700; color: #000; flex-shrink: 0;
+    box-shadow: 0 0 32px rgba(74,222,128,0.35);
+  }
+  .hero-title { font-size: 44px; font-weight: 700; letter-spacing: -1.5px; line-height: 1.1; }
+  .hero-title span { color: var(--accent); }
+  .hero-desc { color: var(--muted); margin-top: 10px; font-size: 16px; line-height: 1.7; max-width: 600px; }
+  .badges { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
+  .badge {
+    padding: 4px 12px; border-radius: 100px; font-size: 12px; font-weight: 600;
+    letter-spacing: 0.4px; border: 1px solid;
+  }
+  .bg { color: var(--accent); border-color: rgba(74,222,128,.3); background: rgba(74,222,128,.08); }
+  .bb { color: var(--accent2); border-color: rgba(96,165,250,.3); background: rgba(96,165,250,.08); }
+  .bp { color: var(--accent3); border-color: rgba(244,114,182,.3); background: rgba(244,114,182,.08); }
+  .bo { color: var(--accent4); border-color: rgba(251,146,60,.3); background: rgba(251,146,60,.08); }
+  .bv { color: var(--accent5); border-color: rgba(167,139,250,.3); background: rgba(167,139,250,.08); }
+
+  /* Stats */
+  .stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 48px; }
+  .stat {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    padding: 22px 24px; text-align: center;
+    animation: fadeUp 0.5s ease both;
+  }
+  .stat:nth-child(2){ animation-delay:.05s }
+  .stat:nth-child(3){ animation-delay:.1s }
+  .stat-num { font-size: 34px; font-weight: 700; letter-spacing: -1px; }
+  .stat-lbl { color: var(--muted); font-size: 13px; margin-top: 4px; }
+
+  /* Section title */
+  .sec-title {
+    font-size: 20px; font-weight: 700; margin-bottom: 20px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .sec-title::before {
+    content: ''; display: block; width: 4px; height: 20px;
+    background: var(--accent); border-radius: 2px;
+  }
+
+  /* Services grid */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px,1fr)); gap: 20px; margin-bottom: 48px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+    padding: 24px; transition: border-color .2s, transform .2s;
+    animation: fadeUp 0.5s ease both;
+  }
+  .card:hover { border-color: var(--c); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,.35); }
+  .card-head { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+  .card-icon {
+    width: 46px; height: 46px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; flex-shrink: 0;
+  }
+  .card-name { font-size: 18px; font-weight: 700; }
+  .card-sub  { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  ul.tools { list-style: none; }
+  .tool {
+    padding: 10px 0; border-bottom: 1px solid var(--border);
+    display: flex; align-items: flex-start; gap: 10px;
+  }
+  .tool:last-child { border-bottom: none; }
+  .tcmd {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px;
+    color: var(--c, var(--accent)); background: rgba(0,0,0,.3);
+    padding: 2px 9px; border-radius: 6px; white-space: nowrap; flex-shrink: 0;
+  }
+  .tdsc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+  /* Flags */
+  .flags { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap: 14px; margin-bottom: 48px; }
+  .flag {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    padding: 16px 18px; display: flex; align-items: flex-start; gap: 12px;
+    animation: fadeUp 0.5s ease both;
+  }
+  .fi { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+  .fn { font-family: 'JetBrains Mono',monospace; font-size: 13px; color: var(--accent2); font-weight: 600; }
+  .fd { font-size: 12px; color: var(--muted); margin-top: 4px; line-height: 1.5; }
+
+  /* Auth */
+  .auth {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+    padding: 28px; margin-bottom: 48px;
+    animation: fadeUp 0.5s ease both;
+  }
+  .code {
+    background: #0d0d14; border: 1px solid var(--border); border-radius: 10px;
+    padding: 18px 22px; margin-top: 14px;
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.9;
+    overflow-x: auto;
+  }
+  .cm { color: #475569; }
+  .ck { color: var(--accent); }
+  .cf { color: var(--accent2); }
+  .cv { color: var(--accent4); }
+
+  /* Install */
+  .install {
+    background: linear-gradient(135deg, rgba(74,222,128,.06), rgba(96,165,250,.06));
+    border: 1px solid rgba(74,222,128,.2); border-radius: 16px;
+    padding: 28px; margin-bottom: 48px;
+    animation: fadeUp 0.5s ease both;
+  }
+  .inst-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap: 12px; margin-top: 18px; }
+  .inst-item {
+    background: rgba(0,0,0,.3); border: 1px solid var(--border);
+    border-radius: 10px; padding: 14px 16px;
+  }
+  .inst-agent { font-size: 12px; color: var(--muted); margin-bottom: 6px; font-weight: 600; text-transform: uppercase; letter-spacing: .5px; }
+  .inst-cmd { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent); word-break: break-all; line-height: 1.6; }
+
+  /* Footer */
+  footer { text-align: center; color: var(--muted); font-size: 13px; padding-top: 24px; border-top: 1px solid var(--border); }
+  footer a { color: var(--accent2); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-icon">G</div>
+    <div>
+      <div class="hero-title"><span>gog</span> — Google Workspace MCP</div>
+      <div class="hero-desc">ClawHub 上的 Google Workspace 一体化 CLI 工具，通过 MCP 协议让 AI Agent 直接操作 Gmail、Calendar、Drive、Contacts、Sheets 和 Docs，无需 Google Cloud Console 配置。</div>
+      <div class="badges">
+        <span class="badge bg">v1.0.1</span>
+        <span class="badge bb">MCP Server</span>
+        <span class="badge bp">14,313+ 安装</span>
+        <span class="badge bo">48 Stars</span>
+        <span class="badge bv">cli-utilities</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-num" style="color:#4ade80">6</div><div class="stat-lbl">集成的 Google 服务</div></div>
+    <div class="stat"><div class="stat-num" style="color:#60a5fa">14+</div><div class="stat-lbl">可用 MCP 工具命令</div></div>
+    <div class="stat"><div class="stat-num" style="color:#f472b6">OAuth 2.0</div><div class="stat-lbl">安全认证方式</div></div>
+  </div>
+
+  <div class="sec-title">MCP 工具能力列表</div>
+  <div class="grid">
+
+    <!-- Gmail -->
+    <div class="card" style="--c:#ea4335">
+      <div class="card-head">
+        <div class="card-icon" style="background:rgba(234,67,53,.12)">📧</div>
+        <div><div class="card-name">Gmail</div><div class="card-sub">邮件搜索与发送</div></div>
+      </div>
+      <ul class="tools">
+        <li class="tool">
+          <span class="tcmd" style="color:#ea4335">gmail search</span>
+          <span class="tdsc">用 Gmail 查询语法搜索邮件，支持时间范围、发件人等过滤条件，--max 限制结果数</span>
+        </li>
+        <li class="tool">
+          <span class="tcmd" style="color:#ea4335">gmail send</span>
+          <span class="tdsc">发送邮件，支持 --to、--subject、--body 参数，操作前会请求确认</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Calendar -->
+    <div class="card" style="--c:#1a73e8">
+      <div class="card-head">
+        <div class="card-icon" style="background:rgba(26,115,232,.12)">📅</div>
+        <div><div class="card-name">Calendar</div><div class="card-sub">日历事件管理</div></div>
+      </div>
+      <ul class="tools">
+        <li class="tool">
+          <span class="tcmd" style="color:#1a73e8">calendar events</span>
+          <span class="tdsc">按 ISO 时间范围查询指定日历的事件列表，适用于时间段报告和集成</span>
+        </li>
+        <li class="tool">
+          <span class="tcmd" style="color:#1a73e8">calendar create</span>
+          <span class="tdsc">创建新日历事件，支持标题、时间、参与者等字段，创建前确认</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Drive -->
+    <div class="card" style="--c:#fbbc04">
+      <div class="card-head">
+        <div class="card-icon" style="background:rgba(251,188,4,.12)">💾</div>
+        <div><div class="card-name">Drive</div><div class="card-sub">云端文件查询与管理</div></div>
+      </div>
+      <ul class="tools">
+        <li class="tool">
+          <span class="tcmd" style="color:#fbbc04">drive search</span>
+          <span class="tdsc">按 Drive 查询语法搜索文件，支持 --max 限制，JSON 输出文件元数据</span>
+        </li>
+        <li class="tool">
+          <span class="tcmd" style="color:#fbbc04">drive list</span>
+          <span class="tdsc">列出 Drive 文件目录，用于备份审计和文件清单同步</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Contacts -->
+    <div class="card" style="--c:#34a853">
+      <div class="card-head">
+        <div class="card-icon" style="background:rgba(52,168,83,.12)">👥</div>
+        <div><div class="card-name">Contacts</div><div class="card-sub">联系人管理</div></div>
+      </div>
+      <ul class="tools">
+        <li class="tool">
+          <span class="tcmd" style="color:#34a853">contacts list</span>
+          <span class="tdsc">列出联系人，支持 --max 限制，JSON 输出可直接导入其他系统进行迁移同步</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Sheets -->
+    <div class="card" style="--c:#0f9d58">
+      <div class="card-head">
+        <div class="card-icon" style="background:rgba(15,157,88,.12)">📊</div>
+        <div><div class="card-name">Google Sheets</div><div class="card-sub">表格读写与批量操作</div></div>
+      </div>
+      <ul class="tools">
+        <li class="tool">
+          <span class="tcmd" style="color:#0f9d58">sheets get</span>
+          <span class="tdsc">读取指定区域单元格数据，支持 A1 表示法，--json 输出</span>
+        </li>
+        <li class="tool">
+          <span class="tcmd" style="color:#0f9d58">sheets update</span>
+          <span class="tdsc">更新单元格数据，通过 --values-json 传入结构化二维数组，支持 USER_ENTERED 模式</span>
+        </li>
+        <li class="tool">
+          <span class="tcmd" style="color:#0f9d58">sheets append</span>
+          <span class="tdsc">追加新行到表格末尾，支持 --insert INSERT_ROWS 策略，适合 ETL 数据管道</span>
+        </li>
+        <li class="tool">
+          <span class="tcmd" style="color:#0f9d58">sheets clear</span>
+          <span class="tdsc">清空指定区域内容，不删除格式样式，用于数据重置</span>
+        </li>
+        <li class="tool">
+          <span class="tcmd" style="color:#0f9d58">sheets metadata</span>
+          <span class="tdsc">获取表格结构信息：页签名称、行列范围、表格属性等</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Docs -->
+    <div class="card" style="--c:#4285f4">
+      <div class="card-head">
+        <div class="card-icon" style="background:rgba(66,133,244,.12)">📝</div>
+        <div><div class="card-name">Google Docs</div><div class="card-sub">文档导出与读取</div></div>
+      </div>
+      <ul class="tools">
+        <li class="tool">
+          <span class="tcmd" style="color:#4285f4">docs export</span>
+          <span class="tdsc">导出文档为指定格式（txt / pdf / html），保存到本地路径，--out 指定目标位置</span>
+        </li>
+        <li class="tool">
+          <span class="tcmd" style="color:#4285f4">docs cat</span>
+          <span class="tdsc">直接输出文档全文内容到 stdout，适合快速阅读和文本处理管道</span>
+        </li>
+        <li class="tool">
+          <span class="tcmd" style="color:#4285f4">docs copy</span>
+          <span class="tdsc">复制文档创建副本，用于模板快速生成新文档</span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Global flags -->
+  <div class="sec-title">全局标志 & 脚本特性</div>
+  <div class="flags">
+    <div class="flag">
+      <div class="fi">🔧</div>
+      <div><div class="fn">--json</div><div class="fd">所有输出以机器可读 JSON 格式返回，适合 CI/CD 管道集成</div></div>
+    </div>
+    <div class="flag">
+      <div class="fi">🤖</div>
+      <div><div class="fn">--no-input</div><div class="fd">完全非交互模式，不等待用户确认，适合自动化脚本和定时任务</div></div>
+    </div>
+    <div class="flag">
+      <div class="fi">👤</div>
+      <div><div class="fn">GOG_ACCOUNT</div><div class="fd">通过环境变量指定默认账号，无需每次传 --account 参数</div></div>
+    </div>
+    <div class="flag">
+      <div class="fi">📋</div>
+      <div><div class="fn">--values-json</div><div class="fd">通过 JSON 数组传递 Sheets 数据，避免 shell 转义问题，推荐在脚本中使用</div></div>
+    </div>
+    <div class="flag">
+      <div class="fi">🔢</div>
+      <div><div class="fn">--max N</div><div class="fd">限制搜索/列表结果数量，防止大数据集过载</div></div>
+    </div>
+    <div class="flag">
+      <div class="fi">📄</div>
+      <div><div class="fn">--format</div><div class="fd">docs export 支持 txt、pdf、html 等格式输出</div></div>
+    </div>
+  </div>
+
+  <!-- Auth -->
+  <div class="auth">
+    <div class="sec-title" style="margin-bottom:16px">认证初始化（一次性配置）</div>
+    <div class="code">
+      <span class="cm"># 1. 导入 OAuth 凭据（从 Google Cloud Console 下载）</span><br>
+      <span class="ck">gog</span> auth credentials <span class="cv">/path/to/client_secret.json</span><br><br>
+      <span class="cm"># 2. 添加账号并授权服务</span><br>
+      <span class="ck">gog</span> auth add <span class="cv">you@gmail.com</span> <span class="cf">--services</span> <span class="cv">gmail,calendar,drive,contacts,sheets,docs</span><br><br>
+      <span class="cm"># 3. 确认授权列表</span><br>
+      <span class="ck">gog</span> auth list<br><br>
+      <span class="cm"># 4. 设置默认账号（避免每次传参）</span><br>
+      <span class="cf">export</span> <span class="cv">GOG_ACCOUNT=you@gmail.com</span>
+    </div>
+  </div>
+
+  <!-- Install -->
+  <div class="install">
+    <div class="sec-title" style="margin-bottom:6px">安装到你的 Agent</div>
+    <div style="color:var(--muted);font-size:14px;margin-bottom:4px">支持 OpenClaw、Claude Code、Codex、Cursor</div>
+    <div class="inst-grid">
+      <div class="inst-item">
+        <div class="inst-agent">OpenClaw</div>
+        <div class="inst-cmd">npx -y @lobehub/market-cli skills install wubaiqing-claw-starter-kit-gog --agent open-claw</div>
+      </div>
+      <div class="inst-item">
+        <div class="inst-agent">Claude Code</div>
+        <div class="inst-cmd">npx -y @lobehub/market-cli skills install wubaiqing-claw-starter-kit-gog --agent claude-code</div>
+      </div>
+      <div class="inst-item">
+        <div class="inst-agent">Cursor</div>
+        <div class="inst-cmd">npx -y @lobehub/market-cli skills install wubaiqing-claw-starter-kit-gog --agent cursor</div>
+      </div>
+      <div class="inst-item">
+        <div class="inst-agent">Homebrew（本地 CLI）</div>
+        <div class="inst-cmd">brew install steipete/tap/gogcli</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    数据来源：<a href="https://clawhub.ai/skills/gog" target="_blank">clawhub.ai/skills/gog</a> ·
+    <a href="https://github.com/wubaiqing/claw-starter-kit" target="_blank">GitHub</a> ·
+    <a href="https://gogcli.sh" target="_blank">gogcli.sh</a>
+  </footer>
+
+</div>
+</body>
+</html>

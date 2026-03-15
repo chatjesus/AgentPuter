@@ -1,0 +1,39 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/es/Header.astro';
+import Footer from '../../../components/es/Footer.astro';
+import DocsSidebar from '../../../components/es/docs/DocsSidebar.astro';
+import DocsChannels from '../../../components/es/docs/DocsChannels.astro';
+import AddChannelDashboard from '../../../components/es/docs/AddChannelDashboard.astro';
+---
+
+<Layout
+  title="Añadir Canales - Documentación de AgentPuter | Conecta Telegram, WhatsApp, Slack y más"
+  description="Guía paso a paso: Conecta OpenClaw a más de 15 canales de chat como Telegram, WhatsApp, Slack y Discord. Explicación del mecanismo de seguridad DM Pairing."
+  tags={['Canales de AgentPuter', 'Configuración de Bot de Telegram', 'Canales de OpenClaw', 'DM Pairing', 'IA de WhatsApp', 'Bot de Slack']}
+>
+  <Header />
+  <main class="relative z-10 pt-20">
+    <!-- Vista de la documentación -->
+    <div class="flex flex-col lg:flex-row min-h-[calc(100vh-80px)]">
+      <DocsSidebar activeItem="add-channels" />
+      <DocsChannels />
+    </div>
+
+    <!-- Vista previa del Dashboard -->
+    <section class="border-t border-[#222222]">
+      <div class="max-w-7xl mx-auto px-6 py-10">
+        <div class="inline-block bg-[#00BFFF]/10 border border-[#00BFFF]/30 rounded px-3 py-1 mb-6">
+          <span class="text-[#00BFFF] font-mono text-[10px] font-semibold tracking-[2px]">
+            VISTA PREVIA DEL DASHBOARD
+          </span>
+        </div>
+        <p class="text-[#666] text-[14px] mb-6">
+          A continuación se muestra la interfaz real para añadir canales en el Dashboard de AgentPuter.
+        </p>
+      </div>
+      <AddChannelDashboard />
+    </section>
+  </main>
+  <Footer />
+</Layout>

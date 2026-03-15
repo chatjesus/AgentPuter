@@ -1,0 +1,88 @@
+---
+// Matrix Rain Background Effect - 性能优化版
+---
+
+<div id="matrix-rain" class="fixed inset-0 pointer-events-none z-0 opacity-20"></div>
+
+<script>
+  // 移动端检测：屏幕窄或触摸设备
+  const isMobile = window.innerWidth < 768 || 'ontouchstart' in window;
+
+  // 移动端完全跳过 MatrixRain，节省 GPU
+  if (!isMobile) {
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    const container = document.getElementById('matrix-rain');
+    
+    if (container && ctx) {
+      container.appendChild(canvas);
+      
+      const resize = () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      };
+      resize();
+      window.addEventListener('resize', resize);
+      
+      const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ<>{}[]|/\\+=';
+      const charArray = chars.split('');
+      
+      const fontSize = 14;
+      const columns = Math.floor(canvas.width / fontSize);
+      const drops: number[] = [];
+      
+      for (let i = 0; i < columns; i++) {
+        drops[i] = Math.random() * -100;
+      }
+      
+      let lastFrame = 0;
+      const frameInterval = 60; // ~16fps 替代原来的 20fps (50ms interval)
+      
+      const draw = (timestamp: number) => {
+        // 页面不可见时暂停渲染
+        if (document.hidden) {
+          requestAnimationFrame(draw);
+          return;
+        }
+        
+        // 控制帧率
+        if (timestamp - lastFrame < frameInterval) {
+          requestAnimationFrame(draw);
+          return;
+        }
+        lastFrame = timestamp;
+        
+        ctx.fillStyle = 'rgba(13, 13, 13, 0.05)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        ctx.font = `${fontSize}px "JetBrains Mono", monospace`;
+        
+        for (let i = 0; i < drops.length; i++) {
+          const char = charArray[Math.floor(Math.random() * charArray.length)];
+          const x = i * fontSize;
+          const y = drops[i] * fontSize;
+          
+          const opacity = Math.random() * 0.5 + 0.2;
+          ctx.fillStyle = `rgba(0, 255, 65, ${opacity})`;
+          ctx.fillText(char, x, y);
+          
+          if (y > canvas.height && Math.random() > 0.98) {
+            drops[i] = 0;
+          }
+          drops[i]++;
+        }
+        
+        requestAnimationFrame(draw);
+      };
+      
+      // 延迟启动，不阻塞首屏渲染
+      setTimeout(() => requestAnimationFrame(draw), 1000);
+    }
+  }
+</script>
+
+<style>
+  #matrix-rain canvas {
+    display: block;
+  }
+</style>

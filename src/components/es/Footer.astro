@@ -1,0 +1,131 @@
+---
+// Componente del pie de página
+
+const footerLinks = {
+  product: [
+    { name: 'Características', href: '/es/features' },
+    { name: 'Precios', href: '/pricing' },
+    { name: 'Documentación', href: '/es/docs' },
+  ],
+  company: [
+    { name: 'Sobre nosotros', href: '#' },
+    { name: 'Blog', href: '/es/blog/' },
+  ],
+  contact: [
+    { name: 'oscarzamora199907@gmail.com', href: 'mailto:oscarzamora199907@gmail.com' },
+    { name: 'Twitter', href: 'https://twitter.com/agentputer' },
+    { name: 'Discord', href: 'https://discord.gg/agentputer' },
+  ],
+  legal: [
+    { name: 'Privacidad', href: '/privacy' },
+    { name: 'Términos', href: '/terms' },
+    { name: 'Seguridad', href: '/privacy#data-security' },
+  ],
+};
+
+const socialLinks = [
+  { name: 'GitHub', href: 'https://github.com/agentputer' },
+];
+---
+
+<footer class="bg-dark-secondary border-t border-accent/20">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20 py-12 lg:py-16">
+    <!-- Sección Superior -->
+    <div class="flex flex-col lg:flex-row justify-between gap-12 mb-12">
+      <!-- Marca -->
+      <div class="lg:max-w-xs">
+        <a href="/es/" class="inline-block mb-4">
+          <span class="font-mono text-xl font-bold">
+            <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span>
+          </span>
+        </a>
+        <p class="text-text-muted text-sm font-mono">
+          <span class="text-terminal-cyan">//</span> Tu IA Nunca Duerme
+        </p>
+      </div>
+      
+      <!-- Cuadrícula de Enlaces -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 font-mono">
+        <!-- Producto -->
+        <div>
+          <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/product</h4>
+          <ul class="space-y-3">
+            {footerLinks.product.map((link) => (
+              <li>
+                <a href={link.href} class="text-text-muted text-sm hover:text-accent transition-colors">
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <!-- Empresa -->
+        <div>
+          <h4 class="text-terminal-orange font-bold mb-4 text-sm">/company</h4>
+          <ul class="space-y-3">
+            {footerLinks.company.map((link) => (
+              <li>
+                <a href={link.href} class="text-text-muted text-sm hover:text-accent transition-colors">
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <!-- Contacto -->
+        <div>
+          <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/contact</h4>
+          <ul class="space-y-3">
+            {footerLinks.contact.map((link) => (
+              <li>
+                <a href={link.href} target={link.href.startsWith('mailto:') ? undefined : '_blank'} class="text-text-muted text-sm hover:text-accent transition-colors break-all">
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <!-- Legal -->
+        <div>
+          <h4 class="text-terminal-blue font-bold mb-4 text-sm">/legal</h4>
+          <ul class="space-y-3">
+            {footerLinks.legal.map((link) => (
+              <li>
+                <a href={link.href} class="text-text-muted text-sm hover:text-accent transition-colors">
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Divisor -->
+    <div class="border-t border-accent/20 pt-8">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4 font-mono">
+        <!-- Copyright -->
+        <p class="text-text-dark text-sm">
+          /* © 2026 AgentPuter. Todos los derechos reservados. */
+        </p>
+        
+        <!-- Enlaces Sociales -->
+        <div class="flex items-center gap-6">
+          {socialLinks.map((link) => (
+            <a 
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-text-muted text-sm hover:text-accent transition-colors"
+            >
+              {link.name}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

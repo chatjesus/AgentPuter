@@ -1,0 +1,75 @@
+---
+// Sección "Cómo funciona" - Proceso de 3 pasos
+
+const steps = [
+  {
+    number: '1',
+    title: 'Crea tu Pod',
+    description: 'Configuración del entorno en la nube con un solo clic. Elige tu configuración y recursos.',
+    command: '$ agentputer create openclaw',
+  },
+  {
+    number: '2',
+    title: 'Conecta tus servicios',
+    description: 'Autoriza Google, Notion, Slack y más. Las credenciales se almacenan de forma segura.',
+    command: '$ agentputer connect',
+  },
+  {
+    number: '3',
+    title: 'Despliega OpenClaw',
+    description: 'Tu ClawBot empieza a trabajar 24/7. WhatsApp, Telegram, Discord — siempre activo.',
+    command: '$ agentputer deploy openclaw',
+  },
+];
+---
+
+<section class="py-20 lg:py-32 bg-dark-secondary relative data-stream">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <span class="inline-block px-4 py-2 text-xs font-mono font-bold tracking-widest text-accent border border-accent/30 bg-accent/10 rounded mb-6">
+        TUTORIAL: INICIO
+      </span>
+      <h2 class="text-3xl md:text-4xl font-bold font-mono text-accent text-glow">
+        3 Pasos para tu Pod de IA en la Nube
+      </h2>
+    </div>
+    
+    <!-- Steps Grid -->
+    <div class="grid md:grid-cols-3 gap-8">
+      {steps.map((step, index) => (
+        <div 
+          class="relative bg-dark-tertiary rounded-lg p-8 text-center group border border-accent/20 hover:border-accent/50 transition-colors hover-lift neon-box flex flex-col h-full"
+          style={`animation-delay: ${index * 150}ms`}
+        >
+          <!-- Step Number -->
+          <div class="w-12 h-12 rounded-lg bg-accent text-dark-primary font-mono font-bold text-xl flex items-center justify-center mx-auto mb-6">
+            {step.number}
+          </div>
+          
+          <!-- Title -->
+          <h3 class="text-xl font-mono font-semibold text-text-primary mb-3 group-hover:text-accent transition-colors">
+            {step.title}
+          </h3>
+          
+          <!-- Description - flex-grow to push code block to bottom -->
+          <p class="text-text-secondary text-sm leading-relaxed mb-6 font-mono flex-grow">
+            {step.description}
+          </p>
+          
+          <!-- Code Block - always at bottom -->
+          <div class="bg-dark-primary rounded-lg p-3 border border-accent/30 mt-auto">
+            <code class="text-accent font-mono text-xs">
+              {step.command}
+            </code>
+          </div>
+          
+          <!-- Connector Line (not on last item) -->
+          {index < steps.length - 1 && (
+            <div class="hidden md:block absolute top-1/4 -right-4 w-8 h-0.5 bg-gradient-to-r from-accent/50 to-transparent"></div>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

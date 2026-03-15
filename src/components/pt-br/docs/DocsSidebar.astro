@@ -1,0 +1,98 @@
+---
+// Componente de navegação da barra lateral da documentação
+interface Props {
+  activeItem?: string;
+}
+const { activeItem = 'home' } = Astro.props;
+
+const sections = [
+  {
+    label: 'PRIMEIROS PASSOS',
+    items: [
+      { id: 'quick-start', name: 'Início Rápido', href: '/docs#quick-start' },
+      { id: 'add-channels', name: 'Adicionar Canais', href: '/docs/add-channel' },
+      { id: 'skills', name: 'Skills & ClawHub', href: '/docs#skills' },
+    ],
+  },
+  {
+    label: 'CONFIGURAR',
+    items: [
+      { id: 'pod-settings', name: 'Configurações do Pod', href: '/docs#pod-settings' },
+      { id: 'env-secrets', name: 'Ambiente & Segredos', href: '/docs#env-secrets' },
+      { id: 'ssh', name: 'Acesso SSH', href: '/docs#ssh' },
+    ],
+  },
+  {
+    label: 'ENTENDER',
+    items: [
+      { id: 'security', name: 'Segurança & Privacidade', href: '/docs#security' },
+      { id: 'troubleshooting', name: 'Solução de Problemas', href: '/docs#troubleshooting' },
+      { id: 'cost', name: 'Custo & Uso', href: '/docs#cost' },
+    ],
+  },
+];
+
+const comingSoon = [
+  'Conceitos Fundamentais',
+  'Múltiplos Agentes',
+  'Skills & Ferramentas',
+  'Gerenciamento de Custos',
+  'Referência da API',
+  'Guia de Migração',
+];
+---
+
+<aside class="w-full lg:w-[240px] lg:min-w-[240px] bg-[#111111] border-r border-[#222222] lg:min-h-[calc(100vh-80px)] lg:sticky lg:top-20 overflow-y-auto">
+  <div class="p-4 lg:py-5 lg:px-4 flex flex-col gap-1">
+    <!-- Caixa de busca -->
+    <div class="w-full h-[30px] bg-[#1A1A1A] rounded-md border border-[#333333] flex items-center px-3 mb-3">
+      <span class="text-[#555] text-[11px] font-sans">🔍 Buscar...  ⌘K</span>
+    </div>
+
+    <!-- Início da Documentação -->
+    <a
+      href="/pt-br/docs"
+      class={`w-full rounded px-2.5 py-1.5 font-mono text-[13px] font-semibold transition-colors ${
+        activeItem === 'home'
+          ? 'bg-accent/10 text-accent'
+          : 'text-[#94A3B8] hover:text-white hover:bg-white/5'
+      }`}
+    >
+      ⌂  Início da Documentação
+    </a>
+
+    <!-- Seções -->
+    {sections.map((section) => (
+      <div class="mt-4">
+        <span class="text-[#666] font-mono text-[10px] font-semibold tracking-[2px] block mb-1 px-1">
+          {section.label}
+        </span>
+        {section.items.map((item) => (
+          <a
+            href={item.href}
+            class={`block px-2.5 py-1 font-mono text-[13px] rounded transition-colors ${
+              activeItem === item.id
+                ? 'text-white bg-white/5'
+                : 'text-[#94A3B8] hover:text-white hover:bg-white/5'
+            }`}
+          >
+            {item.name}
+          </a>
+        ))}
+      </div>
+    ))}
+
+    <!-- Linha divisória -->
+    <div class="w-full h-px bg-[#222] my-4"></div>
+
+    <!-- Em Breve -->
+    <span class="text-[#333] font-mono text-[9px] font-semibold tracking-[2px] block mb-1 px-1">
+      EM BREVE
+    </span>
+    {comingSoon.map((item) => (
+      <span class="block px-2.5 py-0.5 font-mono text-[12px] text-[#333] cursor-default">
+        {item}
+      </span>
+    ))}
+  </div>
+</aside>

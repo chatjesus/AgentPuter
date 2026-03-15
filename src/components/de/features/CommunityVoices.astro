@@ -1,0 +1,82 @@
+---
+// Stimmen aus der Community - Zitatkarten von echten Nutzern (klickbar zum Originalbeitrag)
+const quotes = [
+  {
+    text: '"Ich habe meine KI-Agenten unbeaufsichtigt laufen lassen und sie haben in 2 Stunden 200 $ verbrannt. Der Agent lief immer noch. Machte Anrufe. Gab Geld aus. Einfach... immer weiter."',
+    source: 'HN · anupsingh123',
+    color: '#FF6B6B',
+    url: 'https://news.ycombinator.com/item?id=43496782',
+  },
+  {
+    text: '"Über 780 Leute haben einen KI-Agenten mit vollem Systemzugriff auf das öffentliche Internet deployed. Keine Authentifizierung. Keine IP-Filterung. Einfach... offen."',
+    source: 'Threads · @uddeshya_agrawal',
+    color: '#FF6B6B',
+    url: 'https://www.threads.net/@uddeshya_agrawal',
+  },
+  {
+    text: '"Aufgaben, die ~1 Stunde dauern sollten, benötigen 5–6+ Stunden wegen wiederholter Fehler. Der Agent hört einfach auf, Prozeduren zu folgen, die er Momente zuvor noch verwendet hat."',
+    source: 'GitHub Issue · Claude Code #13919',
+    color: '#FF6B6B',
+    url: 'https://github.com/anthropics/claude-code/issues/13919',
+  },
+  {
+    text: '"Agenten benötigen oft weitreichenden lokalen Zugriff: Umgebungsvariablen, Dateien, CLIs, Browser, API keys. Das lässt die übliche Annahme – \'die lokale Maschine ist sicher\' – wackelig erscheinen."',
+    source: 'HN · xinbenlv',
+    color: '#FFD700',
+    url: 'https://news.ycombinator.com/user?id=xinbenlv',
+  },
+  {
+    text: '"Die aktuelle MCP-Spezifikation konzentriert sich auf die Tool-Interaktion, lässt aber die Autorisierung pro Anfrage weitgehend undefiniert. Sich allein auf die anfänglichen OAuth-Scopes zu verlassen, reicht nicht aus."',
+    source: 'HN · Pomerium (YC)',
+    color: '#FFD700',
+    url: 'https://news.ycombinator.com/item?id=43496782',
+  },
+  {
+    text: '"Gib dem LLM überhaupt keine Geheimnisse – alles, was erweiterte Berechtigungen erfordert, sollte über einen Proxy laufen, der die Anmeldeinformationen speichert."',
+    source: 'HN · bilbo-b-baggins',
+    color: '#00FF41',
+    url: 'https://news.ycombinator.com/item?id=43496782',
+  },
+];
+---
+
+<section class="relative py-20 bg-[#0A0A0A]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20">
+    <div class="flex flex-col items-center text-center mb-12">
+      <span class="block text-xs font-mono font-semibold tracking-[2px] text-[#FF6B6B] mb-6">// ECHTE PROBLEME, ECHTE MENSCHEN</span>
+      <h2 class="text-2xl md:text-[28px] font-bold text-white leading-snug max-w-[700px]">
+        Das sind keine hypothetischen Probleme.<br/>Das ist, was Entwickler täglich sagen.
+      </h2>
+    </div>
+    
+    <!-- Zitatkarten-Raster -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+      {quotes.map((q) => (
+        <a 
+          href={q.url} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="block bg-[#1A1A1A] rounded-xl border border-[#222222] p-6 transition-all duration-300 hover:border-[#444444] hover:-translate-y-1 hover:shadow-lg group"
+        >
+          <p class="text-sm text-[#94A3B8] leading-relaxed mb-4">
+            {q.text}
+          </p>
+          <div class="flex items-center gap-2">
+            <span class="text-[#333333]">—</span>
+            <span class="font-mono text-[11px] group-hover:underline" style={`color: ${q.color}`}>
+              {q.source}
+            </span>
+            <span class="text-[#333333] text-xs ml-auto opacity-0 group-hover:opacity-100 transition-opacity">↗</span>
+          </div>
+        </a>
+      ))}
+    </div>
+    
+    <!-- Zusammenfassung am Ende -->
+    <div class="flex justify-center">
+      <div class="inline-flex items-center px-8 py-4 bg-[#111111] border border-[#00FF4140] rounded-lg">
+        <span class="font-mono text-sm font-semibold text-accent">&gt; AgentPuter wurde entwickelt, um genau diese Probleme zu lösen.</span>
+      </div>
+    </div>
+  </div>
+</section>

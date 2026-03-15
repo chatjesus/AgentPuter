@@ -1,0 +1,117 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/fr/Header.astro';
+import Footer from '../../components/fr/Footer.astro';
+import FeaturesHero from '../../components/fr/features/FeaturesHero.astro';
+import BeforeAfter from '../../components/fr/features/BeforeAfter.astro';
+import CommunityVoices from '../../components/fr/features/CommunityVoices.astro';
+import CoreRoles from '../../components/fr/features/CoreRoles.astro';
+import UseCases from '../../components/fr/features/UseCases.astro';
+import ComparisonTable from '../../components/fr/features/ComparisonTable.astro';
+import Architecture from '../../components/fr/features/Architecture.astro';
+import SecurityTrust from '../../components/fr/features/SecurityTrust.astro';
+import FeaturesCTA from '../../components/fr/features/FeaturesCTA.astro';
+
+// Données structurées pour la page Fonctionnalités - Schéma FAQPage
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Qu\'est-ce que AgentPuter ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'AgentPuter est l\'infrastructure cloud dédiée aux agents IA. Il fournit un environnement d\'exécution 24/7 avec un espace de travail persistant, un proxy de confidentialité, un gestionnaire de contexte, une interface d\'outils unifiée et un journal de responsabilité complet.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Comment AgentPuter protège-t-il mes données ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'AgentPuter agit comme un proxy de confidentialité entre vous et les grands modèles de langage (LLM). Toutes les données sont anonymisées avant d\'être envoyées au modèle, les identifiants sont stockés avec un chiffrement AES-256, les clés API sont gérées côté serveur et jamais exposées au modèle, et les PII sont automatiquement détectées et masquées.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Que peut faire mon agent IA avec AgentPuter ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Votre agent peut gérer des tâches de bureau (rapports, e-mails), de recherche (recherche web, prise de notes), de développement (codage, tests, déploiement) et des tâches créatives (design, génération de contenu) — le tout de manière autonome, avec son propre espace de travail persistant.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Quelle est la différence entre AgentPuter et ChatGPT ou Claude ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Contrairement à une interface de chat, AgentPuter offre à votre agent un véritable ordinateur : en ligne 24/7, stockage de fichiers persistant, gestion automatique des autorisations, prise en charge de plusieurs agents, journaux d\'audit complets, contrôle des coûts et protection contre l\'injection de prompt.',
+      },
+    },
+  ],
+};
+
+// Schéma SoftwareApplication
+const softwareSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'AgentPuter',
+  applicationCategory: 'DeveloperApplication',
+  operatingSystem: 'Cloud',
+  inLanguage: 'fr',
+  description: 'La couche d\'infrastructure qui manquait à votre agent IA. Un véritable ordinateur conçu pour les agents IA, avec un proxy de confidentialité, un gestionnaire de contexte et un espace de travail persistant.',
+  url: 'https://www.agentputer.com/fr/features',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+    description: 'Gratuit pendant la bêta',
+  },
+  featureList: [
+    'Proxy de confidentialité, chiffrement AES-256',
+    'Gestionnaire de contexte à long terme',
+    'Interface d\'outils unifiée (7 outils principaux)',
+    'Espace de travail persistant avec système de fichiers',
+    'Journal de responsabilité et Human-in-the-loop',
+    'Environnement d\'exécution cloud 24/7',
+    'Exécution parallèle de plusieurs agents',
+    'Contrôle des coûts et limites budgétaires',
+  ],
+};
+
+// Schéma BreadcrumbList
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.agentputer.com/fr/' },
+    { '@type': 'ListItem', position: 2, name: 'Fonctionnalités', item: 'https://www.agentputer.com/fr/features' },
+  ],
+};
+---
+
+<Layout
+  title="Fonctionnalités - AgentPuter | La couche d'infrastructure qui manquait à votre agent"
+  description="Découvrez les cinq rôles clés d'AgentPuter : proxy de confidentialité, gestionnaire de contexte, interface unifiée, espace de travail persistant et journal de responsabilité. Voyez comment nous nous comparons aux autres solutions."
+  tags={['Fonctionnalités AgentPuter', 'Infrastructure pour agent IA', 'Proxy de confidentialité', 'Gestion de contexte', 'Espace de travail persistant', 'Sécurité IA', 'Plateforme pour agent IA', 'Environnement d\'exécution cloud']}
+>
+  <!-- Données structurées spécifiques à la page Fonctionnalités -->
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} slot="head" />
+
+  <Header />
+  <main class="relative z-10">
+    <FeaturesHero />
+    <BeforeAfter />
+    <CommunityVoices />
+    <CoreRoles />
+    <UseCases />
+    <ComparisonTable />
+    <Architecture />
+    <SecurityTrust />
+    <FeaturesCTA />
+  </main>
+  <Footer />
+</Layout>

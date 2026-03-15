@@ -1,0 +1,27 @@
+---
+// Route de la page de détail des articles du blog français
+import { getCollection } from 'astro:content';
+import FrBlogPost from '../../../layouts/FrBlogPost.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('fr-blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<FrBlogPost
+  title={post.data.title}
+  description={post.data.description}
+  date={post.data.date}
+  author={post.data.author}
+  readingTime={post.data.readingTime}
+  tags={post.data.tags}
+>
+  <Content />
+</FrBlogPost>

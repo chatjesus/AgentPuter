@@ -1,0 +1,22 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/zh/Header.astro';
+import Footer from '../../../components/zh/Footer.astro';
+import DocsSidebar from '../../../components/zh/docs/DocsSidebar.astro';
+import DocsContent from '../../../components/zh/docs/DocsContent.astro';
+---
+
+<Layout
+  title="文档 - AgentPuter | OpenClaw 托管服务"
+  description="AgentPuter 文档。2 分钟部署你的第一个 AI Agent。OpenClaw 预装，通过 Web UI 配置渠道，零 DevOps。"
+  tags={['AgentPuter 文档', 'OpenClaw 托管', 'AI Agent 文档', '快速上手', 'Telegram Bot', '渠道配置']}
+>
+  <Header />
+  <main class="relative z-10 pt-20">
+    <div class="flex flex-col lg:flex-row min-h-[calc(100vh-80px)]">
+      <DocsSidebar activeItem="home" />
+      <DocsContent />
+    </div>
+  </main>
+  <Footer />
+</Layout>

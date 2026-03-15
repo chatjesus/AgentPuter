@@ -1,0 +1,52 @@
+[
+  {
+    "slug": "hash-generator",
+    "status": "skipped",
+    "reason": "already exists"
+  },
+  {
+    "slug": "url-encoder",
+    "status": "skipped",
+    "reason": "already exists"
+  },
+  {
+    "slug": "merge-pdf",
+    "status": "failed",
+    "reason": "build failed after 3 fixes"
+  },
+  {
+    "slug": "split-pdf",
+    "status": "failed",
+    "reason": "build failed after 3 fixes"
+  },
+  {
+    "slug": "rotate-pdf",
+    "status": "failed",
+    "reason": "build failed after 3 fixes"
+  },
+  {
+    "slug": "compress-pdf",
+    "status": "failed",
+    "reason": "build failed after 3 fixes"
+  },
+  {
+    "slug": "pdf-page-numbers",
+    "status": "failed",
+    "reason": "build failed after 3 fixes"
+  },
+  {
+    "slug": "watermark-pdf",
+    "status": "failed",
+    "reason": "build failed after 3 fixes"
+  },
+  {
+    "slug": "pdf-to-text",
+    "status": "failed",
+    "reason": "build failed after 3 fixes"
+  },
+  {
+    "slug": "protect-pdf",
+    "status": "failed",
+    "reason": "build failed after 3 fixes"
+  }
+]

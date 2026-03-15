@@ -1,0 +1,152 @@
+---
+// 5 Core Roles - 中文版
+const roles = [
+  {
+    icon: '🔒', name: '隐私代理', color: '#00FF41', colorClass: 'text-accent',
+    slogan: '// 你的数据永远在你掌控之中',
+    desc: '你不会把银行密码粘贴到 ChatGPT 里。AgentPuter 充当你和大模型之间的防火墙——对数据脱敏、管理授权、确保数据所有权始终在你手中。',
+    terminal: {
+      title: 'agentputer — privacy proxy',
+      borderColor: '#00FF4130',
+      lines: [
+        { text: '$ agentputer privacy status', color: '#00FF41' },
+        { text: '' },
+        { text: '  数据流向: 用户 → AgentPuter → [已脱敏] → LLM', color: '#94A3B8' },
+        { text: '  凭证: 静态加密 (AES-256)', color: '#94A3B8' },
+        { text: '  API 密钥: 由服务端管理，永不暴露给模型', color: '#94A3B8' },
+        { text: '  PII 检测: 已激活，自动脱敏已开启', color: '#94A3B8' },
+        { text: '✓ 你的数据归你所有', color: '#00FF41' },
+      ],
+    },
+  },
+  {
+    icon: '🧠', name: '上下文管理器', color: '#00BFFF', colorClass: 'text-[#00BFFF]',
+    slogan: '// 永不遗忘的记忆',
+    desc: 'LLM 是健忘的。AgentPuter 给你的 Agent 提供长期记忆。它将工作流、偏好设置和文件历史转换为结构化上下文——节省 Token 的同时提升准确率。',
+    reverse: true,
+    terminal: {
+      title: 'agentputer — context manager',
+      borderColor: '#00BFFF30',
+      lines: [
+        { text: '$ agentputer context show', color: '#00FF41' },
+        { text: '' },
+        { text: '  长期记忆:      847 条', color: '#94A3B8' },
+        { text: '  偏好规则:      23 条已加载', color: '#94A3B8' },
+        { text: '  文件历史:      156 个文件已跟踪', color: '#94A3B8' },
+        { text: '  Token 节省:    ~62%（智能上下文）', color: '#94A3B8' },
+        { text: '  上次同步:      2 分钟前', color: '#94A3B8' },
+        { text: '✓ 接着上次的进度继续', color: '#00FF41' },
+      ],
+    },
+  },
+  {
+    icon: '🔌', name: '统一接口', color: '#A855F7', colorClass: 'text-[#A855F7]',
+    slogan: '// 一个 API 满足 Agent 的所有需求',
+    desc: '每项能力——文档、邮件、网页、代码——都被封装为标准化工具。Agent 调用能力就像人使用鼠标一样自然，无需逐个学习每个 API。',
+    terminal: {
+      title: 'agentputer — unified interface',
+      borderColor: '#A855F730',
+      lines: [
+        { text: '$ agentputer tools list', color: '#00FF41' },
+        { text: '' },
+        { text: '  ├── documents    (读取、写入、转换)', color: '#94A3B8' },
+        { text: '  ├── email        (发送、阅读、搜索)', color: '#94A3B8' },
+        { text: '  ├── web          (浏览、抓取、API)', color: '#94A3B8' },
+        { text: '  ├── calendar     (日程、提醒)', color: '#94A3B8' },
+        { text: '  ├── code         (执行、测试、部署)', color: '#94A3B8' },
+        { text: '  ├── files        (增删改查、整理)', color: '#94A3B8' },
+        { text: '  └── custom       (Skills 市场)', color: '#94A3B8' },
+        { text: '✓ 7 个核心工具 + 无限 Skills', color: '#00FF41' },
+      ],
+    },
+  },
+  {
+    icon: '💾', name: '持久化工作区', color: '#FFD700', colorClass: 'text-[#FFD700]',
+    slogan: '// Agent 自己的桌面',
+    desc: 'Agent 拥有自己的文件系统、代码仓库和研究笔记。未完成的工作会被保存。下次会话从上次离开的地方精确恢复。',
+    reverse: true,
+    terminal: {
+      title: 'agentputer — persistent workspace',
+      borderColor: '#FFD70030',
+      lines: [
+        { text: '$ agentputer workspace status', color: '#00FF41' },
+        { text: '' },
+        { text: '  ~/workspace/', color: '#94A3B8' },
+        { text: '  ├── projects/     (3 个进行中)', color: '#94A3B8' },
+        { text: '  ├── research/     (12 条笔记)', color: '#94A3B8' },
+        { text: '  ├── drafts/       (5 个草稿)', color: '#94A3B8' },
+        { text: '  └── exports/      (8 个已完成)', color: '#94A3B8' },
+        { text: '' },
+        { text: '  存储: 2.1 GB / 40 GB', color: '#94A3B8' },
+        { text: '✓ Agent 的持久化家园', color: '#00FF41' },
+      ],
+    },
+  },
+  {
+    icon: '📋', name: '问责日志', color: '#FF6B6B', colorClass: 'text-[#FF6B6B]',
+    slogan: '// 每个操作，可记录、可追溯',
+    desc: '清楚地看到你的 Agent 做了什么、何时做的、为什么做。完整的决策链被记录。敏感操作自动暂停等待人工确认。通过透明度建立信任。',
+    terminal: {
+      title: 'agentputer — accountability log',
+      borderColor: '#FF6B6B30',
+      lines: [
+        { text: '$ agentputer logs --last 5', color: '#00FF41' },
+        { text: '' },
+        { text: "[14:23:01] [agent] 收到: '编写销售报告'", color: '#94A3B8' },
+        { text: '[14:23:02] [agent] 计划: 获取数据 → 分析 → 格式化', color: '#94A3B8' },
+        { text: '[14:23:05] [tool]  查询数据库: sales_q4_2025', color: '#94A3B8' },
+        { text: '[14:23:08] [agent] 生成报告草稿', color: '#94A3B8' },
+        { text: '[14:23:09] [⚠ 确认] 发送邮件给经理？', color: '#94A3B8' },
+        { text: '[14:23:15] [人工] 已批准 ✓', color: '#94A3B8' },
+        { text: '✓ 敏感操作需人工确认', color: '#00FF41' },
+      ],
+    },
+  },
+];
+---
+
+<section class="relative py-20 bg-[#0A0A0A]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20">
+    <div class="mb-16">
+      <span class="block text-xs font-mono font-semibold tracking-[2px] text-accent mb-6">五大角色，一个平台</span>
+      <p class="text-lg md:text-2xl font-semibold text-white leading-snug max-w-[800px]">
+        AgentPuter 不只是一份功能清单。<br/>它在你的 AI 工作流中扮演五个关键角色。
+      </p>
+    </div>
+    
+    <div class="space-y-24">
+      {roles.map((role) => (
+        <div class={`flex flex-col ${role.reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-10 lg:gap-12`}>
+          <!-- 文字部分 -->
+          <div class="w-full lg:w-5/12 space-y-3">
+            <span class={`font-mono text-[28px] font-bold ${role.colorClass}`}>[{role.icon}]</span>
+            <h3 class="text-2xl md:text-[28px] font-bold text-white">{role.name}</h3>
+            <p class="font-mono text-[13px] font-semibold" style={`color: ${role.color}`}>{role.slogan}</p>
+            <p class="text-[15px] text-[#999999] leading-relaxed pt-1">{role.desc}</p>
+          </div>
+          
+          <!-- 终端部分 -->
+          <div class="w-full lg:w-7/12">
+            <div class="rounded-xl border overflow-hidden" style={`border-color: ${role.terminal.borderColor}; background: #0D1117;`}>
+              <!-- 终端头部 -->
+              <div class="flex items-center gap-2 px-3 h-9 bg-[#252525]">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#EF4444]"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-[#F59E0B]"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-[#22C55E]"></span>
+                <span class="ml-2 text-[#64748B] font-mono text-[11px]">{role.terminal.title}</span>
+              </div>
+              <!-- 终端内容 -->
+              <div class="p-4 space-y-1">
+                {role.terminal.lines.map((line) => (
+                  <p class="font-mono text-xs leading-relaxed" style={`color: ${line.color || '#94A3B8'}`}>
+                    {line.text || '\u00A0'}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

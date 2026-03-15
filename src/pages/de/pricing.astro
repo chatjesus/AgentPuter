@@ -1,0 +1,167 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/de/Header.astro';
+import Footer from '../../components/de/Footer.astro';
+import MatrixRain from '../../components/MatrixRain.astro';
+
+const pricingSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'AgentPuter Pro',
+  description: 'Ihr eigener KI-Agent, der 24/7 arbeitet. Claude 4.5 inklusive. Einrichtung in 2 Minuten.',
+  brand: { '@type': 'Brand', name: 'AgentPuter' },
+  offers: {
+    '@type': 'Offer',
+    price: '29.00',
+    priceCurrency: 'USD',
+    availability: 'https://schema.org/InStock',
+    priceValidUntil: '2027-12-31',
+    url: 'https://app.agentputer.com/subscribe',
+  },
+};
+const APP_URL = 'https://app.agentputer.com';
+---
+<Layout title="Preise - AgentPuter | Ihr Immer-Aktiver KI-Agent" description="AgentPuter Pro: 29,99$/Monat. Ihr eigener KI-Agent, der 24/7 arbeitet. Claude 4.5 inklusive, 15+ Messaging-Kanäle, 500+ Skills. Kein Coding." tags={['AgentPuter', 'Preise', 'KI-Agent', 'KI-Automatisierung', 'No-Code']}>
+  <fragment slot="head"><script type="application/ld+json" set:html={JSON.stringify(pricingSchema)} /></fragment>
+  <MatrixRain />
+  <Header activePage="pricing" />
+  <main class="relative z-10">
+    <section class="relative pt-32 pb-12 lg:pt-40 lg:pb-16 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-dark-primary via-dark-primary to-dark-secondary"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,255,65,0.06),transparent_50%)]"></div>
+      <div class="relative max-w-7xl mx-auto px-6 lg:px-20 text-center">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.2em] mb-6">PREISE: TRANSPARENT</div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Einfache, Vorhersehbare Preise</h1>
+        <p class="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+          Keine versteckten Gebühren. Keine überraschenden Rechnungen. Jederzeit kündbar.<br /><span class="text-accent font-semibold">Pro-Plan jetzt verfügbar</span> — in 2 Minuten starten.
+        </p>
+      </div>
+    </section>
+    <section class="pb-8">
+      <div class="max-w-4xl mx-auto px-6 lg:px-20">
+        <div class="bg-accent/5 border border-accent/15 rounded-xl p-6 md:p-8">
+          <h3 class="text-white font-bold text-lg mb-4">💡 Alles inklusive — einfach anmelden und loslegen</h3>
+          <div class="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10">
+            <div><span class="text-accent font-semibold text-sm">Pro (Alles-in-einem)</span><p class="text-text-muted text-sm mt-1 leading-relaxed">KI-Modell, Cloud-Hosting, Messaging-Kanäle — alles gebündelt. Keine API-Schlüssel. Keine Konfiguration. Funktioniert sofort.</p></div>
+            <span class="text-text-dark font-bold text-sm hidden md:block">ODER</span>
+            <div><span class="text-terminal-blue font-semibold text-sm">Starter (demnächst)</span><p class="text-text-muted text-sm mt-1 leading-relaxed">Haben Sie bereits einen eigenen KI-API-Schlüssel? Nutzen Sie unsere Plattform zum günstigeren Preis — 9$/Mo.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 lg:py-16">
+      <div class="max-w-7xl mx-auto px-6 lg:px-20">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-end max-w-5xl mx-auto">
+          <div class="bg-dark-secondary rounded-2xl border border-dark-tertiary p-8 relative opacity-80">
+            <div class="font-mono text-text-muted text-xs font-semibold tracking-[0.15em] mb-6">STARTER — DEMNÄCHST</div>
+            <div class="flex items-end gap-1 mb-2"><span class="text-5xl font-bold text-white">$9</span><span class="text-text-dark text-base mb-1">/Monat</span></div>
+            <p class="text-text-muted text-sm mb-6">Für Nutzer, die bereits einen KI-API-Schlüssel haben</p>
+            <div class="border-t border-dark-tertiary mb-6"></div>
+            <ul class="space-y-3 text-sm mb-8">
+              <li class="text-text-muted">✓ Immer aktiv — läuft 24/7</li><li class="text-text-muted">✓ 15+ Messaging-Kanäle</li><li class="text-text-muted">✓ 500+ integrierte Skills</li>
+              <li class="text-text-muted">✓ Visuelles Dashboard</li><li class="text-text-muted">✓ Dedizierte Cloud-Umgebung</li><li class="text-text-muted">✓ Kein Coding erforderlich</li>
+              <li class="pt-3 border-t border-dark-tertiary text-text-dark">✗ KI-Modell NICHT enthalten</li>
+              <li class="text-text-dark pl-4">Sie nutzen Ihren eigenen API-Schlüssel</li>
+            </ul>
+            <button disabled class="w-full py-3.5 rounded-lg border border-dark-tertiary text-text-muted font-semibold text-sm cursor-not-allowed">Warteliste beitreten</button>
+          </div>
+          <div class="bg-dark-secondary rounded-2xl border-2 border-accent p-8 relative shadow-lg shadow-accent/10 md:-mt-4">
+            <div class="flex items-center gap-3 mb-6"><span class="text-terminal-magenta font-mono text-xs font-bold">★ JETZT VERFÜGBAR</span><span class="font-mono text-text-muted text-xs font-semibold tracking-[0.15em]">PRO</span></div>
+            <div class="flex items-end gap-1 mb-2"><span class="text-6xl font-bold text-white">$29.99</span><span class="text-text-dark text-base mb-2">/Monat</span></div>
+            <p class="text-text-muted text-sm mb-6">Ihr eigener KI-Agent, der nie schläft. Alles inklusive.</p>
+            <div class="border-t border-dark-tertiary mb-6"></div>
+            <ul class="space-y-3 text-sm mb-8">
+              <li class="text-text-muted">✓ Immer aktiv — 24/7, stoppt nie</li><li class="text-text-muted">✓ Verbindet sich mit Telegram, WhatsApp, Slack & mehr</li><li class="text-text-muted">✓ 500+ integrierte Skills (Recherche, Übersetzen, Zusammenfassen...)</li>
+              <li class="text-text-muted">✓ Visuelles Dashboard — kein Coding nötig</li><li class="text-text-muted">✓ Dedizierter Cloud-Computer, vollständig verwaltet</li><li class="text-text-muted">✓ Einrichtung in 2 Minuten</li>
+              <li class="pt-3 border-t border-dark-tertiary text-accent">✓ Claude 4.5 KI inklusive</li>
+              <li class="text-accent/70 pl-4">~20$/Monat Wert, kostenlos gebündelt</li><li class="text-accent/70 pl-4">Kein API-Schlüssel erforderlich</li>
+            </ul>
+            <a href={`${APP_URL}/sign-up`} class="block w-full py-3.5 rounded-lg bg-accent text-dark-primary font-bold text-sm text-center hover:bg-accent-dark transition-colors">Jetzt starten — 29,99$/Monat</a>
+            <p class="text-text-dark text-xs text-center mt-3 font-mono">Jederzeit kündbar · Kein Coding nötig</p>
+          </div>
+          <div class="bg-dark-secondary rounded-2xl border border-dark-tertiary p-8 relative opacity-80">
+            <div class="font-mono text-text-muted text-xs font-semibold tracking-[0.15em] mb-6">TEAM — DEMNÄCHST</div>
+            <div class="flex items-end gap-1 mb-2"><span class="text-4xl font-bold text-white">$59</span><span class="text-text-dark text-base mb-1">/Monat</span></div>
+            <p class="text-text-muted text-sm mb-6">Mehrere KI-Agenten für Ihr Team betreiben</p>
+            <div class="border-t border-dark-tertiary mb-6"></div>
+            <ul class="space-y-3 text-sm mb-8">
+              <li class="text-text-muted">✓ 3 KI-Agenten laufen 24/7</li><li class="text-text-muted">✓ Höhere Leistung pro Agent</li><li class="text-text-muted">✓ Alle Messaging-Kanäle</li>
+              <li class="text-text-muted">✓ 500+ integrierte Skills</li><li class="text-text-muted">✓ Prioritäts-Support</li><li class="text-text-muted">✓ Multi-Agent-Workflows</li>
+              <li class="pt-3 border-t border-dark-tertiary text-text-muted">✓ KI-Modell INKLUSIVE</li>
+              <li class="text-text-dark pl-4">3x KI-Nutzungskontingent</li><li class="text-text-dark pl-4">Claude 4.5 + Opus Modelle</li>
+            </ul>
+            <button disabled class="w-full py-3.5 rounded-lg border border-dark-tertiary text-text-muted font-semibold text-sm cursor-not-allowed">Warteliste beitreten</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 lg:py-16">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-8">// WARUM AGENTPUTER</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-dark-secondary rounded-xl border border-dark-tertiary p-6">
+            <span class="text-text-muted text-xs font-semibold">vs. Selbst aufbauen</span>
+            <p class="text-error font-bold mt-2">Stunden der Einrichtung + technisches Wissen erforderlich</p>
+            <p class="text-success text-sm mt-2 leading-relaxed">AgentPuter Pro 29,99$/Monat = 2 Minuten Einrichtung. Kein Coding. Kein Server-Management. Funktioniert einfach.</p>
+          </div>
+          <div class="bg-dark-secondary rounded-xl border border-dark-tertiary p-6">
+            <span class="text-text-muted text-xs font-semibold">vs. ChatGPT / Claude Abonnement</span>
+            <p class="text-error font-bold mt-2">20$/Monat = Sie tippen, es antwortet. Das war's.</p>
+            <p class="text-success text-sm mt-2 leading-relaxed">AgentPuter Pro 29,99$/Monat = KI, die 24/7 eigenständig arbeitet, sich mit Ihren Apps verbindet und handelt.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 lg:py-20">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-4">// WARUM "IMMER AKTIV" WICHTIG IST</div>
+        <h2 class="text-white text-2xl font-bold mb-3">Ihre KI arbeitet weiter, während Sie schlafen.</h2>
+        <p class="text-text-muted text-sm mb-8 leading-relaxed">ChatGPT stoppt, wenn Sie den Browser schließen. AgentPuter nicht. Es überwacht, reagiert und handelt rund um die Uhr.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-dark-secondary rounded-xl border border-accent/20 p-5"><span class="text-2xl mb-2 block">⚡</span><span class="text-accent font-bold text-lg">2-Minuten-Einrichtung</span><p class="text-text-muted text-sm mt-1">Klicken, verbinden, fertig. Keine Downloads, kein Coding, kein Warten.</p></div>
+          <div class="bg-dark-secondary rounded-xl border border-terminal-blue/20 p-5"><span class="text-2xl mb-2 block">🔌</span><span class="text-terminal-blue font-bold text-lg">15+ Kanäle</span><p class="text-text-muted text-sm mt-1">Telegram, WhatsApp, Slack, Discord, E-Mail — alles verbunden.</p></div>
+          <div class="bg-dark-secondary rounded-xl border border-terminal-magenta/20 p-5"><span class="text-2xl mb-2 block">🧠</span><span class="text-terminal-magenta font-bold text-lg">Claude 4.5 integriert</span><p class="text-text-muted text-sm mt-1">Top-KI inklusive. Kein separates Abonnement nötig.</p></div>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 lg:py-16 bg-dark-secondary/50">
+      <div class="max-w-3xl mx-auto px-6 lg:px-20">
+        <h2 class="text-2xl font-bold text-white mb-8 text-center">Häufig gestellte Fragen</h2>
+        <div class="space-y-4" id="faq-list">
+          <div class="faq-item border border-dark-tertiary rounded-lg overflow-hidden"><button class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between text-white font-medium hover:bg-dark-tertiary/50 transition-colors"><span>Benötige ich technische Kenntnisse?</span><span class="faq-icon text-accent font-mono text-sm">+</span></button><div class="faq-content hidden px-6 pb-4 text-text-muted text-sm leading-relaxed">Nein. AgentPuter ist für Menschen konzipiert, die nicht programmieren. Anmelden, KI-Modell wählen, Messaging-App verbinden — fertig. Alles wird für Sie verwaltet.</div></div>
+          <div class="faq-item border border-dark-tertiary rounded-lg overflow-hidden"><button class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between text-white font-medium hover:bg-dark-tertiary/50 transition-colors"><span>Welches KI-Modell ist enthalten?</span><span class="faq-icon text-accent font-mono text-sm">+</span></button><div class="faq-content hidden px-6 pb-4 text-text-muted text-sm leading-relaxed">Der Pro-Plan enthält Claude 4.5 von Anthropic — eines der leistungsfähigsten verfügbaren KI-Modelle. Etwa 20$/Monat KI-Nutzung ist in Ihrem Abonnement gebündelt. Kein API-Schlüssel erforderlich.</div></div>
+          <div class="faq-item border border-dark-tertiary rounded-lg overflow-hidden"><button class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between text-white font-medium hover:bg-dark-tertiary/50 transition-colors"><span>Kann ich jederzeit kündigen?</span><span class="faq-icon text-accent font-mono text-sm">+</span></button><div class="faq-content hidden px-6 pb-4 text-text-muted text-sm leading-relaxed">Ja — jederzeit über Ihr Dashboard kündigen. Ihr KI-Agent bleibt bis zum Ende des aktuellen Abrechnungszeitraums aktiv. Keine Stornogebühren, keine Bindung.</div></div>
+          <div class="faq-item border border-dark-tertiary rounded-lg overflow-hidden"><button class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between text-white font-medium hover:bg-dark-tertiary/50 transition-colors"><span>Wie unterscheidet sich das von ChatGPT?</span><span class="faq-icon text-accent font-mono text-sm">+</span></button><div class="faq-content hidden px-6 pb-4 text-text-muted text-sm leading-relaxed">ChatGPT ist ein Chatbot — Sie fragen, es antwortet. AgentPuter gibt Ihnen einen KI-Agenten, der 24/7 eigenständig läuft, sich mit Ihren Apps verbindet und auch handelt, wenn Sie nicht am Computer sind.</div></div>
+          <div class="faq-item border border-dark-tertiary rounded-lg overflow-hidden"><button class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between text-white font-medium hover:bg-dark-tertiary/50 transition-colors"><span>Was kann der KI-Agent wirklich tun?</span><span class="faq-icon text-accent font-mono text-sm">+</span></button><div class="faq-content hidden px-6 pb-4 text-text-muted text-sm leading-relaxed">500+ integrierte Skills: Recherche, Übersetzung, Zusammenfassung, E-Mail-Entwürfe, Datenanalyse, Terminplanung, Marktüberwachung und mehr. Sie können ihm auch neue Aufgaben in natürlicher Sprache beibringen — kein Code nötig.</div></div>
+        </div>
+      </div>
+    </section>
+    <section class="py-16 lg:py-24">
+      <div class="max-w-7xl mx-auto px-6 lg:px-20">
+        <div class="relative overflow-hidden rounded-2xl bg-dark-secondary border-2 border-accent/50 p-8 md:p-16 glow-accent neon-box">
+          <div class="absolute inset-0 opacity-5"><div class="absolute inset-0" style="background-image: linear-gradient(rgba(0,255,65,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,65,0.1) 1px, transparent 1px); background-size: 20px 20px;"></div></div>
+          <div class="relative text-center">
+            <div class="font-mono text-accent text-sm mb-4">> bereit_zu_starten</div>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-accent text-glow-strong mb-4 font-mono">Bereit loszulegen?</h2>
+            <p class="text-text-secondary text-lg mb-10 max-w-xl mx-auto font-mono">29,99$/Monat. Einrichtung in 2 Minuten. Ihr KI-Agent schläft nie.</p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href={`${APP_URL}/sign-up`} class="btn-primary text-sm py-4 px-10 font-mono">[JETZT STARTEN]</a>
+              <a href="mailto:oscarzamora199907@gmail.com" class="btn-secondary text-sm py-4 px-10 font-mono">[FRAGE STELLEN]</a>
+            </div>
+            <p class="text-text-muted text-xs font-mono mt-6">// Jederzeit kündbar · Kein Coding nötig · Keine versteckten Gebühren</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+<script is:inline>
+  document.querySelectorAll('.faq-toggle').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = btn.closest('.faq-item'); var content = item.querySelector('.faq-content'); var icon = item.querySelector('.faq-icon');
+      document.querySelectorAll('.faq-item').forEach(function(other) { if (other !== item) { other.querySelector('.faq-content').classList.add('hidden'); other.querySelector('.faq-icon').textContent = '+'; } });
+      content.classList.toggle('hidden'); icon.textContent = content.classList.contains('hidden') ? '+' : '−';
+    });
+  });
+</script>

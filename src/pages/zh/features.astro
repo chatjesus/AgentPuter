@@ -1,0 +1,117 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/zh/Header.astro';
+import Footer from '../../components/zh/Footer.astro';
+import FeaturesHero from '../../components/zh/features/FeaturesHero.astro';
+import BeforeAfter from '../../components/zh/features/BeforeAfter.astro';
+import CommunityVoices from '../../components/zh/features/CommunityVoices.astro';
+import CoreRoles from '../../components/zh/features/CoreRoles.astro';
+import UseCases from '../../components/zh/features/UseCases.astro';
+import ComparisonTable from '../../components/zh/features/ComparisonTable.astro';
+import Architecture from '../../components/zh/features/Architecture.astro';
+import SecurityTrust from '../../components/zh/features/SecurityTrust.astro';
+import FeaturesCTA from '../../components/zh/features/FeaturesCTA.astro';
+
+// Features 页面结构化数据 - FAQPage schema
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '什么是 AgentPuter？',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'AgentPuter 是 AI Agent 的专属云端基础设施。它提供 7×24 运行时环境，带有持久化工作区、隐私代理、上下文管理、统一工具接口和完整的问责日志。',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'AgentPuter 如何保护我的数据？',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'AgentPuter 充当你与大模型之间的隐私代理。所有数据在发送到模型之前都会被脱敏处理，凭证使用 AES-256 加密存储，API 密钥由服务端管理永不暴露给模型，PII 自动检测并脱敏。',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '我的 AI Agent 可以用 AgentPuter 做什么？',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: '你的 Agent 可以处理办公工作（报告、邮件）、研究（网络搜索、笔记）、开发（编码、测试、部署）和创意任务（设计、内容生成）——全部自主完成，拥有自己的持久化工作区。',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'AgentPuter 和 ChatGPT 或 Claude 有什么不同？',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: '不同于聊天界面，AgentPuter 给你的 Agent 一台真正的电脑：7×24 在线、持久化文件存储、自动授权管理、多 Agent 支持、完整审计日志、成本控制和 Prompt 注入防御。',
+      },
+    },
+  ],
+};
+
+// SoftwareApplication schema
+const softwareSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'AgentPuter',
+  applicationCategory: 'DeveloperApplication',
+  operatingSystem: 'Cloud',
+  inLanguage: 'zh-CN',
+  description: '你的 AI Agent 缺少的基础设施层。一台为 AI Agent 量身打造的真正电脑，带有隐私代理、上下文管理和持久化工作区。',
+  url: 'https://www.agentputer.com/zh/features',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+    description: 'Beta 期间免费',
+  },
+  featureList: [
+    '隐私代理，AES-256 加密',
+    '长期上下文管理器',
+    '统一工具接口（7 个核心工具）',
+    '持久化工作区与文件系统',
+    '问责日志与 Human-in-the-loop',
+    '7×24 云端运行时',
+    '多 Agent 并行执行',
+    '成本控制与预算限制',
+  ],
+};
+
+// BreadcrumbList schema
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: '首页', item: 'https://www.agentputer.com/zh/' },
+    { '@type': 'ListItem', position: 2, name: '功能', item: 'https://www.agentputer.com/zh/features' },
+  ],
+};
+---
+
+<Layout
+  title="功能 - AgentPuter | 你的 Agent 缺少的基础设施层"
+  description="探索 AgentPuter 的五大核心角色：隐私代理、上下文管理器、统一接口、持久化工作区和问责日志。看看我们和其他方案的对比。"
+  tags={['AgentPuter 功能', 'AI Agent 基础设施', '隐私代理', '上下文管理', '持久化工作区', 'AI 安全', 'AI Agent 平台', '云端运行时']}
+>
+  <!-- Features 页面专属结构化数据 -->
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} slot="head" />
+
+  <Header />
+  <main class="relative z-10">
+    <FeaturesHero />
+    <BeforeAfter />
+    <CommunityVoices />
+    <CoreRoles />
+    <UseCases />
+    <ComparisonTable />
+    <Architecture />
+    <SecurityTrust />
+    <FeaturesCTA />
+  </main>
+  <Footer />
+</Layout>

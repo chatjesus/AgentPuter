@@ -1,0 +1,167 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/ja/Header.astro';
+import Footer from '../../components/ja/Footer.astro';
+import MatrixRain from '../../components/MatrixRain.astro';
+
+const pricingSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'AgentPuter Pro',
+  description: '24時間365日稼働するあなた専用のAIエージェント。Claude 4.5内蔵。2分でセットアップ完了。',
+  brand: { '@type': 'Brand', name: 'AgentPuter' },
+  offers: {
+    '@type': 'Offer',
+    price: '29.00',
+    priceCurrency: 'USD',
+    availability: 'https://schema.org/InStock',
+    priceValidUntil: '2027-12-31',
+    url: 'https://app.agentputer.com/subscribe',
+  },
+};
+const APP_URL = 'https://app.agentputer.com';
+---
+<Layout title="料金プラン - AgentPuter | 常時稼働AIエージェント" description="AgentPuter Pro：月額$29.99。24時間365日稼働するあなた専用のAIエージェント。Claude 4.5内蔵、15以上のメッセージチャンネル、500以上のスキル、コーディング不要。" tags={['AgentPuter', '料金', 'AIエージェント', 'AI自動化', 'ノーコード']}>
+  <fragment slot="head"><script type="application/ld+json" set:html={JSON.stringify(pricingSchema)} /></fragment>
+  <MatrixRain />
+  <Header activePage="pricing" />
+  <main class="relative z-10">
+    <section class="relative pt-32 pb-12 lg:pt-40 lg:pb-16 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-dark-primary via-dark-primary to-dark-secondary"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,255,65,0.06),transparent_50%)]"></div>
+      <div class="relative max-w-7xl mx-auto px-6 lg:px-20 text-center">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.2em] mb-6">料金：透明</div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">シンプルで明瞭な料金体系</h1>
+        <p class="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+          隠れた費用なし。予期しない請求なし。いつでもキャンセル可能。<br /><span class="text-accent font-semibold">Proプランが提供開始</span> — 2分でスタート。
+        </p>
+      </div>
+    </section>
+    <section class="pb-8">
+      <div class="max-w-4xl mx-auto px-6 lg:px-20">
+        <div class="bg-accent/5 border border-accent/15 rounded-xl p-6 md:p-8">
+          <h3 class="text-white font-bold text-lg mb-4">💡 すべて含まれています — サインアップしてすぐ開始</h3>
+          <div class="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10">
+            <div><span class="text-accent font-semibold text-sm">Pro（オールインワン）</span><p class="text-text-muted text-sm mt-1 leading-relaxed">AIモデル、クラウドホスティング、メッセージチャンネル — すべてバンドル。APIキー不要。設定不要。すぐに動作。</p></div>
+            <span class="text-text-dark font-bold text-sm hidden md:block">または</span>
+            <div><span class="text-terminal-blue font-semibold text-sm">Starter（近日公開）</span><p class="text-text-muted text-sm mt-1 leading-relaxed">すでにAI APIキーをお持ちですか？低価格でプラットフォームをご利用ください — 月額$9。</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 lg:py-16">
+      <div class="max-w-7xl mx-auto px-6 lg:px-20">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-end max-w-5xl mx-auto">
+          <div class="bg-dark-secondary rounded-2xl border border-dark-tertiary p-8 relative opacity-80">
+            <div class="font-mono text-text-muted text-xs font-semibold tracking-[0.15em] mb-6">STARTER — 近日公開</div>
+            <div class="flex items-end gap-1 mb-2"><span class="text-5xl font-bold text-white">$9</span><span class="text-text-dark text-base mb-1">/月</span></div>
+            <p class="text-text-muted text-sm mb-6">すでにAI APIキーをお持ちのユーザー向け</p>
+            <div class="border-t border-dark-tertiary mb-6"></div>
+            <ul class="space-y-3 text-sm mb-8">
+              <li class="text-text-muted">✓ 常時稼働 — 24/7停止なし</li><li class="text-text-muted">✓ 15以上のメッセージチャンネル</li><li class="text-text-muted">✓ 500以上の組み込みスキル</li>
+              <li class="text-text-muted">✓ ビジュアルダッシュボード</li><li class="text-text-muted">✓ 専用クラウド環境</li><li class="text-text-muted">✓ コーディング不要</li>
+              <li class="pt-3 border-t border-dark-tertiary text-text-dark">✗ AIモデルは含まれない</li>
+              <li class="text-text-dark pl-4">ご自身のAPIキーを使用</li>
+            </ul>
+            <button disabled class="w-full py-3.5 rounded-lg border border-dark-tertiary text-text-muted font-semibold text-sm cursor-not-allowed">ウェイトリストに登録</button>
+          </div>
+          <div class="bg-dark-secondary rounded-2xl border-2 border-accent p-8 relative shadow-lg shadow-accent/10 md:-mt-4">
+            <div class="flex items-center gap-3 mb-6"><span class="text-terminal-magenta font-mono text-xs font-bold">★ 提供中</span><span class="font-mono text-text-muted text-xs font-semibold tracking-[0.15em]">PRO</span></div>
+            <div class="flex items-end gap-1 mb-2"><span class="text-6xl font-bold text-white">$29.99</span><span class="text-text-dark text-base mb-2">/月</span></div>
+            <p class="text-text-muted text-sm mb-6">眠らない専用AIエージェント。すべて含まれます。</p>
+            <div class="border-t border-dark-tertiary mb-6"></div>
+            <ul class="space-y-3 text-sm mb-8">
+              <li class="text-text-muted">✓ 常時稼働 — 24/7、停止なし</li><li class="text-text-muted">✓ Telegram、WhatsApp、Slackなどに接続</li><li class="text-text-muted">✓ 500以上の組み込みスキル（調査、翻訳、要約…）</li>
+              <li class="text-text-muted">✓ ビジュアルダッシュボード — コーディング不要</li><li class="text-text-muted">✓ 専用クラウドコンピュータ、完全マネージド</li><li class="text-text-muted">✓ 2分でセットアップ完了</li>
+              <li class="pt-3 border-t border-dark-tertiary text-accent">✓ Claude 4.5 AI内蔵</li>
+              <li class="text-accent/70 pl-4">約$20/月相当、バンドル無料</li><li class="text-accent/70 pl-4">APIキー不要</li>
+            </ul>
+            <a href={`${APP_URL}/sign-up`} class="block w-full py-3.5 rounded-lg bg-accent text-dark-primary font-bold text-sm text-center hover:bg-accent-dark transition-colors">今すぐ始める — $29.99/月</a>
+            <p class="text-text-dark text-xs text-center mt-3 font-mono">いつでもキャンセル · コーディング不要</p>
+          </div>
+          <div class="bg-dark-secondary rounded-2xl border border-dark-tertiary p-8 relative opacity-80">
+            <div class="font-mono text-text-muted text-xs font-semibold tracking-[0.15em] mb-6">TEAM — 近日公開</div>
+            <div class="flex items-end gap-1 mb-2"><span class="text-4xl font-bold text-white">$59</span><span class="text-text-dark text-base mb-1">/月</span></div>
+            <p class="text-text-muted text-sm mb-6">チームで複数のAIエージェントを運用</p>
+            <div class="border-t border-dark-tertiary mb-6"></div>
+            <ul class="space-y-3 text-sm mb-8">
+              <li class="text-text-muted">✓ 3つのAIエージェントが24/7稼働</li><li class="text-text-muted">✓ エージェントごとに高パフォーマンス</li><li class="text-text-muted">✓ 全メッセージチャンネル対応</li>
+              <li class="text-text-muted">✓ 500以上の組み込みスキル</li><li class="text-text-muted">✓ 優先サポート</li><li class="text-text-muted">✓ マルチエージェントワークフロー</li>
+              <li class="pt-3 border-t border-dark-tertiary text-text-muted">✓ AIモデル含む</li>
+              <li class="text-text-dark pl-4">3倍のAI使用量</li><li class="text-text-dark pl-4">Claude 4.5 + Opusモデル</li>
+            </ul>
+            <button disabled class="w-full py-3.5 rounded-lg border border-dark-tertiary text-text-muted font-semibold text-sm cursor-not-allowed">ウェイトリストに登録</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 lg:py-16">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-8">// なぜ AGENTPUTER か</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-dark-secondary rounded-xl border border-dark-tertiary p-6">
+            <span class="text-text-muted text-xs font-semibold">vs 自分で構築する場合</span>
+            <p class="text-error font-bold mt-2">何時間もの設定 + 技術知識が必要</p>
+            <p class="text-success text-sm mt-2 leading-relaxed">AgentPuter Pro $29.99/月 = 2分でセットアップ。コーディング不要。サーバー管理不要。すぐに動作。</p>
+          </div>
+          <div class="bg-dark-secondary rounded-xl border border-dark-tertiary p-6">
+            <span class="text-text-muted text-xs font-semibold">vs ChatGPT / Claude サブスクリプション</span>
+            <p class="text-error font-bold mt-2">$20/月 = 質問して、回答を得るだけ。</p>
+            <p class="text-success text-sm mt-2 leading-relaxed">AgentPuter Pro $29.99/月 = 24/7自律稼働するAI、アプリに接続し、自ら行動。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 lg:py-20">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-4">// 「常時稼働」が重要な理由</div>
+        <h2 class="text-white text-2xl font-bold mb-3">あなたが眠っている間もAIは動き続ける。</h2>
+        <p class="text-text-muted text-sm mb-8 leading-relaxed">ChatGPTはブラウザを閉じると停止します。AgentPuterは違います。24時間、監視・応答・行動を続けます。</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-dark-secondary rounded-xl border border-accent/20 p-5"><span class="text-2xl mb-2 block">⚡</span><span class="text-accent font-bold text-lg">2分でセットアップ</span><p class="text-text-muted text-sm mt-1">クリック、接続、完了。ダウンロード不要、コーディング不要、待ち時間なし。</p></div>
+          <div class="bg-dark-secondary rounded-xl border border-terminal-blue/20 p-5"><span class="text-2xl mb-2 block">🔌</span><span class="text-terminal-blue font-bold text-lg">15以上のチャンネル</span><p class="text-text-muted text-sm mt-1">Telegram、WhatsApp、Slack、Discord、Emailなど — すべて接続。</p></div>
+          <div class="bg-dark-secondary rounded-xl border border-terminal-magenta/20 p-5"><span class="text-2xl mb-2 block">🧠</span><span class="text-terminal-magenta font-bold text-lg">Claude 4.5内蔵</span><p class="text-text-muted text-sm mt-1">最高水準のAIが含まれています。別途サブスクリプション不要。</p></div>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 lg:py-16 bg-dark-secondary/50">
+      <div class="max-w-3xl mx-auto px-6 lg:px-20">
+        <h2 class="text-2xl font-bold text-white mb-8 text-center">よくある質問</h2>
+        <div class="space-y-4" id="faq-list">
+          <div class="faq-item border border-dark-tertiary rounded-lg overflow-hidden"><button class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between text-white font-medium hover:bg-dark-tertiary/50 transition-colors"><span>技術的なスキルは必要ですか？</span><span class="faq-icon text-accent font-mono text-sm">+</span></button><div class="faq-content hidden px-6 pb-4 text-text-muted text-sm leading-relaxed">不要です。AgentPuterはコードを書かない方向けに設計されています。登録して、AIモデルを選び、メッセージアプリを接続すれば完了です。すべて管理されます。</div></div>
+          <div class="faq-item border border-dark-tertiary rounded-lg overflow-hidden"><button class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between text-white font-medium hover:bg-dark-tertiary/50 transition-colors"><span>どのAIモデルが含まれますか？</span><span class="faq-icon text-accent font-mono text-sm">+</span></button><div class="faq-content hidden px-6 pb-4 text-text-muted text-sm leading-relaxed">ProプランにはAnthropicのClaude 4.5が含まれます — 現在最も優れたAIモデルの一つです。約$20/月相当のAI使用量がサブスクリプションにバンドルされています。APIキー不要。</div></div>
+          <div class="faq-item border border-dark-tertiary rounded-lg overflow-hidden"><button class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between text-white font-medium hover:bg-dark-tertiary/50 transition-colors"><span>いつでもキャンセルできますか？</span><span class="faq-icon text-accent font-mono text-sm">+</span></button><div class="faq-content hidden px-6 pb-4 text-text-muted text-sm leading-relaxed">はい — ダッシュボードからいつでもキャンセルできます。現在の請求期間が終了するまでAIエージェントは稼働し続けます。キャンセル料なし、縛りなし。</div></div>
+          <div class="faq-item border border-dark-tertiary rounded-lg overflow-hidden"><button class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between text-white font-medium hover:bg-dark-tertiary/50 transition-colors"><span>ChatGPTとの違いは何ですか？</span><span class="faq-icon text-accent font-mono text-sm">+</span></button><div class="faq-content hidden px-6 pb-4 text-text-muted text-sm leading-relaxed">ChatGPTはチャットボット — 質問して答えを得るだけです。AgentPuterは24/7自律稼働するAIエージェントを提供し、あなたのアプリに接続し、席を離れていても行動します。</div></div>
+          <div class="faq-item border border-dark-tertiary rounded-lg overflow-hidden"><button class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between text-white font-medium hover:bg-dark-tertiary/50 transition-colors"><span>AIエージェントは実際に何ができますか？</span><span class="faq-icon text-accent font-mono text-sm">+</span></button><div class="faq-content hidden px-6 pb-4 text-text-muted text-sm leading-relaxed">500以上の組み込みスキル：調査、翻訳、要約、メール下書き、データ分析、スケジュール管理、市場監視など。自然言語で新しいタスクを教えることもできます — コード不要。</div></div>
+        </div>
+      </div>
+    </section>
+    <section class="py-16 lg:py-24">
+      <div class="max-w-7xl mx-auto px-6 lg:px-20">
+        <div class="relative overflow-hidden rounded-2xl bg-dark-secondary border-2 border-accent/50 p-8 md:p-16 glow-accent neon-box">
+          <div class="absolute inset-0 opacity-5"><div class="absolute inset-0" style="background-image: linear-gradient(rgba(0,255,65,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,65,0.1) 1px, transparent 1px); background-size: 20px 20px;"></div></div>
+          <div class="relative text-center">
+            <div class="font-mono text-accent text-sm mb-4">> 開始する準備はできていますか</div>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-accent text-glow-strong mb-4 font-mono">今すぐ始めましょう</h2>
+            <p class="text-text-secondary text-lg mb-10 max-w-xl mx-auto font-mono">月額$29.99。2分でセットアップ。AIエージェントは眠りません。</p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href={`${APP_URL}/sign-up`} class="btn-primary text-sm py-4 px-10 font-mono">[今すぐ始める]</a>
+              <a href="mailto:oscarzamora199907@gmail.com" class="btn-secondary text-sm py-4 px-10 font-mono">[質問する]</a>
+            </div>
+            <p class="text-text-muted text-xs font-mono mt-6">// いつでもキャンセル · コーディング不要 · 隠れた費用なし</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+<script is:inline>
+  document.querySelectorAll('.faq-toggle').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = btn.closest('.faq-item'); var content = item.querySelector('.faq-content'); var icon = item.querySelector('.faq-icon');
+      document.querySelectorAll('.faq-item').forEach(function(other) { if (other !== item) { other.querySelector('.faq-content').classList.add('hidden'); other.querySelector('.faq-icon').textContent = '+'; } });
+      content.classList.toggle('hidden'); icon.textContent = content.classList.contains('hidden') ? '+' : '−';
+    });
+  });
+</script>

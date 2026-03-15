@@ -1,0 +1,38 @@
+---
+// Use Cases - 4 个使用场景卡片
+const cases = [
+  {
+    icon: '📊', name: 'Office Work',
+    desc: '"Compile last week\'s sales data, write a report, and email it to my manager."\n\nThe agent pulls data, analyzes, formats, and sends — you just review.',
+  },
+  {
+    icon: '🔬', name: 'Research',
+    desc: '"Research 2025 EV market trends."\n\nSearches, reads, extracts key points, and produces a notebook — saved for follow-up.',
+  },
+  {
+    icon: '💻', name: 'Development',
+    desc: '"Build a landing page for our product."\n\nOwn dev environment. Writes code, runs tests, fixes bugs, deploys — asks you when stuck.',
+  },
+  {
+    icon: '🎨', name: 'Creative',
+    desc: '"Design a social media campaign for Q1."\n\nOwn canvas and assets. Generates drafts, iterates, saves versions. You direct.',
+  },
+];
+---
+
+<section class="relative py-20 bg-[#111111]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20">
+    <span class="block text-xs font-mono font-semibold tracking-[2px] text-accent mb-6">USE CASES</span>
+    <h2 class="text-2xl md:text-[32px] font-bold text-white mb-12">What Can Your Agent Actually Do?</h2>
+    
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {cases.map((c) => (
+        <div class="bg-[#1A1A1A] rounded-xl border border-[#222222] p-6 transition-all duration-300 hover:border-accent/30 hover:-translate-y-1">
+          <span class="text-[28px] block mb-3">{c.icon}</span>
+          <h3 class="text-lg font-semibold text-white mb-3">{c.name}</h3>
+          <p class="text-[13px] text-[#999999] leading-relaxed whitespace-pre-line">{c.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,82 @@
+---
+// Community Voices - 中文版（保留英文原始引用，翻译标题和总结）
+const quotes = [
+  {
+    text: '"I let my AI agents run unsupervised and they burned $200 in 2 hours. The agent was still running. Making calls. Spending money. Just... going."',
+    source: 'HN · anupsingh123',
+    color: '#FF6B6B',
+    url: 'https://news.ycombinator.com/item?id=43496782',
+  },
+  {
+    text: '"780+ people deployed an AI agent with full system access to the public internet. No authentication. No IP filtering. Just... open."',
+    source: 'Threads · @uddeshya_agrawal',
+    color: '#FF6B6B',
+    url: 'https://www.threads.net/@uddeshya_agrawal',
+  },
+  {
+    text: '"Tasks that should take ~1 hour take 5–6+ hours due to repeated mistakes. The agent simply stops following procedures it was using moments before."',
+    source: 'GitHub Issue · Claude Code #13919',
+    color: '#FF6B6B',
+    url: 'https://github.com/anthropics/claude-code/issues/13919',
+  },
+  {
+    text: '"Agents often need broad local access: env vars, files, CLIs, browsers, API keys. This makes the usual assumption — \'the local machine is safe\' — feel shaky."',
+    source: 'HN · xinbenlv',
+    color: '#FFD700',
+    url: 'https://news.ycombinator.com/user?id=xinbenlv',
+  },
+  {
+    text: '"The current MCP spec focuses on tool interaction but leaves per-request authorization largely undefined. Relying solely on initial OAuth scopes falls short."',
+    source: 'HN · Pomerium (YC)',
+    color: '#FFD700',
+    url: 'https://news.ycombinator.com/item?id=43496782',
+  },
+  {
+    text: '"Don\'t give the LLM any secrets at all — anything requiring escalated privilege should be done through a proxy which holds the credentials."',
+    source: 'HN · bilbo-b-baggins',
+    color: '#00FF41',
+    url: 'https://news.ycombinator.com/item?id=43496782',
+  },
+];
+---
+
+<section class="relative py-20 bg-[#0A0A0A]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20">
+    <div class="flex flex-col items-center text-center mb-12">
+      <span class="block text-xs font-mono font-semibold tracking-[2px] text-[#FF6B6B] mb-6">// 真实的痛点，真实的用户</span>
+      <h2 class="text-2xl md:text-[28px] font-bold text-white leading-snug max-w-[700px]">
+        这些不是假设的问题。<br/>是开发者每天都在说的话。
+      </h2>
+    </div>
+    
+    <!-- 引言卡片网格 -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+      {quotes.map((q) => (
+        <a 
+          href={q.url} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="block bg-[#1A1A1A] rounded-xl border border-[#222222] p-6 transition-all duration-300 hover:border-[#444444] hover:-translate-y-1 hover:shadow-lg group"
+        >
+          <p class="text-sm text-[#94A3B8] leading-relaxed mb-4">
+            {q.text}
+          </p>
+          <div class="flex items-center gap-2">
+            <span class="text-[#333333]">—</span>
+            <span class="font-mono text-[11px] group-hover:underline" style={`color: ${q.color}`}>
+              {q.source}
+            </span>
+            <span class="text-[#333333] text-xs ml-auto opacity-0 group-hover:opacity-100 transition-opacity">↗</span>
+          </div>
+        </a>
+      ))}
+    </div>
+    
+    <!-- 底部总结 -->
+    <div class="flex justify-center">
+      <div class="inline-flex items-center px-8 py-4 bg-[#111111] border border-[#00FF4140] rounded-lg">
+        <span class="font-mono text-sm font-semibold text-accent">&gt; AgentPuter 就是为了解决这些问题而生的。</span>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,130 @@
+---
+// Компонент подвала
+const footerLinks = {
+  product: [
+    { name: 'Функции', href: '/ru/features' },
+    { name: 'Цены', href: '/pricing' },
+    { name: 'Документация', href: '/ru/docs' },
+  ],
+  company: [
+    { name: 'О нас', href: '#' },
+    { name: 'Blog', href: '/ru/blog/' },
+  ],
+  contact: [
+    { name: 'oscarzamora199907@gmail.com', href: 'mailto:oscarzamora199907@gmail.com' },
+    { name: 'Twitter', href: 'https://twitter.com/agentputer' },
+    { name: 'Discord', href: 'https://discord.gg/agentputer' },
+  ],
+  legal: [
+    { name: 'Политика конфиденциальности', href: '/privacy' },
+    { name: 'Условия использования', href: '/terms' },
+    { name: 'Безопасность', href: '/privacy#data-security' },
+  ],
+};
+
+const socialLinks = [
+  { name: 'GitHub', href: 'https://github.com/agentputer' },
+];
+---
+
+<footer class="bg-dark-secondary border-t border-accent/20">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20 py-12 lg:py-16">
+    <!-- Верхняя секция -->
+    <div class="flex flex-col lg:flex-row justify-between gap-12 mb-12">
+      <!-- Бренд -->
+      <div class="lg:max-w-xs">
+        <a href="/ru/" class="inline-block mb-4">
+          <span class="font-mono text-xl font-bold">
+            <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span>
+          </span>
+        </a>
+        <p class="text-text-muted text-sm font-mono">
+          <span class="text-terminal-cyan">//</span> Ваш ИИ никогда не спит
+        </p>
+      </div>
+      
+      <!-- Сетка ссылок -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 font-mono">
+        <!-- Продукт -->
+        <div>
+          <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/продукт</h4>
+          <ul class="space-y-3">
+            {footerLinks.product.map((link) => (
+              <li>
+                <a href={link.href} class="text-text-muted text-sm hover:text-accent transition-colors">
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <!-- Компания -->
+        <div>
+          <h4 class="text-terminal-orange font-bold mb-4 text-sm">/компания</h4>
+          <ul class="space-y-3">
+            {footerLinks.company.map((link) => (
+              <li>
+                <a href={link.href} class="text-text-muted text-sm hover:text-accent transition-colors">
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <!-- Контакт -->
+        <div>
+          <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/контакт</h4>
+          <ul class="space-y-3">
+            {footerLinks.contact.map((link) => (
+              <li>
+                <a href={link.href} target={link.href.startsWith('mailto:') ? undefined : '_blank'} class="text-text-muted text-sm hover:text-accent transition-colors break-all">
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <!-- Правовое -->
+        <div>
+          <h4 class="text-terminal-blue font-bold mb-4 text-sm">/правовое</h4>
+          <ul class="space-y-3">
+            {footerLinks.legal.map((link) => (
+              <li>
+                <a href={link.href} class="text-text-muted text-sm hover:text-accent transition-colors">
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Разделитель -->
+    <div class="border-t border-accent/20 pt-8">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4 font-mono">
+        <!-- Авторские права -->
+        <p class="text-text-dark text-sm">
+          /* © 2026 AgentPuter. Все права защищены. */
+        </p>
+        
+        <!-- Социальные ссылки -->
+        <div class="flex items-center gap-6">
+          {socialLinks.map((link) => (
+            <a 
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-text-muted text-sm hover:text-accent transition-colors"
+            >
+              {link.name}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

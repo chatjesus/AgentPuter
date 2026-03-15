@@ -1,0 +1,258 @@
+---
+// ドキュメントトップページのコンテンツエリアコンポーネント
+---
+
+<div class="flex-1 bg-[#0A0A0A] px-6 lg:px-16 py-10 lg:py-12 max-w-[960px]">
+  <!-- 标题 -->
+  <h1 class="text-3xl lg:text-[36px] font-bold text-white mb-3">
+    AgentPuter ドキュメント
+  </h1>
+  <p class="text-[#999] text-[17px] mb-10">
+    OpenClawのためのマネージドホスティング。あなたのAIアシスタントを、いつでもオンラインに。
+  </p>
+
+  <!-- Hero 卡片 / Quick Start 入口 -->
+  <div id="quick-start" class="bg-[#0D1117] rounded-xl border-2 border-accent/25 p-7 lg:p-8 mb-10 max-w-[800px] scroll-mt-24">
+    <h2 class="text-[22px] font-bold text-white mb-2">
+      最初のAIエージェントを2分でデプロイ
+    </h2>
+    <p class="text-[#999] text-[15px] mb-5">
+      OpenClawプリインストール済み。Web UIでチャンネル設定。DevOpsは不要です。
+    </p>
+    <a
+      href="https://app.agentputer.com/sign-up"
+      class="inline-block bg-accent text-[#0A0A0A] font-bold text-[15px] px-8 py-3 rounded-lg hover:bg-accent-dark transition-colors"
+    >
+      クイックスタートを始める →
+    </a>
+  </div>
+
+  <!-- 三栏卡片 -->
+  <div class="grid md:grid-cols-3 gap-6 mb-10">
+    <!-- Get Started -->
+    <div class="bg-[#111111] rounded-xl border border-[#222222] p-6">
+      <span class="text-[28px] block mb-3">🚀</span>
+      <h3 class="text-[18px] font-bold text-white mb-2">はじめに</h3>
+      <p class="text-[#777] text-[13px] mb-4">OpenClawがプリインストールされたPodを作成します。</p>
+      <div class="flex flex-col gap-1.5">
+        <a href="/docs#quick-start" class="text-[#00BFFF] text-[13px] hover:underline">→  クイックスタート</a>
+        <a href="/docs/add-channel" class="text-[#00BFFF] text-[13px] hover:underline">→  チャンネルを追加</a>
+        <a href="/docs#skills" class="text-[#00BFFF] text-[13px] hover:underline">→  Skills & ClawHub</a>
+      </div>
+    </div>
+
+    <!-- Configure -->
+    <div class="bg-[#111111] rounded-xl border border-[#222222] p-6">
+      <span class="text-[28px] block mb-3">⚙️</span>
+      <h3 class="text-[18px] font-bold text-white mb-2">設定</h3>
+      <p class="text-[#777] text-[13px] mb-4">Podと環境をカスタマイズします。</p>
+      <div class="flex flex-col gap-1.5">
+        <a href="/docs#pod-settings" class="text-[#00BFFF] text-[13px] hover:underline">→  Pod 設定</a>
+        <a href="/docs#env-secrets" class="text-[#00BFFF] text-[13px] hover:underline">→  環境とシークレット</a>
+        <a href="/docs#ssh" class="text-[#00BFFF] text-[13px] hover:underline">→  SSH アクセス</a>
+      </div>
+    </div>
+
+    <!-- Understand -->
+    <div class="bg-[#111111] rounded-xl border border-[#222222] p-6">
+      <span class="text-[28px] block mb-3">🔒</span>
+      <h3 class="text-[18px] font-bold text-white mb-2">理解する</h3>
+      <p class="text-[#777] text-[13px] mb-4">セキュリティモデル、コスト、トラブルシューティング。</p>
+      <div class="flex flex-col gap-1.5">
+        <a href="/docs#security" class="text-[#00BFFF] text-[13px] hover:underline">→  セキュリティとプライバシー</a>
+        <a href="/docs#troubleshooting" class="text-[#00BFFF] text-[13px] hover:underline">→  トラブルシューティング</a>
+        <a href="/docs#cost" class="text-[#00BFFF] text-[13px] hover:underline">→  コストと使用量</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skills & ClawHub 占位 -->
+  <div id="skills" class="scroll-mt-24 mb-10">
+    <h2 class="text-[22px] font-semibold text-white mb-3">Skills & ClawHub</h2>
+    <p class="text-[#777] text-[14px] mb-4">
+      OpenClawには50以上の組み込みSkillsと、ClawHub経由で565以上のコミュニティSkillsが含まれています。<br/>
+      AgentPuterは人気のSkillsをプリロードし、Dashboardから管理できます。
+    </p>
+    <div class="bg-[#111] rounded-lg border border-[#222] p-4 max-w-[600px] font-mono text-[12px] space-y-1">
+      <p class="text-accent">$ agentputer skills list</p>
+      <p class="text-[#4ADE80]">組み込み: 50個のSkillsがロード済み</p>
+      <p class="text-[#4ADE80]">ClawHub: 565+個が利用可能</p>
+      <p class="text-[#888]">実行: agentputer skills install &lt;name&gt;</p>
+    </div>
+  </div>
+
+  <!-- What you'll build 标题 -->
+  <h2 class="text-[22px] font-semibold text-white mb-5">作成するもの:</h2>
+
+  <!-- 终端演示 -->
+  <div class="max-w-[800px] bg-[#0D1117] rounded-lg border border-accent/12 overflow-hidden mb-10">
+    <!-- 终端标题栏 -->
+    <div class="h-[30px] bg-[#252525] rounded-t-lg flex items-center gap-2 px-3">
+      <span class="w-[9px] h-[9px] rounded-full bg-[#EF4444]"></span>
+      <span class="w-[9px] h-[9px] rounded-full bg-[#F59E0B]"></span>
+      <span class="w-[9px] h-[9px] rounded-full bg-[#22C55E]"></span>
+      <span class="text-[#64748B] font-mono text-[11px] ml-2">your-terminal</span>
+    </div>
+    <!-- 终端内容 -->
+    <div class="p-4 lg:p-5 font-mono text-[13px] leading-relaxed space-y-1">
+      <p class="text-accent">$ agentputer create my-agent</p>
+      <p class="text-[#4ADE80] text-[12px]">✓ Pod準備完了  (OpenClaw v2026.2.6 プリインストール済み)</p>
+      <p class="text-[#4ADE80] text-[12px]">✓ ゲートウェイ実行中  (ws://pod-abc123:18789)</p>
+      <div class="h-2"></div>
+      <p class="text-accent">$ agentputer channels add telegram</p>
+      <p class="text-[#4ADE80] text-[12px]">✓ Bot @my_agent_bot が接続されました</p>
+      <div class="h-2"></div>
+      <p class="text-accent">$ agentputer status</p>
+      <p class="text-[#4ADE80] text-[12px]">✓ Pod: 実行中  |  OpenClaw: v2026.2.6  |  チャンネル: 1</p>
+      <p class="text-[#4ADE80] text-[12px]">✓ Skills: 12個がアクティブ  |  ClawHub: 接続済み</p>
+    </div>
+  </div>
+
+  <!-- 迁移提示 -->
+  <div class="max-w-[800px] bg-[#1A1A1A] rounded-lg border border-[#FFAA33]/25 flex items-center gap-4 px-6 py-4 mb-12">
+    <span class="text-[20px]">🔄</span>
+    <div>
+      <p class="text-[#FFAA33] text-[14px] font-semibold">セルフホスト版OpenClawから移行しますか？</p>
+      <p class="text-[#888] text-[13px]">移行ガイドは近日公開予定です。それまでは、クイックスタートをご利用ください。</p>
+    </div>
+  </div>
+
+  <!-- ═══ CONFIGURE 分区 ═══ -->
+  <div class="border-t border-[#222] pt-10 mb-10">
+    <h2 class="text-[#666] font-mono text-[10px] font-semibold tracking-[2px] mb-6">CONFIGURE</h2>
+
+    <!-- Pod Settings -->
+    <div id="pod-settings" class="scroll-mt-24 mb-8">
+      <h3 class="text-[20px] font-semibold text-white mb-2">Pod 設定</h3>
+      <p class="text-[#777] text-[14px] mb-3">
+        PodはあなたのAgentPuterサーバーインスタンスです — OpenClawを実行する常時稼働のコンテナです。
+        リージョン、リソース、ストレージはDashboardから設定します。
+      </p>
+      <div class="bg-[#111] rounded-lg border border-[#222] p-4 max-w-[600px] font-mono text-[12px] space-y-1">
+        <p class="text-accent">$ agentputer pod info my-agent</p>
+        <p class="text-[#888]">リージョン:   us-east-1</p>
+        <p class="text-[#888]">CPU:      2 vCPU  |  RAM: 2 GB</p>
+        <p class="text-[#888]">ストレージ:  40 GB SSD (2.1 GB 使用済み)</p>
+        <p class="text-[#888]">OpenClaw: v2026.2.6 (自動更新: on)</p>
+        <p class="text-[#4ADE80]">ステータス:   実行中 (稼働時間: 14日 6時間)</p>
+      </div>
+    </div>
+
+    <!-- Environment & Secrets -->
+    <div id="env-secrets" class="scroll-mt-24 mb-8">
+      <h3 class="text-[20px] font-semibold text-white mb-2">環境とシークレット</h3>
+      <p class="text-[#777] text-[14px] mb-3">
+        AIモデルのAPIキーやその他のシークレットを設定します。AgentPuterはそれらを暗号化して保存し、
+        OpenClawインスタンスに注入します — SSHでログインしてJSONファイルを編集する必要はありません。
+      </p>
+      <div class="bg-[#111] rounded-lg border border-[#222] p-4 max-w-[600px] font-mono text-[12px] space-y-1">
+        <p class="text-accent">$ agentputer config set agent.model=anthropic/claude-opus-4-6</p>
+        <p class="text-[#4ADE80]">✓ モデルが更新されました</p>
+        <p class="text-accent">$ agentputer secrets set ANTHROPIC_API_KEY=sk-ant-...</p>
+        <p class="text-[#4ADE80]">✓ シークレットが保存されました (暗号化済み)</p>
+      </div>
+      <p class="text-[#555] text-[12px] mt-2">
+        推奨モデル: Anthropic Claude Opus 4.6 (最高の長文コンテキスト + アンチインジェクション)。
+        ご自身のAPIキーまたはAnthropic Proのサブスクリプション($20/月)が必要です。
+      </p>
+    </div>
+
+    <!-- SSH Access -->
+    <div id="ssh" class="scroll-mt-24 mb-8">
+      <h3 class="text-[20px] font-semibold text-white mb-2">SSH アクセス</h3>
+      <p class="text-[#777] text-[14px] mb-3">
+        パワーユーザーはPodに直接SSH接続して、高度な設定、
+        デバッグ、またはOpenClaw CLIコマンドの実行ができます。
+      </p>
+      <div class="bg-[#111] rounded-lg border border-[#222] p-4 max-w-[600px] font-mono text-[12px] space-y-1">
+        <p class="text-accent">$ agentputer ssh my-agent</p>
+        <p class="text-[#888]">pod-abc123に接続中...</p>
+        <p class="text-[#4ADE80]">root@pod-abc123:~#</p>
+        <p class="text-[#888]"># これでopenclawコマンドを直接実行できます:</p>
+        <p class="text-accent">$ openclaw doctor</p>
+        <p class="text-[#4ADE80]">✓ すべてのチェックに合格しました</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ UNDERSTAND 分区 ═══ -->
+  <div class="border-t border-[#222] pt-10 mb-10">
+    <h2 class="text-[#666] font-mono text-[10px] font-semibold tracking-[2px] mb-6">UNDERSTAND</h2>
+
+    <!-- Security & Privacy -->
+    <div id="security" class="scroll-mt-24 mb-8">
+      <h3 class="text-[20px] font-semibold text-white mb-2">セキュリティとプライバシー</h3>
+      <p class="text-[#777] text-[14px] mb-3">
+        AgentPuterは各Podを独自のコンテナに分離します。あなたのデータはあなたのPod内に留まります。<br/>
+        OpenClawは、誰がエージェントにメッセージを送れるかを制御するためのDM Pairingを提供します。
+      </p>
+      <div class="max-w-[600px] grid grid-cols-2 gap-3 text-[13px]">
+        <div class="bg-[#111] rounded-lg border border-[#222] p-3">
+          <p class="text-accent font-semibold mb-1">Podの分離</p>
+          <p class="text-[#888]">ユーザーごとに専用コンテナ。共有リソースなし。</p>
+        </div>
+        <div class="bg-[#111] rounded-lg border border-[#222] p-3">
+          <p class="text-accent font-semibold mb-1">DM Pairing</p>
+          <p class="text-[#888]">OpenClawの組み込み認証。未知の送信者は承認が必要です。</p>
+        </div>
+        <div class="bg-[#111] rounded-lg border border-[#222] p-3">
+          <p class="text-accent font-semibold mb-1">暗号化されたシークレット</p>
+          <p class="text-[#888]">APIキーは暗号化して保存され、モデルに公開されることはありません。</p>
+        </div>
+        <div class="bg-[#111] rounded-lg border border-[#222] p-3">
+          <p class="text-accent font-semibold mb-1">サンドボックスモード</p>
+          <p class="text-[#888]">OpenClaw SandboxはSkillsがアクセスできるものを制限します。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Troubleshooting -->
+    <div id="troubleshooting" class="scroll-mt-24 mb-8">
+      <h3 class="text-[20px] font-semibold text-white mb-2">トラブルシューティング</h3>
+      <p class="text-[#777] text-[14px] mb-3">
+        よくある問題とその解決方法。
+      </p>
+      <div class="max-w-[600px] space-y-3 text-[13px]">
+        <div class="bg-[#111] rounded-lg border border-[#222] p-3">
+          <p class="text-white font-semibold mb-1">ボットが応答しませんか？</p>
+          <p class="text-[#888]">Podのステータスを確認してください: <code class="text-accent font-mono">agentputer status</code>。
+            モデルのAPIキーが設定され、有効であることを確認してください。</p>
+        </div>
+        <div class="bg-[#111] rounded-lg border border-[#222] p-3">
+          <p class="text-white font-semibold mb-1">DM Pairingコードが届きませんか？</p>
+          <p class="text-[#888]">ボットのTokenが正しいことを確認してください。SSH経由で <code class="text-accent font-mono">openclaw doctor</code> を試してください。</p>
+        </div>
+        <div class="bg-[#111] rounded-lg border border-[#222] p-3">
+          <p class="text-white font-semibold mb-1">Podが起動しませんか？</p>
+          <p class="text-[#888]">ログを確認してください: <code class="text-accent font-mono">agentputer logs my-agent</code>。
+            問題が解決しない場合は、サポートにお問い合わせください。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cost & Usage -->
+    <div id="cost" class="scroll-mt-24 mb-8">
+      <h3 class="text-[20px] font-semibold text-white mb-2">コストと使用量</h3>
+      <p class="text-[#777] text-[14px] mb-3">
+        コストは2つの要素から構成されます:
+      </p>
+      <div class="max-w-[600px] space-y-3 text-[13px]">
+        <div class="bg-[#111] rounded-lg border border-accent/20 p-3">
+          <p class="text-accent font-semibold mb-1">① AgentPuter (インフラストラクチャ)</p>
+          <p class="text-[#888]">Podのホスティング料金。コンピューティング、ストレージ、ネットワーク、自動更新、Dashboardへのアクセスが含まれます。</p>
+        </div>
+        <div class="bg-[#111] rounded-lg border border-[#A855F7]/20 p-3">
+          <p class="text-[#A855F7] font-semibold mb-1">② モデルAPI (ご自身のサブスクリプション)</p>
+          <p class="text-[#888]">AIモデルの使用量。ご自身のAPIキーをご用意ください (例: Anthropic Pro $20/月)。<br/>
+            AgentPuterはコスト監視ダッシュボードを提供し、いつでも支出を把握できます。</p>
+        </div>
+      </div>
+      <div class="bg-[#111] rounded-lg border border-[#222] p-4 max-w-[600px] font-mono text-[12px] space-y-1 mt-3">
+        <p class="text-accent">$ agentputer usage my-agent</p>
+        <p class="text-[#888]">今月: 1,247メッセージ  |  ~$8.40 APIコスト</p>
+        <p class="text-[#888]">予算上限: $50/月  |  使用率: 16.8%</p>
+        <p class="text-[#4ADE80]">✓ 予算内</p>
+      </div>
+    </div>
+  </div>
+</div>

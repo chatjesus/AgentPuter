@@ -1,0 +1,97 @@
+---
+// ソリューションセクション - AgentPuterの機能
+
+const features = [
+  {
+    icon: '>_',
+    title: '24時間365日オンライン',
+    description: 'エージェントはクラウドで稼働し、スリープしません。あなたが寝ている間も、旅行中も、休憩中も、働き続けます。',
+  },
+  {
+    icon: '[~]',
+    title: '永続的な認証',
+    description: 'サーバー管理のトークンとAPIキー。自動更新、自動メンテナンス。手動での操作は一切不要です。',
+  },
+  {
+    icon: '>>',
+    title: '複数エージェントの並列実行',
+    description: 'ローカルマシンのリソースを消費することなく、複数のエージェントを同時に実行。必要に応じてスケール可能です。',
+  },
+  {
+    icon: '[*]',
+    title: 'どこからでもアクセス',
+    description: 'どのデバイスからでも、どこからでもエージェントを操作。AIがあなたについてきます。その逆ではありません。',
+  },
+];
+---
+
+<section id="features" class="py-20 lg:py-32 bg-dark-primary relative particles">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20">
+    <!-- セクションヘッダー -->
+    <div class="text-center mb-16">
+      <span class="inline-block px-4 py-2 text-xs font-mono font-bold tracking-widest text-accent border border-accent/30 bg-accent/10 rounded mb-6">
+        ソリューション：初期化完了
+      </span>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold font-mono text-accent text-glow mb-4">
+        あなた専用のAIクラウド
+      </h2>
+      <p class="text-text-secondary text-lg max-w-2xl mx-auto font-mono">
+        AgentPuterは、あなたのAIエージェント専用のランタイムです。シャットダウンすることのないクラウドPodを提供します
+      </p>
+    </div>
+    
+    <!-- コンテンツグリッド -->
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <!-- ターミナル風ビジュアル -->
+      <div class="bg-dark-secondary rounded-lg border border-accent/30 overflow-hidden glow-accent neon-box pulse-border order-2 lg:order-1">
+        <div class="flex items-center gap-2 px-4 h-10 bg-dark-tertiary border-b border-accent/20">
+          <span class="w-3 h-3 rounded-full bg-error"></span>
+          <span class="w-3 h-3 rounded-full bg-warning"></span>
+          <span class="w-3 h-3 rounded-full bg-accent"></span>
+          <span class="text-accent font-mono text-xs ml-2">agentputer@cloud:~</span>
+        </div>
+        <div class="p-5 font-mono text-sm leading-relaxed space-y-2 min-h-[320px]">
+          <div class="text-accent">$ agentputer status</div>
+          <div class="text-text-secondary"></div>
+          <div class="text-text-secondary">  Pod ID:      <span class="text-terminal-cyan">pod-7x24-alpha</span></div>
+          <div class="text-accent">  ステータス:  <span class="text-accent">●</span> オンライン</div>
+          <div class="text-text-secondary">  稼働時間:    <span class="text-terminal-blue">14d 7h 23m</span></div>
+          <div class="text-text-secondary">  エージェント:  <span class="text-terminal-orange">3 実行中</span></div>
+          <div class="text-text-secondary"></div>
+          <div class="text-accent">$ openclaw logs --tail</div>
+          <div class="text-text-muted text-xs"><span class="text-terminal-cyan">[02:34:15]</span> <span class="text-terminal-orange">[gateway]</span> WhatsAppに接続しました</div>
+          <div class="text-text-muted text-xs"><span class="text-terminal-cyan">[02:34:18]</span> <span class="text-terminal-orange">[clawbot]</span> 47件のメッセージを処理しました</div>
+          <div class="text-text-muted text-xs"><span class="text-terminal-cyan">[02:34:22]</span> <span class="text-terminal-orange">[moltbot]</span> カレンダーを同期しました ✓</div>
+          <div class="text-accent text-xs"><span class="text-terminal-cyan">[02:34:25]</span> <span class="text-accent">✓</span> 全てのタスクが完了しました</div>
+          <div class="text-text-secondary"></div>
+          <div class="flex">
+            <span class="text-accent">$ </span>
+            <span class="text-accent animate-blink">█</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 機能リスト -->
+      <div class="space-y-6 order-1 lg:order-2">
+        {features.map((feature, index) => (
+          <div 
+            class="flex gap-4 group"
+            style={`animation-delay: ${index * 100}ms`}
+          >
+            <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-dark-tertiary border border-accent/20 flex items-center justify-center group-hover:border-accent group-hover:bg-accent/10 transition-colors">
+              <span class="text-accent font-mono font-bold text-sm">{feature.icon}</span>
+            </div>
+            <div>
+              <h3 class="text-text-primary font-mono font-semibold mb-1 group-hover:text-accent transition-colors">
+                {feature.title}
+              </h3>
+              <p class="text-text-secondary text-sm leading-relaxed font-mono">
+                {feature.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,158 @@
+---
+// 中文博客列表页
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/zh/Header.astro';
+import Footer from '../../../components/zh/Footer.astro';
+import { getCollection } from 'astro:content';
+
+// 获取所有中文博客文章，按日期降序排列
+const posts = (await getCollection('zh-blog')).sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+
+const now = new Date();
+const isNew = (dateStr: string) => {
+  const diff = now.getTime() - new Date(dateStr).getTime();
+  return diff < 14 * 24 * 60 * 60 * 1000;
+};
+---
+
+<Layout
+  title="博客 | AgentPuter - AI Agent 与软件变革洞察"
+  description="关于 AI Agent、软件未来和 AgentPuter 愿景的深度洞察。探索 Agent 如何重塑生产力。"
+  tags={['AI Agent 博客', 'AgentPuter', '软件变革', 'AI 自动化', 'OpenClaw']}
+>
+  <Header />
+  <main class="relative z-10 pt-28 pb-20 min-h-screen">
+    <div class="max-w-5xl mx-auto px-6 lg:px-8">
+      <!-- 页面头部 -->
+      <header class="mb-16">
+        <nav class="mb-8 font-mono text-sm">
+          <a href="/zh/" class="text-text-muted hover:text-accent transition-colors">~</a>
+          <span class="text-text-dark mx-2">/</span>
+          <span class="text-accent">博客</span>
+        </nav>
+
+        <div class="terminal max-w-2xl">
+          <div class="terminal-header">
+            <span class="terminal-dot terminal-dot-red"></span>
+            <span class="terminal-dot terminal-dot-yellow"></span>
+            <span class="terminal-dot terminal-dot-green"></span>
+            <span class="ml-3 text-text-muted text-xs font-mono">blog.sh</span>
+          </div>
+          <div class="terminal-body">
+            <p class="mb-2">
+              <span class="terminal-prompt">$</span>
+              <span class="text-white ml-2">cat /blog/README.md</span>
+            </p>
+            <p class="terminal-output leading-relaxed">
+              关于 AI Agent、软件未来<br/>
+              和 AgentPuter 愿景的深度洞察。
+            </p>
+            <p class="mt-3">
+              <span class="terminal-prompt">$</span>
+              <span class="text-white ml-2">ls -la posts/</span>
+            </p>
+            <p class="terminal-success">
+              找到 {posts.length} 篇文章
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <!-- 语言切换提示 -->
+      <div class="mb-8 flex items-center gap-3 font-mono text-sm">
+        <span class="text-text-muted">语言:</span>
+        <span class="text-accent border-b border-accent">中文</span>
+        <a href="/blog/" class="text-text-muted hover:text-accent transition-colors">English</a>
+      </div>
+
+      <!-- 文章列表 -->
+      <div class="space-y-6">
+        {posts.map((post, index) => {
+          const formattedDate = new Date(post.data.date).toLocaleDateString('zh-CN', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+          });
+          
+          return (
+            <a 
+              href={`/zh/blog/${post.slug}/`}
+              class="block group"
+            >
+              <article class="bg-dark-secondary/50 border border-dark-tertiary rounded-xl p-6 md:p-8 transition-all duration-300 hover:border-accent/40 hover:bg-dark-secondary/80 hover-lift">
+                <div class="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
+                  <!-- 序号 -->
+                  <div class="flex-shrink-0 font-mono text-3xl font-bold text-dark-tertiary group-hover:text-accent/30 transition-colors">
+                    {String(posts.length - index).padStart(2, '0')}
+                  </div>
+                  
+                  <!-- 内容 -->
+                  <div class="flex-grow">
+                    <!-- 标签和日期 -->
+                    <div class="flex flex-wrap items-center gap-3 mb-3 font-mono text-xs">
+                      <time datetime={post.data.date} class="text-terminal-orange">
+                        {formattedDate}
+                      </time>
+                      {post.data.readingTime && (
+                        <span class="text-text-muted">
+                          ~ {post.data.readingTime}
+                        </span>
+                      )}
+                      {isNew(post.data.date) && (
+                        <span class="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-full">
+                          new
+                        </span>
+                      )}
+                      {post.data.featured && (
+                        <span class="px-2 py-0.5 bg-accent/10 text-accent border border-accent/20 rounded-full">
+                          精选
+                        </span>
+                      )}
+                    </div>
+
+                    <!-- 标题 -->
+                    <h2 class="text-xl md:text-2xl font-bold text-white group-hover:text-accent transition-colors mb-3 leading-tight">
+                      {post.data.title}
+                    </h2>
+
+                    <!-- 描述 -->
+                    <p class="text-text-secondary text-sm md:text-base leading-relaxed mb-4">
+                      {post.data.description}
+                    </p>
+
+                    <!-- 标签 -->
+                    {post.data.tags.length > 0 && (
+                      <div class="flex flex-wrap gap-2">
+                        {post.data.tags.slice(0, 4).map((tag) => (
+                          <span class="px-2 py-0.5 text-xs font-mono text-text-muted border border-dark-tertiary rounded">
+                            #{tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  <!-- 箭头 -->
+                  <div class="hidden md:flex items-center flex-shrink-0 text-text-dark group-hover:text-accent transition-all group-hover:translate-x-1">
+                    <span class="font-mono text-lg">-&gt;</span>
+                  </div>
+                </div>
+              </article>
+            </a>
+          );
+        })}
+      </div>
+
+      <!-- 空状态 -->
+      {posts.length === 0 && (
+        <div class="text-center py-20 font-mono">
+          <p class="text-text-muted text-lg">暂无文章。</p>
+          <p class="text-text-dark text-sm mt-2">// 即将发布...</p>
+        </div>
+      )}
+    </div>
+  </main>
+  <Footer />
+</Layout>

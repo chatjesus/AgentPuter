@@ -1,0 +1,42 @@
+---
+// Use Cases - 中文版
+const cases = [
+  {
+    icon: '📊', name: '办公工作',
+    desc: '"把上周的销售数据整理好，写一份报告，发邮件给经理。"\n\nAgent 拉取数据、分析、排版、发送——你只需审阅。',
+  },
+  {
+    icon: '🔬', name: '研究调研',
+    desc: '"调研 2025 年新能源汽车市场趋势。"\n\n搜索、阅读、提取要点、生成笔记——保存以便后续跟进。',
+  },
+  {
+    icon: '💻', name: '开发编程',
+    desc: '"为我们的产品做一个落地页。"\n\n拥有独立开发环境。编写代码、运行测试、修复 Bug、部署——遇到问题会请示你。',
+  },
+  {
+    icon: '🎨', name: '创意设计',
+    desc: '"设计一个 Q1 社交媒体推广方案。"\n\n拥有独立画布和素材库。生成草稿、反复迭代、保存版本。你来把控方向。',
+  },
+];
+---
+
+<section class="relative py-20 bg-[#111111]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20">
+    <div class="mb-12">
+      <span class="block text-xs font-mono font-semibold tracking-[2px] text-accent mb-6">使用场景</span>
+      <h2 class="text-2xl md:text-[32px] font-bold text-white">你的 Agent 到底能做什么？</h2>
+    </div>
+    
+    <div class="grid md:grid-cols-2 gap-5">
+      {cases.map((c) => (
+        <div class="bg-[#1A1A1A] rounded-xl border border-[#222222] p-6">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-2xl">{c.icon}</span>
+            <h3 class="text-lg font-bold text-white">{c.name}</h3>
+          </div>
+          <p class="text-sm text-[#94A3B8] leading-relaxed whitespace-pre-line">{c.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

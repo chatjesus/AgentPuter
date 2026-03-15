@@ -1,0 +1,16 @@
+{
+  "name": "TinyClaw — Deploy OpenClaw in 1 Minute",
+  "short_name": "TinyClaw",
+  "description": "One-click deploy your own 24/7 AI assistant powered by OpenClaw.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#0a0a0f",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

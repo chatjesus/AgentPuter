@@ -1,0 +1,45 @@
+---
+// Before vs After - 2列比較
+---
+
+<section class="relative py-20 bg-[#111111]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20">
+    <span class="block text-xs font-mono font-semibold tracking-[2px] text-[#666666] mb-8">// その違い</span>
+    
+    <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+      <!-- WITHOUT -->
+      <div class="bg-[#1A1A1A] rounded-2xl border border-[#FF444440] p-6 md:p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-[#FF4444] font-mono text-xl font-bold">✗</span>
+          <span class="text-[#FF4444] font-mono text-sm font-bold tracking-[2px]">AGENTPUTERなしの場合</span>
+        </div>
+        <div class="space-y-3 font-mono text-sm text-[#94A3B8] leading-relaxed">
+          <p>✗  ノートPCを閉じると → エージェントが即座に停止</p>
+          <p>✗  OAuthトークンが失効 → セッションごとに再ログインが必要</p>
+          <p>✗  30〜50メッセージでコンテキストが失われる</p>
+          <p>✗  2時間で$200を消費 — コスト制限なし</p>
+          <p>✗  780以上のインスタンスが公開状態 — 認証ゼロ</p>
+          <p>✗  どんなメールでもエージェントにプロンプトインジェクション可能</p>
+          <p>✗  週に3.7時間、AIにコンテキストを再説明</p>
+        </div>
+      </div>
+      
+      <!-- WITH -->
+      <div class="bg-[#1A1A1A] rounded-2xl border-2 border-[#00FF4160] p-6 md:p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-accent font-mono text-xl font-bold">✓</span>
+          <span class="text-accent font-mono text-sm font-bold tracking-[2px]">AGENTPUTERありの場合</span>
+        </div>
+        <div class="space-y-3 font-mono text-sm text-[#94A3B8] leading-relaxed">
+          <p>✓  24/7クラウドPod → エージェントは決して停止しない</p>
+          <p>✓  認証プロキシ → トークンは永久に自動更新</p>
+          <p>✓  永続ワークスペース → 即座に作業を再開</p>
+          <p>✓  セッションごとの予算制限 → 予期せぬ請求なし</p>
+          <p>✓  隔離されたVPS → あなたのデータはあなたのもの</p>
+          <p>✓  サニタイズされたI/O → プロンプトインジェクションを緩和</p>
+          <p>✓  完全な監査証跡 → すべてのアクションを記録</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

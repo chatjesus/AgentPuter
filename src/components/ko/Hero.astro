@@ -1,0 +1,169 @@
+---
+// 히어로 섹션 터미널 미리보기
+---
+
+<section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden scanlines crt-flicker">
+  <!-- Background effects -->
+  <div class="absolute inset-0 bg-gradient-to-b from-dark-primary via-dark-primary to-dark-secondary"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,255,65,0.08),transparent_50%)]"></div>
+  <div class="absolute inset-0 matrix-grid"></div>
+  <div class="absolute inset-0 particles"></div>
+  
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-20">
+    <div class="flex flex-col items-center text-center">
+      <!-- System status indicator -->
+      <div class="flex items-center gap-4 mb-8 font-mono text-xs text-text-muted">
+        <span class="flex items-center gap-2">
+          <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
+          <span class="text-terminal-orange">SYSTEM</span> ONLINE
+        </span>
+        <span class="text-terminal-blue">|</span>
+        <span id="status-time" class="text-terminal-cyan"></span>
+        <span class="text-terminal-blue">|</span>
+        <span>AGENTS: <span class="text-accent">READY</span></span>
+      </div>
+      
+      <!-- Headline - HTML 直出（LCP 关键元素），JS 叠加打字效果 -->
+      <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6 font-mono">
+        <span class="block text-text-primary" id="title-line1">당신의 AI</span>
+        <span class="block text-accent text-glow-strong glitch" data-text="절대 잠들지 않습니다" id="title-line2">절대 잠들지 않습니다</span>
+      </h1>
+      
+      <!-- Subline -->
+      <div class="text-base md:text-lg lg:text-xl text-text-secondary leading-relaxed mb-10 font-mono text-center">
+        <p class="mb-2">컴퓨터는 꺼지고, 세션은 만료되며, Token은 사라집니다.</p>
+        <p><span class="text-accent">AgentPuter</span>는 <a href="https://openclaw.ai/" target="_blank" class="text-terminal-orange hover:underline">OpenClaw</a>, <a href="https://openclaw.ai/" target="_blank" class="text-terminal-cyan hover:underline">ClawBot</a>, <a href="https://openclaw.ai/" target="_blank" class="text-terminal-magenta hover:underline">MoltBot</a>을 24/7 계속 실행합니다.</p>
+      </div>
+      
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row items-center gap-4 mb-16">
+        <a href="https://app.agentputer.com/sign-up" class="inline-flex items-center gap-2 px-8 py-3.5 bg-accent text-dark-primary font-mono font-bold text-sm rounded transition-all hover:bg-accent-dark">
+          [지금 배포 — $29.99/월]
+        </a>
+        <a href="/pricing" class="inline-flex items-center gap-2 px-6 py-3 border border-accent/50 text-accent font-mono font-bold text-sm rounded transition-all hover:border-accent hover:bg-accent/10">
+          <span>./view_pricing</span>
+          <span>→</span>
+        </a>
+      </div>
+      
+      <!-- Terminal Preview -->
+      <div class="w-full max-w-2xl terminal glow-accent neon-box hover-lift">
+        <div class="terminal-header">
+          <span class="terminal-dot terminal-dot-red"></span>
+          <span class="terminal-dot terminal-dot-yellow"></span>
+          <span class="terminal-dot terminal-dot-green"></span>
+          <span class="text-text-muted font-mono text-xs ml-2">터미널</span>
+        </div>
+        <div class="terminal-body space-y-2">
+          <div class="flex">
+            <span class="terminal-prompt">$ </span>
+            <span class="terminal-prompt" id="cmd1"></span>
+          </div>
+          <div class="terminal-success hidden" id="output1">✓ Pod가 성공적으로 생성되었습니다</div>
+          <div class="h-2"></div>
+          <div class="flex hidden" id="line2">
+            <span class="terminal-prompt">$ </span>
+            <span class="terminal-prompt" id="cmd2"></span>
+          </div>
+          <div class="terminal-success hidden" id="output2">✓ OpenClaw가 배포되어 24/7 실행 중입니다</div>
+          <div class="h-2 hidden" id="spacer"></div>
+          <div class="flex hidden" id="cursor-line">
+            <span class="terminal-prompt">$ </span>
+            <span class="cursor-blink"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+
+    // 제목 타이핑 애니메이션
+    const titleLine1 = document.getElementById('title-line1');
+    const titleLine2 = document.getElementById('title-line2');
+    const titleTexts = ['당신의 AI', '절대 잠들지 않습니다'];
+    
+    async function typeTitle() {
+      // line1 타이핑 중 line2가 깜박이는 것을 방지하기 위해 두 줄을 동시에 비웁니다
+      if (titleLine1) titleLine1.textContent = '';
+      if (titleLine2) titleLine2.textContent = '';
+
+      if (titleLine1) {
+        for (let i = 0; i <= titleTexts[0].length; i++) {
+          titleLine1.textContent = titleTexts[0].substring(0, i) + (i < titleTexts[0].length ? '█' : '');
+          await new Promise(function(r) { setTimeout(r, 100); });
+        }
+        titleLine1.textContent = titleTexts[0];
+      }
+      
+      await new Promise(function(r) { setTimeout(r, 200); });
+      
+      if (titleLine2) {
+        for (let i = 0; i <= titleTexts[1].length; i++) {
+          titleLine2.textContent = titleTexts[1].substring(0, i) + (i < titleTexts[1].length ? '█' : '');
+          await new Promise(function(r) { setTimeout(r, 80); });
+        }
+        titleLine2.textContent = titleTexts[1];
+      }
+    }
+    
+    // 상태 시간 업데이트
+    var timeElement = document.getElementById('status-time');
+    function updateTime() {
+      if (!timeElement) return;
+      var now = new Date();
+      timeElement.textContent = now.toLocaleTimeString('en-US', { hour12: false });
+    }
+    updateTime();
+    setInterval(updateTime, 1000);
+    
+    // 터미널 타이핑 애니메이션
+    var commands = [
+      { id: 'cmd1', text: 'agentputer init openclaw-pod', output: 'output1', next: 'line2' },
+      { id: 'cmd2', text: 'agentputer deploy openclaw', output: 'output2', next: 'spacer' }
+    ];
+    
+    async function typeText(elementId, text, speed) {
+      speed = speed || 50;
+      var element = document.getElementById(elementId);
+      if (!element) return;
+      
+      for (var i = 0; i < text.length; i++) {
+        element.textContent = text.substring(0, i + 1);
+        await new Promise(function(r) { setTimeout(r, speed); });
+      }
+    }
+    
+    function showElement(id) {
+      var el = document.getElementById(id);
+      if (el) {
+        el.classList.remove('hidden');
+        el.classList.add('animate-fade-in');
+      }
+    }
+    
+    async function runTerminal() {
+      // 먼저 제목을 타이핑합니다
+      await typeTitle();
+      await new Promise(function(r) { setTimeout(r, 800); });
+      
+      // 그 다음 터미널 명령어를 실행합니다
+      for (var i = 0; i < commands.length; i++) {
+        var cmd = commands[i];
+        await typeText(cmd.id, cmd.text);
+        await new Promise(function(r) { setTimeout(r, 300); });
+        showElement(cmd.output);
+        await new Promise(function(r) { setTimeout(r, 500); });
+        showElement(cmd.next);
+        await new Promise(function(r) { setTimeout(r, 200); });
+      }
+      
+      showElement('cursor-line');
+    }
+    
+    runTerminal();
+  });
+</script>

@@ -1,0 +1,26 @@
+# Cloudflare Pages configuration
+name = "agentputer"
+compatibility_date = "2024-01-01"
+pages_build_output_dir = "dist"
+
+# KV Namespace binding for email collection + subscriber records
+[[kv_namespaces]]
+binding = "SUBSCRIBERS"
+id = "d4684c9fef634742aeeeac7757f686e8"
+
+# ─────────────────────────────────────────────────────────────
+# Stripe 集成 — 以下 3 个环境变量需在 Cloudflare Pages Dashboard 手动设置：
+#   Settings → Environment Variables → Production
+#
+#   STRIPE_SECRET_KEY      = sk_live_xxx   (或 sk_test_xxx 测试环境)
+#   STRIPE_PRICE_ID        = price_xxx     (在 Stripe Dashboard 创建的 $29.99/mo 订阅 Price)
+#   STRIPE_WEBHOOK_SECRET  = whsec_xxx     (在 Stripe Dashboard → Webhooks 创建端点后获取)
+#
+# Webhook 端点 URL（在 Stripe Dashboard 填写）：
+#   https://www.agentputer.com/api/stripe-webhook
+#
+# 需监听的 Stripe 事件：
+#   - checkout.session.completed
+#   - customer.subscription.deleted
+#   - invoice.payment_failed
+# ─────────────────────────────────────────────────────────────

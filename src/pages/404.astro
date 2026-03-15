@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="404 - Page Not Found | AgentPuter"
+  description="The page you're looking for doesn't exist. Head back to AgentPuter to explore AI agent automation."
+  noindex={true}
+>
+  <Header />
+  <main class="relative z-10 min-h-screen flex items-center justify-center px-6">
+    <div class="text-center max-w-2xl">
+      <!-- 终端风格 404 -->
+      <div class="font-mono text-accent text-sm mb-6 tracking-widest">// ERROR_404</div>
+      <h1 class="text-6xl md:text-8xl font-bold font-mono text-white mb-4">404</h1>
+      <p class="text-xl md:text-2xl text-text-secondary mb-2 font-mono">
+        Page not found
+      </p>
+      <p class="text-text-secondary mb-8">
+        The page you're looking for doesn't exist or has been moved.
+      </p>
+
+      <div class="font-mono text-sm text-text-secondary mb-8 bg-dark-secondary border border-accent/20 rounded-lg p-4 text-left inline-block">
+        <div class="text-accent">$ curl -I agentputer.com/this-page</div>
+        <div class="text-red-400 mt-1">HTTP/1.1 404 Not Found</div>
+        <div class="text-text-secondary mt-1">X-Suggestion: Try the links below</div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/"
+          class="inline-flex items-center justify-center px-6 py-3 bg-accent text-dark-primary font-bold font-mono rounded-lg hover:bg-accent/90 transition-colors"
+        >
+          [GO HOME]
+        </a>
+        <a
+          href="/features/"
+          class="inline-flex items-center justify-center px-6 py-3 border border-accent/40 text-accent font-mono rounded-lg hover:bg-accent/10 transition-colors"
+        >
+          [FEATURES]
+        </a>
+        <a
+          href="/blog/"
+          class="inline-flex items-center justify-center px-6 py-3 border border-accent/40 text-accent font-mono rounded-lg hover:bg-accent/10 transition-colors"
+        >
+          [BLOG]
+        </a>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>

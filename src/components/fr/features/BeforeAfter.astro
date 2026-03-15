@@ -1,0 +1,45 @@
+---
+// Avant vs Après - Comparaison en deux colonnes
+---
+
+<section class="relative py-20 bg-[#111111]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20">
+    <span class="block text-xs font-mono font-semibold tracking-[2px] text-[#666666] mb-8">// LA DIFFÉRENCE</span>
+    
+    <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+      <!-- WITHOUT -->
+      <div class="bg-[#1A1A1A] rounded-2xl border border-[#FF444440] p-6 md:p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-[#FF4444] font-mono text-xl font-bold">✗</span>
+          <span class="text-[#FF4444] font-mono text-sm font-bold tracking-[2px]">SANS AGENTPUTER</span>
+        </div>
+        <div class="space-y-3 font-mono text-sm text-[#94A3B8] leading-relaxed">
+          <p>✗  Vous fermez votre ordinateur portable → L'agent s'arrête instantanément</p>
+          <p>✗  Les tokens OAuth expirent → Reconnexion à chaque session</p>
+          <p>✗  Contexte perdu après 30-50 messages</p>
+          <p>✗  200 $ dépensés en 2h — pas de garde-fous pour les coûts</p>
+          <p>✗  + de 780 instances exposées — aucune authentification</p>
+          <p>✗  N'importe quel e-mail peut injecter des prompts dans votre agent</p>
+          <p>✗  3,7 h/semaine à réexpliquer le contexte à l'IA</p>
+        </div>
+      </div>
+      
+      <!-- WITH -->
+      <div class="bg-[#1A1A1A] rounded-2xl border-2 border-[#00FF4160] p-6 md:p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-accent font-mono text-xl font-bold">✓</span>
+          <span class="text-accent font-mono text-sm font-bold tracking-[2px]">AVEC AGENTPUTER</span>
+        </div>
+        <div class="space-y-3 font-mono text-sm text-[#94A3B8] leading-relaxed">
+          <p>✓  Pod cloud 24/7 → L'agent ne s'arrête jamais</p>
+          <p>✓  Proxy d'authentification → Les tokens se rafraîchissent automatiquement à l'infini</p>
+          <p>✓  Espace de travail persistant → Reprend instantanément</p>
+          <p>✓  Limites de budget par session → Pas de factures surprises</p>
+          <p>✓  VPS isolé → Vos données restent les vôtres</p>
+          <p>✓  Entrées/sorties assainies → Injection de prompts atténuée</p>
+          <p>✓  Piste d'audit complète → Chaque action est enregistrée</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

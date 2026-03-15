@@ -1,0 +1,44 @@
+---
+// Arquitectura - Diagrama de arquitectura estilo terminal
+---
+
+<section class="relative py-20 bg-[#111111]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20 flex flex-col items-center">
+    <span class="block text-xs font-mono font-semibold tracking-[2px] text-accent mb-6">ARQUITECTURA</span>
+    <h2 class="text-2xl md:text-[32px] font-bold text-white mb-10 text-center">Cómo se conecta todo</h2>
+    
+    <div class="w-full max-w-[1000px] rounded-xl border border-[#00FF4130] overflow-hidden bg-[#0D1117]">
+      <!-- Cabecera de la terminal -->
+      <div class="flex items-center gap-2 px-3 h-9 bg-[#252525]">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#EF4444]"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-[#F59E0B]"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-[#22C55E]"></span>
+        <span class="ml-2 text-[#64748B] font-mono text-[11px]">agentputer@cloud:~ — resumen de la arquitectura</span>
+      </div>
+      
+      <!-- Diagrama de arquitectura -->
+      <div class="p-6 overflow-x-auto">
+        <pre class="font-mono text-xs md:text-[13px] leading-[1.8]"><span class="text-[#00BFFF]">$ agentputer architecture --verbose</span>
+
+<span class="text-[#FFD700]">  ╔═══ CAPA DE ENTRADA DE USUARIO ══════════════════════════════╗</span>
+<span class="text-[#94A3B8]">  ║  Telegram │ WhatsApp │ Discord │ Web │ API │ Voice    ║</span>
+<span class="text-[#FFD700]">  ╚══════════════════════════╤════════════════════════════╝</span>
+<span class="text-[#333333]">                             │</span>
+<span class="text-[#A855F7]">  ╔═══ CAPA DE ORQUESTACIÓN ═══╧══════════════════════════╗</span>
+<span class="text-[#94A3B8]">  ║  🔒 Privacy Proxy │ 🧠 Contexto │ 📋 Registro      ║</span>
+<span class="text-[#94A3B8]">  ║  Planificador → Descompositor → Despachador         ║</span>
+<span class="text-[#A855F7]">  ╚══════════════════════════╤════════════════════════════╝</span>
+<span class="text-[#333333]">                             │</span>
+<span class="text-accent">  ╔═══ CAPA DE EJECUCIÓN ═════╧══════════════════════════╗</span>
+<span class="text-[#94A3B8]">  ║  📄 Docs │ 📧 Email │ 🌐 Web │ 💻 Code │ 📁 Files  ║</span>
+<span class="text-[#94A3B8]">  ║  🔌 Interfaz Unificada → Mercado de Skills          ║</span>
+<span class="text-accent">  ╚══════════════════════════╤════════════════════════════╝</span>
+<span class="text-[#333333]">                             │</span>
+<span class="text-[#00BFFF]">  ╔═══ CAPA DE PERSISTENCIA ══╧══════════════════════════╗</span>
+<span class="text-[#94A3B8]">  ║  💾 Ficheros │ 🗄️ BD Estado │ 🔍 Vectores           ║</span>
+<span class="text-[#94A3B8]">  ║  Todo cifrado (AES-256) │ Prioridad local         ║</span>
+<span class="text-[#00BFFF]">  ╚═══════════════════════════════════════════════════════╝</span></pre>
+      </div>
+    </div>
+  </div>
+</section>

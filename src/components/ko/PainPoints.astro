@@ -1,0 +1,61 @@
+---
+// 로컬 AI 에이전트의 문제점을 강조하는 Pain Points 섹션
+
+const painPoints = [
+  {
+    icon: '[!]',
+    title: '컴퓨터 꺼짐 = 에이전트 중단',
+    description: 'MacBook을 덮으면 AI 연결이 끊깁니다. 진정한 24/7 자동화는 불가능합니다.',
+  },
+  {
+    icon: '[x]',
+    title: '인증 만료 = 처음부터 다시',
+    description: 'OAuth 토큰이 만료되고 세션이 종료됩니다. 재시작할 때마다 다시 로그인하고 재인증해야 합니다.',
+  },
+  {
+    icon: '[~]',
+    title: '로컬 리소스 = PC 독차지',
+    description: '에이전트가 CPU/메모리를 독차지해 작업 속도를 저하시킵니다. 여러 에이전트를 원하시나요? 어림도 없습니다.',
+  },
+  {
+    icon: '[@]',
+    title: '원격 불가 = 특정 위치에 고정',
+    description: "이동 중에는 에이전트에 접근할 수 없습니다. 중요한 정보를 놓치고 제때 대응할 수 없습니다.",
+  },
+];
+---
+
+<section id="problems" class="py-20 lg:py-32 bg-dark-secondary matrix-grid relative">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20">
+    <!-- 섹션 헤더 -->
+    <div class="text-center mb-16">
+      <span class="inline-block px-4 py-2 text-xs font-mono font-bold tracking-widest text-terminal-orange border border-terminal-orange/30 bg-terminal-orange/10 rounded mb-6">
+        경고: 시스템_제한
+      </span>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold font-mono text-text-primary leading-tight">
+        오늘날 AI 에이전트는 갇혀있습니다<br />
+        <span class="text-terminal-orange text-glow-orange">당신의 로컬 머신에</span>
+      </h2>
+    </div>
+    
+    <!-- 문제점 카드 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {painPoints.map((point, index) => (
+        <div 
+          class="bg-dark-tertiary rounded-lg p-6 border border-terminal-orange/30 group hover:border-terminal-orange transition-colors hover-lift"
+          style={`animation-delay: ${index * 100}ms`}
+        >
+          <div class="mb-4">
+            <span class="text-terminal-orange font-mono text-2xl font-bold">{point.icon}</span>
+          </div>
+          <h3 class="text-lg font-mono font-semibold text-text-primary mb-3 group-hover:text-terminal-orange transition-colors">
+            {point.title}
+          </h3>
+          <p class="text-text-secondary text-sm leading-relaxed font-mono">
+            {point.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,22 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/ko/Header.astro';
+import Footer from '../../../components/ko/Footer.astro';
+import DocsSidebar from '../../../components/ko/docs/DocsSidebar.astro';
+import DocsContent from '../../../components/ko/docs/DocsContent.astro';
+---
+
+<Layout
+  title="문서 - AgentPuter | OpenClaw 호스팅 서비스"
+  description="AgentPuter 문서. 2분 만에 첫 AI Agent를 배포하세요. OpenClaw 사전 설치, Web UI로 채널 설정, DevOps 작업 불필요."
+  tags={['AgentPuter 문서', 'OpenClaw 호스팅', 'AI Agent 문서', '빠른 시작', 'Telegram Bot', '채널 설정']}
+>
+  <Header />
+  <main class="relative z-10 pt-20">
+    <div class="flex flex-col lg:flex-row min-h-[calc(100vh-80px)]">
+      <DocsSidebar activeItem="home" />
+      <DocsContent />
+    </div>
+  </main>
+  <Footer />
+</Layout>

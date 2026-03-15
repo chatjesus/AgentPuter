@@ -1,0 +1,167 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/ko/Header.astro';
+import Footer from '../../components/ko/Footer.astro';
+import MatrixRain from '../../components/MatrixRain.astro';
+
+const pricingSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'AgentPuter Pro',
+  description: '24시간 365일 작동하는 나만의 AI 에이전트. Claude 4.5 포함. 2분 만에 설정 완료.',
+  brand: { '@type': 'Brand', name: 'AgentPuter' },
+  offers: {
+    '@type': 'Offer',
+    price: '29.00',
+    priceCurrency: 'USD',
+    availability: 'https://schema.org/InStock',
+    priceValidUntil: '2027-12-31',
+    url: 'https://app.agentputer.com/subscribe',
+  },
+};
+const APP_URL = 'https://app.agentputer.com';
+---
+<Layout title="요금제 - AgentPuter | 항상 작동하는 AI 에이전트" description="AgentPuter Pro: 월 $29.99. 24/7 작동하는 나만의 AI 에이전트. Claude 4.5 포함, 15개 이상 메시지 채널, 500개 이상 스킬, 코딩 불필요." tags={['AgentPuter', '요금제', 'AI 에이전트', 'AI 자동화', '노코드']}>
+  <fragment slot="head"><script type="application/ld+json" set:html={JSON.stringify(pricingSchema)} /></fragment>
+  <MatrixRain />
+  <Header activePage="pricing" />
+  <main class="relative z-10">
+    <section class="relative pt-32 pb-12 lg:pt-40 lg:pb-16 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-dark-primary via-dark-primary to-dark-secondary"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,255,65,0.06),transparent_50%)]"></div>
+      <div class="relative max-w-7xl mx-auto px-6 lg:px-20 text-center">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.2em] mb-6">요금제: 투명</div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">단순하고 명확한 요금제</h1>
+        <p class="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+          숨겨진 요금 없음. 예상치 못한 청구 없음. 언제든지 취소 가능.<br /><span class="text-accent font-semibold">Pro 플랜 출시</span> — 2분 만에 시작하세요.
+        </p>
+      </div>
+    </section>
+    <section class="pb-8">
+      <div class="max-w-4xl mx-auto px-6 lg:px-20">
+        <div class="bg-accent/5 border border-accent/15 rounded-xl p-6 md:p-8">
+          <h3 class="text-white font-bold text-lg mb-4">💡 모든 것이 포함되어 있습니다 — 가입 즉시 시작</h3>
+          <div class="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10">
+            <div><span class="text-accent font-semibold text-sm">Pro (올인원)</span><p class="text-text-muted text-sm mt-1 leading-relaxed">AI 모델, 클라우드 호스팅, 메시지 채널 — 모두 포함. API 키 불필요. 설정 불필요. 바로 작동.</p></div>
+            <span class="text-text-dark font-bold text-sm hidden md:block">또는</span>
+            <div><span class="text-terminal-blue font-semibold text-sm">Starter (출시 예정)</span><p class="text-text-muted text-sm mt-1 leading-relaxed">이미 AI API 키가 있으신가요? 더 저렴한 가격으로 플랫폼 이용 — 월 $9.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 lg:py-16">
+      <div class="max-w-7xl mx-auto px-6 lg:px-20">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-end max-w-5xl mx-auto">
+          <div class="bg-dark-secondary rounded-2xl border border-dark-tertiary p-8 relative opacity-80">
+            <div class="font-mono text-text-muted text-xs font-semibold tracking-[0.15em] mb-6">STARTER — 출시 예정</div>
+            <div class="flex items-end gap-1 mb-2"><span class="text-5xl font-bold text-white">$9</span><span class="text-text-dark text-base mb-1">/월</span></div>
+            <p class="text-text-muted text-sm mb-6">AI API 키가 있는 사용자를 위한 플랜</p>
+            <div class="border-t border-dark-tertiary mb-6"></div>
+            <ul class="space-y-3 text-sm mb-8">
+              <li class="text-text-muted">✓ 항상 작동 — 24/7 중단 없음</li><li class="text-text-muted">✓ 15개 이상 메시지 채널</li><li class="text-text-muted">✓ 500개 이상 기본 스킬</li>
+              <li class="text-text-muted">✓ 비주얼 대시보드</li><li class="text-text-muted">✓ 전용 클라우드 환경</li><li class="text-text-muted">✓ 코딩 불필요</li>
+              <li class="pt-3 border-t border-dark-tertiary text-text-dark">✗ AI 모델 미포함</li>
+              <li class="text-text-dark pl-4">본인 API 키 사용</li>
+            </ul>
+            <button disabled class="w-full py-3.5 rounded-lg border border-dark-tertiary text-text-muted font-semibold text-sm cursor-not-allowed">대기자 명단 등록</button>
+          </div>
+          <div class="bg-dark-secondary rounded-2xl border-2 border-accent p-8 relative shadow-lg shadow-accent/10 md:-mt-4">
+            <div class="flex items-center gap-3 mb-6"><span class="text-terminal-magenta font-mono text-xs font-bold">★ 출시 완료</span><span class="font-mono text-text-muted text-xs font-semibold tracking-[0.15em]">PRO</span></div>
+            <div class="flex items-end gap-1 mb-2"><span class="text-6xl font-bold text-white">$29.99</span><span class="text-text-dark text-base mb-2">/월</span></div>
+            <p class="text-text-muted text-sm mb-6">절대 잠들지 않는 나만의 AI 에이전트. 모든 것이 포함.</p>
+            <div class="border-t border-dark-tertiary mb-6"></div>
+            <ul class="space-y-3 text-sm mb-8">
+              <li class="text-text-muted">✓ 항상 작동 — 24/7, 중단 없음</li><li class="text-text-muted">✓ Telegram, WhatsApp, Slack 등 연결</li><li class="text-text-muted">✓ 500개 이상 기본 스킬 (조사, 번역, 요약...)</li>
+              <li class="text-text-muted">✓ 비주얼 대시보드 — 코딩 불필요</li><li class="text-text-muted">✓ 전용 클라우드 컴퓨터, 완전 관리형</li><li class="text-text-muted">✓ 2분 만에 설정 완료</li>
+              <li class="pt-3 border-t border-dark-tertiary text-accent">✓ Claude 4.5 AI 포함</li>
+              <li class="text-accent/70 pl-4">약 $20/월 가치, 무료 번들</li><li class="text-accent/70 pl-4">API 키 불필요</li>
+            </ul>
+            <a href={`${APP_URL}/sign-up`} class="block w-full py-3.5 rounded-lg bg-accent text-dark-primary font-bold text-sm text-center hover:bg-accent-dark transition-colors">지금 시작 — $29.99/월</a>
+            <p class="text-text-dark text-xs text-center mt-3 font-mono">언제든지 취소 · 코딩 불필요</p>
+          </div>
+          <div class="bg-dark-secondary rounded-2xl border border-dark-tertiary p-8 relative opacity-80">
+            <div class="font-mono text-text-muted text-xs font-semibold tracking-[0.15em] mb-6">TEAM — 출시 예정</div>
+            <div class="flex items-end gap-1 mb-2"><span class="text-4xl font-bold text-white">$59</span><span class="text-text-dark text-base mb-1">/월</span></div>
+            <p class="text-text-muted text-sm mb-6">팀을 위한 다중 AI 에이전트 운영</p>
+            <div class="border-t border-dark-tertiary mb-6"></div>
+            <ul class="space-y-3 text-sm mb-8">
+              <li class="text-text-muted">✓ 3개 AI 에이전트 24/7 작동</li><li class="text-text-muted">✓ 에이전트당 더 높은 성능</li><li class="text-text-muted">✓ 모든 메시지 채널</li>
+              <li class="text-text-muted">✓ 500개 이상 기본 스킬</li><li class="text-text-muted">✓ 우선 지원</li><li class="text-text-muted">✓ 멀티 에이전트 워크플로우</li>
+              <li class="pt-3 border-t border-dark-tertiary text-text-muted">✓ AI 모델 포함</li>
+              <li class="text-text-dark pl-4">3배 AI 사용량</li><li class="text-text-dark pl-4">Claude 4.5 + Opus 모델</li>
+            </ul>
+            <button disabled class="w-full py-3.5 rounded-lg border border-dark-tertiary text-text-muted font-semibold text-sm cursor-not-allowed">대기자 명단 등록</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 lg:py-16">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-8">// 왜 AGENTPUTER인가</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-dark-secondary rounded-xl border border-dark-tertiary p-6">
+            <span class="text-text-muted text-xs font-semibold">vs 직접 구축</span>
+            <p class="text-error font-bold mt-2">수 시간의 설정 + 기술 지식 필요</p>
+            <p class="text-success text-sm mt-2 leading-relaxed">AgentPuter Pro $29.99/월 = 2분 만에 설정. 코딩 불필요. 서버 관리 불필요. 바로 작동.</p>
+          </div>
+          <div class="bg-dark-secondary rounded-xl border border-dark-tertiary p-6">
+            <span class="text-text-muted text-xs font-semibold">vs ChatGPT / Claude 구독</span>
+            <p class="text-error font-bold mt-2">$20/월 = 질문하면 답변. 그게 전부.</p>
+            <p class="text-success text-sm mt-2 leading-relaxed">AgentPuter Pro $29.99/월 = 24/7 스스로 작동하는 AI, 앱에 연결하고 행동 실행.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 lg:py-20">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-4">// 항상 켜짐이 중요한 이유</div>
+        <h2 class="text-white text-2xl font-bold mb-3">당신이 자는 동안에도 AI는 계속 일합니다.</h2>
+        <p class="text-text-muted text-sm mb-8 leading-relaxed">ChatGPT는 브라우저를 닫으면 중단됩니다. AgentPuter는 그렇지 않습니다. 24시간 모니터링, 응답, 행동을 수행합니다.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-dark-secondary rounded-xl border border-accent/20 p-5"><span class="text-2xl mb-2 block">⚡</span><span class="text-accent font-bold text-lg">2분 설정</span><p class="text-text-muted text-sm mt-1">클릭, 연결, 완료. 다운로드 불필요, 코딩 불필요, 대기 불필요.</p></div>
+          <div class="bg-dark-secondary rounded-xl border border-terminal-blue/20 p-5"><span class="text-2xl mb-2 block">🔌</span><span class="text-terminal-blue font-bold text-lg">15개 이상 채널</span><p class="text-text-muted text-sm mt-1">Telegram, WhatsApp, Slack, Discord, Email — 모두 연결.</p></div>
+          <div class="bg-dark-secondary rounded-xl border border-terminal-magenta/20 p-5"><span class="text-2xl mb-2 block">🧠</span><span class="text-terminal-magenta font-bold text-lg">Claude 4.5 내장</span><p class="text-text-muted text-sm mt-1">최고 수준 AI 포함. 별도 구독 불필요.</p></div>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 lg:py-16 bg-dark-secondary/50">
+      <div class="max-w-3xl mx-auto px-6 lg:px-20">
+        <h2 class="text-2xl font-bold text-white mb-8 text-center">자주 묻는 질문</h2>
+        <div class="space-y-4" id="faq-list">
+          <div class="faq-item border border-dark-tertiary rounded-lg overflow-hidden"><button class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between text-white font-medium hover:bg-dark-tertiary/50 transition-colors"><span>기술적인 지식이 필요한가요?</span><span class="faq-icon text-accent font-mono text-sm">+</span></button><div class="faq-content hidden px-6 pb-4 text-text-muted text-sm leading-relaxed">필요 없습니다. AgentPuter는 코딩을 하지 않는 분들을 위해 설계되었습니다. 가입하고, AI 모델을 선택하고, 메시지 앱을 연결하면 완료입니다.</div></div>
+          <div class="faq-item border border-dark-tertiary rounded-lg overflow-hidden"><button class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between text-white font-medium hover:bg-dark-tertiary/50 transition-colors"><span>어떤 AI 모델이 포함되나요?</span><span class="faq-icon text-accent font-mono text-sm">+</span></button><div class="faq-content hidden px-6 pb-4 text-text-muted text-sm leading-relaxed">Pro 플랜에는 Anthropic의 Claude 4.5가 포함됩니다. 약 $20/월 가치의 AI 사용량이 구독에 번들로 포함됩니다. API 키 불필요.</div></div>
+          <div class="faq-item border border-dark-tertiary rounded-lg overflow-hidden"><button class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between text-white font-medium hover:bg-dark-tertiary/50 transition-colors"><span>언제든지 취소할 수 있나요?</span><span class="faq-icon text-accent font-mono text-sm">+</span></button><div class="faq-content hidden px-6 pb-4 text-text-muted text-sm leading-relaxed">네 — 대시보드에서 언제든지 취소할 수 있습니다. AI 에이전트는 현재 결제 기간이 끝날 때까지 활성 상태를 유지합니다. 취소 수수료 없음, 약정 없음.</div></div>
+          <div class="faq-item border border-dark-tertiary rounded-lg overflow-hidden"><button class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between text-white font-medium hover:bg-dark-tertiary/50 transition-colors"><span>ChatGPT와 어떻게 다른가요?</span><span class="faq-icon text-accent font-mono text-sm">+</span></button><div class="faq-content hidden px-6 pb-4 text-text-muted text-sm leading-relaxed">ChatGPT는 챗봇입니다 — 질문하면 답변합니다. AgentPuter는 24/7 자율적으로 실행되는 AI 에이전트를 제공하며, 앱에 연결하고 컴퓨터 앞에 없어도 행동합니다.</div></div>
+          <div class="faq-item border border-dark-tertiary rounded-lg overflow-hidden"><button class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between text-white font-medium hover:bg-dark-tertiary/50 transition-colors"><span>AI 에이전트가 실제로 무엇을 할 수 있나요?</span><span class="faq-icon text-accent font-mono text-sm">+</span></button><div class="faq-content hidden px-6 pb-4 text-text-muted text-sm leading-relaxed">500개 이상의 기본 스킬: 조사, 번역, 요약, 이메일 초안 작성, 데이터 분석, 일정 관리, 시장 모니터링 등. 자연어로 새로운 작업을 가르칠 수도 있습니다.</div></div>
+        </div>
+      </div>
+    </section>
+    <section class="py-16 lg:py-24">
+      <div class="max-w-7xl mx-auto px-6 lg:px-20">
+        <div class="relative overflow-hidden rounded-2xl bg-dark-secondary border-2 border-accent/50 p-8 md:p-16 glow-accent neon-box">
+          <div class="absolute inset-0 opacity-5"><div class="absolute inset-0" style="background-image: linear-gradient(rgba(0,255,65,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,65,0.1) 1px, transparent 1px); background-size: 20px 20px;"></div></div>
+          <div class="relative text-center">
+            <div class="font-mono text-accent text-sm mb-4">> 시작할 준비가 되셨나요</div>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-accent text-glow-strong mb-4 font-mono">지금 시작하세요</h2>
+            <p class="text-text-secondary text-lg mb-10 max-w-xl mx-auto font-mono">월 $29.99. 2분 만에 설정. AI 에이전트는 잠들지 않습니다.</p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href={`${APP_URL}/sign-up`} class="btn-primary text-sm py-4 px-10 font-mono">[지금 시작]</a>
+              <a href="mailto:oscarzamora199907@gmail.com" class="btn-secondary text-sm py-4 px-10 font-mono">[질문하기]</a>
+            </div>
+            <p class="text-text-muted text-xs font-mono mt-6">// 언제든지 취소 · 코딩 불필요 · 숨겨진 요금 없음</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+<script is:inline>
+  document.querySelectorAll('.faq-toggle').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = btn.closest('.faq-item'); var content = item.querySelector('.faq-content'); var icon = item.querySelector('.faq-icon');
+      document.querySelectorAll('.faq-item').forEach(function(other) { if (other !== item) { other.querySelector('.faq-content').classList.add('hidden'); other.querySelector('.faq-icon').textContent = '+'; } });
+      content.classList.toggle('hidden'); icon.textContent = content.classList.contains('hidden') ? '+' : '−';
+    });
+  });
+</script>

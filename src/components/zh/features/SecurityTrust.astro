@@ -1,0 +1,26 @@
+---
+// Security & Trust - 中文版
+const badges = [
+  { icon: '🔐', title: 'AES-256', desc: '静态和传输中\n全程加密' },
+  { icon: '🛡️', title: '隔离 VPS', desc: '每个 Pod 都有\n独立运行环境' },
+  { icon: '📡', title: '完整 SSH Root', desc: '你的 VPS\n你做主' },
+  { icon: '🗑️', title: '一键销毁', desc: '立即销毁\n所有数据' },
+  { icon: '👁️', title: 'Human-in-Loop', desc: '敏感操作\n需要你确认' },
+];
+---
+
+<section class="relative py-16 bg-[#0A0A0A]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20 flex flex-col items-center">
+    <span class="block text-xs font-mono font-semibold tracking-[2px] text-accent mb-8">安全与信任</span>
+    
+    <div class="flex flex-wrap justify-center gap-6 lg:gap-8">
+      {badges.map((b) => (
+        <div class="flex flex-col items-center text-center w-[120px]">
+          <span class="text-3xl mb-2">{b.icon}</span>
+          <span class="font-mono text-sm font-bold text-white mb-1">{b.title}</span>
+          <span class="text-[11px] text-[#94A3B8] whitespace-pre-line leading-relaxed">{b.desc}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

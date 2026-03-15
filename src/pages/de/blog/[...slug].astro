@@ -1,0 +1,27 @@
+---
+// Deutsche Blogpost-Detailseiten-Route
+import { getCollection } from 'astro:content';
+import DeBlogPost from '../../../layouts/DeBlogPost.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('de-blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<DeBlogPost
+  title={post.data.title}
+  description={post.data.description}
+  date={post.data.date}
+  author={post.data.author}
+  readingTime={post.data.readingTime}
+  tags={post.data.tags}
+>
+  <Content />
+</DeBlogPost>

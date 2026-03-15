@@ -1,0 +1,98 @@
+---
+// ドキュメントのサイドバーナビゲーションコンポーネント
+interface Props {
+  activeItem?: string;
+}
+const { activeItem = 'home' } = Astro.props;
+
+const sections = [
+  {
+    label: 'はじめに',
+    items: [
+      { id: 'quick-start', name: 'クイックスタート', href: '/docs#quick-start' },
+      { id: 'add-channels', name: 'チャンネルの追加', href: '/docs/add-channel' },
+      { id: 'skills', name: 'Skills & ClawHub', href: '/docs#skills' },
+    ],
+  },
+  {
+    label: '設定',
+    items: [
+      { id: 'pod-settings', name: 'Pod 設定', href: '/docs#pod-settings' },
+      { id: 'env-secrets', name: '環境変数とシークレット', href: '/docs#env-secrets' },
+      { id: 'ssh', name: 'SSH アクセス', href: '/docs#ssh' },
+    ],
+  },
+  {
+    label: '理解を深める',
+    items: [
+      { id: 'security', name: 'セキュリティとプライバシー', href: '/docs#security' },
+      { id: 'troubleshooting', name: 'トラブルシューティング', href: '/docs#troubleshooting' },
+      { id: 'cost', name: 'コストと使用量', href: '/docs#cost' },
+    ],
+  },
+];
+
+const comingSoon = [
+  'コアコンセプト',
+  'マルチエージェント',
+  'Skills & ツール',
+  'コスト管理',
+  'API リファレンス',
+  '移行ガイド',
+];
+---
+
+<aside class="w-full lg:w-[240px] lg:min-w-[240px] bg-[#111111] border-r border-[#222222] lg:min-h-[calc(100vh-80px)] lg:sticky lg:top-20 overflow-y-auto">
+  <div class="p-4 lg:py-5 lg:px-4 flex flex-col gap-1">
+    <!-- 検索ボックス -->
+    <div class="w-full h-[30px] bg-[#1A1A1A] rounded-md border border-[#333333] flex items-center px-3 mb-3">
+      <span class="text-[#555] text-[11px] font-sans">🔍 検索...  ⌘K</span>
+    </div>
+
+    <!-- ドキュメント ホーム -->
+    <a
+      href="/ja/docs"
+      class={`w-full rounded px-2.5 py-1.5 font-mono text-[13px] font-semibold transition-colors ${
+        activeItem === 'home'
+          ? 'bg-accent/10 text-accent'
+          : 'text-[#94A3B8] hover:text-white hover:bg-white/5'
+      }`}
+    >
+      ⌂  ドキュメント ホーム
+    </a>
+
+    <!-- 各セクション -->
+    {sections.map((section) => (
+      <div class="mt-4">
+        <span class="text-[#666] font-mono text-[10px] font-semibold tracking-[2px] block mb-1 px-1">
+          {section.label}
+        </span>
+        {section.items.map((item) => (
+          <a
+            href={item.href}
+            class={`block px-2.5 py-1 font-mono text-[13px] rounded transition-colors ${
+              activeItem === item.id
+                ? 'text-white bg-white/5'
+                : 'text-[#94A3B8] hover:text-white hover:bg-white/5'
+            }`}
+          >
+            {item.name}
+          </a>
+        ))}
+      </div>
+    ))}
+
+    <!-- 区切り線 -->
+    <div class="w-full h-px bg-[#222] my-4"></div>
+
+    <!-- 近日公開 -->
+    <span class="text-[#333] font-mono text-[9px] font-semibold tracking-[2px] block mb-1 px-1">
+      近日公開
+    </span>
+    {comingSoon.map((item) => (
+      <span class="block px-2.5 py-0.5 font-mono text-[12px] text-[#333] cursor-default">
+        {item}
+      </span>
+    ))}
+  </div>
+</aside>

@@ -1,0 +1,26 @@
+---
+// Sécurité & Confiance
+const badges = [
+  { icon: '🔐', title: 'AES-256', desc: 'Chiffré au repos\net en transit' },
+  { icon: '🛡️', title: 'VPS Isolé', desc: 'Chaque Pod dans son\npropre environnement' },
+  { icon: '📡', title: 'Accès Root SSH complet', desc: 'Votre VPS,\nvos règles' },
+  { icon: '🗑️', title: 'Nuke en un clic', desc: 'Détruisez toutes les données\ninstantanément' },
+  { icon: '👁️', title: 'Humain dans la boucle', desc: 'Les opérations sensibles\nnécessitent votre accord' },
+];
+---
+
+<section class="relative py-16 bg-[#0A0A0A]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20">
+    <span class="block text-xs font-mono font-semibold tracking-[2px] text-accent mb-8">SÉCURITÉ & CONFIANCE</span>
+    
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+      {badges.map((b) => (
+        <div class="flex flex-col items-center text-center bg-[#111111] border border-[#222222] rounded-xl p-5 transition-all duration-300 hover:border-accent/20">
+          <span class="text-2xl mb-2">{b.icon}</span>
+          <span class="font-mono text-sm font-semibold text-white mb-1">{b.title}</span>
+          <span class="text-xs text-[#666666] leading-relaxed whitespace-pre-line">{b.desc}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

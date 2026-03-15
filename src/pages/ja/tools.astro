@@ -1,0 +1,208 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/ja/Header.astro';
+import Footer from '../../components/ja/Footer.astro';
+import MatrixRain from '../../components/MatrixRain.astro';
+
+const APP_URL = 'https://app.agentputer.com';
+
+const useCases = [
+  {
+    category: '調査・分析',
+    icon: '',
+    color: 'accent',
+    items: ["24時間業界ニュースを監視","競合他社の動向を追跡","長いレポートやPDFを要約","文書をリアルタイムで翻訳","毎日の市場ブリーフィングを作成","企業やトレンドを調査"],
+  },
+  {
+    category: 'コミュニケーション',
+    icon: '',
+    color: 'accent',
+    items: ["メール返信を自動で下書き","Telegram/Slackメッセージを管理","会話をリアルタイムで翻訳","顧客の質問に回答","フォローアップをスケジュール","長いチャットスレッドを要約"],
+  },
+  {
+    category: '生産性',
+    icon: '',
+    color: 'accent',
+    items: ["カレンダーとタスクを整理","会議メモを自動で記録","スマートリマインダーを設定","メモからプレゼンテーションを作成","プロジェクト全体の締め切りを追跡","定期的にレポートを生成"],
+  },
+  {
+    category: '財務・ビジネス',
+    icon: '',
+    color: 'accent',
+    items: ["経費と領収書を追跡","株価と通知を監視","請求書を生成","見積もりと提案を比較","ROIシナリオを計算","財務報告を要約"],
+  },
+  {
+    category: 'コンテンツ・ライティング',
+    icon: '',
+    color: 'accent',
+    items: ["ブログ記事を下書き","ソーシャルメディアコンテンツを作成","ニュースレターを作成","文書を編集・校正","商品説明を生成","契約書やNDAを作成"],
+  },
+  {
+    category: 'データ・自動化',
+    icon: '',
+    color: 'accent',
+    items: ["ウェブデータをスクレイピング・整理","ウェブサイトの変化を監視","受信情報を自動分類","毎日/毎週のダイジェストを生成","複数のソースをクロスリファレンス","カスタムワークフローを構築"],
+  }
+];
+---
+<Layout title="ツールと活用事例 - AgentPuter | AIエージェントで何ができる？" description="常時稼働AIエージェントができる500以上のことを発見。調査、自動化、コミュニケーション、分析 — コーディング不要。実際の活用事例をご覧ください。" tags={['AgentPuter', 'AIツール', 'AI活用事例', 'AI自動化', 'ノーコードAI', 'AIエージェント']}>
+  <MatrixRain />
+  <Header activePage="tools" />
+  <main class="relative z-10">
+    <section class="relative pt-32 pb-12 lg:pt-40 lg:pb-16 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-dark-primary via-dark-primary to-dark-secondary"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,255,65,0.06),transparent_50%)]"></div>
+      <div class="relative max-w-7xl mx-auto px-6 lg:px-20 text-center">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.2em] mb-6">500以上の組み込みスキル</div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">AIエージェントで何ができる？</h1>
+        <p class="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-4">1つのエージェント、無数の活用事例。<br />自然な言葉で必要なことを伝えるだけ — 残りはエージェントが対処します。</p>
+        <p class="text-text-muted text-sm max-w-xl mx-auto">AIエージェントは24時間稼働し、お気に入りのアプリに接続し、眠っている間もタスクを処理します。コーディング不要。設定不要。やりたいことを説明するだけ。</p>
+      </div>
+    </section>
+    <section class="py-8 overflow-hidden">
+      <div class="relative">
+        <div class="flex animate-scroll-left gap-4 whitespace-nowrap">
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">メールを読んで要約</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">返信を自動で下書き</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">メッセージを翻訳</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">株価を監視</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">競合他社のニュースを追跡</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">レポートを要約</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">会議をスケジュール</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">請求書を生成</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">競合他社を調査</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">ソーシャル投稿を作成</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">プレゼンテーションを作成</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">最安値をオンラインで探す</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">メールを読んで要約</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">返信を自動で下書き</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">メッセージを翻訳</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">株価を監視</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">競合他社のニュースを追跡</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">レポートを要約</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">会議をスケジュール</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">請求書を生成</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">競合他社を調査</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">ソーシャル投稿を作成</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">プレゼンテーションを作成</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">最安値をオンラインで探す</span>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 lg:py-20">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-4 text-center">// 従来の方法 vs 新しい方法</div>
+        <h2 class="text-white text-2xl md:text-3xl font-bold mb-12 text-center">手作業をやめましょう</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-dark-secondary rounded-2xl border border-dark-tertiary p-8">
+            <div class="text-error font-mono text-xs font-bold mb-4">AGENTPUTER なし</div>
+            <ul class="space-y-4 text-sm">
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-error mt-0.5">✗</span><span>毎朝手動でニュースサイトを確認</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-error mt-0.5">✗</span><span>メッセージを翻訳するためにアプリ間でコピー＆ペースト</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-error mt-0.5">✗</span><span>レポートの閲覧と要約に何時間も費やす</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-error mt-0.5">✗</span><span>離席中に重要な更新を見逃す</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-error mt-0.5">✗</span><span>AIはパソコンの前にいるときだけ動作する</span></li>
+            </ul>
+          </div>
+          <div class="bg-dark-secondary rounded-2xl border-2 border-accent/50 p-8">
+            <div class="text-accent font-mono text-xs font-bold mb-4">AGENTPUTER あり</div>
+            <ul class="space-y-4 text-sm">
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-accent mt-0.5">✓</span><span>AIがニュースを監視し、毎日ブリーフィングを送信</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-accent mt-0.5">✓</span><span>すべてのチャンネルでメッセージを自動翻訳</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-accent mt-0.5">✓</span><span>PDFを送信すれば数秒で要約を取得</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-accent mt-0.5">✓</span><span>AIは24時間稼働 — 週末も</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-accent mt-0.5">✓</span><span>エージェントは専用クラウドで稼働 — 常時オン</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 lg:py-20">
+      <div class="max-w-7xl mx-auto px-6 lg:px-20">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-4 text-center">// 活用事例</div>
+        <h2 class="text-white text-2xl md:text-3xl font-bold mb-4 text-center">1つのエージェント、何百もの活用事例</h2>
+        <p class="text-text-muted text-center text-sm mb-12 max-w-lg mx-auto">自然言語でAIエージェントに新しいタスクを教えます。コード不要。</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {useCases.map((category) => (
+            <div class="bg-dark-secondary rounded-2xl border border-dark-tertiary p-6 hover:border-accent/30 transition-colors">
+              <div class="flex items-center gap-3 mb-4">
+                <h3 class="text-white font-bold">{category.category}</h3>
+              </div>
+              <ul class="space-y-2.5">
+                {category.items.map((item) => (
+                  <li class="text-text-muted text-sm flex items-start gap-2">
+                    <span class="text-accent mt-0.5 text-xs">●</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <p class="text-text-dark text-xs font-mono text-center mt-8">// 自然言語で好きなだけ活用事例を追加できます</p>
+      </div>
+    </section>
+    <section class="py-12 lg:py-20 bg-dark-secondary/50">
+      <div class="max-w-4xl mx-auto px-6 lg:px-20">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-4 text-center">// 使い方</div>
+        <h2 class="text-white text-2xl md:text-3xl font-bold mb-12 text-center">3ステップ。2分。完了。</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-accent/10 border border-accent/30 flex items-center justify-center mx-auto mb-4"><span class="text-accent font-mono font-bold text-xl">1</span></div>
+            <h3 class="text-white font-bold mb-2">サインアップ</h3><p class="text-text-muted text-sm">アカウントを作成。閲覧にクレジットカード不要。</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-terminal-cyan/10 border border-terminal-cyan/30 flex items-center justify-center mx-auto mb-4"><span class="text-terminal-cyan font-mono font-bold text-xl">2</span></div>
+            <h3 class="text-white font-bold mb-2">アプリを接続</h3><p class="text-text-muted text-sm">Telegram、WhatsApp、Slackまたは15以上のチャンネルのいずれかをリンク。</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-terminal-magenta/10 border border-terminal-magenta/30 flex items-center justify-center mx-auto mb-4"><span class="text-terminal-magenta font-mono font-bold text-xl">3</span></div>
+            <h3 class="text-white font-bold mb-2">やることを指示</h3><p class="text-text-muted text-sm">平易な言葉でタスクを説明。AIエージェントが残りを処理します — 24時間。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 lg:py-20">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20 text-center">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-4">// あなたが働く場所で機能</div>
+        <h2 class="text-white text-2xl md:text-3xl font-bold mb-4">15以上のチャンネルに接続</h2>
+        <p class="text-text-muted text-sm mb-10 max-w-lg mx-auto">AIエージェントはあなたがすでに使っている場所で対応します — 新しいアプリを覚える必要なし。</p>
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <span class="px-5 py-2.5 bg-dark-secondary border border-accent/30 rounded-full text-accent text-sm font-medium">Telegram</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-accent/30 rounded-full text-accent text-sm font-medium">WhatsApp</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-accent/30 rounded-full text-accent text-sm font-medium">Slack</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-accent/30 rounded-full text-accent text-sm font-medium">Discord</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Email</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Web Chat</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">SMS</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Line</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">WeChat</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Twitter/X</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Instagram</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">+4 more</span>
+        </div>
+      </div>
+    </section>
+    <section class="py-16 lg:py-24">
+      <div class="max-w-7xl mx-auto px-6 lg:px-20">
+        <div class="relative overflow-hidden rounded-2xl bg-dark-secondary border-2 border-accent/50 p-8 md:p-16 glow-accent neon-box">
+          <div class="absolute inset-0 opacity-5"><div class="absolute inset-0" style="background-image: linear-gradient(rgba(0,255,65,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,65,0.1) 1px, transparent 1px); background-size: 20px 20px;"></div></div>
+          <div class="relative text-center">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-accent text-glow-strong mb-4 font-mono">AIエージェントがあなたを待っています</h2>
+            <p class="text-text-secondary text-lg mb-10 max-w-xl mx-auto" set:html="$29.99/月。2分でセットアップ。24時間稼働。<br />コーディング不要。APIキー不要。すべて含まれています。"></p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href={`${APP_URL}/sign-up`} class="btn-primary text-sm py-4 px-10 font-mono">[今すぐ始める — $29.99/月]</a>
+              <a href="/ja/pricing" class="btn-secondary text-sm py-4 px-10 font-mono">[料金を見る]</a>
+            </div>
+            <p class="text-text-muted text-xs font-mono mt-6">// いつでもキャンセル · コーディング不要 · 隠れた費用なし</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+<style>
+  @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  .animate-scroll-left { animation: scroll-left 30s linear infinite; }
+</style>

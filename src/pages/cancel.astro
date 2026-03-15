@@ -1,0 +1,76 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import MatrixRain from '../components/MatrixRain.astro';
+---
+
+<Layout
+  title="Checkout Canceled — AgentPuter"
+  description="Your checkout was canceled. You can try again anytime."
+  noindex={true}
+>
+  <MatrixRain />
+  <Header activePage="pricing" />
+
+  <main class="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 py-24">
+    <div class="max-w-xl w-full text-center">
+      <!-- 图标 -->
+      <div class="w-24 h-24 rounded-full bg-dark-tertiary border border-dark-tertiary flex items-center justify-center mx-auto mb-8">
+        <svg class="w-10 h-10 text-text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </div>
+
+      <div class="font-mono text-text-muted text-xs font-semibold tracking-[0.25em] mb-4">
+        CHECKOUT_CANCELED
+      </div>
+      <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        No problem.
+      </h1>
+      <p class="text-text-secondary text-lg mb-2">
+        Your checkout was canceled — nothing was charged.
+      </p>
+      <p class="text-text-muted text-sm mb-10 font-mono">
+        // Come back whenever you're ready.
+      </p>
+
+      <!-- 常见顾虑 -->
+      <div class="bg-dark-secondary border border-dark-tertiary rounded-xl p-6 mb-8 text-left">
+        <p class="text-text-muted font-semibold text-sm mb-4 font-mono">&gt; common_questions</p>
+        <ul class="space-y-3 text-sm text-text-muted">
+          <li class="flex items-start gap-2">
+            <span class="text-accent mt-0.5">✓</span>
+            <span><strong class="text-white">Cancel anytime</strong> — no lock-in, no cancellation fees.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-accent mt-0.5">✓</span>
+            <span><strong class="text-white">2-minute setup</strong> — no technical skills required.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-accent mt-0.5">✓</span>
+            <span><strong class="text-white">Claude 4.5 included</strong> — ~$20/mo AI usage bundled in.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- CTA -->
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a
+          href="/pricing"
+          class="btn-primary text-sm py-4 px-8 font-mono"
+        >
+          [TRY AGAIN]
+        </a>
+        <a
+          href="mailto:oscarzamora199907@gmail.com"
+          class="btn-secondary text-sm py-4 px-8 font-mono"
+        >
+          [ASK A QUESTION]
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

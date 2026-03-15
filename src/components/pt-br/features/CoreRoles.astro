@@ -1,0 +1,152 @@
+---
+// 5 Funções Principais - cada função com uma simulação de terminal
+const roles = [
+  {
+    icon: '🔒', name: 'Proxy de Privacidade', color: '#00FF41', colorClass: 'text-accent',
+    slogan: '// Seus dados nunca saem do seu controle',
+    desc: "Você não colaria suas credenciais bancárias no ChatGPT. O AgentPuter atua como um firewall entre você e os LLMs — higienizando dados, gerenciando autorizações e garantindo que a propriedade dos dados permaneça em suas mãos.",
+    terminal: {
+      title: 'agentputer — proxy de privacidade',
+      borderColor: '#00FF4130',
+      lines: [
+        { text: '$ agentputer privacy status', color: '#00FF41' },
+        { text: '' },
+        { text: '  Fluxo de dados: Usuário → AgentPuter → [HIGIENIZADO] → LLM', color: '#94A3B8' },
+        { text: '  Credenciais: criptografadas em repouso (AES-256)', color: '#94A3B8' },
+        { text: '  Chaves de API: gerenciadas, nunca expostas aos modelos', color: '#94A3B8' },
+        { text: '  Detecção de PII: ativa, auto-redação habilitada', color: '#94A3B8' },
+        { text: '✓ Seus dados continuam sendo seus', color: '#00FF41' },
+      ],
+    },
+  },
+  {
+    icon: '🧠', name: 'Gerenciador de Contexto', color: '#00BFFF', colorClass: 'text-[#00BFFF]',
+    slogan: '// Uma memória que nunca esquece',
+    desc: "LLMs são amnésicos. O AgentPuter dá ao seu agente uma memória de longo prazo. Ele converte fluxos de trabalho, preferências e histórico de arquivos em um contexto estruturado — economizando tokens e melhorando a precisão.",
+    reverse: true,
+    terminal: {
+      title: 'agentputer — gerenciador de contexto',
+      borderColor: '#00BFFF30',
+      lines: [
+        { text: '$ agentputer context show', color: '#00FF41' },
+        { text: '' },
+        { text: '  Memória de longo prazo: 847 entradas', color: '#94A3B8' },
+        { text: '  Preferências:          23 regras carregadas', color: '#94A3B8' },
+        { text: '  Histórico de arquivos: 156 arquivos rastreados', color: '#94A3B8' },
+        { text: '  Economia de tokens:    ~62% (contexto inteligente)', color: '#94A3B8' },
+        { text: '  Última sincronização:  2m atrás', color: '#94A3B8' },
+        { text: '✓ Continua de onde você parou', color: '#00FF41' },
+      ],
+    },
+  },
+  {
+    icon: '🔌', name: 'Interface Unificada', color: '#A855F7', colorClass: 'text-[#A855F7]',
+    slogan: '// Uma API para tudo que seu agente precisa',
+    desc: "Cada capacidade — documentos, e-mail, web, código — é encapsulada como uma ferramenta padronizada. Os agentes invocam capacidades tão naturalmente quanto um humano usa um mouse, sem precisar aprender cada API.",
+    terminal: {
+      title: 'agentputer — interface unificada',
+      borderColor: '#A855F730',
+      lines: [
+        { text: '$ agentputer tools list', color: '#00FF41' },
+        { text: '' },
+        { text: '  ├── documentos   (ler, escrever, converter)', color: '#94A3B8' },
+        { text: '  ├── email        (enviar, ler, pesquisar)', color: '#94A3B8' },
+        { text: '  ├── web          (navegar, extrair, API)', color: '#94A3B8' },
+        { text: '  ├── calendário   (eventos, lembretes)', color: '#94A3B8' },
+        { text: '  ├── código       (executar, testar, deploy)', color: '#94A3B8' },
+        { text: '  ├── arquivos     (CRUD, organizar)', color: '#94A3B8' },
+        { text: '  └── custom       (marketplace de Skills)', color: '#94A3B8' },
+        { text: '✓ 7 ferramentas principais + Skills ilimitadas', color: '#00FF41' },
+      ],
+    },
+  },
+  {
+    icon: '💾', name: 'Workspace Persistente', color: '#FFD700', colorClass: 'text-[#FFD700]',
+    slogan: "// A área de trabalho do seu agente",
+    desc: "O agente tem seu próprio sistema de arquivos, repositório de código e notas de pesquisa. O trabalho inacabado é salvo. A próxima sessão continua exatamente de onde a última parou.",
+    reverse: true,
+    terminal: {
+      title: 'agentputer — workspace persistente',
+      borderColor: '#FFD70030',
+      lines: [
+        { text: '$ agentputer workspace status', color: '#00FF41' },
+        { text: '' },
+        { text: '  ~/workspace/', color: '#94A3B8' },
+        { text: '  ├── projetos/     (3 ativos)', color: '#94A3B8' },
+        { text: '  ├── pesquisa/     (12 notas)', color: '#94A3B8' },
+        { text: '  ├── rascunhos/    (5 em andamento)', color: '#94A3B8' },
+        { text: '  └── exportados/   (8 concluídos)', color: '#94A3B8' },
+        { text: '' },
+        { text: '  Armazenamento: 2.1 GB / 40 GB', color: '#94A3B8' },
+        { text: "✓ O lar persistente do seu agente", color: '#00FF41' },
+      ],
+    },
+  },
+  {
+    icon: '📋', name: 'Registro de Atividades', color: '#FF6B6B', colorClass: 'text-[#FF6B6B]',
+    slogan: '// Cada ação, registrada e revisável',
+    desc: "Veja exatamente o que seu agente fez, quando e por quê. Cadeias de decisão completas são registradas. Ações sensíveis pausam automaticamente para confirmação humana. Confiança através da transparência.",
+    terminal: {
+      title: 'agentputer — registro de atividades',
+      borderColor: '#FF6B6B30',
+      lines: [
+        { text: '$ agentputer logs --last 5', color: '#00FF41' },
+        { text: '' },
+        { text: "[14:23:01] [agente] Recebido: 'compilar relatório de vendas'", color: '#94A3B8' },
+        { text: '[14:23:02] [agente] Plano: buscar dados → analisar → formatar', color: '#94A3B8' },
+        { text: '[14:23:05] [ferramenta] Consultou banco de dados: sales_q4_2025', color: '#94A3B8' },
+        { text: '[14:23:08] [agente] Rascunho do relatório gerado', color: '#94A3B8' },
+        { text: '[14:23:09] [⚠ CONFIRMAR] Enviar e-mail para o gerente?', color: '#94A3B8' },
+        { text: '[14:23:15] [humano] Aprovado ✓', color: '#94A3B8' },
+        { text: '✓ Intervenção humana para operações sensíveis', color: '#00FF41' },
+      ],
+    },
+  },
+];
+---
+
+<section class="relative py-20 bg-[#0A0A0A]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20">
+    <div class="mb-16">
+      <span class="block text-xs font-mono font-semibold tracking-[2px] text-accent mb-6">CINCO FUNÇÕES, UMA PLATAFORMA</span>
+      <p class="text-lg md:text-2xl font-semibold text-white leading-snug max-w-[800px]">
+        O AgentPuter não é apenas uma lista de recursos.<br/>Ele desempenha cinco funções cruciais no seu fluxo de trabalho de IA.
+      </p>
+    </div>
+    
+    <div class="space-y-24">
+      {roles.map((role) => (
+        <div class={`flex flex-col ${role.reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-10 lg:gap-12`}>
+          <!-- Parte de texto -->
+          <div class="w-full lg:w-5/12 space-y-3">
+            <span class={`font-mono text-[28px] font-bold ${role.colorClass}`}>[{role.icon}]</span>
+            <h3 class="text-2xl md:text-[28px] font-bold text-white">{role.name}</h3>
+            <p class="font-mono text-[13px] font-semibold" style={`color: ${role.color}`}>{role.slogan}</p>
+            <p class="text-[15px] text-[#999999] leading-relaxed pt-1">{role.desc}</p>
+          </div>
+          
+          <!-- Parte do terminal -->
+          <div class="w-full lg:w-7/12">
+            <div class="rounded-xl border overflow-hidden" style={`border-color: ${role.terminal.borderColor}; background: #0D1117;`}>
+              <!-- Cabeçalho do terminal -->
+              <div class="flex items-center gap-2 px-3 h-9 bg-[#252525]">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#EF4444]"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-[#F59E0B]"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-[#22C55E]"></span>
+                <span class="ml-2 text-[#64748B] font-mono text-[11px]">{role.terminal.title}</span>
+              </div>
+              <!-- Conteúdo do terminal -->
+              <div class="p-4 space-y-1">
+                {role.terminal.lines.map((line) => (
+                  <p class="font-mono text-xs leading-relaxed" style={`color: ${line.color || '#94A3B8'}`}>
+                    {line.text || '\u00A0'}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

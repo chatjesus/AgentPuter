@@ -1,0 +1,27 @@
+---
+// Rota da página de detalhes para posts do blog em PT-BR
+import { getCollection } from 'astro:content';
+import PtbrBlogPost from '../../../layouts/PtbrBlogPost.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('pt-br-blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<PtbrBlogPost
+  title={post.data.title}
+  description={post.data.description}
+  date={post.data.date}
+  author={post.data.author}
+  readingTime={post.data.readingTime}
+  tags={post.data.tags}
+>
+  <Content />
+</PtbrBlogPost>

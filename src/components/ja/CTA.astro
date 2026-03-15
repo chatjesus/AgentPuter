@@ -1,0 +1,142 @@
+---
+// CTAセクション - メール収集フォーム
+---
+
+<section id="cta" class="py-20 lg:py-32 bg-dark-primary relative matrix-grid">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20">
+    <div class="relative overflow-hidden rounded-2xl bg-dark-secondary border-2 border-accent/50 p-8 md:p-16 glow-accent neon-box pulse-border scanlines">
+      <!-- Terminal grid background -->
+      <div class="absolute inset-0 opacity-5">
+        <div class="absolute inset-0" style="background-image: linear-gradient(rgba(0,255,65,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,65,0.1) 1px, transparent 1px); background-size: 20px 20px;"></div>
+      </div>
+      
+      <div class="relative text-center">
+        <div class="font-mono text-accent text-sm mb-4">&gt; ready_to_start</div>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-accent text-glow-strong mb-4 font-mono">
+          あなた専用のAIエージェントを手に入れよう
+        </h2>
+        <p class="text-text-secondary text-lg mb-10 max-w-xl mx-auto font-mono">
+          月額$29.99。2分でセットアップ。コーディング不要。AIはもう眠らない。
+        </p>
+        
+        <!-- Primary CTA: Subscribe -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+          <a
+            href="https://app.agentputer.com/sign-up"
+            class="btn-primary text-sm py-4 px-10 font-mono"
+          >
+            [今すぐ始める — 月額$29.99]
+          </a>
+          <a
+            href="/pricing"
+            class="btn-secondary text-sm py-4 px-10 font-mono"
+          >
+            [料金プランを見る]
+          </a>
+        </div>
+
+        <p class="text-text-muted text-xs font-mono mb-6">
+          // いつでもキャンセル可能 · コーディング不要 · 隠れた費用なし
+        </p>
+        
+        <!-- Email Collection (secondary) -->
+        <div class="max-w-lg mx-auto mb-6">
+          <p class="text-text-dark text-xs font-mono mb-3">// または、BYOKプランのウェイティングリストに参加:</p>
+          <form id="waitlist-form" class="flex flex-col sm:flex-row gap-0">
+            <div class="flex-1 relative">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-accent font-mono text-sm">$</span>
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="your@email.com"
+                class="w-full h-12 pl-8 pr-5 rounded-l-lg bg-dark-primary text-accent placeholder-text-muted font-mono text-sm border border-accent/30 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
+              />
+            </div>
+            <button
+              type="submit"
+              class="h-12 px-5 rounded-r-lg bg-dark-tertiary text-text-secondary font-mono font-bold text-xs hover:bg-accent hover:text-dark-primary transition-colors whitespace-nowrap border border-accent/30 border-l-0"
+            >
+              [通知を受け取る]
+            </button>
+          </form>
+          <div id="form-message" class="mt-3 text-sm font-mono hidden"></div>
+        </div>
+        
+        <!-- Contact -->
+        <p class="text-text-muted text-xs font-mono mt-6">
+          // ご質問はこちら <a href="mailto:oscarzamora199907@gmail.com" class="text-terminal-cyan hover:underline">oscarzamora199907@gmail.com</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('waitlist-form');
+    const messageEl = document.getElementById('form-message');
+    
+    if (!form) return;
+    
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(form);
+      const email = formData.get('email');
+      
+      if (!messageEl || !email) return;
+      
+      // ローディング状態を表示
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = '[処理中...]';
+      submitBtn.disabled = true;
+      
+      try {
+        // localStorageに保存（開発モードで動作）
+        // 本番環境では、この処理はAPIレスポンスによって上書きされます
+        const subscribers = JSON.parse(localStorage.getItem('agentputer_subscribers') || '[]');
+        if (!subscribers.includes(email)) {
+          subscribers.push(email);
+          localStorage.setItem('agentputer_subscribers', JSON.stringify(subscribers));
+        }
+        console.log('[DEV] メールアドレスをlocalStorageに保存しました:', email);
+        console.log('[DEV] 全ての登録者:', subscribers);
+        
+        // API呼び出しを試行（Cloudflareへのデプロイ後に動作します）
+        try {
+          const response = await fetch('/api/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email }),
+          });
+          if (response.ok) {
+            console.log('[PROD] メールアドレスをAPIに保存しました');
+          }
+        } catch (err) {
+          // 開発モードではAPIが利用できませんが、問題ありません
+          console.log('[DEV] APIが利用できないため、localStorageのみ使用します');
+        }
+        
+        // GA4 コンバージョンイベントトラッキング
+        if (typeof gtag === 'function') {
+          gtag('event', 'generate_lead', { event_category: 'engagement', event_label: 'cta_invite_request', value: 1 });
+        }
+        
+        // 成功メッセージを表示
+        messageEl.innerHTML = '<span class="text-accent">✓ リクエスト受信:</span> 24時間以内に招待コードを <span class="text-terminal-cyan">' + email + '</span> にお送りします。';
+        messageEl.className = 'mt-3 text-sm font-mono text-accent';
+        messageEl.classList.remove('hidden');
+        form.reset();
+      } catch (error) {
+        messageEl.innerHTML = '<span class="text-error">[エラー]</span> 問題が発生しました。もう一度お試しください。';
+        messageEl.className = 'mt-4 text-sm font-mono text-error';
+        messageEl.classList.remove('hidden');
+      } finally {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }
+    });
+  });
+</script>

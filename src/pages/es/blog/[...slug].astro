@@ -1,0 +1,27 @@
+---
+// Ruta de la página de detalle de la entrada del blog en español
+import { getCollection } from 'astro:content';
+import EsBlogPost from '../../../layouts/EsBlogPost.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('es-blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<EsBlogPost
+  title={post.data.title}
+  description={post.data.description}
+  date={post.data.date}
+  author={post.data.author}
+  readingTime={post.data.readingTime}
+  tags={post.data.tags}
+>
+  <Content />
+</EsBlogPost>

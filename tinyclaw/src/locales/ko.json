@@ -1,0 +1,348 @@
+{
+  "meta": {
+    "title": "TinyClaw — 1분 안에 OpenClaw 배포하기",
+    "description": "OpenClaw 기반의 24시간 AI 비서를 단 한 번의 클릭으로 배포하세요. 서버, SSH, 기술적인 설정이 필요 없습니다. AI 모델을 선택하고 Telegram을 연결하여 60초 <1 min 안에 배포하세요. 7일 무료 체험, 이후 월 $29.99.",
+    "og_description": "24시간 AI 비서를 단 한 번의 클릭으로 배포하세요. 서버, SSH, 복잡한 설정 없이 Claude, GPT 또는 Gemini를 선택하고 Telegram을 통해 연결하세요."
+  },
+  "nav": {
+    "brand": "TinyClaw.dev",
+    "blog": "블로그",
+    "contact": "고객 지원"
+  },
+  "hero": {
+    "title_line1": "OpenClaw 배포",
+    "title_line2": "1분 안에",
+    "subtitle": "복잡한 기술은 피하고, 단 한 번의 클릭으로 24시간 활성 OpenClaw 인스턴스를 1분 <1 min 안에 배포하세요."
+  },
+  "models": {
+    "heading": "어떤 모델을 기본으로 사용하시겠습니까?"
+  },
+  "channels": {
+    "heading": "메시지 전송에 사용할 채널을 선택하세요.",
+    "coming_soon": "출시 예정"
+  },
+  "cta": {
+    "button": "Google로 로그인",
+    "note": "AI 비서를 배포하고 채널을 연결하려면 로그인하세요.",
+    "slots": "클라우드 서버가 얼마 남지 않았습니다. {count}개 남음"
+  },
+  "comparison": {
+    "label": "비교",
+    "title_line1": "기존 방식",
+    "title_line2": "vs TinyClaw",
+    "traditional": "기존 방식",
+    "tinyclaw": "TinyClaw",
+    "total": "총",
+    "total_time": "60 분",
+    "tinyclaw_time": "<1 min",
+    "tinyclaw_desc": "모델 선택, Telegram 연결, 배포 — 1분 안에 완료됩니다.",
+    "tinyclaw_subdesc": "서버, SSH 및 OpenClaw 환경이 이미 설정되어 할당되기를 기다리고 있습니다. 간단하고 안전하며 빠른 봇 연결을 경험하세요.",
+    "non_technical_note": "기술에 익숙하지 않다면, 이 시간을 10배로 곱하세요. 각 단계를 수행하기 전에 배워야 합니다.",
+    "steps": [
+      {
+        "label": "로컬 가상 머신 구매",
+        "time": "15 분"
+      },
+      {
+        "label": "SSH 키 생성 및 안전하게 보관",
+        "time": "10 분"
+      },
+      {
+        "label": "SSH를 통해 서버에 연결",
+        "time": "5 분"
+      },
+      {
+        "label": "Node.js 및 NPM 설치",
+        "time": "5 분"
+      },
+      {
+        "label": "OpenClaw 설치",
+        "time": "7 분"
+      },
+      {
+        "label": "OpenClaw 설정",
+        "time": "10 분"
+      },
+      {
+        "label": "AI 제공업체에 연결",
+        "time": "4 분"
+      },
+      {
+        "label": "Telegram과 페어링",
+        "time": "4 분"
+      }
+    ]
+  },
+  "usecases": {
+    "heading": "OpenClaw로 무엇을 할 수 있나요?",
+    "subheading": "하나의 비서, 수천 가지 활용 사례",
+    "ps": "추신. 자연어를 통해 원하는 만큼 활용 사례를 추가할 수 있습니다.",
+    "rows": [
+      [
+        "이메일 읽기 및 요약",
+        "답장 및 후속 조치 초안 작성",
+        "실시간 메시지 번역",
+        "받은 편지함 정리",
+        "고객 지원 티켓 응답",
+        "긴 문서 요약",
+        "회의 전 알림",
+        "채팅에서 회의 일정 예약"
+      ],
+      [
+        "마감일 알림",
+        "주간 계획",
+        "회의록 작성",
+        "시간대 동기화",
+        "세금 신고",
+        "비용 및 영수증 추적",
+        "보험 견적 비교",
+        "구독 관리"
+      ],
+      [
+        "급여 계산 실행",
+        "환불 협상",
+        "쿠폰 찾기",
+        "온라인 최저가 찾기",
+        "할인 코드 찾기",
+        "가격 인하 알림",
+        "제품 사양 비교",
+        "거래 협상"
+      ],
+      [
+        "계약서 및 NDA 작성",
+        "경쟁사 조사",
+        "잠재 고객 심사 및 우선 순위 지정",
+        "송장 생성",
+        "개요를 기반으로 프레젠테이션 만들기",
+        "여행 및 호텔 예약",
+        "재료로 레시피 찾기",
+        "소셜 게시물 초안 작성"
+      ],
+      [
+        "뉴스 및 알림 모니터링",
+        "목표 설정 및 추적",
+        "콜드 아웃리치 심사",
+        "채용 공고 초안 작성",
+        "스탠드업 요약 실행",
+        "OKR 및 KPI 추적"
+      ]
+    ]
+  },
+  "footer": {
+    "built_by": "❤️로 제작:",
+    "privacy": "개인 정보 보호 정책",
+    "terms": "서비스 약관"
+  },
+  "setup": {
+    "connect_telegram": "Telegram 연결",
+    "how_to_get_token": "봇 토큰을 얻는 방법은 무엇인가요?",
+    "step1_open": "Telegram을 열고 다음으로 이동하세요.",
+    "step2_type": "채팅을 시작하고 다음을 입력하세요.",
+    "step3_follow": "프롬프트에 따라 봇 이름을 지정하고 사용자 이름을 선택하세요.",
+    "step4_copy": "BotFather가 봇 토큰이 포함된 메시지를 보냅니다. 전체 토큰을 복사하세요 (숫자와 문자의 긴 문자열처럼 보입니다).",
+    "step5_paste": "아래 필드에 토큰을 붙여넣고 저장 및 연결을 클릭하세요.",
+    "enter_token": "봇 토큰 입력",
+    "invalid_token": "잘못된 토큰 형식입니다. 1234567890:ABCdefGH...와 같이 보여야 합니다.",
+    "connecting": "연결 중...",
+    "save_connect": "저장 및 연결 ✓",
+    "global_search": "글로벌 검색",
+    "model_heading": "어떤 모델을 기본으로 사용하시겠습니까?",
+    "channel_heading": "메시지 전송에 사용할 채널을 선택하세요.",
+    "coming_soon": "출시 예정",
+    "connected": "연결됨",
+    "sign_out": "로그아웃",
+    "deploy_btn": "OpenClaw 배포",
+    "redirecting_checkout": "결제 페이지로 리디렉션 중...",
+    "pricing": "월 $29.99 — 언제든지 취소 가능.",
+    "pricing_credits": "전용 VPS, 모든 모델 및 ClawHub의 무제한 스킬이 포함됩니다.",
+    "trial_badge": "7일 무료 체험",
+    "trial_for_7_days": "7일간",
+    "trial_then_price": "이후 $29.99/월 · 언제든지 취소 가능",
+    "trial_pricing_line": "7일간 무료 · 이후 $29.99/월 · 언제든지 취소 가능.",
+    "slots": "클라우드 서버가 얼마 남지 않았습니다. {count}개 남음",
+    "loading": "로드 중...",
+    "network_error": "네트워크 오류입니다. 다시 시도해주세요.",
+    "checkout_failed": "결제 시작 실패",
+    "channel_optional": "선택 사항 — 결제 후 설정 가능",
+    "connect_telegram_now": "Telegram에 지금 연결하시겠습니까?",
+    "setup_telegram_token": "Telegram 토큰 설정",
+    "skip_after_payment": "(건너뛰고 결제 후에 하기)",
+    "connect_discord_now": "Discord에 지금 연결하시겠습니까?",
+    "setup_discord_token": "Discord Bot 토큰 설정",
+    "whatsapp_no_token": "토큰이 필요 없습니다!",
+    "whatsapp_qr_hint": "결제 후 대시보드에서 QR 코드를 스캔하여 WhatsApp에 연결하세요.",
+    "plan_heading": "플랜을 선택하세요",
+    "plan_selected": "✓ 선택됨",
+    "plan_starter_label": "STARTER",
+    "plan_starter_first_month": "첫 달",
+    "plan_starter_then": "이후 $9.99/월",
+    "plan_starter_feat1": "AI 에이전트 1개",
+    "plan_starter_feat2": "모든 채널",
+    "plan_starter_feat3": "언제든지 취소 가능",
+    "plan_pro_label": "PRO",
+    "plan_pro_no_trial": "체험판 없음",
+    "plan_pro_feat1": "전용 클라우드 컴퓨터",
+    "plan_pro_feat2": "모든 채널",
+    "plan_pro_feat3": "언제든지 취소 가능",
+    "pricing_starter_today": "오늘 $1.99",
+    "pricing_starter_note": "· 1개월 이용 · 이후 $9.99/월 ·"
+  },
+  "creating": {
+    "setting_up": "AI 에이전트 설정 중...",
+    "model_label": "모델:",
+    "preparing": "환경 준비 중...",
+    "creating_cloud": "전용 AI 클라우드 설정 중...",
+    "almost_done": "거의 완료되었습니다!",
+    "time_hint": "약 2분 정도 소요됩니다.",
+    "error_title": "문제가 발생했습니다.",
+    "error_desc": "설정에 실패했습니다. 다시 시도하거나 지원팀에 문의하세요.",
+    "retry": "다시 시도",
+    "checking": "액세스 확인 중...",
+    "loading": "로드 중...",
+    "contact_support": "너무 오래 걸리나요? 지원팀에 문의하세요.",
+    "contact_support_short": "지원팀에 문의"
+  },
+  "dashboard": {
+    "agent_ready": "AI 에이전트가 준비되었습니다!",
+    "running_model": "{model} 실행 중 · 24시간 온라인",
+    "sign_out": "로그아웃",
+    "webchat_title": "OpenClaw WebChat",
+    "webchat_desc": "브라우저에서 직접 AI와 채팅하세요.",
+    "open_webchat": "WebChat 열기 →",
+    "vps_demo": "VPS 프로비저닝 (데모 모드)",
+    "webchat_pending": "실제 VPS가 프로비저닝되면 WebChat을 사용할 수 있습니다.",
+    "telegram_title": "Telegram 봇",
+    "telegram_connected": "연결됨",
+    "telegram_pair_now": "지금 페어링",
+    "telegram_connected_msg": "Telegram 연결됨!",
+    "telegram_ready": "Telegram에서 AI와 채팅할 준비가 되었습니다.",
+    "telegram_step1": "Telegram의 @BotFather를 통해 봇을 생성한 다음 아래에 토큰을 붙여넣으세요.",
+    "telegram_configure": "봇 토큰 구성",
+    "telegram_configuring": "봇 구성 중...",
+    "telegram_step2": "Telegram 봇에 메시지를 보내면 페어링 코드를 받게 됩니다. 아래에 입력하여 연결하세요.",
+    "telegram_pair_placeholder": "페어링 코드 입력",
+    "telegram_pairing": "페어링 중...",
+    "telegram_connect": "Telegram 연결",
+    "telegram_paired": "페어링 성공!",
+    "telegram_refreshing": "새로 고침 중...",
+    "telegram_failed": "봇 구성에 실패했습니다. 다시 시도해주세요.",
+    "telegram_pair_failed": "페어링에 실패했습니다. 다시 시도해주세요.",
+    "vps_title": "VPS 액세스 (고급)",
+    "vps_ip": "IP 주소",
+    "vps_port": "게이트웨이 포트",
+    "vps_ssh": "SSH 명령어",
+    "vps_password": "루트 비밀번호",
+    "subscription_title": "Pro 구독",
+    "subscription_status": "상태: {status}",
+    "subscription_renews": "{date}에 갱신",
+    "manage_subscription": "구독 관리",
+    "manage_loading": "로드 중...",
+    "manage_failed": "구독 포털을 여는 데 실패했습니다.",
+    "model_switch_btn": "전환",
+    "model_switching": "전환 중...",
+    "model_current": "현재",
+    "model_switch_note": "전환에는 약 30초가 소요됩니다. 에이전트가 다시 시작됩니다.",
+    "model_switching_desc": "새 모델로 에이전트를 다시 시작하는 중...",
+    "model_switch_success": "{model}로 전환됨",
+    "model_switch_failed": "모델 전환에 실패했습니다. 다시 시도해주세요.",
+    "powered_by": "제공:",
+    "discord_setup_now": "지금 설정",
+    "discord_token_configured": "Discord 봇 토큰이 구성되었습니다.",
+    "discord_step1_title": "1단계 — 봇을 서버에 초대하세요.",
+    "discord_step1_note": "봇 → Privileged Gateway Intents에서 Message Content Intent도 활성화하세요.",
+    "discord_step2_title": "2단계 — Discord에서 자신을 인증하세요.",
+    "discord_step2_desc": "봇에 메시지를 보내세요 (DM 또는 서버에서 @멘션). 페어링 코드가 회신됩니다.",
+    "discord_step2_cmd_note": "WebChat → 터미널에서 이 명령을 실행하여 계정을 승인하세요. 사용자당 한 번만 필요합니다.",
+    "discord_how_to": "🤖 Discord 봇 토큰을 얻는 방법:",
+    "discord_step_new_app": "새 애플리케이션",
+    "discord_step_add_bot": "봇",
+    "discord_step_add_bot2": "봇 추가",
+    "discord_step_reset_token": "토큰 재설정",
+    "discord_step_intent": "메시지 콘텐츠 인텐트",
+    "discord_step_url_gen": "OAuth2 → URL 생성기",
+    "discord_configured": "Discord 봇이 구성되었습니다!",
+    "discord_reloading": "다시 로드 중...",
+    "discord_configuring": "Discord 봇 구성 중...",
+    "discord_connect_btn": "Discord 봇 연결",
+    "discord_failed": "Discord 구성에 실패했습니다.",
+    "whatsapp_scan_to_connect": "스캔하여 연결",
+    "whatsapp_linked": "연결됨",
+    "whatsapp_no_token_desc": "WhatsApp은 토큰이 필요하지 않습니다. 여기에서 활성화하고 QR 코드를 스캔하여 계정을 연결하세요.",
+    "whatsapp_activating": "활성화 중…",
+    "whatsapp_activate_btn": "⚡ WhatsApp 활성화",
+    "whatsapp_activate_failed": "WhatsApp 활성화에 실패했습니다. 다시 시도해주세요.",
+    "whatsapp_activated": "✅ WhatsApp 채널이 활성화되었습니다. 휴대폰으로 아래 QR 코드를 스캔하여 계정을 연결하세요.",
+    "whatsapp_scan_instructions": "📱 WhatsApp → 설정 → 연결된 기기 → 기기 연결로 스캔하세요.",
+    "whatsapp_qr_expired": "QR 만료됨 — 새로 고침",
+    "whatsapp_qr_generating": "QR 코드 생성 중…",
+    "whatsapp_qr_placeholder": "QR 코드가 여기에 표시됩니다.",
+    "whatsapp_qr_no_qr": "반환된 QR 코드가 없습니다.",
+    "whatsapp_qr_expires_hint": "QR 코드는 약 60초 후에 만료됩니다. 회색으로 변하면 새로 고침을 클릭하세요.",
+    "whatsapp_refresh_qr": "🔄 QR 새로 고침",
+    "whatsapp_generate_qr": "📷 QR 코드 생성",
+    "whatsapp_open_webchat": "WebChat 열기",
+    "whatsapp_step2_title": "2단계 — 스캔 후 적용하려면 클릭하세요.",
+    "whatsapp_step2_desc": "WhatsApp에 연결된 기기에 Google Chrome (openclaw)이 표시되면 아래를 클릭하여 에이전트를 다시 시작하고 세션을 로드하세요.",
+    "whatsapp_applying": "에이전트 다시 시작 중… (~60초)",
+    "whatsapp_apply_btn": "✅ 스캔했습니다 — 연결 적용",
+    "whatsapp_apply_failed": "적용에 실패했습니다. 다시 시도해주세요.",
+    "whatsapp_live_title": "🎉 WhatsApp이 활성화되었습니다!",
+    "whatsapp_live_desc": "이제 AI 에이전트가 WhatsApp에 연결되었습니다. 자신의 번호로 메시지를 보내 채팅을 시작하세요.",
+    "telegram_how_to_title": "📋 Bot 토큰을 얻는 방법:",
+    "telegram_guide_step1": "Telegram을 열고 @BotFather를 검색하세요",
+    "telegram_guide_step2": "전송",
+    "telegram_guide_step3": "봇의 이름과 사용자 이름을 선택하세요",
+    "telegram_guide_step4": "BotFather가 토큰을 제공합니다 — 복사하세요",
+    "telegram_guide_step5": "아래에 토큰을 붙여넣으세요",
+    "telegram_token_saved": "✅ Bot 토큰이 저장되었습니다! 한 단계 더 남았습니다:",
+    "telegram_pair_guide_step1": "Telegram 봇을 열고 아무 메시지나 보내세요 (예: hi)",
+    "telegram_pair_guide_step2": "봇이 페어링 코드를 답장으로 보낼 것입니다",
+    "telegram_pair_guide_step3": "아래에 코드를 입력하여 연결을 완료하세요",
+    "feishu_title": "Lark / Feishu",
+    "feishu_connect_now": "연결",
+    "feishu_connected": "연결됨",
+    "feishu_desc": "AI 에이전트를 Lark (Feishu)에 연결하세요. 중국 본토 사용자는 Feishu를 통해 에이전트와 채팅할 수 있습니다.",
+    "feishu_app_id_label": "App ID",
+    "feishu_app_id_placeholder": "cli_xxxxxxxxxxxxxxxxx",
+    "feishu_app_secret_label": "App Secret",
+    "feishu_app_secret_placeholder": "Feishu App Secret을 입력하세요",
+    "feishu_verify_token_label": "Verification Token",
+    "feishu_verify_token_placeholder": "인증 토큰을 입력하세요",
+    "feishu_encrypt_key_label": "암호화 키 (선택 사항)",
+    "feishu_encrypt_key_placeholder": "활성화되지 않은 경우 비워 두세요",
+    "feishu_webhook_url_label": "Webhook URL (Feishu에 붙여넣으세요)",
+    "feishu_save_btn": "저장 및 연결",
+    "feishu_saving": "저장 중...",
+    "feishu_save_failed": "저장에 실패했습니다. 자격 증명을 확인하세요.",
+    "feishu_configured_title": "✅ Feishu 연결됨",
+    "feishu_configured_desc": "AI 에이전트가 이제 Feishu에 연결되었습니다. 사용자는 봇에 메시지를 보내 채팅을 시작할 수 있습니다.",
+    "feishu_how_to": "설정 방법",
+    "feishu_step_create_app": "1. open.feishu.cn/app → 맞춤 앱 만들기로 이동하세요",
+    "feishu_step_add_bot": "2. 앱 설정에서 봇 기능을 추가하세요",
+    "feishu_step_enable_events": "3. 이벤트 활성화: im.message.receive_v1",
+    "feishu_step_set_webhook": "4. 요청 URL을 아래의 웹훅 URL로 설정하세요",
+    "feishu_step_get_tokens": "5. App ID, App Secret, 인증 토큰을 여기에 복사하세요"
+  },
+  "faq": [
+    {
+      "q": "TinyClaw란 무엇인가요?",
+      "a": "TinyClaw는 오픈 소스 AI 비서 프레임워크인 OpenClaw를 위한 원클릭 배포 플랫폼입니다. 기술적인 설정 없이 1분 <1 min 안에 Telegram에 연결된 24시간 AI 비서를 배포할 수 있습니다."
+    },
+    {
+      "q": "TinyClaw로 OpenClaw를 배포하는 데 얼마나 걸리나요?",
+      "a": "1분 <1 min 미만입니다. 기존 설정은 60분 이상의 터미널 명령이 필요합니다. TinyClaw는 모든 서버 프로비저닝, OpenClaw 설치 및 채널 구성을 자동으로 처리합니다."
+    },
+    {
+      "q": "TinyClaw는 어떤 AI 모델을 지원하나요?",
+      "a": "TinyClaw는 Anthropic의 Claude Opus 4.6, OpenAI의 GPT-5.2 및 Google의 Gemini 3을 지원합니다. 설정 중에 선호하는 모델을 선택할 수 있습니다."
+    },
+    {
+      "q": "TinyClaw 비용은 얼마인가요?",
+      "a": "TinyClaw는 7일 무료 체험을 제공하며, 이후 월 $29.99입니다. 전용 클라우드 서버, 24시간 가동 시간, 자동 업데이트 및 Telegram 통합이 포함됩니다."
+    },
+    {
+      "q": "OpenClaw AI 비서는 무엇을 할 수 있나요?",
+      "a": "OpenClaw는 이메일 읽기 및 요약, 답장 초안 작성, 메시지 번역, 회의 일정 예약, 세금 신고, 비용 추적, 계약서 작성, 경쟁사 조사, 송장 생성 및 수천 가지 작업을 Telegram을 통해 자연어로 수행할 수 있습니다."
+    }
+  ]
+}

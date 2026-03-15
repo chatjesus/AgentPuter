@@ -1,0 +1,136 @@
+{
+  "vs_pages": [
+    {
+      "slug": "openclaw-vs-chatgpt",
+      "title": "OpenClaw vs ChatGPT: Which AI Assistant Should You Use in 2026?",
+      "h1": "OpenClaw vs ChatGPT",
+      "competitor": "ChatGPT",
+      "search_intent": "Users comparing OpenClaw (open-source agent) with ChatGPT (OpenAI's consumer product)",
+      "keywords": ["OpenClaw vs ChatGPT", "ChatGPT alternative", "AI agent vs chatbot", "OpenClaw comparison"]
+    },
+    {
+      "slug": "openclaw-vs-autogpt",
+      "title": "OpenClaw vs AutoGPT: Agent Framework Comparison (2026)",
+      "h1": "OpenClaw vs AutoGPT",
+      "competitor": "AutoGPT",
+      "search_intent": "Developers choosing between OpenClaw and AutoGPT for autonomous agent projects",
+      "keywords": ["OpenClaw vs AutoGPT", "agent framework comparison", "autonomous AI agent"]
+    },
+    {
+      "slug": "openclaw-vs-crewai",
+      "title": "OpenClaw vs CrewAI: Multi-Agent Framework Showdown (2026)",
+      "h1": "OpenClaw vs CrewAI",
+      "competitor": "CrewAI",
+      "search_intent": "Teams evaluating multi-agent orchestration frameworks",
+      "keywords": ["OpenClaw vs CrewAI", "multi-agent framework", "agent orchestration"]
+    },
+    {
+      "slug": "openclaw-vs-langgraph",
+      "title": "OpenClaw vs LangGraph: Which Agent Framework Fits Your Stack?",
+      "h1": "OpenClaw vs LangGraph",
+      "competitor": "LangGraph",
+      "search_intent": "Developers comparing graph-based vs runtime-based agent approaches",
+      "keywords": ["OpenClaw vs LangGraph", "LangChain", "agent framework", "graph agents"]
+    },
+    {
+      "slug": "openclaw-vs-claude-desktop",
+      "title": "OpenClaw vs Claude Desktop: Persistent Agent vs Chat Interface",
+      "h1": "OpenClaw vs Claude Desktop",
+      "competitor": "Claude Desktop",
+      "search_intent": "Users deciding between Anthropic's desktop app and running their own agent",
+      "keywords": ["OpenClaw vs Claude Desktop", "Claude alternative", "persistent AI agent"]
+    },
+    {
+      "slug": "tinyclaw-vs-manual-setup",
+      "title": "TinyClaw vs Manual OpenClaw Setup: 1 Minute vs 60 Minutes",
+      "h1": "TinyClaw vs Manual Setup",
+      "competitor": "Manual OpenClaw deployment",
+      "search_intent": "Users deciding whether to use TinyClaw or deploy OpenClaw themselves",
+      "keywords": ["TinyClaw", "OpenClaw deployment", "one-click setup", "easy OpenClaw"]
+    },
+    {
+      "slug": "openclaw-vs-perplexity",
+      "title": "OpenClaw vs Perplexity: Open-Source Agent vs AI Search Engine",
+      "h1": "OpenClaw vs Perplexity",
+      "competitor": "Perplexity",
+      "search_intent": "Users comparing always-on agent vs search-focused AI",
+      "keywords": ["OpenClaw vs Perplexity", "AI agent vs search", "Perplexity alternative"]
+    },
+    {
+      "slug": "agentputer-vs-e2b",
+      "title": "AgentPuter vs E2B: Cloud Sandbox Comparison for AI Agents",
+      "h1": "AgentPuter vs E2B",
+      "competitor": "E2B",
+      "search_intent": "Developers comparing cloud sandboxes for agent execution",
+      "keywords": ["AgentPuter vs E2B", "AI agent sandbox", "cloud runtime comparison"]
+    }
+  ],
+  "howto_pages": [
+    {
+      "slug": "how-to-deploy-openclaw",
+      "title": "How to Deploy OpenClaw in 2026: 4 Methods Compared",
+      "keywords": ["deploy OpenClaw", "OpenClaw setup", "install OpenClaw", "OpenClaw tutorial"]
+    },
+    {
+      "slug": "how-to-connect-telegram-to-openclaw",
+      "title": "How to Connect Telegram to OpenClaw (Step-by-Step Guide)",
+      "keywords": ["OpenClaw Telegram", "Telegram bot OpenClaw", "connect Telegram AI agent"]
+    },
+    {
+      "slug": "how-to-reduce-openclaw-costs",
+      "title": "How to Reduce OpenClaw API Costs: 7 Proven Strategies",
+      "keywords": ["OpenClaw cost", "reduce API cost", "OpenClaw budget", "cheap AI agent"]
+    },
+    {
+      "slug": "how-to-use-openclaw-with-ollama",
+      "title": "How to Use OpenClaw with Ollama (Local Models, No API Key)",
+      "keywords": ["OpenClaw Ollama", "local AI agent", "OpenClaw no API key", "private AI agent"]
+    },
+    {
+      "slug": "how-to-write-soul-md",
+      "title": "How to Write SOUL.md for OpenClaw: Complete Guide with Examples",
+      "keywords": ["SOUL.md guide", "OpenClaw personality", "agent prompt engineering", "SOUL.md examples"]
+    },
+    {
+      "slug": "how-to-secure-openclaw",
+      "title": "How to Secure Your OpenClaw Agent: Production Security Checklist",
+      "keywords": ["OpenClaw security", "secure AI agent", "prompt injection defense", "agent hardening"]
+    }
+  ],
+  "usecase_pages": [
+    {
+      "slug": "openclaw-for-developers",
+      "title": "OpenClaw for Developers: Code Review, Testing, and Deployment Automation",
+      "keywords": ["OpenClaw developer", "AI coding agent", "automated code review", "CI/CD AI"]
+    },
+    {
+      "slug": "openclaw-for-researchers",
+      "title": "OpenClaw for Researchers: 24/7 Literature Monitoring and Summarization",
+      "keywords": ["OpenClaw research", "AI research assistant", "literature review AI", "academic AI agent"]
+    },
+    {
+      "slug": "openclaw-for-business",
+      "title": "OpenClaw for Business: Email Automation, Lead Screening, Invoice Management",
+      "keywords": ["OpenClaw business", "AI business automation", "email AI agent", "business AI assistant"]
+    },
+    {
+      "slug": "openclaw-for-personal-productivity",
+      "title": "OpenClaw for Personal Productivity: Your 24/7 AI Life Assistant",
+      "keywords": ["OpenClaw personal", "AI life assistant", "personal AI agent", "productivity AI"]
+    }
+  ],
+  "tool_pages": [
+    {
+      "slug": "openclaw-cost-calculator",
+      "title": "OpenClaw Cost Calculator: Estimate Your Monthly AI Agent Bill",
+      "type": "interactive",
+      "keywords": ["OpenClaw cost calculator", "AI agent cost", "API cost estimator"]
+    },
+    {
+      "slug": "ai-agent-glossary",
+      "title": "AI Agent Glossary: 50+ Terms Every Agent Builder Should Know",
+      "type": "reference",
+      "keywords": ["AI agent glossary", "agent terminology", "AI agent terms", "OpenClaw glossary"]
+    }
+  ]
+}

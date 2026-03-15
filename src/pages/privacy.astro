@@ -1,0 +1,152 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Privacy Policy - AgentPuter"
+  description="AgentPuter Privacy Policy. How we collect, use, and protect your data."
+  noindex={true}
+>
+  <Header />
+  <main class="relative z-10 pt-32 pb-20 lg:pt-40 lg:pb-32">
+    <div class="max-w-3xl mx-auto px-6 lg:px-20">
+      <div class="font-mono text-accent text-xs font-semibold tracking-[0.2em] mb-4">
+        // LEGAL
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Privacy Policy</h1>
+      <p class="text-text-muted text-sm font-mono mb-12">Last updated: February 9, 2026</p>
+
+      <div class="prose prose-invert max-w-none space-y-8 text-text-secondary text-sm leading-relaxed">
+
+        <section>
+          <h2 class="text-white text-xl font-bold mb-3">1. Introduction</h2>
+          <p>
+            AgentPuter ("we", "our", "us") is operated by Sophon LLC. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our website (www.agentputer.com), web application (app.agentputer.com), and related services (collectively, the "Service").
+          </p>
+          <p class="mt-2">
+            By using the Service, you agree to the collection and use of information in accordance with this policy.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-white text-xl font-bold mb-3">2. Information We Collect</h2>
+          <h3 class="text-text-primary font-semibold mt-4 mb-2">Account Information</h3>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>Email address (via Clerk authentication)</li>
+            <li>Name (if provided during sign-up)</li>
+            <li>Authentication provider data (Google OAuth, if used)</li>
+          </ul>
+
+          <h3 class="text-text-primary font-semibold mt-4 mb-2">Payment Information</h3>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>Payment details are processed directly by Stripe. We do not store your credit card numbers.</li>
+            <li>We store your Stripe customer ID and subscription status to manage your account.</li>
+          </ul>
+
+          <h3 class="text-text-primary font-semibold mt-4 mb-2">Usage Data</h3>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>Server logs (IP address, browser type, access times)</li>
+            <li>Analytics data via Google Analytics (anonymized)</li>
+            <li>AI agent usage metrics (token consumption, channel usage)</li>
+          </ul>
+
+          <h3 class="text-text-primary font-semibold mt-4 mb-2">Infrastructure Data</h3>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>Cloud server information (IP address, server ID)</li>
+            <li>AI agent configuration and channel settings</li>
+            <li>Server access credentials (encrypted at rest)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-white text-xl font-bold mb-3">3. How We Use Your Information</h2>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>To provide, operate, and maintain the Service</li>
+            <li>To process your subscription and payments</li>
+            <li>To provision and manage your dedicated cloud server</li>
+            <li>To communicate with you about your account, updates, and support</li>
+            <li>To monitor and analyze usage to improve the Service</li>
+            <li>To detect, prevent, and address technical issues or abuse</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-white text-xl font-bold mb-3">4. Data Sharing</h2>
+          <p>We do not sell your personal information. We share data only with:</p>
+          <ul class="list-disc pl-5 space-y-1 mt-2">
+            <li><strong class="text-text-primary">Stripe</strong> — Payment processing</li>
+            <li><strong class="text-text-primary">Clerk</strong> — Authentication services</li>
+            <li><strong class="text-text-primary">Hetzner Cloud</strong> — Infrastructure hosting</li>
+            <li><strong class="text-text-primary">Google Analytics</strong> — Website analytics (anonymized)</li>
+            <li><strong class="text-text-primary">Anthropic</strong> — AI model API (for Pro plan users)</li>
+          </ul>
+          <p class="mt-2">Each provider processes data under their own privacy policies and in accordance with applicable laws.</p>
+        </section>
+
+        <section>
+          <h2 class="text-white text-xl font-bold mb-3">5. Data Security</h2>
+          <p>
+            We implement industry-standard security measures including encryption in transit (TLS), encryption at rest for sensitive credentials, and isolated cloud infrastructure per user. However, no method of electronic storage is 100% secure.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-white text-xl font-bold mb-3">6. Data Retention</h2>
+          <p>
+            We retain your account data for as long as your account is active. Upon cancellation, we retain data for 30 days to allow for reactivation, after which it is permanently deleted. Cloud server infrastructure is decommissioned at the end of the billing period.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-white text-xl font-bold mb-3">7. Your Rights</h2>
+          <p>You have the right to:</p>
+          <ul class="list-disc pl-5 space-y-1 mt-2">
+            <li>Access your personal data</li>
+            <li>Correct inaccurate data</li>
+            <li>Request deletion of your data</li>
+            <li>Export your data</li>
+            <li>Cancel your subscription at any time</li>
+          </ul>
+          <p class="mt-2">To exercise these rights, contact us at the email below.</p>
+        </section>
+
+        <section>
+          <h2 class="text-white text-xl font-bold mb-3">8. Cookies</h2>
+          <p>
+            We use essential cookies for authentication and session management, and analytics cookies (Google Analytics) to understand how the Service is used. You can disable non-essential cookies in your browser settings.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-white text-xl font-bold mb-3">9. Children's Privacy</h2>
+          <p>
+            The Service is not intended for users under 18 years of age. We do not knowingly collect data from children.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-white text-xl font-bold mb-3">10. Changes to This Policy</h2>
+          <p>
+            We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the "Last updated" date.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-white text-xl font-bold mb-3">11. Contact Us</h2>
+          <p>
+            If you have questions about this Privacy Policy, contact us at:
+          </p>
+          <div class="mt-2 font-mono text-accent text-sm">
+            <p>Email: <a href="mailto:oscarzamora199907@gmail.com" class="text-terminal-cyan hover:underline">oscarzamora199907@gmail.com</a></p>
+            <p>Company: Sophon LLC</p>
+            <p>Address: 1021 East Lincolnway, Cheyenne, WY US</p>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>

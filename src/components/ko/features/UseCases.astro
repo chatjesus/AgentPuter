@@ -1,0 +1,38 @@
+---
+// Use Cases - 4가지 사용 사례 카드
+const cases = [
+  {
+    icon: '📊', name: '사무 업무',
+    desc: '"지난주 판매 데이터를 취합해서 보고서를 작성하고 매니저에게 이메일로 보내줘."\n\n에이전트가 데이터를 가져와 분석, 형식 지정 후 전송까지 완료합니다. 당신은 검토만 하면 됩니다.',
+  },
+  {
+    icon: '🔬', name: '리서치',
+    desc: '"2025년 전기차 시장 트렌드를 리서치해줘."\n\n검색, 자료 읽기, 핵심 포인트 추출 후 노트북을 생성합니다. 후속 작업을 위해 저장됩니다.',
+  },
+  {
+    icon: '💻', name: '개발',
+    desc: '"우리 제품 랜딩 페이지를 만들어줘."\n\n독립된 개발 환경에서 코드를 작성하고, 테스트를 실행하며, 버그를 수정하고, deploy합니다. 막히면 당신에게 질문합니다.',
+  },
+  {
+    icon: '🎨', name: '크리에이티브',
+    desc: '"1분기 소셜 미디어 캠페인을 기획해줘."\n\n독립된 캔버스와 에셋을 활용해 초안을 생성하고, 반복 작업을 거쳐 버전을 저장합니다. 당신은 지시만 내리면 됩니다.',
+  },
+];
+---
+
+<section class="relative py-20 bg-[#111111]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20">
+    <span class="block text-xs font-mono font-semibold tracking-[2px] text-accent mb-6">USE CASES</span>
+    <h2 class="text-2xl md:text-[32px] font-bold text-white mb-12">에이전트로 실제로 무엇을 할 수 있을까요?</h2>
+    
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {cases.map((c) => (
+        <div class="bg-[#1A1A1A] rounded-xl border border-[#222222] p-6 transition-all duration-300 hover:border-accent/30 hover:-translate-y-1">
+          <span class="text-[28px] block mb-3">{c.icon}</span>
+          <h3 class="text-lg font-semibold text-white mb-3">{c.name}</h3>
+          <p class="text-[13px] text-[#999999] leading-relaxed whitespace-pre-line">{c.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

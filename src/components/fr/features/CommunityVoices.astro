@@ -1,0 +1,82 @@
+---
+// Voix de la communauté - Cartes de citations d'utilisateurs réels (cliquables pour voir le message original)
+const quotes = [
+  {
+    text: '"J\'ai laissé mes agents IA tourner sans supervision et ils ont cramé 200 $ en 2 heures. L\'agent tournait toujours. Passait des appels. Dépensait de l\'argent. Juste... il continuait."',
+    source: 'HN · anupsingh123',
+    color: '#FF6B6B',
+    url: 'https://news.ycombinator.com/item?id=43496782',
+  },
+  {
+    text: '"Plus de 780 personnes ont déployé un agent IA avec un accès système complet à l\'internet public. Pas d\'authentification. Pas de filtrage IP. Juste... ouvert."',
+    source: 'Threads · @uddeshya_agrawal',
+    color: '#FF6B6B',
+    url: 'https://www.threads.net/@uddeshya_agrawal',
+  },
+  {
+    text: '"Des tâches qui devraient prendre ~1 heure en prennent 5-6+ à cause d\'erreurs répétées. L\'agent arrête simplement de suivre les procédures qu\'il utilisait quelques instants auparavant."',
+    source: 'GitHub Issue · Claude Code #13919',
+    color: '#FF6B6B',
+    url: 'https://github.com/anthropics/claude-code/issues/13919',
+  },
+  {
+    text: '"Les agents ont souvent besoin d\'un large accès local : variables d\'environnement, fichiers, CLI, navigateurs, clés API. Cela rend l\'hypothèse habituelle — \'la machine locale est sûre\' — assez chancelante."',
+    source: 'HN · xinbenlv',
+    color: '#FFD700',
+    url: 'https://news.ycombinator.com/user?id=xinbenlv',
+  },
+  {
+    text: '"La spécification MCP actuelle se concentre sur l\'interaction avec les outils mais laisse l\'autorisation par requête largement non définie. Se fier uniquement aux portées OAuth initiales n\'est pas suffisant."',
+    source: 'HN · Pomerium (YC)',
+    color: '#FFD700',
+    url: 'https://news.ycombinator.com/item?id=43496782',
+  },
+  {
+    text: '"Ne donnez absolument aucun secret au LLM — tout ce qui nécessite des privilèges élevés devrait passer par un proxy qui détient les identifiants."',
+    source: 'HN · bilbo-b-baggins',
+    color: '#00FF41',
+    url: 'https://news.ycombinator.com/item?id=43496782',
+  },
+];
+---
+
+<section class="relative py-20 bg-[#0A0A0A]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20">
+    <div class="flex flex-col items-center text-center mb-12">
+      <span class="block text-xs font-mono font-semibold tracking-[2px] text-[#FF6B6B] mb-6">// VRAIES DOULEURS, VRAIES PERSONNES</span>
+      <h2 class="text-2xl md:text-[28px] font-bold text-white leading-snug max-w-[700px]">
+        Ce ne sont pas des problèmes hypothétiques.<br/>C'est ce que les développeurs disent tous les jours.
+      </h2>
+    </div>
+    
+    <!-- Grille des cartes de citation -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+      {quotes.map((q) => (
+        <a 
+          href={q.url} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="block bg-[#1A1A1A] rounded-xl border border-[#222222] p-6 transition-all duration-300 hover:border-[#444444] hover:-translate-y-1 hover:shadow-lg group"
+        >
+          <p class="text-sm text-[#94A3B8] leading-relaxed mb-4">
+            {q.text}
+          </p>
+          <div class="flex items-center gap-2">
+            <span class="text-[#333333]">—</span>
+            <span class="font-mono text-[11px] group-hover:underline" style={`color: ${q.color}`}>
+              {q.source}
+            </span>
+            <span class="text-[#333333] text-xs ml-auto opacity-0 group-hover:opacity-100 transition-opacity">↗</span>
+          </div>
+        </a>
+      ))}
+    </div>
+    
+    <!-- Conclusion -->
+    <div class="flex justify-center">
+      <div class="inline-flex items-center px-8 py-4 bg-[#111111] border border-[#00FF4140] rounded-lg">
+        <span class="font-mono text-sm font-semibold text-accent">&gt; AgentPuter a été conçu pour résoudre précisément ces problèmes.</span>
+      </div>
+    </div>
+  </div>
+</section>

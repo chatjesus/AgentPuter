@@ -1,0 +1,266 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/zh/Header.astro';
+import Footer from '../../components/zh/Footer.astro';
+import MatrixRain from '../../components/MatrixRain.astro';
+
+const pricingSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'AgentPuter Pro',
+  description: '您专属的 24/7 全天候 AI 助手。内置 Claude 4.5，2 分钟即可完成设置。',
+  brand: { '@type': 'Brand', name: 'AgentPuter' },
+  offers: {
+    '@type': 'Offer',
+    price: '29.00',
+    priceCurrency: 'USD',
+    availability: 'https://schema.org/InStock',
+    priceValidUntil: '2027-12-31',
+    url: 'https://app.agentputer.com/subscribe',
+  },
+};
+
+const APP_URL = 'https://app.agentputer.com';
+---
+
+<Layout
+  title="价格方案 - AgentPuter | 您的全天候 AI 助手"
+  description="AgentPuter Pro：$29.99/月。专属 AI 助手，全天候不间断运行。内置 Claude 4.5，支持 15+ 消息渠道，500+ 技能，无需编程。"
+  tags={['AgentPuter', '价格', 'AI 助手', 'AI 自动化', '无代码']}
+>
+  <fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(pricingSchema)} />
+  </fragment>
+
+  <MatrixRain />
+  <Header activePage="pricing" />
+
+  <main class="relative z-10">
+    <section class="relative pt-32 pb-12 lg:pt-40 lg:pb-16 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-dark-primary via-dark-primary to-dark-secondary"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,255,65,0.06),transparent_50%)]"></div>
+      <div class="relative max-w-7xl mx-auto px-6 lg:px-20 text-center">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.2em] mb-6">价格方案：透明公开</div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">简单透明的定价</h1>
+        <p class="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+          无隐藏费用，无意外账单，随时取消。<br />
+          <span class="text-accent font-semibold">Pro 方案正式上线</span> — 2 分钟即可开始。
+        </p>
+      </div>
+    </section>
+
+    <section class="pb-8">
+      <div class="max-w-4xl mx-auto px-6 lg:px-20">
+        <div class="bg-accent/5 border border-accent/15 rounded-xl p-6 md:p-8">
+          <h3 class="text-white font-bold text-lg mb-4">💡 一切已包含——注册即用</h3>
+          <div class="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10">
+            <div>
+              <span class="text-accent font-semibold text-sm">Pro（全包版）</span>
+              <p class="text-text-muted text-sm mt-1 leading-relaxed">AI 模型、云端托管、消息渠道——全部打包。<br />无需 API Key，无需配置，开箱即用。</p>
+            </div>
+            <span class="text-text-dark font-bold text-sm hidden md:block">或</span>
+            <div>
+              <span class="text-terminal-blue font-semibold text-sm">Starter（即将推出）</span>
+              <p class="text-text-muted text-sm mt-1 leading-relaxed">已有自己的 AI API Key？<br />以更低价格使用我们的平台——$9/月。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-12 lg:py-16">
+      <div class="max-w-7xl mx-auto px-6 lg:px-20">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-end max-w-5xl mx-auto">
+          <div class="bg-dark-secondary rounded-2xl border border-dark-tertiary p-8 relative opacity-80">
+            <div class="font-mono text-text-muted text-xs font-semibold tracking-[0.15em] mb-6">STARTER — 即将推出</div>
+            <div class="flex items-end gap-1 mb-2">
+              <span class="text-5xl font-bold text-white">$9</span>
+              <span class="text-text-dark text-base mb-1">/月</span>
+            </div>
+            <p class="text-text-muted text-sm mb-6">适合已有 AI API Key 的用户</p>
+            <div class="border-t border-dark-tertiary mb-6"></div>
+            <ul class="space-y-3 text-sm mb-8">
+              <li class="text-text-muted">✓ 全天候运行——24/7 不间断</li>
+              <li class="text-text-muted">✓ 支持 15+ 消息渠道</li>
+              <li class="text-text-muted">✓ 500+ 内置技能</li>
+              <li class="text-text-muted">✓ 可视化控制台</li>
+              <li class="text-text-muted">✓ 专属云端环境</li>
+              <li class="text-text-muted">✓ 无需编程</li>
+              <li class="pt-3 border-t border-dark-tertiary text-text-dark">✗ 不含 AI 模型</li>
+              <li class="text-text-dark pl-4">使用您自己的 API Key</li>
+            </ul>
+            <button disabled class="w-full py-3.5 rounded-lg border border-dark-tertiary text-text-muted font-semibold text-sm cursor-not-allowed">加入候补名单</button>
+          </div>
+
+          <div class="bg-dark-secondary rounded-2xl border-2 border-accent p-8 relative shadow-lg shadow-accent/10 md:-mt-4">
+            <div class="flex items-center gap-3 mb-6">
+              <span class="text-terminal-magenta font-mono text-xs font-bold">★ 正式上线</span>
+              <span class="font-mono text-text-muted text-xs font-semibold tracking-[0.15em]">PRO</span>
+            </div>
+            <div class="flex items-end gap-1 mb-2">
+              <span class="text-6xl font-bold text-white">$29.99</span>
+              <span class="text-text-dark text-base mb-2">/月</span>
+            </div>
+            <p class="text-text-muted text-sm mb-6">永不停歇的专属 AI 助手，一切尽在其中。</p>
+            <div class="border-t border-dark-tertiary mb-6"></div>
+            <ul class="space-y-3 text-sm mb-8">
+              <li class="text-text-muted">✓ 全天候运行——24/7 永不停歇</li>
+              <li class="text-text-muted">✓ 接入 Telegram、WhatsApp、Slack 等更多渠道</li>
+              <li class="text-text-muted">✓ 500+ 内置技能（研究、翻译、摘要……）</li>
+              <li class="text-text-muted">✓ 可视化控制台——无需编程</li>
+              <li class="text-text-muted">✓ 专属云端主机，全托管</li>
+              <li class="text-text-muted">✓ 2 分钟完成设置</li>
+              <li class="pt-3 border-t border-dark-tertiary text-accent">✓ 内含 Claude 4.5 AI</li>
+              <li class="text-accent/70 pl-4">价值约 $20/月，免费打包</li>
+              <li class="text-accent/70 pl-4">无需 API Key</li>
+            </ul>
+            <a href={`${APP_URL}/sign-up`} class="block w-full py-3.5 rounded-lg bg-accent text-dark-primary font-bold text-sm text-center hover:bg-accent-dark transition-colors">
+              立即开始 — $29.99/月
+            </a>
+            <p class="text-text-dark text-xs text-center mt-3 font-mono">随时取消 · 无需编程</p>
+          </div>
+
+          <div class="bg-dark-secondary rounded-2xl border border-dark-tertiary p-8 relative opacity-80">
+            <div class="font-mono text-text-muted text-xs font-semibold tracking-[0.15em] mb-6">TEAM — 即将推出</div>
+            <div class="flex items-end gap-1 mb-2">
+              <span class="text-4xl font-bold text-white">$59</span>
+              <span class="text-text-dark text-base mb-1">/月</span>
+            </div>
+            <p class="text-text-muted text-sm mb-6">为您的团队运行多个 AI 助手</p>
+            <div class="border-t border-dark-tertiary mb-6"></div>
+            <ul class="space-y-3 text-sm mb-8">
+              <li class="text-text-muted">✓ 3 个 AI 助手 24/7 运行</li>
+              <li class="text-text-muted">✓ 每个助手更高性能</li>
+              <li class="text-text-muted">✓ 支持所有消息渠道</li>
+              <li class="text-text-muted">✓ 500+ 内置技能</li>
+              <li class="text-text-muted">✓ 优先客服支持</li>
+              <li class="text-text-muted">✓ 多 Agent 工作流</li>
+              <li class="pt-3 border-t border-dark-tertiary text-text-muted">✓ 含 AI 模型</li>
+              <li class="text-text-dark pl-4">3 倍 AI 用量配额</li>
+              <li class="text-text-dark pl-4">Claude 4.5 + Opus 模型</li>
+            </ul>
+            <button disabled class="w-full py-3.5 rounded-lg border border-dark-tertiary text-text-muted font-semibold text-sm cursor-not-allowed">加入候补名单</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-12 lg:py-16">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-8">// 为什么选择 AGENTPUTER</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-dark-secondary rounded-xl border border-dark-tertiary p-6">
+            <span class="text-text-muted text-xs font-semibold">vs 自己搭建</span>
+            <p class="text-error font-bold mt-2">数小时的配置 + 必备技术知识</p>
+            <p class="text-success text-sm mt-2 leading-relaxed">AgentPuter Pro $29.99/月 =<br />2 分钟完成设置，无需编程，<br />无需管理服务器，开箱即用。</p>
+          </div>
+          <div class="bg-dark-secondary rounded-xl border border-dark-tertiary p-6">
+            <span class="text-text-muted text-xs font-semibold">vs ChatGPT / Claude 订阅</span>
+            <p class="text-error font-bold mt-2">$20/月 = 你问它答，仅此而已。</p>
+            <p class="text-success text-sm mt-2 leading-relaxed">AgentPuter Pro $29.99/月 =<br />AI 24/7 自主工作，<br />连接您的应用，主动采取行动。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-12 lg:py-20">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-4">// 为什么"全天候"至关重要</div>
+        <h2 class="text-white text-2xl font-bold mb-3">您睡觉时，AI 持续工作。</h2>
+        <p class="text-text-muted text-sm mb-8 leading-relaxed">ChatGPT 在您关闭浏览器后就停止工作。AgentPuter 不会。<br />它全天候监控、响应并主动采取行动。</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-dark-secondary rounded-xl border border-accent/20 p-5">
+            <span class="text-2xl mb-2 block">⚡</span>
+            <span class="text-accent font-bold text-lg">2 分钟完成设置</span>
+            <p class="text-text-muted text-sm mt-1">点击、连接、完成。无需下载，无需编程，无需等待。</p>
+          </div>
+          <div class="bg-dark-secondary rounded-xl border border-terminal-blue/20 p-5">
+            <span class="text-2xl mb-2 block">🔌</span>
+            <span class="text-terminal-blue font-bold text-lg">15+ 消息渠道</span>
+            <p class="text-text-muted text-sm mt-1">Telegram、WhatsApp、Slack、Discord、Email——全部连接。</p>
+          </div>
+          <div class="bg-dark-secondary rounded-xl border border-terminal-magenta/20 p-5">
+            <span class="text-2xl mb-2 block">🧠</span>
+            <span class="text-terminal-magenta font-bold text-lg">内置 Claude 4.5</span>
+            <p class="text-text-muted text-sm mt-1">顶级 AI 已包含，无需单独订阅。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-12 lg:py-16 bg-dark-secondary/50">
+      <div class="max-w-3xl mx-auto px-6 lg:px-20">
+        <h2 class="text-2xl font-bold text-white mb-8 text-center">常见问题</h2>
+        <div class="space-y-4" id="faq-list">
+          <div class="faq-item border border-dark-tertiary rounded-lg overflow-hidden">
+            <button class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between text-white font-medium hover:bg-dark-tertiary/50 transition-colors">
+              <span>我需要技术背景吗？</span><span class="faq-icon text-accent font-mono text-sm">+</span>
+            </button>
+            <div class="faq-content hidden px-6 pb-4 text-text-muted text-sm leading-relaxed">不需要。AgentPuter 专为非技术用户设计。注册、选择 AI 模型、连接消息应用——完成。一切均由我们托管。</div>
+          </div>
+          <div class="faq-item border border-dark-tertiary rounded-lg overflow-hidden">
+            <button class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between text-white font-medium hover:bg-dark-tertiary/50 transition-colors">
+              <span>包含哪个 AI 模型？</span><span class="faq-icon text-accent font-mono text-sm">+</span>
+            </button>
+            <div class="faq-content hidden px-6 pb-4 text-text-muted text-sm leading-relaxed">Pro 方案包含 Anthropic 的 Claude 4.5——当前最强大的 AI 模型之一。订阅中已打包约 $20/月的 AI 用量，无需单独 API Key。</div>
+          </div>
+          <div class="faq-item border border-dark-tertiary rounded-lg overflow-hidden">
+            <button class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between text-white font-medium hover:bg-dark-tertiary/50 transition-colors">
+              <span>可以随时取消吗？</span><span class="faq-icon text-accent font-mono text-sm">+</span>
+            </button>
+            <div class="faq-content hidden px-6 pb-4 text-text-muted text-sm leading-relaxed">是的——随时可从控制台取消。AI 助手在当前计费周期结束前保持活跃。无取消费用，无绑定合同。</div>
+          </div>
+          <div class="faq-item border border-dark-tertiary rounded-lg overflow-hidden">
+            <button class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between text-white font-medium hover:bg-dark-tertiary/50 transition-colors">
+              <span>和 ChatGPT 有什么区别？</span><span class="faq-icon text-accent font-mono text-sm">+</span>
+            </button>
+            <div class="faq-content hidden px-6 pb-4 text-text-muted text-sm leading-relaxed">ChatGPT 是聊天机器人——你问它答。AgentPuter 给你一个 24/7 自主运行的 AI 助手，它连接您的应用（Telegram、Slack、Email 等），即使您不在电脑前也能主动行动。</div>
+          </div>
+          <div class="faq-item border border-dark-tertiary rounded-lg overflow-hidden">
+            <button class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between text-white font-medium hover:bg-dark-tertiary/50 transition-colors">
+              <span>AI 助手能做什么？</span><span class="faq-icon text-accent font-mono text-sm">+</span>
+            </button>
+            <div class="faq-content hidden px-6 pb-4 text-text-muted text-sm leading-relaxed">500+ 内置技能：研究、翻译、摘要、邮件起草、数据分析、日程管理、市场监控等。您还可以通过自然语言教它新任务——无需编程。</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 lg:py-24">
+      <div class="max-w-7xl mx-auto px-6 lg:px-20">
+        <div class="relative overflow-hidden rounded-2xl bg-dark-secondary border-2 border-accent/50 p-8 md:p-16 glow-accent neon-box">
+          <div class="absolute inset-0 opacity-5">
+            <div class="absolute inset-0" style="background-image: linear-gradient(rgba(0,255,65,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,65,0.1) 1px, transparent 1px); background-size: 20px 20px;"></div>
+          </div>
+          <div class="relative text-center">
+            <div class="font-mono text-accent text-sm mb-4">&gt; 准备好开始了吗</div>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-accent text-glow-strong mb-4 font-mono">准备好了吗？</h2>
+            <p class="text-text-secondary text-lg mb-10 max-w-xl mx-auto font-mono">$29.99/月。2 分钟完成设置。您的 AI 助手永不停歇。</p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href={`${APP_URL}/sign-up`} class="btn-primary text-sm py-4 px-10 font-mono">[立即开始]</a>
+              <a href="mailto:oscarzamora199907@gmail.com" class="btn-secondary text-sm py-4 px-10 font-mono">[提问咨询]</a>
+            </div>
+            <p class="text-text-muted text-xs font-mono mt-6">// 随时取消 · 无需编程 · 无隐藏费用</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script is:inline>
+  document.querySelectorAll('.faq-toggle').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = btn.closest('.faq-item');
+      var content = item.querySelector('.faq-content');
+      var icon = item.querySelector('.faq-icon');
+      document.querySelectorAll('.faq-item').forEach(function(other) {
+        if (other !== item) { other.querySelector('.faq-content').classList.add('hidden'); other.querySelector('.faq-icon').textContent = '+'; }
+      });
+      content.classList.toggle('hidden');
+      icon.textContent = content.classList.contains('hidden') ? '+' : '\u2212';
+    });
+  });
+</script>

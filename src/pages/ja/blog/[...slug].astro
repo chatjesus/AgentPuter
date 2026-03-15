@@ -1,0 +1,27 @@
+---
+// 日本語ブログ記事詳細ページのルート
+import { getCollection } from 'astro:content';
+import JaBlogPost from '../../../layouts/JaBlogPost.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('ja-blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<JaBlogPost
+  title={post.data.title}
+  description={post.data.description}
+  date={post.data.date}
+  author={post.data.author}
+  readingTime={post.data.readingTime}
+  tags={post.data.tags}
+>
+  <Content />
+</JaBlogPost>

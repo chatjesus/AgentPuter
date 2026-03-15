@@ -1,0 +1,208 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/de/Header.astro';
+import Footer from '../../components/de/Footer.astro';
+import MatrixRain from '../../components/MatrixRain.astro';
+
+const APP_URL = 'https://app.agentputer.com';
+
+const useCases = [
+  {
+    category: 'Recherche & Analyse',
+    icon: '',
+    color: 'accent',
+    items: ["Branchennachrichten 24/7 überwachen","Konkurrenten-Updates verfolgen","Lange Berichte & PDFs zusammenfassen","Dokumente in Echtzeit übersetzen","Tägliche Marktbriefings zusammenstellen","Unternehmen & Trends recherchieren"],
+  },
+  {
+    category: 'Kommunikation',
+    icon: '',
+    color: 'accent',
+    items: ["E-Mail-Antworten automatisch entwerfen","Telegram/Slack-Nachrichten verwalten","Gespräche in Echtzeit übersetzen","Kundenfragen beantworten","Follow-ups planen","Lange Chat-Threads zusammenfassen"],
+  },
+  {
+    category: 'Produktivität',
+    icon: '',
+    color: 'accent',
+    items: ["Kalender & Aufgaben organisieren","Besprechungsnotizen automatisch aufzeichnen","Intelligente Erinnerungen setzen","Präsentationen aus Notizen erstellen","Fristen über Projekte hinweg verfolgen","Berichte nach Zeitplan generieren"],
+  },
+  {
+    category: 'Finanzen & Geschäft',
+    icon: '',
+    color: 'accent',
+    items: ["Ausgaben & Quittungen verfolgen","Aktienkurse & Benachrichtigungen überwachen","Rechnungen generieren","Angebote & Vorschläge vergleichen","ROI-Szenarien berechnen","Finanzberichte zusammenfassen"],
+  },
+  {
+    category: 'Inhalte & Schreiben',
+    icon: '',
+    color: 'accent',
+    items: ["Blog-Beiträge & Artikel verfassen","Social-Media-Inhalte schreiben","Newsletter erstellen","Dokumente bearbeiten & Korrektur lesen","Produktbeschreibungen generieren","Verträge & NDAs verfassen"],
+  },
+  {
+    category: 'Daten & Automatisierung',
+    icon: '',
+    color: 'accent',
+    items: ["Web-Daten scrapen & organisieren","Webseiten auf Änderungen überwachen","Eingehende Infos automatisch kategorisieren","Täglich/wöchentliche Digests generieren","Mehrere Quellen querverweisen","Benutzerdefinierte Workflows erstellen"],
+  }
+];
+---
+<Layout title="Tools und Anwendungsfälle - AgentPuter | Was kann Ihr KI-Agent tun?" description="Entdecken Sie 500+ Dinge, die Ihr immer-aktiver KI-Agent tun kann. Recherchieren, automatisieren, kommunizieren, analysieren — ohne Coding. Sehen Sie echte Anwendungsfälle." tags={['AgentPuter', 'KI-Tools', 'KI-Anwendungsfälle', 'KI-Automatisierung', 'No-Code-KI', 'KI-Agent']}>
+  <MatrixRain />
+  <Header activePage="tools" />
+  <main class="relative z-10">
+    <section class="relative pt-32 pb-12 lg:pt-40 lg:pb-16 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-dark-primary via-dark-primary to-dark-secondary"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,255,65,0.06),transparent_50%)]"></div>
+      <div class="relative max-w-7xl mx-auto px-6 lg:px-20 text-center">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.2em] mb-6">500+ INTEGRIERTE SKILLS</div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Was kann Ihr KI-Agent tun?</h1>
+        <p class="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-4">Ein Agent. Tausende von Anwendungsfällen.<br />Sagen Sie ihm auf natürliche Weise, was Sie brauchen — er erledigt den Rest.</p>
+        <p class="text-text-muted text-sm max-w-xl mx-auto">Ihr KI-Agent läuft 24/7, verbindet sich mit Ihren Lieblings-Apps und erledigt Aufgaben, selbst während Sie schlafen. Kein Coding. Keine Konfiguration. Beschreiben Sie einfach, was Sie möchten.</p>
+      </div>
+    </section>
+    <section class="py-8 overflow-hidden">
+      <div class="relative">
+        <div class="flex animate-scroll-left gap-4 whitespace-nowrap">
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">E-Mails lesen & zusammenfassen</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Antworten automatisch entwerfen</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Nachrichten übersetzen</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Aktienkurse überwachen</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Konkurrenznachrichten verfolgen</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Berichte zusammenfassen</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Meetings planen</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Rechnungen generieren</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Konkurrenten recherchieren</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Social-Posts schreiben</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Präsentationen erstellen</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Beste Preise online finden</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">E-Mails lesen & zusammenfassen</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Antworten automatisch entwerfen</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Nachrichten übersetzen</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Aktienkurse überwachen</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Konkurrenznachrichten verfolgen</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Berichte zusammenfassen</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Meetings planen</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Rechnungen generieren</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Konkurrenten recherchieren</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Social-Posts schreiben</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Präsentationen erstellen</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Beste Preise online finden</span>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 lg:py-20">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-4 text-center">// DER ALTE WEG VS DER NEUE WEG</div>
+        <h2 class="text-white text-2xl md:text-3xl font-bold mb-12 text-center">Hören Sie auf, alles manuell zu erledigen</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-dark-secondary rounded-2xl border border-dark-tertiary p-8">
+            <div class="text-error font-mono text-xs font-bold mb-4">OHNE AGENTPUTER</div>
+            <ul class="space-y-4 text-sm">
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-error mt-0.5">✗</span><span>Jeden Morgen manuell Nachrichtenwebseiten überprüfen</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-error mt-0.5">✗</span><span>Zwischen Apps kopieren und einfügen, um Nachrichten zu übersetzen</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-error mt-0.5">✗</span><span>Stunden damit verbringen, Berichte zu lesen und zusammenzufassen</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-error mt-0.5">✗</span><span>Wichtige Updates verpassen, wenn Sie nicht da sind</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-error mt-0.5">✗</span><span>KI funktioniert nur, wenn Sie vor dem Computer sitzen</span></li>
+            </ul>
+          </div>
+          <div class="bg-dark-secondary rounded-2xl border-2 border-accent/50 p-8">
+            <div class="text-accent font-mono text-xs font-bold mb-4">MIT AGENTPUTER</div>
+            <ul class="space-y-4 text-sm">
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-accent mt-0.5">✓</span><span>KI überwacht Nachrichten und sendet Ihnen ein tägliches Briefing</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-accent mt-0.5">✓</span><span>Nachrichten über alle Kanäle automatisch übersetzt</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-accent mt-0.5">✓</span><span>Senden Sie ein PDF, erhalten Sie in Sekunden eine Zusammenfassung</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-accent mt-0.5">✓</span><span>KI arbeitet 24/7 — auch am Wochenende</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-accent mt-0.5">✓</span><span>Ihr Agent läuft auf seiner eigenen Cloud — immer aktiv</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 lg:py-20">
+      <div class="max-w-7xl mx-auto px-6 lg:px-20">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-4 text-center">// ANWENDUNGSFÄLLE</div>
+        <h2 class="text-white text-2xl md:text-3xl font-bold mb-4 text-center">Ein Agent, Hunderte von Anwendungsfällen</h2>
+        <p class="text-text-muted text-center text-sm mb-12 max-w-lg mx-auto">Bringen Sie Ihrem KI-Agenten neue Aufgaben in natürlicher Sprache bei. Kein Code nötig.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {useCases.map((category) => (
+            <div class="bg-dark-secondary rounded-2xl border border-dark-tertiary p-6 hover:border-accent/30 transition-colors">
+              <div class="flex items-center gap-3 mb-4">
+                <h3 class="text-white font-bold">{category.category}</h3>
+              </div>
+              <ul class="space-y-2.5">
+                {category.items.map((item) => (
+                  <li class="text-text-muted text-sm flex items-start gap-2">
+                    <span class="text-accent mt-0.5 text-xs">●</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <p class="text-text-dark text-xs font-mono text-center mt-8">// Sie können beliebig viele Anwendungsfälle durch natürliche Sprache hinzufügen</p>
+      </div>
+    </section>
+    <section class="py-12 lg:py-20 bg-dark-secondary/50">
+      <div class="max-w-4xl mx-auto px-6 lg:px-20">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-4 text-center">// WIE ES FUNKTIONIERT</div>
+        <h2 class="text-white text-2xl md:text-3xl font-bold mb-12 text-center">3 Schritte. 2 Minuten. Fertig.</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-accent/10 border border-accent/30 flex items-center justify-center mx-auto mb-4"><span class="text-accent font-mono font-bold text-xl">1</span></div>
+            <h3 class="text-white font-bold mb-2">Registrieren</h3><p class="text-text-muted text-sm">Erstellen Sie Ihr Konto. Keine Kreditkarte zum Stöbern erforderlich.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-terminal-cyan/10 border border-terminal-cyan/30 flex items-center justify-center mx-auto mb-4"><span class="text-terminal-cyan font-mono font-bold text-xl">2</span></div>
+            <h3 class="text-white font-bold mb-2">Apps verbinden</h3><p class="text-text-muted text-sm">Verknüpfen Sie Telegram, WhatsApp, Slack oder einen der 15+ Kanäle.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-terminal-magenta/10 border border-terminal-magenta/30 flex items-center justify-center mx-auto mb-4"><span class="text-terminal-magenta font-mono font-bold text-xl">3</span></div>
+            <h3 class="text-white font-bold mb-2">Sagen Sie ihm, was zu tun ist</h3><p class="text-text-muted text-sm">Beschreiben Sie Aufgaben in einfacher Sprache. Ihr KI-Agent erledigt den Rest — 24/7.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 lg:py-20">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20 text-center">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-4">// FUNKTIONIERT, WO SIE ARBEITEN</div>
+        <h2 class="text-white text-2xl md:text-3xl font-bold mb-4">Verbindet sich mit 15+ Kanälen</h2>
+        <p class="text-text-muted text-sm mb-10 max-w-lg mx-auto">Ihr KI-Agent findet Sie dort, wo Sie bereits sind — keine neuen Apps zu lernen.</p>
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <span class="px-5 py-2.5 bg-dark-secondary border border-accent/30 rounded-full text-accent text-sm font-medium">Telegram</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-accent/30 rounded-full text-accent text-sm font-medium">WhatsApp</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-accent/30 rounded-full text-accent text-sm font-medium">Slack</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-accent/30 rounded-full text-accent text-sm font-medium">Discord</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Email</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Web Chat</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">SMS</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Line</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">WeChat</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Twitter/X</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Instagram</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">+4 more</span>
+        </div>
+      </div>
+    </section>
+    <section class="py-16 lg:py-24">
+      <div class="max-w-7xl mx-auto px-6 lg:px-20">
+        <div class="relative overflow-hidden rounded-2xl bg-dark-secondary border-2 border-accent/50 p-8 md:p-16 glow-accent neon-box">
+          <div class="absolute inset-0 opacity-5"><div class="absolute inset-0" style="background-image: linear-gradient(rgba(0,255,65,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,65,0.1) 1px, transparent 1px); background-size: 20px 20px;"></div></div>
+          <div class="relative text-center">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-accent text-glow-strong mb-4 font-mono">Ihr KI-Agent wartet auf Sie</h2>
+            <p class="text-text-secondary text-lg mb-10 max-w-xl mx-auto" set:html="29,99$/Monat. Einrichtung in 2 Minuten. Läuft 24/7.<br />Kein Coding. Keine API-Schlüssel. Alles inklusive."></p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href={`${APP_URL}/sign-up`} class="btn-primary text-sm py-4 px-10 font-mono">[JETZT STARTEN — 29,99$/Monat]</a>
+              <a href="/de/pricing" class="btn-secondary text-sm py-4 px-10 font-mono">[PREISE ANSEHEN]</a>
+            </div>
+            <p class="text-text-muted text-xs font-mono mt-6">// Jederzeit kündbar · Kein Coding nötig · Keine versteckten Gebühren</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+<style>
+  @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  .animate-scroll-left { animation: scroll-left 30s linear infinite; }
+</style>

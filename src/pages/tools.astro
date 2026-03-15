@@ -1,0 +1,372 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import MatrixRain from '../components/MatrixRain.astro';
+
+const APP_URL = 'https://app.agentputer.com';
+
+// Use cases organized by persona
+const useCases = [
+  {
+    category: 'Research & Analysis',
+    icon: '🔍',
+    color: 'accent',
+    items: [
+      'Monitor industry news 24/7',
+      'Track competitor updates',
+      'Summarize long reports & PDFs',
+      'Translate documents in real time',
+      'Compile daily market briefings',
+      'Research companies & trends',
+    ],
+  },
+  {
+    category: 'Communication',
+    icon: '💬',
+    color: 'terminal-cyan',
+    items: [
+      'Draft email replies automatically',
+      'Manage Telegram/Slack messages',
+      'Translate conversations in real time',
+      'Answer customer questions',
+      'Schedule follow-ups',
+      'Summarize long chat threads',
+    ],
+  },
+  {
+    category: 'Productivity',
+    icon: '⚡',
+    color: 'terminal-orange',
+    items: [
+      'Organize your calendar & tasks',
+      'Take meeting notes automatically',
+      'Set smart reminders',
+      'Create presentations from notes',
+      'Track deadlines across projects',
+      'Generate reports on schedule',
+    ],
+  },
+  {
+    category: 'Finance & Business',
+    icon: '📊',
+    color: 'terminal-magenta',
+    items: [
+      'Track expenses & receipts',
+      'Monitor stock prices & alerts',
+      'Generate invoices',
+      'Compare quotes & proposals',
+      'Calculate ROI scenarios',
+      'Summarize financial reports',
+    ],
+  },
+  {
+    category: 'Content & Writing',
+    icon: '✍️',
+    color: 'terminal-blue',
+    items: [
+      'Draft blog posts & articles',
+      'Write social media content',
+      'Create newsletters',
+      'Edit & proofread documents',
+      'Generate product descriptions',
+      'Write contracts & NDAs',
+    ],
+  },
+  {
+    category: 'Data & Automation',
+    icon: '🤖',
+    color: 'accent',
+    items: [
+      'Scrape & organize web data',
+      'Monitor websites for changes',
+      'Auto-categorize incoming info',
+      'Generate daily/weekly digests',
+      'Cross-reference multiple sources',
+      'Build custom workflows',
+    ],
+  },
+];
+---
+
+<Layout
+  title="Tools & Use Cases - AgentPuter | What Can Your AI Agent Do?"
+  description="Discover 500+ things your always-on AI agent can do. Research, automate, communicate, analyze — all without coding. See real use cases."
+  tags={['AgentPuter', 'AI Tools', 'AI Use Cases', 'AI Automation', 'No Code AI', 'AI Agent']}
+>
+  <MatrixRain />
+  <Header activePage="tools" />
+
+  <main class="relative z-10">
+    <!-- Hero -->
+    <section class="relative pt-32 pb-12 lg:pt-40 lg:pb-16 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-dark-primary via-dark-primary to-dark-secondary"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,255,65,0.06),transparent_50%)]"></div>
+      <div class="relative max-w-7xl mx-auto px-6 lg:px-20 text-center">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.2em] mb-6">
+          500+ BUILT-IN SKILLS
+        </div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+          What Can Your AI Agent Do?
+        </h1>
+        <p class="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-4">
+          One agent. Thousands of use cases.
+          <br />
+          Tell it what you need in plain language — it figures out the rest.
+        </p>
+        <p class="text-text-muted text-sm max-w-xl mx-auto">
+          Your AI agent runs 24/7, connects to your favorite apps, and handles tasks even while you sleep.
+          No coding. No configuration. Just describe what you want.
+        </p>
+      </div>
+    </section>
+
+    <!-- Scrolling Use Case Ticker -->
+    <section class="py-8 overflow-hidden">
+      <div class="relative">
+        <div class="flex animate-scroll-left gap-4 whitespace-nowrap">
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Read & summarize email</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Draft replies automatically</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Translate messages</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Monitor stock prices</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Track competitor news</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Summarize reports</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Schedule meetings</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Generate invoices</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Research competitors</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Write social posts</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Create presentations</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Find best prices online</span>
+          <!-- Duplicate for seamless loop -->
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Read & summarize email</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Draft replies automatically</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Translate messages</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Monitor stock prices</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Track competitor news</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Summarize reports</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Traditional vs AgentPuter Comparison -->
+    <section class="py-12 lg:py-20">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-4 text-center">
+          // THE OLD WAY VS THE NEW WAY
+        </div>
+        <h2 class="text-white text-2xl md:text-3xl font-bold mb-12 text-center">
+          Stop doing everything manually
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Traditional -->
+          <div class="bg-dark-secondary rounded-2xl border border-dark-tertiary p-8">
+            <div class="text-error font-mono text-xs font-bold mb-4">WITHOUT AGENTPUTER</div>
+            <ul class="space-y-4 text-sm">
+              <li class="flex items-start gap-3 text-text-muted">
+                <span class="text-error mt-0.5">✗</span>
+                <span>Manually check news sites every morning</span>
+              </li>
+              <li class="flex items-start gap-3 text-text-muted">
+                <span class="text-error mt-0.5">✗</span>
+                <span>Copy-paste between apps to translate messages</span>
+              </li>
+              <li class="flex items-start gap-3 text-text-muted">
+                <span class="text-error mt-0.5">✗</span>
+                <span>Spend hours reading and summarizing reports</span>
+              </li>
+              <li class="flex items-start gap-3 text-text-muted">
+                <span class="text-error mt-0.5">✗</span>
+                <span>Miss important updates when you're away</span>
+              </li>
+              <li class="flex items-start gap-3 text-text-muted">
+                <span class="text-error mt-0.5">✗</span>
+                <span>AI only works when you're sitting at your computer</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- AgentPuter -->
+          <div class="bg-dark-secondary rounded-2xl border-2 border-accent/50 p-8">
+            <div class="text-accent font-mono text-xs font-bold mb-4">WITH AGENTPUTER</div>
+            <ul class="space-y-4 text-sm">
+              <li class="flex items-start gap-3 text-text-muted">
+                <span class="text-accent mt-0.5">✓</span>
+                <span>AI monitors news and sends you a daily briefing</span>
+              </li>
+              <li class="flex items-start gap-3 text-text-muted">
+                <span class="text-accent mt-0.5">✓</span>
+                <span>Messages auto-translated across all your channels</span>
+              </li>
+              <li class="flex items-start gap-3 text-text-muted">
+                <span class="text-accent mt-0.5">✓</span>
+                <span>Send a PDF, get a summary in seconds</span>
+              </li>
+              <li class="flex items-start gap-3 text-text-muted">
+                <span class="text-accent mt-0.5">✓</span>
+                <span>AI keeps working 24/7 — even on weekends</span>
+              </li>
+              <li class="flex items-start gap-3 text-text-muted">
+                <span class="text-accent mt-0.5">✓</span>
+                <span>Your agent runs on its own cloud — always on</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Use Case Categories -->
+    <section class="py-12 lg:py-20">
+      <div class="max-w-7xl mx-auto px-6 lg:px-20">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-4 text-center">
+          // USE CASES
+        </div>
+        <h2 class="text-white text-2xl md:text-3xl font-bold mb-4 text-center">
+          One agent, hundreds of use cases
+        </h2>
+        <p class="text-text-muted text-center text-sm mb-12 max-w-lg mx-auto">
+          Teach your AI agent new tasks through natural language. No code needed.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {useCases.map((category) => (
+            <div class="bg-dark-secondary rounded-2xl border border-dark-tertiary p-6 hover:border-accent/30 transition-colors">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="text-2xl">{category.icon}</span>
+                <h3 class="text-white font-bold">{category.category}</h3>
+              </div>
+              <ul class="space-y-2.5">
+                {category.items.map((item) => (
+                  <li class="text-text-muted text-sm flex items-start gap-2">
+                    <span class={`text-${category.color} mt-0.5 text-xs`}>●</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <p class="text-text-dark text-xs font-mono text-center mt-8">
+          // You can add as many use cases as you want through natural language
+        </p>
+      </div>
+    </section>
+
+    <!-- How It Works (Simple 3-Step) -->
+    <section class="py-12 lg:py-20 bg-dark-secondary/50">
+      <div class="max-w-4xl mx-auto px-6 lg:px-20">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-4 text-center">
+          // HOW IT WORKS
+        </div>
+        <h2 class="text-white text-2xl md:text-3xl font-bold mb-12 text-center">
+          3 steps. 2 minutes. Done.
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-accent/10 border border-accent/30 flex items-center justify-center mx-auto mb-4">
+              <span class="text-accent font-mono font-bold text-xl">1</span>
+            </div>
+            <h3 class="text-white font-bold mb-2">Sign Up</h3>
+            <p class="text-text-muted text-sm">Create your account. No credit card needed to browse.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-terminal-cyan/10 border border-terminal-cyan/30 flex items-center justify-center mx-auto mb-4">
+              <span class="text-terminal-cyan font-mono font-bold text-xl">2</span>
+            </div>
+            <h3 class="text-white font-bold mb-2">Connect Your Apps</h3>
+            <p class="text-text-muted text-sm">Link Telegram, WhatsApp, Slack, or any of 15+ channels.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-terminal-magenta/10 border border-terminal-magenta/30 flex items-center justify-center mx-auto mb-4">
+              <span class="text-terminal-magenta font-mono font-bold text-xl">3</span>
+            </div>
+            <h3 class="text-white font-bold mb-2">Tell It What to Do</h3>
+            <p class="text-text-muted text-sm">Describe tasks in plain language. Your AI agent handles the rest — 24/7.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Channels Section -->
+    <section class="py-12 lg:py-20">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20 text-center">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-4">
+          // WORKS WHERE YOU WORK
+        </div>
+        <h2 class="text-white text-2xl md:text-3xl font-bold mb-4">
+          Connects to 15+ channels
+        </h2>
+        <p class="text-text-muted text-sm mb-10 max-w-lg mx-auto">
+          Your AI agent meets you where you already are — no new apps to learn.
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <span class="px-5 py-2.5 bg-dark-secondary border border-accent/30 rounded-full text-accent text-sm font-medium">Telegram</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-accent/30 rounded-full text-accent text-sm font-medium">WhatsApp</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-accent/30 rounded-full text-accent text-sm font-medium">Slack</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-accent/30 rounded-full text-accent text-sm font-medium">Discord</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Email</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Web Chat</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">SMS</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Line</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">WeChat</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Twitter/X</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Instagram</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">+4 more</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="py-16 lg:py-24">
+      <div class="max-w-7xl mx-auto px-6 lg:px-20">
+        <div class="relative overflow-hidden rounded-2xl bg-dark-secondary border-2 border-accent/50 p-8 md:p-16 glow-accent neon-box">
+          <div class="absolute inset-0 opacity-5">
+            <div class="absolute inset-0" style="background-image: linear-gradient(rgba(0,255,65,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,65,0.1) 1px, transparent 1px); background-size: 20px 20px;"></div>
+          </div>
+          <div class="relative text-center">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-accent text-glow-strong mb-4 font-mono">
+              Your AI Agent Awaits
+            </h2>
+            <p class="text-text-secondary text-lg mb-10 max-w-xl mx-auto">
+              $29.99/mo. Set up in 2 minutes. Runs 24/7.<br />
+              No coding. No API keys. Everything included.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href={`${APP_URL}/sign-up`}
+                class="btn-primary text-sm py-4 px-10 font-mono"
+              >
+                [GET STARTED — $29.99/mo]
+              </a>
+              <a
+                href="/pricing"
+                class="btn-secondary text-sm py-4 px-10 font-mono"
+              >
+                [VIEW PRICING]
+              </a>
+            </div>
+            <p class="text-text-muted text-xs font-mono mt-6">
+              // Cancel anytime · No coding needed · No hidden fees
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  @keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-scroll-left {
+    animation: scroll-left 30s linear infinite;
+  }
+</style>

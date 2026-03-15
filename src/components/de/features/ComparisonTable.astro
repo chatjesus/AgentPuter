@@ -1,0 +1,43 @@
+---
+// Vergleichstabelle - Terminal-Stil
+---
+
+<section class="relative py-20 bg-[#0A0A0A]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20 flex flex-col items-center">
+    <span class="block text-xs font-mono font-semibold tracking-[2px] text-accent mb-6">UNSER VERGLEICH</span>
+    <h2 class="text-2xl md:text-[32px] font-bold text-white mb-10 text-center">AgentPuter vs. der Rest</h2>
+    
+    <!-- Terminal-Vergleichsmatrix -->
+    <div class="w-full max-w-[1000px] rounded-xl border border-[#00FF4130] overflow-hidden bg-[#0D1117]">
+      <!-- Terminal-Kopfzeile -->
+      <div class="flex items-center gap-2 px-4 h-9 bg-[#252525]">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#EF4444]"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-[#F59E0B]"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-[#22C55E]"></span>
+        <span class="ml-2 text-[#64748B] font-mono text-[11px]">agentputer — vergleichsmatrix</span>
+      </div>
+      
+      <!-- Terminal-Inhalt -->
+      <div class="p-5 overflow-x-auto">
+        <pre class="font-mono text-xs md:text-[13px] leading-relaxed"><span class="text-[#00BFFF]">$ agentputer compare --all</span>
+
+<span class="text-accent">                  Eigener    MCP /                          </span>
+<span class="text-accent">  Merkmal         PC         Plugins   Claude    OpenClaw   AgentPuter</span>
+<span class="text-[#333333]">  ─────────────────────────────────────────────────────────────────</span>
+<span class="text-[#94A3B8]">  Persistenz      Keine      Begrenzt  Begrenzt  Lokal      <span class="text-accent">✓ Voll</span></span>
+<span class="text-[#94A3B8]">  24/7-Betrieb    Nein       Nein      Nein      Manuell    <span class="text-accent">✓ Auto</span></span>
+<span class="text-[#94A3B8]">  Auth-Verwaltung Keine      Anbieter  Anbieter  Manuell    <span class="text-accent">✓ Auto</span></span>
+<span class="text-[#94A3B8]">  Multi-Agenten   Nein       Nein      Nein      Nein       <span class="text-accent">✓ Ja</span></span>
+<span class="text-[#94A3B8]">  Fernzugriff     Cloud      Cloud     Cloud     Nein       <span class="text-accent">✓ Ja</span></span>
+<span class="text-[#94A3B8]">  Prüfprotokoll   Teilweise  Keine     Keine     Teilweise  <span class="text-accent">✓ Voll</span></span>
+<span class="text-[#94A3B8]">  Kostenkontrolle Keine      Keine     Keine     Keine      <span class="text-accent">✓ Ja</span></span>
+<span class="text-[#94A3B8]">  Injection-Abw.  Keine      Keine     Keine     Keine      <span class="text-accent">✓ Proxy</span></span>
+
+<span class="text-[#94A3B8]">  Datenschutz     Cloud      Cloud     Cloud     <span class="text-accent">✓ Lokal</span>    <span class="text-accent">✓ Lokal</span></span>
+<span class="text-[#94A3B8]">  Einstiegshürde  Gering     Mittel    Gering    Hoch       <span class="text-accent">✓ Gering</span></span>
+
+<span class="text-accent font-bold">  Ergebnis: AgentPuter ████████████████████ 10/10 ✓</span></pre>
+      </div>
+    </div>
+  </div>
+</section>

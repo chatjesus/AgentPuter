@@ -1,0 +1,348 @@
+{
+  "meta": {
+    "title": "TinyClaw — نشر OpenClaw في أقل من دقيقة",
+    "description": "انشر مساعدك الشخصي بتقنية الذكاء الاصطناعي (AI) المتوفر على مدار الساعة طوال أيام الأسبوع بضغطة زر واحدة باستخدام OpenClaw. لا حاجة لخوادم أو SSH أو إعدادات تقنية. اختر نموذج الذكاء الاصطناعي الخاص بك، وقم بتوصيل Telegram، وانشر في أقل من 60 ثانية. تجربة مجانية لمدة 7 أيام، ثم $29.99/الشهر.",
+    "og_description": "انشر مساعدك الشخصي بتقنية الذكاء الاصطناعي (AI) المتوفر على مدار الساعة طوال أيام الأسبوع بضغطة زر واحدة. لا حاجة لخوادم أو SSH أو متاعب. اختر Claude أو GPT أو Gemini وقم بالاتصال عبر Telegram."
+  },
+  "nav": {
+    "brand": "TinyClaw.dev",
+    "blog": "المدونة",
+    "contact": "الدعم الفني"
+  },
+  "hero": {
+    "title_line1": "انشر OpenClaw",
+    "title_line2": "في أقل من دقيقة",
+    "subtitle": "تجنب كل التعقيدات التقنية وانشر نسخة OpenClaw الخاصة بك النشطة على مدار الساعة طوال أيام الأسبوع بضغطة زر واحدة وفي أقل من دقيقة <1 min."
+  },
+  "models": {
+    "heading": "أي نموذج تريده كإعداد افتراضي؟"
+  },
+  "channels": {
+    "heading": "أي قناة تريد استخدامها لإرسال الرسائل؟",
+    "coming_soon": "قريباً"
+  },
+  "cta": {
+    "button": "تسجيل الدخول باستخدام Google",
+    "note": "سجل الدخول لنشر مساعدك الشخصي بتقنية الذكاء الاصطناعي (AI) وتوصيل قنواتك.",
+    "slots": "عدد محدود من الخوادم السحابية - تبقى {count} فقط"
+  },
+  "comparison": {
+    "label": "مقارنة",
+    "title_line1": "الطريقة التقليدية",
+    "title_line2": "مقابل TinyClaw",
+    "traditional": "تقليدي",
+    "tinyclaw": "TinyClaw",
+    "total": "المجموع",
+    "total_time": "60 دقيقة",
+    "tinyclaw_time": "<1 min",
+    "tinyclaw_desc": "اختر نموذجًا، وقم بتوصيل Telegram، وانشر - تم في أقل من دقيقة.",
+    "tinyclaw_subdesc": "الخوادم و SSH وبيئة OpenClaw مُجهزة بالفعل، وفي انتظار التخصيص. اتصال بسيط وآمن وسريع بالبوت الخاص بك.",
+    "non_technical_note": "إذا لم تكن تقنيًا، فاضرب هذه الأوقات في 10 - عليك تعلم كل خطوة قبل القيام بها.",
+    "steps": [
+      {
+        "label": "شراء جهاز افتراضي محلي",
+        "time": "15 دقيقة"
+      },
+      {
+        "label": "إنشاء مفاتيح SSH وتخزينها بشكل آمن",
+        "time": "10 دقائق"
+      },
+      {
+        "label": "الاتصال بالخادم عبر SSH",
+        "time": "5 دقائق"
+      },
+      {
+        "label": "تثبيت Node.js و NPM",
+        "time": "5 دقائق"
+      },
+      {
+        "label": "تثبيت OpenClaw",
+        "time": "7 دقائق"
+      },
+      {
+        "label": "إعداد OpenClaw",
+        "time": "10 دقائق"
+      },
+      {
+        "label": "الاتصال بمزود الذكاء الاصطناعي",
+        "time": "4 دقائق"
+      },
+      {
+        "label": "الاقتران بـ Telegram",
+        "time": "4 دقائق"
+      }
+    ]
+  },
+  "usecases": {
+    "heading": "ما الذي يمكن أن يفعله OpenClaw لك؟",
+    "subheading": "مساعد واحد، آلاف حالات الاستخدام",
+    "ps": "ملاحظة. يمكنك إضافة أكبر عدد تريده من حالات الاستخدام عبر اللغة الطبيعية",
+    "rows": [
+      [
+        "قراءة وتلخيص البريد الإلكتروني",
+        "صياغة الردود والمتابعات",
+        "ترجمة الرسائل في الوقت الفعلي",
+        "تنظيم صندوق الوارد الخاص بك",
+        "الإجابة على تذاكر الدعم",
+        "تلخيص المستندات الطويلة",
+        "الإشعار قبل الاجتماع",
+        "جدولة الاجتماعات من الدردشة"
+      ],
+      [
+        "تذكيرك بالمواعيد النهائية",
+        "التخطيط لأسبوعك",
+        "تدوين ملاحظات الاجتماع",
+        "المزامنة عبر المناطق الزمنية",
+        "إنجاز الضرائب الخاصة بك",
+        "تتبع النفقات والإيصالات",
+        "مقارنة عروض التأمين",
+        "إدارة الاشتراكات"
+      ],
+      [
+        "تشغيل حسابات الرواتب",
+        "التفاوض على المبالغ المستردة",
+        "البحث عن كوبونات",
+        "البحث عن أفضل الأسعار عبر الإنترنت",
+        "البحث عن رموز الخصم",
+        "تنبيهات انخفاض الأسعار",
+        "مقارنة مواصفات المنتج",
+        "التفاوض على الصفقات"
+      ],
+      [
+        "كتابة العقود واتفاقيات عدم الإفشاء",
+        "البحث عن المنافسين",
+        "فحص وتحديد أولويات العملاء المحتملين",
+        "إنشاء الفواتير",
+        "إنشاء عروض تقديمية من النقاط",
+        "حجز السفر والفنادق",
+        "البحث عن وصفات من المكونات",
+        "صياغة منشورات اجتماعية"
+      ],
+      [
+        "مراقبة الأخبار والتنبيهات",
+        "تحديد وتتبع الأهداف",
+        "فحص التواصل البارد",
+        "صياغة توصيفات الوظائف",
+        "تشغيل ملخصات الاجتماعات السريعة",
+        "تتبع OKRs و KPIs"
+      ]
+    ]
+  },
+  "footer": {
+    "built_by": "صنع بـ ❤️ بواسطة",
+    "privacy": "سياسة الخصوصية",
+    "terms": "شروط الخدمة"
+  },
+  "setup": {
+    "connect_telegram": "توصيل Telegram",
+    "how_to_get_token": "كيف تحصل على رمز البوت الخاص بك؟",
+    "step1_open": "افتح Telegram وانتقل إلى",
+    "step2_type": "ابدأ محادثة واكتب",
+    "step3_follow": "اتبع التعليمات لتسمية البوت الخاص بك واختيار اسم مستخدم.",
+    "step4_copy": "سيرسل لك BotFather رسالة تحتوي على رمز البوت الخاص بك. انسخ الرمز بأكمله (يبدو كسلسلة طويلة من الأرقام والحروف).",
+    "step5_paste": "الصق الرمز في الحقل أدناه وانقر فوق حفظ وتوصيل.",
+    "enter_token": "أدخل رمز البوت",
+    "invalid_token": "تنسيق الرمز غير صالح. يجب أن يبدو مثل 1234567890:ABCdefGH...",
+    "connecting": "جارٍ الاتصال...",
+    "save_connect": "حفظ وتوصيل ✓",
+    "global_search": "بحث شامل",
+    "model_heading": "أي نموذج تريده كإعداد افتراضي؟",
+    "channel_heading": "أي قناة تريد استخدامها لإرسال الرسائل؟",
+    "coming_soon": "قريباً",
+    "connected": "متصل",
+    "sign_out": "تسجيل الخروج",
+    "deploy_btn": "نشر OpenClaw",
+    "redirecting_checkout": "جارٍ إعادة التوجيه إلى صفحة الدفع...",
+    "pricing": "$29.99 شهريًا — يمكن الإلغاء في أي وقت.",
+    "pricing_credits": "يشمل VPS مخصص، وجميع النماذج، ومهارات غير محدودة من ClawHub.",
+    "trial_badge": "تجربة مجانية لمدة 7 أيام",
+    "trial_for_7_days": "لمدة 7 أيام",
+    "trial_then_price": "ثم $29.99/شهر · يمكن الإلغاء في أي وقت",
+    "trial_pricing_line": "مجاني لمدة 7 أيام · $29.99/شهر بعد ذلك · يمكن الإلغاء في أي وقت.",
+    "slots": "عدد محدود من الخوادم السحابية - تبقى {count} فقط",
+    "loading": "جارٍ التحميل...",
+    "network_error": "خطأ في الشبكة. يرجى المحاولة مرة أخرى.",
+    "checkout_failed": "فشل بدء الدفع",
+    "channel_optional": "اختياري - يمكن الإعداد بعد الدفع",
+    "connect_telegram_now": "هل تريد ربط Telegram الآن؟",
+    "setup_telegram_token": "إعداد رمز Telegram",
+    "skip_after_payment": "(تخطي وافعل ذلك بعد الدفع)",
+    "connect_discord_now": "هل تريد ربط Discord الآن؟",
+    "setup_discord_token": "إعداد رمز Discord Bot",
+    "whatsapp_no_token": "لا حاجة إلى رمز!",
+    "whatsapp_qr_hint": "بعد الدفع، امسح رمز QR في لوحة التحكم الخاصة بك لربط WhatsApp.",
+    "plan_heading": "اختر خطتك",
+    "plan_selected": "✓ تم الاختيار",
+    "plan_starter_label": "مبتدئ",
+    "plan_starter_first_month": "الشهر الأول",
+    "plan_starter_then": "ثم $9.99/شهر",
+    "plan_starter_feat1": "وكيل AI واحد",
+    "plan_starter_feat2": "جميع القنوات",
+    "plan_starter_feat3": "إلغاء في أي وقت",
+    "plan_pro_label": "محترف",
+    "plan_pro_no_trial": "لا توجد فترة تجريبية",
+    "plan_pro_feat1": "حاسوب سحابي مخصص",
+    "plan_pro_feat2": "جميع القنوات",
+    "plan_pro_feat3": "إلغاء في أي وقت",
+    "pricing_starter_today": "$1.99 اليوم",
+    "pricing_starter_note": "· وصول لمدة شهر · ثم $9.99/شهر ·"
+  },
+  "creating": {
+    "setting_up": "جارٍ إعداد وكيل الذكاء الاصطناعي الخاص بك...",
+    "model_label": "النموذج:",
+    "preparing": "جارٍ تجهيز بيئتك...",
+    "creating_cloud": "جارٍ إعداد السحابة المخصصة للذكاء الاصطناعي الخاصة بك...",
+    "almost_done": "اوشكنا على الانتهاء!",
+    "time_hint": "يستغرق هذا حوالي دقيقتين",
+    "error_title": "حدث خطأ ما",
+    "error_desc": "فشل الإعداد. يرجى المحاولة مرة أخرى أو الاتصال بالدعم.",
+    "retry": "إعادة المحاولة",
+    "checking": "جارٍ التحقق من الوصول...",
+    "loading": "جارٍ التحميل...",
+    "contact_support": "هل يستغرق الأمر وقتًا طويلاً؟ اتصل بالدعم",
+    "contact_support_short": "اتصل بالدعم"
+  },
+  "dashboard": {
+    "agent_ready": "وكيل الذكاء الاصطناعي الخاص بك جاهز!",
+    "running_model": "تشغيل {model} · متصل على مدار الساعة طوال أيام الأسبوع",
+    "sign_out": "تسجيل الخروج",
+    "webchat_title": "OpenClaw WebChat",
+    "webchat_desc": "تحدث مع الذكاء الاصطناعي الخاص بك مباشرة في المتصفح",
+    "open_webchat": "افتح WebChat →",
+    "vps_demo": "توفير VPS (الوضع التجريبي)",
+    "webchat_pending": "سيكون WebChat متاحًا بمجرد توفير VPS حقيقي",
+    "telegram_title": "بوت Telegram",
+    "telegram_connected": "متصل",
+    "telegram_pair_now": "إقران الآن",
+    "telegram_connected_msg": "Telegram متصل!",
+    "telegram_ready": "الذكاء الاصطناعي الخاص بك جاهز للدردشة على Telegram",
+    "telegram_step1": "أنشئ بوتًا عبر @BotFather على Telegram، ثم الصق الرمز أدناه.",
+    "telegram_configure": "تكوين رمز البوت",
+    "telegram_configuring": "جارٍ تكوين البوت...",
+    "telegram_step2": "أرسل أي رسالة إلى بوت Telegram الخاص بك - ستتلقى رمز إقران. أدخله أدناه للاتصال.",
+    "telegram_pair_placeholder": "أدخل رمز الإقران",
+    "telegram_pairing": "جارٍ الإقران...",
+    "telegram_connect": "توصيل Telegram",
+    "telegram_paired": "تم الإقران بنجاح!",
+    "telegram_refreshing": "جارٍ التحديث...",
+    "telegram_failed": "فشل تكوين البوت. يرجى المحاولة مرة أخرى.",
+    "telegram_pair_failed": "فشل الإقران. يرجى المحاولة مرة أخرى.",
+    "vps_title": "الوصول إلى VPS (متقدم)",
+    "vps_ip": "عنوان IP",
+    "vps_port": "منفذ البوابة",
+    "vps_ssh": "أمر SSH",
+    "vps_password": "كلمة مرور الجذر",
+    "subscription_title": "الاشتراك الاحترافي",
+    "subscription_status": "الحالة: {status}",
+    "subscription_renews": "يتجدد في {date}",
+    "manage_subscription": "إدارة الاشتراك",
+    "manage_loading": "جارٍ التحميل...",
+    "manage_failed": "فشل فتح بوابة الاشتراك",
+    "model_switch_btn": "تبديل",
+    "model_switching": "جارٍ التبديل...",
+    "model_current": "الحالي",
+    "model_switch_note": "يستغرق التبديل ~ 30 ثانية. ستتم إعادة تشغيل الوكيل الخاص بك.",
+    "model_switching_desc": "جارٍ إعادة تشغيل الوكيل الخاص بك بالنموذج الجديد...",
+    "model_switch_success": "تم التبديل إلى {model}",
+    "model_switch_failed": "فشل تبديل النموذج. يرجى المحاولة مرة أخرى.",
+    "powered_by": "مدعوم من",
+    "discord_setup_now": "إعداد الآن",
+    "discord_token_configured": "تم تكوين رمز بوت Discord",
+    "discord_step1_title": "الخطوة 1 - قم بدعوة البوت الخاص بك إلى خادم",
+    "discord_step1_note": "قم أيضًا بتمكين Message Content Intent ضمن Bot → Privileged Gateway Intents.",
+    "discord_step2_title": "الخطوة 2 - قم بتخويل نفسك في Discord",
+    "discord_step2_desc": "أرسل أي رسالة إلى البوت الخاص بك (DM أو @mention في الخادم). سيرد برمز إقران.",
+    "discord_step2_cmd_note": "قم بتشغيل هذا الأمر في WebChat → Terminal للموافقة على حسابك. مطلوب مرة واحدة فقط لكل مستخدم.",
+    "discord_how_to": "🤖 كيفية الحصول على رمز بوت Discord الخاص بك:",
+    "discord_step_new_app": "تطبيق جديد",
+    "discord_step_add_bot": "بوت",
+    "discord_step_add_bot2": "إضافة بوت",
+    "discord_step_reset_token": "إعادة تعيين الرمز",
+    "discord_step_intent": "هدف محتوى الرسالة",
+    "discord_step_url_gen": "OAuth2 → مولد عنوان URL",
+    "discord_configured": "تم تكوين بوت Discord!",
+    "discord_reloading": "جارٍ إعادة التحميل...",
+    "discord_configuring": "جارٍ تكوين بوت Discord...",
+    "discord_connect_btn": "توصيل بوت Discord",
+    "discord_failed": "فشل تكوين Discord. يرجى المحاولة مرة أخرى.",
+    "whatsapp_scan_to_connect": "امسح ضوئيًا للاتصال",
+    "whatsapp_linked": "مرتبط",
+    "whatsapp_no_token_desc": "لا يتطلب WhatsApp رمزًا - ما عليك سوى تنشيطه هنا ومسح رمز QR ضوئيًا لربط حسابك.",
+    "whatsapp_activating": "جارٍ التنشيط...",
+    "whatsapp_activate_btn": "⚡ تنشيط WhatsApp",
+    "whatsapp_activate_failed": "فشل تمكين WhatsApp. يرجى المحاولة مرة أخرى.",
+    "whatsapp_activated": "✅ تم تنشيط قناة WhatsApp - امسح رمز QR أدناه بهاتفك لربط حسابك.",
+    "whatsapp_scan_instructions": "📱 امسح ضوئيًا باستخدام WhatsApp → الإعدادات → الأجهزة المرتبطة → ربط جهاز",
+    "whatsapp_qr_expired": "انتهت صلاحية QR - تحديث",
+    "whatsapp_qr_generating": "جارٍ إنشاء رمز QR...",
+    "whatsapp_qr_placeholder": "سيظهر QR هنا",
+    "whatsapp_qr_no_qr": "لم يتم إرجاع رمز QR.",
+    "whatsapp_qr_expires_hint": "تنتهي صلاحية رمز QR في ~ 60 ثانية. انقر فوق تحديث إذا تحول إلى اللون الرمادي.",
+    "whatsapp_refresh_qr": "🔄 تحديث QR",
+    "whatsapp_generate_qr": "📷 إنشاء رمز QR",
+    "whatsapp_open_webchat": "افتح WebChat",
+    "whatsapp_step2_title": "الخطوة 2 - بعد المسح الضوئي، انقر للتطبيق",
+    "whatsapp_step2_desc": "بعد أن يعرض WhatsApp Google Chrome (openclaw) في الأجهزة المرتبطة، انقر أدناه لإعادة تشغيل الوكيل الخاص بك وتحميل الجلسة.",
+    "whatsapp_applying": "جارٍ إعادة تشغيل الوكيل... (~ 60 ثانية)",
+    "whatsapp_apply_btn": "✅ لقد قمت بالمسح الضوئي - تطبيق الاتصال",
+    "whatsapp_apply_failed": "فشل التطبيق. يرجى المحاولة مرة أخرى.",
+    "whatsapp_live_title": "🎉 WhatsApp مباشر!",
+    "whatsapp_live_desc": "وكيل الذكاء الاصطناعي الخاص بك متصل الآن بـ WhatsApp. أرسل رسالة إلى رقمك الخاص لبدء الدردشة.",
+    "telegram_how_to_title": "📋 كيفية الحصول على رمز Bot الخاص بك:",
+    "telegram_guide_step1": "افتح Telegram وابحث عن @BotFather",
+    "telegram_guide_step2": "أرسل",
+    "telegram_guide_step3": "اختر اسمًا واسم مستخدم للـ bot الخاص بك",
+    "telegram_guide_step4": "سيعطيك BotFather رمزًا - انسخه",
+    "telegram_guide_step5": "الصق الرمز أدناه",
+    "telegram_token_saved": "✅ تم حفظ رمز Bot! خطوة أخرى:",
+    "telegram_pair_guide_step1": "افتح Telegram bot الخاص بك وأرسل أي رسالة (مثل مرحبًا)",
+    "telegram_pair_guide_step2": "سيرد الـ bot الخاص بك برمز الاقتران",
+    "telegram_pair_guide_step3": "أدخل الرمز أدناه لإنهاء الاتصال",
+    "feishu_title": "Lark / Feishu",
+    "feishu_connect_now": "اتصل",
+    "feishu_connected": "متصل",
+    "feishu_desc": "قم بتوصيل وكيل AI الخاص بك بـ Lark (Feishu). يمكن للمستخدمين في بر الصين الرئيسي الدردشة مع وكيلك من خلال Feishu.",
+    "feishu_app_id_label": "App ID",
+    "feishu_app_id_placeholder": "cli_xxxxxxxxxxxxxxxxx",
+    "feishu_app_secret_label": "App Secret",
+    "feishu_app_secret_placeholder": "أدخل App Secret الخاص بـ Feishu",
+    "feishu_verify_token_label": "Verification Token",
+    "feishu_verify_token_placeholder": "أدخل رمز التحقق",
+    "feishu_encrypt_key_label": "Encrypt Key (اختياري)",
+    "feishu_encrypt_key_placeholder": "اتركه فارغًا إذا لم يتم تمكينه",
+    "feishu_webhook_url_label": "عنوان URL الخاص بـ Webhook (الصقه في Feishu)",
+    "feishu_save_btn": "حفظ واتصال",
+    "feishu_saving": "جارٍ الحفظ...",
+    "feishu_save_failed": "فشل الحفظ. يرجى التحقق من بيانات الاعتماد الخاصة بك.",
+    "feishu_configured_title": "✅ Feishu متصل",
+    "feishu_configured_desc": "تم الآن توصيل وكيل AI الخاص بك بـ Feishu. يمكن للمستخدمين إرسال رسالة إلى الـ bot الخاص بك لبدء الدردشة.",
+    "feishu_how_to": "كيفية الإعداد",
+    "feishu_step_create_app": "1. انتقل إلى open.feishu.cn/app → إنشاء تطبيق مخصص",
+    "feishu_step_add_bot": "2. أضف إمكانية Bot في إعدادات التطبيق الخاص بك",
+    "feishu_step_enable_events": "3. تمكين الأحداث: im.message.receive_v1",
+    "feishu_step_set_webhook": "4. قم بتعيين Request URL على عنوان URL الخاص بـ webhook أدناه",
+    "feishu_step_get_tokens": "5. انسخ App ID و App Secret و Verification Token هنا"
+  },
+  "faq": [
+    {
+      "q": "ما هو TinyClaw؟",
+      "a": "TinyClaw عبارة عن منصة نشر بنقرة واحدة لـ OpenClaw، وهو إطار عمل مساعد يعمل بالذكاء الاصطناعي مفتوح المصدر. يتيح لك نشر مساعد الذكاء الاصطناعي الخاص بك المتوفر على مدار الساعة طوال أيام الأسبوع والمتصل بـ Telegram في أقل من دقيقة، دون أي إعداد تقني."
+    },
+    {
+      "q": "كم يستغرق نشر OpenClaw باستخدام TinyClaw؟",
+      "a": "أقل من دقيقة واحدة. يستغرق الإعداد التقليدي 60 دقيقة أو أكثر من أوامر المحطة الطرفية. يعالج TinyClaw جميع عمليات توفير الخادم وتثبيت OpenClaw وتكوين القناة تلقائيًا."
+    },
+    {
+      "q": "ما هي نماذج الذكاء الاصطناعي التي يدعمها TinyClaw؟",
+      "a": "يدعم TinyClaw Claude Opus 4.6 من Anthropic و GPT-5.2 من OpenAI و Gemini 3 من Google. يمكنك اختيار النموذج المفضل لديك أثناء الإعداد."
+    },
+    {
+      "q": "كم تبلغ تكلفة TinyClaw؟",
+      "a": "يقدم TinyClaw تجربة مجانية لمدة 7 أيام، ثم $29.99 شهريًا، والتي تتضمن خادمًا سحابيًا مخصصًا ووقت تشغيل على مدار الساعة طوال أيام الأسبوع وتحديثات تلقائية وتكامل Telegram."
+    },
+    {
+      "q": "ما الذي يمكن أن يفعله مساعد OpenClaw AI؟",
+      "a": "يمكن لـ OpenClaw قراءة وتلخيص رسائل البريد الإلكتروني وصياغة الردود وترجمة الرسائل وجدولة الاجتماعات وإنجاز الضرائب الخاصة بك وتتبع النفقات وكتابة العقود والبحث عن المنافسين وإنشاء الفواتير وآلاف المهام الأخرى - كل ذلك عبر اللغة الطبيعية من خلال Telegram."
+    }
+  ]
+}

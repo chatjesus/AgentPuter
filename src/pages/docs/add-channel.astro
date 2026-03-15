@@ -1,0 +1,39 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import DocsSidebar from '../../components/docs/DocsSidebar.astro';
+import DocsChannels from '../../components/docs/DocsChannels.astro';
+import AddChannelDashboard from '../../components/docs/AddChannelDashboard.astro';
+---
+
+<Layout
+  title="Add Channels - AgentPuter Docs | Connect Telegram, WhatsApp, Slack & More"
+  description="Step-by-step guide to connect OpenClaw to Telegram, WhatsApp, Slack, Discord, and 15+ messaging channels. DM Pairing security explained."
+  tags={['AgentPuter Channels', 'Telegram Bot Setup', 'OpenClaw Channels', 'DM Pairing', 'WhatsApp AI', 'Slack Bot']}
+>
+  <Header activePage="docs" />
+  <main class="relative z-10 pt-20">
+    <!-- 文档视角: 侧边栏 + Add Channels 内容 -->
+    <div class="flex flex-col lg:flex-row min-h-[calc(100vh-80px)]">
+      <DocsSidebar activeItem="add-channels" />
+      <DocsChannels />
+    </div>
+
+    <!-- Dashboard 视角: 实际配置 UI 预览 -->
+    <section class="border-t border-[#222222]">
+      <div class="max-w-7xl mx-auto px-6 py-10">
+        <div class="inline-block bg-[#00BFFF]/10 border border-[#00BFFF]/30 rounded px-3 py-1 mb-6">
+          <span class="text-[#00BFFF] font-mono text-[10px] font-semibold tracking-[2px]">
+            DASHBOARD PREVIEW
+          </span>
+        </div>
+        <p class="text-[#666] text-[14px] mb-6">
+          This is what the Add Channel flow looks like inside the AgentPuter Dashboard.
+        </p>
+      </div>
+      <AddChannelDashboard />
+    </section>
+  </main>
+  <Footer />
+</Layout>

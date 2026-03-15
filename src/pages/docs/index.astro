@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import DocsSidebar from '../../components/docs/DocsSidebar.astro';
+import DocsContent from '../../components/docs/DocsContent.astro';
+---
+
+<Layout
+  title="Docs - AgentPuter | Managed Hosting for OpenClaw"
+  description="AgentPuter documentation. Ship your first AI agent in 2 minutes. OpenClaw pre-installed, channels via Web UI, zero DevOps."
+  tags={['AgentPuter Docs', 'OpenClaw Hosting', 'AI Agent Documentation', 'Quick Start', 'Telegram Bot', 'Channel Setup']}
+>
+  <Header activePage="docs" />
+  <main class="relative z-10 pt-20">
+    <div class="flex flex-col lg:flex-row min-h-[calc(100vh-80px)]">
+      <DocsSidebar activeItem="home" />
+      <DocsContent />
+    </div>
+  </main>
+  <Footer />
+</Layout>

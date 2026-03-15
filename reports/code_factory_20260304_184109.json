@@ -1,0 +1,17 @@
+[
+  {
+    "slug": "hash-generator",
+    "status": "success",
+    "fix_rounds": 0
+  },
+  {
+    "slug": "url-encoder",
+    "status": "success",
+    "fix_rounds": 0
+  },
+  {
+    "slug": "jwt-decoder",
+    "status": "failed",
+    "reason": "generation failed"
+  }
+]

@@ -1,0 +1,15 @@
+FROM openclaw:latest
+
+# 安装 Python + 图片生成依赖（持久化到镜像层，容器重建后无需重装）
+RUN apt-get update -qq && \
+    apt-get install -y --no-install-recommends \
+        python3 python3-pip && \
+    pip3 install google-genai pillow --break-system-packages -q && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# 预置平台技能（新用户 onboard 时由 vps/create 自动复制到 workspace）
+# 更新技能时：重新 scp skills/ 到 VPS 构建目录，运行 docker build 重建镜像
+COPY skills/ /opt/tc/skills/
+
+# 预创建安全密钥目录（平台凭证挂载点，位于工作区 .openclaw/ 之外，防止 AI 读取）
+RUN mkdir -p /opt/tc && chmod 700 /opt/tc

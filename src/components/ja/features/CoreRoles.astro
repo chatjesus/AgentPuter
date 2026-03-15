@@ -1,0 +1,152 @@
+---
+// 5つのコアな役割 - 各役割にターミナルシミュレーション付き
+const roles = [
+  {
+    icon: '🔒', name: 'Privacy Proxy', color: '#00FF41', colorClass: 'text-accent',
+    slogan: '// あなたのデータはあなたの管理下に',
+    desc: "ChatGPTに銀行の認証情報を貼り付けたりはしませんよね。AgentPuterはあなたとLLMの間のファイアウォールとして機能し、データをサニタイズし、認可を管理し、データ所有権があなたの手元に留まることを保証します。",
+    terminal: {
+      title: 'agentputer — プライバシープロキシ',
+      borderColor: '#00FF4130',
+      lines: [
+        { text: '$ agentputer privacy status', color: '#00FF41' },
+        { text: '' },
+        { text: '  データフロー: ユーザー → AgentPuter → [サニタイズ済み] → LLM', color: '#94A3B8' },
+        { text: '  認証情報: 保管時に暗号化 (AES-256)', color: '#94A3B8' },
+        { text: '  APIキー: 管理され、モデルには公開されません', color: '#94A3B8' },
+        { text: '  PII検出: アクティブ、自動墨消し有効', color: '#94A3B8' },
+        { text: '✓ あなたのデータはあなたのものです', color: '#00FF41' },
+      ],
+    },
+  },
+  {
+    icon: '🧠', name: 'Context Manager', color: '#00BFFF', colorClass: 'text-[#00BFFF]',
+    slogan: '// 決して忘れない記憶',
+    desc: "LLMは記憶喪失になりがちです。AgentPuterはエージェントに長期記憶を与えます。ワークフロー、設定、ファイル履歴を構造化されたコンテキストに変換し、トークンを節約しながら精度を向上させます。",
+    reverse: true,
+    terminal: {
+      title: 'agentputer — コンテキストマネージャー',
+      borderColor: '#00BFFF30',
+      lines: [
+        { text: '$ agentputer context show', color: '#00FF41' },
+        { text: '' },
+        { text: '  長期記憶: 847エントリ', color: '#94A3B8' },
+        { text: '  設定: 23ルール読み込み済み', color: '#94A3B8' },
+        { text: '  ファイル履歴: 156ファイル追跡中', color: '#94A3B8' },
+        { text: '  Token節約量: 約62% (スマートコンテキスト)', color: '#94A3B8' },
+        { text: '  最終同期: 2分前', color: '#94A3B8' },
+        { text: '✓ 中断したところから再開します', color: '#00FF41' },
+      ],
+    },
+  },
+  {
+    icon: '🔌', name: 'Unified Interface', color: '#A855F7', colorClass: 'text-[#A855F7]',
+    slogan: '// エージェントが必要とするすべてを、1つのAPIで',
+    desc: "ドキュメント、メール、ウェブ、コードなど、あらゆる機能が標準化されたToolとしてラップされています。エージェントは、人間がマウスを使うのと同じくらい自然に、各APIを学習することなく機能を呼び出せます。",
+    terminal: {
+      title: 'agentputer — 統合インターフェース',
+      borderColor: '#A855F730',
+      lines: [
+        { text: '$ agentputer tools list', color: '#00FF41' },
+        { text: '' },
+        { text: '  ├── documents    (読み取り, 書き込み, 変換)', color: '#94A3B8' },
+        { text: '  ├── email        (送信, 読み取り, 検索)', color: '#94A3B8' },
+        { text: '  ├── web          (ブラウジング, スクレイピング, API)', color: '#94A3B8' },
+        { text: '  ├── calendar     (イベント, リマインダー)', color: '#94A3B8' },
+        { text: '  ├── code         (実行, テスト, deploy)', color: '#94A3B8' },
+        { text: '  ├── files        (CRUD, 整理)', color: '#94A3B8' },
+        { text: '  └── custom       (Skillsマーケットプレイス)', color: '#94A3B8' },
+        { text: '✓ 7つのコアツール + 無制限のSkills', color: '#00FF41' },
+      ],
+    },
+  },
+  {
+    icon: '💾', name: 'Persistent Workspace', color: '#FFD700', colorClass: 'text-[#FFD700]',
+    slogan: "// あなたのエージェント専用デスクトップ",
+    desc: "エージェントは独自のファイルシステム、コードリポジトリ、リサーチノートを持ちます。作業途中の内容は保存され、次のセッションでは中断した場所から正確に再開できます。",
+    reverse: true,
+    terminal: {
+      title: 'agentputer — 永続ワークスペース',
+      borderColor: '#FFD70030',
+      lines: [
+        { text: '$ agentputer workspace status', color: '#00FF41' },
+        { text: '' },
+        { text: '  ~/workspace/', color: '#94A3B8' },
+        { text: '  ├── projects/     (3件アクティブ)', color: '#94A3B8' },
+        { text: '  ├── research/     (12件のノート)', color: '#94A3B8' },
+        { text: '  ├── drafts/       (5件進行中)', color: '#94A3B8' },
+        { text: '  └── exports/      (8件完了)', color: '#94A3B8' },
+        { text: '' },
+        { text: '  ストレージ: 2.1 GB / 40 GB', color: '#94A3B8' },
+        { text: "✓ あなたのエージェントの永続的なホーム", color: '#00FF41' },
+      ],
+    },
+  },
+  {
+    icon: '📋', name: 'Accountability Log', color: '#FF6B6B', colorClass: 'text-[#FF6B6B]',
+    slogan: '// すべてのアクションを記録し、レビュー可能に',
+    desc: "エージェントがいつ、何を、なぜ行ったのかを正確に確認できます。完全な意思決定チェーンが記録されます。機密性の高いアクションは、人間の確認のために自動的に一時停止します。透明性を通じて信頼を構築します。",
+    terminal: {
+      title: 'agentputer — アカウンタビリティログ',
+      borderColor: '#FF6B6B30',
+      lines: [
+        { text: '$ agentputer logs --last 5', color: '#00FF41' },
+        { text: '' },
+        { text: "[14:23:01] [agent] 受信: '営業レポートを作成'", color: '#94A3B8' },
+        { text: '[14:23:02] [agent] 計画: データ取得 → 分析 → フォーマット', color: '#94A3B8' },
+        { text: '[14:23:05] [tool]  データベースにクエリ実行: sales_q4_2025', color: '#94A3B8' },
+        { text: '[14:23:08] [agent] レポートのドラフトを生成', color: '#94A3B8' },
+        { text: '[14:23:09] [⚠ 確認] マネージャーにメールを送信しますか？', color: '#94A3B8' },
+        { text: '[14:23:15] [human] 承認済み ✓', color: '#94A3B8' },
+        { text: '✓ 機密性の高い操作には人間が介在', color: '#00FF41' },
+      ],
+    },
+  },
+];
+---
+
+<section class="relative py-20 bg-[#0A0A0A]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20">
+    <div class="mb-16">
+      <span class="block text-xs font-mono font-semibold tracking-[2px] text-accent mb-6">5つの役割を、1つのプラットフォームで</span>
+      <p class="text-lg md:text-2xl font-semibold text-white leading-snug max-w-[800px]">
+        AgentPuterは単なる機能リストではありません。<br/>AIワークフローにおいて、5つの重要な役割を果たします。
+      </p>
+    </div>
+    
+    <div class="space-y-24">
+      {roles.map((role) => (
+        <div class={`flex flex-col ${role.reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-10 lg:gap-12`}>
+          <!-- 文字部分 -->
+          <div class="w-full lg:w-5/12 space-y-3">
+            <span class={`font-mono text-[28px] font-bold ${role.colorClass}`}>[{role.icon}]</span>
+            <h3 class="text-2xl md:text-[28px] font-bold text-white">{role.name}</h3>
+            <p class="font-mono text-[13px] font-semibold" style={`color: ${role.color}`}>{role.slogan}</p>
+            <p class="text-[15px] text-[#999999] leading-relaxed pt-1">{role.desc}</p>
+          </div>
+          
+          <!-- 终端部分 -->
+          <div class="w-full lg:w-7/12">
+            <div class="rounded-xl border overflow-hidden" style={`border-color: ${role.terminal.borderColor}; background: #0D1117;`}>
+              <!-- 终端头部 -->
+              <div class="flex items-center gap-2 px-3 h-9 bg-[#252525]">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#EF4444]"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-[#F59E0B]"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-[#22C55E]"></span>
+                <span class="ml-2 text-[#64748B] font-mono text-[11px]">{role.terminal.title}</span>
+              </div>
+              <!-- 终端内容 -->
+              <div class="p-4 space-y-1">
+                {role.terminal.lines.map((line) => (
+                  <p class="font-mono text-xs leading-relaxed" style={`color: ${line.color || '#94A3B8'}`}>
+                    {line.text || '\u00A0'}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

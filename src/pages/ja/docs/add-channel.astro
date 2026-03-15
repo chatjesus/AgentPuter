@@ -1,0 +1,39 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/ja/Header.astro';
+import Footer from '../../../components/ja/Footer.astro';
+import DocsSidebar from '../../../components/ja/docs/DocsSidebar.astro';
+import DocsChannels from '../../../components/ja/docs/DocsChannels.astro';
+import AddChannelDashboard from '../../../components/ja/docs/AddChannelDashboard.astro';
+---
+
+<Layout
+  title="チャンネルの追加 - AgentPuter ドキュメント | Telegram、WhatsApp、Slackなどと連携"
+  description="OpenClawをTelegram、WhatsApp、Slack、Discordなど15種類以上のチャットチャンネルに接続するためのステップバイステップガイド。DM Pairingの安全な仕組みについても詳しく解説します。"
+  tags={['AgentPuter チャンネル', 'Telegram Bot 設定', 'OpenClaw チャンネル', 'DM Pairing', 'WhatsApp AI', 'Slack Bot']}
+>
+  <Header />
+  <main class="relative z-10 pt-20">
+    <!-- ドキュメントビュー -->
+    <div class="flex flex-col lg:flex-row min-h-[calc(100vh-80px)]">
+      <DocsSidebar activeItem="add-channels" />
+      <DocsChannels />
+    </div>
+
+    <!-- Dashboard プレビュー -->
+    <section class="border-t border-[#222222]">
+      <div class="max-w-7xl mx-auto px-6 py-10">
+        <div class="inline-block bg-[#00BFFF]/10 border border-[#00BFFF]/30 rounded px-3 py-1 mb-6">
+          <span class="text-[#00BFFF] font-mono text-[10px] font-semibold tracking-[2px]">
+            DASHBOARD プレビュー
+          </span>
+        </div>
+        <p class="text-[#666] text-[14px] mb-6">
+          以下は、AgentPuter Dashboardでチャンネルを追加する際の実際の画面です。
+        </p>
+      </div>
+      <AddChannelDashboard />
+    </section>
+  </main>
+  <Footer />
+</Layout>

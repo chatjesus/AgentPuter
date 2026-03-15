@@ -1,0 +1,38 @@
+---
+// Anwendungsfälle - 4 Karten
+const cases = [
+  {
+    icon: '📊', name: 'Büroarbeit',
+    desc: '"Stelle die Verkaufsdaten der letzten Woche zusammen, schreibe einen Bericht und sende ihn per E-Mail an meinen Manager."\n\nDer Agent ruft Daten ab, analysiert, formatiert und versendet – Sie überprüfen nur noch.',
+  },
+  {
+    icon: '🔬', name: 'Recherche',
+    desc: '"Recherchiere die Markttrends für E-Fahrzeuge im Jahr 2025."\n\nSucht, liest, extrahiert die wichtigsten Punkte und erstellt ein Notizbuch – gespeichert zur Nachverfolgung.',
+  },
+  {
+    icon: '💻', name: 'Entwicklung',
+    desc: '"Erstelle eine Landing-Page für unser Produkt."\n\nEigene Entwicklungsumgebung. Schreibt Code, führt Tests durch, behebt Fehler, deployt – fragt Sie, wenn er nicht weiterkommt.',
+  },
+  {
+    icon: '🎨', name: 'Kreatives',
+    desc: '"Entwirf eine Social-Media-Kampagne für Q1."\n\nEigene Arbeitsfläche und Assets. Erstellt Entwürfe, iteriert, speichert Versionen. Sie geben die Richtung vor.',
+  },
+];
+---
+
+<section class="relative py-20 bg-[#111111]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20">
+    <span class="block text-xs font-mono font-semibold tracking-[2px] text-accent mb-6">ANWENDUNGSFÄLLE</span>
+    <h2 class="text-2xl md:text-[32px] font-bold text-white mb-12">Was kann Ihr Agent wirklich tun?</h2>
+    
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {cases.map((c) => (
+        <div class="bg-[#1A1A1A] rounded-xl border border-[#222222] p-6 transition-all duration-300 hover:border-accent/30 hover:-translate-y-1">
+          <span class="text-[28px] block mb-3">{c.icon}</span>
+          <h3 class="text-lg font-semibold text-white mb-3">{c.name}</h3>
+          <p class="text-[13px] text-[#999999] leading-relaxed whitespace-pre-line">{c.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

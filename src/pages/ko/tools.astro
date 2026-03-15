@@ -1,0 +1,208 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/ko/Header.astro';
+import Footer from '../../components/ko/Footer.astro';
+import MatrixRain from '../../components/MatrixRain.astro';
+
+const APP_URL = 'https://app.agentputer.com';
+
+const useCases = [
+  {
+    category: '연구 및 분석',
+    icon: '',
+    color: 'accent',
+    items: ["24/7 업계 뉴스 모니터링","경쟁사 업데이트 추적","긴 보고서 및 PDF 요약","실시간 문서 번역","매일 시장 브리핑 작성","기업 및 트렌드 조사"],
+  },
+  {
+    category: '소통',
+    icon: '',
+    color: 'accent',
+    items: ["이메일 답장 자동 초안","Telegram/Slack 메시지 관리","실시간 대화 번역","고객 질문 답변","후속 조치 일정 잡기","긴 채팅 스레드 요약"],
+  },
+  {
+    category: '생산성',
+    icon: '',
+    color: 'accent',
+    items: ["캘린더 및 작업 정리","회의 메모 자동 기록","스마트 알림 설정","메모에서 프레젠테이션 만들기","프로젝트 전반의 마감일 추적","일정에 맞게 보고서 생성"],
+  },
+  {
+    category: '재무 및 비즈니스',
+    icon: '',
+    color: 'accent',
+    items: ["지출 및 영수증 추적","주가 및 알림 모니터링","인보이스 생성","견적 및 제안서 비교","ROI 시나리오 계산","재무 보고서 요약"],
+  },
+  {
+    category: '콘텐츠 및 작성',
+    icon: '',
+    color: 'accent',
+    items: ["블로그 게시물 초안 작성","소셜 미디어 콘텐츠 작성","뉴스레터 만들기","문서 편집 및 교정","제품 설명 생성","계약서 및 NDA 작성"],
+  },
+  {
+    category: '데이터 및 자동화',
+    icon: '',
+    color: 'accent',
+    items: ["웹 데이터 스크래핑 및 정리","웹사이트 변경 사항 모니터링","수신 정보 자동 분류","일간/주간 다이제스트 생성","여러 소스 교차 참조","맞춤형 워크플로우 구축"],
+  }
+];
+---
+<Layout title="도구 및 활용 사례 - AgentPuter | AI 에이전트로 무엇을 할 수 있나요?" description="항상 작동하는 AI 에이전트가 할 수 있는 500가지 이상을 발견하세요. 연구, 자동화, 소통, 분석 — 코딩 불필요. 실제 활용 사례를 확인하세요." tags={['AgentPuter', 'AI 도구', 'AI 활용 사례', 'AI 자동화', '노코드 AI', 'AI 에이전트']}>
+  <MatrixRain />
+  <Header activePage="tools" />
+  <main class="relative z-10">
+    <section class="relative pt-32 pb-12 lg:pt-40 lg:pb-16 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-dark-primary via-dark-primary to-dark-secondary"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,255,65,0.06),transparent_50%)]"></div>
+      <div class="relative max-w-7xl mx-auto px-6 lg:px-20 text-center">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.2em] mb-6">500개 이상의 기본 스킬</div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">AI 에이전트로 무엇을 할 수 있나요?</h1>
+        <p class="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-4">하나의 에이전트, 수천 가지 활용 사례.<br />자연어로 필요한 것을 말하면 — 나머지는 에이전트가 처리합니다.</p>
+        <p class="text-text-muted text-sm max-w-xl mx-auto">AI 에이전트는 24/7 작동하며, 즐겨 사용하는 앱에 연결하고, 잠자는 동안에도 작업을 처리합니다. 코딩 불필요. 설정 불필요. 원하는 것을 설명하기만 하면 됩니다.</p>
+      </div>
+    </section>
+    <section class="py-8 overflow-hidden">
+      <div class="relative">
+        <div class="flex animate-scroll-left gap-4 whitespace-nowrap">
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">이메일 읽기 및 요약</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">자동으로 답장 초안 작성</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">메시지 번역</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">주가 모니터링</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">경쟁사 뉴스 추적</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">보고서 요약</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">회의 일정 잡기</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">인보이스 생성</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">경쟁사 조사</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">소셜 게시물 작성</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">프레젠테이션 만들기</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">온라인 최저가 찾기</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">이메일 읽기 및 요약</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">자동으로 답장 초안 작성</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">메시지 번역</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">주가 모니터링</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">경쟁사 뉴스 추적</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">보고서 요약</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">회의 일정 잡기</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">인보이스 생성</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">경쟁사 조사</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">소셜 게시물 작성</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">프레젠테이션 만들기</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">온라인 최저가 찾기</span>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 lg:py-20">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-4 text-center">// 기존 방식 vs 새로운 방식</div>
+        <h2 class="text-white text-2xl md:text-3xl font-bold mb-12 text-center">모든 것을 수동으로 처리하는 것을 그만하세요</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-dark-secondary rounded-2xl border border-dark-tertiary p-8">
+            <div class="text-error font-mono text-xs font-bold mb-4">AGENTPUTER 없이</div>
+            <ul class="space-y-4 text-sm">
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-error mt-0.5">✗</span><span>매일 아침 수동으로 뉴스 사이트 확인</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-error mt-0.5">✗</span><span>메시지 번역을 위해 앱 간 복사-붙여넣기</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-error mt-0.5">✗</span><span>보고서 읽기와 요약에 몇 시간 소비</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-error mt-0.5">✗</span><span>자리를 비울 때 중요한 업데이트 놓침</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-error mt-0.5">✗</span><span>AI는 컴퓨터 앞에 있을 때만 작동</span></li>
+            </ul>
+          </div>
+          <div class="bg-dark-secondary rounded-2xl border-2 border-accent/50 p-8">
+            <div class="text-accent font-mono text-xs font-bold mb-4">AGENTPUTER 사용 시</div>
+            <ul class="space-y-4 text-sm">
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-accent mt-0.5">✓</span><span>AI가 뉴스를 모니터링하고 매일 브리핑 전송</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-accent mt-0.5">✓</span><span>모든 채널에서 메시지 자동 번역</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-accent mt-0.5">✓</span><span>PDF 전송하면 몇 초 만에 요약 수신</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-accent mt-0.5">✓</span><span>AI는 24/7 작동 — 주말에도</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-accent mt-0.5">✓</span><span>에이전트가 자체 클라우드에서 실행 — 항상 켜짐</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 lg:py-20">
+      <div class="max-w-7xl mx-auto px-6 lg:px-20">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-4 text-center">// 활용 사례</div>
+        <h2 class="text-white text-2xl md:text-3xl font-bold mb-4 text-center">하나의 에이전트, 수백 가지 활용 사례</h2>
+        <p class="text-text-muted text-center text-sm mb-12 max-w-lg mx-auto">자연어로 AI 에이전트에게 새로운 작업을 가르치세요. 코드 불필요.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {useCases.map((category) => (
+            <div class="bg-dark-secondary rounded-2xl border border-dark-tertiary p-6 hover:border-accent/30 transition-colors">
+              <div class="flex items-center gap-3 mb-4">
+                <h3 class="text-white font-bold">{category.category}</h3>
+              </div>
+              <ul class="space-y-2.5">
+                {category.items.map((item) => (
+                  <li class="text-text-muted text-sm flex items-start gap-2">
+                    <span class="text-accent mt-0.5 text-xs">●</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <p class="text-text-dark text-xs font-mono text-center mt-8">// 자연어를 통해 원하는 만큼 활용 사례를 추가할 수 있습니다</p>
+      </div>
+    </section>
+    <section class="py-12 lg:py-20 bg-dark-secondary/50">
+      <div class="max-w-4xl mx-auto px-6 lg:px-20">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-4 text-center">// 작동 방식</div>
+        <h2 class="text-white text-2xl md:text-3xl font-bold mb-12 text-center">3단계. 2분. 완료.</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-accent/10 border border-accent/30 flex items-center justify-center mx-auto mb-4"><span class="text-accent font-mono font-bold text-xl">1</span></div>
+            <h3 class="text-white font-bold mb-2">가입</h3><p class="text-text-muted text-sm">계정을 만드세요. 둘러보는 데 신용카드 불필요.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-terminal-cyan/10 border border-terminal-cyan/30 flex items-center justify-center mx-auto mb-4"><span class="text-terminal-cyan font-mono font-bold text-xl">2</span></div>
+            <h3 class="text-white font-bold mb-2">앱 연결</h3><p class="text-text-muted text-sm">Telegram, WhatsApp, Slack 또는 15개 이상의 채널 중 하나를 연결하세요.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-terminal-magenta/10 border border-terminal-magenta/30 flex items-center justify-center mx-auto mb-4"><span class="text-terminal-magenta font-mono font-bold text-xl">3</span></div>
+            <h3 class="text-white font-bold mb-2">할 일 말하기</h3><p class="text-text-muted text-sm">평이한 언어로 작업을 설명하세요. AI 에이전트가 나머지를 처리합니다 — 24/7.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 lg:py-20">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20 text-center">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-4">// 당신이 일하는 곳에서 작동</div>
+        <h2 class="text-white text-2xl md:text-3xl font-bold mb-4">15개 이상 채널에 연결</h2>
+        <p class="text-text-muted text-sm mb-10 max-w-lg mx-auto">AI 에이전트가 이미 사용 중인 곳에서 만납니다 — 새로운 앱을 배울 필요 없음.</p>
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <span class="px-5 py-2.5 bg-dark-secondary border border-accent/30 rounded-full text-accent text-sm font-medium">Telegram</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-accent/30 rounded-full text-accent text-sm font-medium">WhatsApp</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-accent/30 rounded-full text-accent text-sm font-medium">Slack</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-accent/30 rounded-full text-accent text-sm font-medium">Discord</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Email</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Web Chat</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">SMS</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Line</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">WeChat</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Twitter/X</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Instagram</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">+4 more</span>
+        </div>
+      </div>
+    </section>
+    <section class="py-16 lg:py-24">
+      <div class="max-w-7xl mx-auto px-6 lg:px-20">
+        <div class="relative overflow-hidden rounded-2xl bg-dark-secondary border-2 border-accent/50 p-8 md:p-16 glow-accent neon-box">
+          <div class="absolute inset-0 opacity-5"><div class="absolute inset-0" style="background-image: linear-gradient(rgba(0,255,65,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,65,0.1) 1px, transparent 1px); background-size: 20px 20px;"></div></div>
+          <div class="relative text-center">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-accent text-glow-strong mb-4 font-mono">AI 에이전트가 기다리고 있습니다</h2>
+            <p class="text-text-secondary text-lg mb-10 max-w-xl mx-auto" set:html="월 $29.99. 2분 만에 설정. 24/7 작동.<br />코딩 불필요. API 키 불필요. 모든 것이 포함되어 있습니다."></p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href={`${APP_URL}/sign-up`} class="btn-primary text-sm py-4 px-10 font-mono">[지금 시작 — $29.99/월]</a>
+              <a href="/ko/pricing" class="btn-secondary text-sm py-4 px-10 font-mono">[요금 보기]</a>
+            </div>
+            <p class="text-text-muted text-xs font-mono mt-6">// 언제든지 취소 · 코딩 불필요 · 숨겨진 요금 없음</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+<style>
+  @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  .animate-scroll-left { animation: scroll-left 30s linear infinite; }
+</style>

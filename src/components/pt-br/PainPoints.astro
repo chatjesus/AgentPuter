@@ -1,0 +1,61 @@
+---
+// Seção de Pontos Problemáticos - Destacando problemas com agentes de IA locais
+
+const painPoints = [
+  {
+    icon: '[!]',
+    title: 'Computador Desligado = Agente Inativo',
+    description: 'Feche a tampa do seu MacBook e sua IA se desconecta. Nenhuma automação 24/7 de verdade é possível.',
+  },
+  {
+    icon: '[x]',
+    title: 'Autenticação Perdida = Comece de Novo',
+    description: 'Tokens OAuth expiram, sessões morrem. Cada reinicialização significa refazer o login e a autorização.',
+  },
+  {
+    icon: '[~]',
+    title: 'Recursos Locais = PC Lento',
+    description: 'Agentes consomem CPU/memória, deixando seu trabalho lento. Quer vários agentes? Esqueça.',
+  },
+  {
+    icon: '[@]',
+    title: 'Sem Acesso Remoto = Preso a um Local',
+    description: "Não consegue acessar seu Agente de onde estiver. Perca informações críticas, não consiga responder a tempo.",
+  },
+];
+---
+
+<section id="problems" class="py-20 lg:py-32 bg-dark-secondary matrix-grid relative">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <span class="inline-block px-4 py-2 text-xs font-mono font-bold tracking-widest text-terminal-orange border border-terminal-orange/30 bg-terminal-orange/10 rounded mb-6">
+        AVISO: LIMITAÇÃO_DO_SISTEMA
+      </span>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold font-mono text-text-primary leading-tight">
+        Agentes de IA Hoje Estão Presos<br />
+        <span class="text-terminal-orange text-glow-orange">Na Sua Máquina Local</span>
+      </h2>
+    </div>
+    
+    <!-- Pain Point Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {painPoints.map((point, index) => (
+        <div 
+          class="bg-dark-tertiary rounded-lg p-6 border border-terminal-orange/30 group hover:border-terminal-orange transition-colors hover-lift"
+          style={`animation-delay: ${index * 100}ms`}
+        >
+          <div class="mb-4">
+            <span class="text-terminal-orange font-mono text-2xl font-bold">{point.icon}</span>
+          </div>
+          <h3 class="text-lg font-mono font-semibold text-text-primary mb-3 group-hover:text-terminal-orange transition-colors">
+            {point.title}
+          </h3>
+          <p class="text-text-secondary text-sm leading-relaxed font-mono">
+            {point.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

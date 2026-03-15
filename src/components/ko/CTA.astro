@@ -1,0 +1,142 @@
+---
+// CTA 섹션 - 이메일 수집 양식
+---
+
+<section id="cta" class="py-20 lg:py-32 bg-dark-primary relative matrix-grid">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20">
+    <div class="relative overflow-hidden rounded-2xl bg-dark-secondary border-2 border-accent/50 p-8 md:p-16 glow-accent neon-box pulse-border scanlines">
+      <!-- Terminal grid background -->
+      <div class="absolute inset-0 opacity-5">
+        <div class="absolute inset-0" style="background-image: linear-gradient(rgba(0,255,65,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,65,0.1) 1px, transparent 1px); background-size: 20px 20px;"></div>
+      </div>
+      
+      <div class="relative text-center">
+        <div class="font-mono text-accent text-sm mb-4">&gt; ./deploy_agent.sh</div>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-accent text-glow-strong mb-4 font-mono">
+          AI를 해방시킬 준비가 되셨나요?
+        </h2>
+        <p class="text-text-secondary text-lg mb-10 max-w-xl mx-auto font-mono">
+          월 $29.99. 2분 안에 OpenClaw를 deploy하세요. 당신의 AI는 더 이상 잠들지 않습니다.
+        </p>
+        
+        <!-- Primary CTA: Subscribe -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+          <a
+            href="https://app.agentputer.com/sign-up"
+            class="btn-primary text-sm py-4 px-10 font-mono"
+          >
+            [지금 구독하기 — 월 $29.99]
+          </a>
+          <a
+            href="/pricing"
+            class="btn-secondary text-sm py-4 px-10 font-mono"
+          >
+            [가격 보기]
+          </a>
+        </div>
+
+        <p class="text-text-muted text-xs font-mono mb-6">
+          // 언제든 취소 가능 · 코딩 불필요 · 숨겨진 비용 없음
+        </p>
+        
+        <!-- Email Collection (secondary) -->
+        <div class="max-w-lg mx-auto mb-6">
+          <p class="text-text-dark text-xs font-mono mb-3">// 또는 BYOK 플랜 대기자 명단에 등록하세요:</p>
+          <form id="waitlist-form" class="flex flex-col sm:flex-row gap-0">
+            <div class="flex-1 relative">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-accent font-mono text-sm">$</span>
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="your@email.com"
+                class="w-full h-12 pl-8 pr-5 rounded-l-lg bg-dark-primary text-accent placeholder-text-muted font-mono text-sm border border-accent/30 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
+              />
+            </div>
+            <button
+              type="submit"
+              class="h-12 px-5 rounded-r-lg bg-dark-tertiary text-text-secondary font-mono font-bold text-xs hover:bg-accent hover:text-dark-primary transition-colors whitespace-nowrap border border-accent/30 border-l-0"
+            >
+              [알림 받기]
+            </button>
+          </form>
+          <div id="form-message" class="mt-3 text-sm font-mono hidden"></div>
+        </div>
+        
+        <!-- Contact -->
+        <p class="text-text-muted text-xs font-mono mt-6">
+          // 질문이 있으신가요? <a href="mailto:oscarzamora199907@gmail.com" class="text-terminal-cyan hover:underline">oscarzamora199907@gmail.com</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('waitlist-form');
+    const messageEl = document.getElementById('form-message');
+    
+    if (!form) return;
+    
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(form);
+      const email = formData.get('email');
+      
+      if (!messageEl || !email) return;
+      
+      // 로딩 상태 표시
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = '[처리 중...]';
+      submitBtn.disabled = true;
+      
+      try {
+        // localStorage에 저장 (개발 모드에서 작동)
+        // 프로덕션 환경에서는 API 응답으로 덮어쓰여집니다
+        const subscribers = JSON.parse(localStorage.getItem('agentputer_subscribers') || '[]');
+        if (!subscribers.includes(email)) {
+          subscribers.push(email);
+          localStorage.setItem('agentputer_subscribers', JSON.stringify(subscribers));
+        }
+        console.log('[DEV] 이메일이 localStorage에 저장됨:', email);
+        console.log('[DEV] 모든 구독자:', subscribers);
+        
+        // API 호출 시도 (Cloudflare에 배포 후 작동)
+        try {
+          const response = await fetch('/api/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email }),
+          });
+          if (response.ok) {
+            console.log('[PROD] 이메일이 API에 저장됨');
+          }
+        } catch (err) {
+          // 개발 모드에서는 API를 사용할 수 없지만 괜찮습니다
+          console.log('[DEV] API를 사용할 수 없어 localStorage만 사용합니다');
+        }
+        
+        // GA4 전환 이벤트 추적
+        if (typeof gtag === 'function') {
+          gtag('event', 'generate_lead', { event_category: 'engagement', event_label: 'cta_invite_request', value: 1 });
+        }
+        
+        // 성공 메시지 표시
+        messageEl.innerHTML = '<span class="text-accent">✓ 요청 접수 완료:</span> 24시간 내에 <span class="text-terminal-cyan">' + email + '</span> 주소로 초대 코드를 보내드립니다.';
+        messageEl.className = 'mt-3 text-sm font-mono text-accent';
+        messageEl.classList.remove('hidden');
+        form.reset();
+      } catch (error) {
+        messageEl.innerHTML = '<span class="text-error">[오류]</span> 문제가 발생했습니다. 다시 시도해 주세요.';
+        messageEl.className = 'mt-4 text-sm font-mono text-error';
+        messageEl.classList.remove('hidden');
+      } finally {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }
+    });
+  });
+</script>

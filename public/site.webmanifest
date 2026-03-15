@@ -1,0 +1,16 @@
+{
+  "name": "AgentPuter",
+  "short_name": "AgentPuter",
+  "description": "Your AI Agent's dedicated cloud runtime. Runs 24/7.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0D0D0D",
+  "theme_color": "#0D0D0D",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

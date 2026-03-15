@@ -1,0 +1,38 @@
+---
+// Cas d'utilisation - 4 cartes de scénarios d'utilisation
+const cases = [
+  {
+    icon: '📊', name: 'Travail de bureau',
+    desc: '"Compile les données de ventes de la semaine dernière, rédige un rapport et envoie-le par e-mail à mon manager."\n\nL\'agent récupère les données, les analyse, les met en forme et les envoie — vous n\'avez qu\'à vérifier.',
+  },
+  {
+    icon: '🔬', name: 'Recherche',
+    desc: '"Fais des recherches sur les tendances du marché des véhicules électriques pour 2025."\n\nIl cherche, lit, extrait les points clés et produit un carnet de notes — sauvegardé pour le suivi.',
+  },
+  {
+    icon: '💻', name: 'Développement',
+    desc: '"Crée une page d\'accueil pour notre produit."\n\nPropre environnement de dev. Écrit du code, exécute des tests, corrige les bugs, déploie — vous demande de l\'aide en cas de blocage.',
+  },
+  {
+    icon: '🎨', name: 'Création',
+    desc: '"Conçois une campagne pour les réseaux sociaux pour le T1."\n\nPropre canevas et ressources. Génère des brouillons, itère, sauvegarde les versions. Vous dirigez.',
+  },
+];
+---
+
+<section class="relative py-20 bg-[#111111]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20">
+    <span class="block text-xs font-mono font-semibold tracking-[2px] text-accent mb-6">CAS D'UTILISATION</span>
+    <h2 class="text-2xl md:text-[32px] font-bold text-white mb-12">Que peut réellement faire votre agent ?</h2>
+    
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {cases.map((c) => (
+        <div class="bg-[#1A1A1A] rounded-xl border border-[#222222] p-6 transition-all duration-300 hover:border-accent/30 hover:-translate-y-1">
+          <span class="text-[28px] block mb-3">{c.icon}</span>
+          <h3 class="text-lg font-semibold text-white mb-3">{c.name}</h3>
+          <p class="text-[13px] text-[#999999] leading-relaxed whitespace-pre-line">{c.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

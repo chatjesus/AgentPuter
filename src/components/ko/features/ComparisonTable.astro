@@ -1,0 +1,43 @@
+---
+// 비교표 - 터미널 스타일 비교 매트릭스
+---
+
+<section class="relative py-20 bg-[#0A0A0A]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20 flex flex-col items-center">
+    <span class="block text-xs font-mono font-semibold tracking-[2px] text-accent mb-6">비교 분석</span>
+    <h2 class="text-2xl md:text-[32px] font-bold text-white mb-10 text-center">AgentPuter와 다른 서비스 비교</h2>
+    
+    <!-- 터미널 비교 매트릭스 -->
+    <div class="w-full max-w-[1000px] rounded-xl border border-[#00FF4130] overflow-hidden bg-[#0D1117]">
+      <!-- 터미널 헤더 -->
+      <div class="flex items-center gap-2 px-4 h-9 bg-[#252525]">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#EF4444]"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-[#F59E0B]"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-[#22C55E]"></span>
+        <span class="ml-2 text-[#64748B] font-mono text-[11px]">agentputer — 비교 매트릭스</span>
+      </div>
+      
+      <!-- 터미널 콘텐츠 -->
+      <div class="p-5 overflow-x-auto">
+        <pre class="font-mono text-xs md:text-[13px] leading-relaxed"><span class="text-[#00BFFF]">$ agentputer compare --all</span>
+
+<span class="text-accent">                  컴퓨터     MCP /                          Agent</span>
+<span class="text-accent">  측면            사용         플러그인    Claude    OpenClaw   Puter</span>
+<span class="text-[#333333]">  ─────────────────────────────────────────────────────────────────</span>
+<span class="text-[#94A3B8]">  영속성          없음         제한적      제한적      로컬         <span class="text-accent">✓ 완전</span></span>
+<span class="text-[#94A3B8]">  24/7 가동 시간  아니요       아니요      아니요      수동         <span class="text-accent">✓ 자동</span></span>
+<span class="text-[#94A3B8]">  인증 관리       없음         벤더        벤더        수동         <span class="text-accent">✓ 자동</span></span>
+<span class="text-[#94A3B8]">  멀티 에이전트   아니요       아니요      아니요      아니요       <span class="text-accent">✓ 예</span></span>
+<span class="text-[#94A3B8]">  원격 액세스     클라우드     클라우드    클라우드    아니요       <span class="text-accent">✓ 예</span></span>
+<span class="text-[#94A3B8]">  감사 추적       부분적       없음        없음        부분적       <span class="text-accent">✓ 완전</span></span>
+<span class="text-[#94A3B8]">  비용 제어       없음         없음        없음        없음         <span class="text-accent">✓ 예</span></span>
+<span class="text-[#94A3B8]">  인젝션 방어     없음         없음        없음        없음         <span class="text-accent">✓ 프록시</span></span>
+
+<span class="text-[#94A3B8]">  개인정보보호    클라우드     클라우드    클라우드    <span class="text-accent">✓ 로컬</span>       <span class="text-accent">✓ 로컬</span></span>
+<span class="text-[#94A3B8]">  사용자 진입 장벽 낮음         중간        낮음        높음         <span class="text-accent">✓ 낮음</span></span>
+
+<span class="text-accent font-bold">  결과: AgentPuter ████████████████████ 10/10 ✓</span></pre>
+      </div>
+    </div>
+  </div>
+</section>

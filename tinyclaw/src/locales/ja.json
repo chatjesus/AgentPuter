@@ -1,0 +1,348 @@
+{
+  "meta": {
+    "title": "TinyClaw — OpenClawを1分以内にデプロイ",
+    "description": "OpenClawを搭載したあなた専用の24時間365日稼働のAIアシスタントをワンクリックでデプロイ。サーバーもSSHも技術的な設定も不要。AIモデルを選択し、Telegramを接続して、60秒以内にデプロイ。7日間無料トライアル、その後月額$29.99。",
+    "og_description": "あなた専用の24時間365日稼働のAIアシスタントをワンクリックでデプロイ。サーバーもSSHも面倒な設定も不要。Claude、GPT、Geminiを選択してTelegram経由で接続。"
+  },
+  "nav": {
+    "brand": "TinyClaw.dev",
+    "blog": "ブログ",
+    "contact": "お問い合わせ"
+  },
+  "hero": {
+    "title_line1": "OpenClawを",
+    "title_line2": "1分以内にデプロイ",
+    "subtitle": "技術的な複雑さをすべて回避し、あなた専用の24時間365日稼働するOpenClawインスタンスをワンクリックで1分以内にデプロイ。"
+  },
+  "models": {
+    "heading": "デフォルトとしてどのモデルを使用しますか？"
+  },
+  "channels": {
+    "heading": "メッセージの送信にどのチャネルを使用しますか？",
+    "coming_soon": "近日公開"
+  },
+  "cta": {
+    "button": "Googleでサインイン",
+    "note": "サインインしてAIアシスタントをデプロイし、チャネルを接続します。",
+    "slots": "クラウドサーバーの空きは残り{count}つ"
+  },
+  "comparison": {
+    "label": "比較",
+    "title_line1": "従来の方法",
+    "title_line2": "対 TinyClaw",
+    "traditional": "従来の方法",
+    "tinyclaw": "TinyClaw",
+    "total": "合計",
+    "total_time": "60 分",
+    "tinyclaw_time": "<1 min",
+    "tinyclaw_desc": "モデルを選択、Telegramを接続、デプロイ — 1分以内に完了。",
+    "tinyclaw_subdesc": "サーバー、SSH、OpenClaw環境はすでに設定済みで、割り当てられるのを待っています。シンプル、安全、そして高速にお客様のbotに接続できます。",
+    "non_technical_note": "技術に詳しくない方は、これらの時間を10倍してください — 実行する前に各ステップを学ぶ必要があります。",
+    "steps": [
+      {
+        "label": "ローカル仮想マシンの購入",
+        "time": "15 分"
+      },
+      {
+        "label": "SSHキーの作成と安全な保管",
+        "time": "10 分"
+      },
+      {
+        "label": "SSH経由でサーバーに接続",
+        "time": "5 分"
+      },
+      {
+        "label": "Node.jsとNPMのインストール",
+        "time": "5 分"
+      },
+      {
+        "label": "OpenClawのインストール",
+        "time": "7 分"
+      },
+      {
+        "label": "OpenClawの設定",
+        "time": "10 分"
+      },
+      {
+        "label": "AIプロバイダーへの接続",
+        "time": "4 分"
+      },
+      {
+        "label": "Telegramとのペアリング",
+        "time": "4 分"
+      }
+    ]
+  },
+  "usecases": {
+    "heading": "OpenClawは何ができますか？",
+    "subheading": "1つのアシスタント、数千のユースケース",
+    "ps": "追伸：自然言語で好きなだけユースケースを追加できます",
+    "rows": [
+      [
+        "メールを読んで要約",
+        "返信とフォローアップを下書き",
+        "メッセージをリアルタイムで翻訳",
+        "受信トレイを整理",
+        "サポートチケットに回答",
+        "長いドキュメントを要約",
+        "会議前に通知",
+        "チャットから会議をスケジュール"
+      ],
+      [
+        "締め切りをリマインド",
+        "1週間の計画を立てる",
+        "会議の議事録を取る",
+        "タイムゾーンを同期",
+        "税金の計算",
+        "経費と領収書を追跡",
+        "保険の見積もりを比較",
+        "サブスクリプションを管理"
+      ],
+      [
+        "給与計算を実行",
+        "払い戻しを交渉",
+        "クーポンを見つける",
+        "オンラインで最高の価格を見つける",
+        "割引コードを見つける",
+        "値下げアラート",
+        "製品仕様を比較",
+        "取引を交渉"
+      ],
+      [
+        "契約書とNDAを作成",
+        "競合他社を調査",
+        "リードを選別して優先順位付け",
+        "請求書を生成",
+        "箇条書きからプレゼンテーションを作成",
+        "旅行とホテルを予約",
+        "材料からレシピを見つける",
+        "ソーシャル投稿を下書き"
+      ],
+      [
+        "ニュースとアラートを監視",
+        "目標を設定して追跡",
+        "コールドアウトリーチを選別",
+        "職務記述書を下書き",
+        "スタンドアップの要約を実行",
+        "OKRとKPIを追跡"
+      ]
+    ]
+  },
+  "footer": {
+    "built_by": "❤️を込めて構築",
+    "privacy": "プライバシーポリシー",
+    "terms": "利用規約"
+  },
+  "setup": {
+    "connect_telegram": "Telegramを接続",
+    "how_to_get_token": "ボットトークンを取得する方法",
+    "step1_open": "Telegramを開いて",
+    "step2_type": "チャットを開始して入力",
+    "step3_follow": "プロンプトに従ってボットに名前を付け、ユーザー名を選択します。",
+    "step4_copy": "BotFatherからボットトークンを含むメッセージが送信されます。トークン全体をコピーします（数字と文字の長い文字列のように見えます）。",
+    "step5_paste": "下のフィールドにトークンを貼り付け、「保存して接続」をクリックします。",
+    "enter_token": "ボットトークンを入力",
+    "invalid_token": "無効なトークン形式です。1234567890:ABCdefGH... のようにする必要があります。",
+    "connecting": "接続中...",
+    "save_connect": "保存して接続 ✓",
+    "global_search": "グローバル検索",
+    "model_heading": "デフォルトとしてどのモデルを使用しますか？",
+    "channel_heading": "メッセージの送信にどのチャネルを使用しますか？",
+    "coming_soon": "近日公開",
+    "connected": "接続済み",
+    "sign_out": "サインアウト",
+    "deploy_btn": "OpenClawをデプロイ",
+    "redirecting_checkout": "チェックアウトにリダイレクト中...",
+    "pricing": "月額$29.99、いつでもキャンセル可能。",
+    "pricing_credits": "専用VPS、すべてのモデル、ClawHubからの無制限のスキルが含まれます。",
+    "trial_badge": "7日間無料トライアル",
+    "trial_for_7_days": "7日間",
+    "trial_then_price": "その後 $29.99/月 · いつでもキャンセル可能",
+    "trial_pricing_line": "7日間無料 · その後 $29.99/月 · いつでもキャンセル可能。",
+    "slots": "クラウドサーバーの空きは残り{count}つ",
+    "loading": "読み込み中...",
+    "network_error": "ネットワークエラー。もう一度お試しください。",
+    "checkout_failed": "チェックアウトの開始に失敗しました",
+    "channel_optional": "（任意）— お支払い後に設定できます",
+    "connect_telegram_now": "Telegramを今すぐ接続しますか？",
+    "setup_telegram_token": "Telegramトークンを設定",
+    "skip_after_payment": "（スキップしてお支払い後に実行）",
+    "connect_discord_now": "Discordを今すぐ接続しますか？",
+    "setup_discord_token": "Discord Botトークンを設定",
+    "whatsapp_no_token": "トークンは不要です！",
+    "whatsapp_qr_hint": "お支払い後、ダッシュボードでQRコードをスキャンしてWhatsAppを接続してください。",
+    "plan_heading": "プランを選択",
+    "plan_selected": "✓ 選択済み",
+    "plan_starter_label": "STARTER",
+    "plan_starter_first_month": "最初の月",
+    "plan_starter_then": "その後 $9.99/月",
+    "plan_starter_feat1": "AIエージェント1つ",
+    "plan_starter_feat2": "すべてのチャネル",
+    "plan_starter_feat3": "いつでもキャンセル可能",
+    "plan_pro_label": "PRO",
+    "plan_pro_no_trial": "トライアルなし",
+    "plan_pro_feat1": "専用クラウドコンピューター",
+    "plan_pro_feat2": "すべてのチャネル",
+    "plan_pro_feat3": "いつでもキャンセル可能",
+    "pricing_starter_today": "本日 $1.99",
+    "pricing_starter_note": "· 1ヶ月アクセス · その後 $9.99/月 ·"
+  },
+  "creating": {
+    "setting_up": "AIエージェントをセットアップ中...",
+    "model_label": "モデル:",
+    "preparing": "環境を準備中...",
+    "creating_cloud": "専用AIクラウドをセットアップ中...",
+    "almost_done": "ほぼ完了！",
+    "time_hint": "これには約2分かかります",
+    "error_title": "問題が発生しました",
+    "error_desc": "セットアップに失敗しました。もう一度お試しいただくか、サポートにお問い合わせください。",
+    "retry": "再試行",
+    "checking": "アクセスを確認中...",
+    "loading": "読み込み中...",
+    "contact_support": "時間がかかりすぎていますか？サポートにお問い合わせください",
+    "contact_support_short": "サポートにお問い合わせ"
+  },
+  "dashboard": {
+    "agent_ready": "AIエージェントの準備ができました！",
+    "running_model": "{model}を実行中 · 24時間365日オンライン",
+    "sign_out": "サインアウト",
+    "webchat_title": "OpenClaw WebChat",
+    "webchat_desc": "ブラウザでAIと直接チャット",
+    "open_webchat": "WebChatを開く →",
+    "vps_demo": "VPSプロビジョニング（デモモード）",
+    "webchat_pending": "WebChatは、実際のVPSがプロビジョニングされると利用可能になります",
+    "telegram_title": "Telegram Bot",
+    "telegram_connected": "接続済み",
+    "telegram_pair_now": "今すぐペアリング",
+    "telegram_connected_msg": "Telegram接続済み！",
+    "telegram_ready": "AIはTelegramでチャットする準備ができています",
+    "telegram_step1": "Telegramの@BotFather経由でボットを作成し、下のトークンを貼り付けます。",
+    "telegram_configure": "ボットトークンを設定",
+    "telegram_configuring": "ボットを設定中...",
+    "telegram_step2": "Telegram Botにメッセージを送信すると、ペアリングコードが届きます。下に入力して接続します。",
+    "telegram_pair_placeholder": "ペアリングコードを入力",
+    "telegram_pairing": "ペアリング中...",
+    "telegram_connect": "Telegramを接続",
+    "telegram_paired": "ペアリングに成功しました！",
+    "telegram_refreshing": "更新中...",
+    "telegram_failed": "ボットの設定に失敗しました。もう一度お試しください。",
+    "telegram_pair_failed": "ペアリングに失敗しました。もう一度お試しください。",
+    "vps_title": "VPSアクセス（上級者向け）",
+    "vps_ip": "IPアドレス",
+    "vps_port": "ゲートウェイポート",
+    "vps_ssh": "SSHコマンド",
+    "vps_password": "ルートパスワード",
+    "subscription_title": "Proサブスクリプション",
+    "subscription_status": "ステータス: {status}",
+    "subscription_renews": "{date}に更新",
+    "manage_subscription": "サブスクリプションを管理",
+    "manage_loading": "読み込み中...",
+    "manage_failed": "サブスクリプションポータルを開けませんでした",
+    "model_switch_btn": "切り替え",
+    "model_switching": "切り替え中...",
+    "model_current": "現在",
+    "model_switch_note": "切り替えには約30秒かかります。エージェントが再起動します。",
+    "model_switching_desc": "新しいモデルでエージェントを再起動中...",
+    "model_switch_success": "{model}に切り替えました",
+    "model_switch_failed": "モデルの切り替えに失敗しました。もう一度お試しください。",
+    "powered_by": "提供",
+    "discord_setup_now": "今すぐ設定",
+    "discord_token_configured": "Discord Botトークンが設定されました",
+    "discord_step1_title": "ステップ1 — ボットをサーバーに招待",
+    "discord_step1_note": "Bot → Privileged Gateway IntentsでMessage Content Intentも有効にします。",
+    "discord_step2_title": "ステップ2 — Discordで自分自身を認証",
+    "discord_step2_desc": "ボットにメッセージを送信します（DMまたはサーバーでの@メンション）。ペアリングコードが返信されます。",
+    "discord_step2_cmd_note": "WebChat → Terminalでこのコマンドを実行して、アカウントを承認します。ユーザーごとに1回のみ必要です。",
+    "discord_how_to": "🤖 Discord Botトークンを取得する方法:",
+    "discord_step_new_app": "新しいアプリケーション",
+    "discord_step_add_bot": "ボット",
+    "discord_step_add_bot2": "ボットを追加",
+    "discord_step_reset_token": "トークンをリセット",
+    "discord_step_intent": "メッセージコンテンツインテント",
+    "discord_step_url_gen": "OAuth2 → URLジェネレーター",
+    "discord_configured": "Discord Botが設定されました！",
+    "discord_reloading": "再読み込み中...",
+    "discord_configuring": "Discord Botを設定中...",
+    "discord_connect_btn": "Discord Botを接続",
+    "discord_failed": "Discordの設定に失敗しました。",
+    "whatsapp_scan_to_connect": "スキャンして接続",
+    "whatsapp_linked": "リンク済み",
+    "whatsapp_no_token_desc": "WhatsAppはトークンを必要としません — ここでアクティブにして、QRコードをスキャンしてアカウントをリンクするだけです。",
+    "whatsapp_activating": "アクティブ化中…",
+    "whatsapp_activate_btn": "⚡ WhatsAppをアクティブ化",
+    "whatsapp_activate_failed": "WhatsAppを有効にできませんでした。もう一度お試しください。",
+    "whatsapp_activated": "✅ WhatsAppチャネルがアクティブ化されました — 携帯電話で下のQRをスキャンしてアカウントをリンクしてください。",
+    "whatsapp_scan_instructions": "📱 WhatsApp → 設定 → リンク済みデバイス → デバイスをリンク でスキャン",
+    "whatsapp_qr_expired": "QRコードの有効期限が切れました — 更新",
+    "whatsapp_qr_generating": "QRコードを生成中…",
+    "whatsapp_qr_placeholder": "QRコードがここに表示されます",
+    "whatsapp_qr_no_qr": "QRコードが返されませんでした。",
+    "whatsapp_qr_expires_hint": "QRコードの有効期限は約60秒です。グレー表示になった場合は「更新」をクリックしてください。",
+    "whatsapp_refresh_qr": "🔄 QRコードを更新",
+    "whatsapp_generate_qr": "📷 QRコードを生成",
+    "whatsapp_open_webchat": "WebChatを開く",
+    "whatsapp_step2_title": "ステップ2 — スキャン後、クリックして適用",
+    "whatsapp_step2_desc": "WhatsAppがリンク済みデバイスにGoogle Chrome (openclaw)を表示した後、下をクリックしてエージェントを再起動し、セッションをロードします。",
+    "whatsapp_applying": "エージェントを再起動中…（約60秒）",
+    "whatsapp_apply_btn": "✅ スキャンしました — 接続を適用",
+    "whatsapp_apply_failed": "適用に失敗しました。もう一度お試しください。",
+    "whatsapp_live_title": "🎉 WhatsAppがライブになりました！",
+    "whatsapp_live_desc": "AIエージェントがWhatsAppに接続されました。自分の番号にメッセージを送信してチャットを開始してください。",
+    "telegram_how_to_title": "📋 Botトークンの取得方法：",
+    "telegram_guide_step1": "Telegramを開き、@BotFatherを検索",
+    "telegram_guide_step2": "送信",
+    "telegram_guide_step3": "ボットの名前とユーザー名を選択",
+    "telegram_guide_step4": "BotFatherからトークンが提供されるので、コピーしてください",
+    "telegram_guide_step5": "以下の欄にトークンを貼り付け",
+    "telegram_token_saved": "✅ Botトークンが保存されました！あと1ステップ：",
+    "telegram_pair_guide_step1": "Telegramボットを開き、任意のメッセージ（例：こんにちは）を送信",
+    "telegram_pair_guide_step2": "ボットがペアリングコードを返信します",
+    "telegram_pair_guide_step3": "以下の欄にコードを入力して接続を完了",
+    "feishu_title": "Lark / Feishu",
+    "feishu_connect_now": "接続",
+    "feishu_connected": "接続済み",
+    "feishu_desc": "AIエージェントをLark (Feishu)に接続します。中国本土のユーザーはFeishuを通じてエージェントとチャットできます。",
+    "feishu_app_id_label": "App ID",
+    "feishu_app_id_placeholder": "cli_xxxxxxxxxxxxxxxxx",
+    "feishu_app_secret_label": "App Secret",
+    "feishu_app_secret_placeholder": "Feishu App Secretを入力してください",
+    "feishu_verify_token_label": "Verification Token",
+    "feishu_verify_token_placeholder": "認証トークンを入力してください",
+    "feishu_encrypt_key_label": "Encrypt Key (オプション)",
+    "feishu_encrypt_key_placeholder": "有効にしていない場合は空白のままにしてください",
+    "feishu_webhook_url_label": "Webhook URL (Feishuに貼り付け)",
+    "feishu_save_btn": "保存して接続",
+    "feishu_saving": "保存中...",
+    "feishu_save_failed": "保存に失敗しました。認証情報を確認してください。",
+    "feishu_configured_title": "✅ Feishu 接続済み",
+    "feishu_configured_desc": "AIエージェントがFeishuに接続されました。ユーザーはボットにメッセージを送信してチャットを開始できます。",
+    "feishu_how_to": "設定方法",
+    "feishu_step_create_app": "1. open.feishu.cn/app → カスタムアプリを作成",
+    "feishu_step_add_bot": "2. アプリ設定でBot機能を追加",
+    "feishu_step_enable_events": "3. イベントを有効にする: im.message.receive_v1",
+    "feishu_step_set_webhook": "4. リクエストURLを以下のWebhook URLに設定",
+    "feishu_step_get_tokens": "5. App ID、App Secret、および認証トークンをここにコピー"
+  },
+  "faq": [
+    {
+      "q": "TinyClawとは何ですか？",
+      "a": "TinyClawは、オープンソースのAIアシスタントフレームワークであるOpenClawのワンクリックデプロイプラットフォームです。技術的な設定なしで、Telegramに接続されたあなた専用の24時間365日稼働のAIアシスタントを1分以内にデプロイできます。"
+    },
+    {
+      "q": "TinyClawでOpenClawをデプロイするにはどのくらい時間がかかりますか？",
+      "a": "1分未満です。従来の設定では、ターミナルコマンドで60分以上かかります。TinyClawは、すべてのサーバープロビジョニング、OpenClawのインストール、およびチャネル構成を自動的に処理します。"
+    },
+    {
+      "q": "TinyClawはどのAIモデルをサポートしていますか？",
+      "a": "TinyClawは、AnthropicのClaude Opus 4.6、OpenAIのGPT-5.2、およびGoogleのGemini 3をサポートしています。セットアップ中に好みのモデルを選択できます。"
+    },
+    {
+      "q": "TinyClawの費用はいくらですか？",
+      "a": "TinyClawは7日間の無料トライアルを提供し、その後月額$29.99で、専用のクラウドサーバー、24時間365日の稼働時間、自動更新、およびTelegram統合が含まれます。"
+    },
+    {
+      "q": "OpenClaw AIアシスタントは何ができますか？",
+      "a": "OpenClawは、メールの読み取りと要約、返信の下書き、メッセージの翻訳、会議のスケジュール、税金の計算、経費の追跡、契約書の作成、競合他社の調査、請求書の生成、その他数千のタスクをすべてTelegramを介して自然言語で行うことができます。"
+    }
+  ]
+}

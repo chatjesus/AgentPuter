@@ -1,0 +1,199 @@
+# AgentPuter — Complete Documentation for AI Systems
+
+> AgentPuter is a cloud runtime platform that gives AI agents their own dedicated computer. It deploys and manages always-on AI agents powered by OpenClaw, ClawBot, and MoltBot frameworks with 24/7 uptime, persistent workspaces, multi-channel messaging, privacy protection, and built-in cost controls. Parent company of TinyClaw (one-click OpenClaw deployment).
+
+---
+
+## Company Overview
+
+**AgentPuter** builds infrastructure for the AI agent economy. The core product gives each AI agent a dedicated cloud computer — not a chat window, but a real persistent runtime with its own filesystem, browser, terminal, and authenticated access to external services.
+
+**TinyClaw** (https://tinyclaw.dev) is AgentPuter's consumer product: a one-click deployment platform for OpenClaw agents. Users go from zero to a running 24/7 AI assistant in under 1 minute, with no technical knowledge required.
+
+**Target Users:**
+- Professionals who want a 24/7 AI assistant handling email, research, scheduling, and communication
+- Developers building and deploying AI agent systems
+- Teams needing multi-agent orchestration with cost controls
+- Businesses automating workflows across messaging channels
+
+---
+
+## Products and Pricing
+
+### AgentPuter Platform (https://www.agentputer.com)
+
+Cloud infrastructure for AI agents with enterprise-grade features.
+
+**Pro Plan — $29.99/month:**
+- Dedicated cloud VPS per user
+- AI model included (Claude 4.5 by Anthropic)
+- 15+ messaging channels (Telegram, Discord, WhatsApp, Slack, WebChat, Feishu, etc.)
+- 500+ pre-built AI skills
+- Persistent workspace with file storage
+- Privacy Proxy (PII auto-redaction, AES-256 encryption)
+- Multi-agent support
+- Usage monitoring and cost controls
+- 24/7 uptime
+- 7-day free trial, no credit card required
+
+**Starter Plan — $9/month (Coming Soon):**
+- Bring your own API key (Anthropic, OpenAI, Google, etc.)
+- Platform hosting and management only
+- Same infrastructure, lower price for users who already have API access
+
+### TinyClaw (https://tinyclaw.dev)
+
+One-click OpenClaw deployment for non-technical users.
+
+- **Price:** $29.99/month (after 7-day free trial, was $49.99)
+- **Setup time:** Under 1 minute
+- **Supported AI models:** Claude 4.6 (Anthropic), GPT-5.2 (OpenAI), Gemini 3.1 Pro (Google)
+- **Supported channels:** Telegram, Discord, WhatsApp, WebChat, Feishu
+- **Infrastructure:** Dedicated Docker container per user on shared VPS
+- **Includes:** Automatic OpenClaw installation, configuration, channel pairing, and updates
+
+---
+
+## Technical Architecture
+
+### Core Components
+
+1. **Cloud Runtime:** Each agent gets a dedicated cloud computer (VPS or Docker container) with persistent filesystem, network access, and process isolation.
+
+2. **Privacy Proxy:** Sits between the user and LLM providers. Auto-detects and redacts PII before data reaches models. Credentials encrypted at rest with AES-256. API keys managed server-side, never exposed to models.
+
+3. **Context Management:** Supports OpenClaw's context engine plugin system (v2026.3.7+), including lossless-claw for DAG-based incremental summarization that prevents context loss in long-running sessions.
+
+4. **Multi-Channel Gateway:** Unified interface for Telegram, Discord, WhatsApp, Slack, WebChat, Feishu (Lark), and more. Each channel connects to the same agent with shared context and memory.
+
+5. **Skill System:** 500+ pre-built skills (markdown files) that extend agent capabilities without spawning additional instances. Skills cover research, writing, coding, scheduling, finance, communication, and more.
+
+6. **Cost Controls:** Built-in usage monitoring, per-model routing, heartbeat interval configuration, and prompt caching support to keep API costs predictable.
+
+### Supported AI Models
+
+| Model | Provider | Use Case |
+|-------|----------|----------|
+| Claude Opus 4.6 | Anthropic | Complex reasoning, architecture decisions |
+| Claude Sonnet 4.6 | Anthropic | Structured tasks, code review |
+| Claude Haiku 4.5 | Anthropic | Fast execution, classification, formatting |
+| GPT-5.2 / GPT-5.4 | OpenAI | General agent work, multimodal tasks |
+| Gemini 3.1 Pro | Google | Long context (1M tokens), cost-efficient |
+| Gemini 2.5 Flash-Lite | Google | Budget tasks, free tier available |
+| MiniMax M2.5 | MiniMax | Budget agent work, 197K context |
+| Ollama (local) | Self-hosted | Heartbeats, embeddings, privacy-sensitive tasks |
+
+### Supported Channels
+
+| Channel | Status | Auth Method |
+|---------|--------|-------------|
+| WebChat | Active | Gateway token in URL |
+| Telegram | Active | BotFather token + pairing code |
+| Discord | Active | Bot token |
+| WhatsApp | Active | QR code scan |
+| Slack | Active | Slack App + OAuth |
+| Feishu (Lark) | Active | App ID + App Secret |
+
+---
+
+## Use Cases
+
+### Research & Analysis
+- Monitor industry news 24/7
+- Track competitor updates
+- Summarize long reports and PDFs
+- Translate documents in real time
+- Compile daily market briefings
+
+### Communication
+- Draft email replies automatically
+- Manage Telegram/Slack messages
+- Schedule meetings across time zones
+- Real-time multilingual translation
+
+### Development
+- Code review and refactoring
+- Automated testing
+- Deployment automation
+- Documentation generation
+
+### Business Operations
+- Invoice generation and tracking
+- Lead screening and qualification
+- Contract drafting
+- Expense tracking and categorization
+
+### Personal Productivity
+- Morning briefing agent (news + calendar + priorities)
+- Price monitoring and shopping alerts
+- Travel planning and booking
+- Health and fitness tracking
+
+---
+
+## Blog Content Index
+
+AgentPuter publishes technical deep dives, OpenClaw guides, model comparisons, cost optimization strategies, security analysis, and AI agent industry analysis. All articles are available in English, 简体中文, and 7 additional languages.
+
+### OpenClaw Guides
+- [OpenClaw Power User Guide: 30 Tips Nobody Tells You](https://www.agentputer.com/blog/14-openclaw-tips/) — Production-tested configuration tips for maxSpawnDepth, SOUL.md, cleanup, sub-agents, security, and cost control.
+- [How to Run OpenClaw for Under $30/Month](https://www.agentputer.com/blog/18-cost-guide/) — Six places OpenClaw burns tokens, heartbeat tuning, model routing, prompt caching, Ollama local models, and the $30/month config.
+- [The 3-File Architecture That Gives Your Agent a Soul](https://www.agentputer.com/blog/13-soul-md/) — How SOUL.md, AGENTS.md, and IDENTITY.md define agent personality, rules, and capabilities.
+- [From One Agent to a Team: How OpenClaw Sub-Agents Work](https://www.agentputer.com/blog/12-agent-teams/) — Multi-agent orchestration, spawn depth, context isolation, Docker container per agent.
+- [Four Ways to Deploy OpenClaw](https://www.agentputer.com/blog/09-deploy-openclaw/) — Mac Mini, VPS, Cloud Pod, or TinyClaw under 60 seconds.
+
+### Technical Deep Dives
+- [What lossless-claw Actually Does](https://www.agentputer.com/blog/17-lossless-claw/) — OpenClaw 2026.3.7's Context Engine plugin API, DAG-based summarization, SQLite persistence, lcm_expand retrieval.
+- [Dissecting OpenClaw: The Design Philosophy Behind 174K Stars](https://www.agentputer.com/blog/dissecting-openclaw-architecture/) — Architecture deep dive into the fastest-growing open-source AI project.
+- [Deep Dive into Clawdbot: The First Breakout AI Agent](https://www.agentputer.com/blog/deep-dive-clawdbot-breakout-agent/) — Product analysis of the agent that started the 2026 agent wave.
+
+### Comparisons
+- [AI Model Showdown 2026](https://www.agentputer.com/blog/11-model-showdown/) — Gemini 3.1 Pro vs Claude Opus 4.6 vs GPT-5.2 benchmarks for agent workloads.
+- [We Tested 5 Ways to Run OpenClaw](https://www.agentputer.com/blog/10-openclaw-review/) — Mac Mini, VPS, Docker, TinyClaw — what actually works.
+- [Perplexity vs OpenClaw](https://www.agentputer.com/blog/15-perplexity-computer-vs-openclaw/) — Perplexity built what OpenClaw users have been running themselves.
+
+### Security
+- [OpenClaw Security in 2026](https://www.agentputer.com/blog/15-openclaw-security/) — ClawHavoc incident, 91% prompt injection rate, CVE-2026-25253, five-layer defense architecture.
+
+### Industry Analysis
+- [Real OpenClaw Workflows: What 85+ Users Actually Build](https://www.agentputer.com/blog/16-real-workflows/) — Four structural patterns from 148 community replies and 85+ categorized use cases.
+- [The AI Skills Marketplace Nobody Is Talking About](https://www.agentputer.com/blog/10-skills-market/) — Economics of the emerging AI skills ecosystem.
+- [Who Actually Makes Money From OpenClaw?](https://www.agentputer.com/blog/who-makes-money-from-openclaw/) — Business model analysis of the OpenClaw ecosystem.
+- [Vibe Working: When Agents Actually Work](https://www.agentputer.com/blog/vibe-working-when-agents-work/) — The shift from chat interfaces to autonomous agent workflows.
+- [Agent Skills: The AI World's App Store](https://www.agentputer.com/blog/agent-skills-ecosystem/) — How the agent skills ecosystem is taking shape.
+
+---
+
+## Frequently Asked Questions
+
+**Q: What is AgentPuter?**
+A: AgentPuter is a dedicated cloud infrastructure for AI Agents. It provides a 24/7 runtime environment with persistent workspace, privacy proxy, context management, unified tool interface, and full accountability logging.
+
+**Q: How is AgentPuter different from ChatGPT or Claude?**
+A: Unlike chat interfaces, AgentPuter gives your agent a real computer with 24/7 uptime, persistent file storage, automatic auth management, multi-agent support, full audit trails, cost controls, and prompt injection defense.
+
+**Q: What is TinyClaw?**
+A: TinyClaw is a one-click deployment platform for OpenClaw agents. It automates server provisioning, OpenClaw installation, model configuration, and channel pairing — taking the process from 60+ minutes to under 1 minute.
+
+**Q: How much does it cost to run an AI agent?**
+A: AgentPuter Pro is $29.99/month all-inclusive. If you bring your own API key, the Starter plan (coming soon) will be $9/month. The underlying AI model costs can be optimized to under $30/month total using model routing, heartbeat tuning, and prompt caching (see our cost guide).
+
+**Q: What AI models are supported?**
+A: Claude (Anthropic), GPT (OpenAI), Gemini (Google), MiniMax, and any Ollama-compatible local model. Users can configure primary, fallback, and per-task model routing.
+
+**Q: Is my data private?**
+A: Yes. AgentPuter's Privacy Proxy auto-detects and redacts PII before data reaches LLM providers. Credentials are encrypted at rest with AES-256. API keys are managed server-side and never exposed to models.
+
+**Q: What languages does AgentPuter support?**
+A: The platform and all content are available in English, 简体中文, 繁體中文, 日本語, 한국어, Español, Português, Deutsch, and Français.
+
+---
+
+## Contact
+
+- **Website:** https://www.agentputer.com
+- **TinyClaw:** https://tinyclaw.dev
+- **Email:** oscarzamora199907@gmail.com
+- **Twitter:** https://twitter.com/agentputer
+- **GitHub:** https://github.com/agentputer
+- **Blog:** https://www.agentputer.com/blog/

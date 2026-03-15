@@ -1,0 +1,27 @@
+---
+// 繁體中文博客文章詳情頁路由
+import { getCollection } from 'astro:content';
+import ZhTwBlogPost from '../../../layouts/ZhTwBlogPost.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('zh-tw-blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<ZhTwBlogPost
+  title={post.data.title}
+  description={post.data.description}
+  date={post.data.date}
+  author={post.data.author}
+  readingTime={post.data.readingTime}
+  tags={post.data.tags}
+>
+  <Content />
+</ZhTwBlogPost>

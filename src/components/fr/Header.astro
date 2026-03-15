@@ -1,0 +1,87 @@
+---
+// Composant Header - Barre de navigation
+import LanguageSwitcher from '../LanguageSwitcher.astro';
+interface Props {
+  activePage?: string;
+}
+const { activePage = '' } = Astro.props;
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-dark-primary md:bg-dark-primary/95 md:backdrop-blur-lg border-b border-accent/20">
+  <nav class="max-w-7xl mx-auto px-6 lg:px-20 h-20 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/fr/" class="flex items-center gap-2 group">
+      <span class="font-mono text-xl font-bold">
+        <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span>
+      </span>
+    </a>
+    
+    <!-- Desktop Navigation -->
+    <div class="hidden md:flex items-center gap-8 font-mono">
+      <a href="/fr/features" class={`hover:text-accent transition-colors text-sm ${activePage === 'features' ? 'text-accent font-bold' : 'text-text-secondary'}`}>
+        /fonctionnalités
+      </a>
+      <a href="/tools" class={`hover:text-accent transition-colors text-sm ${activePage === 'tools' ? 'text-accent font-bold' : 'text-text-secondary'}`}>
+        /outils
+      </a>
+      <a href="#pricing" class={`hover:text-accent transition-colors text-sm ${activePage === 'pricing' ? 'text-accent font-bold' : 'text-text-secondary'}`}>
+        /tarifs
+      </a>
+      <a href="/fr/blog/" class={`hover:text-accent transition-colors text-sm ${activePage === 'blog' ? 'text-accent font-bold' : 'text-text-secondary'}`}>
+        /blog
+      </a>
+      <a href="/fr/docs" class={`hover:text-accent transition-colors text-sm ${activePage === 'docs' ? 'text-accent font-bold' : 'text-text-secondary'}`}>
+        /docs
+      </a>
+      <LanguageSwitcher />
+      <a href="https://app.agentputer.com/sign-up" class="text-sm py-2.5 px-6 bg-accent text-dark-primary font-bold rounded hover:bg-accent-dark transition-colors">
+        [COMMENCER]
+      </a>
+    </div>
+    
+    <!-- Mobile Menu Button -->
+    <button 
+      id="mobile-menu-btn-fr"
+      class="md:hidden p-2 text-text-secondary hover:text-white"
+      aria-label="Ouvrir le menu"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </nav>
+  
+  <!-- Mobile Menu -->
+  <div id="mobile-menu-fr" class="hidden md:hidden bg-dark-secondary border-t border-dark-tertiary">
+    <div class="px-6 py-4 space-y-4">
+      <a href="/fr/features" class={`block hover:text-white transition-colors ${activePage === 'features' ? 'text-accent font-bold' : 'text-text-secondary'}`}>
+        fonctionnalités
+      </a>
+      <a href="/tools" class={`block hover:text-white transition-colors ${activePage === 'tools' ? 'text-accent font-bold' : 'text-text-secondary'}`}>
+        outils
+      </a>
+      <a href="#pricing" class={`block hover:text-white transition-colors ${activePage === 'pricing' ? 'text-accent font-bold' : 'text-text-secondary'}`}>
+        tarifs
+      </a>
+      <a href="/fr/blog/" class={`block hover:text-white transition-colors ${activePage === 'blog' ? 'text-accent font-bold' : 'text-text-secondary'}`}>
+        blog
+      </a>
+      <a href="/fr/docs" class={`block hover:text-white transition-colors ${activePage === 'docs' ? 'text-accent font-bold' : 'text-text-secondary'}`}>
+        docs
+      </a>
+      <div class="lang-mobile-wrapper"></div>
+      <a href="https://app.agentputer.com/sign-up" class="btn-primary w-full justify-center text-sm py-3">
+        Commencer
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const menuBtn = document.getElementById('mobile-menu-btn-fr');
+  const mobileMenu = document.getElementById('mobile-menu-fr');
+  
+  menuBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+</script>

@@ -1,0 +1,147 @@
+---
+// 한국어 블로그 목록 페이지
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/ko/Header.astro';
+import Footer from '../../../components/ko/Footer.astro';
+import { getCollection } from 'astro:content';
+
+// 모든 한국어 블로그 게시물을 가져와 날짜 내림차순으로 정렬합니다
+const posts = (await getCollection('ko-blog')).sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+---
+
+<Layout
+  title="블로그 | AgentPuter - AI 에이전트와 소프트웨어 혁신에 대한 인사이트"
+  description="AI 에이전트, 소프트웨어의 미래, 그리고 AgentPuter의 비전에 대한 깊이 있는 인사이트. 에이전트가 생산성을 어떻게 재구성하는지 알아보세요."
+  tags={['AI 에이전트 블로그', 'AgentPuter', '소프트웨어 혁신', 'AI 자동화', 'OpenClaw']}
+>
+  <Header />
+  <main class="relative z-10 pt-28 pb-20 min-h-screen">
+    <div class="max-w-5xl mx-auto px-6 lg:px-8">
+      <!-- 페이지 헤더 -->
+      <header class="mb-16">
+        <nav class="mb-8 font-mono text-sm">
+          <a href="/ko/" class="text-text-muted hover:text-accent transition-colors">~</a>
+          <span class="text-text-dark mx-2">/</span>
+          <span class="text-accent">블로그</span>
+        </nav>
+
+        <div class="terminal max-w-2xl">
+          <div class="terminal-header">
+            <span class="terminal-dot terminal-dot-red"></span>
+            <span class="terminal-dot terminal-dot-yellow"></span>
+            <span class="terminal-dot terminal-dot-green"></span>
+            <span class="ml-3 text-text-muted text-xs font-mono">blog.sh</span>
+          </div>
+          <div class="terminal-body">
+            <p class="mb-2">
+              <span class="terminal-prompt">$</span>
+              <span class="text-white ml-2">cat /blog/README.md</span>
+            </p>
+            <p class="terminal-output leading-relaxed">
+              AI 에이전트, 소프트웨어의 미래,<br/>
+              그리고 AgentPuter의 비전에 대한 깊이 있는 인사이트.
+            </p>
+            <p class="mt-3">
+              <span class="terminal-prompt">$</span>
+              <span class="text-white ml-2">ls -la posts/</span>
+            </p>
+            <p class="terminal-success">
+              {posts.length}개의 게시물을 찾았습니다
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <!-- 언어 전환 안내 -->
+      <div class="mb-8 flex items-center gap-3 font-mono text-sm">
+        <span class="text-text-muted">언어:</span>
+        <span class="text-accent border-b border-accent">한국어</span>
+        <a href="/blog/" class="text-text-muted hover:text-accent transition-colors">English</a>
+      </div>
+
+      <!-- 게시물 목록 -->
+      <div class="space-y-6">
+        {posts.map((post, index) => {
+          const formattedDate = new Date(post.data.date).toLocaleDateString('ko-KR', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+          });
+          
+          return (
+            <a 
+              href={`/ko/blog/${post.slug}/`}
+              class="block group"
+            >
+              <article class="bg-dark-secondary/50 border border-dark-tertiary rounded-xl p-6 md:p-8 transition-all duration-300 hover:border-accent/40 hover:bg-dark-secondary/80 hover-lift">
+                <div class="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
+                  <!-- 순번 -->
+                  <div class="flex-shrink-0 font-mono text-3xl font-bold text-dark-tertiary group-hover:text-accent/30 transition-colors">
+                    {String(posts.length - index).padStart(2, '0')}
+                  </div>
+                  
+                  <!-- 콘텐츠 -->
+                  <div class="flex-grow">
+                    <!-- 태그 및 날짜 -->
+                    <div class="flex flex-wrap items-center gap-3 mb-3 font-mono text-xs">
+                      <time datetime={post.data.date} class="text-terminal-orange">
+                        {formattedDate}
+                      </time>
+                      {post.data.readingTime && (
+                        <span class="text-text-muted">
+                          ~ {post.data.readingTime}
+                        </span>
+                      )}
+                      {post.data.featured && (
+                        <span class="px-2 py-0.5 bg-accent/10 text-accent border border-accent/20 rounded-full">
+                          추천
+                        </span>
+                      )}
+                    </div>
+
+                    <!-- 제목 -->
+                    <h2 class="text-xl md:text-2xl font-bold text-white group-hover:text-accent transition-colors mb-3 leading-tight">
+                      {post.data.title}
+                    </h2>
+
+                    <!-- 설명 -->
+                    <p class="text-text-secondary text-sm md:text-base leading-relaxed mb-4">
+                      {post.data.description}
+                    </p>
+
+                    <!-- 태그 -->
+                    {post.data.tags.length > 0 && (
+                      <div class="flex flex-wrap gap-2">
+                        {post.data.tags.slice(0, 4).map((tag) => (
+                          <span class="px-2 py-0.5 text-xs font-mono text-text-muted border border-dark-tertiary rounded">
+                            #{tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  <!-- 화살표 -->
+                  <div class="hidden md:flex items-center flex-shrink-0 text-text-dark group-hover:text-accent transition-all group-hover:translate-x-1">
+                    <span class="font-mono text-lg">-&gt;</span>
+                  </div>
+                </div>
+              </article>
+            </a>
+          );
+        })}
+      </div>
+
+      <!-- 게시물 없음 상태 -->
+      {posts.length === 0 && (
+        <div class="text-center py-20 font-mono">
+          <p class="text-text-muted text-lg">게시물이 아직 없습니다.</p>
+          <p class="text-text-dark text-sm mt-2">// 곧 게시될 예정입니다...</p>
+        </div>
+      )}
+    </div>
+  </main>
+  <Footer />
+</Layout>

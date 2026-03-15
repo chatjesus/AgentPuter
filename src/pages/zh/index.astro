@@ -1,0 +1,99 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/zh/Header.astro';
+import Hero from '../../components/zh/Hero.astro';
+import PainPoints from '../../components/zh/PainPoints.astro';
+import Solution from '../../components/zh/Solution.astro';
+import HowItWorks from '../../components/zh/HowItWorks.astro';
+import CTA from '../../components/zh/CTA.astro';
+import Footer from '../../components/zh/Footer.astro';
+import MatrixRain from '../../components/MatrixRain.astro';
+
+
+// 主页 FAQPage 结构化数据（GEO 核心：让 AI 搜索引擎可引用）
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: `什么是 AgentPuter？`,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `AgentPuter 是一个 7×24 全天候运行的 AI Agent 平台，给你的 AI 一台专属云端电脑。支持连接 Telegram、WhatsApp、Slack、Discord 等，内置 500+ 技能，无需编程，2 分钟即可上手。`,
+      },
+    },
+    {
+      '@type': 'Question',
+      name: `AgentPuter 如何工作？`,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `AgentPuter 提供 24/7 云端运行时环境。你只需连接消息渠道、配置技能，AI Agent 就能自主处理任务——从日常办公、调研到开发和创意工作。`,
+      },
+    },
+    {
+      '@type': 'Question',
+      name: `使用 AgentPuter 需要编程吗？`,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `不需要。AgentPuter 专为非技术用户设计，通过简洁界面即可在 2 分钟内完成配置，连接消息应用后即刻开始自动化工作。`,
+      },
+    },
+    {
+      '@type': 'Question',
+      name: `AgentPuter 支持哪些消息渠道？`,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `AgentPuter 支持 Telegram、WhatsApp、Slack、Discord、邮件等。你的 AI Agent 可以 24/7 通过这些渠道接收指令并交付结果。`,
+      },
+    },
+    {
+      '@type': 'Question',
+      name: `我的数据在 AgentPuter 中安全吗？`,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `安全。AgentPuter 作为你与 LLM 之间的隐私代理，所有凭证使用 AES-256 加密，API 密钥由服务端管理从不暴露给模型，PII 自动检测和脱敏。`,
+      },
+    },
+  ],
+};
+
+// SoftwareApplication 结构化数据
+const softwareSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'AgentPuter',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Cloud',
+  url: 'https://www.agentputer.com',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', description: 'Free during beta' },
+};
+
+---
+
+<Layout
+  title="AgentPuter - 你的 AI 永不休眠"
+  description="AgentPuter 给你的 AI Agent 一台专属云端电脑，永不关机。7×24 运行 OpenClaw、ClawBot、MoltBot，支持持久化认证、多 Agent 并行、远程访问。"
+  tags={['AgentPuter', 'AI Agent', '云端运行时', 'OpenClaw', 'ClawBot', '7×24 AI', 'AI 自动化', 'Agent 电脑']}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} slot="head" />
+  <MatrixRain />
+  <Header />
+  <main class="relative z-10">
+    <Hero />
+    <div style="content-visibility: auto; contain-intrinsic-size: auto 600px;">
+      <PainPoints />
+    </div>
+    <div style="content-visibility: auto; contain-intrinsic-size: auto 800px;">
+      <Solution />
+    </div>
+    <div style="content-visibility: auto; contain-intrinsic-size: auto 600px;">
+      <HowItWorks />
+    </div>
+    <div style="content-visibility: auto; contain-intrinsic-size: auto 400px;">
+      <CTA />
+    </div>
+  </main>
+  <Footer />
+</Layout>

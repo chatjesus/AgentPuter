@@ -1,0 +1,348 @@
+{
+  "meta": {
+    "title": "TinyClaw — Implante o OpenClaw em menos de 1 minuto",
+    "description": "Implante com um clique seu próprio assistente de IA 24/7 com tecnologia OpenClaw. Sem servidores, sem SSH, sem configuração técnica. Escolha seu modelo de IA, conecte o Telegram e implante em menos de 60 segundos. Teste grátis de 7 dias, depois $29.99/mês.",
+    "og_description": "Implante com um clique seu próprio assistente de IA 24/7. Sem servidores, sem SSH, sem dores de cabeça. Escolha Claude, GPT ou Gemini e conecte via Telegram."
+  },
+  "nav": {
+    "brand": "TinyClaw.dev",
+    "blog": "Blog",
+    "contact": "Suporte de Contato"
+  },
+  "hero": {
+    "title_line1": "Implante o OpenClaw",
+    "title_line2": "em menos de 1 minuto",
+    "subtitle": "Evite toda a complexidade técnica e implante com um clique sua própria instância OpenClaw ativa 24/7 em <1 min."
+  },
+  "models": {
+    "heading": "Qual modelo você quer como padrão?"
+  },
+  "channels": {
+    "heading": "Qual canal você quer usar para enviar mensagens?",
+    "coming_soon": "Em breve"
+  },
+  "cta": {
+    "button": "Fazer login com o Google",
+    "note": "Faça login para implantar seu assistente de IA e conectar seus canais.",
+    "slots": "Servidores de nuvem limitados — restam apenas {count}"
+  },
+  "comparison": {
+    "label": "Comparação",
+    "title_line1": "Método Tradicional",
+    "title_line2": "vs TinyClaw",
+    "traditional": "Tradicional",
+    "tinyclaw": "TinyClaw",
+    "total": "Total",
+    "total_time": "60 min",
+    "tinyclaw_time": "<1 min",
+    "tinyclaw_desc": "Escolha um modelo, conecte o Telegram, implante — pronto em menos de 1 minuto.",
+    "tinyclaw_subdesc": "Servidores, SSH e ambiente OpenClaw já estão configurados, esperando para serem atribuídos. Conexão simples, segura e rápida ao seu bot.",
+    "non_technical_note": "Se você não for técnico, multiplique esses tempos por 10 — você tem que aprender cada etapa antes de fazer.",
+    "steps": [
+      {
+        "label": "Compra de máquina virtual local",
+        "time": "15 min"
+      },
+      {
+        "label": "Criação de chaves SSH e armazenamento seguro",
+        "time": "10 min"
+      },
+      {
+        "label": "Conexão ao servidor via SSH",
+        "time": "5 min"
+      },
+      {
+        "label": "Instalação do Node.js e NPM",
+        "time": "5 min"
+      },
+      {
+        "label": "Instalação do OpenClaw",
+        "time": "7 min"
+      },
+      {
+        "label": "Configuração do OpenClaw",
+        "time": "10 min"
+      },
+      {
+        "label": "Conexão ao provedor de IA",
+        "time": "4 min"
+      },
+      {
+        "label": "Emparelhamento com o Telegram",
+        "time": "4 min"
+      }
+    ]
+  },
+  "usecases": {
+    "heading": "O que o OpenClaw pode fazer por você?",
+    "subheading": "Um assistente, milhares de casos de uso",
+    "ps": "PS. Você pode adicionar quantos casos de uso quiser via linguagem natural",
+    "rows": [
+      [
+        "Ler e resumir e-mail",
+        "Redigir respostas e acompanhamentos",
+        "Traduzir mensagens em tempo real",
+        "Organizar sua caixa de entrada",
+        "Responder a tickets de suporte",
+        "Resumir documentos longos",
+        "Notificar antes de uma reunião",
+        "Agendar reuniões a partir do chat"
+      ],
+      [
+        "Lembrar você de prazos",
+        "Planejar sua semana",
+        "Fazer anotações de reuniões",
+        "Sincronizar entre fusos horários",
+        "Fazer seus impostos",
+        "Rastrear despesas e recibos",
+        "Comparar cotações de seguros",
+        "Gerenciar assinaturas"
+      ],
+      [
+        "Executar cálculos de folha de pagamento",
+        "Negociar reembolsos",
+        "Encontrar cupons",
+        "Encontrar os melhores preços online",
+        "Encontrar códigos de desconto",
+        "Alertas de queda de preço",
+        "Comparar especificações de produtos",
+        "Negociar acordos"
+      ],
+      [
+        "Escrever contratos e NDAs",
+        "Pesquisar concorrentes",
+        "Analisar e priorizar leads",
+        "Gerar faturas",
+        "Criar apresentações a partir de marcadores",
+        "Reservar viagens e hotéis",
+        "Encontrar receitas a partir de ingredientes",
+        "Redigir postagens sociais"
+      ],
+      [
+        "Monitorar notícias e alertas",
+        "Definir e rastrear metas",
+        "Analisar prospecção fria",
+        "Redigir descrições de cargos",
+        "Executar resumos de standup",
+        "Rastrear OKRs e KPIs"
+      ]
+    ]
+  },
+  "footer": {
+    "built_by": "Construído com ❤️ por",
+    "privacy": "Política de Privacidade",
+    "terms": "Termos de Serviço"
+  },
+  "setup": {
+    "connect_telegram": "Conectar Telegram",
+    "how_to_get_token": "Como obter seu token de bot?",
+    "step1_open": "Abra o Telegram e vá para",
+    "step2_type": "Inicie um chat e digite",
+    "step3_follow": "Siga as instruções para nomear seu bot e escolher um nome de usuário.",
+    "step4_copy": "O BotFather enviará uma mensagem com seu token de bot. Copie o token inteiro (parece uma longa sequência de números e letras).",
+    "step5_paste": "Cole o token no campo abaixo e clique em Salvar e Conectar.",
+    "enter_token": "Inserir token do bot",
+    "invalid_token": "Formato de token inválido. Deve ser parecido com 1234567890:ABCdefGH...",
+    "connecting": "Conectando...",
+    "save_connect": "Salvar e Conectar ✓",
+    "global_search": "PESQUISA GLOBAL",
+    "model_heading": "Qual modelo você quer como padrão?",
+    "channel_heading": "Qual canal você quer usar para enviar mensagens?",
+    "coming_soon": "Em breve",
+    "connected": "Conectado",
+    "sign_out": "Sair",
+    "deploy_btn": "Implantar OpenClaw",
+    "redirecting_checkout": "Redirecionando para o checkout...",
+    "pricing": "$29.99 por mês — cancele a qualquer momento.",
+    "pricing_credits": "Inclui VPS dedicado, todos os modelos e Skills ilimitadas do ClawHub.",
+    "trial_badge": "TESTE GRÁTIS DE 7 DIAS",
+    "trial_for_7_days": "durante 7 dias",
+    "trial_then_price": "depois $29.99/mês · cancele a qualquer momento",
+    "trial_pricing_line": "Grátis por 7 dias · $29.99/mês depois · Cancele a qualquer momento.",
+    "slots": "Servidores de nuvem limitados — restam apenas {count}",
+    "loading": "Carregando...",
+    "network_error": "Erro de rede. Por favor, tente novamente.",
+    "checkout_failed": "Falha ao iniciar o checkout",
+    "channel_optional": "Opcional — pode ser configurado após o pagamento",
+    "connect_telegram_now": "Conectar Telegram agora?",
+    "setup_telegram_token": "Configurar token do Telegram",
+    "skip_after_payment": "(pular e fazer isso após o pagamento)",
+    "connect_discord_now": "Conectar Discord agora?",
+    "setup_discord_token": "Configurar token do bot Discord",
+    "whatsapp_no_token": "Nenhum token necessário!",
+    "whatsapp_qr_hint": "Após o pagamento, escaneie um QR code no seu Dashboard para conectar o WhatsApp.",
+    "plan_heading": "Escolha seu plano",
+    "plan_selected": "✓ Selecionado",
+    "plan_starter_label": "INICIANTE",
+    "plan_starter_first_month": "primeiro mês",
+    "plan_starter_then": "depois $9.99/mês",
+    "plan_starter_feat1": "1 agente de AI",
+    "plan_starter_feat2": "Todos os canais",
+    "plan_starter_feat3": "Cancele a qualquer momento",
+    "plan_pro_label": "PRO",
+    "plan_pro_no_trial": "sem avaliação",
+    "plan_pro_feat1": "Computador dedicado na nuvem",
+    "plan_pro_feat2": "Todos os canais",
+    "plan_pro_feat3": "Cancele a qualquer momento",
+    "pricing_starter_today": "$1.99 hoje",
+    "pricing_starter_note": "· acesso de 1 mês · depois $9.99/mês ·"
+  },
+  "creating": {
+    "setting_up": "Configurando seu Agente de IA...",
+    "model_label": "Modelo:",
+    "preparing": "Preparando seu ambiente...",
+    "creating_cloud": "Configurando sua nuvem de IA dedicada...",
+    "almost_done": "Quase pronto!",
+    "time_hint": "Isso leva cerca de 2 minutos",
+    "error_title": "Algo deu errado",
+    "error_desc": "Falha na configuração. Por favor, tente novamente ou entre em contato com o suporte.",
+    "retry": "Tentar novamente",
+    "checking": "Verificando o acesso...",
+    "loading": "Carregando...",
+    "contact_support": "Demorando muito? Entre em contato com o suporte",
+    "contact_support_short": "Suporte de Contato"
+  },
+  "dashboard": {
+    "agent_ready": "Seu Agente de IA está pronto!",
+    "running_model": "Executando {model} · 24/7 online",
+    "sign_out": "Sair",
+    "webchat_title": "OpenClaw WebChat",
+    "webchat_desc": "Converse com sua IA diretamente no navegador",
+    "open_webchat": "Abrir WebChat →",
+    "vps_demo": "Provisionamento de VPS (Modo Demo)",
+    "webchat_pending": "O WebChat estará disponível assim que um VPS real for provisionado",
+    "telegram_title": "Bot do Telegram",
+    "telegram_connected": "Conectado",
+    "telegram_pair_now": "Emparelhar agora",
+    "telegram_connected_msg": "Telegram Conectado!",
+    "telegram_ready": "Sua IA está pronta para conversar no Telegram",
+    "telegram_step1": "Crie um bot via @BotFather no Telegram, depois cole o token abaixo.",
+    "telegram_configure": "Configurar Token do Bot",
+    "telegram_configuring": "Configurando o Bot...",
+    "telegram_step2": "Envie qualquer mensagem para seu Bot do Telegram — você receberá um código de emparelhamento. Insira-o abaixo para conectar.",
+    "telegram_pair_placeholder": "INSERIR CÓDIGO DE EMPARELHAMENTO",
+    "telegram_pairing": "Emparelhando...",
+    "telegram_connect": "Conectar Telegram",
+    "telegram_paired": "Emparelhado com sucesso!",
+    "telegram_refreshing": "Atualizando...",
+    "telegram_failed": "Falha ao configurar o bot. Por favor, tente novamente.",
+    "telegram_pair_failed": "Falha ao emparelhar. Por favor, tente novamente.",
+    "vps_title": "Acesso VPS (Avançado)",
+    "vps_ip": "Endereço IP",
+    "vps_port": "Porta de Gateway",
+    "vps_ssh": "Comando SSH",
+    "vps_password": "Senha Root",
+    "subscription_title": "Assinatura Pro",
+    "subscription_status": "Status: {status}",
+    "subscription_renews": "Renova em {date}",
+    "manage_subscription": "Gerenciar Assinatura",
+    "manage_loading": "Carregando...",
+    "manage_failed": "Falha ao abrir o portal de assinatura",
+    "model_switch_btn": "Trocar",
+    "model_switching": "Trocando...",
+    "model_current": "atual",
+    "model_switch_note": "A troca leva ~30s. Seu agente será reiniciado.",
+    "model_switching_desc": "Reiniciando seu agente com o novo modelo...",
+    "model_switch_success": "Trocado para {model}",
+    "model_switch_failed": "Falha na troca de modelo. Por favor, tente novamente.",
+    "powered_by": "Desenvolvido por",
+    "discord_setup_now": "Configurar agora",
+    "discord_token_configured": "Token do Bot Discord configurado",
+    "discord_step1_title": "Passo 1 — Convide seu bot para um servidor",
+    "discord_step1_note": "Ative também o Message Content Intent em Bot → Privileged Gateway Intents.",
+    "discord_step2_title": "Passo 2 — Autorize-se no Discord",
+    "discord_step2_desc": "Envie qualquer mensagem para seu bot (DM ou @menção no servidor). Ele responderá com um código de emparelhamento.",
+    "discord_step2_cmd_note": "Execute este comando no WebChat → Terminal para aprovar sua conta. Necessário apenas uma vez por usuário.",
+    "discord_how_to": "🤖 Como obter seu Token do Bot Discord:",
+    "discord_step_new_app": "Novo Aplicativo",
+    "discord_step_add_bot": "Bot",
+    "discord_step_add_bot2": "Adicionar Bot",
+    "discord_step_reset_token": "Redefinir Token",
+    "discord_step_intent": "Message Content Intent",
+    "discord_step_url_gen": "OAuth2 → Gerador de URL",
+    "discord_configured": "Bot Discord configurado!",
+    "discord_reloading": "Recarregando...",
+    "discord_configuring": "Configurando o Bot Discord...",
+    "discord_connect_btn": "Conectar Bot Discord",
+    "discord_failed": "Falha ao configurar o Discord.",
+    "whatsapp_scan_to_connect": "Escanear para conectar",
+    "whatsapp_linked": "Vinculado",
+    "whatsapp_no_token_desc": "O WhatsApp não requer token — apenas ative-o aqui e escaneie um código QR para vincular sua conta.",
+    "whatsapp_activating": "Ativando…",
+    "whatsapp_activate_btn": "⚡ Ativar WhatsApp",
+    "whatsapp_activate_failed": "Falha ao ativar o WhatsApp. Por favor, tente novamente.",
+    "whatsapp_activated": "✅ Canal WhatsApp ativado — escaneie o QR abaixo com seu telefone para vincular sua conta.",
+    "whatsapp_scan_instructions": "📱 Escaneie com WhatsApp → Configurações → Aparelhos Conectados → Vincular um Aparelho",
+    "whatsapp_qr_expired": "QR Expirado — Atualizar",
+    "whatsapp_qr_generating": "Gerando código QR…",
+    "whatsapp_qr_placeholder": "O QR aparecerá aqui",
+    "whatsapp_qr_no_qr": "Nenhum código QR retornado.",
+    "whatsapp_qr_expires_hint": "O código QR expira em ~60s. Clique em Atualizar se ficar cinza.",
+    "whatsapp_refresh_qr": "🔄 Atualizar QR",
+    "whatsapp_generate_qr": "📷 Gerar Código QR",
+    "whatsapp_open_webchat": "Abrir WebChat",
+    "whatsapp_step2_title": "Passo 2 — Após escanear, clique para aplicar",
+    "whatsapp_step2_desc": "Depois que o WhatsApp mostrar Google Chrome (openclaw) em Aparelhos Conectados, clique abaixo para reiniciar seu agente e carregar a sessão.",
+    "whatsapp_applying": "Reiniciando agente… (~60s)",
+    "whatsapp_apply_btn": "✅ Eu Escaneei — Aplicar Conexão",
+    "whatsapp_apply_failed": "Falha ao aplicar. Por favor, tente novamente.",
+    "whatsapp_live_title": "🎉 WhatsApp está ativo!",
+    "whatsapp_live_desc": "Seu agente de IA agora está conectado ao WhatsApp. Envie uma mensagem para seu próprio número para começar a conversar.",
+    "telegram_how_to_title": "📋 Como obter seu Token de Bot:",
+    "telegram_guide_step1": "Abra o Telegram e procure por @BotFather",
+    "telegram_guide_step2": "Envie",
+    "telegram_guide_step3": "Escolha um nome e um nome de usuário para seu bot",
+    "telegram_guide_step4": "O BotFather lhe dará um token — copie-o",
+    "telegram_guide_step5": "Cole o token abaixo",
+    "telegram_token_saved": "✅ Token do bot salvo! Mais um passo:",
+    "telegram_pair_guide_step1": "Abra seu bot do Telegram e envie qualquer mensagem (ex: oi)",
+    "telegram_pair_guide_step2": "Seu bot responderá com um código de pareamento",
+    "telegram_pair_guide_step3": "Insira o código abaixo para finalizar a conexão",
+    "feishu_title": "Lark / Feishu",
+    "feishu_connect_now": "Conectar",
+    "feishu_connected": "Conectado",
+    "feishu_desc": "Conecte seu agente de AI ao Lark (Feishu). Usuários na China continental podem conversar com seu agente através do Feishu.",
+    "feishu_app_id_label": "App ID",
+    "feishu_app_id_placeholder": "cli_xxxxxxxxxxxxxxxxx",
+    "feishu_app_secret_label": "App Secret",
+    "feishu_app_secret_placeholder": "Insira seu App Secret do Feishu",
+    "feishu_verify_token_label": "Verification Token",
+    "feishu_verify_token_placeholder": "Insira o token de verificação",
+    "feishu_encrypt_key_label": "Encrypt Key (opcional)",
+    "feishu_encrypt_key_placeholder": "Deixe em branco se não estiver habilitado",
+    "feishu_webhook_url_label": "Seu Webhook URL (cole no Feishu)",
+    "feishu_save_btn": "Salvar e Conectar",
+    "feishu_saving": "Salvando...",
+    "feishu_save_failed": "Falha ao salvar. Verifique suas credenciais.",
+    "feishu_configured_title": "✅ Feishu Conectado",
+    "feishu_configured_desc": "Seu agente de AI agora está conectado ao Feishu. Os usuários podem enviar mensagens ao seu bot para começar a conversar.",
+    "feishu_how_to": "Como configurar",
+    "feishu_step_create_app": "1. Vá para open.feishu.cn/app → Criar Aplicativo Personalizado",
+    "feishu_step_add_bot": "2. Adicione a capacidade de Bot nas configurações do seu aplicativo",
+    "feishu_step_enable_events": "3. Habilite Eventos: im.message.receive_v1",
+    "feishu_step_set_webhook": "4. Defina o URL de Requisição para o URL do webhook abaixo",
+    "feishu_step_get_tokens": "5. Copie o App ID, App Secret e o Token de Verificação aqui"
+  },
+  "faq": [
+    {
+      "q": "O que é TinyClaw?",
+      "a": "TinyClaw é uma plataforma de implantação com um clique para OpenClaw, uma estrutura de assistente de IA de código aberto. Ele permite que você implante seu próprio assistente de IA 24/7 conectado ao Telegram em menos de 1 minuto, sem qualquer configuração técnica."
+    },
+    {
+      "q": "Quanto tempo leva para implantar o OpenClaw com o TinyClaw?",
+      "a": "Menos de 1 minuto. A configuração tradicional leva mais de 60 minutos de comandos de terminal. O TinyClaw lida com todo o provisionamento do servidor, instalação do OpenClaw e configuração do canal automaticamente."
+    },
+    {
+      "q": "Quais modelos de IA o TinyClaw suporta?",
+      "a": "O TinyClaw suporta Claude Opus 4.6 da Anthropic, GPT-5.2 da OpenAI e Gemini 3 do Google. Você pode escolher seu modelo preferido durante a configuração."
+    },
+    {
+      "q": "Quanto custa o TinyClaw?",
+      "a": "O TinyClaw oferece um teste grátis de 7 dias, depois $29.99 por mês, o que inclui um servidor de nuvem dedicado, tempo de atividade 24/7, atualizações automáticas e integração com o Telegram."
+    },
+    {
+      "q": "O que um assistente de IA OpenClaw pode fazer?",
+      "a": "O OpenClaw pode ler e resumir e-mails, redigir respostas, traduzir mensagens, agendar reuniões, fazer seus impostos, rastrear despesas, escrever contratos, pesquisar concorrentes, gerar faturas e milhares de outras tarefas — tudo via linguagem natural através do Telegram."
+    }
+  ]
+}

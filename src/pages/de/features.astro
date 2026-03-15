@@ -1,0 +1,117 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/de/Header.astro';
+import Footer from '../../components/de/Footer.astro';
+import FeaturesHero from '../../components/de/features/FeaturesHero.astro';
+import BeforeAfter from '../../components/de/features/BeforeAfter.astro';
+import CommunityVoices from '../../components/de/features/CommunityVoices.astro';
+import CoreRoles from '../../components/de/features/CoreRoles.astro';
+import UseCases from '../../components/de/features/UseCases.astro';
+import ComparisonTable from '../../components/de/features/ComparisonTable.astro';
+import Architecture from '../../components/de/features/Architecture.astro';
+import SecurityTrust from '../../components/de/features/SecurityTrust.astro';
+import FeaturesCTA from '../../components/de/features/FeaturesCTA.astro';
+
+// Strukturierte Daten für die Features-Seite - FAQPage-Schema
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Was ist AgentPuter?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'AgentPuter ist die dedizierte Cloud-Infrastruktur für KI-Agenten. Es bietet eine 24/7-Laufzeitumgebung mit einem persistenten Arbeitsbereich, einem Datenschutz-Proxy, Kontextmanagement, einer einheitlichen Werkzeugschnittstelle und vollständigen Rechenschaftsprotokollen.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Wie schützt AgentPuter meine Daten?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'AgentPuter agiert als Datenschutz-Proxy zwischen Ihnen und dem LLM. Alle Daten werden anonymisiert, bevor sie an das Modell gesendet werden. Anmeldeinformationen werden mit AES-256 verschlüsselt gespeichert, API-Schlüssel serverseitig verwaltet und niemals dem Modell preisgegeben, und PII werden automatisch erkannt und anonymisiert.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Was kann mein KI-Agent mit AgentPuter tun?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Ihr Agent kann Büroarbeiten (Berichte, E-Mails), Recherchen (Websuche, Notizen), Entwicklungsaufgaben (Codieren, Testen, Deployen) und kreative Aufgaben (Design, Inhaltserstellung) erledigen – alles autonom in seinem eigenen persistenten Arbeitsbereich.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Worin unterscheidet sich AgentPuter von ChatGPT oder Claude?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Im Gegensatz zu einer Chat-Oberfläche gibt AgentPuter Ihrem Agenten einen echten Computer: 24/7 online, persistenter Dateispeicher, automatische Autorisierungsverwaltung, Unterstützung für mehrere Agenten, vollständige Audit-Protokolle, Kostenkontrolle und Schutz vor Prompt-Injection.',
+      },
+    },
+  ],
+};
+
+// SoftwareApplication-Schema
+const softwareSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'AgentPuter',
+  applicationCategory: 'DeveloperApplication',
+  operatingSystem: 'Cloud',
+  inLanguage: 'de',
+  description: 'Die fehlende Infrastrukturschicht für Ihren KI-Agenten. Ein echter Computer, maßgeschneidert für KI-Agenten, mit Datenschutz-Proxy, Kontextmanagement und einem persistenten Arbeitsbereich.',
+  url: 'https://www.agentputer.com/de/features',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+    description: 'Kostenlos während der Beta-Phase',
+  },
+  featureList: [
+    'Datenschutz-Proxy, AES-256-Verschlüsselung',
+    'Langzeit-Kontextmanager',
+    'Einheitliche Werkzeugschnittstelle (7 Kern-Tools)',
+    'Persistenter Arbeitsbereich mit Dateisystem',
+    'Rechenschaftsprotokolle & Human-in-the-loop',
+    '24/7 Cloud-Laufzeitumgebung',
+    'Parallele Ausführung mehrerer Agenten',
+    'Kostenkontrolle & Budgetbeschränkungen',
+  ],
+};
+
+// BreadcrumbList-Schema
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Startseite', item: 'https://www.agentputer.com/de/' },
+    { '@type': 'ListItem', position: 2, name: 'Funktionen', item: 'https://www.agentputer.com/de/features' },
+  ],
+};
+---
+
+<Layout
+  title="Funktionen - AgentPuter | Die fehlende Infrastrukturschicht für Ihren Agenten"
+  description="Entdecken Sie die fünf Kernrollen von AgentPuter: Datenschutz-Proxy, Kontextmanager, einheitliche Schnittstelle, persistenter Arbeitsbereich und Rechenschaftsprotokoll. Sehen Sie, wie wir im Vergleich zu anderen Lösungen abschneiden."
+  tags={['AgentPuter Funktionen', 'KI-Agenten-Infrastruktur', 'Datenschutz-Proxy', 'Kontextmanagement', 'Persistenter Arbeitsbereich', 'KI-Sicherheit', 'KI-Agenten-Plattform', 'Cloud-Laufzeitumgebung']}
+>
+  <!-- Spezifische strukturierte Daten für die Features-Seite -->
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} slot="head" />
+
+  <Header />
+  <main class="relative z-10">
+    <FeaturesHero />
+    <BeforeAfter />
+    <CommunityVoices />
+    <CoreRoles />
+    <UseCases />
+    <ComparisonTable />
+    <Architecture />
+    <SecurityTrust />
+    <FeaturesCTA />
+  </main>
+  <Footer />
+</Layout>

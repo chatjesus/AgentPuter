@@ -1,0 +1,258 @@
+---
+// 文档首页内容区域组件
+---
+
+<div class="flex-1 bg-[#0A0A0A] px-6 lg:px-16 py-10 lg:py-12 max-w-[960px]">
+  <!-- 标题 -->
+  <h1 class="text-3xl lg:text-[36px] font-bold text-white mb-3">
+    AgentPuter Documentation
+  </h1>
+  <p class="text-[#999] text-[17px] mb-10">
+    Managed hosting for OpenClaw. Your AI assistant, always on.
+  </p>
+
+  <!-- Hero 卡片 / Quick Start 入口 -->
+  <div id="quick-start" class="bg-[#0D1117] rounded-xl border-2 border-accent/25 p-7 lg:p-8 mb-10 max-w-[800px] scroll-mt-24">
+    <h2 class="text-[22px] font-bold text-white mb-2">
+      Ship your first agent in 2 minutes
+    </h2>
+    <p class="text-[#999] text-[15px] mb-5">
+      OpenClaw pre-installed. Channels via Web UI. No DevOps.
+    </p>
+    <a
+      href="https://app.agentputer.com/sign-up"
+      class="inline-block bg-accent text-[#0A0A0A] font-bold text-[15px] px-8 py-3 rounded-lg hover:bg-accent-dark transition-colors"
+    >
+      Start Quick Start →
+    </a>
+  </div>
+
+  <!-- 三栏卡片 -->
+  <div class="grid md:grid-cols-3 gap-6 mb-10">
+    <!-- Get Started -->
+    <div class="bg-[#111111] rounded-xl border border-[#222222] p-6">
+      <span class="text-[28px] block mb-3">🚀</span>
+      <h3 class="text-[18px] font-bold text-white mb-2">Get Started</h3>
+      <p class="text-[#777] text-[13px] mb-4">Create a Pod with OpenClaw pre-installed.</p>
+      <div class="flex flex-col gap-1.5">
+        <a href="/docs#quick-start" class="text-[#00BFFF] text-[13px] hover:underline">→  Quick Start</a>
+        <a href="/docs/add-channel" class="text-[#00BFFF] text-[13px] hover:underline">→  Add Channels</a>
+        <a href="/docs#skills" class="text-[#00BFFF] text-[13px] hover:underline">→  Skills & ClawHub</a>
+      </div>
+    </div>
+
+    <!-- Configure -->
+    <div class="bg-[#111111] rounded-xl border border-[#222222] p-6">
+      <span class="text-[28px] block mb-3">⚙️</span>
+      <h3 class="text-[18px] font-bold text-white mb-2">Configure</h3>
+      <p class="text-[#777] text-[13px] mb-4">Customize your Pod and environment.</p>
+      <div class="flex flex-col gap-1.5">
+        <a href="/docs#pod-settings" class="text-[#00BFFF] text-[13px] hover:underline">→  Pod Settings</a>
+        <a href="/docs#env-secrets" class="text-[#00BFFF] text-[13px] hover:underline">→  Environment & Secrets</a>
+        <a href="/docs#ssh" class="text-[#00BFFF] text-[13px] hover:underline">→  SSH Access</a>
+      </div>
+    </div>
+
+    <!-- Understand -->
+    <div class="bg-[#111111] rounded-xl border border-[#222222] p-6">
+      <span class="text-[28px] block mb-3">🔒</span>
+      <h3 class="text-[18px] font-bold text-white mb-2">Understand</h3>
+      <p class="text-[#777] text-[13px] mb-4">Security model, costs, and troubleshooting.</p>
+      <div class="flex flex-col gap-1.5">
+        <a href="/docs#security" class="text-[#00BFFF] text-[13px] hover:underline">→  Security & Privacy</a>
+        <a href="/docs#troubleshooting" class="text-[#00BFFF] text-[13px] hover:underline">→  Troubleshooting</a>
+        <a href="/docs#cost" class="text-[#00BFFF] text-[13px] hover:underline">→  Cost & Usage</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skills & ClawHub 占位 -->
+  <div id="skills" class="scroll-mt-24 mb-10">
+    <h2 class="text-[22px] font-semibold text-white mb-3">Skills & ClawHub</h2>
+    <p class="text-[#777] text-[14px] mb-4">
+      OpenClaw includes 50+ built-in skills and 565+ community skills via ClawHub.<br/>
+      AgentPuter pre-loads popular skills and lets you manage them from the Dashboard.
+    </p>
+    <div class="bg-[#111] rounded-lg border border-[#222] p-4 max-w-[600px] font-mono text-[12px] space-y-1">
+      <p class="text-accent">$ agentputer skills list</p>
+      <p class="text-[#4ADE80]">Built-in: 50 skills loaded</p>
+      <p class="text-[#4ADE80]">ClawHub: 565+ available</p>
+      <p class="text-[#888]">Run: agentputer skills install &lt;name&gt;</p>
+    </div>
+  </div>
+
+  <!-- What you'll build 标题 -->
+  <h2 class="text-[22px] font-semibold text-white mb-5">What you'll build:</h2>
+
+  <!-- 终端演示 -->
+  <div class="max-w-[800px] bg-[#0D1117] rounded-lg border border-accent/12 overflow-hidden mb-10">
+    <!-- 终端标题栏 -->
+    <div class="h-[30px] bg-[#252525] rounded-t-lg flex items-center gap-2 px-3">
+      <span class="w-[9px] h-[9px] rounded-full bg-[#EF4444]"></span>
+      <span class="w-[9px] h-[9px] rounded-full bg-[#F59E0B]"></span>
+      <span class="w-[9px] h-[9px] rounded-full bg-[#22C55E]"></span>
+      <span class="text-[#64748B] font-mono text-[11px] ml-2">your-terminal</span>
+    </div>
+    <!-- 终端内容 -->
+    <div class="p-4 lg:p-5 font-mono text-[13px] leading-relaxed space-y-1">
+      <p class="text-accent">$ agentputer create my-agent</p>
+      <p class="text-[#4ADE80] text-[12px]">✓ Pod ready  (OpenClaw v2026.2.6 pre-installed)</p>
+      <p class="text-[#4ADE80] text-[12px]">✓ Gateway running  (ws://pod-abc123:18789)</p>
+      <div class="h-2"></div>
+      <p class="text-accent">$ agentputer channels add telegram</p>
+      <p class="text-[#4ADE80] text-[12px]">✓ Bot @my_agent_bot connected</p>
+      <div class="h-2"></div>
+      <p class="text-accent">$ agentputer status</p>
+      <p class="text-[#4ADE80] text-[12px]">✓ Pod: running  |  OpenClaw: v2026.2.6  |  Channels: 1</p>
+      <p class="text-[#4ADE80] text-[12px]">✓ Skills: 12 active  |  ClawHub: connected</p>
+    </div>
+  </div>
+
+  <!-- 迁移提示 -->
+  <div class="max-w-[800px] bg-[#1A1A1A] rounded-lg border border-[#FFAA33]/25 flex items-center gap-4 px-6 py-4 mb-12">
+    <span class="text-[20px]">🔄</span>
+    <div>
+      <p class="text-[#FFAA33] text-[14px] font-semibold">Coming from self-hosted OpenClaw?</p>
+      <p class="text-[#888] text-[13px]">Migration guide coming soon. In the meantime, Quick Start works for you too.</p>
+    </div>
+  </div>
+
+  <!-- ═══ CONFIGURE 分区 ═══ -->
+  <div class="border-t border-[#222] pt-10 mb-10">
+    <h2 class="text-[#666] font-mono text-[10px] font-semibold tracking-[2px] mb-6">CONFIGURE</h2>
+
+    <!-- Pod Settings -->
+    <div id="pod-settings" class="scroll-mt-24 mb-8">
+      <h3 class="text-[20px] font-semibold text-white mb-2">Pod Settings</h3>
+      <p class="text-[#777] text-[14px] mb-3">
+        A Pod is your AgentPuter server instance — an always-on container running OpenClaw.
+        Configure region, resources, and storage from the Dashboard.
+      </p>
+      <div class="bg-[#111] rounded-lg border border-[#222] p-4 max-w-[600px] font-mono text-[12px] space-y-1">
+        <p class="text-accent">$ agentputer pod info my-agent</p>
+        <p class="text-[#888]">Region:   us-east-1</p>
+        <p class="text-[#888]">CPU:      2 vCPU  |  RAM: 2 GB</p>
+        <p class="text-[#888]">Storage:  40 GB SSD (2.1 GB used)</p>
+        <p class="text-[#888]">OpenClaw: v2026.2.6 (auto-update: on)</p>
+        <p class="text-[#4ADE80]">Status:   running (uptime: 14d 6h)</p>
+      </div>
+    </div>
+
+    <!-- Environment & Secrets -->
+    <div id="env-secrets" class="scroll-mt-24 mb-8">
+      <h3 class="text-[20px] font-semibold text-white mb-2">Environment & Secrets</h3>
+      <p class="text-[#777] text-[14px] mb-3">
+        Configure your AI model API keys and other secrets. AgentPuter stores them encrypted and
+        injects them into your OpenClaw instance — no need to SSH in and edit JSON files.
+      </p>
+      <div class="bg-[#111] rounded-lg border border-[#222] p-4 max-w-[600px] font-mono text-[12px] space-y-1">
+        <p class="text-accent">$ agentputer config set agent.model=anthropic/claude-opus-4-6</p>
+        <p class="text-[#4ADE80]">✓ Model updated</p>
+        <p class="text-accent">$ agentputer secrets set ANTHROPIC_API_KEY=sk-ant-...</p>
+        <p class="text-[#4ADE80]">✓ Secret stored (encrypted)</p>
+      </div>
+      <p class="text-[#555] text-[12px] mt-2">
+        Recommended model: Anthropic Claude Opus 4.6 (best long-context + anti-injection).
+        You need your own API key or Anthropic Pro subscription ($20/mo).
+      </p>
+    </div>
+
+    <!-- SSH Access -->
+    <div id="ssh" class="scroll-mt-24 mb-8">
+      <h3 class="text-[20px] font-semibold text-white mb-2">SSH Access</h3>
+      <p class="text-[#777] text-[14px] mb-3">
+        Power users can SSH directly into their Pod for advanced configuration,
+        debugging, or running OpenClaw CLI commands.
+      </p>
+      <div class="bg-[#111] rounded-lg border border-[#222] p-4 max-w-[600px] font-mono text-[12px] space-y-1">
+        <p class="text-accent">$ agentputer ssh my-agent</p>
+        <p class="text-[#888]">Connecting to pod-abc123...</p>
+        <p class="text-[#4ADE80]">root@pod-abc123:~#</p>
+        <p class="text-[#888]"># Now you can run openclaw commands directly:</p>
+        <p class="text-accent">$ openclaw doctor</p>
+        <p class="text-[#4ADE80]">✓ All checks passed</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ UNDERSTAND 分区 ═══ -->
+  <div class="border-t border-[#222] pt-10 mb-10">
+    <h2 class="text-[#666] font-mono text-[10px] font-semibold tracking-[2px] mb-6">UNDERSTAND</h2>
+
+    <!-- Security & Privacy -->
+    <div id="security" class="scroll-mt-24 mb-8">
+      <h3 class="text-[20px] font-semibold text-white mb-2">Security & Privacy</h3>
+      <p class="text-[#777] text-[14px] mb-3">
+        AgentPuter isolates each Pod in its own container. Your data stays in your Pod.<br/>
+        OpenClaw provides DM Pairing to control who can message your agent.
+      </p>
+      <div class="max-w-[600px] grid grid-cols-2 gap-3 text-[13px]">
+        <div class="bg-[#111] rounded-lg border border-[#222] p-3">
+          <p class="text-accent font-semibold mb-1">Pod Isolation</p>
+          <p class="text-[#888]">Dedicated container per user. No shared resources.</p>
+        </div>
+        <div class="bg-[#111] rounded-lg border border-[#222] p-3">
+          <p class="text-accent font-semibold mb-1">DM Pairing</p>
+          <p class="text-[#888]">OpenClaw's built-in auth. Unknown senders must be approved.</p>
+        </div>
+        <div class="bg-[#111] rounded-lg border border-[#222] p-3">
+          <p class="text-accent font-semibold mb-1">Encrypted Secrets</p>
+          <p class="text-[#888]">API keys stored encrypted, never exposed to models.</p>
+        </div>
+        <div class="bg-[#111] rounded-lg border border-[#222] p-3">
+          <p class="text-accent font-semibold mb-1">Sandbox Mode</p>
+          <p class="text-[#888]">OpenClaw Sandbox limits what skills can access.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Troubleshooting -->
+    <div id="troubleshooting" class="scroll-mt-24 mb-8">
+      <h3 class="text-[20px] font-semibold text-white mb-2">Troubleshooting</h3>
+      <p class="text-[#777] text-[14px] mb-3">
+        Common issues and how to fix them.
+      </p>
+      <div class="max-w-[600px] space-y-3 text-[13px]">
+        <div class="bg-[#111] rounded-lg border border-[#222] p-3">
+          <p class="text-white font-semibold mb-1">Bot not responding?</p>
+          <p class="text-[#888]">Check Pod status: <code class="text-accent font-mono">agentputer status</code>.
+            Verify your model API key is set and valid.</p>
+        </div>
+        <div class="bg-[#111] rounded-lg border border-[#222] p-3">
+          <p class="text-white font-semibold mb-1">DM Pairing code not arriving?</p>
+          <p class="text-[#888]">Ensure the bot token is correct. Try: <code class="text-accent font-mono">openclaw doctor</code> via SSH.</p>
+        </div>
+        <div class="bg-[#111] rounded-lg border border-[#222] p-3">
+          <p class="text-white font-semibold mb-1">Pod won't start?</p>
+          <p class="text-[#888]">Check logs: <code class="text-accent font-mono">agentputer logs my-agent</code>.
+            Contact support if the issue persists.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cost & Usage -->
+    <div id="cost" class="scroll-mt-24 mb-8">
+      <h3 class="text-[20px] font-semibold text-white mb-2">Cost & Usage</h3>
+      <p class="text-[#777] text-[14px] mb-3">
+        Your costs come from two sources:
+      </p>
+      <div class="max-w-[600px] space-y-3 text-[13px]">
+        <div class="bg-[#111] rounded-lg border border-accent/20 p-3">
+          <p class="text-accent font-semibold mb-1">① AgentPuter (Infrastructure)</p>
+          <p class="text-[#888]">Pod hosting fee. Covers compute, storage, networking, auto-updates, and Dashboard access.</p>
+        </div>
+        <div class="bg-[#111] rounded-lg border border-[#A855F7]/20 p-3">
+          <p class="text-[#A855F7] font-semibold mb-1">② Model API (Your subscription)</p>
+          <p class="text-[#888]">AI model usage. You bring your own API key (e.g., Anthropic Pro $20/mo).<br/>
+            AgentPuter provides a cost monitoring dashboard so you always know your spend.</p>
+        </div>
+      </div>
+      <div class="bg-[#111] rounded-lg border border-[#222] p-4 max-w-[600px] font-mono text-[12px] space-y-1 mt-3">
+        <p class="text-accent">$ agentputer usage my-agent</p>
+        <p class="text-[#888]">This month: 1,247 messages  |  ~$8.40 API cost</p>
+        <p class="text-[#888]">Budget limit: $50/mo  |  Used: 16.8%</p>
+        <p class="text-[#4ADE80]">✓ Within budget</p>
+      </div>
+    </div>
+  </div>
+</div>

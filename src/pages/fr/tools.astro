@@ -1,0 +1,208 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/fr/Header.astro';
+import Footer from '../../components/fr/Footer.astro';
+import MatrixRain from '../../components/MatrixRain.astro';
+
+const APP_URL = 'https://app.agentputer.com';
+
+const useCases = [
+  {
+    category: 'Recherche & Analyse',
+    icon: '',
+    color: 'accent',
+    items: ["Surveiller les actualités du secteur 24h/24","Suivre les mises à jour des concurrents","Résumer de longs rapports & PDFs","Traduire des documents en temps réel","Compiler des briefings quotidiens du marché","Rechercher des entreprises & tendances"],
+  },
+  {
+    category: 'Communication',
+    icon: '',
+    color: 'accent',
+    items: ["Rédiger des réponses email automatiquement","Gérer les messages Telegram/Slack","Traduire les conversations en temps réel","Répondre aux questions des clients","Planifier les suivis","Résumer les longs fils de discussion"],
+  },
+  {
+    category: 'Productivité',
+    icon: '',
+    color: 'accent',
+    items: ["Organiser votre agenda & tâches","Prendre des notes de réunion automatiquement","Définir des rappels intelligents","Créer des présentations à partir de notes","Suivre les délais sur les projets","Générer des rapports selon un calendrier"],
+  },
+  {
+    category: 'Finance & Business',
+    icon: '',
+    color: 'accent',
+    items: ["Suivre les dépenses & reçus","Surveiller les cours des actions & alertes","Générer des factures","Comparer les devis & propositions","Calculer des scénarios de ROI","Résumer les rapports financiers"],
+  },
+  {
+    category: 'Contenu & Rédaction',
+    icon: '',
+    color: 'accent',
+    items: ["Rédiger des articles de blog","Écrire du contenu pour les réseaux sociaux","Créer des newsletters","Éditer & relire des documents","Générer des descriptions de produits","Rédiger des contrats & NDAs"],
+  },
+  {
+    category: 'Données & Automatisation',
+    icon: '',
+    color: 'accent',
+    items: ["Extraire & organiser des données web","Surveiller les changements sur les sites web","Catégoriser automatiquement les infos entrantes","Générer des résumés quotidiens/hebdomadaires","Croiser des références de sources multiples","Créer des flux de travail personnalisés"],
+  }
+];
+---
+<Layout title="Outils et Cas d'Usage - AgentPuter | Que peut faire votre agent IA ?" description="Découvrez 500+ choses que votre agent IA toujours actif peut faire. Rechercher, automatiser, communiquer, analyser — sans programmation. Voir les cas d'usage réels." tags={['AgentPuter', 'Outils IA', "Cas d'usage IA", 'Automatisation IA', 'IA sans code', 'Agent IA']}>
+  <MatrixRain />
+  <Header activePage="tools" />
+  <main class="relative z-10">
+    <section class="relative pt-32 pb-12 lg:pt-40 lg:pb-16 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-dark-primary via-dark-primary to-dark-secondary"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,255,65,0.06),transparent_50%)]"></div>
+      <div class="relative max-w-7xl mx-auto px-6 lg:px-20 text-center">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.2em] mb-6">500+ COMPÉTENCES INTÉGRÉES</div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Que peut faire votre agent IA ?</h1>
+        <p class="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-4">Un agent. Des milliers de cas d'usage.<br />Dites-lui ce dont vous avez besoin en langage naturel — il s'occupe du reste.</p>
+        <p class="text-text-muted text-sm max-w-xl mx-auto">Votre agent IA fonctionne 24h/24, se connecte à vos apps préférées et gère les tâches même pendant que vous dormez. Sans programmation. Sans configuration. Décrivez simplement ce que vous voulez.</p>
+      </div>
+    </section>
+    <section class="py-8 overflow-hidden">
+      <div class="relative">
+        <div class="flex animate-scroll-left gap-4 whitespace-nowrap">
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Lire & résumer les emails</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Rédiger des réponses automatiquement</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Traduire les messages</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Surveiller les cours des actions</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Suivre les actualités des concurrents</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Résumer les rapports</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Planifier des réunions</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Générer des factures</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Rechercher des concurrents</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Écrire des posts sociaux</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Créer des présentations</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Trouver les meilleurs prix en ligne</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Lire & résumer les emails</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Rédiger des réponses automatiquement</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Traduire les messages</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Surveiller les cours des actions</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Suivre les actualités des concurrents</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Résumer les rapports</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Planifier des réunions</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Générer des factures</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Rechercher des concurrents</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Écrire des posts sociaux</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Créer des présentations</span>
+          <span class="inline-block px-4 py-2 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Trouver les meilleurs prix en ligne</span>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 lg:py-20">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-4 text-center">// L'ANCIENNE FAÇON VS LA NOUVELLE</div>
+        <h2 class="text-white text-2xl md:text-3xl font-bold mb-12 text-center">Arrêtez de tout faire manuellement</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-dark-secondary rounded-2xl border border-dark-tertiary p-8">
+            <div class="text-error font-mono text-xs font-bold mb-4">SANS AGENTPUTER</div>
+            <ul class="space-y-4 text-sm">
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-error mt-0.5">✗</span><span>Vérifier manuellement les sites d'actualités chaque matin</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-error mt-0.5">✗</span><span>Copier-coller entre les apps pour traduire les messages</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-error mt-0.5">✗</span><span>Passer des heures à lire et résumer des rapports</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-error mt-0.5">✗</span><span>Manquer des mises à jour importantes quand vous n'êtes pas là</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-error mt-0.5">✗</span><span>L'IA fonctionne uniquement quand vous êtes devant votre ordinateur</span></li>
+            </ul>
+          </div>
+          <div class="bg-dark-secondary rounded-2xl border-2 border-accent/50 p-8">
+            <div class="text-accent font-mono text-xs font-bold mb-4">AVEC AGENTPUTER</div>
+            <ul class="space-y-4 text-sm">
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-accent mt-0.5">✓</span><span>L'IA surveille les actualités et vous envoie un briefing quotidien</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-accent mt-0.5">✓</span><span>Messages auto-traduits sur tous vos canaux</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-accent mt-0.5">✓</span><span>Envoyez un PDF, recevez un résumé en quelques secondes</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-accent mt-0.5">✓</span><span>L'IA travaille 24h/24 — même le week-end</span></li>
+              <li class="flex items-start gap-3 text-text-muted"><span class="text-accent mt-0.5">✓</span><span>Votre agent fonctionne sur son propre cloud — toujours actif</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 lg:py-20">
+      <div class="max-w-7xl mx-auto px-6 lg:px-20">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-4 text-center">// CAS D'USAGE</div>
+        <h2 class="text-white text-2xl md:text-3xl font-bold mb-4 text-center">Un agent, des centaines de cas d'usage</h2>
+        <p class="text-text-muted text-center text-sm mb-12 max-w-lg mx-auto">Apprenez à votre agent IA de nouvelles tâches en langage naturel. Sans code.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {useCases.map((category) => (
+            <div class="bg-dark-secondary rounded-2xl border border-dark-tertiary p-6 hover:border-accent/30 transition-colors">
+              <div class="flex items-center gap-3 mb-4">
+                <h3 class="text-white font-bold">{category.category}</h3>
+              </div>
+              <ul class="space-y-2.5">
+                {category.items.map((item) => (
+                  <li class="text-text-muted text-sm flex items-start gap-2">
+                    <span class="text-accent mt-0.5 text-xs">●</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <p class="text-text-dark text-xs font-mono text-center mt-8">// Vous pouvez ajouter autant de cas d'usage que vous voulez en langage naturel</p>
+      </div>
+    </section>
+    <section class="py-12 lg:py-20 bg-dark-secondary/50">
+      <div class="max-w-4xl mx-auto px-6 lg:px-20">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-4 text-center">// COMMENT ÇA MARCHE</div>
+        <h2 class="text-white text-2xl md:text-3xl font-bold mb-12 text-center">3 étapes. 2 minutes. Terminé.</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-accent/10 border border-accent/30 flex items-center justify-center mx-auto mb-4"><span class="text-accent font-mono font-bold text-xl">1</span></div>
+            <h3 class="text-white font-bold mb-2">Inscrivez-vous</h3><p class="text-text-muted text-sm">Créez votre compte. Pas de carte de crédit pour explorer.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-terminal-cyan/10 border border-terminal-cyan/30 flex items-center justify-center mx-auto mb-4"><span class="text-terminal-cyan font-mono font-bold text-xl">2</span></div>
+            <h3 class="text-white font-bold mb-2">Connectez vos apps</h3><p class="text-text-muted text-sm">Liez Telegram, WhatsApp, Slack ou un des 15+ canaux.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-terminal-magenta/10 border border-terminal-magenta/30 flex items-center justify-center mx-auto mb-4"><span class="text-terminal-magenta font-mono font-bold text-xl">3</span></div>
+            <h3 class="text-white font-bold mb-2">Dites-lui quoi faire</h3><p class="text-text-muted text-sm">Décrivez les tâches en langage simple. Votre agent IA s'en occupe — 24h/24.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 lg:py-20">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20 text-center">
+        <div class="font-mono text-accent text-xs font-semibold tracking-[0.3em] mb-4">// FONCTIONNE LÀ OÙ VOUS TRAVAILLEZ</div>
+        <h2 class="text-white text-2xl md:text-3xl font-bold mb-4">Se connecte à 15+ canaux</h2>
+        <p class="text-text-muted text-sm mb-10 max-w-lg mx-auto">Votre agent IA vous rejoint là où vous êtes déjà — pas de nouvelles apps à apprendre.</p>
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <span class="px-5 py-2.5 bg-dark-secondary border border-accent/30 rounded-full text-accent text-sm font-medium">Telegram</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-accent/30 rounded-full text-accent text-sm font-medium">WhatsApp</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-accent/30 rounded-full text-accent text-sm font-medium">Slack</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-accent/30 rounded-full text-accent text-sm font-medium">Discord</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Email</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Web Chat</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">SMS</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Line</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">WeChat</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Twitter/X</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">Instagram</span>
+          <span class="px-5 py-2.5 bg-dark-secondary border border-dark-tertiary rounded-full text-text-muted text-sm">+4 more</span>
+        </div>
+      </div>
+    </section>
+    <section class="py-16 lg:py-24">
+      <div class="max-w-7xl mx-auto px-6 lg:px-20">
+        <div class="relative overflow-hidden rounded-2xl bg-dark-secondary border-2 border-accent/50 p-8 md:p-16 glow-accent neon-box">
+          <div class="absolute inset-0 opacity-5"><div class="absolute inset-0" style="background-image: linear-gradient(rgba(0,255,65,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,65,0.1) 1px, transparent 1px); background-size: 20px 20px;"></div></div>
+          <div class="relative text-center">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-accent text-glow-strong mb-4 font-mono">Votre agent IA vous attend</h2>
+            <p class="text-text-secondary text-lg mb-10 max-w-xl mx-auto" set:html="29,99$/mois. Configuration en 2 minutes. Fonctionne 24h/24.<br />Sans programmation. Sans clés API. Tout inclus."></p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href={`${APP_URL}/sign-up`} class="btn-primary text-sm py-4 px-10 font-mono">[COMMENCER — 29,99$/mois]</a>
+              <a href="/fr/pricing" class="btn-secondary text-sm py-4 px-10 font-mono">[VOIR LES TARIFS]</a>
+            </div>
+            <p class="text-text-muted text-xs font-mono mt-6">// Annulez quand vous voulez · Sans programmation · Sans frais cachés</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+<style>
+  @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  .animate-scroll-left { animation: scroll-left 30s linear infinite; }
+</style>

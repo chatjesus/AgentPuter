@@ -1,0 +1,133 @@
+---
+// 文档 - Add Channels 子页面内容组件
+// 展示支持的渠道、配置步骤、DM Pairing 说明
+---
+
+<div class="flex-1 bg-[#0A0A0A] px-6 lg:px-16 py-10 lg:py-12 max-w-[960px]">
+  <!-- 面包屑 -->
+  <p class="text-[#555] text-[12px] mb-4">
+    Docs  &gt;  Get Started  &gt;  Add Channels
+  </p>
+
+  <!-- 标题 -->
+  <h1 class="text-[32px] font-bold text-white mb-3">Add Channels</h1>
+  <p class="text-[#999] text-[15px] leading-relaxed mb-8">
+    Connect OpenClaw to your messaging platforms.<br/>
+    OpenClaw supports 15+ channels. Add one or many.
+  </p>
+
+  <!-- 1.0 Supported Channels -->
+  <h2 class="text-accent font-mono text-[12px] font-semibold tracking-[2px] mb-4">
+    1.0 Supported Channels
+  </h2>
+
+  <!-- 渠道网格: 1.0 -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 max-w-[600px]">
+    <!-- Telegram -->
+    <div class="bg-[#111] rounded-xl border border-[#0088cc]/25 p-5 flex flex-col gap-2">
+      <span class="text-[#0088cc] text-[18px] font-bold">✈️  Telegram</span>
+      <p class="text-[#888] text-[13px] leading-snug">Most popular. Create a bot via @BotFather, paste token.</p>
+      <span class="text-[#4ADE80] text-[11px]">Setup time: ~2 min</span>
+      <a
+        href="/docs/add-channel#telegram"
+        class="mt-1 inline-block bg-[#0088cc] text-white text-[12px] font-semibold px-4 py-2 rounded-md hover:bg-[#0077b5] transition-colors w-fit"
+      >
+        Add Telegram →
+      </a>
+    </div>
+
+    <!-- WebChat -->
+    <div class="bg-[#111] rounded-xl border border-accent/25 p-5 flex flex-col gap-2">
+      <span class="text-accent text-[18px] font-bold">💬  WebChat</span>
+      <p class="text-[#888] text-[13px] leading-snug">Built-in. No setup needed. Access from Dashboard.</p>
+      <span class="text-[#4ADE80] text-[11px]">Setup time: 0 min (auto)</span>
+      <span class="inline-block bg-accent/10 border border-accent text-accent text-[12px] font-semibold px-4 py-2 rounded-md w-fit">
+        Already active ✓
+      </span>
+    </div>
+  </div>
+
+  <!-- Coming in 1.1+ -->
+  <h3 class="text-[#555] font-mono text-[12px] font-semibold tracking-[2px] mb-3">
+    Coming in 1.1+
+  </h3>
+  <div class="flex flex-wrap gap-3 mb-10">
+    {['📱 WhatsApp', '📢 Slack', '🎮 Discord', '🔐 Signal', '📧 Google Chat', '🍎 iMessage', '💼 Teams', '🌐 Matrix'].map((ch) => (
+      <span class="bg-[#111] border border-[#222] rounded-lg px-4 py-2 text-[#444] text-[13px]">
+        {ch}
+      </span>
+    ))}
+  </div>
+
+  <!-- Telegram Step by Step -->
+  <div id="telegram" class="bg-[#0D1117] rounded-xl border border-[#0088cc]/25 p-7 lg:p-8 mb-8 max-w-[800px]">
+    <h2 class="text-[#0088cc] text-[20px] font-bold mb-6">
+      ✈️  Add Telegram — Step by Step
+    </h2>
+
+    <!-- Step 1 -->
+    <div class="flex gap-3 mb-6">
+      <span class="w-7 h-7 min-w-[28px] bg-[#0088cc] rounded-full flex items-center justify-center text-white text-[14px] font-bold">1</span>
+      <div>
+        <p class="text-white text-[16px] font-semibold">Create Bot via @BotFather</p>
+        <p class="text-[#888] text-[13px]">Open Telegram → search @BotFather → /newbot → name your bot → get token</p>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="flex gap-3 mb-6">
+      <span class="w-7 h-7 min-w-[28px] bg-[#0088cc] rounded-full flex items-center justify-center text-white text-[14px] font-bold">2</span>
+      <div>
+        <p class="text-white text-[16px] font-semibold">Paste Token in Dashboard</p>
+        <p class="text-[#888] text-[13px] mb-2">Dashboard → Channels → Add Telegram → paste token → Connect</p>
+        <div class="w-full max-w-[500px] h-9 bg-[#1A1A1A] rounded-md border border-[#333] flex items-center px-3">
+          <span class="text-[#555] font-mono text-[13px]">123456:ABCDefGhIJKlmNoPQRsTUVwxyz...</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="flex gap-3 mb-6">
+      <span class="w-7 h-7 min-w-[28px] bg-[#0088cc] rounded-full flex items-center justify-center text-white text-[14px] font-bold">3</span>
+      <div>
+        <p class="text-white text-[16px] font-semibold">DM Pairing (OpenClaw Security)</p>
+        <p class="text-[#888] text-[13px] mb-3">Send any message to your bot → receive pairing code → approve in Dashboard</p>
+        <!-- DM Pairing 警告 -->
+        <div class="max-w-[500px] bg-[#FFAA33]/5 border border-[#FFAA33]/25 rounded-md p-3 flex flex-col gap-1.5">
+          <p class="text-[#FFAA33] text-[12px] font-semibold">⚠️  DM Pairing is OpenClaw's security feature</p>
+          <p class="text-[#FFAA33] text-[12px] leading-snug">
+            Unknown senders receive a pairing code. Approve via Dashboard or CLI:<br/>
+            <code class="font-mono">agentputer pairing approve telegram &lt;code&gt;</code>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 成功状态 -->
+    <div class="bg-accent/5 border border-accent/25 rounded-lg p-4 flex items-start gap-3">
+      <span class="text-accent text-[16px] font-bold">✓</span>
+      <div>
+        <p class="text-accent text-[16px] font-bold">Telegram Connected!</p>
+        <p class="text-[#4ADE80] text-[13px] leading-snug">
+          Your bot @my_agent_bot is now linked to your OpenClaw agent.<br/>
+          Send any message to start chatting. Try: 'What can you do?'
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLI 替代方案 -->
+  <p class="text-[#666] text-[12px] mb-2">Or via CLI:</p>
+  <div class="max-w-[500px] bg-[#0D1117] rounded-md border border-[#333] p-3 font-mono text-[12px] space-y-0.5 mb-10">
+    <p class="text-accent">$ agentputer channels add telegram</p>
+    <p class="text-[#888]">? Bot token: 123456:ABCDefGhIJKlmNoPQRsTUVwxyz</p>
+    <p class="text-[#4ADE80]">✓ Telegram channel added to Pod my-agent</p>
+  </div>
+
+  <!-- 分页导航 -->
+  <div class="flex items-center gap-4 text-[13px]">
+    <a href="/docs#quick-start" class="text-[#00BFFF] hover:underline">←  Quick Start</a>
+    <span class="text-[#333]">|</span>
+    <a href="/docs#skills" class="text-[#00BFFF] hover:underline">Skills & ClawHub  →</a>
+  </div>
+</div>

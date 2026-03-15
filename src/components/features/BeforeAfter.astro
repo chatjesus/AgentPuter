@@ -1,0 +1,45 @@
+---
+// Before vs After - 双栏对比
+---
+
+<section class="relative py-20 bg-[#111111]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20">
+    <span class="block text-xs font-mono font-semibold tracking-[2px] text-[#666666] mb-8">// THE DIFFERENCE</span>
+    
+    <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+      <!-- WITHOUT -->
+      <div class="bg-[#1A1A1A] rounded-2xl border border-[#FF444440] p-6 md:p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-[#FF4444] font-mono text-xl font-bold">✗</span>
+          <span class="text-[#FF4444] font-mono text-sm font-bold tracking-[2px]">WITHOUT AGENTPUTER</span>
+        </div>
+        <div class="space-y-3 font-mono text-sm text-[#94A3B8] leading-relaxed">
+          <p>✗  Close your laptop → Agent dies instantly</p>
+          <p>✗  OAuth tokens expire → Re-login every session</p>
+          <p>✗  Context lost after 30-50 messages</p>
+          <p>✗  $200 burned in 2h — no cost guardrails</p>
+          <p>✗  780+ exposed instances — zero auth</p>
+          <p>✗  Any email can prompt-inject your agent</p>
+          <p>✗  3.7h/week re-explaining context to AI</p>
+        </div>
+      </div>
+      
+      <!-- WITH -->
+      <div class="bg-[#1A1A1A] rounded-2xl border-2 border-[#00FF4160] p-6 md:p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-accent font-mono text-xl font-bold">✓</span>
+          <span class="text-accent font-mono text-sm font-bold tracking-[2px]">WITH AGENTPUTER</span>
+        </div>
+        <div class="space-y-3 font-mono text-sm text-[#94A3B8] leading-relaxed">
+          <p>✓  24/7 cloud pod → Agent never dies</p>
+          <p>✓  Auth proxy → Tokens auto-refresh forever</p>
+          <p>✓  Persistent workspace → Picks up instantly</p>
+          <p>✓  Budget limits per session → No surprise bills</p>
+          <p>✓  Isolated VPS → Your data stays yours</p>
+          <p>✓  Sanitized I/O → Prompt injection mitigated</p>
+          <p>✓  Full audit trail → Every action logged</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,45 @@
+---
+// Antes vs Depois - Comparação lado a lado
+---
+
+<section class="relative py-20 bg-[#111111]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-20">
+    <span class="block text-xs font-mono font-semibold tracking-[2px] text-[#666666] mb-8">// A DIFERENÇA</span>
+    
+    <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+      <!-- WITHOUT -->
+      <div class="bg-[#1A1A1A] rounded-2xl border border-[#FF444440] p-6 md:p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-[#FF4444] font-mono text-xl font-bold">✗</span>
+          <span class="text-[#FF4444] font-mono text-sm font-bold tracking-[2px]">SEM O AGENTPUTER</span>
+        </div>
+        <div class="space-y-3 font-mono text-sm text-[#94A3B8] leading-relaxed">
+          <p>✗  Fechou o notebook → O agente morre instantaneamente</p>
+          <p>✗  Tokens OAuth expiram → Re-login a cada sessão</p>
+          <p>✗  Contexto perdido após 30-50 mensagens</p>
+          <p>✗  $200 gastos em 2h — sem controle de custos</p>
+          <p>✗  Mais de 780 instâncias expostas — sem autenticação</p>
+          <p>✗  Qualquer e-mail pode injetar prompts no seu agente</p>
+          <p>✗  3,7h/semana reexplicando o contexto para a IA</p>
+        </div>
+      </div>
+      
+      <!-- WITH -->
+      <div class="bg-[#1A1A1A] rounded-2xl border-2 border-[#00FF4160] p-6 md:p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-accent font-mono text-xl font-bold">✓</span>
+          <span class="text-accent font-mono text-sm font-bold tracking-[2px]">COM O AGENTPUTER</span>
+        </div>
+        <div class="space-y-3 font-mono text-sm text-[#94A3B8] leading-relaxed">
+          <p>✓  Pod na nuvem 24/7 → O agente nunca morre</p>
+          <p>✓  Proxy de autenticação → Tokens se renovam automaticamente para sempre</p>
+          <p>✓  Workspace persistente → Retoma o trabalho instantaneamente</p>
+          <p>✓  Limites de orçamento por sessão → Sem contas surpresa</p>
+          <p>✓  VPS isolado → Seus dados continuam seus</p>
+          <p>✓  E/S higienizada → Injeção de prompt mitigada</p>
+          <p>✓  Trilha de auditoria completa → Todas as ações registradas</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

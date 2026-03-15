@@ -1,10 +1,4 @@
 ---
-title: "OpenClawが最大の問題を解決。lossless-clawの実際の機能とは。"
-description: "OpenClawのデフォルトの圧縮機能は一度だけ実行され、すべてを要約し、オリジナルは破棄されます。エージェントの実行時間が
-readingTime: "18分"
-tags: ["OpenClaw", "lossless-claw", "Context Engine", "Memory", "Plugin", "Long-Running Agents", "LCM"]
-featured: true
----
 
 # OpenClawが最大の問題を解決。lossless-clawの真の機能とは。
 

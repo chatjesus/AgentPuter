@@ -1,0 +1,214 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Experience AgentPuter's AI agent in action. Chat with a real AI agent running on a cloud computer — no sign-up required."><meta name="theme-color" content="#0D0D0D"><meta name="generator" content="Astro v4.16.19"><meta name="robots" content="noindex, nofollow"><!-- Canonical URL --><link rel="canonical" href="https://www.agentputer.com/demo/"><!-- hreflang 多语言标签 --><link rel="alternate" hreflang="en" href="https://www.agentputer.com/demo/"><link rel="alternate" hreflang="zh-CN" href="https://www.agentputer.com/zh/demo/"><link rel="alternate" hreflang="ja" href="https://www.agentputer.com/ja/demo/"><link rel="alternate" hreflang="ko" href="https://www.agentputer.com/ko/demo/"><link rel="alternate" hreflang="es" href="https://www.agentputer.com/es/demo/"><link rel="alternate" hreflang="pt-BR" href="https://www.agentputer.com/pt-br/demo/"><link rel="alternate" hreflang="de" href="https://www.agentputer.com/de/demo/"><link rel="alternate" hreflang="fr" href="https://www.agentputer.com/fr/demo/"><link rel="alternate" hreflang="zh-TW" href="https://www.agentputer.com/zh-tw/demo/"><link rel="alternate" hreflang="x-default" href="https://www.agentputer.com/demo/"><!-- Keywords（各语言本地化） --><meta name="keywords" content="AgentPuter, Demo, AI Agent, Try Free, Live Demo"><!-- Open Graph --><meta property="og:title" content="Try AgentPuter - Live AI Agent Demo"><meta property="og:description" content="Experience AgentPuter's AI agent in action. Chat with a real AI agent running on a cloud computer — no sign-up required."><meta property="og:type" content="website"><meta property="og:url" content="https://www.agentputer.com/demo/"><meta property="og:image" content="https://www.agentputer.com/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:site_name" content="AgentPuter"><meta property="og:locale" content="en_US"><meta property="og:locale:alternate" content="zh_CN"><meta property="og:locale:alternate" content="ja_JP"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="es_ES"><meta property="og:locale:alternate" content="pt_BR"><meta property="og:locale:alternate" content="de_DE"><meta property="og:locale:alternate" content="fr_FR"><meta property="og:locale:alternate" content="zh_TW"><!-- Article-specific OG tags --><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@agentputer"><meta name="twitter:creator" content="@agentputer"><meta name="twitter:title" content="Try AgentPuter - Live AI Agent Demo"><meta name="twitter:description" content="Experience AgentPuter's AI agent in action. Chat with a real AI agent running on a cloud computer — no sign-up required."><meta name="twitter:image" content="https://www.agentputer.com/og-default.png"><!-- Favicon --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/favicon.svg"><!-- 字体：preconnect + LCP 关键字体直接预加载 --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- 直接预加载 LCP 关键字体文件（JetBrains Mono Bold Latin，H1 使用） --><link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8L6tTOlOVk6OThhvA.woff2"><!-- 字体 CSS 阻塞加载（配合 preconnect 延迟极低，确保 LCP 时字体可用） --><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"><!-- Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":"https://www.agentputer.com/favicon.svg","description":"Your AI Agent's dedicated cloud runtime. AgentPuter keeps your AI running 24/7.","sameAs":["https://twitter.com/agentputer","https://github.com/agentputer","https://discord.gg/agentputer"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"AgentPuter","url":"https://www.agentputer.com","inLanguage":"en","availableLanguage":[{"@type":"Language","name":"English","alternateName":"en"},{"@type":"Language","name":"中文","alternateName":"zh-CN"},{"@type":"Language","name":"繁體中文","alternateName":"zh-TW"},{"@type":"Language","name":"日本語","alternateName":"ja"},{"@type":"Language","name":"한국어","alternateName":"ko"},{"@type":"Language","name":"Español","alternateName":"es"},{"@type":"Language","name":"Português","alternateName":"pt-BR"},{"@type":"Language","name":"Deutsch","alternateName":"de"},{"@type":"Language","name":"Français","alternateName":"fr"}],"description":"Your AI Agent's dedicated cloud runtime."}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.agentputer.com/"},{"@type":"ListItem","position":2,"name":"Demo","item":"https://www.agentputer.com/demo/"}]}</script><!-- 页面专属结构化数据插槽 --><!-- 浏览器语言自动检测：移到 head 阻塞执行，避免渲染后跳转导致 CLS --><script>
+    (function() {
+      if (localStorage.getItem('agentputer-lang')) return;
+
+      var langMap = {
+        'zh': '/zh', 'zh-cn': '/zh', 'zh-tw': '/zh-tw', 'zh-hk': '/zh-tw',
+        'ja': '/ja', 'ko': '/ko',
+        'es': '/es', 'es-419': '/es',
+        'pt': '/pt-br', 'pt-br': '/pt-br',
+        'de': '/de', 'fr': '/fr',
+      };
+
+      var path = window.location.pathname;
+      if (/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)(\/|$)/.test(path)) {
+        var m = path.match(/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)/);
+        if (m) localStorage.setItem('agentputer-lang', m[1]);
+        return;
+      }
+
+      var langs = navigator.languages || [navigator.language];
+      for (var i = 0; i < langs.length; i++) {
+        var bl = langs[i].toLowerCase();
+        if (langMap[bl]) {
+          var target = path === '/' ? langMap[bl] + '/' : langMap[bl] + path;
+          localStorage.setItem('agentputer-lang', bl);
+          window.location.replace(target);
+          return;
+        }
+        var primary = bl.split('-')[0];
+        if (primary !== bl && langMap[primary]) {
+          var target2 = path === '/' ? langMap[primary] + '/' : langMap[primary] + path;
+          localStorage.setItem('agentputer-lang', primary);
+          window.location.replace(target2);
+          return;
+        }
+      }
+      localStorage.setItem('agentputer-lang', 'en');
+    })();
+    </script><!-- Google Analytics 4 --><script async src="https://www.googletagmanager.com/gtag/js?id=G-9M2T6GQJ0L"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9M2T6GQJ0L');
+    </script><title>Try AgentPuter - Live AI Agent Demo</title><link rel="stylesheet" href="/_astro/_slug_.DM3EUOA_.css">
+<link rel="stylesheet" href="/_astro/_slug_.CUcOCpHJ.css"></head> <body class="min-h-screen">   <div id="demo-app" class="fixed inset-0 bg-[#0a0a0f] flex flex-col"> <!-- Top Bar --> <header class="flex-shrink-0 h-14 border-b border-gray-800 flex items-center justify-between px-4 md:px-6 bg-[#0d0d14]/95 backdrop-blur-sm z-20"> <div class="flex items-center gap-3"> <a href="/" class="flex items-center gap-2 text-white hover:text-[#00e5a0] transition-colors"> <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"> <rect x="3" y="3" width="18" height="18" rx="3" fill="none" stroke="currentColor" stroke-width="2"></rect> <circle cx="9" cy="10" r="1.5" fill="currentColor"></circle> <circle cx="15" cy="10" r="1.5" fill="currentColor"></circle> <path d="M8 15c1.5 1.5 6.5 1.5 8 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path> </svg> <span class="font-mono font-bold text-sm">AgentPuter</span> </a> <span class="text-gray-600 text-xs font-mono hidden sm:inline">|</span> <span class="text-gray-400 text-xs font-mono hidden sm:inline">Live Demo</span> <span id="session-badge" class="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 bg-green-900/30 border border-green-800/50 rounded-full text-green-400 text-[10px] font-mono"> <span class="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span> <span>CONNECTED</span> </span> </div> <div class="flex items-center gap-3"> <!-- Message Counter --> <div id="msg-counter" class="flex items-center gap-1.5 px-3 py-1 bg-gray-900 border border-gray-700 rounded-full text-xs font-mono"> <span class="text-gray-400">Messages:</span> <span id="msg-count" class="text-[#00e5a0] font-bold">0</span> <span class="text-gray-600">/</span> <span class="text-gray-400">20</span> </div> <a href="https://app.agentputer.com/sign-up" class="inline-flex items-center gap-1.5 px-4 py-1.5 bg-[#00e5a0] text-[#0a0a0f] font-mono font-bold text-xs rounded hover:bg-[#00cc8e] transition-colors">
+GET FULL ACCESS
+</a> </div> </header> <!-- Main Content Area --> <div id="demo-content" class="flex-1 relative overflow-hidden"> <!-- Loading State --> <div id="loading-state" class="absolute inset-0 flex items-center justify-center bg-[#0a0a0f] z-10"> <div class="text-center max-w-md px-6"> <div class="w-16 h-16 mx-auto mb-6 border-2 border-[#00e5a0]/30 border-t-[#00e5a0] rounded-full animate-spin"></div> <h2 class="text-white font-mono text-lg mb-2">Connecting to AI Agent...</h2> <p class="text-gray-400 text-sm font-mono">Initializing your private demo session</p> </div> </div> <!-- Config Missing State --> <div id="config-missing" class="absolute inset-0 flex items-center justify-center bg-[#0a0a0f] z-10 hidden"> <div class="text-center max-w-lg px-6"> <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-yellow-900/30 border border-yellow-700/50 rounded-xl"> <svg class="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"></path> </svg> </div> <h2 class="text-white font-mono text-lg mb-2">Demo Not Configured</h2> <p class="text-gray-400 text-sm font-mono mb-4">Set the following environment variables:</p> <div class="bg-gray-900 border border-gray-700 rounded-lg p-4 text-left font-mono text-xs"> <p class="text-green-400 mb-1"># .env (Astro project root)</p> <p class="text-gray-300">PUBLIC_DEMO_VPS_IP=<span class="text-yellow-300">your_vps_ip</span></p> <p class="text-gray-300">PUBLIC_DEMO_GATEWAY_TOKEN=<span class="text-yellow-300">your_token</span></p> </div> </div> </div> <!-- WebChat iframe --> <iframe id="webchat-frame" class="w-full h-full border-0 hidden" sandbox="allow-scripts allow-same-origin allow-forms allow-popups" allow="clipboard-write"></iframe> </div> <!-- Message Limit Overlay --> <div id="limit-overlay" class="absolute inset-0 bg-[#0a0a0f]/90 backdrop-blur-sm flex items-center justify-center z-30 hidden"> <div class="text-center max-w-md px-6"> <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center bg-[#00e5a0]/10 border border-[#00e5a0]/30 rounded-2xl"> <svg class="w-10 h-10 text-[#00e5a0]" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path> </svg> </div> <h2 class="text-white font-mono text-xl mb-2">Demo Complete!</h2> <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+You've used all <span class="text-[#00e5a0] font-bold">20</span> demo messages.
+<br>Get your own AI agent that works 24/7 for just <span class="text-white font-bold">$29.99/mo</span>.
+</p> <div class="flex flex-col sm:flex-row items-center justify-center gap-3"> <a href="https://app.agentputer.com/sign-up" class="inline-flex items-center gap-2 px-6 py-3 bg-[#00e5a0] text-[#0a0a0f] font-mono font-bold text-sm rounded hover:bg-[#00cc8e] transition-colors">
+GET STARTED — $29.99/mo
+</a> <button id="reset-demo" class="inline-flex items-center gap-2 px-4 py-2.5 border border-gray-600 text-gray-300 font-mono text-xs rounded hover:border-gray-400 transition-colors">
+Reset Demo
+</button> </div> </div> </div> </div> <script>(function(){const DEMO_VPS_IP = "";
+const DEMO_GATEWAY_TOKEN = "";
+const MAX_MESSAGES = 20;
+
+    (function() {
+      const loadingEl = document.getElementById('loading-state');
+      const configMissing = document.getElementById('config-missing');
+      const iframe = document.getElementById('webchat-frame');
+      const limitOverlay = document.getElementById('limit-overlay');
+      const msgCountEl = document.getElementById('msg-count');
+      const msgCounter = document.getElementById('msg-counter');
+      const resetBtn = document.getElementById('reset-demo');
+
+      // Check config
+      if (!DEMO_VPS_IP || !DEMO_GATEWAY_TOKEN) {
+        loadingEl.classList.add('hidden');
+        configMissing.classList.remove('hidden');
+        return;
+      }
+
+      // Generate or retrieve session ID
+      function getSessionId() {
+        let sid = sessionStorage.getItem('agentputer_demo_session');
+        if (!sid) {
+          sid = 'demo_' + Date.now() + '_' + Math.random().toString(36).substring(2, 8);
+          sessionStorage.setItem('agentputer_demo_session', sid);
+        }
+        return sid;
+      }
+
+      // Message count tracking (persisted per session)
+      function getMsgCount() {
+        return parseInt(localStorage.getItem('agentputer_demo_msgs') || '0', 10);
+      }
+
+      function setMsgCount(n) {
+        localStorage.setItem('agentputer_demo_msgs', String(n));
+        msgCountEl.textContent = String(n);
+        // Color change as limit approaches
+        if (n >= MAX_MESSAGES) {
+          msgCounter.classList.add('border-red-500/50');
+          msgCountEl.classList.remove('text-[#00e5a0]');
+          msgCountEl.classList.add('text-red-400');
+        } else if (n >= MAX_MESSAGES * 0.7) {
+          msgCounter.classList.add('border-yellow-500/50');
+          msgCountEl.classList.remove('text-[#00e5a0]');
+          msgCountEl.classList.add('text-yellow-400');
+        }
+      }
+
+      // Initialize
+      const sessionId = getSessionId();
+      const currentCount = getMsgCount();
+      setMsgCount(currentCount);
+
+      // Build WebChat URL
+      const chatUrl = `http://${DEMO_VPS_IP}:18789/chat?token=${DEMO_GATEWAY_TOKEN}&session=${sessionId}`;
+
+      // Load iframe
+      iframe.src = chatUrl;
+      iframe.onload = function() {
+        setTimeout(() => {
+          loadingEl.classList.add('hidden');
+          iframe.classList.remove('hidden');
+        }, 500);
+      };
+
+      // Fallback: show iframe after 5s even if onload doesn't fire
+      setTimeout(() => {
+        loadingEl.classList.add('hidden');
+        iframe.classList.remove('hidden');
+      }, 5000);
+
+      // Monitor messages (poll-based since we can't directly intercept iframe messages)
+      // We use a MutationObserver on the iframe if same-origin, or a polling approach
+      // For cross-origin iframe, we track by listening for postMessage or use a timer
+      let lastCheckTime = Date.now();
+
+      // Simple approach: increment counter when user focuses on iframe and types
+      // Since we can't peek into cross-origin iframe, we use focus/blur as a proxy
+      let iframeFocused = false;
+
+      window.addEventListener('blur', () => {
+        if (document.activeElement === iframe) {
+          iframeFocused = true;
+        }
+      });
+
+      window.addEventListener('focus', () => {
+        if (iframeFocused) {
+          iframeFocused = false;
+        }
+      });
+
+      // Track Enter key presses when iframe is focused (approximation for sent messages)
+      // Since cross-origin prevents direct detection, we'll use a periodic focus-check approach
+      document.addEventListener('keydown', (e) => {
+        // This only works when our page has focus, not inside the iframe
+      });
+
+      // Alternative: poll method - detect iframe URL hash changes or use postMessage API
+      // For MVP, we rely on a "manual" increment: each time user returns focus from iframe,
+      // we assume a message was sent.
+      // 
+      // Better approach for production: inject a small JS snippet via OpenClaw config
+      // that posts message counts back to parent window.
+
+      // For now: use postMessage listener (OpenClaw WebChat may support this)
+      window.addEventListener('message', (event) => {
+        // Accept messages from the demo VPS
+        if (event.data && event.data.type === 'openclaw-message-sent') {
+          const newCount = getMsgCount() + 1;
+          setMsgCount(newCount);
+          if (newCount >= MAX_MESSAGES) {
+            showLimitOverlay();
+          }
+        }
+      });
+
+      // Fallback: Simple timer-based increment (every time iframe gains focus for > 3s, count +1)
+      let focusTimer = null;
+      const observer = new IntersectionObserver(() => {});
+
+      // Track iframe focus via blur events
+      setInterval(() => {
+        if (document.activeElement === iframe) {
+          if (!focusTimer) {
+            focusTimer = Date.now();
+          } else if (Date.now() - focusTimer > 8000) {
+            // User has been interacting with iframe for 8+ seconds
+            // Assume a message was sent
+            const newCount = getMsgCount() + 1;
+            setMsgCount(newCount);
+            focusTimer = Date.now(); // Reset timer
+            if (newCount >= MAX_MESSAGES) {
+              showLimitOverlay();
+            }
+          }
+        } else {
+          focusTimer = null;
+        }
+      }, 2000);
+
+      // Check if already at limit
+      if (currentCount >= MAX_MESSAGES) {
+        showLimitOverlay();
+      }
+
+      function showLimitOverlay() {
+        limitOverlay.classList.remove('hidden');
+      }
+
+      // Reset demo
+      resetBtn.addEventListener('click', () => {
+        localStorage.removeItem('agentputer_demo_msgs');
+        sessionStorage.removeItem('agentputer_demo_session');
+        window.location.reload();
+      });
+    })();
+  })();</script>  <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"db97590b14994206be9f2eaec90a9494","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

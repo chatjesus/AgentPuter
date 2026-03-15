@@ -1,9 +1,4 @@
 ---
-title: "Como Rodar o OpenClaw por Menos de $30/Mês (O Guia Completo de Custos)"
-description: "Um usuário gastou $254 em duas semanas. Federico Viticci atingiu $3.600
-tags: ["OpenClaw", "Otimização de Custos", "Roteamento de Modelos", "Ollama", "Orçamento", "Heartbeat", "lossless-claw"]
-featured: true
----
 
 # Como Executar o OpenClaw por Menos de $30/Mês (O Guia Completo de Custos)
 

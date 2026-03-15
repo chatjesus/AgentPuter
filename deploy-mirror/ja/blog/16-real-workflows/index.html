@@ -1,0 +1,468 @@
+<!DOCTYPE html><html lang="ja"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="チュートリアルでもデモでもありません。148件のコミュニティ返信、2つのRedditスレッド、85以上の分類済みユースケースから抽出した4つの構造的パターン。モーニングブリーフィングエージェント、10エージェントのMission Control、月90ドルから45ドルへのコスト最適化など。"><meta name="theme-color" content="#0D0D0D"><meta name="generator" content="Astro v4.16.19"><!-- Canonical URL --><link rel="canonical" href="https://www.agentputer.com/ja/blog/16-real-workflows/"><!-- hreflang 多语言标签 --><link rel="alternate" hreflang="en" href="https://www.agentputer.com/blog/16-real-workflows/"><link rel="alternate" hreflang="zh-CN" href="https://www.agentputer.com/zh/blog/16-real-workflows/"><link rel="alternate" hreflang="ja" href="https://www.agentputer.com/ja/blog/16-real-workflows/"><link rel="alternate" hreflang="ko" href="https://www.agentputer.com/ko/blog/16-real-workflows/"><link rel="alternate" hreflang="es" href="https://www.agentputer.com/es/blog/16-real-workflows/"><link rel="alternate" hreflang="pt-BR" href="https://www.agentputer.com/pt-br/blog/16-real-workflows/"><link rel="alternate" hreflang="de" href="https://www.agentputer.com/de/blog/16-real-workflows/"><link rel="alternate" hreflang="fr" href="https://www.agentputer.com/fr/blog/16-real-workflows/"><link rel="alternate" hreflang="zh-TW" href="https://www.agentputer.com/zh-tw/blog/16-real-workflows/"><link rel="alternate" hreflang="x-default" href="https://www.agentputer.com/blog/16-real-workflows/"><!-- Keywords（各语言本地化） --><meta name="keywords" content="OpenClaw, ワークフロー, リアルワールド, マルチエージェント, コミュニティ, ユースケース, 生産性"><!-- Open Graph --><meta property="og:title" content="OpenClawのリアルなワークフロー：85人以上のユーザーによる実際の構築事例 (2026年版) | AgentPuter ブログ"><meta property="og:description" content="チュートリアルでもデモでもありません。148件のコミュニティ返信、2つのRedditスレッド、85以上の分類済みユースケースから抽出した4つの構造的パターン。モーニングブリーフィングエージェント、10エージェントのMission Control、月90ドルから45ドルへのコスト最適化など。"><meta property="og:type" content="article"><meta property="og:url" content="https://www.agentputer.com/ja/blog/16-real-workflows/"><meta property="og:image" content="https://www.agentputer.com/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:site_name" content="AgentPuter"><meta property="og:locale" content="ja_JP"><meta property="og:locale:alternate" content="en_US"><meta property="og:locale:alternate" content="zh_CN"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="es_ES"><meta property="og:locale:alternate" content="pt_BR"><meta property="og:locale:alternate" content="de_DE"><meta property="og:locale:alternate" content="fr_FR"><meta property="og:locale:alternate" content="zh_TW"><!-- Article-specific OG tags --><meta property="article:published_time" content="2026-03-02"><meta property="article:author" content="AgentPuter Lab"><meta property="article:tag" content="OpenClaw"><meta property="article:tag" content="ワークフロー"><meta property="article:tag" content="リアルワールド"><meta property="article:tag" content="マルチエージェント"><meta property="article:tag" content="コミュニティ"><meta property="article:tag" content="ユースケース"><meta property="article:tag" content="生産性"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@agentputer"><meta name="twitter:creator" content="@agentputer"><meta name="twitter:title" content="OpenClawのリアルなワークフロー：85人以上のユーザーによる実際の構築事例 (2026年版) | AgentPuter ブログ"><meta name="twitter:description" content="チュートリアルでもデモでもありません。148件のコミュニティ返信、2つのRedditスレッド、85以上の分類済みユースケースから抽出した4つの構造的パターン。モーニングブリーフィングエージェント、10エージェントのMission Control、月90ドルから45ドルへのコスト最適化など。"><meta name="twitter:image" content="https://www.agentputer.com/og-default.png"><!-- Favicon --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/favicon.svg"><!-- 字体：preconnect + LCP 关键字体直接预加载 --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- 直接预加载 LCP 关键字体文件（JetBrains Mono Bold Latin，H1 使用） --><link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8L6tTOlOVk6OThhvA.woff2"><!-- 字体 CSS 阻塞加载（配合 preconnect 延迟极低，确保 LCP 时字体可用） --><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"><!-- Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":"https://www.agentputer.com/favicon.svg","description":"Your AI Agent's dedicated cloud runtime. AgentPuter keeps your AI running 24/7.","sameAs":["https://twitter.com/agentputer","https://github.com/agentputer","https://discord.gg/agentputer"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"AgentPuter","url":"https://www.agentputer.com","inLanguage":"ja","availableLanguage":[{"@type":"Language","name":"English","alternateName":"en"},{"@type":"Language","name":"中文","alternateName":"zh-CN"},{"@type":"Language","name":"繁體中文","alternateName":"zh-TW"},{"@type":"Language","name":"日本語","alternateName":"ja"},{"@type":"Language","name":"한국어","alternateName":"ko"},{"@type":"Language","name":"Español","alternateName":"es"},{"@type":"Language","name":"Português","alternateName":"pt-BR"},{"@type":"Language","name":"Deutsch","alternateName":"de"},{"@type":"Language","name":"Français","alternateName":"fr"}],"description":"Your AI Agent's dedicated cloud runtime."}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.agentputer.com/ja/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.agentputer.com/ja/blog/"},{"@type":"ListItem","position":3,"name":"16 real workflows","item":"https://www.agentputer.com/ja/blog/16-real-workflows/"}]}</script><!-- 页面专属结构化数据插槽 --><!-- 浏览器语言自动检测：移到 head 阻塞执行，避免渲染后跳转导致 CLS --><script>
+    (function() {
+      if (localStorage.getItem('agentputer-lang')) return;
+
+      var langMap = {
+        'zh': '/zh', 'zh-cn': '/zh', 'zh-tw': '/zh-tw', 'zh-hk': '/zh-tw',
+        'ja': '/ja', 'ko': '/ko',
+        'es': '/es', 'es-419': '/es',
+        'pt': '/pt-br', 'pt-br': '/pt-br',
+        'de': '/de', 'fr': '/fr',
+      };
+
+      var path = window.location.pathname;
+      if (/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)(\/|$)/.test(path)) {
+        var m = path.match(/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)/);
+        if (m) localStorage.setItem('agentputer-lang', m[1]);
+        return;
+      }
+
+      var langs = navigator.languages || [navigator.language];
+      for (var i = 0; i < langs.length; i++) {
+        var bl = langs[i].toLowerCase();
+        if (langMap[bl]) {
+          var target = path === '/' ? langMap[bl] + '/' : langMap[bl] + path;
+          localStorage.setItem('agentputer-lang', bl);
+          window.location.replace(target);
+          return;
+        }
+        var primary = bl.split('-')[0];
+        if (primary !== bl && langMap[primary]) {
+          var target2 = path === '/' ? langMap[primary] + '/' : langMap[primary] + path;
+          localStorage.setItem('agentputer-lang', primary);
+          window.location.replace(target2);
+          return;
+        }
+      }
+      localStorage.setItem('agentputer-lang', 'en');
+    })();
+    </script><!-- Google Analytics 4 --><script async src="https://www.googletagmanager.com/gtag/js?id=G-9M2T6GQJ0L"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9M2T6GQJ0L');
+    </script><title>OpenClawのリアルなワークフロー：85人以上のユーザーによる実際の構築事例 (2026年版) | AgentPuter ブログ</title><link rel="stylesheet" href="/_astro/_slug_.DM3EUOA_.css">
+<link rel="stylesheet" href="/_astro/_slug_.CUcOCpHJ.css">
+<link rel="stylesheet" href="/_astro/_slug_.CxhqtQFk.css"><script type="module" src="/_astro/hoisted.BCrxlVsq.js"></script></head> <body class="min-h-screen">   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"OpenClawのリアルなワークフロー：85人以上のユーザーによる実際の構築事例 (2026年版)","description":"チュートリアルでもデモでもありません。148件のコミュニティ返信、2つのRedditスレッド、85以上の分類済みユースケースから抽出した4つの構造的パターン。モーニングブリーフィングエージェント、10エージェントのMission Control、月90ドルから45ドルへのコスト最適化など。","datePublished":"2026-03-02","dateModified":"2026-03-02","inLanguage":"ja","author":{"@type":"Organization","name":"AgentPuter Lab","url":"https://www.agentputer.com"},"publisher":{"@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":{"@type":"ImageObject","url":"https://www.agentputer.com/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.agentputer.com/ja/blog/16-real-workflows/"},"keywords":"OpenClaw, ワークフロー, リアルワールド, マルチエージェント, コミュニティ, ユースケース, 生産性"}</script> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.agentputer.com/ja/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://www.agentputer.com/ja/blog/"},{"@type":"ListItem","position":3,"name":"OpenClawのリアルなワークフロー：85人以上のユーザーによる実際の構築事例 (2026年版)"}]}</script> <header class="fixed top-0 left-0 right-0 z-50 bg-dark-primary md:bg-dark-primary/95 md:backdrop-blur-lg border-b border-accent/20"> <nav class="max-w-7xl mx-auto px-6 lg:px-20 h-20 flex items-center justify-between"> <!-- Logo --> <a href="/ja/" class="flex items-center gap-2 group"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <!-- Desktop Navigation --> <div class="hidden md:flex items-center gap-8 font-mono"> <a href="/ja/features" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/機能
+</a> <a href="/tools" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/ツール
+</a> <a href="#pricing" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/料金
+</a> <a href="/ja/blog/" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/ブログ
+</a> <a href="/ja/docs" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/ドキュメント
+</a> <!-- Desktop 语言切换器 --><div class="lang-switcher relative"> <button class="lang-btn flex items-center gap-1.5 text-text-secondary hover:text-accent transition-colors text-sm font-mono cursor-pointer" aria-label="Switch language" aria-expanded="false"> <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <circle cx="12" cy="12" r="10" stroke-width="1.5"></circle> <path stroke-width="1.5" d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path> </svg> <span>JA</span> <svg class="w-3 h-3 opacity-40 transition-transform lang-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </button> <!-- 下拉菜单 --> <div class="lang-dropdown hidden absolute right-0 top-full mt-2 py-1 bg-[#1a1a1a] border border-[#333] rounded-lg shadow-xl min-w-[160px] z-[100]"> <a href="/blog/16-real-workflows/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="en"> <span>English</span> <span class="text-xs text-text-dark">EN</span> </a><a href="/zh/blog/16-real-workflows/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="zh"> <span>中文</span> <span class="text-xs text-text-dark">中文</span> </a><a href="/ja/blog/16-real-workflows/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-accent bg-accent/10" data-lang="ja"> <span>日本語</span> <span class="text-xs text-accent">JA</span> </a><a href="/ko/blog/16-real-workflows/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ko"> <span>한국어</span> <span class="text-xs text-text-dark">KO</span> </a><a href="/es/blog/16-real-workflows/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="es"> <span>Español</span> <span class="text-xs text-text-dark">ES</span> </a><a href="/pt-br/blog/16-real-workflows/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="pt-br"> <span>Português</span> <span class="text-xs text-text-dark">PT</span> </a><a href="/de/blog/16-real-workflows/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="de"> <span>Deutsch</span> <span class="text-xs text-text-dark">DE</span> </a><a href="/fr/blog/16-real-workflows/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="fr"> <span>Français</span> <span class="text-xs text-text-dark">FR</span> </a> </div> </div> <!-- Mobile 语言列表（平铺，不用下拉） --> <div class="lang-mobile hidden"> <div class="flex flex-wrap gap-2"> <a href="/blog/16-real-workflows/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="en"> English </a><a href="/zh/blog/16-real-workflows/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="zh"> 中文 </a><a href="/ja/blog/16-real-workflows/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-accent border-accent/40 bg-accent/10" data-lang="ja"> 日本語 </a><a href="/ko/blog/16-real-workflows/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ko"> 한국어 </a><a href="/es/blog/16-real-workflows/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="es"> Español </a><a href="/pt-br/blog/16-real-workflows/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="pt-br"> Português </a><a href="/de/blog/16-real-workflows/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="de"> Deutsch </a><a href="/fr/blog/16-real-workflows/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="fr"> Français </a> </div> </div>  <a href="https://app.agentputer.com/sign-up" class="text-sm py-2.5 px-6 bg-accent text-dark-primary font-bold rounded hover:bg-accent-dark transition-colors">
+[DEPLOY]
+</a> </div> <!-- Mobile Menu Button --> <button id="mobile-menu-btn-ja" class="md:hidden p-2 text-text-secondary hover:text-white" aria-label="メニューを開閉"> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </nav> <!-- Mobile Menu --> <div id="mobile-menu-ja" class="hidden md:hidden bg-dark-secondary border-t border-dark-tertiary"> <div class="px-6 py-4 space-y-4"> <a href="/ja/features" class="block hover:text-white transition-colors text-text-secondary">
+機能
+</a> <a href="/tools" class="block hover:text-white transition-colors text-text-secondary">
+ツール
+</a> <a href="#pricing" class="block hover:text-white transition-colors text-text-secondary">
+料金
+</a> <a href="/ja/blog/" class="block hover:text-white transition-colors text-text-secondary">
+ブログ
+</a> <a href="/ja/docs" class="block hover:text-white transition-colors text-text-secondary">
+ドキュメント
+</a> <div class="lang-mobile-wrapper"></div> <a href="https://app.agentputer.com/sign-up" class="btn-primary w-full justify-center text-sm py-3">
+利用開始
+</a> </div> </div> </header>  <main class="relative z-10 pt-28 pb-20"> <article class="max-w-4xl mx-auto px-6 lg:px-8"> <!-- パンくずリストナビゲーション --> <nav class="mb-8 font-mono text-sm"> <a href="/ja/" class="text-text-muted hover:text-accent transition-colors">~</a> <span class="text-text-dark mx-2">/</span> <a href="/ja/blog/" class="text-text-muted hover:text-accent transition-colors">ブログ</a> <span class="text-text-dark mx-2">/</span> <span class="text-accent">記事</span> </nav> <!-- 記事メタ情報ヘッダー --> <header class="mb-12"> <!-- タグ --> <div class="flex flex-wrap gap-2 mb-6"> <span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#OpenClaw </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#ワークフロー </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#リアルワールド </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#マルチエージェント </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#コミュニティ </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#ユースケース </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#生産性 </span> </div> <!-- タイトル --> <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6"> OpenClawのリアルなワークフロー：85人以上のユーザーによる実際の構築事例 (2026年版) </h1> <!-- 説明 --> <p class="text-lg text-text-secondary leading-relaxed mb-8"> チュートリアルでもデモでもありません。148件のコミュニティ返信、2つのRedditスレッド、85以上の分類済みユースケースから抽出した4つの構造的パターン。モーニングブリーフィングエージェント、10エージェントのMission Control、月90ドルから45ドルへのコスト最適化など。 </p> <!-- メタ情報行 --> <div class="flex flex-wrap items-center gap-6 text-sm font-mono text-text-muted border-t border-b border-accent/20 py-4"> <div class="flex items-center gap-2"> <span class="text-terminal-cyan">@</span> <span class="text-text-secondary">AgentPuter Lab</span> </div> <div class="flex items-center gap-2"> <span class="text-terminal-orange">$</span> <time datetime="2026-03-02" class="text-text-secondary">2026年3月2日</time> </div> <div class="flex items-center gap-2"> <span class="text-terminal-blue">~</span> <span class="text-text-secondary">読了時間 25 min</span> </div> </div> </header> <!-- 記事本文 --> <div class="prose prose-invert prose-terminal max-w-none">  <h1 id="openclaw実践ワークフロー85人以上のユーザーによる実際の構築事例-2026年版">OpenClaw実践ワークフロー：85人以上のユーザーによる実際の構築事例 (2026年版)</h1>
+<p>AgentPuter · 2026年3月 · 約25分 · #OpenClaw #ワークフロー #リアルワールド #マルチエージェント #コミュニティ
+先週は、OpenClawの設定ミスによって起こりうる問題、すなわちサプライチェーン攻撃、91%に達するプロンプトインジェクションの成功率、そして135,000もの公開インスタンスが被害に遭ったClawHavocインシデントについて
+以下は、3ヶ月間にわたるコミュニティのアウトプットから直接抽出したものです。具体的には、1つのツイートへの148件の返信、2つの活発なRedditのスレッド、85以上の分類済みユースケースをまとめたキュレーションデータベース
+目的はインスピレーションを得ることではなく、パターンを認識することです。あらゆるユースケースに共通して現れる、4つの構造的パターンがあります。それらを理解すれば、「OpenClawで何を作るべきか？」と問うのをやめ、「今あるこの問題には、どのパターン</p>
+<blockquote>
+<ul>
+<li><a href="https://www.reddit.com/r/LocalLLaMA/comments/1r3ro5h/">r/LocalLLaMA: OpenClawを3週間メインツールとして使ってみて</a> — Reddit</li>
+<li><a href="https://www.reddit.com/r/openclaw/comments/1r8lci1/">r/openclaw: 私のOpenClawは便利だ！</a> — Reddit</li>
+<li><a href="https://ohmyopenclaw.ai/blog/openclaw-productivity-automation-workflows-2026/">タブ切り替えを実際に不要にする、5つのOpenClaw生産性ワークフロー</a> — Oh My OpenClaw、2026年2月24日</li>
+<li><a href="https://www.serif.ai/openclaw">OpenClawのユースケース — 実際に人々が何に使っているか</a> — Serif.ai、2026年2月9日</li>
+<li><a href="https://www.tldl.io/blog/openclaw-use-cases-2026">OpenClawユースケース2026：25以上の実例</a> — TLDL、2026年2月23日</li>
+<li><a href="https://team400.ai/blog/2026-02-openclaw-production-enterprise">本番環境でOpenClawを実行する</a> — Team 400、2026年2月10日</li>
+</ul>
+</blockquote>
+<hr>
+<p>【イラスト 01-grahammann-article.png】
+<em>grahammann.net — 「見つけられたOpenClawの全ユースケース（85件以上）」、2026年2月13日。Lennyのツイートへの148件の返信とClawverseギャラリーに基づく。</em>
+6. <a href="#workflow-05">ワークフロー05：月額90ドルから45ドルへ</a>
+7. <a href="#workflow-06">ワークフロー06：デザインエージェンシーの月曜日の朝</a>
+8. <a href="#workflow-07">ワークフロー07：10エージェントのMission Control</a>
+9. <a href="#infra-stack">普遍的なインフラストラクチャスタック</a>
+10. <a href="#adoption-data">導入データが実際に示すこと</a>
+11. <a href="#enterprise">エンタープライズの現実チェック</a>
+12. <a href="#where-to-start">どこから始めるか</a>
+13. <a href="#appendix">付録：カテゴリー別85以上のユースケース</a></p>
+<hr>
+<h2 id="4つの大きなパターン-four-patterns">4つの大きなパターン {#four-patterns}</h2>
+<p>グラハム・マンは、人々がOpenClawで実際に何を構築しているかを尋ねたレニー・ラチツキーのツイートに対する148件の返信を精査しました。彼はまた、Clawverseコミュニティギャラリーやブランドン・ワンの
+<strong>常時稼働エージェント。</strong> OpenClawを本格的に活用するほとんどの人は、Mac Mini、安価なVPS、あるいはRaspberry Pi上で24時間365日、それを稼働させています。エージェントは、チャットアプリのように開
+<strong>インターフェースとしてのメッセージング。</strong> Telegramは15以上のユースケースで、WhatsAppは7以上で登場します。iMessageとDiscordも、それぞれ複数のセットアップで利用されています。一貫して選ばれているのは、新しいダッシュボードではなく、すでに利用しているメッセージ
+**夜間の作業。**最もよく見られるパターンは、寝る前にタスクを割り当て、朝起きると結果が出ている、というものです。初めて聞くと夢物語のように聞こえますが、何十人もの人々がこれを当たり前のこととして語っています。エージェントは
+**マルチエージェントチーム。**一部のパワーユーザーは、単一のモノリシックなエージェントではなく、共有データベースを介して連携する4〜10の特化したエージェントを運用しています。各エージェントには、定義された役割、ツール、そして限定されたコンテキストがあります。エージェントのスコープが適切に設定されていれば、連携のオーバーヘッドは予想よりも低くなります。</p>
+<p>これら4つのパターンは、4つの異なるアプローチというわけではありません。通常は同じセットアップです。常時稼働し、メッセージでアクセス可能で、夜間も実行され、特化したエージェントに組織化されています。</p>
+<hr>
+<h2 id="ワークフロー01モーニングブリーフィングエージェント-workflow-01">ワークフロー01：モーニングブリーフィングエージェント {#workflow-01}</h2>
+<p><strong>出典：</strong> 複数 — <a href="https://x.com/chrysb">@chrysb</a> via grahammann.net、[@mbogoroch18](https://
+仕組み：cronジョブが毎朝起動し、あなたのTelegram、WhatsApp、またはiMessageに構造化されたサマリーを送信します。サマリーの内容は、あなたが何を連携させたかによります。最小限のバージョンでは、その日のカレンダーイベントと、いくつかの未読メール
+あるユーザー（@chrysb）は、それを「Chief of Staff」（参謀長）エージェントと呼んでいます。毎朝、商談準備、テックニュース、会議のコンテキストをまとめたブリーフィングを配信します。その同じエージェントは、
+“jobs”: [
+{
+“schedule”: “0 7 * * 1-5”,
+“message”: “モーニングブリーフィングを生成してください：今日のカレンダーの予定、未読メールの上位3件、本日が締め切りのタスク。Telegram用にフォーマットし、400語未満にしてください。”,
+“channel”: “telegram”
+}
+]
+}
+}</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>これを単なるcronジョブ以上のものにしているのが、SOUL.mdです。SOUL.mdに恒久的な指示を保存しているユーザーは、自身の役割や好みに合わせて調整されたブリーフィングを受け取ります。それは一般的な要約ではなく、あなたがインバウンド</span></span>
+<span class="line"><span>**なぜうまくいくのか：** あなたは、毎朝5つのアプリからの入力を処理するハブである必要がなくなります。集約はエージェントが行い、あなたは意思決定を下すだけです。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Serif.aiはこれを「毎日を有利に始める」こと</span></span>
+<span class="line"><span>> — [@eouaooo](https://x.com/eouaooo)、grahammann.netより</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>## ワークフロー02：マルチエージェント・コンテンツ・パイプライン {#workflow-02}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**ソース:** [r/LocalLLaMAのスレッド](https://www.reddit.com/r/LocalLLaMA/comments/1r3ro5h/3_weeks_with_openclaw_as_daily_driver_what_worked/) — AWS上でOpenClawをデイリードライバーとして3週間使用</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>このケースでは実際の数値が示されており、これは詳細に引用する価値があるほど珍しいことです。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>セットアップ：AWS上でClaude APIを使用して実行される、5つの独立したエージェント。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>| エージェント | 役割 |</span></span>
+<span class="line"><span>|---|---|</span></span>
+<span class="line"><span>| ライター | リサーチ結果に基づき、最初のドラフトを作成 |</span></span>
+<span class="line"><span>| エディター | 100点満点の品質ルーブリックを適用し、ドラフトを却下または合格させる |</span></span>
+<span class="line"><span>| リサーチャー | 情報源を収集し、主張をファクトチェックし、ライターに引き渡す |</span></span>
+<span class="line"><span>| コーダー | あらゆる自動化タスク、スクリプト生成を担当 |</span></span>
+<span class="line"><span>| パイプラインマネージャー | シーケンスを調整し、キューを管理 |</span></span>
+<span class="line"><span>3週間のアウトプット：約30のドラフトを生成。却下率：約40%。この40%という数字が重要です。これは、エディターエージェントが実際に機能していることを意味するからです。何も却下しない品質ゲートは、</span></span>
+<span class="line"><span>この点で示唆に富むのが、コストの内訳です。Claude Haikuは、自動化されたタスクの約80%（ルーティングの決定、短い分類コール、フォーマットのパス）を処理しました。これらのタスクにおいて、HaikuはSonnet</span></span>
+<span class="line"><span>        "params": { "context1m": false }</span></span>
+<span class="line"><span>      },</span></span>
+<span class="line"><span>      {</span></span>
+<span class="line"><span>        "id": "researcher",</span></span>
+<span class="line"><span>        "model": "claude-sonnet-4.6"</span></span>
+<span class="line"><span>      },</span></span>
+<span class="line"><span>      {</span></span>
+<span class="line"><span>        "id": "writer",</span></span>
+<span class="line"><span>        "model": "claude-sonnet-4.6"</span></span>
+<span class="line"><span>      },</span></span>
+<span class="line"><span>      {</span></span>
+<span class="line"><span>        "id": "editor",</span></span>
+<span class="line"><span>        "model": "claude-haiku-4.5",</span></span>
+<span class="line"><span>        "params": { "context1m": false }</span></span>
+<span class="line"><span>      },</span></span>
+<span class="line"><span>      {</span></span>
+<span class="line"><span>        "id": "coder",</span></span>
+<span class="line"><span>        "model": "claude-haiku-4.5"</span></span>
+<span class="line"><span>      }</span></span>
+<span class="line"><span>    ]</span></span>
+<span class="line"><span>  }</span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>彼らが遭遇した2つの具体的なバグとその修正方法：
+<strong>バグ1：cronジョブがコンテキストの変更を無視する問題。</strong> パイプラインマネージャーは、前回の実行の出力が更新されたかどうかを確認せずに、新しい実行を開始していました。修正：<code>DECISIONS.md</code>を使用した事前チェックを追加しました。これは、どのような決定が下され、パイプラインがどのような状態にあるかを記録するファイルです。cronジョブは、何かを実行する前にDECISIONS.mdを読み込みます。</p>
+<h2 id="パイプラインの状態">パイプラインの状態</h2>
+<p><strong>最終実行日時：</strong> 2026-02-14 06:45 UTC
+<strong>キューのステータス：</strong> 編集者レビュー待ちのドラフト3件
+<strong>キューが空になるまで新しいリサーチャーサイクルを開始しないでください</strong>
+<strong>理由:</strong> エディターはAnthropicでレート制限されています。30分間バックオフします。
+**バグ2：内部の推論がユーザーメッセージに漏洩する問題。**パイプラインがメインエージェントを通じて要約を送り返した際、サブエージェントからの推論トレースが出力に現れていました。修正：最終的な出力ステップではないすべてのサブエージェントに <code>deliver:false</code> を設定。このフラグは、サブエージェントに作業を完了させて結果をオーケストレーターに返すよう指示しますが、ユーザー向けのメッセージをフォーマットしたり「配信 (deliver)」したりはしないようにします。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "agents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "list"</span><span style="color:#E1E4E8">: [</span></span>
+<span class="line"><span style="color:#E1E4E8">      {</span></span>
+<span class="line"><span style="color:#79B8FF">        "id"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"researcher"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">        "deliver"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">false</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    ]</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>パイプライン全体は現在、週に3回、夜間に実行されています。朝のレビューは約15分で、Notionのキューをスキャンし、Editorの決定
+1台のMacBook Pro上で実行される4つのエージェント。それぞれが異なる重点分野を持っています：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>役割</th><th>名前</th><th>タスク</th></tr></thead><tbody><tr><td>リサーチ</td><td>Tib</td><td>15分ごとにB2B / B2C / AI2</td></tr><tr><td>このセットアップが構造的に興味深い点は、各エージェントが独自のSOUL.mdとメモリローテーションログを持っていることです。メモリローテーションログは、エージェントがすでに調査した内容を記録するファイルで、これにより実行をまたいで作業を繰り返すことがなくなります</td><td></td><td></td></tr><tr><td>SOUL.mdファイルは、各エージェントに明確な個性と役割の境界を与えます。TibのSOUL.mdでは、既存の事柄を報告するだけでなく、新たな視点を提示し、隣接機会を特定すべきだと規定されています。GusのSOUL.</td><td></td><td></td></tr><tr><td>15分スケジュールでアイデアバケットをローテーションしてください。</td><td></td><td></td></tr><tr><td>あなたの仕事は、既存のものを要約することではなく、<em>斬新な</em>切り口を浮かび上がらせることです。</td><td></td><td></td></tr><tr><td>過去72時間以内にMEMORY_ROTATION.mdに記録された内容は、一切繰り返さないで</td><td></td><td></td></tr><tr><td>200ワードのTelegramサマリーのフォーマット：最初に[SIGNAL]項目、次に[NOISE]、そしていずれかのエージェントがセキュリティ問題をフラグした場合に[ALERT]を記載します。</td><td></td><td></td></tr><tr><td>エージェント間のコンフリクトは明示的に表面</td><td></td><td></td></tr><tr><td>**コストに関する注記：**このセットアップでは、4つのエージェントすべてのベースモデルとしてMiniMax 2.5を使用します。Tibだけで、15分間隔で24時間あたり約96回のクエリサイクルを実行します。</td><td></td><td></td></tr></tbody></table>
+<hr>
+<h2 id="ワークフロー">ワークフロー</h2>
+<p>これは、Web開発エージェンシーにおける、Telegramのみで完結するクライアントへの納品パイプライン全体を示したものです。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>クライアントが変更リクエストを送信</span></span>
+<span class="line"><span>    ↓</span></span>
+<span class="line"><span>クライアントの音声メッセージ → [テキストに書き起こし]</span></span>
+<span class="line"><span>    ↓</span></span>
+<span class="line"><span>Open</span></span>
+<span class="line"><span>サポートメールも同じシステムを経由します。受信したサポートメールは、自動的にフォーマット済みの変更レポートに変換され、キューのタスクとなります。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>オペレーターのセットアップ：コーディングサブエージェントは、デプロイサーバーへのSSHアクセス権、GitHubリポジトリへの</span></span>
+<span class="line"><span>同様のものを構築したもう一人の人物として、@jlehman_氏は、Pagedropという製品全体を、アイデアからデプロイまで、週末にかけてTelegramのメッセージを通じて構築したと述べています。「アーキテクチャの構築、ドメインの購入、インフラのセットアップ、ランディングページ、GitHub OAuth、決済機能。これらすべてを、普通の週末の活動をしながらテキストメッセージで行いました。」</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>```json</span></span>
+<span class="line"><span>{</span></span>
+<span class="line"><span>  "channels": {</span></span>
+<span class="line"><span>    "list": [</span></span>
+<span class="line"><span>      {</span></span>
+<span class="line"><span>        "id": "client-acme",</span></span>
+<span class="line"><span>        "type": "telegram",</span></span>
+<span class="line"><span>        "params": {</span></span>
+<span class="line"><span>          "project": "acme-website",</span></span>
+<span class="line"><span>          "codebase": "/repos/acme",</span></span>
+<span class="line"><span>          "deployBranch": "main",</span></span>
+<span class="line"><span>          "stagingUrl": "https://staging.acme.example.com"</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>      }</span></span>
+<span class="line"><span>    ]</span></span>
+<span class="line"><span>  },</span></span>
+<span class="line"><span>  "agents": {</span></span>
+<span class="line"><span>    "list": [</span></span>
+<span class="line"><span>      {</span></span>
+<span class="line"><span>        "id": "web-coder",</span></span>
+<span class="line"><span>        "model": "claude-sonnet-4.6",</span></span>
+<span class="line"><span>        "skills": ["git", "ssh", "browser"],</span></span>
+<span class="line"><span>        "runTimeoutSeconds": 600</span></span>
+<span class="line"><span>      }</span></span>
+<span class="line"><span>    ]</span></span>
+<span class="line"><span>  }</span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span>**ここで実際に時間を節約しているのは、**コーディング自体の自動化ではなく、進捗報告のやり取りをなくすことです。「リクエスト、ビルド、プレビュー、承認、デプロイ」という一連のサイクル全体が、Telegram内で完結します。メールのやり取り</span></span>
+<span class="line"><span>開始時の状態：月額約90ドル。Sonnetを必要としないタスクを含め、ほとんどすべての処理にSonnetの呼び出しが使われていました。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**介入1：ブートストラップコンテキストの削減。**</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>エージェントのブートストラップコンテキスト（</span></span>
+<span class="line"><span>監査後: 27KB / 6,472トークンに削減。**これは、毎回のセッション開始時に課金されるトークンが69.8%削減されたということです。**複数のcronジョブによって1日に何度も起動されるエージェントでは、この効果は急速に積み重なっていきます。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>```bash</span></span>
+<span class="line"><span># 起動時に実際に読み込まれている内容を確認</span></span>
+<span class="line"><span>openclaw doctor --verbose</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># すべてのメモリファイルをサイズ順にリスト表示</span></span>
+<span class="line"><span>ls -lh ~/.openclaw/memory/</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 読み込まれている内容を確認</span></span>
+<span class="line"><span>cat ~/.openclaw/memory/USER.md</span></span>
+<span class="line"><span>cat ~/.openclaw/SOUL.md</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>USER.mdまたはSOUL.mdにある、3ヶ月前に完了したプロジェクトに関する記述は、トークンを消費します。ブートストラップ時に読み込まれない別のファイルにアーカイブしてください。</p>
+<p><strong>介入2：定型タスクへのHaikuの利用</strong></p>
+<ul>
+<li>メッセージの
+“modelByChannel”: {
+“telegram”: “claude-haiku-4.5”,
+“cron-router”: “claude-haiku-4.5”,
+“analysis”: “claude-sonnet-4.6”
+メモリ操作は同期エンベディングコールを使用していました。これを、コストが50%低く、オフピーク時に実行されるBatch APIに切り替えました。レイテンシーのトレードオフとして、バッチ処理の結果は24時間以内に返ってきます。同期を必要と
+メタな教訓：予期せぬOpenClawの請求のほとんどは、2つの原因から生じます。不要なトークンを読み込む肥大化したブートストラップコンテキスト。そして、高い能力を必要としないタスクに高性能モデルを使用することです。
+<em>Oh My OpenClaw — 「タブ切り替えが不要になる、OpenClawの生産性ワークフロー5選」、2026年2月24日。導入前後の時間節約効果を測定し、文書化された5つのワークフローの組み合わせ。</em></li>
+</ul>
+<p>**出典
+<strong>以前：</strong> 5つのアプリ、5回のログイン。業務開始までの合計時間：30分。</p>
+<p><strong>以後：</strong> Telegramを開き、「Monday briefing」と入力。エージェントがClickUpのタスク、カレンダーの予定、未読メール、Slackのメン</p>
+<blockquote>
+<p>「金曜日にAcmeのロゴ修正のメールが来ました。水曜日を期限に、Tomoko担当でClickUpタスクを作成してください。」</p>
+</blockquote>
+<p>同じチームは、クライアント報告のワークフローも文書化しました。以前は毎週金曜日、3つのクライアントレポート
+<strong>基本原則:</strong> 5つではなく、2つのスキルから始めましょう。ClickUpとcal-comをインストールします。1週間、それらを一緒に使うことに慣れてください。その後、メールを追加します。最高のワークフローは、最初に完璧なシステムを設計することから生まれるのではなく、実際の使用パターンから生まれるのです。</p>
+<hr>
+<h2 id="ワークフロー0710エージェントのmission-control-workflow-07">ワークフロー07：10エージェントのMission Control {#workflow-07}</h2>
+<p><strong>出典:</strong> <a href="https://x.com/pbteja1998">@pbteja1998</a> via <a href="https://grahammann.net/blog/every-openclaw-use-case">grahammann.net</a> (クレジット: <a href="https://x.com/nQaze">@nQaze</a>)
+10人のエージェント。1つの共有Convexデータベース。15分間のハートビートサイクル。毎日のスタンドアップ。エージェント間の@メンション通知。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>エージェント</th><th>役割</th></tr></thead><tbody><tr><td>スクワッドリード</td><td>オーケ</td></tr><tr><td>ソーシャルメディアマネージャー</td><td>各プラットフォームでの投稿スケジュール管理と投稿</td></tr><tr><td>デザイナー</td><td>アセットの生成、Figmaとの連携</td></tr><tr><td>Eメールマーケティング</td><td>シーケンスとキャンペーンパフォーマンスの管理</td></tr><tr><td>開発者</td><td>コーディングタスク、PR</td></tr><tr><td><strong>この設計から得られる実践的な教訓：</strong></td><td></td></tr></tbody></table>
+<p><strong>1. 共有データベースは共有メモリファイルに勝る。</strong> エージェントが連携する必要がある場合、メモリファイルを通じてメッセージを渡すよりも、構造化されたデータベース（Convex、Supabase、スキーマを持つSQLite
+<strong>2. ハートビートはサイレントな障害を表面化させる。</strong> ハートビートの更新を停止したエージェントは、スタックしているか、あるいは機能停止しています。ハートビートがなければ、下流のプロセスで問題が発生するまで、そのことに気づくことは
+<strong>4. 人間との接点は1つ。</strong> オペレーターの役割：Slackでの朝のスタンドアップを確認し、Telegramのメンションログをチェックし、Squad Leadがエスカレーションした案件に対応します。10人のエージェントを直接管理するのではなく、1
+Discord   (5回以上言及、マルチエージェント設定)
+iMessage  (3回以上言及、個人/家族用)</p>
+<p>コンピューティング (常時稼働)
+Mac Mini   — 最も一般的なホームサーバーの選択肢
+Mac Studio — 高負荷ワークロード、ローカルでの推論
+Raspberry Pi — 軽量、低電力タスク
+Railway/Render VPS — 最安のcron実行環境
+AWS/GCP — スケールやコンプライアンスが必要な場合</p>
+<p>メモリ / 状態
+GitHub     — 設定、SOUL.md、DECISIONS.md
+Notion     — タスクキュー、長文のコンテキスト
+Obsidian   — 個人的な知識、メモ
+SQLite     — 構造化されたエージェントの連携
+Supabase   — マルチエージェント共有データベース</p>
+<p>特化型コンポーネント（ユースケース別）
+Twilio     — 実際の電話通話（ElevenLabsの音声）
+SeatsAero  — 特典航空券の検索
+Kalshi     — 予測市場での取引実行
+moomoo     — 取引API
+Home Assistant — スマートホームの制御
+Garmin Connect — フィットネスデータ
+「設定のためのGitHub」パターンは特筆に値します。何人かのパワーユーザーは、OpenClawの設定全体をプライベートなGitリポジトリでバージョン管理しています。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#79B8FF">cd</span><span style="color:#9ECBFF"> ~/.openclaw</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> init</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> add</span><span style="color:#9ECBFF"> .</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> commit</span><span style="color:#79B8FF"> -m</span><span style="color:#9ECBFF"> "OpenClawの初期設定 — 2026年2月"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># 設定変更後</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> add</span><span style="color:#79B8FF"> -A</span><span style="color:#E1E4E8"> &#x26;&#x26; </span><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> commit</span><span style="color:#79B8FF"> -m</span><span style="color:#9ECBFF"> "ブートストラップコンテキストの絞り込み: 古いプロジェクトファイルを削除"</span></span>
+<span class="line"></span></code></pre>
+<p>これにより、アップデートで問題が発生した際のロールバック、予期せぬ挙動の変化があった際の差分履歴、新しいマシンへの簡単なデプロイが可能になります。</p>
+<hr>
+<h2 id="導入データが実際に示すこと-adoption-data">導入データが実際に示すこと {#adoption-data}</h2>
+<p>【図 05-tldl-use
+| リサーチ＆データ | 28% | 4.3/5 |
+| メール管理 | 20% | 4.0/5 |
+| コーディング支援 | 15% | 4.8/5 |</p>
+<p>**コーディングは満足度が最も高いものの、導入率は最も低くなっています。**コーディングのワークフローを設定した開発者はそれに非常に満足していますが、OpenClawを設定するほとんどのユーザーは、そこから着手するわけではありません。
+<strong>コンテンツの自動化が最も広く採用されています。</strong> 価値がすぐに目に見えるため、ほとんどの人がここから始めます。cronジョブを実行すれば、Telegramで要約を受け取ることができ、20分後にはそれが機能していることを確認できます。</p>
+<p>この調査では、一般的な
+<em>Team 400 — 「OpenClawの本番運用」、2026年2月10日。マネージドサービスプロバイダーによる企業向け導入の教訓。</em></p>
+<p>オーストラリア企業向けにOpenClawを運用するマネージドサービス企業、Team 400：</p>
+<blockquote>
+<p>「デモは10分で終わります。セキュリティレビューを通過するには10週間かかります。ほとんどのOpenClawプロジェクトは、その間のどこかで頓挫します。」
+**デモと本番のギャップは現実に存在します。**入門ガイドではセットアップについて説明していますが、以下の点については触れていません：インストール前に誰がスキルのコードをレビューするのか、LLMプロバイダーで障害が発生した場合にどうなるのか、認証
+**ステージング環境が必要です。**OpenClawのアップデートはすべて、まずステージングに適用されるべきです。彼らは1年間で3回もOpenClawのアップデートをロールバックする羽目になりましたが、ロールバック手順が事前に文書化・テストされていたため、いずれも15分未満で完了しています。</p>
+</blockquote>
+<p><strong>大規模に運用する場合、コスト追跡は不可欠です。</strong>「組織のコストが月数百ドルから1週間で数千ドルに跳ね上がるのを私たちは見てきました。通常、その原因は、誰かがユーザーリクエストごとに複数のLLMコールを行うスキルをインストールしたことです。」
+**運用上の負担：**定常状態において、本番環境でOpenClawを運用するには、1人あたり週に4〜8時間かかります。</p>
+<p>個人利用や小規模なチームの場合、このオーバーヘッドのほとんどは当てはまりません。しかし、顧客データや財務情報を
+<em>Serif.ai — 「OpenClawの活用事例：実際の使われ方」、2026年2月9日。メール、カレンダー、リサーチ、生産性、事業運営にわたる25の記録された活用事例。</em></p>
+<p>すべてのパワーユーザーのセットアップ
+<strong>1週目：メモリファイルを追加する。</strong> <code>triple-memory-skill</code>または手動のメモリファイルを使い始めて、エージェントに繰り返し伝えることを保存しましょう。これにより、エージェントは毎セッションまっさらな状態から始めるのではなく、あなたのことを知っているように感じられる
+**2ヶ月目：初のマルチエージェント設定。**特定の役割を持つサブエージェントを1つ追加します。夜間に実行されるリサーチエージェントです。スコープは限定的にしてください。</p>
+<p>**3ヶ月目以降：夜間作業。**この時点までには、エ</p>
+<blockquote>
+<p>「私には、自分のプロジェクトを把握し、私たちの会話を記憶し、私が眠っている間に有益な仕事をしてくれるエージェントがいます。それだけで、開発を続けるには十分です。」</p>
+</blockquote>
+<p>そこから始め、そこから構築していきましょう。</p>
+<hr>
+<h2 id="クイ">クイ</h2>
+<p>| <a href="https://www.reddit.com/r/openclaw/">r/openclaw</a> | コミュニティ | 実際のセットアップ、トラブルシューティング、仲間からのフィードバック |
+| <a href="https://www.reddit.com/r/LocalLLaMA/">r/LocalLLaMA</a> | 技術コミュニティ | パワーユーザーのセットアップ、コスト最適化 |
+| <a href="https://ohmyopenclaw.ai/">ohmyopenclaw.ai</a> | スキルディレクトリ | スキルの検索と評価、ワークフローガイド |
+| <a href="https://www.serif.ai/openclaw">serif.ai/openclaw</a> | ユースケースディレクトリ | 業界特化のワークフロー |
+| <a href="https://www.tldl.io/blog/openclaw-use-cases-2026">tldl.io/blog/openclaw-use-cases-2026</a> | 調査データ | 導入統計、カテゴリ別満足度 |
+| <a href="https://team400.ai/blog/2026-02-openclaw-production-enterprise">team400.ai/blog</a> | エンタープライズガイド | 本番環境へのデプロイ、セキュリティ、運用 |
+| <a href="https://github.com/hesamsheikh/awesome-openclaw-usecases">github.com/hesamsheikh/awesome-openclaw-usecases</a> | GitHub | コミュニティがキュレーションした生のリスト |</p>
+<hr>
+<h2 id="付録カテゴリー別85以上のユースケース-appendix">付録：カテゴリー別85以上のユースケース {#appendix}</h2>
+<p><em><a href="https://grahammann.net/blog/every-openclaw-use-case">grahammann.net</a> より要約。完全な帰属表示は元の投稿に記載。</em></p>
+<p>**
+リード獲得とICPへのアウトリーチ · 自動入札ワークフロー · 営業電話前の見込み客調査 · 大企業アカウントとの会議予約 · 24時間365日の営業アウトリーチチーム · 理学療法会社の経営管理 · 非営利団体の運営 · 4つの代理店ワークスペースの管理 · CRM移行（1,500件の連絡先） · Telegram経由でのクライアントウェブサイト管理 · eBayの運営管理 · 29の小売店にわたる製品インテリジェンス（40TBのデータ）</p>
+<p><strong>コーディングと開発 (11)</strong>
+週末にTelegram経由で製品を構築 (Pagedrop) · Redditのトレンドデータから一晩で自律的にアプリを構築 · App Store Connectの自動化を備えたiOS/Webアプリオーケストレーター · Raspberry Pi上でSSH経由のハードウェアプロジェクト · カスタムERPモジュールパイプライン · 一晩での機能開発 · 毎晩のサイドプロジェクトのコーディング · ソロ創業者向けのスクラムマスターエージェント · 3週間でのiOSランニングコーチアプリ開発 · Kubernetes内でSlack経由のゲームDevOps · ログの追跡とロールバック提案を伴う本番環境のインシデント管理
+<strong>ソーシャルメディア・コンテンツ (11)</strong>
+4つのXアカウントのマルチプラットフォーム管理・4人のエージェントチームを監督し、毎日のAIニュースブリーフィングを行うCOOエージェント・Everyの各出版物に記事を売り込む3人のエージェント・Reddit/TikTok/Discord/Xへの自動投稿・Xフィードのスキャンと自動返信・あなたに代わってXで議論するエージェント・1日49件の返信を行う自律的なXマーケティング・独自の速記法で連携する2人のエージェント・インドネシア語のスラングによるAIニュースポータル・編集者の役割を持つAIニュースルーム・4,700行のコードベースの一晩でのレビューと13,000語の分析
+<strong>マルチエージェントチーム (10)</strong>
+10エージェントのMission Control（Convexデータベース、15分間隔のハートビート） · 他のエージェントを管理するエージェントチーム（オープンソース化） · 50以上のcronジョブを実行する8つの特化型エージェント · 4エージェントのOps/クリエーター/キュレーター/ポリッシャーチーム · 自己ホスト型のMatrixルーム内にいる4つのエージェント · ヘルス、トレーディング、クリエイティブエージェントを含むフリートダッシュボード · 自律的にビジネスを開始させるためにエージェントに1,000ドルを供与 · ほぼエージェントが運営するSaaS（月間収益550ドル） · 自身のXアカウントとAPIコスト予算を持つエージェント · 30日間チャレンジ：エージェントが自力で収益を上げる
+<strong>調査・分析 (7)</strong>
+Linear → Obsidianでの夜間調査レポート · WhatsApp経由での会議準備 · コンテンツのインデックス化と文脈に応じた呼び出し · プロジェクトアイデアのための夜間ウェブ調査 · オプションフローデータの分析（6ヶ月分、SQLite +
+グループ投票による木曜日の夕食コーディネーター · iMessageのグループチャット経由での夕食の予約 · 音声コマンドによる子供のMinecraftサーバー管理 · エージェントがコーチに電話をかける子供のスケジュール管理 · 家族の食事計画＋月1回の人間関係コーチング · Discord経由で飛行機の中から結婚式の計画 · AlexaとiMessage経由での朝の家族へのお知らせ</p>
+<p><strong>デイリーブリーフィング (6)</strong>
+夜間の自己省察機能を備えたAI参謀長 · 顧客との対話ポイントを含む日次営業ブリーフィング · 負荷分散の提案を行う週次ビジュアルカレンダー · 受信トレイのトリアージ + 14件の不適切な会議招待
+株価と暗号資産の価格アラート・Nvidia Jetson上での暗号資産とオプションのボット・Kalshi予測市場の自動執行・メール経費追跡（14GBをインデックス済み）・支出追跡と純資産監視</p>
+<p><strong>健康＆フィットネス (4)</strong>
+JSONでの血糖値＋服薬追跡とレポート生成・Garminウォッチでのワークアウト後のアクティビティフィードバック・5年分のEightSleepデータ分析・血液/遺伝子/精液検査に基づく包括的な健康計画</p>
+<p><strong>旅行 (3)</strong>
+毎日の価格をcronでチェックする、航空券＋Airbnbの旅程ビルダー・Telegram経由のファーストクラス特典航空券ファインダー（SeatsAero API）・詳細な家族情報を記載したイベントのカレンダー自動登録</p>
+<p>**ノート＆ナレッジ管理 (4
+Telegram経由でのHome Assistantのフルコントロール（ガレージ、プロジェクター、照明、Vestaboard） · 時間帯に応じて表示が変わるSamsung TVのコンテキストダッシュボード · エージェントの動作状況を確認できるDynamic Islandステータスアプリ（オープンソース）</p>
+<p><strong>クリエイティブ＆ファン (5)</strong>
+1対1のミームバトルアリーナ（一晩で100回以上のバトルがあり、APIのしきい値アラートが作動） · エージェント間の互換性評価によるAIマッチメイキング · エージェントが歩き回り、取引を行う仮想世界 · ビルドとコーディング用の犬ペルソナアシスタント · 独自のSunoアカウントを持つ音楽理論学習エージェント</p>
+<p><strong>メール＆コミュニケーション (4)</strong>
+設定したトーンでのWhatsApp自動返信 · Supabase + Resendを利用した2,400人のユーザーへのメールキャンペーン管理 · 実際の電話によるレストラン予約（ElevenLabs + Twilio） · 毎日午前3時45分にいとこへビリー・アイ</p>  </div> <!-- ブログ一覧に戻る --> <footer class="mt-16 pt-8 border-t border-accent/20"> <a href="/ja/blog/" class="inline-flex items-center gap-2 font-mono text-sm text-text-muted hover:text-accent transition-colors group"> <span class="group-hover:-translate-x-1 transition-transform">&lt;-</span> <span>すべての記事に戻る</span> </a> </footer> </article> </main> <footer class="bg-dark-secondary border-t border-accent/20"> <div class="max-w-7xl mx-auto px-6 lg:px-20 py-12 lg:py-16"> <!-- 上部セクション --> <div class="flex flex-col lg:flex-row justify-between gap-12 mb-12"> <!-- ブランド --> <div class="lg:max-w-xs"> <a href="/ja/" class="inline-block mb-4"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <p class="text-text-muted text-sm font-mono"> <span class="text-terminal-cyan">//</span> あなたのAIは眠らない
+</p> </div> <!-- リンクグリッド --> <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 font-mono"> <!-- 製品 --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/product</h4> <ul class="space-y-3"> <li> <a href="/ja/features" class="text-text-muted text-sm hover:text-accent transition-colors"> 機能 </a> </li><li> <a href="/pricing" class="text-text-muted text-sm hover:text-accent transition-colors"> 料金 </a> </li><li> <a href="/ja/docs" class="text-text-muted text-sm hover:text-accent transition-colors"> ドキュメント </a> </li> </ul> </div> <!-- 会社 --> <div> <h4 class="text-terminal-orange font-bold mb-4 text-sm">/company</h4> <ul class="space-y-3"> <li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> AgentPuterについて </a> </li><li> <a href="/ja/blog/" class="text-text-muted text-sm hover:text-accent transition-colors"> ブログ </a> </li> </ul> </div> <!-- お問い合わせ --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/contact</h4> <ul class="space-y-3"> <li> <a href="/cdn-cgi/l/email-protection#58372b3b392a223935372a3969616161686f183f35393134763b3735" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> <span class="__cf_email__" data-cfemail="b8d7cbdbd9cac2d9d5d7cad989818181888ff8dfd5d9d1d496dbd7d5">[email&#160;protected]</span> </a> </li><li> <a href="https://twitter.com/agentputer" target="_blank" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Twitter </a> </li><li> <a href="https://discord.gg/agentputer" target="_blank" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Discord </a> </li> </ul> </div> <!-- 法務 --> <div> <h4 class="text-terminal-blue font-bold mb-4 text-sm">/legal</h4> <ul class="space-y-3"> <li> <a href="/privacy" class="text-text-muted text-sm hover:text-accent transition-colors"> プライバシーポリシー </a> </li><li> <a href="/terms" class="text-text-muted text-sm hover:text-accent transition-colors"> 利用規約 </a> </li><li> <a href="/privacy#data-security" class="text-text-muted text-sm hover:text-accent transition-colors"> セキュリティ </a> </li> </ul> </div> </div> </div> <!-- 区切り線 --> <div class="border-t border-accent/20 pt-8"> <div class="flex flex-col md:flex-row justify-between items-center gap-4 font-mono"> <!-- コピーライト --> <p class="text-text-dark text-sm">
+/* © 2026 AgentPuter. 全著作権所有。 */
+</p> <!-- ソーシャルリンク --> <div class="flex items-center gap-6"> <a href="https://github.com/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors"> GitHub </a> </div> </div> </div> </div> </footer>  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"db97590b14994206be9f2eaec90a9494","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html> 

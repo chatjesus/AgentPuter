@@ -1,0 +1,254 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="AgentPuter gives your AI Agent a dedicated cloud computer that never shuts down. Run OpenClaw, ClawBot, MoltBot 24/7 with persistent auth, multi-agent support, and remote access."><meta name="theme-color" content="#0D0D0D"><meta name="generator" content="Astro v4.16.19"><!-- Canonical URL --><link rel="canonical" href="https://www.agentputer.com/"><!-- hreflang 多语言标签 --><link rel="alternate" hreflang="en" href="https://www.agentputer.com/"><link rel="alternate" hreflang="zh-CN" href="https://www.agentputer.com/zh/"><link rel="alternate" hreflang="ja" href="https://www.agentputer.com/ja/"><link rel="alternate" hreflang="ko" href="https://www.agentputer.com/ko/"><link rel="alternate" hreflang="es" href="https://www.agentputer.com/es/"><link rel="alternate" hreflang="pt-BR" href="https://www.agentputer.com/pt-br/"><link rel="alternate" hreflang="de" href="https://www.agentputer.com/de/"><link rel="alternate" hreflang="fr" href="https://www.agentputer.com/fr/"><link rel="alternate" hreflang="zh-TW" href="https://www.agentputer.com/zh-tw/"><link rel="alternate" hreflang="x-default" href="https://www.agentputer.com/"><!-- Keywords（各语言本地化） --><meta name="keywords" content="AgentPuter, AI Agent, Cloud Runtime, OpenClaw, ClawBot, 24/7 AI, AI Automation, Agent Computer"><!-- Open Graph --><meta property="og:title" content="AgentPuter - Your AI Agent's 24/7 Cloud Runtime"><meta property="og:description" content="AgentPuter gives your AI Agent a dedicated cloud computer that never shuts down. Run OpenClaw, ClawBot, MoltBot 24/7 with persistent auth, multi-agent support, and remote access."><meta property="og:type" content="website"><meta property="og:url" content="https://www.agentputer.com/"><meta property="og:image" content="https://www.agentputer.com/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:site_name" content="AgentPuter"><meta property="og:locale" content="en_US"><meta property="og:locale:alternate" content="zh_CN"><meta property="og:locale:alternate" content="ja_JP"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="es_ES"><meta property="og:locale:alternate" content="pt_BR"><meta property="og:locale:alternate" content="de_DE"><meta property="og:locale:alternate" content="fr_FR"><meta property="og:locale:alternate" content="zh_TW"><!-- Article-specific OG tags --><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@agentputer"><meta name="twitter:creator" content="@agentputer"><meta name="twitter:title" content="AgentPuter - Your AI Agent's 24/7 Cloud Runtime"><meta name="twitter:description" content="AgentPuter gives your AI Agent a dedicated cloud computer that never shuts down. Run OpenClaw, ClawBot, MoltBot 24/7 with persistent auth, multi-agent support, and remote access."><meta name="twitter:image" content="https://www.agentputer.com/og-default.png"><!-- Favicon --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/favicon.svg"><!-- 字体：preconnect + LCP 关键字体直接预加载 --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- 直接预加载 LCP 关键字体文件（JetBrains Mono Bold Latin，H1 使用） --><link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8L6tTOlOVk6OThhvA.woff2"><!-- 字体 CSS 阻塞加载（配合 preconnect 延迟极低，确保 LCP 时字体可用） --><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"><!-- Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":"https://www.agentputer.com/favicon.svg","description":"Your AI Agent's dedicated cloud runtime. AgentPuter keeps your AI running 24/7.","sameAs":["https://twitter.com/agentputer","https://github.com/agentputer","https://discord.gg/agentputer"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"AgentPuter","url":"https://www.agentputer.com","inLanguage":"en","availableLanguage":[{"@type":"Language","name":"English","alternateName":"en"},{"@type":"Language","name":"中文","alternateName":"zh-CN"},{"@type":"Language","name":"繁體中文","alternateName":"zh-TW"},{"@type":"Language","name":"日本語","alternateName":"ja"},{"@type":"Language","name":"한국어","alternateName":"ko"},{"@type":"Language","name":"Español","alternateName":"es"},{"@type":"Language","name":"Português","alternateName":"pt-BR"},{"@type":"Language","name":"Deutsch","alternateName":"de"},{"@type":"Language","name":"Français","alternateName":"fr"}],"description":"Your AI Agent's dedicated cloud runtime."}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.agentputer.com/"}]}</script><!-- 页面专属结构化数据插槽 --><!-- 浏览器语言自动检测：移到 head 阻塞执行，避免渲染后跳转导致 CLS --><script>
+    (function() {
+      if (localStorage.getItem('agentputer-lang')) return;
+
+      var langMap = {
+        'zh': '/zh', 'zh-cn': '/zh', 'zh-tw': '/zh-tw', 'zh-hk': '/zh-tw',
+        'ja': '/ja', 'ko': '/ko',
+        'es': '/es', 'es-419': '/es',
+        'pt': '/pt-br', 'pt-br': '/pt-br',
+        'de': '/de', 'fr': '/fr',
+      };
+
+      var path = window.location.pathname;
+      if (/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)(\/|$)/.test(path)) {
+        var m = path.match(/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)/);
+        if (m) localStorage.setItem('agentputer-lang', m[1]);
+        return;
+      }
+
+      var langs = navigator.languages || [navigator.language];
+      for (var i = 0; i < langs.length; i++) {
+        var bl = langs[i].toLowerCase();
+        if (langMap[bl]) {
+          var target = path === '/' ? langMap[bl] + '/' : langMap[bl] + path;
+          localStorage.setItem('agentputer-lang', bl);
+          window.location.replace(target);
+          return;
+        }
+        var primary = bl.split('-')[0];
+        if (primary !== bl && langMap[primary]) {
+          var target2 = path === '/' ? langMap[primary] + '/' : langMap[primary] + path;
+          localStorage.setItem('agentputer-lang', primary);
+          window.location.replace(target2);
+          return;
+        }
+      }
+      localStorage.setItem('agentputer-lang', 'en');
+    })();
+    </script><!-- Google Analytics 4 --><script async src="https://www.googletagmanager.com/gtag/js?id=G-9M2T6GQJ0L"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9M2T6GQJ0L');
+    </script><title>AgentPuter - Your AI Agent&#39;s 24/7 Cloud Runtime</title><link rel="stylesheet" href="/_astro/_slug_.DM3EUOA_.css">
+<link rel="stylesheet" href="/_astro/_slug_.CUcOCpHJ.css">
+<style>#matrix-rain[data-astro-cid-bq5b25ac] canvas[data-astro-cid-bq5b25ac]{display:block}
+</style><script type="module" src="/_astro/hoisted.DqigeG4Y.js"></script></head> <body class="min-h-screen">  <div id="matrix-rain" class="fixed inset-0 pointer-events-none z-0 opacity-20" data-astro-cid-bq5b25ac></div>   <header class="fixed top-0 left-0 right-0 z-50 bg-dark-primary md:bg-dark-primary/95 md:backdrop-blur-lg border-b border-accent/20"> <nav class="max-w-7xl mx-auto px-6 lg:px-20 h-20 flex items-center justify-between"> <!-- Logo --> <a href="/" class="flex items-center gap-2 group"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <!-- Desktop Navigation --> <div class="hidden md:flex items-center gap-8 font-mono"> <a href="/features" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/features
+</a> <a href="/tools" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/tools
+</a> <a href="/pricing" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/pricing
+</a> <a href="/blog/" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/blog
+</a> <a href="/docs" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/docs
+</a> <!-- Desktop 语言切换器 --><div class="lang-switcher relative"> <button class="lang-btn flex items-center gap-1.5 text-text-secondary hover:text-accent transition-colors text-sm font-mono cursor-pointer" aria-label="Switch language" aria-expanded="false"> <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <circle cx="12" cy="12" r="10" stroke-width="1.5"></circle> <path stroke-width="1.5" d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path> </svg> <span>EN</span> <svg class="w-3 h-3 opacity-40 transition-transform lang-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </button> <!-- 下拉菜单 --> <div class="lang-dropdown hidden absolute right-0 top-full mt-2 py-1 bg-[#1a1a1a] border border-[#333] rounded-lg shadow-xl min-w-[160px] z-[100]"> <a href="/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-accent bg-accent/10" data-lang="en"> <span>English</span> <span class="text-xs text-accent">EN</span> </a><a href="/zh/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="zh"> <span>中文</span> <span class="text-xs text-text-dark">中文</span> </a><a href="/ja/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ja"> <span>日本語</span> <span class="text-xs text-text-dark">JA</span> </a><a href="/ko/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ko"> <span>한국어</span> <span class="text-xs text-text-dark">KO</span> </a><a href="/es/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="es"> <span>Español</span> <span class="text-xs text-text-dark">ES</span> </a><a href="/pt-br/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="pt-br"> <span>Português</span> <span class="text-xs text-text-dark">PT</span> </a><a href="/de/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="de"> <span>Deutsch</span> <span class="text-xs text-text-dark">DE</span> </a><a href="/fr/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="fr"> <span>Français</span> <span class="text-xs text-text-dark">FR</span> </a> </div> </div> <!-- Mobile 语言列表（平铺，不用下拉） --> <div class="lang-mobile hidden"> <div class="flex flex-wrap gap-2"> <a href="/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-accent border-accent/40 bg-accent/10" data-lang="en"> English </a><a href="/zh/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="zh"> 中文 </a><a href="/ja/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ja"> 日本語 </a><a href="/ko/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ko"> 한국어 </a><a href="/es/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="es"> Español </a><a href="/pt-br/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="pt-br"> Português </a><a href="/de/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="de"> Deutsch </a><a href="/fr/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="fr"> Français </a> </div> </div>  <a href="https://app.agentputer.com/sign-up" class="text-sm py-2.5 px-6 bg-accent text-dark-primary font-bold rounded hover:bg-accent-dark transition-colors">
+[GET STARTED]
+</a> </div> <!-- Mobile Menu Button --> <button id="mobile-menu-btn" class="md:hidden p-2 text-text-secondary hover:text-white" aria-label="Toggle menu"> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </nav> <!-- Mobile Menu --> <div id="mobile-menu" class="hidden md:hidden bg-dark-secondary border-t border-dark-tertiary"> <div class="px-6 py-4 space-y-4"> <a href="/features" class="block hover:text-white transition-colors text-text-secondary">
+Features
+</a> <a href="/tools" class="block hover:text-white transition-colors text-text-secondary">
+Tools
+</a> <a href="/pricing" class="block hover:text-white transition-colors text-text-secondary">
+Pricing
+</a> <a href="/blog/" class="block hover:text-white transition-colors text-text-secondary">
+Blog
+</a> <a href="/docs" class="block hover:text-white transition-colors text-text-secondary">
+Docs
+</a> <div class="lang-mobile-wrapper"></div> <a href="https://app.agentputer.com/sign-up" class="btn-primary w-full justify-center text-sm py-3">
+Get Started
+</a> </div> </div> </header>  <main class="relative z-10"> <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden scanlines crt-flicker"> <!-- Background effects --> <div class="absolute inset-0 bg-gradient-to-b from-dark-primary via-dark-primary to-dark-secondary"></div> <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,255,65,0.08),transparent_50%)]"></div> <div class="absolute inset-0 matrix-grid"></div> <div class="absolute inset-0 particles"></div> <div class="relative max-w-7xl mx-auto px-6 lg:px-20"> <div class="flex flex-col items-center text-center"> <!-- System status indicator --> <div class="flex items-center gap-4 mb-8 font-mono text-xs text-text-muted"> <span class="flex items-center gap-2"> <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span> <span class="text-terminal-orange">SYSTEM</span> ONLINE
+</span> <span class="text-terminal-blue">|</span> <span id="status-time" class="text-terminal-cyan"></span> <span class="text-terminal-blue">|</span> <span>AGENTS: <span class="text-accent">READY</span></span> </div> <!-- Headline - HTML 直出（LCP 关键元素），JS 叠加打字效果 --> <!-- sr-only 提升 H1 关键词覆盖，对爬虫可见，屏幕阅读器友好，视觉上用下方大字展示 --> <h1 class="sr-only">AgentPuter — AI Agent Cloud Runtime That Never Sleeps</h1> <div aria-hidden="true" class="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6 font-mono"> <span class="block text-text-primary" id="title-line1">Your AI</span> <span class="block text-accent text-glow-strong glitch" data-text="Never Sleeps" id="title-line2">Never Sleeps</span> </div> <!-- Subline --> <div class="text-base md:text-lg lg:text-xl text-text-secondary leading-relaxed mb-10 font-mono text-center"> <p class="mb-2">Your computer shuts down. Sessions expire. Tokens vanish.</p> <p><span class="text-accent">AgentPuter</span> keeps <a href="https://openclaw.ai/" target="_blank" class="text-terminal-orange hover:underline">OpenClaw</a>, <a href="https://openclaw.ai/" target="_blank" class="text-terminal-cyan hover:underline">ClawBot</a>, <a href="https://openclaw.ai/" target="_blank" class="text-terminal-magenta hover:underline">MoltBot</a> running 24/7.</p> </div> <!-- CTA Button - Direct Deploy --> <div class="flex flex-col sm:flex-row items-center gap-4 mb-16"> <a href="https://app.agentputer.com/sign-up" class="inline-flex items-center gap-2 px-8 py-4 bg-accent text-dark-primary font-mono font-bold text-sm rounded transition-all hover:bg-accent-dark hover:shadow-lg hover:shadow-accent/25"> <span>./launch_pod</span> <span>_</span> </a> <a href="/pricing" class="inline-flex items-center gap-2 px-6 py-3.5 border border-accent/50 text-accent font-mono font-bold text-sm rounded transition-all hover:border-accent hover:bg-accent/10">
+View Pricing →
+</a> </div> <!-- Terminal Preview --> <div class="w-full max-w-2xl terminal glow-accent neon-box hover-lift"> <div class="terminal-header"> <span class="terminal-dot terminal-dot-red"></span> <span class="terminal-dot terminal-dot-yellow"></span> <span class="terminal-dot terminal-dot-green"></span> <span class="text-text-muted font-mono text-xs ml-2">Terminal</span> </div> <div class="terminal-body space-y-2"> <div class="flex"> <span class="terminal-prompt">$ </span> <span class="terminal-prompt" id="cmd1"></span> </div> <div class="terminal-success hidden" id="output1">✓ Pod created successfully</div> <div class="h-2"></div> <div class="flex hidden" id="line2"> <span class="terminal-prompt">$ </span> <span class="terminal-prompt" id="cmd2"></span> </div> <div class="terminal-success hidden" id="output2">✓ OpenClaw deployed and running 24/7</div> <div class="h-2 hidden" id="spacer"></div> <div class="flex hidden" id="cursor-line"> <span class="terminal-prompt">$ </span> <span class="cursor-blink"></span> </div> </div> </div> </div> </div> </section> <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Title typing animation
+    const titleLine1 = document.getElementById('title-line1');
+    const titleLine2 = document.getElementById('title-line2');
+    const titleTexts = ['Your AI', 'Never Sleeps'];
+    
+    async function typeTitle() {
+      // 同时清空两行，避免 line2 在 line1 打字期间闪现
+      if (titleLine1) titleLine1.textContent = '';
+      if (titleLine2) titleLine2.textContent = '';
+
+      if (titleLine1) {
+        for (let i = 0; i <= titleTexts[0].length; i++) {
+          titleLine1.textContent = titleTexts[0].substring(0, i) + (i < titleTexts[0].length ? '█' : '');
+          await new Promise(function(r) { setTimeout(r, 100); });
+        }
+        titleLine1.textContent = titleTexts[0];
+      }
+      
+      await new Promise(function(r) { setTimeout(r, 200); });
+      
+      if (titleLine2) {
+        for (let i = 0; i <= titleTexts[1].length; i++) {
+          titleLine2.textContent = titleTexts[1].substring(0, i) + (i < titleTexts[1].length ? '█' : '');
+          await new Promise(function(r) { setTimeout(r, 80); });
+        }
+        titleLine2.textContent = titleTexts[1];
+      }
+    }
+    
+    // Status time update
+    var timeElement = document.getElementById('status-time');
+    function updateTime() {
+      if (!timeElement) return;
+      var now = new Date();
+      timeElement.textContent = now.toLocaleTimeString('en-US', { hour12: false });
+    }
+    updateTime();
+    setInterval(updateTime, 1000);
+    
+    // Terminal typing animation
+    var commands = [
+      { id: 'cmd1', text: 'agentputer init openclaw-pod', output: 'output1', next: 'line2' },
+      { id: 'cmd2', text: 'agentputer deploy openclaw', output: 'output2', next: 'spacer' }
+    ];
+    
+    async function typeText(elementId, text, speed) {
+      speed = speed || 50;
+      var element = document.getElementById(elementId);
+      if (!element) return;
+      
+      for (var i = 0; i < text.length; i++) {
+        element.textContent = text.substring(0, i + 1);
+        await new Promise(function(r) { setTimeout(r, speed); });
+      }
+    }
+    
+    function showElement(id) {
+      var el = document.getElementById(id);
+      if (el) {
+        el.classList.remove('hidden');
+        el.classList.add('animate-fade-in');
+      }
+    }
+    
+    async function runTerminal() {
+      // First type the title
+      await typeTitle();
+      await new Promise(function(r) { setTimeout(r, 800); });
+      
+      // Then run terminal commands
+      for (var i = 0; i < commands.length; i++) {
+        var cmd = commands[i];
+        await typeText(cmd.id, cmd.text);
+        await new Promise(function(r) { setTimeout(r, 300); });
+        showElement(cmd.output);
+        await new Promise(function(r) { setTimeout(r, 500); });
+        showElement(cmd.next);
+        await new Promise(function(r) { setTimeout(r, 200); });
+      }
+      
+      showElement('cursor-line');
+    }
+    
+    runTerminal();
+  });
+</script> <section id="problems" class="py-20 lg:py-32 bg-dark-secondary matrix-grid relative"> <div class="max-w-7xl mx-auto px-6 lg:px-20"> <!-- Section Header --> <div class="text-center mb-16"> <span class="inline-block px-4 py-2 text-xs font-mono font-bold tracking-widest text-terminal-orange border border-terminal-orange/30 bg-terminal-orange/10 rounded mb-6">
+WARNING: SYSTEM_LIMITATION
+</span> <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold font-mono text-text-primary leading-tight">
+AI Agents Today Are Trapped<br> <span class="text-terminal-orange text-glow-orange">On Your Local Machine</span> </h2> </div> <!-- Pain Point Cards --> <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"> <div class="bg-dark-tertiary rounded-lg p-6 border border-terminal-orange/30 group hover:border-terminal-orange transition-colors hover-lift" style="animation-delay: 0ms"> <div class="mb-4"> <span class="text-terminal-orange font-mono text-2xl font-bold">[!]</span> </div> <h3 class="text-lg font-mono font-semibold text-text-primary mb-3 group-hover:text-terminal-orange transition-colors"> Computer Off = Agent Down </h3> <p class="text-text-secondary text-sm leading-relaxed font-mono"> Close your MacBook lid and your AI disconnects. No true 24/7 automation possible. </p> </div><div class="bg-dark-tertiary rounded-lg p-6 border border-terminal-orange/30 group hover:border-terminal-orange transition-colors hover-lift" style="animation-delay: 100ms"> <div class="mb-4"> <span class="text-terminal-orange font-mono text-2xl font-bold">[x]</span> </div> <h3 class="text-lg font-mono font-semibold text-text-primary mb-3 group-hover:text-terminal-orange transition-colors"> Auth Lost = Start Over </h3> <p class="text-text-secondary text-sm leading-relaxed font-mono"> OAuth tokens expire, sessions die. Every restart means re-login and re-authorize. </p> </div><div class="bg-dark-tertiary rounded-lg p-6 border border-terminal-orange/30 group hover:border-terminal-orange transition-colors hover-lift" style="animation-delay: 200ms"> <div class="mb-4"> <span class="text-terminal-orange font-mono text-2xl font-bold">[~]</span> </div> <h3 class="text-lg font-mono font-semibold text-text-primary mb-3 group-hover:text-terminal-orange transition-colors"> Local Resources = Hogged PC </h3> <p class="text-text-secondary text-sm leading-relaxed font-mono"> Agents hog CPU/memory, slowing your work. Want multiple agents? Forget it. </p> </div><div class="bg-dark-tertiary rounded-lg p-6 border border-terminal-orange/30 group hover:border-terminal-orange transition-colors hover-lift" style="animation-delay: 300ms"> <div class="mb-4"> <span class="text-terminal-orange font-mono text-2xl font-bold">[@]</span> </div> <h3 class="text-lg font-mono font-semibold text-text-primary mb-3 group-hover:text-terminal-orange transition-colors"> No Remote = Location Locked </h3> <p class="text-text-secondary text-sm leading-relaxed font-mono"> Can&#39;t access your Agent on the go. Miss critical info, can&#39;t respond in time. </p> </div> </div> </div> </section> <section id="features" class="py-20 lg:py-32 bg-dark-primary relative particles"> <div class="max-w-7xl mx-auto px-6 lg:px-20"> <!-- Section Header --> <div class="text-center mb-16"> <span class="inline-block px-4 py-2 text-xs font-mono font-bold tracking-widest text-accent border border-accent/30 bg-accent/10 rounded mb-6">
+SOLUTION: INITIALIZED
+</span> <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold font-mono text-accent text-glow mb-4">
+Your Personal AI Cloud
+</h2> <p class="text-text-secondary text-lg max-w-2xl mx-auto font-mono">
+AgentPuter is your AI Agent's dedicated runtime — a cloud pod that never shuts down
+</p> </div> <!-- Content Grid --> <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center"> <!-- Terminal Visual --> <div class="bg-dark-secondary rounded-lg border border-accent/30 overflow-hidden glow-accent neon-box pulse-border order-2 lg:order-1"> <div class="flex items-center gap-2 px-4 h-10 bg-dark-tertiary border-b border-accent/20"> <span class="w-3 h-3 rounded-full bg-error"></span> <span class="w-3 h-3 rounded-full bg-warning"></span> <span class="w-3 h-3 rounded-full bg-accent"></span> <span class="text-accent font-mono text-xs ml-2">agentputer@cloud:~</span> </div> <div class="p-5 font-mono text-sm leading-relaxed space-y-2 min-h-[320px]"> <div class="text-accent">$ agentputer status</div> <div class="text-text-secondary"></div> <div class="text-text-secondary"> Pod ID: <span class="text-terminal-cyan">pod-7x24-alpha</span></div> <div class="text-accent"> Status: <span class="text-accent">●</span> ONLINE</div> <div class="text-text-secondary"> Uptime: <span class="text-terminal-blue">14d 7h 23m</span></div> <div class="text-text-secondary"> Agents: <span class="text-terminal-orange">3 running</span></div> <div class="text-text-secondary"></div> <div class="text-accent">$ openclaw logs --tail</div> <div class="text-text-muted text-xs"><span class="text-terminal-cyan">[02:34:15]</span> <span class="text-terminal-orange">[gateway]</span> WhatsApp connected</div> <div class="text-text-muted text-xs"><span class="text-terminal-cyan">[02:34:18]</span> <span class="text-terminal-orange">[clawbot]</span> Processed 47 messages</div> <div class="text-text-muted text-xs"><span class="text-terminal-cyan">[02:34:22]</span> <span class="text-terminal-orange">[moltbot]</span> Calendar synced ✓</div> <div class="text-accent text-xs"><span class="text-terminal-cyan">[02:34:25]</span> <span class="text-accent">✓</span> All tasks completed</div> <div class="text-text-secondary"></div> <div class="flex"> <span class="text-accent">$ </span> <span class="text-accent animate-blink">█</span> </div> </div> </div> <!-- Features List --> <div class="space-y-6 order-1 lg:order-2"> <div class="flex gap-4 group" style="animation-delay: 0ms"> <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-dark-tertiary border border-accent/20 flex items-center justify-center group-hover:border-accent group-hover:bg-accent/10 transition-colors"> <span class="text-accent font-mono font-bold text-sm">&gt;_</span> </div> <div> <h3 class="text-text-primary font-mono font-semibold mb-1 group-hover:text-accent transition-colors"> 24/7 Always Online </h3> <p class="text-text-secondary text-sm leading-relaxed font-mono"> Your Agent runs in the cloud, never sleeps. Works while you sleep, travel, or take a break. </p> </div> </div><div class="flex gap-4 group" style="animation-delay: 100ms"> <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-dark-tertiary border border-accent/20 flex items-center justify-center group-hover:border-accent group-hover:bg-accent/10 transition-colors"> <span class="text-accent font-mono font-bold text-sm">[~]</span> </div> <div> <h3 class="text-text-primary font-mono font-semibold mb-1 group-hover:text-accent transition-colors"> Auth Never Expires </h3> <p class="text-text-secondary text-sm leading-relaxed font-mono"> Server-managed tokens and API keys. Auto-refresh, auto-maintain. Zero manual intervention. </p> </div> </div><div class="flex gap-4 group" style="animation-delay: 200ms"> <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-dark-tertiary border border-accent/20 flex items-center justify-center group-hover:border-accent group-hover:bg-accent/10 transition-colors"> <span class="text-accent font-mono font-bold text-sm">&gt;&gt;</span> </div> <div> <h3 class="text-text-primary font-mono font-semibold mb-1 group-hover:text-accent transition-colors"> Multi-Agent Parallel </h3> <p class="text-text-secondary text-sm leading-relaxed font-mono"> Run multiple Agents simultaneously without taxing your local machine. Scale as needed. </p> </div> </div><div class="flex gap-4 group" style="animation-delay: 300ms"> <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-dark-tertiary border border-accent/20 flex items-center justify-center group-hover:border-accent group-hover:bg-accent/10 transition-colors"> <span class="text-accent font-mono font-bold text-sm">[*]</span> </div> <div> <h3 class="text-text-primary font-mono font-semibold mb-1 group-hover:text-accent transition-colors"> Access Anywhere </h3> <p class="text-text-secondary text-sm leading-relaxed font-mono"> Control your Agents from any device, anywhere. Your AI follows you, not the other way around. </p> </div> </div> </div> </div> </div> </section> <section class="py-20 lg:py-32 bg-dark-secondary relative data-stream"> <div class="max-w-7xl mx-auto px-6 lg:px-20"> <!-- Section Header --> <div class="text-center mb-16"> <span class="inline-block px-4 py-2 text-xs font-mono font-bold tracking-widest text-accent border border-accent/30 bg-accent/10 rounded mb-6">
+TUTORIAL: START
+</span> <h2 class="text-3xl md:text-4xl font-bold font-mono text-accent text-glow">
+3 Steps to Your AI Cloud Pod
+</h2> </div> <!-- Steps Grid --> <div class="grid md:grid-cols-3 gap-8"> <div class="relative bg-dark-tertiary rounded-lg p-8 text-center group border border-accent/20 hover:border-accent/50 transition-colors hover-lift neon-box flex flex-col h-full" style="animation-delay: 0ms"> <!-- Step Number --> <div class="w-12 h-12 rounded-lg bg-accent text-dark-primary font-mono font-bold text-xl flex items-center justify-center mx-auto mb-6"> 1 </div> <!-- Title --> <h3 class="text-xl font-mono font-semibold text-text-primary mb-3 group-hover:text-accent transition-colors"> Create Your Pod </h3> <!-- Description - flex-grow to push code block to bottom --> <p class="text-text-secondary text-sm leading-relaxed mb-6 font-mono flex-grow"> One-click cloud environment setup. Choose your config and resources. </p> <!-- Code Block - always at bottom --> <div class="bg-dark-primary rounded-lg p-3 border border-accent/30 mt-auto"> <code class="text-accent font-mono text-xs"> $ agentputer create openclaw </code> </div> <!-- Connector Line (not on last item) --> <div class="hidden md:block absolute top-1/4 -right-4 w-8 h-0.5 bg-gradient-to-r from-accent/50 to-transparent"></div> </div><div class="relative bg-dark-tertiary rounded-lg p-8 text-center group border border-accent/20 hover:border-accent/50 transition-colors hover-lift neon-box flex flex-col h-full" style="animation-delay: 150ms"> <!-- Step Number --> <div class="w-12 h-12 rounded-lg bg-accent text-dark-primary font-mono font-bold text-xl flex items-center justify-center mx-auto mb-6"> 2 </div> <!-- Title --> <h3 class="text-xl font-mono font-semibold text-text-primary mb-3 group-hover:text-accent transition-colors"> Connect Your Services </h3> <!-- Description - flex-grow to push code block to bottom --> <p class="text-text-secondary text-sm leading-relaxed mb-6 font-mono flex-grow"> Authorize Google, Notion, Slack and more. Credentials stored securely. </p> <!-- Code Block - always at bottom --> <div class="bg-dark-primary rounded-lg p-3 border border-accent/30 mt-auto"> <code class="text-accent font-mono text-xs"> $ agentputer connect </code> </div> <!-- Connector Line (not on last item) --> <div class="hidden md:block absolute top-1/4 -right-4 w-8 h-0.5 bg-gradient-to-r from-accent/50 to-transparent"></div> </div><div class="relative bg-dark-tertiary rounded-lg p-8 text-center group border border-accent/20 hover:border-accent/50 transition-colors hover-lift neon-box flex flex-col h-full" style="animation-delay: 300ms"> <!-- Step Number --> <div class="w-12 h-12 rounded-lg bg-accent text-dark-primary font-mono font-bold text-xl flex items-center justify-center mx-auto mb-6"> 3 </div> <!-- Title --> <h3 class="text-xl font-mono font-semibold text-text-primary mb-3 group-hover:text-accent transition-colors"> Deploy OpenClaw </h3> <!-- Description - flex-grow to push code block to bottom --> <p class="text-text-secondary text-sm leading-relaxed mb-6 font-mono flex-grow"> Your ClawBot starts working 24/7. WhatsApp, Telegram, Discord — always on. </p> <!-- Code Block - always at bottom --> <div class="bg-dark-primary rounded-lg p-3 border border-accent/30 mt-auto"> <code class="text-accent font-mono text-xs"> $ agentputer deploy openclaw </code> </div> <!-- Connector Line (not on last item) -->  </div> </div> </div> </section> <section id="cta" class="py-20 lg:py-32 bg-dark-primary relative matrix-grid"> <div class="max-w-7xl mx-auto px-6 lg:px-20"> <div class="relative overflow-hidden rounded-2xl bg-dark-secondary border-2 border-accent/50 p-8 md:p-16 glow-accent neon-box pulse-border scanlines"> <!-- Terminal grid background --> <div class="absolute inset-0 opacity-5"> <div class="absolute inset-0" style="background-image: linear-gradient(rgba(0,255,65,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,65,0.1) 1px, transparent 1px); background-size: 20px 20px;"></div> </div> <div class="relative text-center"> <div class="font-mono text-accent text-sm mb-4">&gt; ./request_access.sh</div> <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-accent text-glow-strong mb-4 font-mono">
+Ready to Set Your AI Free?
+</h2> <p class="text-text-secondary text-lg mb-10 max-w-xl mx-auto font-mono">
+Request an invite code. Deploy OpenClaw in 2 minutes. Your AI never sleeps again.
+</p> <!-- Email Collection Form --> <div class="max-w-lg mx-auto mb-8"> <form id="waitlist-form" class="flex flex-col sm:flex-row gap-0"> <div class="flex-1 relative"> <span class="absolute left-4 top-1/2 -translate-y-1/2 text-accent font-mono text-sm">$</span> <input type="email" name="email" required placeholder="your@email.com" class="w-full h-14 pl-8 pr-5 rounded-l-lg bg-dark-primary text-accent placeholder-text-muted font-mono text-sm border border-accent/30 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"> </div> <button type="submit" class="h-14 px-6 rounded-r-lg bg-accent text-dark-primary font-mono font-bold text-sm hover:bg-accent-dark transition-colors whitespace-nowrap">
+[REQUEST INVITE]
+</button> </form> <div id="form-message" class="mt-3 text-sm font-mono hidden"></div> <p class="text-text-muted text-xs font-mono mt-3">// Limited early access. Invite code sent within 24h.</p> </div> <!-- Secondary: Already have code --> <div class="flex items-center justify-center gap-4"> <span class="text-text-muted text-sm font-mono">Already have a code?</span> <a href="https://app.agentputer.com/sign-up" class="inline-flex items-center gap-2 px-6 py-3 border border-accent/50 text-accent font-mono font-bold text-sm rounded hover:bg-accent/10 transition-colors">
+./launch_pod _
+</a> </div> <!-- Contact --> <p class="text-text-muted text-xs font-mono mt-8">
+// Questions? <a href="/cdn-cgi/l/email-protection#127d6171736068737f7d6073232b2b2b222552757f737b7e3c717d7f" class="text-terminal-cyan hover:underline"><span class="__cf_email__" data-cfemail="deb1adbdbfaca4bfb3b1acbfefe7e7e7eee99eb9b3bfb7b2f0bdb1b3">[email&#160;protected]</span></a> </p> </div> </div> </div> </section> <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('waitlist-form');
+    const messageEl = document.getElementById('form-message');
+    
+    if (!form) return;
+    
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(form);
+      const email = formData.get('email');
+      
+      if (!messageEl || !email) return;
+      
+      // Show loading state
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = '[PROCESSING...]';
+      submitBtn.disabled = true;
+      
+      try {
+        // Save to localStorage (works in dev mode)
+        // In production, this will be overridden by API response
+        const subscribers = JSON.parse(localStorage.getItem('agentputer_subscribers') || '[]');
+        if (!subscribers.includes(email)) {
+          subscribers.push(email);
+          localStorage.setItem('agentputer_subscribers', JSON.stringify(subscribers));
+        }
+        console.log('[DEV] Email saved to localStorage:', email);
+        console.log('[DEV] All subscribers:', subscribers);
+        
+        // Try API call (will work after deployment to Cloudflare)
+        try {
+          const response = await fetch('/api/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email }),
+          });
+          if (response.ok) {
+            console.log('[PROD] Email saved to API');
+          }
+        } catch (err) {
+          // API not available in dev mode, that's fine
+          console.log('[DEV] API not available, using localStorage only');
+        }
+        
+        // GA4 转化事件追踪
+        if (typeof gtag === 'function') {
+          gtag('event', 'generate_lead', { event_category: 'engagement', event_label: 'cta_invite_request', value: 1 });
+        }
+        
+        // Show success
+        messageEl.innerHTML = '<span class="text-accent">✓ REQUEST RECEIVED:</span> We\'ll send your invite code to <span class="text-terminal-cyan">' + email + '</span> within 24h.';
+        messageEl.className = 'mt-3 text-sm font-mono text-accent';
+        messageEl.classList.remove('hidden');
+        form.reset();
+      } catch (error) {
+        messageEl.innerHTML = '<span class="text-error">[ERROR]</span> Something went wrong. Please try again.';
+        messageEl.className = 'mt-4 text-sm font-mono text-error';
+        messageEl.classList.remove('hidden');
+      } finally {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }
+    });
+  });
+</script> </main> <footer class="bg-dark-secondary border-t border-accent/20"> <div class="max-w-7xl mx-auto px-6 lg:px-20 py-12 lg:py-16"> <!-- Top Section --> <div class="flex flex-col lg:flex-row justify-between gap-12 mb-12"> <!-- Brand --> <div class="lg:max-w-xs"> <a href="/" class="inline-block mb-4"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <p class="text-text-muted text-sm font-mono"> <span class="text-terminal-cyan">//</span> Your AI Never Sleeps
+</p> </div> <!-- Links Grid --> <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 font-mono"> <!-- Product --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/product</h4> <ul class="space-y-3"> <li> <a href="/features" class="text-text-muted text-sm hover:text-accent transition-colors"> Features </a> </li><li> <a href="/pricing" class="text-text-muted text-sm hover:text-accent transition-colors"> Pricing </a> </li><li> <a href="/docs" class="text-text-muted text-sm hover:text-accent transition-colors"> Docs </a> </li> </ul> </div> <!-- Company --> <div> <h4 class="text-terminal-orange font-bold mb-4 text-sm">/company</h4> <ul class="space-y-3"> <li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> About </a> </li><li> <a href="/blog/" class="text-text-muted text-sm hover:text-accent transition-colors"> Blog </a> </li> </ul> </div> <!-- Contact --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/contact</h4> <ul class="space-y-3"> <li> <a href="/cdn-cgi/l/email-protection#a5cad6c6c4d7dfc4c8cad7c4949c9c9c9592e5c2c8c4ccc98bc6cac8" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> <span class="__cf_email__" data-cfemail="89e6faeae8fbf3e8e4e6fbe8b8b0b0b0b9bec9eee4e8e0e5a7eae6e4">[email&#160;protected]</span> </a> </li><li> <a href="https://twitter.com/agentputer" target="_blank" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Twitter </a> </li><li> <a href="https://discord.gg/agentputer" target="_blank" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Discord </a> </li> </ul> </div> <!-- Legal --> <div> <h4 class="text-terminal-blue font-bold mb-4 text-sm">/legal</h4> <ul class="space-y-3"> <li> <a href="/privacy" class="text-text-muted text-sm hover:text-accent transition-colors"> Privacy </a> </li><li> <a href="/terms" class="text-text-muted text-sm hover:text-accent transition-colors"> Terms </a> </li><li> <a href="/privacy#data-security" class="text-text-muted text-sm hover:text-accent transition-colors"> Security </a> </li> </ul> </div> </div> </div> <!-- Divider --> <div class="border-t border-accent/20 pt-8"> <div class="flex flex-col md:flex-row justify-between items-center gap-4 font-mono"> <!-- Copyright --> <p class="text-text-dark text-sm">
+/* © 2026 AgentPuter. All rights reserved. */
+</p> <!-- Social Links --> <div class="flex items-center gap-6"> <a href="https://github.com/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors"> GitHub </a> </div> </div> </div> </div> </footer>  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"db97590b14994206be9f2eaec90a9494","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

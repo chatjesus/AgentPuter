@@ -1,0 +1,276 @@
+<!DOCTYPE html><html lang="ja"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="2月25日、PerplexityはComputerを発表しました。月額200ドルで19のモデルを統括し、サブエージェントを並列実行し、タスクを自律的に遂行するクラウドAIです。本記事では、OpenClawユーザーがすでに手にしているもの、まだ持っていないもの、そしてこの出来事がエージェントプラットフォーム競争に何を意味するのかを解説します。"><meta name="theme-color" content="#0D0D0D"><meta name="generator" content="Astro v4.16.19"><!-- Canonical URL --><link rel="canonical" href="https://www.agentputer.com/ja/blog/15-perplexity-computer-vs-openclaw/"><!-- hreflang 多语言标签 --><link rel="alternate" hreflang="en" href="https://www.agentputer.com/blog/15-perplexity-computer-vs-openclaw/"><link rel="alternate" hreflang="zh-CN" href="https://www.agentputer.com/zh/blog/15-perplexity-computer-vs-openclaw/"><link rel="alternate" hreflang="ja" href="https://www.agentputer.com/ja/blog/15-perplexity-computer-vs-openclaw/"><link rel="alternate" hreflang="ko" href="https://www.agentputer.com/ko/blog/15-perplexity-computer-vs-openclaw/"><link rel="alternate" hreflang="es" href="https://www.agentputer.com/es/blog/15-perplexity-computer-vs-openclaw/"><link rel="alternate" hreflang="pt-BR" href="https://www.agentputer.com/pt-br/blog/15-perplexity-computer-vs-openclaw/"><link rel="alternate" hreflang="de" href="https://www.agentputer.com/de/blog/15-perplexity-computer-vs-openclaw/"><link rel="alternate" hreflang="fr" href="https://www.agentputer.com/fr/blog/15-perplexity-computer-vs-openclaw/"><link rel="alternate" hreflang="zh-TW" href="https://www.agentputer.com/zh-tw/blog/15-perplexity-computer-vs-openclaw/"><link rel="alternate" hreflang="x-default" href="https://www.agentputer.com/blog/15-perplexity-computer-vs-openclaw/"><!-- Keywords（各语言本地化） --><meta name="keywords" content="OpenClaw, Perplexity, AIエージェント, マルチエージェント, エージェントプラットフォーム"><!-- Open Graph --><meta property="og:title" content="Perplexityが構築したもの ― それはOpenClawユーザーがすでに自ら運用していたもの | AgentPuter ブログ"><meta property="og:description" content="2月25日、PerplexityはComputerを発表しました。月額200ドルで19のモデルを統括し、サブエージェントを並列実行し、タスクを自律的に遂行するクラウドAIです。本記事では、OpenClawユーザーがすでに手にしているもの、まだ持っていないもの、そしてこの出来事がエージェントプラットフォーム競争に何を意味するのかを解説します。"><meta property="og:type" content="article"><meta property="og:url" content="https://www.agentputer.com/ja/blog/15-perplexity-computer-vs-openclaw/"><meta property="og:image" content="https://www.agentputer.com/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:site_name" content="AgentPuter"><meta property="og:locale" content="ja_JP"><meta property="og:locale:alternate" content="en_US"><meta property="og:locale:alternate" content="zh_CN"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="es_ES"><meta property="og:locale:alternate" content="pt_BR"><meta property="og:locale:alternate" content="de_DE"><meta property="og:locale:alternate" content="fr_FR"><meta property="og:locale:alternate" content="zh_TW"><!-- Article-specific OG tags --><meta property="article:published_time" content="2026-02-28"><meta property="article:author" content="AgentPuter Lab"><meta property="article:tag" content="OpenClaw"><meta property="article:tag" content="Perplexity"><meta property="article:tag" content="AIエージェント"><meta property="article:tag" content="マルチエージェント"><meta property="article:tag" content="エージェントプラットフォーム"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@agentputer"><meta name="twitter:creator" content="@agentputer"><meta name="twitter:title" content="Perplexityが構築したもの ― それはOpenClawユーザーがすでに自ら運用していたもの | AgentPuter ブログ"><meta name="twitter:description" content="2月25日、PerplexityはComputerを発表しました。月額200ドルで19のモデルを統括し、サブエージェントを並列実行し、タスクを自律的に遂行するクラウドAIです。本記事では、OpenClawユーザーがすでに手にしているもの、まだ持っていないもの、そしてこの出来事がエージェントプラットフォーム競争に何を意味するのかを解説します。"><meta name="twitter:image" content="https://www.agentputer.com/og-default.png"><!-- Favicon --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/favicon.svg"><!-- 字体：preconnect + LCP 关键字体直接预加载 --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- 直接预加载 LCP 关键字体文件（JetBrains Mono Bold Latin，H1 使用） --><link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8L6tTOlOVk6OThhvA.woff2"><!-- 字体 CSS 阻塞加载（配合 preconnect 延迟极低，确保 LCP 时字体可用） --><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"><!-- Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":"https://www.agentputer.com/favicon.svg","description":"Your AI Agent's dedicated cloud runtime. AgentPuter keeps your AI running 24/7.","sameAs":["https://twitter.com/agentputer","https://github.com/agentputer","https://discord.gg/agentputer"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"AgentPuter","url":"https://www.agentputer.com","inLanguage":"ja","availableLanguage":[{"@type":"Language","name":"English","alternateName":"en"},{"@type":"Language","name":"中文","alternateName":"zh-CN"},{"@type":"Language","name":"繁體中文","alternateName":"zh-TW"},{"@type":"Language","name":"日本語","alternateName":"ja"},{"@type":"Language","name":"한국어","alternateName":"ko"},{"@type":"Language","name":"Español","alternateName":"es"},{"@type":"Language","name":"Português","alternateName":"pt-BR"},{"@type":"Language","name":"Deutsch","alternateName":"de"},{"@type":"Language","name":"Français","alternateName":"fr"}],"description":"Your AI Agent's dedicated cloud runtime."}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.agentputer.com/ja/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.agentputer.com/ja/blog/"},{"@type":"ListItem","position":3,"name":"15 perplexity computer vs openclaw","item":"https://www.agentputer.com/ja/blog/15-perplexity-computer-vs-openclaw/"}]}</script><!-- 页面专属结构化数据插槽 --><!-- 浏览器语言自动检测：移到 head 阻塞执行，避免渲染后跳转导致 CLS --><script>
+    (function() {
+      if (localStorage.getItem('agentputer-lang')) return;
+
+      var langMap = {
+        'zh': '/zh', 'zh-cn': '/zh', 'zh-tw': '/zh-tw', 'zh-hk': '/zh-tw',
+        'ja': '/ja', 'ko': '/ko',
+        'es': '/es', 'es-419': '/es',
+        'pt': '/pt-br', 'pt-br': '/pt-br',
+        'de': '/de', 'fr': '/fr',
+      };
+
+      var path = window.location.pathname;
+      if (/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)(\/|$)/.test(path)) {
+        var m = path.match(/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)/);
+        if (m) localStorage.setItem('agentputer-lang', m[1]);
+        return;
+      }
+
+      var langs = navigator.languages || [navigator.language];
+      for (var i = 0; i < langs.length; i++) {
+        var bl = langs[i].toLowerCase();
+        if (langMap[bl]) {
+          var target = path === '/' ? langMap[bl] + '/' : langMap[bl] + path;
+          localStorage.setItem('agentputer-lang', bl);
+          window.location.replace(target);
+          return;
+        }
+        var primary = bl.split('-')[0];
+        if (primary !== bl && langMap[primary]) {
+          var target2 = path === '/' ? langMap[primary] + '/' : langMap[primary] + path;
+          localStorage.setItem('agentputer-lang', primary);
+          window.location.replace(target2);
+          return;
+        }
+      }
+      localStorage.setItem('agentputer-lang', 'en');
+    })();
+    </script><!-- Google Analytics 4 --><script async src="https://www.googletagmanager.com/gtag/js?id=G-9M2T6GQJ0L"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9M2T6GQJ0L');
+    </script><title>Perplexityが構築したもの ― それはOpenClawユーザーがすでに自ら運用していたもの | AgentPuter ブログ</title><link rel="stylesheet" href="/_astro/_slug_.DM3EUOA_.css">
+<link rel="stylesheet" href="/_astro/_slug_.CUcOCpHJ.css">
+<link rel="stylesheet" href="/_astro/_slug_.CxhqtQFk.css"><script type="module" src="/_astro/hoisted.BCrxlVsq.js"></script></head> <body class="min-h-screen">   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Perplexityが構築したもの ― それはOpenClawユーザーがすでに自ら運用していたもの","description":"2月25日、PerplexityはComputerを発表しました。月額200ドルで19のモデルを統括し、サブエージェントを並列実行し、タスクを自律的に遂行するクラウドAIです。本記事では、OpenClawユーザーがすでに手にしているもの、まだ持っていないもの、そしてこの出来事がエージェントプラットフォーム競争に何を意味するのかを解説します。","datePublished":"2026-02-28","dateModified":"2026-02-28","inLanguage":"ja","author":{"@type":"Organization","name":"AgentPuter Lab","url":"https://www.agentputer.com"},"publisher":{"@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":{"@type":"ImageObject","url":"https://www.agentputer.com/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.agentputer.com/ja/blog/15-perplexity-computer-vs-openclaw/"},"keywords":"OpenClaw, Perplexity, AIエージェント, マルチエージェント, エージェントプラットフォーム"}</script> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.agentputer.com/ja/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://www.agentputer.com/ja/blog/"},{"@type":"ListItem","position":3,"name":"Perplexityが構築したもの ― それはOpenClawユーザーがすでに自ら運用していたもの"}]}</script> <header class="fixed top-0 left-0 right-0 z-50 bg-dark-primary md:bg-dark-primary/95 md:backdrop-blur-lg border-b border-accent/20"> <nav class="max-w-7xl mx-auto px-6 lg:px-20 h-20 flex items-center justify-between"> <!-- Logo --> <a href="/ja/" class="flex items-center gap-2 group"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <!-- Desktop Navigation --> <div class="hidden md:flex items-center gap-8 font-mono"> <a href="/ja/features" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/機能
+</a> <a href="/tools" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/ツール
+</a> <a href="#pricing" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/料金
+</a> <a href="/ja/blog/" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/ブログ
+</a> <a href="/ja/docs" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/ドキュメント
+</a> <!-- Desktop 语言切换器 --><div class="lang-switcher relative"> <button class="lang-btn flex items-center gap-1.5 text-text-secondary hover:text-accent transition-colors text-sm font-mono cursor-pointer" aria-label="Switch language" aria-expanded="false"> <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <circle cx="12" cy="12" r="10" stroke-width="1.5"></circle> <path stroke-width="1.5" d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path> </svg> <span>JA</span> <svg class="w-3 h-3 opacity-40 transition-transform lang-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </button> <!-- 下拉菜单 --> <div class="lang-dropdown hidden absolute right-0 top-full mt-2 py-1 bg-[#1a1a1a] border border-[#333] rounded-lg shadow-xl min-w-[160px] z-[100]"> <a href="/blog/15-perplexity-computer-vs-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="en"> <span>English</span> <span class="text-xs text-text-dark">EN</span> </a><a href="/zh/blog/15-perplexity-computer-vs-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="zh"> <span>中文</span> <span class="text-xs text-text-dark">中文</span> </a><a href="/ja/blog/15-perplexity-computer-vs-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-accent bg-accent/10" data-lang="ja"> <span>日本語</span> <span class="text-xs text-accent">JA</span> </a><a href="/ko/blog/15-perplexity-computer-vs-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ko"> <span>한국어</span> <span class="text-xs text-text-dark">KO</span> </a><a href="/es/blog/15-perplexity-computer-vs-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="es"> <span>Español</span> <span class="text-xs text-text-dark">ES</span> </a><a href="/pt-br/blog/15-perplexity-computer-vs-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="pt-br"> <span>Português</span> <span class="text-xs text-text-dark">PT</span> </a><a href="/de/blog/15-perplexity-computer-vs-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="de"> <span>Deutsch</span> <span class="text-xs text-text-dark">DE</span> </a><a href="/fr/blog/15-perplexity-computer-vs-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="fr"> <span>Français</span> <span class="text-xs text-text-dark">FR</span> </a> </div> </div> <!-- Mobile 语言列表（平铺，不用下拉） --> <div class="lang-mobile hidden"> <div class="flex flex-wrap gap-2"> <a href="/blog/15-perplexity-computer-vs-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="en"> English </a><a href="/zh/blog/15-perplexity-computer-vs-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="zh"> 中文 </a><a href="/ja/blog/15-perplexity-computer-vs-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-accent border-accent/40 bg-accent/10" data-lang="ja"> 日本語 </a><a href="/ko/blog/15-perplexity-computer-vs-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ko"> 한국어 </a><a href="/es/blog/15-perplexity-computer-vs-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="es"> Español </a><a href="/pt-br/blog/15-perplexity-computer-vs-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="pt-br"> Português </a><a href="/de/blog/15-perplexity-computer-vs-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="de"> Deutsch </a><a href="/fr/blog/15-perplexity-computer-vs-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="fr"> Français </a> </div> </div>  <a href="https://app.agentputer.com/sign-up" class="text-sm py-2.5 px-6 bg-accent text-dark-primary font-bold rounded hover:bg-accent-dark transition-colors">
+[DEPLOY]
+</a> </div> <!-- Mobile Menu Button --> <button id="mobile-menu-btn-ja" class="md:hidden p-2 text-text-secondary hover:text-white" aria-label="メニューを開閉"> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </nav> <!-- Mobile Menu --> <div id="mobile-menu-ja" class="hidden md:hidden bg-dark-secondary border-t border-dark-tertiary"> <div class="px-6 py-4 space-y-4"> <a href="/ja/features" class="block hover:text-white transition-colors text-text-secondary">
+機能
+</a> <a href="/tools" class="block hover:text-white transition-colors text-text-secondary">
+ツール
+</a> <a href="#pricing" class="block hover:text-white transition-colors text-text-secondary">
+料金
+</a> <a href="/ja/blog/" class="block hover:text-white transition-colors text-text-secondary">
+ブログ
+</a> <a href="/ja/docs" class="block hover:text-white transition-colors text-text-secondary">
+ドキュメント
+</a> <div class="lang-mobile-wrapper"></div> <a href="https://app.agentputer.com/sign-up" class="btn-primary w-full justify-center text-sm py-3">
+利用開始
+</a> </div> </div> </header>  <main class="relative z-10 pt-28 pb-20"> <article class="max-w-4xl mx-auto px-6 lg:px-8"> <!-- パンくずリストナビゲーション --> <nav class="mb-8 font-mono text-sm"> <a href="/ja/" class="text-text-muted hover:text-accent transition-colors">~</a> <span class="text-text-dark mx-2">/</span> <a href="/ja/blog/" class="text-text-muted hover:text-accent transition-colors">ブログ</a> <span class="text-text-dark mx-2">/</span> <span class="text-accent">記事</span> </nav> <!-- 記事メタ情報ヘッダー --> <header class="mb-12"> <!-- タグ --> <div class="flex flex-wrap gap-2 mb-6"> <span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#OpenClaw </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Perplexity </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#AIエージェント </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#マルチエージェント </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#エージェントプラットフォーム </span> </div> <!-- タイトル --> <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6"> Perplexityが構築したもの ― それはOpenClawユーザーがすでに自ら運用していたもの </h1> <!-- 説明 --> <p class="text-lg text-text-secondary leading-relaxed mb-8"> 2月25日、PerplexityはComputerを発表しました。月額200ドルで19のモデルを統括し、サブエージェントを並列実行し、タスクを自律的に遂行するクラウドAIです。本記事では、OpenClawユーザーがすでに手にしているもの、まだ持っていないもの、そしてこの出来事がエージェントプラットフォーム競争に何を意味するのかを解説します。 </p> <!-- メタ情報行 --> <div class="flex flex-wrap items-center gap-6 text-sm font-mono text-text-muted border-t border-b border-accent/20 py-4"> <div class="flex items-center gap-2"> <span class="text-terminal-cyan">@</span> <span class="text-text-secondary">AgentPuter Lab</span> </div> <div class="flex items-center gap-2"> <span class="text-terminal-orange">$</span> <time datetime="2026-02-28" class="text-text-secondary">2026年2月28日</time> </div> <div class="flex items-center gap-2"> <span class="text-terminal-blue">~</span> <span class="text-text-secondary">読了時間 14 min</span> </div> </div> </header> <!-- 記事本文 --> <div class="prose prose-invert prose-terminal max-w-none">  <p>2月25日、Perplexityは「Computer」をローンチしました。これは19のモデルをオー
+Ars Technicaによる製品の要約：「そして、このコンセプトの直接の前身と見なすことができるOpenClawがあります。」</p>
+<p>この記事では、Perplexity Computerが実際に何であるか、OpenClawとどこで共通し、どこで異なるのか、そして月額200ドル
+5. <a href="#does-better">Perplexityの方が優れている点</a>
+6. <a href="#who-for">それぞれが実際に誰のためのものか</a>
+7. <a href="#platform-race">これがエージェントプラットフォーム競争に何を意味するか</a></p>
+<hr>
+<h2 id="1-perplexity-computer">1. Perplexity Computer</h2>
+<p>コンセプト：平易な言葉で結果を説明すれば、コンピューターがそこへの到達方法を考え出します。「私のレストランのデジタルマーケティングキャンペーンを計画・実行して。」「読書記録を管理できるAndroidアプリを作って。」あなたはプロンプトを書いたり、ツールを選んだりするので
+そのインターフェースの背後で、コンピューターはリクエストを構造化されたサブタスクへと分解し、利用可能な19のモデルの中からその特定のステップに最も適したものに各タスクを委任し、作業が完了するまで、一部は並列に、一部
+| Veo 3.1 | 動画生成 |
+| Grok | 軽量で速度が重視されるタスク |</p>
+<p>合計19のモデルがあり、上の表は名前の付いた主要なモデルを示しています。Opusはオーケストレーション層であり、どのモデルがどのサブ
+されています」 (Perplexity ni yotte gensen sarete imasu) sounds very natural and professional.
+*   “Perplexity”: Keep as is.
+*   Combining: 統合機能はPerplexityによって厳選されています。(Tougou kinou wa Perplexity ni yotte
+<strong>料金：</strong> Perplexity Maxは月額200ドルで、10,000クレジットが含まれます。コンピューターは実行中にクレジットを消費するため、使用は無制限ではありません。サブエージェントごとに支出上限を設定でき、これにより個々のタスクに許
+<strong>マーケティング文言に関する注意点：</strong> Perplexityは、Computerが「数時間、あるいは数ヶ月間も稼働可能」であると述べています。この製品は2月25日に発売されました。実際のワークフローで数ヶ月にわたるという主張を検証した人は</p>
+<blockquote>
+<p>「AIエージェントは驚くほど有能です — しかし、彼らには拠点となる場所も、永続的なワークスペースも、自分自身のコンピューターもありません。」</p>
+</blockquote>
+<p>Perplexity Computerは、まさにそのテーゼを商業的に実装したものです。
+これはPerplexityがその投稿を読んで製品を開発したというわけではありません。Perplexityは、ブログ#01が公開される前の1月に、社内での実験を開始していました。これは、複数のチームが独立して同じ結論に達したということです。このこと自体が、問題が現実のも
+| 永続的なワークスペース | タスクごとのクラウドファイルシステム | <code>~/.openclaw/data/</code> |
+| マルチモデルルーティング | 19モデル、Opusによるオーケストレーション | <code>model.fallbacks</code> + <code>modelByChannel</code> |
+| サブエージェントの連携 | タスク分解 → エージェントへの委任 | <code>sessions_spawn</code> ファンアウト |
+| 長期間の自律動作 | 公称：数時間から数ヶ月 | Cron + <code>runTimeoutSeconds</code> |
+| 実ブラウザ | 内蔵 | <code>browser_snapshot</code>, <code>browser_navigate</code> |
+| エージェントコンテキストファイル | プラットフォーム管理、ユーザーには非表示 | <code>SOUL.md</code>, <code>USER.md</code>, <code>HEARTBEAT.md</code> |
+| 支出管理 | サブエージェントごとのクレジット上限 | <code>runTimeoutSeconds</code> (時間ベースのプロキシ) |</p>
+<p>設計上の決定は、ほぼ1対1で対応しています。永続ストレージ、ブラウザアクセス、マルチモデルルーティング、サブエージェントの並列処理、長時間実行の自律性 — これらはPerplexityが発明した機能ではありません。それらは、OpenClawコミュニティが昨年から設定可能な形式で使用してきた機能です。
+OpenClawの作成者であるPeter Steinbergerは2月にOpenAIに入社しました。アルトマンは、パーソナルエージェントを「すぐに我々の製品提供の中核となる」ものだと説明し、未来は「極めてマルチエージェントになるだろう」と述べました。Anthropicは1月にClaude Coworkをローンチしました。今や業界全体が、OpenClawのオープンソースコミュニティが最初に構築したインフラストラクチャのパターンを製品化しています。</p>
+<hr>
+<h2 id="3-相違点">3. 相違点 {#</h2>
+<p>Ars Technicaは的確に表現しています。「もしOpenClawがAIエージェントツールのオープンウェブだとすれば、AgentPuterはAppleのApp Storeです」と。</p>
+<p>その例えは的確であり、じっくり考えてみる価値があります。オープンウェブでは、</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>項目</th><th>Perplexity Computer</th><th>OpenClaw</th></tr></thead><tbody><tr><td>実行場所</td><td>クラウドのみ</td><td>ローカルマシン、セルフホストVPS、またはTinyClaw</td></tr><tr><td>統合モデル</td><td>キュレーションされたプラットフォーム統合</td><td>Open Skills + MCPエコシステム</td></tr><tr><td>設定</td><td>プラットフォーム管理、ユーザーには非表示</td><td><code>openclaw.json</code>、ユーザーによる完全な制御</td></tr><tr><td>セキュリティモデル</td><td>プラットフォームが責任を負う</td><td>ユーザーが責任を負う</td></tr><tr><td>カスタマイズの上限</td><td>低 — Perplexityが提供するものを使用</td><td>高 — あらゆる設定が可能</td></tr><tr><td>透明性</td><td>ブラックボックス</td><td><code>sessions_history</code>による完全なトランスクリプト</td></tr><tr><td>データ所在地</td><td>Perplexityのクラウド</td><td>あなたのマシンまたはサーバー</td></tr><tr><td>支出管理</td><td>サブエージェントごとのクレジット上限</td><td><code>runTimeoutSeconds</code>（時間による</td></tr><tr><td>これらはエッジケースなどではなく、OpenClawのユーザーが当然備わっているべきだと考えている機能です。</td><td></td><td></td></tr></tbody></table>
+<p><strong>SOUL.md — 永続的なエージェントのアイデンティティ</strong></p>
+<p>OpenClawにおいて、<code>SOUL.md</code>は、すべての
+Perplexity Computerに相当するものはありません。すべてのタスクはプラットフォームのデフォルトから始まります。永続的な指示セットを書き込むこと、エージェントが曖昧さをどう扱うべきかを定義すること、永続的なキャラクターを与えることはできません。今日あなたが使うエージェントは、あなたが設定
+OpenClawは、スケジュールされたワークフローを自律的に実行します。「平日の毎朝7時50分に、昨日のGitHubアクティビティを取得し、レビューが必要なPRを要約して、ダイジェストをTelegramにプッシュする」といった具合です。誰も
+OpenClawは<code>/hooks/agent</code>エンドポイントを公開しています。PRが開かれるとGitHubのWebhookが発火し、エージェントが差分を読み取り、レビューを実行して、人間の手を一切介さずにSlackへフィードバックを投稿します。外部イベントがワークフロー
+あなたのワークフローが、ローカルリポジトリからコードを読み取る、ファイルシステム内のドキュメントを処理する、ローカルアプリケーションと連携するなど、マシン上のファイルにアクセスする場合、Perplexity Computerはそれらのファイルにアクセスできません。すべてはPerplexityのクラウド環境で
+OpenClawのエコシステムには、ClawHubやagentskills.ioにある数千のスキルが含まれているほか、カスタムMCPサーバーもサポートしています。社内ツールに接続するスキルをインストールしたり、組織のワークフローを組み込んだカスタムスキルを作成したり、エージェントに独自のデータへのアクセスを許可するMCPサーバーを接続したりすることができます。</p>
+<p>Perplexity Computerは、Perplexityが構築・維持しているものだけで動作します。そのセットは意図的に小規模かつ厳選されています。拡張することはできません。</p>
+<p><strong>あなたが所有する監査証跡</strong>
+OpenClawの<code>sessions_history</code>は、エージェントが行った全ての活動（各ツール呼び出し、各モデル応答、各意思決定点）の、完全で検証可能なトランスクリプトを提供します。何か問題が発生した際には、何が起こったのかを正確に読み</p>
+<h2 id="5-perplexityの優れた点-does-better">5. Perplexityの優れた点 {#does-better}</h2>
+<p>月額200ドルで何が手に入るのかを正直に評価することが重要です。これから挙げる点のいくつかは、単なるマーケティングではなく、真の利点です。</p>
+<p><strong>セットアップ不要</strong>
+OpenClawでは、TinyClawがインフラを管理していても、チャネルの接続、SOUL.mdの記述、モデルスタックの設定、Cronスケジュールの決定といった、依然として意味のあるセットアップ手順が残っています。技術に詳しくないユーザーにとって、この
+Opusが、19種類のモデルの中から、各サブタスクを処理するモデルを決定します。「リサーチにはGemini、画像にはNano Banana、軽量タスクにはGrokを使用する」といった指定をユーザーが行う必要はありません。そのルーティングは、Perplexityの
+OpenClawでは、同等のマルチモデルルーティングを構築するには、<code>subagents.model</code>の設定、<code>modelByChannel</code>の使用、<code>model.fallbacks</code>の記述、場合によっては<code>AGENTS.md</code>でのカスタムルーティングロジックの記述といった、意図的な
+これが、PerplexityにはあってOpenClawには明確にない唯一の点です。クレジットベースの利用上限額設定により、「この調査サブタスクの費用はXを超えないように」と指定できます。これは、タスクレベルでの直接的なドル単位のコスト管理です。</p>
+<p>OpenClawのコスト管理は、時間制限（<code>runTimeoutSeconds</code>）によって機能します。これは費用の代理
+ブラウザ、コード実行、画像生成、動画生成 — これらはデバッグや認証情報管理を行うことなく、すぐに利用できます。OpenClawでは、各機能にスキルのインストール、MCPサーバーの設定、またはAPIキーのいずれかが必要です。一度設定すればより強力になりますが、そのセット
+ClawHavocインシデントは、そのリスクを最も明確に示す実例です。2026年2月、協調型サプライチェーン攻撃の一環として、ClawHub上で341件の悪意のあるスキルが発見されました。主なペイロードはAtomic
+Perplexity Computerのクローズドモデルは、この攻撃面を完全に排除します。スキルを一切インストールできないため、悪意のあるスキルをインストールすることも不可能です。</p>
+<p><strong>商業的責任</strong></p>
+<p>月額200ドルでサポート契約とSLAが提供され、製品の不</p>
+<h2 id="6-それぞれが実際に誰のためのものか-who-for">6. それぞれが実際に誰のためのものか {#who-for}</h2>
+<p>これらは同じユーザーをめぐって競合しているわけではありません。この点は重要です。なぜなら、それらを競合製品として位置づけると、どちらを使うべきかについて誤った結論に至ってしまうからです。
+Perplexity Computerから最も恩恵を受けるユーザーとは、クラウドベースのワークフローを持ち、ローカルファイルへのアクセスや外部イベントのトリガーを必要とせず、プラットフォームがルーティングとインフラの決定をすべて管理することに抵抗がなく、「何が起きているかを正確に
+競合調査を自動化するマーケティングコンサルタント。リサーチや下書きの作成をAIにアシストさせるライター。クラウドサービス上で完結する顧客とのコミュニケーションワークフローを自動化したいスモールビジネスのオーナー。これらのユーザーにとって、OpenClawの設定レイヤーは価値ではなく、摩擦となります。Perplexity Computerは、その摩擦を月額200ドルで取り除きます。</p>
+<p><strong>OpenClaw:</strong>
+OpenClawから最も恩恵を受けるユーザーには、特定のインフラストラクチャ要件があります。例えば、ローカルファイルアクセス、Cronでトリガーされる自律的なワークフロー、Webhook駆動のイベント処理、独自のツール用のカスタムスキル、あるいは「Perplexityのクラウドで実行される」ことが
+PRレビューボットを求めるエンジニア。ローカルリポジトリ内のコードを扱うエージェントを必要とする開発者。内部インフラストラクチャに対して実行される自律的な監視ワークフローを必要とする運用チーム。SOUL.mdファイルにセッションをまたいで知識を蓄
+最も明確な判断基準：あなたのワークフローが人間の入力なしで（CronやWebhookによって）開始する必要がある場合、またはPerplexityのクラウド内にないファイルにアクセスする必要がある場合、あなたはOpenClawユーザーです。もしあなたのワークフローがあなた自身によって開始され、完全にクラウドサービス内で完</p>
+<h2 id="7-エージェントプラットフォーム競争が意味するもの-platform-race">7. エージェントプラットフォーム競争が意味するもの {#platform-race}</h2>
+<p><strong>インフラストラクチャというテーゼは確立された。</strong></p>
+<p>2025年初頭、「エージェントには独自の永続的なコンピューティング環境が必要だ」というのは、論証を必要とする
+競争は今や、インフラストラクチャ層が存在するかどうかではなく、誰がその層を所有するかを巡るものになっています。</p>
+<p><strong>オープンソースから商用へのパイプラインは、予定通りに稼働しています。</strong>
+OpenAIはOpenClawの開発者を採用しました。Perplexityはそのコンセプトに基づいて製品を開発しました。AnthropicはClaude Coworkを開発しました。このパターンは、Linux → Red Hat → AWS、Android → Samsung、Git → GitHubで起こったことと一致します。オープンソースが
+OpenClawエコシステムにとって問うべき問いは、クローズドで洗練されたバージョンが改良される中で、オープンで設定可能なバージョンがその際立った価値を維持できるかということです。歴史的に見れば、その答えはイエスです。しかし、価値提案は明確であり続け
+それが、この機能の最も洗練され、セットアップ不要で、19のモデルによってオーケストレーションされたバージョンの現在の価格です。これには10,000クレジットが含まれており、無制限の使用はできません。
+TinyClawは、同じ基盤のマルチエージェントアーキテクチャを1分未満で、大幅に低いコストでデプロイし、Cronスケジューリング、Webhook、ローカルファイルアクセス、そしてOpenClawの全スキルエコシステムを利用できます。その
+市場は本物です。インフラ競争が始まりました。OpenClawは、そのコンセプトを証明したオープンソースのプロトタイプでした。Perplexity Computerは、それに対する最初の主要な商業的取り組みの一つです。今後さらに増えることが予想されます。</p>
+<hr>
+<h2 id="早">早</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>支出上限</th><th>クレジットベース、サブエージェントごと</th><th>時間ベース (<code>runTimeoutSeconds</code>)</th></tr></thead><tbody><tr><td>カスタマイズ性</td><td>低</td><td>高</td></tr><tr><td>ローカルファイルへのアクセス</td><td>不可</td><td>可能</td></tr><tr><td>Cron / スケジュールタスク</td><td>不可</td><td>可能</td></tr><tr><td>Webhookの受信</td><td>不可</td><td>可能</td></tr><tr><td>カスタムスキル / プラグイン</td><td>不可</td><td>可能 (ClawHub, agentskills.io)</td></tr><tr><td>永続的なエージェントID</td><td>不可</td><td>可能 (<code>SOUL.md</code>)</td></tr><tr><td>データ保存場所</td><td>Perplexityのクラウド</td><td>任意</td></tr><tr><td>完全な監査証跡</td><td>不可</td><td>可能 (<code>sessions_history</code>)</td></tr></tbody></table>
+<hr>
+<h2 id="リソース">リソース</h2>
+<ul>
+<li><a href="https://www.perplexity.ai/hub/blog/introducing-perplexity-computer">「Perplexity Computer」発表</a></li>
+<li><a href="https://arstechnica.com/ai/2026/02/perplexity-announces-computer-an-ai-agent-that-assigns-work-to-other-ai-agents/">Ars Technica: Perplexityが「Computer」を発表</a></li>
+<li><a href="https://agentputer.com/">agentputer.com</a> — OpenClawのための24時間365日稼働のクラウドホスティング</li>
+<li><a href="https://tinyclaw.dev/">tinyclaw.dev</a> — ワンクリックデプロイ</li>
+<li><a href="https://docs.openclaw.ai/">docs.openclaw.ai</a> — OpenClawドキュメンテーション</li>
+<li><a href="https://github.com/openclaw/openclaw">github.com/openclaw/openclaw</a> — OpenClawリポジトリ</li>
+</ul>
+<hr>
+<p><em>出典：Perplexityブログ ・ Ars Technica ・ TechCrunch ・ The Verge ・ gHacks ・ The Tech Outlook ・ 2026年2月</em></p>  </div> <!-- ブログ一覧に戻る --> <footer class="mt-16 pt-8 border-t border-accent/20"> <a href="/ja/blog/" class="inline-flex items-center gap-2 font-mono text-sm text-text-muted hover:text-accent transition-colors group"> <span class="group-hover:-translate-x-1 transition-transform">&lt;-</span> <span>すべての記事に戻る</span> </a> </footer> </article> </main> <footer class="bg-dark-secondary border-t border-accent/20"> <div class="max-w-7xl mx-auto px-6 lg:px-20 py-12 lg:py-16"> <!-- 上部セクション --> <div class="flex flex-col lg:flex-row justify-between gap-12 mb-12"> <!-- ブランド --> <div class="lg:max-w-xs"> <a href="/ja/" class="inline-block mb-4"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <p class="text-text-muted text-sm font-mono"> <span class="text-terminal-cyan">//</span> あなたのAIは眠らない
+</p> </div> <!-- リンクグリッド --> <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 font-mono"> <!-- 製品 --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/product</h4> <ul class="space-y-3"> <li> <a href="/ja/features" class="text-text-muted text-sm hover:text-accent transition-colors"> 機能 </a> </li><li> <a href="/pricing" class="text-text-muted text-sm hover:text-accent transition-colors"> 料金 </a> </li><li> <a href="/ja/docs" class="text-text-muted text-sm hover:text-accent transition-colors"> ドキュメント </a> </li> </ul> </div> <!-- 会社 --> <div> <h4 class="text-terminal-orange font-bold mb-4 text-sm">/company</h4> <ul class="space-y-3"> <li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> AgentPuterについて </a> </li><li> <a href="/ja/blog/" class="text-text-muted text-sm hover:text-accent transition-colors"> ブログ </a> </li> </ul> </div> <!-- お問い合わせ --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/contact</h4> <ul class="space-y-3"> <li> <a href="/cdn-cgi/l/email-protection#503f233331222a313d3f223161696969606710373d31393c7e333f3d" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> <span class="__cf_email__" data-cfemail="f9968a9a988b839894968b98c8c0c0c0c9ceb99e94989095d79a9694">[email&#160;protected]</span> </a> </li><li> <a href="https://twitter.com/agentputer" target="_blank" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Twitter </a> </li><li> <a href="https://discord.gg/agentputer" target="_blank" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Discord </a> </li> </ul> </div> <!-- 法務 --> <div> <h4 class="text-terminal-blue font-bold mb-4 text-sm">/legal</h4> <ul class="space-y-3"> <li> <a href="/privacy" class="text-text-muted text-sm hover:text-accent transition-colors"> プライバシーポリシー </a> </li><li> <a href="/terms" class="text-text-muted text-sm hover:text-accent transition-colors"> 利用規約 </a> </li><li> <a href="/privacy#data-security" class="text-text-muted text-sm hover:text-accent transition-colors"> セキュリティ </a> </li> </ul> </div> </div> </div> <!-- 区切り線 --> <div class="border-t border-accent/20 pt-8"> <div class="flex flex-col md:flex-row justify-between items-center gap-4 font-mono"> <!-- コピーライト --> <p class="text-text-dark text-sm">
+/* © 2026 AgentPuter. 全著作権所有。 */
+</p> <!-- ソーシャルリンク --> <div class="flex items-center gap-6"> <a href="https://github.com/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors"> GitHub </a> </div> </div> </div> </div> </footer>  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"db97590b14994206be9f2eaec90a9494","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html> 

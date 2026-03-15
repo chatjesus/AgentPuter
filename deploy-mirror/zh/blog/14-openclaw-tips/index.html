@@ -1,0 +1,694 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="maxSpawnDepth 默认值是 1，不是无限。SOUL.md 对子 Agent 不可见。cleanup 默认保留所有文件。30 条来自真实生产环境的配置技巧，缩短「能跑」和「配置正确」之间的距离。"><meta name="theme-color" content="#0D0D0D"><meta name="generator" content="Astro v4.16.19"><!-- Canonical URL --><link rel="canonical" href="https://www.agentputer.com/zh/blog/14-openclaw-tips/"><!-- hreflang 多语言标签 --><link rel="alternate" hreflang="en" href="https://www.agentputer.com/blog/14-openclaw-tips/"><link rel="alternate" hreflang="zh-CN" href="https://www.agentputer.com/zh/blog/14-openclaw-tips/"><link rel="alternate" hreflang="ja" href="https://www.agentputer.com/ja/blog/14-openclaw-tips/"><link rel="alternate" hreflang="ko" href="https://www.agentputer.com/ko/blog/14-openclaw-tips/"><link rel="alternate" hreflang="es" href="https://www.agentputer.com/es/blog/14-openclaw-tips/"><link rel="alternate" hreflang="pt-BR" href="https://www.agentputer.com/pt-br/blog/14-openclaw-tips/"><link rel="alternate" hreflang="de" href="https://www.agentputer.com/de/blog/14-openclaw-tips/"><link rel="alternate" hreflang="fr" href="https://www.agentputer.com/fr/blog/14-openclaw-tips/"><link rel="alternate" hreflang="zh-TW" href="https://www.agentputer.com/zh-tw/blog/14-openclaw-tips/"><link rel="alternate" hreflang="x-default" href="https://www.agentputer.com/blog/14-openclaw-tips/"><!-- Keywords（各语言本地化） --><meta name="keywords" content="OpenClaw, 配置优化, Sub-Agent, Skill, 成本控制, 安全, 实战技巧"><!-- Open Graph --><meta property="og:title" content="OpenClaw 进阶手册：30 个没人告诉你的使用技巧 | AgentPuter 博客"><meta property="og:description" content="maxSpawnDepth 默认值是 1，不是无限。SOUL.md 对子 Agent 不可见。cleanup 默认保留所有文件。30 条来自真实生产环境的配置技巧，缩短「能跑」和「配置正确」之间的距离。"><meta property="og:type" content="article"><meta property="og:url" content="https://www.agentputer.com/zh/blog/14-openclaw-tips/"><meta property="og:image" content="https://www.agentputer.com/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:site_name" content="AgentPuter"><meta property="og:locale" content="zh_CN"><meta property="og:locale:alternate" content="en_US"><meta property="og:locale:alternate" content="ja_JP"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="es_ES"><meta property="og:locale:alternate" content="pt_BR"><meta property="og:locale:alternate" content="de_DE"><meta property="og:locale:alternate" content="fr_FR"><meta property="og:locale:alternate" content="zh_TW"><!-- Article-specific OG tags --><meta property="article:published_time" content="2026-02-21"><meta property="article:author" content="AgentPuter Lab"><meta property="article:tag" content="OpenClaw"><meta property="article:tag" content="配置优化"><meta property="article:tag" content="Sub-Agent"><meta property="article:tag" content="Skill"><meta property="article:tag" content="成本控制"><meta property="article:tag" content="安全"><meta property="article:tag" content="实战技巧"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@agentputer"><meta name="twitter:creator" content="@agentputer"><meta name="twitter:title" content="OpenClaw 进阶手册：30 个没人告诉你的使用技巧 | AgentPuter 博客"><meta name="twitter:description" content="maxSpawnDepth 默认值是 1，不是无限。SOUL.md 对子 Agent 不可见。cleanup 默认保留所有文件。30 条来自真实生产环境的配置技巧，缩短「能跑」和「配置正确」之间的距离。"><meta name="twitter:image" content="https://www.agentputer.com/og-default.png"><!-- Favicon --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/favicon.svg"><!-- 字体：preconnect + LCP 关键字体直接预加载 --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- 直接预加载 LCP 关键字体文件（JetBrains Mono Bold Latin，H1 使用） --><link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8L6tTOlOVk6OThhvA.woff2"><!-- 字体 CSS 阻塞加载（配合 preconnect 延迟极低，确保 LCP 时字体可用） --><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"><!-- Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":"https://www.agentputer.com/favicon.svg","description":"Your AI Agent's dedicated cloud runtime. AgentPuter keeps your AI running 24/7.","sameAs":["https://twitter.com/agentputer","https://github.com/agentputer","https://discord.gg/agentputer"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"AgentPuter","url":"https://www.agentputer.com","inLanguage":"zh-CN","availableLanguage":[{"@type":"Language","name":"English","alternateName":"en"},{"@type":"Language","name":"中文","alternateName":"zh-CN"},{"@type":"Language","name":"繁體中文","alternateName":"zh-TW"},{"@type":"Language","name":"日本語","alternateName":"ja"},{"@type":"Language","name":"한국어","alternateName":"ko"},{"@type":"Language","name":"Español","alternateName":"es"},{"@type":"Language","name":"Português","alternateName":"pt-BR"},{"@type":"Language","name":"Deutsch","alternateName":"de"},{"@type":"Language","name":"Français","alternateName":"fr"}],"description":"Your AI Agent's dedicated cloud runtime."}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.agentputer.com/zh/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.agentputer.com/zh/blog/"},{"@type":"ListItem","position":3,"name":"14 openclaw tips","item":"https://www.agentputer.com/zh/blog/14-openclaw-tips/"}]}</script><!-- 页面专属结构化数据插槽 --><!-- 浏览器语言自动检测：移到 head 阻塞执行，避免渲染后跳转导致 CLS --><script>
+    (function() {
+      if (localStorage.getItem('agentputer-lang')) return;
+
+      var langMap = {
+        'zh': '/zh', 'zh-cn': '/zh', 'zh-tw': '/zh-tw', 'zh-hk': '/zh-tw',
+        'ja': '/ja', 'ko': '/ko',
+        'es': '/es', 'es-419': '/es',
+        'pt': '/pt-br', 'pt-br': '/pt-br',
+        'de': '/de', 'fr': '/fr',
+      };
+
+      var path = window.location.pathname;
+      if (/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)(\/|$)/.test(path)) {
+        var m = path.match(/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)/);
+        if (m) localStorage.setItem('agentputer-lang', m[1]);
+        return;
+      }
+
+      var langs = navigator.languages || [navigator.language];
+      for (var i = 0; i < langs.length; i++) {
+        var bl = langs[i].toLowerCase();
+        if (langMap[bl]) {
+          var target = path === '/' ? langMap[bl] + '/' : langMap[bl] + path;
+          localStorage.setItem('agentputer-lang', bl);
+          window.location.replace(target);
+          return;
+        }
+        var primary = bl.split('-')[0];
+        if (primary !== bl && langMap[primary]) {
+          var target2 = path === '/' ? langMap[primary] + '/' : langMap[primary] + path;
+          localStorage.setItem('agentputer-lang', primary);
+          window.location.replace(target2);
+          return;
+        }
+      }
+      localStorage.setItem('agentputer-lang', 'en');
+    })();
+    </script><!-- Google Analytics 4 --><script async src="https://www.googletagmanager.com/gtag/js?id=G-9M2T6GQJ0L"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9M2T6GQJ0L');
+    </script><title>OpenClaw 进阶手册：30 个没人告诉你的使用技巧 | AgentPuter 博客</title><link rel="stylesheet" href="/_astro/_slug_.DM3EUOA_.css">
+<link rel="stylesheet" href="/_astro/_slug_.CUcOCpHJ.css">
+<link rel="stylesheet" href="/_astro/_slug_.CxhqtQFk.css"><script type="module" src="/_astro/hoisted.59JzbWNo.js"></script></head> <body class="min-h-screen">   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"OpenClaw 进阶手册：30 个没人告诉你的使用技巧","description":"maxSpawnDepth 默认值是 1，不是无限。SOUL.md 对子 Agent 不可见。cleanup 默认保留所有文件。30 条来自真实生产环境的配置技巧，缩短「能跑」和「配置正确」之间的距离。","datePublished":"2026-02-21","dateModified":"2026-02-21","inLanguage":"zh-CN","author":{"@type":"Organization","name":"AgentPuter Lab","url":"https://www.agentputer.com"},"publisher":{"@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":{"@type":"ImageObject","url":"https://www.agentputer.com/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.agentputer.com/zh/blog/14-openclaw-tips/"},"keywords":"OpenClaw, 配置优化, Sub-Agent, Skill, 成本控制, 安全, 实战技巧"}</script> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://www.agentputer.com/zh/"},{"@type":"ListItem","position":2,"name":"博客","item":"https://www.agentputer.com/zh/blog/"},{"@type":"ListItem","position":3,"name":"OpenClaw 进阶手册：30 个没人告诉你的使用技巧"}]}</script> <header class="fixed top-0 left-0 right-0 z-50 bg-dark-primary md:bg-dark-primary/95 md:backdrop-blur-lg border-b border-accent/20"> <nav class="max-w-7xl mx-auto px-6 lg:px-20 h-20 flex items-center justify-between"> <!-- Logo --> <a href="/zh/" class="flex items-center gap-2 group"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <!-- Desktop Navigation --> <div class="hidden md:flex items-center gap-8 font-mono"> <a href="/zh/features" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/功能
+</a> <a href="#pricing" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/价格
+</a> <a href="/zh/blog/" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/博客
+</a> <a href="/zh/docs" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/文档
+</a> <!-- Desktop 语言切换器 --><div class="lang-switcher relative"> <button class="lang-btn flex items-center gap-1.5 text-text-secondary hover:text-accent transition-colors text-sm font-mono cursor-pointer" aria-label="Switch language" aria-expanded="false"> <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <circle cx="12" cy="12" r="10" stroke-width="1.5"></circle> <path stroke-width="1.5" d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path> </svg> <span>中文</span> <svg class="w-3 h-3 opacity-40 transition-transform lang-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </button> <!-- 下拉菜单 --> <div class="lang-dropdown hidden absolute right-0 top-full mt-2 py-1 bg-[#1a1a1a] border border-[#333] rounded-lg shadow-xl min-w-[160px] z-[100]"> <a href="/blog/14-openclaw-tips/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="en"> <span>English</span> <span class="text-xs text-text-dark">EN</span> </a><a href="/zh/blog/14-openclaw-tips/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-accent bg-accent/10" data-lang="zh"> <span>中文</span> <span class="text-xs text-accent">中文</span> </a><a href="/ja/blog/14-openclaw-tips/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ja"> <span>日本語</span> <span class="text-xs text-text-dark">JA</span> </a><a href="/ko/blog/14-openclaw-tips/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ko"> <span>한국어</span> <span class="text-xs text-text-dark">KO</span> </a><a href="/es/blog/14-openclaw-tips/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="es"> <span>Español</span> <span class="text-xs text-text-dark">ES</span> </a><a href="/pt-br/blog/14-openclaw-tips/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="pt-br"> <span>Português</span> <span class="text-xs text-text-dark">PT</span> </a><a href="/de/blog/14-openclaw-tips/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="de"> <span>Deutsch</span> <span class="text-xs text-text-dark">DE</span> </a><a href="/fr/blog/14-openclaw-tips/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="fr"> <span>Français</span> <span class="text-xs text-text-dark">FR</span> </a> </div> </div> <!-- Mobile 语言列表（平铺，不用下拉） --> <div class="lang-mobile hidden"> <div class="flex flex-wrap gap-2"> <a href="/blog/14-openclaw-tips/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="en"> English </a><a href="/zh/blog/14-openclaw-tips/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-accent border-accent/40 bg-accent/10" data-lang="zh"> 中文 </a><a href="/ja/blog/14-openclaw-tips/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ja"> 日本語 </a><a href="/ko/blog/14-openclaw-tips/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ko"> 한국어 </a><a href="/es/blog/14-openclaw-tips/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="es"> Español </a><a href="/pt-br/blog/14-openclaw-tips/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="pt-br"> Português </a><a href="/de/blog/14-openclaw-tips/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="de"> Deutsch </a><a href="/fr/blog/14-openclaw-tips/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="fr"> Français </a> </div> </div>  <a href="https://app.agentputer.com/sign-up" class="text-sm py-2.5 px-6 bg-accent text-dark-primary font-bold rounded hover:bg-accent-dark transition-colors">
+[开始]
+</a> </div> <!-- Mobile Menu Button --> <button id="mobile-menu-btn-zh" class="md:hidden p-2 text-text-secondary hover:text-white" aria-label="Toggle menu"> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </nav> <!-- Mobile Menu --> <div id="mobile-menu-zh" class="hidden md:hidden bg-dark-secondary border-t border-dark-tertiary"> <div class="px-6 py-4 space-y-4"> <a href="/zh/features" class="block text-text-secondary hover:text-white transition-colors">
+功能
+</a> <a href="#pricing" class="block text-text-secondary hover:text-white transition-colors">
+价格
+</a> <a href="/zh/blog/" class="block text-text-secondary hover:text-white transition-colors">
+博客
+</a> <a href="/zh/docs" class="block text-text-secondary hover:text-white transition-colors">
+文档
+</a> <div class="lang-mobile-wrapper"></div> <a href="https://app.agentputer.com/sign-up" class="btn-primary w-full justify-center text-sm py-3">
+开始使用
+</a> </div> </div> </header>  <main class="relative z-10 pt-28 pb-20"> <article class="max-w-4xl mx-auto px-6 lg:px-8"> <!-- 面包屑导航 --> <nav class="mb-8 font-mono text-sm"> <a href="/zh/" class="text-text-muted hover:text-accent transition-colors">~</a> <span class="text-text-dark mx-2">/</span> <a href="/zh/blog/" class="text-text-muted hover:text-accent transition-colors">博客</a> <span class="text-text-dark mx-2">/</span> <span class="text-accent">文章</span> </nav> <!-- 文章元信息头部 --> <header class="mb-12"> <!-- 标签 --> <div class="flex flex-wrap gap-2 mb-6"> <span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#OpenClaw </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#配置优化 </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Sub-Agent </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Skill </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#成本控制 </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#安全 </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#实战技巧 </span> </div> <!-- 标题 --> <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6"> OpenClaw 进阶手册：30 个没人告诉你的使用技巧 </h1> <!-- 描述 --> <p class="text-lg text-text-secondary leading-relaxed mb-8"> maxSpawnDepth 默认值是 1，不是无限。SOUL.md 对子 Agent 不可见。cleanup 默认保留所有文件。30 条来自真实生产环境的配置技巧，缩短「能跑」和「配置正确」之间的距离。 </p> <!-- 元信息行 --> <div class="flex flex-wrap items-center gap-6 text-sm font-mono text-text-muted border-t border-b border-accent/20 py-4"> <div class="flex items-center gap-2"> <span class="text-terminal-cyan">@</span> <span class="text-text-secondary">AgentPuter Lab</span> </div> <div class="flex items-center gap-2"> <span class="text-terminal-orange">$</span> <time datetime="2026-02-21" class="text-text-secondary">2026年2月21日</time> </div> <div class="flex items-center gap-2"> <span class="text-terminal-blue">~</span> <span class="text-text-secondary">阅读 18 min</span> </div> </div> </header> <!-- 文章正文 --> <div class="prose prose-invert prose-terminal max-w-none">  <h1 id="openclaw-进阶手册30-个没人告诉你的使用技巧">OpenClaw 进阶手册：30 个没人告诉你的使用技巧</h1>
+<p><strong>OpenClaw 社区 · 2026 年 2 月</strong></p>
+<blockquote>
+<p>大多数人装好 OpenClaw，跑起第一个 Agent，就自称会用了。
+这篇文章写给另一类人——想搞清楚「为什么这样设计」、「默认值到底是多少」、「怎么把同一个工具用出十倍价值」的人。</p>
+</blockquote>
+<p>这 30 条技巧来自真实生产环境、官方文档深度审查，以及一些代价不小的踩坑记录。没有废话，每条都有今天就能执行的具体动作。</p>
+<hr>
+<h2 id="目录">目录</h2>
+<ol>
+<li><a href="#chapter-1">第一章：基础配置（Tips 01–08）</a></li>
+<li><a href="#chapter-2">第二章：Skill 选择与使用（Tips 09–14）</a></li>
+<li><a href="#chapter-3">第三章：Sub-Agent 架构实战（Tips 15–20）</a></li>
+<li><a href="#chapter-4">第四章：成本控制（Tips 21–25）</a></li>
+<li><a href="#chapter-5">第五章：调试与安全（Tips 26–30）</a></li>
+<li><a href="#tinyclaw">附录：用 TinyClaw 60 秒部署</a></li>
+</ol>
+<hr>
+<h2 id="第一章基础配置-chapter-1">第一章：基础配置 {#chapter-1}</h2>
+<blockquote>
+<p>这是大多数人用错好几个月的配置层。先把这里改对，后面省一半麻烦。</p>
+</blockquote>
+<hr>
+<h3 id="tip-01agentsmd-vs-soulmd搞清楚边界">Tip 01｜AGENTS.md vs SOUL.md：搞清楚边界</h3>
+<p>OpenClaw 有三级文件加载层次：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>全局：  ~/.openclaw/SOUL.md</span></span>
+<span class="line"><span>项目：  ./SOUL.md</span></span>
+<span class="line"><span>会话：  AGENTS.md + TOOLS.md</span></span>
+<span class="line"><span></span></span></code></pre>
+<p><strong>核心规则：子 Agent 只加载 <code>AGENTS.md</code> 和 <code>TOOLS.md</code>。</strong></p>
+<p><code>SOUL.md</code>、<code>IDENTITY.md</code>、<code>USER.md</code>、<code>HEARTBEAT.md</code>、<code>BOOTSTRAP.md</code> 对子 Agent 完全不可见。</p>
+<p>这是一个高频踩坑点：工程师把路由规则写进 <code>SOUL.md</code>，然后奇怪为什么子 Agent 不按套路出牌——原因就在这里。</p>
+<p><strong>解决方案：</strong> 任何子 Agent 需要知道的内容——路由规则、角色设定、工具限制——必须写进 <code>AGENTS.md</code>。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#79B8FF;font-weight:bold"># AGENTS.md（子 Agent 可见）</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold">## 路由规则</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8"> 财务相关问题 → 转交 finance-agent</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8"> 代码审查请求 → 转交 code-reviewer</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8"> 研究任务 → 转交 research-storm</span></span>
+<span class="line"></span></code></pre>
+<hr>
+<h3 id="tip-02指定模型必须带-provider-前缀">Tip 02｜指定模型必须带 provider 前缀</h3>
+<p>错误写法：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{ </span><span style="color:#79B8FF">"model"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"claude-opus-4-6"</span><span style="color:#E1E4E8"> }</span></span>
+<span class="line"></span></code></pre>
+<p>正确写法：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "agents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "defaults"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      "subagents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">        "model"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"anthropic/claude-opus-4-6"</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>格式始终是 <code>provider/model-name</code>。不带 provider 前缀，当两个供应商有相似模型名时，OpenClaw 的模型路由器可能静默失败。</p>
+<p><strong>常用模型字符串：</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>模型</th><th>适用场景</th></tr></thead><tbody><tr><td><code>anthropic/claude-opus-4-6</code></td><td>复杂推理、架构设计</td></tr><tr><td><code>anthropic/claude-sonnet-4-6</code></td><td>日常主力，成本/质量最优</td></tr><tr><td><code>anthropic/claude-haiku-4-5</code></td><td>执行类任务，速度优先</td></tr><tr><td><code>google/gemini-3.1-pro-preview</code></td><td>长文档处理、多模态</td></tr><tr><td><code>openai/gpt-4o-mini</code></td><td>摘要、分类、格式转换</td></tr><tr><td><code>ollama/qwen2.5</code></td><td>不能出本地网络的敏感数据</td></tr></tbody></table>
+<hr>
+<h3 id="tip-03用-env-管理-api-key不要放进-configjson">Tip 03｜用 .env 管理 API Key，不要放进 config.json</h3>
+<p>每个月都有人把含 API Key 的 OpenClaw 配置推到 GitHub。不要成为那个人。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6A737D"># .env</span></span>
+<span class="line"><span style="color:#E1E4E8">ANTHROPIC_API_KEY</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">sk-ant-...</span></span>
+<span class="line"><span style="color:#E1E4E8">OPENAI_API_KEY</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">sk-...</span></span>
+<span class="line"><span style="color:#E1E4E8">GOOGLE_API_KEY</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">AIza...</span></span>
+<span class="line"><span style="color:#E1E4E8">CONTEXT7_API_KEY</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">...</span></span>
+<span class="line"></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6A737D"># .gitignore（不容商量）</span></span>
+<span class="line"><span style="color:#B392F0">.env</span></span>
+<span class="line"><span style="color:#B392F0">.env.local</span></span>
+<span class="line"><span style="color:#B392F0">.env.*</span></span>
+<span class="line"></span></code></pre>
+<p>OpenClaw 自动读取 <code>.env</code> 文件。没有任何理由把 Key 硬编码在任何地方。</p>
+<hr>
+<h3 id="tip-04maxspawndepth-默认值是-1不是无限">Tip 04｜maxSpawnDepth 默认值是 1，不是无限</h3>
+<p>如果你见过 <code>SpawnDepthExceeded</code> 报错，就是因为这个。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "agents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "defaults"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      "subagents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">        "maxSpawnDepth"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">2</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<ul>
+<li><strong>默认值：</strong> 1（只允许一层子 Agent）</li>
+<li><strong>最大值：</strong> 5</li>
+<li><strong>推荐值：</strong> 2，适用于绝大多数架构</li>
+</ul>
+<p>Depth 2 的叶子节点无法继续 spawn。强行设更深会在运行时报错，调试起来很痛苦。除非有非常明确的理由，不要超过 2 层。</p>
+<p><strong>Depth 2 架构示意：</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>主 Agent（depth 0）</span></span>
+<span class="line"><span>├── 研究子 Agent（depth 1）</span></span>
+<span class="line"><span>│   └── [可以 spawn，但 depth 2 限制阻止了]</span></span>
+<span class="line"><span>├── 分析子 Agent（depth 1）</span></span>
+<span class="line"><span>└── 撰写子 Agent（depth 1）</span></span>
+<span class="line"><span></span></span></code></pre>
+<hr>
+<h3 id="tip-05runtimeoutseconds-默认值是-0无超时">Tip 05｜runTimeoutSeconds 默认值是 0（无超时）</h3>
+<p>0 意味着永不超时。一个卡死的子 Agent 会一直跑下去消耗 token，直到你发现为止。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "agents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "defaults"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      "subagents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">        "runTimeoutSeconds"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">120</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>生产环境推荐 120 秒作为大多数任务的上限。数据密集型 Agent 可能需要 300 秒。</p>
+<p><strong>重要：</strong> 超时只停止执行，<strong>不会删除 session</strong>。你仍然需要 <code>cleanup</code> 来管理 session 文件（见 Tip 06）。</p>
+<hr>
+<h3 id="tip-06设置-cleanup-delete-防止-session-堆积">Tip 06｜设置 cleanup: “delete” 防止 Session 堆积</h3>
+<p>默认值是 <code>keep</code>。每个完成的 session 都会留下文件，时间久了会堆积。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "agents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "defaults"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      "subagents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">        "cleanup"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"delete"</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>设为 <code>"delete"</code> 后，已完成的 session 会被归档（transcript 文件改名为 <code>*.deleted.*</code>，不是真删除），保持工作目录整洁。不设置的话，session 会一直堆积，直到 60 分钟自动归档触发。</p>
+<hr>
+<h3 id="tip-07接入-context7停止让-agent-编造-api">Tip 07｜接入 context7，停止让 Agent 编造 API</h3>
+<p>这一个 MCP 集成对涉及库和框架的任务质量提升最为显著。接入后，Agent 在回答问题时会查询实时的官方文档，而不是依赖可能已经一两年过时的训练数据。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "mcpServers"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "context7"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      "command"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"npx"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      "args"</span><span style="color:#E1E4E8">: [</span><span style="color:#9ECBFF">"-y"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"@upstash/context7-mcp@latest"</span><span style="color:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#79B8FF">      "env"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">        "CONTEXT7_API_KEY"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"${CONTEXT7_API_KEY}"</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>配置完成后，你可以问：「最新版 Next.js 的 Server Actions 怎么用？」——得到的是当前准确的答案，不是 2023 年 Beta 版的文档。</p>
+<hr>
+<h3 id="tip-08用-toolsmd-限制-agent-能碰什么">Tip 08｜用 TOOLS.md 限制 Agent 能碰什么</h3>
+<p><code>TOOLS.md</code> 是你的权限边界。没有它，Agent 可以调用任何可用工具。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#79B8FF;font-weight:bold"># TOOLS.md</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold">## 工具限制</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">deny: ["gateway", "cron", "billing", "admin_delete"]</span></span>
+<span class="line"></span></code></pre>
+<p><code>deny</code> 的优先级高于 <code>allow</code>。在多 Agent 设置中，明确封锁高风险工具尤为重要——一个被攻击的 Skill 可能通过工具调用在整个 Agent 图中传播损害。</p>
+<hr>
+<h2 id="第二章skill-选择与使用-chapter-2">第二章：Skill 选择与使用 {#chapter-2}</h2>
+<hr>
+<h3 id="tip-09安装-skill-之前先看安全评分">Tip 09｜安装 Skill 之前，先看安全评分</h3>
+<p>ClawHub 和 agentskills.io 都提供每个 Skill 的安全评分。这不是装饰。</p>
+<p><strong>评分等级：</strong></p>
+<ul>
+<li><strong>A/B 级（80+）：</strong> 可以用于生产环境</li>
+<li><strong>C 级（70–79）：</strong> 安装前检查 OAuth 授权范围</li>
+<li><strong>D 级（≤69）：</strong> 先在沙盒环境测试。不要直接用于生产。</li>
+</ul>
+<p>2026 年 2 月的 ClawHavoc 事件，ClawHub 一次下架了 341 个含有恶意 prompt 注入载荷的 Skill。安全评分是你的第一道防线。</p>
+<hr>
+<h3 id="tip-10self-improvement真正会进化的-skill">Tip 10｜self-improvement：真正会进化的 Skill</h3>
+<p><code>self-improvement</code> 自动将每个 session 中的报错、纠错和知识盲区记录到 <code>.learnings/ERRORS.md</code>。下一个 session 开始前，Agent 会读回这份记录——带着上次的失败教训进入新任务。</p>
+<p>不需要额外配置，不需要搭配其他 Skill。装好，在同一个重复任务上跑两周，对比出错率。复利效应是真实的。</p>
+<hr>
+<h3 id="tip-11理解-skill-加载顺序后者覆盖前者">Tip 11｜理解 Skill 加载顺序（后者覆盖前者）</h3>
+<p>加载顺序：<code>TOOLS.md</code> → <code>AGENTS.md</code> → <code>SKILL.md</code></p>
+<p>如果一个 Skill 定义的工具与你 <code>AGENTS.md</code> 里的同名，<strong>Skill 里的版本生效</strong>。这既是特性（Skill 可以扩展你的基础配置），也是陷阱（写得差的 Skill 可能静默覆盖某个关键配置）。</p>
+<p>如果你有自定义工具配置，安装 Skill 之前务必检查它的工具定义。</p>
+<hr>
+<h3 id="tip-12一个最小可行的自定义-skill-只需三个区块">Tip 12｜一个最小可行的自定义 Skill 只需三个区块</h3>
+<p>如果你一直因为觉得「写 Skill 很麻烦」而拖着没写，其实并不麻烦。最小结构：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#79B8FF;font-weight:bold"># my-skill/SKILL.md</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold">## What I do</span></span>
+<span class="line"><span style="color:#E1E4E8">我分析 CSV 格式的销售数据，生成结构化的周报摘要。</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold">## When to use me</span></span>
+<span class="line"><span style="color:#E1E4E8">在销售周期结束后，有 CRM 导出的 CSV 文件时调用我。</span></span>
+<span class="line"><span style="color:#E1E4E8">不适用于实时数据或非销售数据集。</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold">## How I work</span></span>
+<span class="line"><span style="color:#FFAB70">1.</span><span style="color:#E1E4E8"> 从 task prompt 中提供的路径读取 CSV</span></span>
+<span class="line"><span style="color:#FFAB70">2.</span><span style="color:#E1E4E8"> 计算总计、TOP 表现者和环比变化</span></span>
+<span class="line"><span style="color:#FFAB70">3.</span><span style="color:#E1E4E8"> 将结果格式化为 Markdown 表格</span></span>
+<span class="line"><span style="color:#FFAB70">4.</span><span style="color:#E1E4E8"> 将输出保存到 output/sales_summary_[</span><span style="color:#DBEDFF;text-decoration:underline">date</span><span style="color:#E1E4E8">].md</span></span>
+<span class="line"></span></code></pre>
+<p>自然语言就够了。Agent 完全能理解这样写的指令。</p>
+<hr>
+<h3 id="tip-13知道该用哪个-skill-市场">Tip 13｜知道该用哪个 Skill 市场</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>平台</th><th>优势</th><th>最适合</th></tr></thead><tbody><tr><td><strong>clawhub.ai</strong></td><td>人工审核，安全评审，3,286 个 Skill</td><td>生产环境使用，质量优先</td></tr><tr><td><strong>agentskills.io</strong></td><td>19,309 个 Skill，长尾覆盖广</td><td>特定小众场景，研究用途</td></tr></tbody></table>
+<p>需要可靠工作的 Skill 用 ClawHub。需要 ClawHub 没有的特定功能用 agentskills.io。两者互补，不是竞争关系。</p>
+<hr>
+<h3 id="tip-14proactive-agent--cron真正的无人值守工作流">Tip 14｜proactive-agent + Cron：真正的无人值守工作流</h3>
+<p>这条技巧会改变你对 Agent 的认知方式。<code>proactive-agent</code> 支持：</p>
+<ul>
+<li><strong>WAL（预写日志）：</strong> 崩溃恢复，跨重启的上下文持久化</li>
+<li><strong>自主 Cron：</strong> 定时执行，不需要人触发</li>
+<li><strong>上下文恢复：</strong> 中断后从上次停止的地方继续</li>
+</ul>
+<p>一个真实世界的例子：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>定时：每天 08:00</span></span>
+<span class="line"><span>任务：汇总昨天的 GitHub Issues 和 PR，</span></span>
+<span class="line"><span>      拉取今天的日程，标记日程冲突，</span></span>
+<span class="line"><span>      将摘要推送到 Slack #morning-brief 频道</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>配置完成后，不需要任何人工介入。这才是「自主」真正的含义。</p>
+<hr>
+<h2 id="第三章sub-agent-架构实战-chapter-3">第三章：Sub-Agent 架构实战 {#chapter-3}</h2>
+<blockquote>
+<p>掌握子 Agent，是从 OpenClaw 用户到 OpenClaw 工程师的分水岭。</p>
+</blockquote>
+<hr>
+<h3 id="tip-15fan-out-架构将延迟降低约-40">Tip 15｜Fan-Out 架构将延迟降低约 40%</h3>
+<p>串行执行：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>主 Agent → 任务 A（12s）→ 任务 B（11s）→ 任务 C（7s）→ 任务 D（5s）</span></span>
+<span class="line"><span>总计：35 秒</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>Fan-Out 并行：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#E1E4E8">sessions_spawn(</span><span style="color:#FFAB70">task</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"抓取市场数据"</span><span style="color:#E1E4E8">,   </span><span style="color:#FFAB70">label</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"market-data"</span><span style="color:#E1E4E8">,    </span><span style="color:#FFAB70">model</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"anthropic/claude-haiku-4-5"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">sessions_spawn(</span><span style="color:#FFAB70">task</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"汇总新闻"</span><span style="color:#E1E4E8">,       </span><span style="color:#FFAB70">label</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"news-summary"</span><span style="color:#E1E4E8">,   </span><span style="color:#FFAB70">model</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"anthropic/claude-haiku-4-5"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">sessions_spawn(</span><span style="color:#FFAB70">task</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"检查日程冲突"</span><span style="color:#E1E4E8">,   </span><span style="color:#FFAB70">label</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"calendar-check"</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">model</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"anthropic/claude-haiku-4-5"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">sessions_spawn(</span><span style="color:#FFAB70">task</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"分析昨日任务"</span><span style="color:#E1E4E8">,   </span><span style="color:#FFAB70">label</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"task-analysis"</span><span style="color:#E1E4E8">,  </span><span style="color:#FFAB70">model</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"anthropic/claude-haiku-4-5"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#6A737D"># 四个子 Agent 同时启动，主 Agent 不阻塞，继续执行后续逻辑</span></span>
+<span class="line"><span style="color:#E1E4E8">总计：约 </span><span style="color:#79B8FF">20</span><span style="color:#E1E4E8"> 秒（受最慢的子 Agent 决定）</span></span>
+<span class="line"></span></code></pre>
+<p><code>sessions_spawn</code> 立即返回 <code>runId</code>，主 Agent 不等待。这是大多数团队能做的最具影响力的结构性改变。</p>
+<hr>
+<h3 id="tip-16聪明老板--便宜实习生模型层次策略">Tip 16｜「聪明老板 + 便宜实习生」：模型层次策略</h3>
+<p>设置子 Agent 的全局默认模型，必要时按任务覆盖：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "agents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "defaults"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      "subagents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">        "model"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"anthropic/claude-haiku-4-5"</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>真正需要更强能力的任务，在调用时覆盖：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#E1E4E8">sessions_spawn(</span></span>
+<span class="line"><span style="color:#FFAB70">    task</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"为多租户 SaaS 设计数据库 Schema"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#FFAB70">    label</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"schema-design"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#FFAB70">    model</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"anthropic/claude-opus-4-6"</span><span style="color:#6A737D">  # 仅此任务使用 Opus</span></span>
+<span class="line"><span style="color:#E1E4E8">)</span></span>
+<span class="line"></span></code></pre>
+<p>真实结果：API 成本降低 50–60%，质量损失基本可忽略。Haiku 能完成 80% 以上的执行类任务。</p>
+<hr>
+<h3 id="tip-17路由逻辑写-agentsmd不写-soulmd">Tip 17｜路由逻辑写 AGENTS.md，不写 SOUL.md</h3>
+<p>这个错误值得重复，因为它太常见、失败又太静默：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#79B8FF;font-weight:bold"># ❌ 错误 —— 写在 SOUL.md（子 Agent 看不到）</span></span>
+<span class="line"><span style="color:#E1E4E8">当用户询问财务问题时，转交给 finance-agent。</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold"># ✅ 正确 —— 写在 AGENTS.md（子 Agent 可见）</span></span>
+<span class="line"><span style="color:#E1E4E8">当用户询问财务问题时，转交给 finance-agent。</span></span>
+<span class="line"></span></code></pre>
+<p>如果你的路由不工作，这是首先要检查的地方。</p>
+<hr>
+<h3 id="tip-18spawn-子-agent-时-label-参数必填">Tip 18｜Spawn 子 Agent 时 label 参数必填</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#6A737D"># ❌ 不带 label</span></span>
+<span class="line"><span style="color:#E1E4E8">sessions_spawn(</span><span style="color:#FFAB70">task</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"分析 Q4 销售数据"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#6A737D"># 这个崩了之后：是哪个 session？不知道。</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># ✅ 带 label</span></span>
+<span class="line"><span style="color:#E1E4E8">sessions_spawn(</span></span>
+<span class="line"><span style="color:#FFAB70">    task</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"分析 Q4 销售数据"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#FFAB70">    label</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"q4-sales-analysis-2026"</span></span>
+<span class="line"><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#6A737D"># 崩了之后：/subagents log q4-sales-analysis-2026</span></span>
+<span class="line"></span></code></pre>
+<p>label 是 <code>/subagents list</code>、<code>/subagents log</code>、<code>/subagents info</code> 的关键索引。没有它，在多 Agent 工作流里调试一个失败的子 Agent，就像在 <code>ps aux</code> 里找一个没有名字的进程。</p>
+<hr>
+<h3 id="tip-19子-agent-是发射后不管不是实时对话">Tip 19｜子 Agent 是「发射后不管」，不是实时对话</h3>
+<p><code>announce</code> 机制是单向的：子 Agent 在完成时汇报，<strong>无法在执行中途向父 Agent 提问</strong>。</p>
+<p>这对 task prompt 有直接影响：<strong>prompt 必须完整、自洽。</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#6A737D"># ❌ 会静默失败 —— 太模糊</span></span>
+<span class="line"><span style="color:#E1E4E8">sessions_spawn(</span><span style="color:#FFAB70">task</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"分析一下数据"</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">label</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"analysis"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># ✅ 正确 —— Agent 需要的一切都在 prompt 里</span></span>
+<span class="line"><span style="color:#E1E4E8">sessions_spawn(</span></span>
+<span class="line"><span style="color:#FFAB70">    task</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"""</span></span>
+<span class="line"><span style="color:#9ECBFF">    分析 /data/sales_2026_jan.csv。</span></span>
+<span class="line"><span style="color:#9ECBFF">    计算：1）月总收入；2）销量 TOP 5 产品；</span></span>
+<span class="line"><span style="color:#9ECBFF">    3）与 /data/sales_2025_dec.csv 的环比变化。</span></span>
+<span class="line"><span style="color:#9ECBFF">    输出：Markdown 表格。保存到 /output/jan_2026_report.md。</span></span>
+<span class="line"><span style="color:#9ECBFF">    如果文件不存在，向 /output/errors.log 写一行错误信息。</span></span>
+<span class="line"><span style="color:#9ECBFF">    """</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#FFAB70">    label</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"jan-2026-sales-analysis"</span></span>
+<span class="line"><span style="color:#E1E4E8">)</span></span>
+<span class="line"></span></code></pre>
+<p>把 task prompt 写成「留给一个无法向你提问的人的详细便条」。</p>
+<hr>
+<h3 id="tip-20调整并发限制避免触发-api-限速">Tip 20｜调整并发限制，避免触发 API 限速</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "agents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "defaults"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      "subagents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">        "maxChildrenPerAgent"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">5</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">        "maxConcurrent"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">3</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<ul>
+<li><code>maxChildrenPerAgent</code>：单个父 Agent 最多能 spawn 多少子 Agent（默认 5，范围 1–20）</li>
+<li><code>maxConcurrent</code>：全局并发子 Agent 上限（默认 8）</li>
+</ul>
+<p>如果你的 API Plan 有每分钟 token/请求数限制，<code>maxConcurrent</code> 就是调节旋钮。触碰上限不会崩溃工作流——会排队——但会增加总延迟。</p>
+<p>高级 API Plan 可以把 <code>maxConcurrent</code> 调高；个人 Plan 建议保持在 3–4。</p>
+<hr>
+<h2 id="第四章成本控制-chapter-4">第四章：成本控制 {#chapter-4}</h2>
+<blockquote>
+<p>跑 Agent 需要花钱，但可以花得很聪明。</p>
+</blockquote>
+<hr>
+<h3 id="tip-21安装-save-money-skill自动切换模型">Tip 21｜安装 save-money Skill，自动切换模型</h3>
+<p><code>save-money</code> Skill 监控任务复杂度，路由到最便宜的有能力的模型：</p>
+<ul>
+<li>分类、摘要、格式转换 → <strong>Haiku</strong></li>
+<li>标准代码生成、分析 → <strong>Sonnet</strong></li>
+<li>复杂推理、架构设计、多步规划 → <strong>Opus</strong></li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> install</span><span style="color:#9ECBFF"> save-money</span></span>
+<span class="line"></span></code></pre>
+<p>用户反馈月 API 成本降低 50% 以上，质量无明显损失。Skill 的路由逻辑基于 token 数、任务类型检测和可配置的复杂度阈值。</p>
+<hr>
+<h3 id="tip-22用-context-compaction-应对超长会话">Tip 22｜用 Context Compaction 应对超长会话</h3>
+<p>Claude Opus 和 Sonnet 4.6 支持 Context Compaction API。当对话历史接近 token 上限时，系统会智能压缩，而不是截断。</p>
+<p>最重要的场景：</p>
+<ul>
+<li>多小时的研究会话</li>
+<li>长调试过程</li>
+<li>迭代式文档编辑工作流</li>
+</ul>
+<p>不用 Compaction，触碰上限就会丢失上下文。用了，会话可以连贯地继续。</p>
+<hr>
+<h3 id="tip-23每次-session-后跑-openclaw-usage">Tip 23｜每次 Session 后跑 openclaw usage</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> usage</span></span>
+<span class="line"></span></code></pre>
+<p>输出按 session、模型、工具分类显示 token 消耗。每次非平凡的 session 结束后扫一眼。</p>
+<p>常见发现：</p>
+<ul>
+<li>某个子 Agent 消耗了其他 Agent 5 倍的 token → prompt 太长</li>
+<li>一个工具每个 session 被调用 20 次 → Agent 在循环</li>
+<li>Opus 被用于 Sonnet 能处理的任务 → 模型路由配置有问题</li>
+</ul>
+<p>这是找到预算真正流向哪里的最快方式。</p>
+<hr>
+<h3 id="tip-24摘要和分类任务强制用-gpt-4o-mini">Tip 24｜摘要和分类任务强制用 gpt-4o-mini</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "tasks"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "summarize"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"model"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"openai/gpt-4o-mini"</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#79B8FF">    "classify"</span><span style="color:#E1E4E8">:  { </span><span style="color:#79B8FF">"model"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"openai/gpt-4o-mini"</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#79B8FF">    "translate"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"model"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"openai/gpt-4o-mini"</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#79B8FF">    "format"</span><span style="color:#E1E4E8">:    { </span><span style="color:#79B8FF">"model"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"openai/gpt-4o-mini"</span><span style="color:#E1E4E8"> }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>这类任务，GPT-4o-mini 的准确率足够用，成本比 Opus 低 80%。原则：用能完成任务的最便宜的模型，把贵的模型留给真正需要它们的场景。</p>
+<hr>
+<h3 id="tip-25通过本地模型处理敏感数据">Tip 25｜通过本地模型处理敏感数据</h3>
+<p>财务记录、内部文件、用户隐私数据——这些不应该发送给外部 API。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "mcpServers"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "local-llm"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      "model"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"ollama/qwen2.5"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      "baseUrl"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"http://localhost:11434"</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>配置本地 Ollama 后，将敏感工作负载路由到 <code>ollama/qwen2.5</code>。速度比云端慢，但数据完全不离开本地网络。对于受监管的行业，这往往是合规要求，不只是偏好。</p>
+<hr>
+<h2 id="第五章调试与安全-chapter-5">第五章：调试与安全 {#chapter-5}</h2>
+<hr>
+<h3 id="tip-26先开详细日志再问问题">Tip 26｜先开详细日志，再问问题</h3>
+<p>出问题时，第一条命令：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> debug</span><span style="color:#79B8FF"> --verbose</span></span>
+<span class="line"></span></code></pre>
+<p>然后查特定子 Agent：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">/subagents</span><span style="color:#9ECBFF"> log</span><span style="color:#F97583"> &#x3C;</span><span style="color:#9ECBFF">runI</span><span style="color:#E1E4E8">d</span><span style="color:#F97583">></span></span>
+<span class="line"></span></code></pre>
+<p>详细日志显示每一次工具调用、每一个决策点，以及每一步的完整上下文。90% 的 Agent 行为异常，看日志之后立刻就明白了。</p>
+<hr>
+<h3 id="tip-27超时--失败重跑前先确认状态">Tip 27｜超时 ≠ 失败，重跑前先确认状态</h3>
+<p>子 Agent 意外停止时，先检查状态，再决定怎么处理：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">/subagents</span><span style="color:#9ECBFF"> list</span></span>
+<span class="line"></span></code></pre>
+<p>看 <code>status</code> 列：</p>
+<ul>
+<li><code>timeout</code> → Agent 触碰了 <code>runTimeoutSeconds</code>。调大限制后重跑。</li>
+<li><code>error</code> → 真实失败。查 <code>/subagents log &#x3C;runId></code> 找具体报错。</li>
+</ul>
+<p>用同样的配置重跑一个超时的 Agent，会得到同样的结果。先修超时设置。</p>
+<hr>
+<h3 id="tip-28用-clawdefender-扫描已安装的-skill">Tip 28｜用 clawdefender 扫描已安装的 Skill</h3>
+<p>ClawHavoc 事件之后，这是必做的安全卫生项：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">clawdefender</span><span style="color:#9ECBFF"> scan</span><span style="color:#79B8FF"> --all</span></span>
+<span class="line"></span></code></pre>
+<p>检测内容：</p>
+<ul>
+<li>Prompt 注入向量</li>
+<li>命令注入模式</li>
+<li>凭证窃取尝试</li>
+<li>异常 OAuth scope 请求</li>
+</ul>
+<p>如果某个 Skill 扫描失败，立即卸载，找评分更高的替代品。不要试图「修复」一个恶意 Skill。</p>
+<hr>
+<h3 id="tip-29只申请真正用到的权限">Tip 29｜只申请真正用到的权限</h3>
+<p>每次 OAuth 授权都是一个潜在攻击面。最小权限原则同样适用于 Agent：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误做法</th><th>正确做法</th></tr></thead><tbody><tr><td><code>calendar:*</code></td><td><code>calendar:read</code></td></tr><tr><td><code>email:*</code></td><td><code>email:send</code></td></tr><tr><td><code>files:readwrite</code></td><td><code>files:read</code></td></tr><tr><td><code>contacts:*</code></td><td><code>contacts:read</code></td></tr></tbody></table>
+<p>读取日程的 Skill 不需要写入权限。发送邮件的 Skill 不需要删除邮件。授权任何新 Skill 前，检查它的 scope 请求。</p>
+<hr>
+<h3 id="tip-30tinyclaw-已经内置了以上所有配置">Tip 30｜TinyClaw 已经内置了以上所有配置</h3>
+<p>本文中的所有内容——配置优化、安全加固、成本控制策略——在 TinyClaw 里都已经预配置好了。</p>
+<p>如果你更愿意在一分钟内部署一个生产级 OpenClaw 实例，而不是花一下午手动配置：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>tinyclaw.dev → 选择模型 → 选择频道 → 部署</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>以上 30 条技巧在你跑起来之后仍然适用。它们只是让你有一个更好的起点去优化。</p>
+<hr>
+<h2 id="附录用-tinyclaw-60-秒部署-tinyclaw">附录：用 TinyClaw 60 秒部署 {#tinyclaw}</h2>
+<p>传统 OpenClaw 配置，如果你知道每一步该怎么做，大约需要一个小时：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>步骤</th><th>时间</th></tr></thead><tbody><tr><td>购买和配置服务器</td><td>15 分钟</td></tr><tr><td>配置 SSH 密钥</td><td>10 分钟</td></tr><tr><td>安装 Node.js</td><td>5 分钟</td></tr><tr><td>安装 OpenClaw</td><td>7 分钟</td></tr><tr><td>配置 AI 供应商</td><td>10 分钟</td></tr><tr><td>连接 Telegram</td><td>4 分钟</td></tr><tr><td><strong>总计</strong></td><td><strong>约 60 分钟</strong></td></tr></tbody></table>
+<p>非技术用户每步都要先学再做，实际时间乘以十。</p>
+<p>TinyClaw 预配置了所有环节。你只需要做三个选择：</p>
+<p><strong>第一步 — 选择默认模型：</strong>
+<code>Claude Opus 4.6</code> / <code>GPT-5.2</code> / <code>Gemini 3.1 Pro</code></p>
+<p><strong>第二步 — 选择消息频道：</strong>
+<code>Telegram</code> / <code>Discord</code> / <code>WhatsApp</code>（三选一）</p>
+<p><strong>第三步 — 用 Google 账号登录 → 部署。</strong></p>
+<p>服务器已预配置，SSH 已处理，OpenClaw 运行环境已就绪，只等分配给你。</p>
+<p><strong>部署完成后，你立刻可以做的事：</strong></p>
+<ul>
+<li>读取和摘要邮件、起草回复</li>
+<li>会议前提醒、跨时区日程同步</li>
+<li>开支追踪和收据解析</li>
+<li>竞品研究和线索筛选</li>
+<li>每日站会摘要、OKR 追踪</li>
+<li>起草合同、社交帖文、招聘描述</li>
+<li>价格对比和优惠券查询</li>
+</ul>
+<p>以及你用自然语言说出来的任何其他场景。本文 30 条技巧在你跑起来后立即可用——TinyClaw 只是去掉了配置摩擦。</p>
+<blockquote>
+<p><strong>注意：</strong> 云服务器数量有限。查看当前可用情况：<a href="https://tinyclaw.dev">tinyclaw.dev</a></p>
+</blockquote>
+<hr>
+<h2 id="速查卡">速查卡</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>章节</th><th>技巧范围</th><th>什么时候读</th></tr></thead><tbody><tr><td>基础配置</td><td>01–08</td><td>动手写任何配置之前</td></tr><tr><td>Skill 使用</td><td>09–14</td><td>安装任何 Skill 之前</td></tr><tr><td>Sub-Agent</td><td>15–20</td><td>构建多 Agent 工作流之前</td></tr><tr><td>成本控制</td><td>21–25</td><td>第一个真实工作负载跑起来之后</td></tr><tr><td>调试与安全</td><td>26–30</td><td>出问题时</td></tr></tbody></table>
+<hr>
+<h2 id="推荐资源">推荐资源</h2>
+<ul>
+<li><strong>官方文档：</strong> <a href="https://docs.openclaw.ai">docs.openclaw.ai</a></li>
+<li><strong>Skill 市场（质量优先）：</strong> <a href="https://clawhub.ai">clawhub.ai</a></li>
+<li><strong>Skill 市场（数量优先）：</strong> <a href="https://agentskills.io">agentskills.io</a></li>
+<li><strong>一键部署：</strong> <a href="https://tinyclaw.dev">tinyclaw.dev</a></li>
+<li><strong>24/7 云托管：</strong> <a href="https://agentputer.com">agentputer.com</a></li>
+</ul>
+<hr>
+<p><em>数据来源：OpenClaw 官方文档（docs.openclaw.ai）· ClawHub 安全数据（2026 年 2 月）· 社区生产环境反馈</em></p>  </div> <!-- 返回博客列表 --> <footer class="mt-16 pt-8 border-t border-accent/20"> <a href="/zh/blog/" class="inline-flex items-center gap-2 font-mono text-sm text-text-muted hover:text-accent transition-colors group"> <span class="group-hover:-translate-x-1 transition-transform">&lt;-</span> <span>返回所有文章</span> </a> </footer> </article> </main> <footer class="bg-dark-secondary border-t border-accent/20"> <div class="max-w-7xl mx-auto px-6 lg:px-20 py-12 lg:py-16"> <!-- Top Section --> <div class="flex flex-col lg:flex-row justify-between gap-12 mb-12"> <!-- Brand --> <div class="lg:max-w-xs"> <a href="/zh/" class="inline-block mb-4"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <p class="text-text-muted text-sm font-mono"> <span class="text-terminal-cyan">//</span> 你的 AI 永不休眠
+</p> </div> <!-- Links Grid --> <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 font-mono"> <!-- Product --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/产品</h4> <ul class="space-y-3"> <li> <a href="/zh/features" class="text-text-muted text-sm hover:text-accent transition-colors"> 功能 </a> </li><li> <a href="#pricing" class="text-text-muted text-sm hover:text-accent transition-colors"> 价格 </a> </li><li> <a href="/zh/docs" class="text-text-muted text-sm hover:text-accent transition-colors"> 文档 </a> </li> </ul> </div> <!-- Company --> <div> <h4 class="text-terminal-orange font-bold mb-4 text-sm">/公司</h4> <ul class="space-y-3"> <li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 关于 </a> </li><li> <a href="/zh/blog/" class="text-text-muted text-sm hover:text-accent transition-colors"> 博客 </a> </li><li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 招聘 </a> </li> </ul> </div> <!-- Contact --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/联系</h4> <ul class="space-y-3"> <li> <a href="/cdn-cgi/l/email-protection#6f001c0c0e1d150e02001d0e5e5656565f582f08020e0603410c0002" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> <span class="__cf_email__" data-cfemail="68071b0b091a120905071a0959515151585f280f05090104460b0705">[email&#160;protected]</span> </a> </li><li> <a href="https://twitter.com/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Twitter </a> </li><li> <a href="https://discord.gg/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Discord </a> </li> </ul> </div> <!-- Legal --> <div> <h4 class="text-terminal-blue font-bold mb-4 text-sm">/法律</h4> <ul class="space-y-3"> <li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 隐私 </a> </li><li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 条款 </a> </li><li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 安全 </a> </li> </ul> </div> </div> </div> <!-- Divider --> <div class="border-t border-accent/20 pt-8"> <div class="flex flex-col md:flex-row justify-between items-center gap-4 font-mono"> <!-- Copyright --> <p class="text-text-dark text-sm">
+/* © 2026 AgentPuter. 保留所有权利。 */
+</p> <!-- Social Links --> <div class="flex items-center gap-6"> <a href="https://github.com/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors"> GitHub </a> </div> </div> </div> </div> </footer>  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"db97590b14994206be9f2eaec90a9494","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html> 

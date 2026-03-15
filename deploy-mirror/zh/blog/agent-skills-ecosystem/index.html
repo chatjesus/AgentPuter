@@ -1,0 +1,202 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="17 万个开源 Skills、被忽略的 Gateway 层、以及为什么 Agent 平台正在重走 Windows 的崛起之路。"><meta name="theme-color" content="#0D0D0D"><meta name="generator" content="Astro v4.16.19"><!-- Canonical URL --><link rel="canonical" href="https://www.agentputer.com/zh/blog/agent-skills-ecosystem/"><!-- hreflang 多语言标签 --><link rel="alternate" hreflang="en" href="https://www.agentputer.com/blog/agent-skills-ecosystem/"><link rel="alternate" hreflang="zh-CN" href="https://www.agentputer.com/zh/blog/agent-skills-ecosystem/"><link rel="alternate" hreflang="ja" href="https://www.agentputer.com/ja/blog/agent-skills-ecosystem/"><link rel="alternate" hreflang="ko" href="https://www.agentputer.com/ko/blog/agent-skills-ecosystem/"><link rel="alternate" hreflang="es" href="https://www.agentputer.com/es/blog/agent-skills-ecosystem/"><link rel="alternate" hreflang="pt-BR" href="https://www.agentputer.com/pt-br/blog/agent-skills-ecosystem/"><link rel="alternate" hreflang="de" href="https://www.agentputer.com/de/blog/agent-skills-ecosystem/"><link rel="alternate" hreflang="fr" href="https://www.agentputer.com/fr/blog/agent-skills-ecosystem/"><link rel="alternate" hreflang="zh-TW" href="https://www.agentputer.com/zh-tw/blog/agent-skills-ecosystem/"><link rel="alternate" hreflang="x-default" href="https://www.agentputer.com/blog/agent-skills-ecosystem/"><!-- Keywords（各语言本地化） --><meta name="keywords" content="OpenClaw, AI Agent, Skills, MCP, Agent Gateway, AgentPuter"><!-- Open Graph --><meta property="og:title" content="Agent Skills：AI 世界的 App Store 正在成型 | AgentPuter 博客"><meta property="og:description" content="17 万个开源 Skills、被忽略的 Gateway 层、以及为什么 Agent 平台正在重走 Windows 的崛起之路。"><meta property="og:type" content="article"><meta property="og:url" content="https://www.agentputer.com/zh/blog/agent-skills-ecosystem/"><meta property="og:image" content="https://www.agentputer.com/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:site_name" content="AgentPuter"><meta property="og:locale" content="zh_CN"><meta property="og:locale:alternate" content="en_US"><meta property="og:locale:alternate" content="ja_JP"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="es_ES"><meta property="og:locale:alternate" content="pt_BR"><meta property="og:locale:alternate" content="de_DE"><meta property="og:locale:alternate" content="fr_FR"><meta property="og:locale:alternate" content="zh_TW"><!-- Article-specific OG tags --><meta property="article:published_time" content="2026-02-09"><meta property="article:author" content="AgentPuter Lab"><meta property="article:tag" content="OpenClaw"><meta property="article:tag" content="AI Agent"><meta property="article:tag" content="Skills"><meta property="article:tag" content="MCP"><meta property="article:tag" content="Agent Gateway"><meta property="article:tag" content="AgentPuter"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@agentputer"><meta name="twitter:creator" content="@agentputer"><meta name="twitter:title" content="Agent Skills：AI 世界的 App Store 正在成型 | AgentPuter 博客"><meta name="twitter:description" content="17 万个开源 Skills、被忽略的 Gateway 层、以及为什么 Agent 平台正在重走 Windows 的崛起之路。"><meta name="twitter:image" content="https://www.agentputer.com/og-default.png"><!-- Favicon --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/favicon.svg"><!-- 字体：preconnect + LCP 关键字体直接预加载 --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- 直接预加载 LCP 关键字体文件（JetBrains Mono Bold Latin，H1 使用） --><link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8L6tTOlOVk6OThhvA.woff2"><!-- 字体 CSS 阻塞加载（配合 preconnect 延迟极低，确保 LCP 时字体可用） --><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"><!-- Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":"https://www.agentputer.com/favicon.svg","description":"Your AI Agent's dedicated cloud runtime. AgentPuter keeps your AI running 24/7.","sameAs":["https://twitter.com/agentputer","https://github.com/agentputer","https://discord.gg/agentputer"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"AgentPuter","url":"https://www.agentputer.com","inLanguage":"zh-CN","availableLanguage":[{"@type":"Language","name":"English","alternateName":"en"},{"@type":"Language","name":"中文","alternateName":"zh-CN"},{"@type":"Language","name":"繁體中文","alternateName":"zh-TW"},{"@type":"Language","name":"日本語","alternateName":"ja"},{"@type":"Language","name":"한국어","alternateName":"ko"},{"@type":"Language","name":"Español","alternateName":"es"},{"@type":"Language","name":"Português","alternateName":"pt-BR"},{"@type":"Language","name":"Deutsch","alternateName":"de"},{"@type":"Language","name":"Français","alternateName":"fr"}],"description":"Your AI Agent's dedicated cloud runtime."}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.agentputer.com/zh/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.agentputer.com/zh/blog/"},{"@type":"ListItem","position":3,"name":"Agent skills ecosystem","item":"https://www.agentputer.com/zh/blog/agent-skills-ecosystem/"}]}</script><!-- 页面专属结构化数据插槽 --><!-- 浏览器语言自动检测：移到 head 阻塞执行，避免渲染后跳转导致 CLS --><script>
+    (function() {
+      if (localStorage.getItem('agentputer-lang')) return;
+
+      var langMap = {
+        'zh': '/zh', 'zh-cn': '/zh', 'zh-tw': '/zh-tw', 'zh-hk': '/zh-tw',
+        'ja': '/ja', 'ko': '/ko',
+        'es': '/es', 'es-419': '/es',
+        'pt': '/pt-br', 'pt-br': '/pt-br',
+        'de': '/de', 'fr': '/fr',
+      };
+
+      var path = window.location.pathname;
+      if (/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)(\/|$)/.test(path)) {
+        var m = path.match(/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)/);
+        if (m) localStorage.setItem('agentputer-lang', m[1]);
+        return;
+      }
+
+      var langs = navigator.languages || [navigator.language];
+      for (var i = 0; i < langs.length; i++) {
+        var bl = langs[i].toLowerCase();
+        if (langMap[bl]) {
+          var target = path === '/' ? langMap[bl] + '/' : langMap[bl] + path;
+          localStorage.setItem('agentputer-lang', bl);
+          window.location.replace(target);
+          return;
+        }
+        var primary = bl.split('-')[0];
+        if (primary !== bl && langMap[primary]) {
+          var target2 = path === '/' ? langMap[primary] + '/' : langMap[primary] + path;
+          localStorage.setItem('agentputer-lang', primary);
+          window.location.replace(target2);
+          return;
+        }
+      }
+      localStorage.setItem('agentputer-lang', 'en');
+    })();
+    </script><!-- Google Analytics 4 --><script async src="https://www.googletagmanager.com/gtag/js?id=G-9M2T6GQJ0L"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9M2T6GQJ0L');
+    </script><title>Agent Skills：AI 世界的 App Store 正在成型 | AgentPuter 博客</title><link rel="stylesheet" href="/_astro/_slug_.DM3EUOA_.css">
+<link rel="stylesheet" href="/_astro/_slug_.CUcOCpHJ.css">
+<link rel="stylesheet" href="/_astro/_slug_.CxhqtQFk.css"><script type="module" src="/_astro/hoisted.59JzbWNo.js"></script></head> <body class="min-h-screen">   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Agent Skills：AI 世界的 App Store 正在成型","description":"17 万个开源 Skills、被忽略的 Gateway 层、以及为什么 Agent 平台正在重走 Windows 的崛起之路。","datePublished":"2026-02-09","dateModified":"2026-02-09","inLanguage":"zh-CN","author":{"@type":"Organization","name":"AgentPuter Lab","url":"https://www.agentputer.com"},"publisher":{"@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":{"@type":"ImageObject","url":"https://www.agentputer.com/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.agentputer.com/zh/blog/agent-skills-ecosystem/"},"keywords":"OpenClaw, AI Agent, Skills, MCP, Agent Gateway, AgentPuter"}</script> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://www.agentputer.com/zh/"},{"@type":"ListItem","position":2,"name":"博客","item":"https://www.agentputer.com/zh/blog/"},{"@type":"ListItem","position":3,"name":"Agent Skills：AI 世界的 App Store 正在成型"}]}</script> <header class="fixed top-0 left-0 right-0 z-50 bg-dark-primary md:bg-dark-primary/95 md:backdrop-blur-lg border-b border-accent/20"> <nav class="max-w-7xl mx-auto px-6 lg:px-20 h-20 flex items-center justify-between"> <!-- Logo --> <a href="/zh/" class="flex items-center gap-2 group"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <!-- Desktop Navigation --> <div class="hidden md:flex items-center gap-8 font-mono"> <a href="/zh/features" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/功能
+</a> <a href="#pricing" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/价格
+</a> <a href="/zh/blog/" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/博客
+</a> <a href="/zh/docs" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/文档
+</a> <!-- Desktop 语言切换器 --><div class="lang-switcher relative"> <button class="lang-btn flex items-center gap-1.5 text-text-secondary hover:text-accent transition-colors text-sm font-mono cursor-pointer" aria-label="Switch language" aria-expanded="false"> <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <circle cx="12" cy="12" r="10" stroke-width="1.5"></circle> <path stroke-width="1.5" d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path> </svg> <span>中文</span> <svg class="w-3 h-3 opacity-40 transition-transform lang-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </button> <!-- 下拉菜单 --> <div class="lang-dropdown hidden absolute right-0 top-full mt-2 py-1 bg-[#1a1a1a] border border-[#333] rounded-lg shadow-xl min-w-[160px] z-[100]"> <a href="/blog/agent-skills-ecosystem/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="en"> <span>English</span> <span class="text-xs text-text-dark">EN</span> </a><a href="/zh/blog/agent-skills-ecosystem/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-accent bg-accent/10" data-lang="zh"> <span>中文</span> <span class="text-xs text-accent">中文</span> </a><a href="/ja/blog/agent-skills-ecosystem/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ja"> <span>日本語</span> <span class="text-xs text-text-dark">JA</span> </a><a href="/ko/blog/agent-skills-ecosystem/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ko"> <span>한국어</span> <span class="text-xs text-text-dark">KO</span> </a><a href="/es/blog/agent-skills-ecosystem/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="es"> <span>Español</span> <span class="text-xs text-text-dark">ES</span> </a><a href="/pt-br/blog/agent-skills-ecosystem/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="pt-br"> <span>Português</span> <span class="text-xs text-text-dark">PT</span> </a><a href="/de/blog/agent-skills-ecosystem/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="de"> <span>Deutsch</span> <span class="text-xs text-text-dark">DE</span> </a><a href="/fr/blog/agent-skills-ecosystem/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="fr"> <span>Français</span> <span class="text-xs text-text-dark">FR</span> </a> </div> </div> <!-- Mobile 语言列表（平铺，不用下拉） --> <div class="lang-mobile hidden"> <div class="flex flex-wrap gap-2"> <a href="/blog/agent-skills-ecosystem/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="en"> English </a><a href="/zh/blog/agent-skills-ecosystem/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-accent border-accent/40 bg-accent/10" data-lang="zh"> 中文 </a><a href="/ja/blog/agent-skills-ecosystem/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ja"> 日本語 </a><a href="/ko/blog/agent-skills-ecosystem/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ko"> 한국어 </a><a href="/es/blog/agent-skills-ecosystem/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="es"> Español </a><a href="/pt-br/blog/agent-skills-ecosystem/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="pt-br"> Português </a><a href="/de/blog/agent-skills-ecosystem/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="de"> Deutsch </a><a href="/fr/blog/agent-skills-ecosystem/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="fr"> Français </a> </div> </div>  <a href="https://app.agentputer.com/sign-up" class="text-sm py-2.5 px-6 bg-accent text-dark-primary font-bold rounded hover:bg-accent-dark transition-colors">
+[开始]
+</a> </div> <!-- Mobile Menu Button --> <button id="mobile-menu-btn-zh" class="md:hidden p-2 text-text-secondary hover:text-white" aria-label="Toggle menu"> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </nav> <!-- Mobile Menu --> <div id="mobile-menu-zh" class="hidden md:hidden bg-dark-secondary border-t border-dark-tertiary"> <div class="px-6 py-4 space-y-4"> <a href="/zh/features" class="block text-text-secondary hover:text-white transition-colors">
+功能
+</a> <a href="#pricing" class="block text-text-secondary hover:text-white transition-colors">
+价格
+</a> <a href="/zh/blog/" class="block text-text-secondary hover:text-white transition-colors">
+博客
+</a> <a href="/zh/docs" class="block text-text-secondary hover:text-white transition-colors">
+文档
+</a> <div class="lang-mobile-wrapper"></div> <a href="https://app.agentputer.com/sign-up" class="btn-primary w-full justify-center text-sm py-3">
+开始使用
+</a> </div> </div> </header>  <main class="relative z-10 pt-28 pb-20"> <article class="max-w-4xl mx-auto px-6 lg:px-8"> <!-- 面包屑导航 --> <nav class="mb-8 font-mono text-sm"> <a href="/zh/" class="text-text-muted hover:text-accent transition-colors">~</a> <span class="text-text-dark mx-2">/</span> <a href="/zh/blog/" class="text-text-muted hover:text-accent transition-colors">博客</a> <span class="text-text-dark mx-2">/</span> <span class="text-accent">文章</span> </nav> <!-- 文章元信息头部 --> <header class="mb-12"> <!-- 标签 --> <div class="flex flex-wrap gap-2 mb-6"> <span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#OpenClaw </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#AI Agent </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Skills </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#MCP </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Agent Gateway </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#AgentPuter </span> </div> <!-- 标题 --> <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6"> Agent Skills：AI 世界的 App Store 正在成型 </h1> <!-- 描述 --> <p class="text-lg text-text-secondary leading-relaxed mb-8"> 17 万个开源 Skills、被忽略的 Gateway 层、以及为什么 Agent 平台正在重走 Windows 的崛起之路。 </p> <!-- 元信息行 --> <div class="flex flex-wrap items-center gap-6 text-sm font-mono text-text-muted border-t border-b border-accent/20 py-4"> <div class="flex items-center gap-2"> <span class="text-terminal-cyan">@</span> <span class="text-text-secondary">AgentPuter Lab</span> </div> <div class="flex items-center gap-2"> <span class="text-terminal-orange">$</span> <time datetime="2026-02-09" class="text-text-secondary">2026年2月9日</time> </div> <div class="flex items-center gap-2"> <span class="text-terminal-blue">~</span> <span class="text-text-secondary">阅读 15 分钟</span> </div> </div> </header> <!-- 文章正文 --> <div class="prose prose-invert prose-terminal max-w-none">  <p>前两篇我们一直在聊 OpenClaw——它是什么、怎么跑起来的、以及 1,100 个暴露端口背后的安全教训。</p>
+<p>但有一个东西我们反复提到却一直没展开讲：<strong>Skills</strong>。</p>
+<p>OpenClaw 内置 100 多个 Skills。Anthropic 把 Skills 做成了开放标准。SkillsMP 上已经有超过 17 万个开源 Skills。</p>
+<p>这些数字背后有一个很大的问题：</p>
+<p><strong>Skills 到底是什么？它和 MCP 什么关系？为什么有人说它是 AI 的 “App Store 时刻”？</strong></p>
+<p>今天把这件事讲清楚。</p>
+<hr>
+<h2 id="先回答一个最基本的问题">先回答一个最基本的问题</h2>
+<p>你让 ChatGPT 帮你做一件事，它会怎么做？</p>
+<p>靠训练数据里的通用知识，临场发挥。运气好的话结果还行，运气不好就完全跑偏——因为它不知道你的具体场景、你的行业规范、你的工作流程。</p>
+<p><strong>Skills 解决的就是这个问题。</strong></p>
+<p>一个 Skill 就是一份”操作手册”，告诉 Agent：遇到某类任务时，应该按什么步骤、用什么工具、注意什么边界条件。</p>
+<p>不是让 Agent 临场发挥，而是让它<strong>照着菜谱做菜</strong>。</p>
+<hr>
+<h2 id="一个-skill-长什么样">一个 Skill 长什么样？</h2>
+<p>说起来你可能不信，一个 Skill 就是一个文件夹，里面放一个 Markdown 文件。</p>
+<p>文件叫 SKILL.md，结构大概是这样：</p>
+<p>开头用 YAML 写几行元数据——名字、描述、协议、作者。然后正文用 Markdown 写具体的操作指南——步骤说明、输入输出示例、常见坑怎么绕。</p>
+<p>如果需要，文件夹里还可以放脚本（比如一个 Python 文件）、参考文档、模板等辅助材料。</p>
+<p>就这样。没有复杂的 SDK，没有要跑起来的 Server，没有 JSON-RPC 协议。</p>
+<p><strong>文件夹即技能，Markdown 即接口。</strong></p>
+<p>这也是为什么 Skills 的生态增长这么快——写一个 Skill 的门槛极低。你会写 Markdown，你就会写 Skill。</p>
+<hr>
+<h2 id="谁在用-skills">谁在用 Skills？</h2>
+<p>Anthropic 最早把 Skills 做成了开放标准，发布在 agentskills.io。但它不是 Anthropic 的专属格式——现在的兼容阵营已经很广了：</p>
+<ul>
+<li><strong>Claude Code</strong>：Anthropic 自家的编码 Agent，Skills 是核心扩展机制</li>
+<li><strong>OpenAI Codex CLI / ChatGPT</strong>：OpenAI 也采纳了同一标准，Skills 现在横跨 Anthropic 和 OpenAI 两大生态</li>
+<li><strong>Cursor</strong>：最火的 AI 编程工具之一，原生支持 Skills 发现和加载</li>
+<li><strong>GitHub Copilot</strong>：微软系，也已经兼容</li>
+<li><strong>Windsurf</strong>：Cognition 出的 AI 开发环境</li>
+<li><strong>OpenClaw</strong>：我们前两篇聊的那位，100+ 内置 Skills</li>
+</ul>
+<p>一个 Skill 写一次，这些工具都能用。Anthropic 和 OpenAI 支持同一个开放格式——这两家公司几乎在所有事情上都唱反调，但在这件事上达成了共识，足以说明标准化的压力有多大。以前每个平台的插件格式都不一样，现在有了统一标准。</p>
+<hr>
+<h2 id="skills-vs-mcp别再搞混了">Skills vs MCP：别再搞混了</h2>
+<p>这个问题被问了无数遍，我们彻底说清楚。</p>
+<p><img src="/blog/skills-vs-mcp.png" alt="Skills vs MCP 对比"></p>
+<p><strong>MCP（Model Context Protocol）</strong> 是让 AI 调用外部工具和 API 的协议。你可以把它理解成<strong>万能插座</strong>——Agent 通过 MCP 连上数据库、连上浏览器、连上 Slack、连上你的文件系统。</p>
+<p>MCP 现在有多火？月度 SDK 下载量 <strong>9700 万次</strong>，活跃 Server 超过 <strong>10,000 个</strong>。去年 12 月被捐赠给 Linux 基金会，正式成为行业标准。</p>
+<p><strong>Agent Skills</strong> 是教 Agent 怎么用这些工具的”操作手册”。你可以把它理解成<strong>使用指南</strong>——“遇到要分析 PDF 的需求时，先用 OCR 工具提取文本，再用结构化解析拿到表格，最后用模板生成摘要报告”。</p>
+<p><strong>区别在哪？</strong></p>
+<p>MCP 给 Agent 能力——“你能连这个数据库了”。</p>
+<p>Skills 给 Agent 智慧——“连上数据库之后该查什么表、怎么写 SQL、结果怎么呈现”。</p>
+<p>如果只给 Agent 一堆 MCP 工具，它就像一个新手拿到了满屋子的专业工具——电钻、示波器、车床都有，但不知道该先拿哪个。</p>
+<p>Skills 就是那个老师傅，站在旁边告诉它：“你现在要做的是这个，先拿那个工具，按这个顺序操作。”</p>
+<p><strong>所以两者不是竞争关系，是搭档关系。</strong> Skills 编排 MCP 的使用时机和方式，MCP 提供实际的执行能力。</p>
+<p>开发体验差多少？有个工程师在博客里记录了这样一件事：他先用 MCP 标准流程搭了一个完整的 Server——JSON-RPC 协议、服务端基础设施、错误处理，该有的都有。然后他用一个 Markdown Skill 文件重新实现了同样的功能，花了两小时，效果一样。MCP 是强大的基础设施，Skills 是快速的领域知识。</p>
+<p>但大多数人忽略了一件事：<strong>Skills 和 MCP 之间还需要一个控制平面。</strong> 得有什么东西来加载正确的 Skills、路由 MCP 工具调用、执行安全策略、管理会话状态。这个”什么东西”就是 Agent Gateway——编排层，我们后面会详细讲。</p>
+<hr>
+<h2 id="渐进式加载skills-最聪明的设计">渐进式加载：Skills 最聪明的设计</h2>
+<p>Skills 还解决了一个很现实的问题：<strong>Token 太贵了</strong>。</p>
+<p>MCP 的做法是把所有工具定义预先加载到 Agent 的上下文里。1000 个 MCP 工具大概要消耗 15 万个 tokens——还没开始干活呢，光”认识工具”就烧了一大笔钱。</p>
+<p>Skills 换了一个思路，叫<strong>渐进式加载</strong>。</p>
+<p>Agent 刚启动的时候，只看每个 Skill 的名字和一句话描述——大概 100 个 tokens。</p>
+<p>用户提了一个需求，Agent 判断哪几个 Skill 可能相关，才去加载它们的完整内容——每个不到 5000 个 tokens。</p>
+<p>真正执行的时候，再按需加载脚本和参考文档。</p>
+<p>这个”先浏览菜单、再看菜谱、最后才进厨房”的设计，让 Token 消耗降低了 <strong>98% 以上</strong>。</p>
+<p>当你要管理上千个能力的时候，这个差距就是能不能跑得动的区别。</p>
+<p>还有一个更深层的原因。ACL 2025 上发表的 SMART 框架发现了一个反直觉的结论：工具调用越少，Agent 反而做得越好。减少 24% 的工具调用，任务准确率提升了 37%——甚至让 70 亿参数的模型追平了 GPT-4o 的表现，只用了五分之一的工具调用量。原因不复杂：当 Agent 不用在 1000 个工具定义里大海捞针的时候，它对”该用哪个”的判断就更准。渐进式加载不只是省钱，它让 Agent 变聪明了。</p>
+<hr>
+<h2 id="17-万个-skillsapp-store-时刻来了吗">17 万个 Skills：App Store 时刻来了吗？</h2>
+<p>SkillsMP（Agent Skills Marketplace）上目前已经有 <strong>超过 17 万个</strong> 开源 Skills。</p>
+<p>覆盖的领域很广：</p>
+<ul>
+<li><strong>DevOps</strong>：容器管理、CI/CD 流水线、基础设施自动化（11,000+）</li>
+<li><strong>软件开发</strong>：代码审查、测试生成、技术债务清理（19,500+）</li>
+<li><strong>数据 &#x26; AI</strong>：模型训练、数据分析、LLM 工作流（13,000+）</li>
+<li><strong>商业运营</strong>：项目管理、销售/营销、财务运营（11,800+）</li>
+<li><strong>安全审计</strong>：漏洞扫描、合规检查、威胁建模（8,100+）</li>
+<li><strong>生产力 &#x26; 文档</strong>：邮件处理、会议纪要、技术写作（5,700+）</li>
+</ul>
+<p>这个数字还在快速增长，因为创建 Skill 的门槛实在太低了。</p>
+<p>值得注意的是：已经有超过 17,500 个 Skills 面向非开发者场景——商业运营、文档处理、项目管理。这个生态已经不只是开发者的游乐场了。</p>
+<p>但说实话，现在的 Skills 生态更像是 <strong>2008 年的 App Store</strong>——数量上来了，质量参差不齐，发现机制还很原始。</p>
+<p>你去 SkillsMP 上找 Skill，体验跟早期的应用商店差不多：一堆列表，有些写得很好，有些就是个标题加两行字，你得自己翻、自己试。</p>
+<p><strong>缺什么？</strong> 缺一个好的推荐系统，缺场景化的引导（“你是做财务的？这五个 Skill 组合起来能帮你自动对账”），缺质量评分，缺一键安装的体验。</p>
+<p>谁把这些做好，谁就是 Agent 世界的 App Store。</p>
+<hr>
+<h2 id="2026-年的新变化">2026 年的新变化</h2>
+<p>Skills 和 MCP 的生态在 2026 年都在快速进化。几个值得关注的动向：</p>
+<p><strong>MCP 进入 Linux 基金会</strong></p>
+<p>去年 12 月，Anthropic 把 MCP 协议捐赠给了 Linux 基金会旗下的 Agentic AI Foundation。AWS、Google、Microsoft、OpenAI 都成了白金会员。这意味着 MCP 不再是 Anthropic 的私有协议，而是行业公共基础设施了。</p>
+<p><strong>MCP Apps</strong></p>
+<p>以前 MCP 工具只能返回文本。现在它能返回交互式 UI——仪表板、表单、数据可视化。Agent 不再只能在终端里干活，它可以给你画一个界面出来。</p>
+<p><strong>Docker MCP Catalog</strong></p>
+<p>Docker 推出了 200 多个预审计的 MCP 工具，跑在容器化的安全环境里。这解决了一个关键的信任问题：你怎么知道一个社区贡献的 MCP Server 不会偷你数据？Docker 的答案是沙箱 + 审计。</p>
+<p><strong>Skills 的 Slash Command 化</strong></p>
+<p>在 Claude Code 和 Cursor 里，Skills 已经变成了可以直接用 <code>/skill-name</code> 调用的快捷指令。从”被动匹配”变成了”主动调用”，使用体验更像 Slack 的斜杠命令。</p>
+<hr>
+<h2 id="我们在做什么">我们在做什么</h2>
+<p>讲了这么多行业的事，说说我们自己——以及为什么我们觉得这条路走得通。</p>
+<p><strong>缺失的那一层：Agent Gateway</strong></p>
+<p>Skills 定义了”做什么”，MCP 提供了”用什么做”。但中间还需要一层——加载正确的 Skills、路由 MCP 工具调用、执行安全策略、管理会话状态、记录审计日志。行业把这一层叫 <strong>Agent Gateway</strong>：一个专门为自主、多步骤 Agent 任务设计的治理和编排层。</p>
+<p><img src="/blog/agent-capability-stack.png" alt="Agent 能力栈：Skills + Gateway + MCP"></p>
+<p>这不是我们自己发明的概念。TrueFoundry、Gartner 2025 报告、以及多篇学术论文（MCP-SandboxScan 做 WASM 沙箱、AgentArmor 做运行时轨迹分析、A2AS 提出”Agent 的 HTTPS”安全模型）都指向同一个结论：<strong>Gateway 是 Agent 世界的操作系统内核。</strong></p>
+<p>OpenClaw 的 Gateway 跑在 <code>localhost:18789</code>，是一次早期尝试——上一篇我们讲了，这个内核跑在你的笔记本上不设防会怎样。1,100 个端口暴露在公网。</p>
+<p>AgentPuter 在做的是一个专业的、云端的 Agent Gateway：沙箱执行、声明式权限策略、持久化状态、完整可观测性。</p>
+<p><strong>杀手级应用：Office Skills</strong></p>
+<p>这里有一个历史类比特别有意思。Windows 不是靠操作系统内核本身赢的，它靠的是两类应用：</p>
+<ol>
+<li><strong>Office</strong>（Excel、Word、PowerPoint）——驱动企业采购。公司必须买 Windows，因为 Office 只在 Windows 上跑得最好。</li>
+<li><strong>游戏</strong>（DirectX、扫雷、纸牌）——驱动消费者购买。个人用户想要 Windows，因为游戏在这里。</li>
+</ol>
+<p>Agent 生态正在走同样的路。“内核”（Gateway）很重要，但真正把用户拉到平台上的是<strong>杀手级 Skills</strong>。</p>
+<p>17 万个 Skills 里面，大部分面向开发者。但微软 2025 年 Copilot 使用报告显示：桌面端工作时间（8am-5pm）工作相关查询绝对主导，移动端健康/生活查询全天排名第一，周末娱乐查询飙升。</p>
+<p>我们的判断：<strong>Office Skills 就是 Agent 世界的 “Microsoft Office 时刻”。</strong></p>
+<p>写文档、做表格、排 PPT、发邮件、整理会议纪要——这是大多数人每天花时间最多的事。我们在做一组面向办公场景的 Skills：</p>
+<ul>
+<li>你说”帮我把这个季度的销售数据做成图表”，Agent 直接交付一个排好版的 Excel</li>
+<li>你说”把昨天会议的录音整理成纪要”，Agent 直接给你一份结构化的文档</li>
+<li>你说”这份合同帮我看看有没有风险条款”，Agent 直接标注出来</li>
+</ul>
+<p>不是”我帮你想想怎么做”，而是”做好了，你看一下”。</p>
+<p>逻辑很清楚：先建好运行时（Gateway），再上杀手级应用（Office Skills），然后让生态飞轮自己转起来。</p>
+<hr>
+<h2 id="写在最后">写在最后</h2>
+<p>回顾一下这个系列：</p>
+<p>第一篇，我们说 OpenClaw 解决了一个真实痛点——让 AI 从”动嘴”变成”动手”。</p>
+<p>第二篇，我们拆了 OpenClaw 的架构，发现 Brain-Body-Soul 的切分很精妙，但安全和可靠性是硬伤。</p>
+<p>这一篇，我们把视角从 OpenClaw 拉到了整个生态。浮现出来的图景有三层：</p>
+<p><strong>Skills 是应用，MCP 是 API，Gateway 是操作系统。</strong></p>
+<p>模型会越来越便宜，MCP 工具会越来越多，Skills 还在飞速增长——17 万只是开始。但如果没有一个编排层把这些安全、可靠地串起来，一切都是空中楼阁。</p>
+<p>每一个大的计算平台都走过同样的路：一个”能跑就行”的 OS 内核，加上让人愿意留下来的杀手级应用。Windows 有内核 + Office + DirectX。iOS 有内核 + App Store + 几个爆款应用。Agent 平台也会有 Gateway + Skills + 属于它的杀手级场景。</p>
+<p>我们赌的是：这个杀手级场景从办公开始——因为这是大多数知识工作者每天花时间最多的事。把 Gateway 建好，把对的 Skills 做出来，飞轮就会转起来。</p>
+<hr>
+<p><em>从 OpenClaw 到 Skills 再到 Agent 能力栈——三篇文章走了一条线：从一个产品 → 到它的架构 → 到底层的平台逻辑。接下来，我们会更具体：特定 Skills 怎么改变日常工作流，以及”Vibe Working”到底是什么样的体验。如果你有感兴趣的场景，欢迎留言。</em></p>  </div> <!-- 返回博客列表 --> <footer class="mt-16 pt-8 border-t border-accent/20"> <a href="/zh/blog/" class="inline-flex items-center gap-2 font-mono text-sm text-text-muted hover:text-accent transition-colors group"> <span class="group-hover:-translate-x-1 transition-transform">&lt;-</span> <span>返回所有文章</span> </a> </footer> </article> </main> <footer class="bg-dark-secondary border-t border-accent/20"> <div class="max-w-7xl mx-auto px-6 lg:px-20 py-12 lg:py-16"> <!-- Top Section --> <div class="flex flex-col lg:flex-row justify-between gap-12 mb-12"> <!-- Brand --> <div class="lg:max-w-xs"> <a href="/zh/" class="inline-block mb-4"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <p class="text-text-muted text-sm font-mono"> <span class="text-terminal-cyan">//</span> 你的 AI 永不休眠
+</p> </div> <!-- Links Grid --> <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 font-mono"> <!-- Product --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/产品</h4> <ul class="space-y-3"> <li> <a href="/zh/features" class="text-text-muted text-sm hover:text-accent transition-colors"> 功能 </a> </li><li> <a href="#pricing" class="text-text-muted text-sm hover:text-accent transition-colors"> 价格 </a> </li><li> <a href="/zh/docs" class="text-text-muted text-sm hover:text-accent transition-colors"> 文档 </a> </li> </ul> </div> <!-- Company --> <div> <h4 class="text-terminal-orange font-bold mb-4 text-sm">/公司</h4> <ul class="space-y-3"> <li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 关于 </a> </li><li> <a href="/zh/blog/" class="text-text-muted text-sm hover:text-accent transition-colors"> 博客 </a> </li><li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 招聘 </a> </li> </ul> </div> <!-- Contact --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/联系</h4> <ul class="space-y-3"> <li> <a href="/cdn-cgi/l/email-protection#513e223230232b303c3e233060686868616611363c30383d7f323e3c" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> <span class="__cf_email__" data-cfemail="08677b6b697a726965677a6939313131383f486f65696164266b6765">[email&#160;protected]</span> </a> </li><li> <a href="https://twitter.com/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Twitter </a> </li><li> <a href="https://discord.gg/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Discord </a> </li> </ul> </div> <!-- Legal --> <div> <h4 class="text-terminal-blue font-bold mb-4 text-sm">/法律</h4> <ul class="space-y-3"> <li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 隐私 </a> </li><li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 条款 </a> </li><li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 安全 </a> </li> </ul> </div> </div> </div> <!-- Divider --> <div class="border-t border-accent/20 pt-8"> <div class="flex flex-col md:flex-row justify-between items-center gap-4 font-mono"> <!-- Copyright --> <p class="text-text-dark text-sm">
+/* © 2026 AgentPuter. 保留所有权利。 */
+</p> <!-- Social Links --> <div class="flex items-center gap-6"> <a href="https://github.com/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors"> GitHub </a> </div> </div> </div> </div> </footer>  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"db97590b14994206be9f2eaec90a9494","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html> 

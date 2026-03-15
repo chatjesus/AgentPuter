@@ -1,0 +1,281 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Brain-Body-Soul 架构、1,100 个暴露端口、以及 AI Agent 基础设施真正需要什么。"><meta name="theme-color" content="#0D0D0D"><meta name="generator" content="Astro v4.16.19"><!-- Canonical URL --><link rel="canonical" href="https://www.agentputer.com/zh/blog/dissecting-openclaw-architecture/"><!-- hreflang 多语言标签 --><link rel="alternate" hreflang="en" href="https://www.agentputer.com/blog/dissecting-openclaw-architecture/"><link rel="alternate" hreflang="zh-CN" href="https://www.agentputer.com/zh/blog/dissecting-openclaw-architecture/"><link rel="alternate" hreflang="ja" href="https://www.agentputer.com/ja/blog/dissecting-openclaw-architecture/"><link rel="alternate" hreflang="ko" href="https://www.agentputer.com/ko/blog/dissecting-openclaw-architecture/"><link rel="alternate" hreflang="es" href="https://www.agentputer.com/es/blog/dissecting-openclaw-architecture/"><link rel="alternate" hreflang="pt-BR" href="https://www.agentputer.com/pt-br/blog/dissecting-openclaw-architecture/"><link rel="alternate" hreflang="de" href="https://www.agentputer.com/de/blog/dissecting-openclaw-architecture/"><link rel="alternate" hreflang="fr" href="https://www.agentputer.com/fr/blog/dissecting-openclaw-architecture/"><link rel="alternate" hreflang="zh-TW" href="https://www.agentputer.com/zh-tw/blog/dissecting-openclaw-architecture/"><link rel="alternate" hreflang="x-default" href="https://www.agentputer.com/blog/dissecting-openclaw-architecture/"><!-- Keywords（各语言本地化） --><meta name="keywords" content="OpenClaw, AI Agent, 架构, 安全, Brain-Body-Soul, AgentPuter"><!-- Open Graph --><meta property="og:title" content="解剖 OpenClaw：174K Stars 背后的设计哲学与致命缺陷 | AgentPuter 博客"><meta property="og:description" content="Brain-Body-Soul 架构、1,100 个暴露端口、以及 AI Agent 基础设施真正需要什么。"><meta property="og:type" content="article"><meta property="og:url" content="https://www.agentputer.com/zh/blog/dissecting-openclaw-architecture/"><meta property="og:image" content="https://www.agentputer.com/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:site_name" content="AgentPuter"><meta property="og:locale" content="zh_CN"><meta property="og:locale:alternate" content="en_US"><meta property="og:locale:alternate" content="ja_JP"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="es_ES"><meta property="og:locale:alternate" content="pt_BR"><meta property="og:locale:alternate" content="de_DE"><meta property="og:locale:alternate" content="fr_FR"><meta property="og:locale:alternate" content="zh_TW"><!-- Article-specific OG tags --><meta property="article:published_time" content="2026-02-05"><meta property="article:author" content="AgentPuter Lab"><meta property="article:tag" content="OpenClaw"><meta property="article:tag" content="AI Agent"><meta property="article:tag" content="架构"><meta property="article:tag" content="安全"><meta property="article:tag" content="Brain-Body-Soul"><meta property="article:tag" content="AgentPuter"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@agentputer"><meta name="twitter:creator" content="@agentputer"><meta name="twitter:title" content="解剖 OpenClaw：174K Stars 背后的设计哲学与致命缺陷 | AgentPuter 博客"><meta name="twitter:description" content="Brain-Body-Soul 架构、1,100 个暴露端口、以及 AI Agent 基础设施真正需要什么。"><meta name="twitter:image" content="https://www.agentputer.com/og-default.png"><!-- Favicon --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/favicon.svg"><!-- 字体：preconnect + LCP 关键字体直接预加载 --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- 直接预加载 LCP 关键字体文件（JetBrains Mono Bold Latin，H1 使用） --><link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8L6tTOlOVk6OThhvA.woff2"><!-- 字体 CSS 阻塞加载（配合 preconnect 延迟极低，确保 LCP 时字体可用） --><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"><!-- Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":"https://www.agentputer.com/favicon.svg","description":"Your AI Agent's dedicated cloud runtime. AgentPuter keeps your AI running 24/7.","sameAs":["https://twitter.com/agentputer","https://github.com/agentputer","https://discord.gg/agentputer"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"AgentPuter","url":"https://www.agentputer.com","inLanguage":"zh-CN","availableLanguage":[{"@type":"Language","name":"English","alternateName":"en"},{"@type":"Language","name":"中文","alternateName":"zh-CN"},{"@type":"Language","name":"繁體中文","alternateName":"zh-TW"},{"@type":"Language","name":"日本語","alternateName":"ja"},{"@type":"Language","name":"한국어","alternateName":"ko"},{"@type":"Language","name":"Español","alternateName":"es"},{"@type":"Language","name":"Português","alternateName":"pt-BR"},{"@type":"Language","name":"Deutsch","alternateName":"de"},{"@type":"Language","name":"Français","alternateName":"fr"}],"description":"Your AI Agent's dedicated cloud runtime."}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.agentputer.com/zh/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.agentputer.com/zh/blog/"},{"@type":"ListItem","position":3,"name":"Dissecting openclaw architecture","item":"https://www.agentputer.com/zh/blog/dissecting-openclaw-architecture/"}]}</script><!-- 页面专属结构化数据插槽 --><!-- 浏览器语言自动检测：移到 head 阻塞执行，避免渲染后跳转导致 CLS --><script>
+    (function() {
+      if (localStorage.getItem('agentputer-lang')) return;
+
+      var langMap = {
+        'zh': '/zh', 'zh-cn': '/zh', 'zh-tw': '/zh-tw', 'zh-hk': '/zh-tw',
+        'ja': '/ja', 'ko': '/ko',
+        'es': '/es', 'es-419': '/es',
+        'pt': '/pt-br', 'pt-br': '/pt-br',
+        'de': '/de', 'fr': '/fr',
+      };
+
+      var path = window.location.pathname;
+      if (/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)(\/|$)/.test(path)) {
+        var m = path.match(/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)/);
+        if (m) localStorage.setItem('agentputer-lang', m[1]);
+        return;
+      }
+
+      var langs = navigator.languages || [navigator.language];
+      for (var i = 0; i < langs.length; i++) {
+        var bl = langs[i].toLowerCase();
+        if (langMap[bl]) {
+          var target = path === '/' ? langMap[bl] + '/' : langMap[bl] + path;
+          localStorage.setItem('agentputer-lang', bl);
+          window.location.replace(target);
+          return;
+        }
+        var primary = bl.split('-')[0];
+        if (primary !== bl && langMap[primary]) {
+          var target2 = path === '/' ? langMap[primary] + '/' : langMap[primary] + path;
+          localStorage.setItem('agentputer-lang', primary);
+          window.location.replace(target2);
+          return;
+        }
+      }
+      localStorage.setItem('agentputer-lang', 'en');
+    })();
+    </script><!-- Google Analytics 4 --><script async src="https://www.googletagmanager.com/gtag/js?id=G-9M2T6GQJ0L"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9M2T6GQJ0L');
+    </script><title>解剖 OpenClaw：174K Stars 背后的设计哲学与致命缺陷 | AgentPuter 博客</title><link rel="stylesheet" href="/_astro/_slug_.DM3EUOA_.css">
+<link rel="stylesheet" href="/_astro/_slug_.CUcOCpHJ.css">
+<link rel="stylesheet" href="/_astro/_slug_.CxhqtQFk.css"><script type="module" src="/_astro/hoisted.59JzbWNo.js"></script></head> <body class="min-h-screen">   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"解剖 OpenClaw：174K Stars 背后的设计哲学与致命缺陷","description":"Brain-Body-Soul 架构、1,100 个暴露端口、以及 AI Agent 基础设施真正需要什么。","datePublished":"2026-02-05","dateModified":"2026-02-05","inLanguage":"zh-CN","author":{"@type":"Organization","name":"AgentPuter Lab","url":"https://www.agentputer.com"},"publisher":{"@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":{"@type":"ImageObject","url":"https://www.agentputer.com/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.agentputer.com/zh/blog/dissecting-openclaw-architecture/"},"keywords":"OpenClaw, AI Agent, 架构, 安全, Brain-Body-Soul, AgentPuter"}</script> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://www.agentputer.com/zh/"},{"@type":"ListItem","position":2,"name":"博客","item":"https://www.agentputer.com/zh/blog/"},{"@type":"ListItem","position":3,"name":"解剖 OpenClaw：174K Stars 背后的设计哲学与致命缺陷"}]}</script> <header class="fixed top-0 left-0 right-0 z-50 bg-dark-primary md:bg-dark-primary/95 md:backdrop-blur-lg border-b border-accent/20"> <nav class="max-w-7xl mx-auto px-6 lg:px-20 h-20 flex items-center justify-between"> <!-- Logo --> <a href="/zh/" class="flex items-center gap-2 group"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <!-- Desktop Navigation --> <div class="hidden md:flex items-center gap-8 font-mono"> <a href="/zh/features" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/功能
+</a> <a href="#pricing" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/价格
+</a> <a href="/zh/blog/" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/博客
+</a> <a href="/zh/docs" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/文档
+</a> <!-- Desktop 语言切换器 --><div class="lang-switcher relative"> <button class="lang-btn flex items-center gap-1.5 text-text-secondary hover:text-accent transition-colors text-sm font-mono cursor-pointer" aria-label="Switch language" aria-expanded="false"> <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <circle cx="12" cy="12" r="10" stroke-width="1.5"></circle> <path stroke-width="1.5" d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path> </svg> <span>中文</span> <svg class="w-3 h-3 opacity-40 transition-transform lang-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </button> <!-- 下拉菜单 --> <div class="lang-dropdown hidden absolute right-0 top-full mt-2 py-1 bg-[#1a1a1a] border border-[#333] rounded-lg shadow-xl min-w-[160px] z-[100]"> <a href="/blog/dissecting-openclaw-architecture/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="en"> <span>English</span> <span class="text-xs text-text-dark">EN</span> </a><a href="/zh/blog/dissecting-openclaw-architecture/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-accent bg-accent/10" data-lang="zh"> <span>中文</span> <span class="text-xs text-accent">中文</span> </a><a href="/ja/blog/dissecting-openclaw-architecture/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ja"> <span>日本語</span> <span class="text-xs text-text-dark">JA</span> </a><a href="/ko/blog/dissecting-openclaw-architecture/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ko"> <span>한국어</span> <span class="text-xs text-text-dark">KO</span> </a><a href="/es/blog/dissecting-openclaw-architecture/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="es"> <span>Español</span> <span class="text-xs text-text-dark">ES</span> </a><a href="/pt-br/blog/dissecting-openclaw-architecture/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="pt-br"> <span>Português</span> <span class="text-xs text-text-dark">PT</span> </a><a href="/de/blog/dissecting-openclaw-architecture/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="de"> <span>Deutsch</span> <span class="text-xs text-text-dark">DE</span> </a><a href="/fr/blog/dissecting-openclaw-architecture/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="fr"> <span>Français</span> <span class="text-xs text-text-dark">FR</span> </a> </div> </div> <!-- Mobile 语言列表（平铺，不用下拉） --> <div class="lang-mobile hidden"> <div class="flex flex-wrap gap-2"> <a href="/blog/dissecting-openclaw-architecture/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="en"> English </a><a href="/zh/blog/dissecting-openclaw-architecture/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-accent border-accent/40 bg-accent/10" data-lang="zh"> 中文 </a><a href="/ja/blog/dissecting-openclaw-architecture/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ja"> 日本語 </a><a href="/ko/blog/dissecting-openclaw-architecture/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ko"> 한국어 </a><a href="/es/blog/dissecting-openclaw-architecture/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="es"> Español </a><a href="/pt-br/blog/dissecting-openclaw-architecture/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="pt-br"> Português </a><a href="/de/blog/dissecting-openclaw-architecture/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="de"> Deutsch </a><a href="/fr/blog/dissecting-openclaw-architecture/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="fr"> Français </a> </div> </div>  <a href="https://app.agentputer.com/sign-up" class="text-sm py-2.5 px-6 bg-accent text-dark-primary font-bold rounded hover:bg-accent-dark transition-colors">
+[开始]
+</a> </div> <!-- Mobile Menu Button --> <button id="mobile-menu-btn-zh" class="md:hidden p-2 text-text-secondary hover:text-white" aria-label="Toggle menu"> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </nav> <!-- Mobile Menu --> <div id="mobile-menu-zh" class="hidden md:hidden bg-dark-secondary border-t border-dark-tertiary"> <div class="px-6 py-4 space-y-4"> <a href="/zh/features" class="block text-text-secondary hover:text-white transition-colors">
+功能
+</a> <a href="#pricing" class="block text-text-secondary hover:text-white transition-colors">
+价格
+</a> <a href="/zh/blog/" class="block text-text-secondary hover:text-white transition-colors">
+博客
+</a> <a href="/zh/docs" class="block text-text-secondary hover:text-white transition-colors">
+文档
+</a> <div class="lang-mobile-wrapper"></div> <a href="https://app.agentputer.com/sign-up" class="btn-primary w-full justify-center text-sm py-3">
+开始使用
+</a> </div> </div> </header>  <main class="relative z-10 pt-28 pb-20"> <article class="max-w-4xl mx-auto px-6 lg:px-8"> <!-- 面包屑导航 --> <nav class="mb-8 font-mono text-sm"> <a href="/zh/" class="text-text-muted hover:text-accent transition-colors">~</a> <span class="text-text-dark mx-2">/</span> <a href="/zh/blog/" class="text-text-muted hover:text-accent transition-colors">博客</a> <span class="text-text-dark mx-2">/</span> <span class="text-accent">文章</span> </nav> <!-- 文章元信息头部 --> <header class="mb-12"> <!-- 标签 --> <div class="flex flex-wrap gap-2 mb-6"> <span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#OpenClaw </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#AI Agent </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#架构 </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#安全 </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Brain-Body-Soul </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#AgentPuter </span> </div> <!-- 标题 --> <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6"> 解剖 OpenClaw：174K Stars 背后的设计哲学与致命缺陷 </h1> <!-- 描述 --> <p class="text-lg text-text-secondary leading-relaxed mb-8"> Brain-Body-Soul 架构、1,100 个暴露端口、以及 AI Agent 基础设施真正需要什么。 </p> <!-- 元信息行 --> <div class="flex flex-wrap items-center gap-6 text-sm font-mono text-text-muted border-t border-b border-accent/20 py-4"> <div class="flex items-center gap-2"> <span class="text-terminal-cyan">@</span> <span class="text-text-secondary">AgentPuter Lab</span> </div> <div class="flex items-center gap-2"> <span class="text-terminal-orange">$</span> <time datetime="2026-02-05" class="text-text-secondary">2026年2月5日</time> </div> <div class="flex items-center gap-2"> <span class="text-terminal-blue">~</span> <span class="text-text-secondary">阅读 15 分钟</span> </div> </div> </header> <!-- 文章正文 --> <div class="prose prose-invert prose-terminal max-w-none">  <p>在<a href="/zh/blog/agent-needs-its-own-computer/">上一篇文章</a>中，我们介绍了 OpenClaw——这个开源私人 AI 助理在 GitHub 上拿到了 174K Stars，首周就吸引了 200 万访客、收获了 145K+ Stars，成为有史以来增长最快的开源项目之一。</p>
+<p>但 Stars ≠ 生产就绪。</p>
+<p>今天我们打开引擎盖，看看这台机器里面到底有什么——哪些是精妙的工程设计，哪些是定时炸弹。</p>
+<p>如果你用过 OpenClaw，或者正在考虑使用，这篇文章会帮你理解三件事：</p>
+<ol>
+<li>它为什么好用</li>
+<li>它为什么会出问题</li>
+<li>AI Agent 基础设施到底应该长什么样</li>
+</ol>
+<hr>
+<h2 id="一brain-body-soul一个优雅的架构隐喻">一、Brain-Body-Soul：一个优雅的架构隐喻</h2>
+<p>OpenClaw 最深刻的洞察不在代码里，而是一个哲学主张：</p>
+<blockquote>
+<p><strong>智能可以租用，但身体和记忆必须是你自己的。</strong></p>
+</blockquote>
+<p>创始人 Peter Steinberger——此前创建了 PSPDFKit（服务近 10 亿终端用户），2021 年从 Insight Partners 获得 1 亿欧元融资，之后转身投入 AI 领域——将 OpenClaw 的架构分为三层：</p>
+<p><img src="/blog/openclaw-brain-body-soul.jpg" alt="OpenClaw Brain-Body-Soul 架构"></p>
+<h3 id="-brain--可租用的智能">🧠 Brain —— 可租用的智能</h3>
+<p>大语言模型是大宗商品。今天用 Claude，明天用 GPT-4，后天用开源的 Kimi K2.5。</p>
+<p>这是一个关键判断：<strong>模型是消耗品，不是资产。</strong> 就像租办公室——搬家的时候你带走的是文件和经验，不是桌子。OpenClaw 让你可以随时切换模型供应商，切换之后，你的所有数据、记忆和工作流完好无损。</p>
+<h3 id="-body--本地拥有的执行层">💪 Body —— 本地拥有的执行层</h3>
+<p>Body 是 OpenClaw 的手和脚。一个叫 Gateway 的控制平面运行在你的设备上（通常是 Mac Mini），管理所有执行能力：Shell 命令、浏览器自动化、文件读写、MCP 工具调用、Agent Skills。</p>
+<p>关键词是”本地拥有”。不管你租的是谁的模型，执行权始终在你手里。</p>
+<h3 id="-soul--持久化记忆">👻 Soul —— 持久化记忆</h3>
+<p>这是最浪漫的一层。Soul 保存着你的 Agent 的记忆、偏好和人格，它包括：</p>
+<ul>
+<li><code>SOUL.md</code>：Agent 的人格和行为边界</li>
+<li><code>MEMORY.md</code>：长期记忆——你的偏好和过往决策</li>
+<li><code>memory/YYYY-MM-DD.md</code>：每日交互日志</li>
+<li>向量数据库：70% 语义搜索 + 30% 关键词匹配的混合检索</li>
+</ul>
+<p>切换 Brain，Soul 不受影响。就像换手机但 iCloud 里的照片和联系人原封不动。</p>
+<h3 id="这个切分为什么重要">这个切分为什么重要？</h3>
+<p>因为它暗示了一个更大的命题：<strong>AI Agent 最有价值的资产不是智能——而是上下文。</strong></p>
+<p>模型每个季度都在变便宜变快。今天的 SOTA 是明天的免费层。但你的 Agent 三个月里学到的东西——你偏好的邮件语气、你的会议习惯、你的项目上下文——这些是不可替代的。</p>
+<p>谁拥有上下文，谁就拥有 Agent 的价值。Brain-Body-Soul 的切分，本质上是一个关于<strong>什么才是你真正资产</strong>的架构宣言。</p>
+<hr>
+<h2 id="二gateway一个人的交通枢纽">二、Gateway：一个人的交通枢纽</h2>
+<p>理解了三层模型，我们来深入看 Body 的核心——Gateway。</p>
+<p><img src="/blog/openclaw-gateway-architecture.jpg" alt="OpenClaw Gateway 技术架构"></p>
+<p>整个 OpenClaw 系统通过一个运行在 <code>localhost:18789</code> 的 Node.js 进程路由。每条消息、每次工具调用、每个安全检查都经过它。</p>
+<h3 id="gateway-做什么">Gateway 做什么？</h3>
+<p><strong>统一入口。</strong> 左边，它接入 29+ 个消息平台——WhatsApp、Telegram、Discord、Slack、Signal、iMessage、邮件——通过持久化 WebSocket 连接汇入单一控制平面。右边，它连接所有执行能力——Shell 命令、Puppeteer 浏览器、文件系统读写、MCP 服务器、100+ Agent Skills、A2UI 画布、Whisper + TTS 音频。</p>
+<p><strong>跨渠道连续性。</strong> 在 WhatsApp 上告诉你的 Agent：“查一下张三的邮件。“然后切到 Discord：“把那封邮件转发给李四。“Agent 知道你在说什么。会话状态集中管理，切换渠道不会丢失。</p>
+<p><strong>Lane-Based 并发。</strong> 这是一个巧妙的设计。OpenClaw 将并发请求分成四条序列化队列——Session Lane、Global Lane、Cron Lane、Subagent Lane。在一个会话内，你的消息不会被另一个请求插队。跨会话时，操作并行不阻塞。</p>
+<p><strong>多 Agent 路由。</strong> 单个 Gateway 可以托管多个隔离的 Agent。例如：一个拥有完整文件和 Shell 访问权限的”个人 Agent”，和一个运行在沙箱中、只能回答问题的”公共 Agent”。渠道绑定将不同平台的消息路由到不同的 Agent。</p>
+<h3 id="这个设计有多好">这个设计有多好？</h3>
+<p>说实话？相当优雅。一个进程解决了多平台接入、会话管理、并发控制和工具编排。对于个人使用，Gateway 架构既够用又高效。</p>
+<h3 id="这个设计有多危险">这个设计有多危险？</h3>
+<p>也相当危险。</p>
+<ul>
+<li><strong>单点故障。</strong> Gateway 运行在你的 Mac Mini 上。电脑关机，一切归零。没有高可用，没有故障转移，没有热备。</li>
+<li><strong>明文凭证。</strong> 所有 API 密钥、OAuth 令牌和签名密钥都存储在 <code>~/.openclaw/openclaw.json</code> 中。明文的。</li>
+<li><strong>不受保护的记忆。</strong> 你与 Agent 的每次对话、每个偏好、每条隐私信息都保存在几个 Markdown 文件里。没有加密，没有访问控制。</li>
+</ul>
+<p><strong>一句话总结：</strong> Gateway 是 OpenClaw 的心脏——但这颗心脏跳动在你的笔记本里。而笔记本会被合上、关机、丢失。</p>
+<hr>
+<h2 id="三1100-个暴露端口agent-安全的第一课">三、1,100 个暴露端口：Agent 安全的第一课</h2>
+<p>如果说上一节描述的是架构<strong>风险</strong>，这一节描述的是一起已经<strong>发生</strong>的事件。</p>
+<h3 id="发生了什么">发生了什么？</h3>
+<p>2026 年 1 月底：OpenClaw 爆火。用户兴奋地部署自己的 Agent。</p>
+<p>2026 年 2 月初：安全研究人员用 Shodan 和 Censys 扫描——发现<strong>超过 1,100 个公开暴露的 Gateway 实例</strong>在 18789 端口上，裸露在公网上。</p>
+<p>泄露的数据包括：完整的 API 密钥、OAuth 令牌、签名密钥，以及<strong>数月的私人聊天记录</strong>。</p>
+<h3 id="怎么发生的">怎么发生的？</h3>
+<p>Gateway 是为 localhost 设计的。但很多用户为了出门在外也能和 Agent 对话，在它前面加了反向代理——Nginx、Cloudflare Tunnel 等。</p>
+<p>问题是：Gateway 的认证逻辑会自动信任来自 <code>127.0.0.1</code> 的请求。反向代理转发的请求看起来就来自 <code>127.0.0.1</code>。认证被完美绕过。任何人都可以连接到你的 Gateway——读你的聊天记录、偷你的密钥，或者往你的 <code>SOUL.md</code> 里注入指令来劫持你 Agent 的行为。</p>
+<h3 id="还有更糟的">还有更糟的</h3>
+<p>安全审计还发现了端口暴露之外的更深层问题：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>漏洞</th><th>详情</th></tr></thead><tbody><tr><td><strong>Prompt 注入</strong></td><td>Slack/Discord 频道主题直接嵌入系统提示词，未经消毒处理</td></tr><tr><td><strong>身份伪造</strong></td><td>发送者显示名可被操纵用于注入攻击</td></tr><tr><td><strong>文件泄露</strong></td><td>文件名和 URL 未经转义直接插入提示词</td></tr><tr><td><strong>记忆污染</strong></td><td>SOUL.md 可被注入虚假指令，劫持 Agent 行为</td></tr></tbody></table>
+<h3 id="项目方怎么说">项目方怎么说？</h3>
+<p>这里是最耐人寻味的部分。OpenClaw 的安全策略（SECURITY.md）明确将以下内容标记为**“不在范围内”**：</p>
+<ul>
+<li>公网暴露</li>
+<li>Prompt 注入攻击</li>
+<li>违反文档规定的滥用</li>
+</ul>
+<p>他们的 FAQ 里有一句话，坦诚得令人敬佩：</p>
+<blockquote>
+<p><strong>“不存在’完美安全’的设置。”</strong></p>
+</blockquote>
+<p>创始人 Peter Steinberger 本人公开形容运行 OpenClaw 是**“spicy（刺激的）”**。</p>
+<h3 id="这不只是-openclaw-的问题">这不只是 OpenClaw 的问题</h3>
+<p>我要说清楚：这不是对 OpenClaw 的攻击。作为一个开源项目，它的透明和坦诚值得尊重。</p>
+<p>但它暴露了一个<strong>整个行业必须面对的根本矛盾</strong>：</p>
+<blockquote>
+<p>你想让 Agent 替你做事 → 你必须给它系统级权限</p>
+<p>你给它系统级权限 → 你就创造了攻击面</p>
+<p>攻击面存在 → 迟早有人会利用</p>
+</blockquote>
+<p>OpenClaw 只是第一个将这个矛盾暴露给 174K 人的项目。<strong>每一个</strong> Agent 平台——开源的或商业的——都会面对同样的问题。</p>
+<p>区别在于：你是把安全标记为”不在范围内”，还是把它当作核心架构关切。</p>
+<hr>
+<h2 id="四openclaw-的五条教训">四、OpenClaw 的五条教训</h2>
+<p>抛开具体的代码和漏洞，OpenClaw 给整个 AI Agent 行业上了五课。</p>
+<h3 id="教训一agent-需要自己的身体">教训一：Agent 需要自己的”身体”</h3>
+<p>OpenClaw 运行在你的 MacBook 上。但你的 MacBook 还运行着 Chrome、VS Code、Zoom 和 Slack。Agent 和你争抢 CPU 和内存。你合上盖子，它断线。你关机，它下班。</p>
+<p>你想要一个 7×24 的数字员工，却让它共享你的个人电脑。这就像雇了个助理却让他在你家客厅上班——你一睡觉，他也得停。</p>
+<p><strong>启示：</strong> Agent 需要自己的计算环境——不是你的电脑，而是为它专门构建的专属空间。</p>
+<h3 id="教训二上下文是-agent-最有价值的资产">教训二：上下文是 Agent 最有价值的资产</h3>
+<p>OpenClaw 的 Soul 层——MEMORY.md、SOUL.md、向量数据库——方向是对的。Agent 需要记住你是谁、你喜欢什么、你在做什么。</p>
+<p>但实现太粗糙。纯文本 Markdown 文件，没有结构化索引，没有加密，没有版本控制。三个月积累的上下文可能因为一次意外覆写就全丢了。</p>
+<p><strong>启示：</strong> Agent 的记忆系统值得数据库级别的认真对待——结构化存储、加密传输、版本快照——而不是往文本文件里追加几行。</p>
+<h3 id="教训三安全不能不在范围内">教训三：安全不能”不在范围内”</h3>
+<p>当你的 Agent 可以读你的邮件、访问你的银行对账单、执行 Shell 命令、控制你的浏览器时，安全不是可选的附加项。</p>
+<p>1,100 个暴露的 Gateway 告诉我们：用户会犯错。“仅限 localhost”的假设在真实世界撑不过一周。</p>
+<p><strong>启示：</strong> Agent 执行环境需要沙箱隔离、分级权限和审计日志——企业级安全标准，而不是”没有完美安全的设置”。</p>
+<h3 id="教训四skills-方向对了但需要更好的管理">教训四：Skills 方向对了，但需要更好的管理</h3>
+<p>OpenClaw 的 Skills 系统是整个项目最有远见的部分——可插拔、Markdown 定义、渐进式加载。它完全兼容 Anthropic 的 <a href="https://agentskills.io">Agent Skills</a> 标准，ClawHub 市场上已有近 4,000 个社区贡献的 Skills。</p>
+<p>但 100 多个内置 Skills 缺乏场景化引导，普通用户安装完 OpenClaw 后的第一反应是：“然后呢？用哪个 Skill？怎么组合？”</p>
+<p><strong>启示：</strong> Skills 需要市场级的管理——推荐、分类、一键安装、效果指标。不要给用户一盒零件；给他们一个解决方案。</p>
+<h3 id="教训五local-first-不是唯一答案">教训五：Local-First 不是唯一答案</h3>
+<p>OpenClaw 全力押注 Local-First——数据不出设备，执行完全本地。这满足了隐私需求，但牺牲了太多：</p>
+<ul>
+<li>7×24 在线？做不到（设备必须一直开着）</li>
+<li>远程访问？自己配反向代理（然后就有了 1,100 个暴露端口）</li>
+<li>多设备同步？不支持</li>
+<li>团队协作？基本不可能</li>
+</ul>
+<p>2026 年的隐私讨论已经成熟。行业共识不是”所有东西都留在本地”——而是**“敏感数据本地处理，但 Agent 的运行时可以放在云端。”** 两者并不矛盾。</p>
+<p><strong>启示：</strong> 最优解是 <strong>Local-First + Cloud-Optional</strong>。敏感的留在本地，运行时放在云端。</p>
+<hr>
+<h2 id="五下一代-agent-基础设施应该是什么样">五、下一代 Agent 基础设施应该是什么样？</h2>
+<p>OpenClaw 证明了 Agent 需要 Brain、Body 和 Soul。但它也证明了，把 Body 和 Soul 放在用户的个人设备上是不够的。</p>
+<p>OpenClaw 现状与下一代应该交付的对比：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>需求</th><th>OpenClaw 现状</th><th>下一代</th></tr></thead><tbody><tr><td><strong>运行时</strong></td><td>你的 Mac Mini</td><td>专属 Agent 计算环境</td></tr><tr><td><strong>在线时间</strong></td><td>设备开机才在线</td><td>7×24 云端 + 本地可选</td></tr><tr><td><strong>安全性</strong></td><td>”Spicy”，风险自担</td><td>沙箱隔离 + 分级权限 + 审计日志</td></tr><tr><td><strong>记忆</strong></td><td>Markdown 文件</td><td>结构化 + 加密 + 版本控制</td></tr><tr><td><strong>Skills</strong></td><td>100+ 自行配置</td><td>场景化市场 + 一键部署</td></tr><tr><td><strong>多 Agent</strong></td><td>基础会话通信</td><td>原生协作框架</td></tr></tbody></table>
+<p>这就是为什么我们在构建 <strong>AgentPuter</strong>——不是又一个 Agent，而是 <strong>Agent 的运行时环境</strong>。</p>
+<blockquote>
+<p>如果 OpenClaw 是 Agent 的灵魂和四肢，AgentPuter 就是 Agent 的家。</p>
+</blockquote>
+<p>一个专业的、安全的、永远在线的家。不再把 Agent 塞进你的笔记本里然后祈祷你别合上盖子。不再在桌面上明文存储密钥。不再期望用户自己配反向代理然后暴露 1,100 个端口到公网。</p>
+<p>Agent 值得拥有自己的空间。</p>
+<hr>
+<h2 id="结语">结语</h2>
+<p>OpenClaw 做对了很多事。Brain-Body-Soul 架构切分、可扩展的 Skills 设计、跨 29+ 平台的统一 Gateway、Lane-Based 并发模型——这些都是真正有洞察力的工程决策。174K Stars 实至名归。Peter Steinberger 和社区贡献者们值得认可。</p>
+<p>但 OpenClaw 也坦诚地揭示了一个事实：</p>
+<p><strong>在个人设备上运行 Agent，就像让你的员工在你家客厅上班——他能把事做了，但不专业、不安全、不可靠。</strong></p>
+<p>AI Agent 时代正在到来。IDC 预测到 2029 年，全球将有超过 10 亿活跃 Agent，每天执行 2170 亿次操作。这个规模的 Agent 经济不可能建立在 <code>localhost:18789</code> 上。</p>
+<p>它需要基础设施。专业的、安全的、为 Agent 量身打造的基础设施。</p>
+<p>下一篇，我们会聊 <strong>Skills</strong>——AI Agent 世界的”App Store”正在如何成型，以及为什么我们相信 Skills 是 Agent 能力的真正货币。</p>
+<hr>
+<p><em>Peter Steinberger 公开表达过他的信念：AI Agent 将从根本上取代大多数传统软件。我们认同这一愿景。但我们相信，在那之前，Agent 本身需要先有一个合格的”操作系统”。</em></p>  </div> <!-- 返回博客列表 --> <footer class="mt-16 pt-8 border-t border-accent/20"> <a href="/zh/blog/" class="inline-flex items-center gap-2 font-mono text-sm text-text-muted hover:text-accent transition-colors group"> <span class="group-hover:-translate-x-1 transition-transform">&lt;-</span> <span>返回所有文章</span> </a> </footer> </article> </main> <footer class="bg-dark-secondary border-t border-accent/20"> <div class="max-w-7xl mx-auto px-6 lg:px-20 py-12 lg:py-16"> <!-- Top Section --> <div class="flex flex-col lg:flex-row justify-between gap-12 mb-12"> <!-- Brand --> <div class="lg:max-w-xs"> <a href="/zh/" class="inline-block mb-4"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <p class="text-text-muted text-sm font-mono"> <span class="text-terminal-cyan">//</span> 你的 AI 永不休眠
+</p> </div> <!-- Links Grid --> <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 font-mono"> <!-- Product --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/产品</h4> <ul class="space-y-3"> <li> <a href="/zh/features" class="text-text-muted text-sm hover:text-accent transition-colors"> 功能 </a> </li><li> <a href="#pricing" class="text-text-muted text-sm hover:text-accent transition-colors"> 价格 </a> </li><li> <a href="/zh/docs" class="text-text-muted text-sm hover:text-accent transition-colors"> 文档 </a> </li> </ul> </div> <!-- Company --> <div> <h4 class="text-terminal-orange font-bold mb-4 text-sm">/公司</h4> <ul class="space-y-3"> <li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 关于 </a> </li><li> <a href="/zh/blog/" class="text-text-muted text-sm hover:text-accent transition-colors"> 博客 </a> </li><li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 招聘 </a> </li> </ul> </div> <!-- Contact --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/联系</h4> <ul class="space-y-3"> <li> <a href="/cdn-cgi/l/email-protection#0d627e6e6c7f776c60627f6c3c3434343d3a4d6a606c6461236e6260" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> <span class="__cf_email__" data-cfemail="59362a3a382b233834362b3868606060696e193e34383035773a3634">[email&#160;protected]</span> </a> </li><li> <a href="https://twitter.com/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Twitter </a> </li><li> <a href="https://discord.gg/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Discord </a> </li> </ul> </div> <!-- Legal --> <div> <h4 class="text-terminal-blue font-bold mb-4 text-sm">/法律</h4> <ul class="space-y-3"> <li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 隐私 </a> </li><li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 条款 </a> </li><li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 安全 </a> </li> </ul> </div> </div> </div> <!-- Divider --> <div class="border-t border-accent/20 pt-8"> <div class="flex flex-col md:flex-row justify-between items-center gap-4 font-mono"> <!-- Copyright --> <p class="text-text-dark text-sm">
+/* © 2026 AgentPuter. 保留所有权利。 */
+</p> <!-- Social Links --> <div class="flex items-center gap-6"> <a href="https://github.com/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors"> GitHub </a> </div> </div> </div> </div> </footer>  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"db97590b14994206be9f2eaec90a9494","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html> 

@@ -1,0 +1,248 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="AgentPuter 给你的 AI Agent 一台专属云端电脑，永不关机。7×24 运行 OpenClaw、ClawBot、MoltBot，支持持久化认证、多 Agent 并行、远程访问。"><meta name="theme-color" content="#0D0D0D"><meta name="generator" content="Astro v4.16.19"><!-- Canonical URL --><link rel="canonical" href="https://www.agentputer.com/zh/"><!-- hreflang 多语言标签 --><link rel="alternate" hreflang="en" href="https://www.agentputer.com/"><link rel="alternate" hreflang="zh-CN" href="https://www.agentputer.com/zh/"><link rel="alternate" hreflang="ja" href="https://www.agentputer.com/ja/"><link rel="alternate" hreflang="ko" href="https://www.agentputer.com/ko/"><link rel="alternate" hreflang="es" href="https://www.agentputer.com/es/"><link rel="alternate" hreflang="pt-BR" href="https://www.agentputer.com/pt-br/"><link rel="alternate" hreflang="de" href="https://www.agentputer.com/de/"><link rel="alternate" hreflang="fr" href="https://www.agentputer.com/fr/"><link rel="alternate" hreflang="zh-TW" href="https://www.agentputer.com/zh-tw/"><link rel="alternate" hreflang="x-default" href="https://www.agentputer.com/"><!-- Keywords（各语言本地化） --><meta name="keywords" content="AgentPuter, AI Agent, 云端运行时, OpenClaw, ClawBot, 7×24 AI, AI 自动化, Agent 电脑"><!-- Open Graph --><meta property="og:title" content="AgentPuter - 你的 AI 永不休眠"><meta property="og:description" content="AgentPuter 给你的 AI Agent 一台专属云端电脑，永不关机。7×24 运行 OpenClaw、ClawBot、MoltBot，支持持久化认证、多 Agent 并行、远程访问。"><meta property="og:type" content="website"><meta property="og:url" content="https://www.agentputer.com/zh/"><meta property="og:image" content="https://www.agentputer.com/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:site_name" content="AgentPuter"><meta property="og:locale" content="zh_CN"><meta property="og:locale:alternate" content="en_US"><meta property="og:locale:alternate" content="ja_JP"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="es_ES"><meta property="og:locale:alternate" content="pt_BR"><meta property="og:locale:alternate" content="de_DE"><meta property="og:locale:alternate" content="fr_FR"><meta property="og:locale:alternate" content="zh_TW"><!-- Article-specific OG tags --><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@agentputer"><meta name="twitter:creator" content="@agentputer"><meta name="twitter:title" content="AgentPuter - 你的 AI 永不休眠"><meta name="twitter:description" content="AgentPuter 给你的 AI Agent 一台专属云端电脑，永不关机。7×24 运行 OpenClaw、ClawBot、MoltBot，支持持久化认证、多 Agent 并行、远程访问。"><meta name="twitter:image" content="https://www.agentputer.com/og-default.png"><!-- Favicon --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/favicon.svg"><!-- 字体：preconnect + LCP 关键字体直接预加载 --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- 直接预加载 LCP 关键字体文件（JetBrains Mono Bold Latin，H1 使用） --><link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8L6tTOlOVk6OThhvA.woff2"><!-- 字体 CSS 阻塞加载（配合 preconnect 延迟极低，确保 LCP 时字体可用） --><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"><!-- Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":"https://www.agentputer.com/favicon.svg","description":"Your AI Agent's dedicated cloud runtime. AgentPuter keeps your AI running 24/7.","sameAs":["https://twitter.com/agentputer","https://github.com/agentputer","https://discord.gg/agentputer"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"AgentPuter","url":"https://www.agentputer.com","inLanguage":"zh-CN","availableLanguage":[{"@type":"Language","name":"English","alternateName":"en"},{"@type":"Language","name":"中文","alternateName":"zh-CN"},{"@type":"Language","name":"繁體中文","alternateName":"zh-TW"},{"@type":"Language","name":"日本語","alternateName":"ja"},{"@type":"Language","name":"한국어","alternateName":"ko"},{"@type":"Language","name":"Español","alternateName":"es"},{"@type":"Language","name":"Português","alternateName":"pt-BR"},{"@type":"Language","name":"Deutsch","alternateName":"de"},{"@type":"Language","name":"Français","alternateName":"fr"}],"description":"Your AI Agent's dedicated cloud runtime."}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.agentputer.com/zh/"}]}</script><!-- 页面专属结构化数据插槽 --><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"什么是 AgentPuter？","acceptedAnswer":{"@type":"Answer","text":"AgentPuter 是一个 7×24 全天候运行的 AI Agent 平台，给你的 AI 一台专属云端电脑。支持连接 Telegram、WhatsApp、Slack、Discord 等，内置 500+ 技能，无需编程，2 分钟即可上手。"}},{"@type":"Question","name":"AgentPuter 如何工作？","acceptedAnswer":{"@type":"Answer","text":"AgentPuter 提供 24/7 云端运行时环境。你只需连接消息渠道、配置技能，AI Agent 就能自主处理任务——从日常办公、调研到开发和创意工作。"}},{"@type":"Question","name":"使用 AgentPuter 需要编程吗？","acceptedAnswer":{"@type":"Answer","text":"不需要。AgentPuter 专为非技术用户设计，通过简洁界面即可在 2 分钟内完成配置，连接消息应用后即刻开始自动化工作。"}},{"@type":"Question","name":"AgentPuter 支持哪些消息渠道？","acceptedAnswer":{"@type":"Answer","text":"AgentPuter 支持 Telegram、WhatsApp、Slack、Discord、邮件等。你的 AI Agent 可以 24/7 通过这些渠道接收指令并交付结果。"}},{"@type":"Question","name":"我的数据在 AgentPuter 中安全吗？","acceptedAnswer":{"@type":"Answer","text":"安全。AgentPuter 作为你与 LLM 之间的隐私代理，所有凭证使用 AES-256 加密，API 密钥由服务端管理从不暴露给模型，PII 自动检测和脱敏。"}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"AgentPuter","applicationCategory":"BusinessApplication","operatingSystem":"Cloud","url":"https://www.agentputer.com","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","description":"Free during beta"}}</script><!-- 浏览器语言自动检测：移到 head 阻塞执行，避免渲染后跳转导致 CLS --><script>
+    (function() {
+      if (localStorage.getItem('agentputer-lang')) return;
+
+      var langMap = {
+        'zh': '/zh', 'zh-cn': '/zh', 'zh-tw': '/zh-tw', 'zh-hk': '/zh-tw',
+        'ja': '/ja', 'ko': '/ko',
+        'es': '/es', 'es-419': '/es',
+        'pt': '/pt-br', 'pt-br': '/pt-br',
+        'de': '/de', 'fr': '/fr',
+      };
+
+      var path = window.location.pathname;
+      if (/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)(\/|$)/.test(path)) {
+        var m = path.match(/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)/);
+        if (m) localStorage.setItem('agentputer-lang', m[1]);
+        return;
+      }
+
+      var langs = navigator.languages || [navigator.language];
+      for (var i = 0; i < langs.length; i++) {
+        var bl = langs[i].toLowerCase();
+        if (langMap[bl]) {
+          var target = path === '/' ? langMap[bl] + '/' : langMap[bl] + path;
+          localStorage.setItem('agentputer-lang', bl);
+          window.location.replace(target);
+          return;
+        }
+        var primary = bl.split('-')[0];
+        if (primary !== bl && langMap[primary]) {
+          var target2 = path === '/' ? langMap[primary] + '/' : langMap[primary] + path;
+          localStorage.setItem('agentputer-lang', primary);
+          window.location.replace(target2);
+          return;
+        }
+      }
+      localStorage.setItem('agentputer-lang', 'en');
+    })();
+    </script><!-- Google Analytics 4 --><script async src="https://www.googletagmanager.com/gtag/js?id=G-9M2T6GQJ0L"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9M2T6GQJ0L');
+    </script><title>AgentPuter - 你的 AI 永不休眠</title><link rel="stylesheet" href="/_astro/_slug_.DM3EUOA_.css">
+<link rel="stylesheet" href="/_astro/_slug_.CUcOCpHJ.css">
+<style>#matrix-rain[data-astro-cid-bq5b25ac] canvas[data-astro-cid-bq5b25ac]{display:block}
+</style><script type="module" src="/_astro/hoisted.Dc5-n-N_.js"></script></head> <body class="min-h-screen">    <div id="matrix-rain" class="fixed inset-0 pointer-events-none z-0 opacity-20" data-astro-cid-bq5b25ac></div>   <header class="fixed top-0 left-0 right-0 z-50 bg-dark-primary md:bg-dark-primary/95 md:backdrop-blur-lg border-b border-accent/20"> <nav class="max-w-7xl mx-auto px-6 lg:px-20 h-20 flex items-center justify-between"> <!-- Logo --> <a href="/zh/" class="flex items-center gap-2 group"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <!-- Desktop Navigation --> <div class="hidden md:flex items-center gap-8 font-mono"> <a href="/zh/features" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/功能
+</a> <a href="#pricing" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/价格
+</a> <a href="/zh/blog/" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/博客
+</a> <a href="/zh/docs" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/文档
+</a> <!-- Desktop 语言切换器 --><div class="lang-switcher relative"> <button class="lang-btn flex items-center gap-1.5 text-text-secondary hover:text-accent transition-colors text-sm font-mono cursor-pointer" aria-label="Switch language" aria-expanded="false"> <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <circle cx="12" cy="12" r="10" stroke-width="1.5"></circle> <path stroke-width="1.5" d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path> </svg> <span>中文</span> <svg class="w-3 h-3 opacity-40 transition-transform lang-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </button> <!-- 下拉菜单 --> <div class="lang-dropdown hidden absolute right-0 top-full mt-2 py-1 bg-[#1a1a1a] border border-[#333] rounded-lg shadow-xl min-w-[160px] z-[100]"> <a href="/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="en"> <span>English</span> <span class="text-xs text-text-dark">EN</span> </a><a href="/zh/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-accent bg-accent/10" data-lang="zh"> <span>中文</span> <span class="text-xs text-accent">中文</span> </a><a href="/ja/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ja"> <span>日本語</span> <span class="text-xs text-text-dark">JA</span> </a><a href="/ko/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ko"> <span>한국어</span> <span class="text-xs text-text-dark">KO</span> </a><a href="/es/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="es"> <span>Español</span> <span class="text-xs text-text-dark">ES</span> </a><a href="/pt-br/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="pt-br"> <span>Português</span> <span class="text-xs text-text-dark">PT</span> </a><a href="/de/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="de"> <span>Deutsch</span> <span class="text-xs text-text-dark">DE</span> </a><a href="/fr/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="fr"> <span>Français</span> <span class="text-xs text-text-dark">FR</span> </a> </div> </div> <!-- Mobile 语言列表（平铺，不用下拉） --> <div class="lang-mobile hidden"> <div class="flex flex-wrap gap-2"> <a href="/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="en"> English </a><a href="/zh/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-accent border-accent/40 bg-accent/10" data-lang="zh"> 中文 </a><a href="/ja/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ja"> 日本語 </a><a href="/ko/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ko"> 한국어 </a><a href="/es/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="es"> Español </a><a href="/pt-br/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="pt-br"> Português </a><a href="/de/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="de"> Deutsch </a><a href="/fr/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="fr"> Français </a> </div> </div>  <a href="https://app.agentputer.com/sign-up" class="text-sm py-2.5 px-6 bg-accent text-dark-primary font-bold rounded hover:bg-accent-dark transition-colors">
+[开始]
+</a> </div> <!-- Mobile Menu Button --> <button id="mobile-menu-btn-zh" class="md:hidden p-2 text-text-secondary hover:text-white" aria-label="Toggle menu"> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </nav> <!-- Mobile Menu --> <div id="mobile-menu-zh" class="hidden md:hidden bg-dark-secondary border-t border-dark-tertiary"> <div class="px-6 py-4 space-y-4"> <a href="/zh/features" class="block text-text-secondary hover:text-white transition-colors">
+功能
+</a> <a href="#pricing" class="block text-text-secondary hover:text-white transition-colors">
+价格
+</a> <a href="/zh/blog/" class="block text-text-secondary hover:text-white transition-colors">
+博客
+</a> <a href="/zh/docs" class="block text-text-secondary hover:text-white transition-colors">
+文档
+</a> <div class="lang-mobile-wrapper"></div> <a href="https://app.agentputer.com/sign-up" class="btn-primary w-full justify-center text-sm py-3">
+开始使用
+</a> </div> </div> </header>  <main class="relative z-10"> <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden scanlines crt-flicker"> <!-- Background effects --> <div class="absolute inset-0 bg-gradient-to-b from-dark-primary via-dark-primary to-dark-secondary"></div> <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,255,65,0.08),transparent_50%)]"></div> <div class="absolute inset-0 matrix-grid"></div> <div class="absolute inset-0 particles"></div> <div class="relative max-w-7xl mx-auto px-6 lg:px-20"> <div class="flex flex-col items-center text-center"> <!-- System status indicator --> <div class="flex items-center gap-4 mb-8 font-mono text-xs text-text-muted"> <span class="flex items-center gap-2"> <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span> <span class="text-terminal-orange">系统</span> 在线
+</span> <span class="text-terminal-blue">|</span> <span id="status-time-zh" class="text-terminal-cyan"></span> <span class="text-terminal-blue">|</span> <span>智能体: <span class="text-accent">就绪</span></span> </div> <!-- Headline - HTML 直出（LCP 关键元素） --> <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6 font-mono"> <span class="block text-text-primary" id="title-line1-zh">你的 AI</span> <span class="block text-accent text-glow-strong glitch" data-text="永不休眠" id="title-line2-zh">永不休眠</span> </h1> <!-- Subline --> <div class="text-base md:text-lg lg:text-xl text-text-secondary leading-relaxed mb-10 font-mono text-center"> <p class="mb-2">电脑关机、会话过期、Token 失效…</p> <p><span class="text-accent">AgentPuter</span> 让 <a href="https://openclaw.ai/" target="_blank" class="text-terminal-orange hover:underline">OpenClaw</a>、<a href="https://openclaw.ai/" target="_blank" class="text-terminal-cyan hover:underline">ClawBot</a>、<a href="https://openclaw.ai/" target="_blank" class="text-terminal-magenta hover:underline">MoltBot</a> 24/7 全天候运行</p> </div> <!-- CTA Buttons - Terminal style --> <div class="flex flex-col sm:flex-row items-center gap-4 mb-16"> <a href="https://app.agentputer.com/sign-up" class="inline-flex items-center gap-2 px-8 py-4 bg-accent text-dark-primary font-mono font-bold rounded transition-all hover:bg-accent-dark hover:shadow-lg hover:shadow-accent/25"> <span>./启动云舱</span> <span>_</span> </a> </div> <!-- Terminal Preview --> <div class="w-full max-w-2xl terminal glow-accent neon-box hover-lift"> <div class="terminal-header"> <span class="terminal-dot terminal-dot-red"></span> <span class="terminal-dot terminal-dot-yellow"></span> <span class="terminal-dot terminal-dot-green"></span> <span class="text-text-muted font-mono text-xs ml-2">终端</span> </div> <div class="terminal-body space-y-2"> <div class="flex"> <span class="terminal-prompt">$ </span> <span class="terminal-prompt" id="cmd1-zh"></span> </div> <div class="terminal-success hidden" id="output1-zh">✓ 云舱创建成功</div> <div class="h-2"></div> <div class="flex hidden" id="line2-zh"> <span class="terminal-prompt">$ </span> <span class="terminal-prompt" id="cmd2-zh"></span> </div> <div class="terminal-success hidden" id="output2-zh">✓ OpenClaw 已部署并 24/7 运行</div> <div class="h-2 hidden" id="spacer-zh"></div> <div class="flex hidden" id="cursor-line-zh"> <span class="terminal-prompt">$ </span> <span class="cursor-blink"></span> </div> </div> </div> </div> </div> </section> <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Title typing animation - Chinese version
+    const titleLine1 = document.getElementById('title-line1-zh');
+    const titleLine2 = document.getElementById('title-line2-zh');
+    const titleTexts = ['你的AI', '永不休眠'];
+    
+    async function typeTitle() {
+      // FIX: 同时清空两行，避免 line2 闪现
+      if (titleLine1) titleLine1.textContent = '';
+      if (titleLine2) titleLine2.textContent = '';
+
+      // 打 line1
+      if (titleLine1) {
+        for (let i = 0; i <= titleTexts[0].length; i++) {
+          titleLine1.textContent = titleTexts[0].substring(0, i) + (i < titleTexts[0].length ? '█' : '');
+          await new Promise(function(r) { setTimeout(r, 100); });
+        }
+        titleLine1.textContent = titleTexts[0];
+      }
+      
+      await new Promise(function(r) { setTimeout(r, 200); });
+      
+      // 打 line2
+      if (titleLine2) {
+        for (let i = 0; i <= titleTexts[1].length; i++) {
+          titleLine2.textContent = titleTexts[1].substring(0, i) + (i < titleTexts[1].length ? '█' : '');
+          await new Promise(function(r) { setTimeout(r, 80); });
+        }
+        titleLine2.textContent = titleTexts[1];
+      }
+    }
+    
+    // Status time update
+    var timeElement = document.getElementById('status-time-zh');
+    function updateTime() {
+      if (!timeElement) return;
+      var now = new Date();
+      timeElement.textContent = now.toLocaleTimeString('zh-CN', { hour12: false });
+    }
+    updateTime();
+    setInterval(updateTime, 1000);
+    
+    // Terminal typing animation
+    var commands = [
+      { id: 'cmd1-zh', text: 'agentputer init openclaw-pod', output: 'output1-zh', next: 'line2-zh' },
+      { id: 'cmd2-zh', text: 'agentputer deploy openclaw', output: 'output2-zh', next: 'spacer-zh' }
+    ];
+    
+    async function typeText(elementId, text, speed) {
+      speed = speed || 50;
+      var element = document.getElementById(elementId);
+      if (!element) return;
+      
+      for (var i = 0; i < text.length; i++) {
+        element.textContent = text.substring(0, i + 1);
+        await new Promise(function(r) { setTimeout(r, speed); });
+      }
+    }
+    
+    function showElement(id) {
+      var el = document.getElementById(id);
+      if (el) {
+        el.classList.remove('hidden');
+        el.classList.add('animate-fade-in');
+      }
+    }
+    
+    async function runTerminal() {
+      // First type the title
+      await typeTitle();
+      await new Promise(function(r) { setTimeout(r, 800); });
+      
+      // Then run terminal commands
+      for (var i = 0; i < commands.length; i++) {
+        var cmd = commands[i];
+        await typeText(cmd.id, cmd.text);
+        await new Promise(function(r) { setTimeout(r, 300); });
+        showElement(cmd.output);
+        await new Promise(function(r) { setTimeout(r, 500); });
+        showElement(cmd.next);
+        await new Promise(function(r) { setTimeout(r, 200); });
+      }
+      
+      showElement('cursor-line-zh');
+    }
+    
+    runTerminal();
+  });
+</script> <div style="content-visibility: auto; contain-intrinsic-size: auto 600px;"> <section id="problems" class="py-20 lg:py-32 bg-dark-secondary matrix-grid relative"> <div class="max-w-7xl mx-auto px-6 lg:px-20"> <!-- Section Header --> <div class="text-center mb-16"> <span class="inline-block px-4 py-2 text-xs font-mono font-bold tracking-widest text-terminal-orange border border-terminal-orange/30 bg-terminal-orange/10 rounded mb-6">
+警告: 系统限制
+</span> <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold font-mono text-text-primary leading-tight">
+AI Agent 的现状<br> <span class="text-terminal-orange text-glow-orange">被困在你的本地电脑上</span> </h2> </div> <!-- Pain Point Cards --> <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"> <div class="bg-dark-tertiary rounded-lg p-6 border border-terminal-orange/30 group hover:border-terminal-orange transition-colors hover-lift" style="animation-delay: 0ms"> <div class="mb-4"> <span class="text-terminal-orange font-mono text-2xl font-bold">[!]</span> </div> <h3 class="text-lg font-mono font-semibold text-text-primary mb-3 group-hover:text-terminal-orange transition-colors"> 关机 = AI 断线 </h3> <p class="text-text-secondary text-sm leading-relaxed font-mono"> 合上 MacBook，AI 就断开连接。真正的 24/7 自动化？不可能。 </p> </div><div class="bg-dark-tertiary rounded-lg p-6 border border-terminal-orange/30 group hover:border-terminal-orange transition-colors hover-lift" style="animation-delay: 100ms"> <div class="mb-4"> <span class="text-terminal-orange font-mono text-2xl font-bold">[x]</span> </div> <h3 class="text-lg font-mono font-semibold text-text-primary mb-3 group-hover:text-terminal-orange transition-colors"> 授权失效 = 重新开始 </h3> <p class="text-text-secondary text-sm leading-relaxed font-mono"> OAuth 过期、会话中断。每次重启都要重新登录、重新授权。 </p> </div><div class="bg-dark-tertiary rounded-lg p-6 border border-terminal-orange/30 group hover:border-terminal-orange transition-colors hover-lift" style="animation-delay: 200ms"> <div class="mb-4"> <span class="text-terminal-orange font-mono text-2xl font-bold">[~]</span> </div> <h3 class="text-lg font-mono font-semibold text-text-primary mb-3 group-hover:text-terminal-orange transition-colors"> 本地运行 = 资源被占 </h3> <p class="text-text-secondary text-sm leading-relaxed font-mono"> Agent 疯狂占用 CPU 和内存，拖慢你的工作。想跑多个？想都别想。 </p> </div><div class="bg-dark-tertiary rounded-lg p-6 border border-terminal-orange/30 group hover:border-terminal-orange transition-colors hover-lift" style="animation-delay: 300ms"> <div class="mb-4"> <span class="text-terminal-orange font-mono text-2xl font-bold">[@]</span> </div> <h3 class="text-lg font-mono font-semibold text-text-primary mb-3 group-hover:text-terminal-orange transition-colors"> 无法远程 = 被困原地 </h3> <p class="text-text-secondary text-sm leading-relaxed font-mono"> 出门在外无法访问你的 Agent。错过关键信息，无法及时响应。 </p> </div> </div> </div> </section> </div> <div style="content-visibility: auto; contain-intrinsic-size: auto 800px;"> <section id="features" class="py-20 lg:py-32 bg-dark-primary relative particles"> <div class="max-w-7xl mx-auto px-6 lg:px-20"> <!-- Section Header --> <div class="text-center mb-16"> <span class="inline-block px-4 py-2 text-xs font-mono font-bold tracking-widest text-accent border border-accent/30 bg-accent/10 rounded mb-6">
+解决方案: 已初始化
+</span> <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold font-mono text-accent text-glow mb-4">
+你的私人 AI 云端
+</h2> <p class="text-text-secondary text-lg max-w-2xl mx-auto font-mono">
+AgentPuter 是你 AI Agent 的专属运行时 —— 一个永不关机的云端舱体
+</p> </div> <!-- Content Grid --> <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center"> <!-- Terminal Visual --> <div class="bg-dark-secondary rounded-lg border border-accent/30 overflow-hidden glow-accent neon-box pulse-border order-2 lg:order-1"> <div class="flex items-center gap-2 px-4 h-10 bg-dark-tertiary border-b border-accent/20"> <span class="w-3 h-3 rounded-full bg-error"></span> <span class="w-3 h-3 rounded-full bg-warning"></span> <span class="w-3 h-3 rounded-full bg-accent"></span> <span class="text-accent font-mono text-xs ml-2">agentputer@cloud:~</span> </div> <div class="p-5 font-mono text-sm leading-relaxed space-y-2 min-h-[320px]"> <div class="text-accent">$ agentputer status</div> <div class="text-text-secondary"></div> <div class="text-text-secondary"> 云舱 ID: <span class="text-terminal-cyan">pod-7x24-alpha</span></div> <div class="text-accent"> 状态: <span class="text-accent">●</span> 在线</div> <div class="text-text-secondary"> 运行时间: <span class="text-terminal-blue">14天 7小时 23分</span></div> <div class="text-text-secondary"> Agents: <span class="text-terminal-orange">3 个运行中</span></div> <div class="text-text-secondary"></div> <div class="text-accent">$ openclaw logs --tail</div> <div class="text-text-muted text-xs"><span class="text-terminal-cyan">[02:34:15]</span> <span class="text-terminal-orange">[gateway]</span> WhatsApp 已连接</div> <div class="text-text-muted text-xs"><span class="text-terminal-cyan">[02:34:18]</span> <span class="text-terminal-orange">[clawbot]</span> 已处理 47 条消息</div> <div class="text-text-muted text-xs"><span class="text-terminal-cyan">[02:34:22]</span> <span class="text-terminal-orange">[moltbot]</span> 日历同步完成 ✓</div> <div class="text-accent text-xs"><span class="text-terminal-cyan">[02:34:25]</span> <span class="text-accent">✓</span> 所有任务完成</div> <div class="text-text-secondary"></div> <div class="flex"> <span class="text-accent">$ </span> <span class="text-accent animate-blink">█</span> </div> </div> </div> <!-- Features List --> <div class="space-y-6 order-1 lg:order-2"> <div class="flex gap-4 group" style="animation-delay: 0ms"> <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-dark-tertiary border border-accent/20 flex items-center justify-center group-hover:border-accent group-hover:bg-accent/10 transition-colors"> <span class="text-accent font-mono font-bold text-sm">&gt;_</span> </div> <div> <h3 class="text-text-primary font-mono font-semibold mb-1 group-hover:text-accent transition-colors"> 24/7 全天候在线 </h3> <p class="text-text-secondary text-sm leading-relaxed font-mono"> 你的 Agent 在云端运行，永不休眠。你睡觉、出差、休假时，它依然在工作。 </p> </div> </div><div class="flex gap-4 group" style="animation-delay: 100ms"> <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-dark-tertiary border border-accent/20 flex items-center justify-center group-hover:border-accent group-hover:bg-accent/10 transition-colors"> <span class="text-accent font-mono font-bold text-sm">[~]</span> </div> <div> <h3 class="text-text-primary font-mono font-semibold mb-1 group-hover:text-accent transition-colors"> 授权永不过期 </h3> <p class="text-text-secondary text-sm leading-relaxed font-mono"> 服务器管理 Token 和 API 密钥。自动刷新、自动维护。零人工干预。 </p> </div> </div><div class="flex gap-4 group" style="animation-delay: 200ms"> <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-dark-tertiary border border-accent/20 flex items-center justify-center group-hover:border-accent group-hover:bg-accent/10 transition-colors"> <span class="text-accent font-mono font-bold text-sm">&gt;&gt;</span> </div> <div> <h3 class="text-text-primary font-mono font-semibold mb-1 group-hover:text-accent transition-colors"> 多 Agent 并行 </h3> <p class="text-text-secondary text-sm leading-relaxed font-mono"> 同时运行多个 Agent，不占用本地资源。按需扩展，轻松驾驭。 </p> </div> </div><div class="flex gap-4 group" style="animation-delay: 300ms"> <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-dark-tertiary border border-accent/20 flex items-center justify-center group-hover:border-accent group-hover:bg-accent/10 transition-colors"> <span class="text-accent font-mono font-bold text-sm">[*]</span> </div> <div> <h3 class="text-text-primary font-mono font-semibold mb-1 group-hover:text-accent transition-colors"> 随时随地访问 </h3> <p class="text-text-secondary text-sm leading-relaxed font-mono"> 任何设备、任何地点，都能控制你的 Agent。AI 跟着你走，而不是你跟着它。 </p> </div> </div> </div> </div> </div> </section> </div> <div style="content-visibility: auto; contain-intrinsic-size: auto 600px;"> <section class="py-20 lg:py-32 bg-dark-secondary relative data-stream"> <div class="max-w-7xl mx-auto px-6 lg:px-20"> <!-- Section Header --> <div class="text-center mb-16"> <span class="inline-block px-4 py-2 text-xs font-mono font-bold tracking-widest text-accent border border-accent/30 bg-accent/10 rounded mb-6">
+教程: 开始
+</span> <h2 class="text-3xl md:text-4xl font-bold font-mono text-accent text-glow">
+3 步拥有你的 AI 云舱
+</h2> </div> <!-- Steps Grid --> <div class="grid md:grid-cols-3 gap-8"> <div class="relative bg-dark-tertiary rounded-lg p-8 text-center group border border-accent/20 hover:border-accent/50 transition-colors hover-lift neon-box flex flex-col h-full" style="animation-delay: 0ms"> <!-- Step Number --> <div class="w-12 h-12 rounded-lg bg-accent text-dark-primary font-mono font-bold text-xl flex items-center justify-center mx-auto mb-6"> 1 </div> <!-- Title --> <h3 class="text-xl font-mono font-semibold text-text-primary mb-3 group-hover:text-accent transition-colors"> 创建你的云舱 </h3> <!-- Description - flex-grow to push code block to bottom --> <p class="text-text-secondary text-sm leading-relaxed mb-6 font-mono flex-grow"> 一键部署云端环境。选择配置和资源，秒级启动。 </p> <!-- Code Block - always at bottom --> <div class="bg-dark-primary rounded-lg p-3 border border-accent/30 mt-auto"> <code class="text-accent font-mono text-xs"> $ agentputer create openclaw </code> </div> <!-- Connector Line (not on last item) --> <div class="hidden md:block absolute top-1/4 -right-4 w-8 h-0.5 bg-gradient-to-r from-accent/50 to-transparent"></div> </div><div class="relative bg-dark-tertiary rounded-lg p-8 text-center group border border-accent/20 hover:border-accent/50 transition-colors hover-lift neon-box flex flex-col h-full" style="animation-delay: 150ms"> <!-- Step Number --> <div class="w-12 h-12 rounded-lg bg-accent text-dark-primary font-mono font-bold text-xl flex items-center justify-center mx-auto mb-6"> 2 </div> <!-- Title --> <h3 class="text-xl font-mono font-semibold text-text-primary mb-3 group-hover:text-accent transition-colors"> 连接你的服务 </h3> <!-- Description - flex-grow to push code block to bottom --> <p class="text-text-secondary text-sm leading-relaxed mb-6 font-mono flex-grow"> 授权 Google、Notion、Slack 等。凭证安全存储，自动维护。 </p> <!-- Code Block - always at bottom --> <div class="bg-dark-primary rounded-lg p-3 border border-accent/30 mt-auto"> <code class="text-accent font-mono text-xs"> $ agentputer connect </code> </div> <!-- Connector Line (not on last item) --> <div class="hidden md:block absolute top-1/4 -right-4 w-8 h-0.5 bg-gradient-to-r from-accent/50 to-transparent"></div> </div><div class="relative bg-dark-tertiary rounded-lg p-8 text-center group border border-accent/20 hover:border-accent/50 transition-colors hover-lift neon-box flex flex-col h-full" style="animation-delay: 300ms"> <!-- Step Number --> <div class="w-12 h-12 rounded-lg bg-accent text-dark-primary font-mono font-bold text-xl flex items-center justify-center mx-auto mb-6"> 3 </div> <!-- Title --> <h3 class="text-xl font-mono font-semibold text-text-primary mb-3 group-hover:text-accent transition-colors"> 部署 OpenClaw </h3> <!-- Description - flex-grow to push code block to bottom --> <p class="text-text-secondary text-sm leading-relaxed mb-6 font-mono flex-grow"> ClawBot 开始 24/7 工作。WhatsApp、Telegram、Discord —— 永不下线。 </p> <!-- Code Block - always at bottom --> <div class="bg-dark-primary rounded-lg p-3 border border-accent/30 mt-auto"> <code class="text-accent font-mono text-xs"> $ agentputer deploy openclaw </code> </div> <!-- Connector Line (not on last item) -->  </div> </div> </div> </section> </div> <div style="content-visibility: auto; contain-intrinsic-size: auto 400px;"> <section id="cta" class="py-20 lg:py-32 bg-dark-primary relative matrix-grid"> <div class="max-w-7xl mx-auto px-6 lg:px-20"> <div class="relative overflow-hidden rounded-2xl bg-dark-secondary border-2 border-accent/50 p-8 md:p-16 glow-accent neon-box pulse-border scanlines"> <!-- Terminal grid background --> <div class="absolute inset-0 opacity-5"> <div class="absolute inset-0" style="background-image: linear-gradient(rgba(0,255,65,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,65,0.1) 1px, transparent 1px); background-size: 20px 20px;"></div> </div> <div class="relative text-center"> <div class="font-mono text-accent text-sm mb-4">&gt; ./立即部署.sh</div> <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-accent text-glow-strong mb-4 font-mono">
+2 分钟部署你的 AI Agent
+</h2> <p class="text-text-secondary text-lg mb-10 max-w-xl mx-auto font-mono">
+一键部署 OpenClaw + Telegram + Claude，你的 AI 从此永不休眠。
+</p> <!-- Deploy CTA Button --> <div class="max-w-lg mx-auto mb-8"> <a href="https://app.agentputer.com/sign-up" class="inline-flex items-center justify-center gap-3 w-full h-14 rounded-lg bg-accent text-dark-primary font-mono font-bold text-lg hover:bg-accent-dark transition-all hover:shadow-lg hover:shadow-accent/25"> <span>$</span> <span>./启动云舱 --now</span> <span class="animate-pulse">_</span> </a> </div> <!-- Secondary: Email waitlist --> <div class="max-w-lg mx-auto"> <p class="text-text-muted text-xs font-mono mb-3">// 或加入等候名单获取更新：</p> <form id="waitlist-form-zh" class="flex flex-col sm:flex-row gap-3"> <div class="flex-1 relative"> <span class="absolute left-4 top-1/2 -translate-y-1/2 text-accent font-mono text-sm">$</span> <input type="email" name="email" required placeholder="你的邮箱@example.com" class="w-full h-12 pl-8 pr-5 rounded-lg bg-dark-primary text-accent placeholder-text-muted font-mono text-sm border border-accent/20 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"> </div> <button type="submit" class="h-12 px-6 rounded-lg border border-accent/50 text-accent font-mono font-bold text-sm hover:bg-accent/10 transition-colors whitespace-nowrap">
+[确认]
+</button> </form> <div id="form-message-zh" class="mt-3 text-sm font-mono hidden"></div> </div> </div> </div> </div> </section> <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('waitlist-form-zh');
+    const messageEl = document.getElementById('form-message-zh');
+    
+    if (!form) return;
+    
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(form);
+      const email = formData.get('email');
+      
+      if (!messageEl || !email) return;
+      
+      // Show loading state
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = '[处理中...]';
+      submitBtn.disabled = true;
+      
+      try {
+        // Save to localStorage (works in dev mode)
+        const subscribers = JSON.parse(localStorage.getItem('agentputer_subscribers') || '[]');
+        if (!subscribers.includes(email)) {
+          subscribers.push(email);
+          localStorage.setItem('agentputer_subscribers', JSON.stringify(subscribers));
+        }
+        console.log('[DEV] Email saved to localStorage:', email);
+        
+        // Try API call (will work after deployment to Cloudflare)
+        try {
+          const response = await fetch('/api/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email }),
+          });
+          if (response.ok) {
+            console.log('[PROD] Email saved to API');
+          }
+        } catch (err) {
+          console.log('[DEV] API not available, using localStorage only');
+        }
+        
+        // Always show success
+        messageEl.innerHTML = '<span class="text-accent">✓ 成功:</span> 你已加入等候名单！我们会尽快联系你。';
+        messageEl.className = 'mt-4 text-sm font-mono text-accent';
+        messageEl.classList.remove('hidden');
+        form.reset();
+        
+        // Show terminal-style success animation
+        const input = form.querySelector('input[type="email"]');
+        if (input) {
+          input.placeholder = '已订阅! ✓';
+          setTimeout(function() {
+            input.placeholder = '你的邮箱@example.com';
+          }, 3000);
+        }
+      } catch (error) {
+        messageEl.innerHTML = '<span class="text-error">[错误]</span> 出了点问题，请重试。';
+        messageEl.className = 'mt-4 text-sm font-mono text-error';
+        messageEl.classList.remove('hidden');
+      } finally {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }
+    });
+  });
+</script> </div> </main> <footer class="bg-dark-secondary border-t border-accent/20"> <div class="max-w-7xl mx-auto px-6 lg:px-20 py-12 lg:py-16"> <!-- Top Section --> <div class="flex flex-col lg:flex-row justify-between gap-12 mb-12"> <!-- Brand --> <div class="lg:max-w-xs"> <a href="/zh/" class="inline-block mb-4"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <p class="text-text-muted text-sm font-mono"> <span class="text-terminal-cyan">//</span> 你的 AI 永不休眠
+</p> </div> <!-- Links Grid --> <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 font-mono"> <!-- Product --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/产品</h4> <ul class="space-y-3"> <li> <a href="/zh/features" class="text-text-muted text-sm hover:text-accent transition-colors"> 功能 </a> </li><li> <a href="#pricing" class="text-text-muted text-sm hover:text-accent transition-colors"> 价格 </a> </li><li> <a href="/zh/docs" class="text-text-muted text-sm hover:text-accent transition-colors"> 文档 </a> </li> </ul> </div> <!-- Company --> <div> <h4 class="text-terminal-orange font-bold mb-4 text-sm">/公司</h4> <ul class="space-y-3"> <li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 关于 </a> </li><li> <a href="/zh/blog/" class="text-text-muted text-sm hover:text-accent transition-colors"> 博客 </a> </li><li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 招聘 </a> </li> </ul> </div> <!-- Contact --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/联系</h4> <ul class="space-y-3"> <li> <a href="/cdn-cgi/l/email-protection#88e7fbebe9faf2e9e5e7fae9b9b1b1b1b8bfc8efe5e9e1e4a6ebe7e5" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> <span class="__cf_email__" data-cfemail="a6c9d5c5c7d4dcc7cbc9d4c7979f9f9f9691e6c1cbc7cfca88c5c9cb">[email&#160;protected]</span> </a> </li><li> <a href="https://twitter.com/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Twitter </a> </li><li> <a href="https://discord.gg/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Discord </a> </li> </ul> </div> <!-- Legal --> <div> <h4 class="text-terminal-blue font-bold mb-4 text-sm">/法律</h4> <ul class="space-y-3"> <li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 隐私 </a> </li><li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 条款 </a> </li><li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 安全 </a> </li> </ul> </div> </div> </div> <!-- Divider --> <div class="border-t border-accent/20 pt-8"> <div class="flex flex-col md:flex-row justify-between items-center gap-4 font-mono"> <!-- Copyright --> <p class="text-text-dark text-sm">
+/* © 2026 AgentPuter. 保留所有权利。 */
+</p> <!-- Social Links --> <div class="flex items-center gap-6"> <a href="https://github.com/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors"> GitHub </a> </div> </div> </div> </div> </footer>  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"db97590b14994206be9f2eaec90a9494","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

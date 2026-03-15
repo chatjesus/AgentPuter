@@ -1,0 +1,289 @@
+<!DOCTYPE html><html lang="de"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="207.000 GitHub-Sterne bedeuten, dass jeder es ausprobieren will. Aber die Bereitstellungsoptionen haben sich schneller vervielfacht als die Dokumentation. Wir haben zwei Wochen damit verbracht, jede wichtige Option – von selbst gehostet bis zur Ein-Klick-Cloud – auszuführen, damit Sie wissen, worauf Sie sich einlassen, bevor Sie sich festlegen."><meta name="theme-color" content="#0D0D0D"><meta name="generator" content="Astro v4.16.19"><!-- Canonical URL --><link rel="canonical" href="https://www.agentputer.com/de/blog/10-openclaw-review/"><!-- hreflang 多语言标签 --><link rel="alternate" hreflang="en" href="https://www.agentputer.com/blog/10-openclaw-review/"><link rel="alternate" hreflang="zh-CN" href="https://www.agentputer.com/zh/blog/10-openclaw-review/"><link rel="alternate" hreflang="ja" href="https://www.agentputer.com/ja/blog/10-openclaw-review/"><link rel="alternate" hreflang="ko" href="https://www.agentputer.com/ko/blog/10-openclaw-review/"><link rel="alternate" hreflang="es" href="https://www.agentputer.com/es/blog/10-openclaw-review/"><link rel="alternate" hreflang="pt-BR" href="https://www.agentputer.com/pt-br/blog/10-openclaw-review/"><link rel="alternate" hreflang="de" href="https://www.agentputer.com/de/blog/10-openclaw-review/"><link rel="alternate" hreflang="fr" href="https://www.agentputer.com/fr/blog/10-openclaw-review/"><link rel="alternate" hreflang="zh-TW" href="https://www.agentputer.com/zh-tw/blog/10-openclaw-review/"><link rel="alternate" hreflang="x-default" href="https://www.agentputer.com/blog/10-openclaw-review/"><!-- Keywords（各语言本地化） --><meta name="keywords" content="OpenClaw, Review, AI Agent, Deployment, AgentPuter, TinyClaw"><!-- Open Graph --><meta property="og:title" content="Wir haben 5 Wege getestet, einen OpenClaw-Agenten auszuführen. Hier ist, was wirklich funktioniert. | AgentPuter Blog"><meta property="og:description" content="207.000 GitHub-Sterne bedeuten, dass jeder es ausprobieren will. Aber die Bereitstellungsoptionen haben sich schneller vervielfacht als die Dokumentation. Wir haben zwei Wochen damit verbracht, jede wichtige Option – von selbst gehostet bis zur Ein-Klick-Cloud – auszuführen, damit Sie wissen, worauf Sie sich einlassen, bevor Sie sich festlegen."><meta property="og:type" content="article"><meta property="og:url" content="https://www.agentputer.com/de/blog/10-openclaw-review/"><meta property="og:image" content="https://www.agentputer.com/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:site_name" content="AgentPuter"><meta property="og:locale" content="de_DE"><meta property="og:locale:alternate" content="en_US"><meta property="og:locale:alternate" content="zh_CN"><meta property="og:locale:alternate" content="ja_JP"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="es_ES"><meta property="og:locale:alternate" content="pt_BR"><meta property="og:locale:alternate" content="fr_FR"><meta property="og:locale:alternate" content="zh_TW"><!-- Article-specific OG tags --><meta property="article:published_time" content="2026-02-18"><meta property="article:author" content="AgentPuter Lab"><meta property="article:tag" content="OpenClaw"><meta property="article:tag" content="Review"><meta property="article:tag" content="AI Agent"><meta property="article:tag" content="Deployment"><meta property="article:tag" content="AgentPuter"><meta property="article:tag" content="TinyClaw"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@agentputer"><meta name="twitter:creator" content="@agentputer"><meta name="twitter:title" content="Wir haben 5 Wege getestet, einen OpenClaw-Agenten auszuführen. Hier ist, was wirklich funktioniert. | AgentPuter Blog"><meta name="twitter:description" content="207.000 GitHub-Sterne bedeuten, dass jeder es ausprobieren will. Aber die Bereitstellungsoptionen haben sich schneller vervielfacht als die Dokumentation. Wir haben zwei Wochen damit verbracht, jede wichtige Option – von selbst gehostet bis zur Ein-Klick-Cloud – auszuführen, damit Sie wissen, worauf Sie sich einlassen, bevor Sie sich festlegen."><meta name="twitter:image" content="https://www.agentputer.com/og-default.png"><!-- Favicon --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/favicon.svg"><!-- 字体：preconnect + LCP 关键字体直接预加载 --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- 直接预加载 LCP 关键字体文件（JetBrains Mono Bold Latin，H1 使用） --><link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8L6tTOlOVk6OThhvA.woff2"><!-- 字体 CSS 阻塞加载（配合 preconnect 延迟极低，确保 LCP 时字体可用） --><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"><!-- Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":"https://www.agentputer.com/favicon.svg","description":"Your AI Agent's dedicated cloud runtime. AgentPuter keeps your AI running 24/7.","sameAs":["https://twitter.com/agentputer","https://github.com/agentputer","https://discord.gg/agentputer"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"AgentPuter","url":"https://www.agentputer.com","inLanguage":"de","availableLanguage":[{"@type":"Language","name":"English","alternateName":"en"},{"@type":"Language","name":"中文","alternateName":"zh-CN"},{"@type":"Language","name":"繁體中文","alternateName":"zh-TW"},{"@type":"Language","name":"日本語","alternateName":"ja"},{"@type":"Language","name":"한국어","alternateName":"ko"},{"@type":"Language","name":"Español","alternateName":"es"},{"@type":"Language","name":"Português","alternateName":"pt-BR"},{"@type":"Language","name":"Deutsch","alternateName":"de"},{"@type":"Language","name":"Français","alternateName":"fr"}],"description":"Your AI Agent's dedicated cloud runtime."}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.agentputer.com/de/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.agentputer.com/de/blog/"},{"@type":"ListItem","position":3,"name":"10 openclaw review","item":"https://www.agentputer.com/de/blog/10-openclaw-review/"}]}</script><!-- 页面专属结构化数据插槽 --><!-- 浏览器语言自动检测：移到 head 阻塞执行，避免渲染后跳转导致 CLS --><script>
+    (function() {
+      if (localStorage.getItem('agentputer-lang')) return;
+
+      var langMap = {
+        'zh': '/zh', 'zh-cn': '/zh', 'zh-tw': '/zh-tw', 'zh-hk': '/zh-tw',
+        'ja': '/ja', 'ko': '/ko',
+        'es': '/es', 'es-419': '/es',
+        'pt': '/pt-br', 'pt-br': '/pt-br',
+        'de': '/de', 'fr': '/fr',
+      };
+
+      var path = window.location.pathname;
+      if (/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)(\/|$)/.test(path)) {
+        var m = path.match(/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)/);
+        if (m) localStorage.setItem('agentputer-lang', m[1]);
+        return;
+      }
+
+      var langs = navigator.languages || [navigator.language];
+      for (var i = 0; i < langs.length; i++) {
+        var bl = langs[i].toLowerCase();
+        if (langMap[bl]) {
+          var target = path === '/' ? langMap[bl] + '/' : langMap[bl] + path;
+          localStorage.setItem('agentputer-lang', bl);
+          window.location.replace(target);
+          return;
+        }
+        var primary = bl.split('-')[0];
+        if (primary !== bl && langMap[primary]) {
+          var target2 = path === '/' ? langMap[primary] + '/' : langMap[primary] + path;
+          localStorage.setItem('agentputer-lang', primary);
+          window.location.replace(target2);
+          return;
+        }
+      }
+      localStorage.setItem('agentputer-lang', 'en');
+    })();
+    </script><!-- Google Analytics 4 --><script async src="https://www.googletagmanager.com/gtag/js?id=G-9M2T6GQJ0L"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9M2T6GQJ0L');
+    </script><title>Wir haben 5 Wege getestet, einen OpenClaw-Agenten auszuführen. Hier ist, was wirklich funktioniert. | AgentPuter Blog</title><link rel="stylesheet" href="/_astro/_slug_.DM3EUOA_.css">
+<link rel="stylesheet" href="/_astro/_slug_.CUcOCpHJ.css">
+<link rel="stylesheet" href="/_astro/_slug_.CxhqtQFk.css"><script type="module" src="/_astro/hoisted.TVTqSKbE.js"></script></head> <body class="min-h-screen">   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Wir haben 5 Wege getestet, einen OpenClaw-Agenten auszuführen. Hier ist, was wirklich funktioniert.","description":"207.000 GitHub-Sterne bedeuten, dass jeder es ausprobieren will. Aber die Bereitstellungsoptionen haben sich schneller vervielfacht als die Dokumentation. Wir haben zwei Wochen damit verbracht, jede wichtige Option – von selbst gehostet bis zur Ein-Klick-Cloud – auszuführen, damit Sie wissen, worauf Sie sich einlassen, bevor Sie sich festlegen.","datePublished":"2026-02-18","dateModified":"2026-02-18","inLanguage":"de","author":{"@type":"Organization","name":"AgentPuter Lab","url":"https://www.agentputer.com"},"publisher":{"@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":{"@type":"ImageObject","url":"https://www.agentputer.com/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.agentputer.com/de/blog/10-openclaw-review/"},"keywords":"OpenClaw, Review, AI Agent, Deployment, AgentPuter, TinyClaw"}</script> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Startseite","item":"https://www.agentputer.com/de/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.agentputer.com/de/blog/"},{"@type":"ListItem","position":3,"name":"Wir haben 5 Wege getestet, einen OpenClaw-Agenten auszuführen. Hier ist, was wirklich funktioniert."}]}</script> <header class="fixed top-0 left-0 right-0 z-50 bg-dark-primary md:bg-dark-primary/95 md:backdrop-blur-lg border-b border-accent/20"> <nav class="max-w-7xl mx-auto px-6 lg:px-20 h-20 flex items-center justify-between"> <!-- Logo --> <a href="/de/" class="flex items-center gap-2 group"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <!-- Desktop Navigation --> <div class="hidden md:flex items-center gap-8 font-mono"> <a href="/de/features" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/funktionen
+</a> <a href="/tools" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/tools
+</a> <a href="#pricing" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/preise
+</a> <a href="/de/blog/" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/blog
+</a> <a href="/de/docs" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/docs
+</a> <!-- Desktop 语言切换器 --><div class="lang-switcher relative"> <button class="lang-btn flex items-center gap-1.5 text-text-secondary hover:text-accent transition-colors text-sm font-mono cursor-pointer" aria-label="Switch language" aria-expanded="false"> <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <circle cx="12" cy="12" r="10" stroke-width="1.5"></circle> <path stroke-width="1.5" d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path> </svg> <span>DE</span> <svg class="w-3 h-3 opacity-40 transition-transform lang-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </button> <!-- 下拉菜单 --> <div class="lang-dropdown hidden absolute right-0 top-full mt-2 py-1 bg-[#1a1a1a] border border-[#333] rounded-lg shadow-xl min-w-[160px] z-[100]"> <a href="/blog/10-openclaw-review/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="en"> <span>English</span> <span class="text-xs text-text-dark">EN</span> </a><a href="/zh/blog/10-openclaw-review/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="zh"> <span>中文</span> <span class="text-xs text-text-dark">中文</span> </a><a href="/ja/blog/10-openclaw-review/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ja"> <span>日本語</span> <span class="text-xs text-text-dark">JA</span> </a><a href="/ko/blog/10-openclaw-review/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ko"> <span>한국어</span> <span class="text-xs text-text-dark">KO</span> </a><a href="/es/blog/10-openclaw-review/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="es"> <span>Español</span> <span class="text-xs text-text-dark">ES</span> </a><a href="/pt-br/blog/10-openclaw-review/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="pt-br"> <span>Português</span> <span class="text-xs text-text-dark">PT</span> </a><a href="/de/blog/10-openclaw-review/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-accent bg-accent/10" data-lang="de"> <span>Deutsch</span> <span class="text-xs text-accent">DE</span> </a><a href="/fr/blog/10-openclaw-review/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="fr"> <span>Français</span> <span class="text-xs text-text-dark">FR</span> </a> </div> </div> <!-- Mobile 语言列表（平铺，不用下拉） --> <div class="lang-mobile hidden"> <div class="flex flex-wrap gap-2"> <a href="/blog/10-openclaw-review/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="en"> English </a><a href="/zh/blog/10-openclaw-review/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="zh"> 中文 </a><a href="/ja/blog/10-openclaw-review/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ja"> 日本語 </a><a href="/ko/blog/10-openclaw-review/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ko"> 한국어 </a><a href="/es/blog/10-openclaw-review/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="es"> Español </a><a href="/pt-br/blog/10-openclaw-review/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="pt-br"> Português </a><a href="/de/blog/10-openclaw-review/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-accent border-accent/40 bg-accent/10" data-lang="de"> Deutsch </a><a href="/fr/blog/10-openclaw-review/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="fr"> Français </a> </div> </div>  <a href="https://app.agentputer.com/sign-up" class="text-sm py-2.5 px-6 bg-accent text-dark-primary font-bold rounded hover:bg-accent-dark transition-colors">
+[STARTEN]
+</a> </div> <!-- Mobile Menu Button --> <button id="mobile-menu-btn-de" class="md:hidden p-2 text-text-secondary hover:text-white" aria-label="Menü umschalten"> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </nav> <!-- Mobile Menu --> <div id="mobile-menu-de" class="hidden md:hidden bg-dark-secondary border-t border-dark-tertiary"> <div class="px-6 py-4 space-y-4"> <a href="/de/features" class="block hover:text-white transition-colors text-text-secondary">
+funktionen
+</a> <a href="/tools" class="block hover:text-white transition-colors text-text-secondary">
+tools
+</a> <a href="#pricing" class="block hover:text-white transition-colors text-text-secondary">
+preise
+</a> <a href="/de/blog/" class="block hover:text-white transition-colors text-text-secondary">
+blog
+</a> <a href="/de/docs" class="block hover:text-white transition-colors text-text-secondary">
+docs
+</a> <div class="lang-mobile-wrapper"></div> <a href="https://app.agentputer.com/sign-up" class="btn-primary w-full justify-center text-sm py-3">
+Loslegen
+</a> </div> </div> </header>  <main class="relative z-10 pt-28 pb-20"> <article class="max-w-4xl mx-auto px-6 lg:px-8"> <!-- Breadcrumb-Navigation --> <nav class="mb-8 font-mono text-sm"> <a href="/de/" class="text-text-muted hover:text-accent transition-colors">~</a> <span class="text-text-dark mx-2">/</span> <a href="/de/blog/" class="text-text-muted hover:text-accent transition-colors">Blog</a> <span class="text-text-dark mx-2">/</span> <span class="text-accent">Artikel</span> </nav> <!-- Header mit Artikel-Metadaten --> <header class="mb-12"> <!-- Tags --> <div class="flex flex-wrap gap-2 mb-6"> <span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#OpenClaw </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Review </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#AI Agent </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Deployment </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#AgentPuter </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#TinyClaw </span> </div> <!-- Titel --> <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6"> Wir haben 5 Wege getestet, einen OpenClaw-Agenten auszuführen. Hier ist, was wirklich funktioniert. </h1> <!-- Beschreibung --> <p class="text-lg text-text-secondary leading-relaxed mb-8"> 207.000 GitHub-Sterne bedeuten, dass jeder es ausprobieren will. Aber die Bereitstellungsoptionen haben sich schneller vervielfacht als die Dokumentation. Wir haben zwei Wochen damit verbracht, jede wichtige Option – von selbst gehostet bis zur Ein-Klick-Cloud – auszuführen, damit Sie wissen, worauf Sie sich einlassen, bevor Sie sich festlegen. </p> <!-- Metadaten-Zeile --> <div class="flex flex-wrap items-center gap-6 text-sm font-mono text-text-muted border-t border-b border-accent/20 py-4"> <div class="flex items-center gap-2"> <span class="text-terminal-cyan">@</span> <span class="text-text-secondary">AgentPuter Lab</span> </div> <div class="flex items-center gap-2"> <span class="text-terminal-orange">$</span> <time datetime="2026-02-18" class="text-text-secondary">18. Februar 2026</time> </div> <div class="flex items-center gap-2"> <span class="text-terminal-blue">~</span> <span class="text-text-secondary">16 min Lesezeit</span> </div> </div> </header> <!-- Artikelinhalt --> <div class="prose prose-invert prose-terminal max-w-none">  <p><em>Teil 10 der Serie zur Agenten-Infrastruktur</em></p>
+<hr>
+<p>OpenClaw hat 207.000 GitHub-Sterne. Diese Zahl steigt täglich um etwa 2.000.</p>
+<hr>
+<p>Das bedeutet, viele Leute schauen zu. Und jede Woche taucht ein neuer „Deploy OpenClaw in one click“-Dienst auf. Es gibt EasyClaw – genauer gesagt fünf verschiedene Produkte mit diesem Namen. Es gibt InstaClaw. Es gibt OpenClaw Cloud, die offizielle gehostete Version. Es gibt zwei komplett unterschiedliche GitHub-Repositories, die beide TinyClaw hei</p>
+<hr>
+<p>Bitte geben Sie den zu übersetzenden Text an. Der Abschnitt nach <code>---</code> ist leer.</p>
+<hr>
+<h2 id="was-wir-getestet-haben-und-wie">Was wir getestet haben (und wie)</h2>
+<p>Fünf Konfigurationen:</p>
+<ol>
+<li><strong>Self-hosted Mac Mini M4</strong> – das Standard-Setup</li>
+<li><strong>Self-hosted VPS</strong> – Linux-Cloud-Server, nur SSH</li>
+<li><strong>TinyClaw</strong> – Cloud-Laufzeitumgebung von AgentPuter, Ein-Klick-Bereitstellung</li>
+<li><strong>OpenClaw Cloud</strong> –</li>
+</ol>
+<hr>
+<p>Für jedes Setup haben wir gemessen:</p>
+<ul>
+<li><strong>Zeit bis zur ersten Nachricht</strong> (von null bis zur Konversation mit dem Agenten)</li>
+<li><strong>Zuverlässigkeit</strong> über 7 Tage (Verfügbarkeit, verlorene Nachrichten, Neustartverhalten)</li>
+<li><strong>Funktionsumfang</strong> (was tatsächlich funktioniert vs. was zusätzliche Konfiguration erfordert)</li>
+<li>**Le</li>
+</ul>
+<hr>
+<h2 id="option-1-selbst-gehosteter-mac-mini-m4">Option 1: Selbst gehosteter Mac Mini M4</h2>
+<p><strong>Zeit bis zur ersten Nachricht:</strong> 22 Minuten
+<strong>7-Tage-Verfügbarkeit:</strong> 100 %
+<strong>Monatliche Kosten:</strong> ~$35 (API) + $0 amortisierte Hardware</p>
+<p>Dies ist die Basislinie und sie legt die Messlatte hoch.</p>
+<p>Die Installation besteht aus einem einzigen Befehl – <code>openclaw onboard --install-daemon</code> – und der Assistent führt Sie durch jeden Schritt. Der Engpass ist nicht die Software, sondern die Verwaltung der API-Schlüssel und die Einrichtung des Telegram-Bots, was für sich allein schon etwa 10 Minuten dauert, wenn man es noch nie zuvor gemacht hat.</p>
+<hr>
+<p>Sobald es läuft, übertrifft das Mac mini-Setup jede Cloud-Option in einigen spezifischen Dingen. Die iMessage-Integration über BlueBubbles funktioniert, und nichts anderes kann da mithalten. Mit Voice Wake können Sie über die native macOS-App freihändig mit Ihrem Agenten sprechen – eine Funktion, die bei keiner Cloud-Bereitstellung verfügbar ist. Der Zugriff auf das lokale Dateisystem bedeutet, dass Ihr Agent mit Dateien arbeiten kann, die Ihren Rechner niemals verlassen.</p>
+<hr>
+<p>Die SOUL.md-Datei ist der Punkt, an dem sich dies von allem anderen zu unterscheiden beginnt. Es ist kein System-Prompt. Es ist eine persistente Identitätsdatei, die dein Agent jeden Tag beim Start liest. Nachdem ich sie eine Woche lang ergänzt hatte, kannte der Agent meinen Zeitplan, meinen Kommunikationsstil, meine Vorlieben für E-Mail-Antwort</p>
+<hr>
+<p>Wenn Sie einen Mac mini haben oder bereit sind, einen zu kaufen, ist dies die Antwort. Nichts anderes kommt an den maximalen Funktionsumfang heran.</p>
+<hr>
+<hr>
+<h2 id="option-2-selbstgehosteter-vps-linux">Option 2: Selbstgehosteter VPS (Linux)</h2>
+<p><strong>Zeit bis zur ersten Nachricht:</strong> 28 Minuten
+<strong>7-Tage-Verfügbarkeit:</strong> 100 %
+<strong>Monatliche Kosten:</strong> ~$35 (API) + $6 (VPS)</p>
+<p>Für Linux-Benutzer und Entwickler, die Root-Zugriff möchten, ist</p>
+<hr>
+<p>Der Nachteil ist der DevOps-Aufwand. Wenn Ihr Agent um 2 Uhr nachts nicht mehr reagiert, müssen Sie sich per SSH auf einem Server anmelden, um die Logs zu überprüfen. Wenn Sie sich damit wohlfühlen, ist dies eine solide Option. Andernfalls springen Sie zu den gehosteten Optionen.</p>
+<p>Hervorzuheben ist: Das Docker-Sandboxing – das</p>
+<hr>
+<p>Gleiche Leistungsgrenze wie der Mac mini, mehr Flexibilität, mehr Wartungsaufwand. Am besten für Entwickler, die bereits Server verwalten und nicht noch etwas Neues lernen möchten.</p>
+<hr>
+<hr>
+<h2 id="option-3-tinyclaw">Option 3: TinyClaw</h2>
+<p><strong>Zeit bis zur ersten Nachricht:</strong> 48 Sekunden
+<strong>7-Tage-Verfügbarkeit:</strong> ~99,9 %
+<strong>Monatliche Kosten:</strong> $49,99/Monat (inklusive Modell)</p>
+<p>TinyClaw (<a href="https://tinyclaw.dev">tinyclaw.dev</a>) ist die Cloud</p>
+<hr>
+<p>Die Antwortzeiten betrugen im Durchschnitt 6–8 Sekunden für Standardanfragen und blieben auf diesem Niveau. Das ist der praktische Vorteil von isolierten Containern gegenüber Shared Compute: nicht schneller unter idealen Bedingungen, aber konsistent, wenn die Bedingungen nicht ideal sind. Die Internetverbindung Ihres heimischen Mac mini ist eine Variable; die eines Cloud-Containers nicht.</p>
+<p>Die Installation von Skills verlief reibungslos. Von den 12 Skills, die wir aus dem ClawHub getestet haben, ließen sich 11 ohne Probleme installieren. Der einzige Fehlschlag – eine Spotify-Integration, die eine OAuth-Redirect-Konfiguration erfordert – hätte auf jeder Plattform eine manuelle Einrichtung erfordert.</p>
+<hr>
+<p>Kein Voice Wake, kein iMessage, kein lokales Dateisystem. Dies sind strukturelle Einschränkungen der Cloud-Bereitstellung, nicht spezifisch für TinyClaw. Wenn Sie etwas davon benötigen, ist Self-Hosting der einzige Weg.</p>
+<p>Die Hintergrundgeschichte von AgentPuter ist wichtig, wenn Sie darüber nachdenken, über einen einzelnen Agenten hinauszuwachsen. Dieselbe Infrastruktur unterstützt mehrere OpenClaw-Instanzen unter einem Konto – verschiedene Agenten für verschiedene Kontexte oder gemeinsamer Zugriff für Teammitglieder. Das ist nicht im Basis-Plan enthalten, aber es ist verfügbar, wenn Ihr Bedarf wächst.</p>
+<hr>
+<hr>
+<h2 id="option-4-openclaw-cloud">Option 4: OpenClaw Cloud</h2>
+<p><strong>Zeit bis zur ersten Nachricht:</strong> 2 Minuten 10 Sekunden<br>
+<strong>7-Tage-Verfügbarkeit:</strong> ~98,4 %<br>
+<strong>Monatliche Kosten:</strong> 0 $ (kostenloser Tarif, 14 Rechenzeit-Tage/Monat) oder 9,99 $/Monat Pro</p>
+<p>OpenClaw Cloud (open.claw.cloud) ist die offiziell empfohlene gehostete Version. Das Hauptunterscheidungsmerkmal ist der kostenlose Tarif: 14 Tage Rechenzeit pro Monat, angetrieben von Kimi K2.5. Beachten Sie, dass zum Zeitpunkt unseres Tests der Pro-Tarif für 9,99 $/Monat noch als „Coming Soon“ (in Kürze verfügbar) gekennzeichnet war – daher basiert ein Teil dieses Abschnitts auf dem kostenlosen Tarif, der tatsächlich verfügbar war.</p>
+<hr>
+<p>Der kostenlose Plan ist mehr als eine Demo. Du erhältst vorinstallierte Skills, eine Telegram-Integration, persistenten Speicher, Browser-Automatisierung und deine eigene dedizierte virtuelle Maschine. Wenn deine 14 kostenlosen Rechenzeit-Tage abgelaufen sind, schaltet sich die VM aus, aber deine Daten bleiben erhalten. Schalte sie wieder ein, wenn du mehr</p>
+<hr>
+<p>Das Kimi K2.5-Modell ist eine Bemerkung wert. Für die meisten praktischen Aufgaben – das Zusammenfassen von E-Mails, das Entwerfen von Antworten, die Kalenderverwaltung – hat es sich im Test gut geschlagen. Der Unterschied zu Claude Opus 4.6 wurde bei komplexen, mehrstufigen Denkprozessen deutlich: „</p>
+<hr>
+<p>Das Onboarding dauert etwas länger als bei TinyClaw, da die Konfiguration über ein Web-Dashboard anstatt über einen Assistenten erfolgt. Die Anbindung von Telegram dauerte etwa 2 Minuten. Die Skill-Verwaltung ist vollständig offengelegt, was gut ist, wenn man weiß, was man will, und verwirrend, wenn nicht.</p>
+<p>Der günstigste Weg zu einem echten OpenClaw-Erlebnis. Die beste Wahl, wenn Sie es ausprobieren möchten, bevor Sie sich festlegen.</p>
+<hr>
+<hr>
+<h2 id="option-5-easyclawai">Option 5: EasyClaw.ai</h2>
+<p><strong>Zeit bis zur ersten Nachricht:</strong> 4 Minuten<br>
+<strong>7-Tage-Verfügbarkeit:</strong> 99,1 %<br>
+<strong>Monatliche Kosten:</strong> $19–$49 je nach Tarif</p>
+<p>Das Alleinstellungsmerkmal von EasyClaw.ai ist der browserbasierte Desktop-Zugriff – eine vollständige Ansicht der Container-Umgebung Ihres Agenten in einem Browser-Tab. Sie können sich bei Konten anmelden, die eine Browser-Authentifizierung erfordern, Tools installieren und Konfigurationsdateien ändern. Dinge, auf die Sie bei verwalteten Plattformen normalerweise keinen Zugriff haben.</p>
+<p>Wir haben dies genutzt, um eine Gmail-Integration einzurichten, die eine Authentifizierung über einen Browser-Flow erfordert – unkompl</p>
+<hr>
+<p>Die Preisstufen betragen 5 $ (Entwickler, eigener VPS), 19 $ (verwaltet) und 49 $ (vollständig verwaltet mit Premium-Support). Bei 49 $ pro Monat erreicht man fast den Punkt, an dem ein selbstverwalteter VPS finanziell sinnvoller ist, es sei denn, man wünscht sich wirklich die sorgenfreie Wart</p>
+<hr>
+<h2 id="die-open-source-variantenlandschaft">Die Open-Source-Variantenlandschaft</h2>
+<p>Über gehostete Dienste hinaus sind die Open-Source-Derivate erwähnenswert, obwohl sie sich an eine engere Zielgruppe richten.</p>
+<hr>
+<p><strong>TinyClaw (jlia0-Version)</strong> ist eine Neuimplementierung des OpenClaw-Konzepts in ungefähr 400 Zeilen Shell-Skript – erstellt mit Claude Code und tmux anstelle von Node.js und einem vollständigen Framework. Es führt mehrere isolierte Agenten parallel über Discord, WhatsApp und Telegram aus und koordiniert sie über dateibasierte Nachrichtenwarteschlangen, die Race Conditions verhindern. Stand Februar 2026 hat es etwa 2.000 GitHub-Sterne, wobei die Codebasis klein genug ist, um sie an einem Nachmittag zu lesen. Wenn Sie verstehen möchten, was tatsächlich unter der Haube passiert, oder einen Agenten in eine eingeschränkte Umgebung einbetten müssen, ist dies der direkteste Weg.</p>
+<hr>
+<p><strong>TinyClaw (warengonzaga-Version)</strong> ist ein völlig anderes Projekt – ein TypeScript-Rewrite, das sich ausdrücklich als „ein vollständig unabhängiges Produkt und eine Alternative zu OpenClaw“ positioniert. Es legt den Schwerpunkt auf eine Plugin-Architektur, einen sich selbst verbessernden Speicher und intelligentes Query-Routing, um die LLM-Kosten zu senken. Weniger auf die Ausführung von Aufgaben ausgerichtet, mehr auf einen „persönlichen KI-Begleiter“. Beobachtenswert, aber noch früh.</p>
+<p>Keines von beiden konkurriert direkt mit gehosteten Diensten. Sie sind Werkzeuge für Entwickler, die den zugrunde liegenden Mechanismus verstehen und verändern wollen.</p>
+<hr>
+<hr>
+<h2 id="vergleichstabelle">Vergleichstabelle</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>Mac Mini</th><th>VPS</th><th>TinyClaw</th><th>OpenClaw Cloud</th><th>EasyClaw.ai</th></tr></thead><tbody><tr><td><strong>Einrichtungszeit</strong></td><td>22 Min.</td><td>28 Min.</td><td>48 Sek.</td><td>2 Min.</td><td>4 Min.</td></tr><tr><td><strong>Monatliche Kosten</strong></td><td>$35 API</td><td>$41</td><td>$49.99</td><td>$0–$10</td><td>$19–$49</td></tr><tr><td><strong>7-Tage-Verfügbarkeit</strong></td><td>100%</td><td>100%</td><td>~99.9%</td><td>~98.4%</td><td>~99.1%</td></tr><tr><td><strong>Antwortkonsistenz</strong></td><td>Variabel (ISP-abhängig)</td><td>Hoch</td><td>Hoch</td><td>Hoch</td><td>Hoch</td></tr><tr><td><strong>iMessage</strong></td><td>✓</td><td>✗</td><td>✗</td><td>✗</td><td>✗</td></tr><tr><td><strong>Sprachaktivierung</strong></td><td>✓</td><td>✗</td><td>✗</td><td>✗</td><td>✗</td></tr><tr><td><strong>Datensouveränität</strong></td><td>★★★★★</td><td>★★★★☆</td><td>★★★★☆</td><td>★★★☆☆</td><td>★★★★☆</td></tr><tr><td><strong>Skills-Kompatibilität</strong></td><td>100%</td><td>100%</td><td>~92%</td><td>100%</td><td>~90%</td></tr><tr><td><strong>Am besten für</strong></td><td>Power-User</td><td>Entwickler</td><td>Cloud-First-Nutzer</td><td>Budget / kostenlose Stufe</td><td>Entwickler + verwaltet</td></tr></tbody></table>
+<hr>
+<hr>
+<h2 id="was-wir-tatsächlich-tun-würden">Was wir tatsächlich tun würden</h2>
+<p>Wenn Sie noch nie einen Agenten ausgeführt haben: Starten Sie mit OpenClaw Cloud. Der kostenlose Tarif gibt Ihnen 14 Tage Zeit, um herauszufinden, ob dies etwas für Sie ist, ohne Geld auszugeben oder ein Terminal bedienen zu müssen.</p>
+<p>Sobald Sie wissen, dass Sie es zuverlässig betreiben möchten: TinyClaw ist das sauberste Upgrade. Isolierte Container, konsistente</p>
+<hr>
+<p>Wenn es um Datensouveränität geht, Sie Voice Wake benötigen oder iMessage wichtig ist: Hosten Sie selbst. Der Mac mini ist die naheliegende Hardware-Wahl — 599 $, leise, 3–4 W im Leerlauf, führt macOS nativ aus. Keine Cloud-Option kann Ihnen das bieten, was Local-First leistet.</p>
+<p>Wenn Sie als</p>
+<hr>
+<h2 id="die-ehrliche-einschätzung">Die ehrliche Einschätzung</h2>
+<p>„Funktionierend“ und „nützlich“ sind nicht dasselbe. Jede von uns getestete Option funktionierte innerhalb der ersten Stunde. Nützlich zu werden, dauerte länger – dafür musste SOUL.md Kontext ansammeln, die tatsächlich genutzten Tools mussten verbunden werden und dem Agenten mussten Aufgaben gegeben werden, die von</p>
+<hr>
+<p>Das Skills-Ökosystem ist die größte offene Frage. Die Sicherheitsfirma Koi Security auditierte ClawHub Anfang Februar 2026 und fand 341 bösartige Skills unter 2.857 analysierten – etwa 12 % des Katalogs. Die meisten davon stammten von einem einzigen Angreifer-Konto, das 314 vergiftete Skills in einer Woche veröffentlichte, bevor es entdeckt wurde. OpenClaw hat seitdem Überprüfungsprozesse hinzugefügt, aber der Katalog ist zu groß, um ihn manuell zu überprüfen. Behandeln Sie Community-Skills wie Browser-Erweiterungen: nützlich, oft ausgezeichnet, und es lohnt sich, einen kurzen Blick auf den Quellcode zu werfen, bevor Sie etwas installieren, das Systemzugriff anfordert.</p>
+<hr>
+<p>207.000 GitHub-Sterne bedeuten, dass etwas richtig gemacht wurde. Ob diese spezielle Sache das Richtige für Sie ist, ist die Frage, die eine Woche zur Beantwortung benötigt, nicht eine Landingpage.</p>
+<hr>
+<p>*Teil 10 der Serie zur Agenten-Infrastruktur. Frühere Beiträge behandelten die [Architektur](/blog/dis</p>
+<hr>
+<p><em>Referenzen:</em></p>
+<ul>
+<li><a href="https://github.com/openclaw/openclaw">OpenClaw GitHub-Repository</a> (207K Sterne, v2026.2.17)</li>
+<li><a href="https://tinyclaw.dev">TinyClaw – Ein-Klick-Bereitstellung von OpenClaw</a></li>
+<li><a href="https://open.claw.cloud">OpenClaw Cloud</a></li>
+<li><a href="https://www.easyclaw.ai">EasyClaw.ai</a></li>
+<li><a href="https://github.com/jlia0/tinyclaw">TinyClaw (jlia0)</a></li>
+<li>CVE-2026-25253 – Schwachstelle im OpenClaw-Gateway (referenziert in unserer Sicherheitsanalyse)</li>
+</ul>  </div> <!-- Zurück zur Blog-Übersicht --> <footer class="mt-16 pt-8 border-t border-accent/20"> <a href="/de/blog/" class="inline-flex items-center gap-2 font-mono text-sm text-text-muted hover:text-accent transition-colors group"> <span class="group-hover:-translate-x-1 transition-transform">&lt;-</span> <span>Zurück zu allen Artikeln</span> </a> </footer> </article> </main> <footer class="bg-dark-secondary border-t border-accent/20"> <div class="max-w-7xl mx-auto px-6 lg:px-20 py-12 lg:py-16"> <!-- Top Section --> <div class="flex flex-col lg:flex-row justify-between gap-12 mb-12"> <!-- Brand --> <div class="lg:max-w-xs"> <a href="/de/" class="inline-block mb-4"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <p class="text-text-muted text-sm font-mono"> <span class="text-terminal-cyan">//</span> Deine KI schläft nie
+</p> </div> <!-- Links Grid --> <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 font-mono"> <!-- Product --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/produkt</h4> <ul class="space-y-3"> <li> <a href="/de/features" class="text-text-muted text-sm hover:text-accent transition-colors"> Funktionen </a> </li><li> <a href="/pricing" class="text-text-muted text-sm hover:text-accent transition-colors"> Preise </a> </li><li> <a href="/de/docs" class="text-text-muted text-sm hover:text-accent transition-colors"> Doks </a> </li> </ul> </div> <!-- Company --> <div> <h4 class="text-terminal-orange font-bold mb-4 text-sm">/unternehmen</h4> <ul class="space-y-3"> <li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> Über uns </a> </li><li> <a href="/de/blog/" class="text-text-muted text-sm hover:text-accent transition-colors"> Blog </a> </li> </ul> </div> <!-- Contact --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/kontakt</h4> <ul class="space-y-3"> <li> <a href="/cdn-cgi/l/email-protection#7b1408181a09011a1614091a4a4242424b4c3b1c161a121755181416" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> <span class="__cf_email__" data-cfemail="2f405c4c4e5d554e42405d4e1e1616161f186f48424e4643014c4042">[email&#160;protected]</span> </a> </li><li> <a href="https://twitter.com/agentputer" target="_blank" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Twitter </a> </li><li> <a href="https://discord.gg/agentputer" target="_blank" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Discord </a> </li> </ul> </div> <!-- Legal --> <div> <h4 class="text-terminal-blue font-bold mb-4 text-sm">/rechtliches</h4> <ul class="space-y-3"> <li> <a href="/privacy" class="text-text-muted text-sm hover:text-accent transition-colors"> Datenschutz </a> </li><li> <a href="/terms" class="text-text-muted text-sm hover:text-accent transition-colors"> Nutzungsbedingungen </a> </li><li> <a href="/privacy#data-security" class="text-text-muted text-sm hover:text-accent transition-colors"> Sicherheit </a> </li> </ul> </div> </div> </div> <!-- Divider --> <div class="border-t border-accent/20 pt-8"> <div class="flex flex-col md:flex-row justify-between items-center gap-4 font-mono"> <!-- Copyright --> <p class="text-text-dark text-sm">
+/* © 2026 AgentPuter. Alle Rechte vorbehalten. */
+</p> <!-- Social Links --> <div class="flex items-center gap-6"> <a href="https://github.com/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors"> GitHub </a> </div> </div> </div> </div> </footer>  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"db97590b14994206be9f2eaec90a9494","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html> 

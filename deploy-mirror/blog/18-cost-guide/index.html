@@ -1,0 +1,567 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="One user spent $254 in two weeks. Federico Viticci hit $3,600 in a month. Someone woke up to a $141 surprise from overnight heartbeats. Six places OpenClaw burns tokens, what 3.7 and 3.8 changed, and how real users cut their bills from hundreds to under $30 — without giving up anything that matters."><meta name="theme-color" content="#0D0D0D"><meta name="generator" content="Astro v4.16.19"><!-- Canonical URL --><link rel="canonical" href="https://www.agentputer.com/blog/18-cost-guide/"><!-- hreflang 多语言标签 --><link rel="alternate" hreflang="en" href="https://www.agentputer.com/blog/18-cost-guide/"><link rel="alternate" hreflang="zh-CN" href="https://www.agentputer.com/zh/blog/18-cost-guide/"><link rel="alternate" hreflang="ja" href="https://www.agentputer.com/ja/blog/18-cost-guide/"><link rel="alternate" hreflang="ko" href="https://www.agentputer.com/ko/blog/18-cost-guide/"><link rel="alternate" hreflang="es" href="https://www.agentputer.com/es/blog/18-cost-guide/"><link rel="alternate" hreflang="pt-BR" href="https://www.agentputer.com/pt-br/blog/18-cost-guide/"><link rel="alternate" hreflang="de" href="https://www.agentputer.com/de/blog/18-cost-guide/"><link rel="alternate" hreflang="fr" href="https://www.agentputer.com/fr/blog/18-cost-guide/"><link rel="alternate" hreflang="zh-TW" href="https://www.agentputer.com/zh-tw/blog/18-cost-guide/"><link rel="alternate" hreflang="x-default" href="https://www.agentputer.com/blog/18-cost-guide/"><!-- Keywords（各语言本地化） --><meta name="keywords" content="OpenClaw, Cost Optimization, Model Routing, Ollama, Budget, Heartbeat, lossless-claw"><!-- Open Graph --><meta property="og:title" content="How to Run OpenClaw for Under $30/Month (The Complete Cost Guide) | AgentPuter Blog"><meta property="og:description" content="One user spent $254 in two weeks. Federico Viticci hit $3,600 in a month. Someone woke up to a $141 surprise from overnight heartbeats. Six places OpenClaw burns tokens, what 3.7 and 3.8 changed, and how real users cut their bills from hundreds to under $30 — without giving up anything that matters."><meta property="og:type" content="article"><meta property="og:url" content="https://www.agentputer.com/blog/18-cost-guide/"><meta property="og:image" content="https://www.agentputer.com/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:site_name" content="AgentPuter"><meta property="og:locale" content="en_US"><meta property="og:locale:alternate" content="zh_CN"><meta property="og:locale:alternate" content="ja_JP"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="es_ES"><meta property="og:locale:alternate" content="pt_BR"><meta property="og:locale:alternate" content="de_DE"><meta property="og:locale:alternate" content="fr_FR"><meta property="og:locale:alternate" content="zh_TW"><!-- Article-specific OG tags --><meta property="article:published_time" content="2026-03-09"><meta property="article:author" content="AgentPuter Lab"><meta property="article:tag" content="OpenClaw"><meta property="article:tag" content="Cost Optimization"><meta property="article:tag" content="Model Routing"><meta property="article:tag" content="Ollama"><meta property="article:tag" content="Budget"><meta property="article:tag" content="Heartbeat"><meta property="article:tag" content="lossless-claw"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@agentputer"><meta name="twitter:creator" content="@agentputer"><meta name="twitter:title" content="How to Run OpenClaw for Under $30/Month (The Complete Cost Guide) | AgentPuter Blog"><meta name="twitter:description" content="One user spent $254 in two weeks. Federico Viticci hit $3,600 in a month. Someone woke up to a $141 surprise from overnight heartbeats. Six places OpenClaw burns tokens, what 3.7 and 3.8 changed, and how real users cut their bills from hundreds to under $30 — without giving up anything that matters."><meta name="twitter:image" content="https://www.agentputer.com/og-default.png"><!-- Favicon --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/favicon.svg"><!-- 字体：preconnect + LCP 关键字体直接预加载 --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- 直接预加载 LCP 关键字体文件（JetBrains Mono Bold Latin，H1 使用） --><link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8L6tTOlOVk6OThhvA.woff2"><!-- 字体 CSS 阻塞加载（配合 preconnect 延迟极低，确保 LCP 时字体可用） --><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"><!-- Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":"https://www.agentputer.com/favicon.svg","description":"Your AI Agent's dedicated cloud runtime. AgentPuter keeps your AI running 24/7.","sameAs":["https://twitter.com/agentputer","https://github.com/agentputer","https://discord.gg/agentputer"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"AgentPuter","url":"https://www.agentputer.com","inLanguage":"en","availableLanguage":[{"@type":"Language","name":"English","alternateName":"en"},{"@type":"Language","name":"中文","alternateName":"zh-CN"},{"@type":"Language","name":"繁體中文","alternateName":"zh-TW"},{"@type":"Language","name":"日本語","alternateName":"ja"},{"@type":"Language","name":"한국어","alternateName":"ko"},{"@type":"Language","name":"Español","alternateName":"es"},{"@type":"Language","name":"Português","alternateName":"pt-BR"},{"@type":"Language","name":"Deutsch","alternateName":"de"},{"@type":"Language","name":"Français","alternateName":"fr"}],"description":"Your AI Agent's dedicated cloud runtime."}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.agentputer.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.agentputer.com/blog/"},{"@type":"ListItem","position":3,"name":"18 cost guide","item":"https://www.agentputer.com/blog/18-cost-guide/"}]}</script><!-- 页面专属结构化数据插槽 --><!-- 浏览器语言自动检测：移到 head 阻塞执行，避免渲染后跳转导致 CLS --><script>
+    (function() {
+      if (localStorage.getItem('agentputer-lang')) return;
+
+      var langMap = {
+        'zh': '/zh', 'zh-cn': '/zh', 'zh-tw': '/zh-tw', 'zh-hk': '/zh-tw',
+        'ja': '/ja', 'ko': '/ko',
+        'es': '/es', 'es-419': '/es',
+        'pt': '/pt-br', 'pt-br': '/pt-br',
+        'de': '/de', 'fr': '/fr',
+      };
+
+      var path = window.location.pathname;
+      if (/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)(\/|$)/.test(path)) {
+        var m = path.match(/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)/);
+        if (m) localStorage.setItem('agentputer-lang', m[1]);
+        return;
+      }
+
+      var langs = navigator.languages || [navigator.language];
+      for (var i = 0; i < langs.length; i++) {
+        var bl = langs[i].toLowerCase();
+        if (langMap[bl]) {
+          var target = path === '/' ? langMap[bl] + '/' : langMap[bl] + path;
+          localStorage.setItem('agentputer-lang', bl);
+          window.location.replace(target);
+          return;
+        }
+        var primary = bl.split('-')[0];
+        if (primary !== bl && langMap[primary]) {
+          var target2 = path === '/' ? langMap[primary] + '/' : langMap[primary] + path;
+          localStorage.setItem('agentputer-lang', primary);
+          window.location.replace(target2);
+          return;
+        }
+      }
+      localStorage.setItem('agentputer-lang', 'en');
+    })();
+    </script><!-- Google Analytics 4 --><script async src="https://www.googletagmanager.com/gtag/js?id=G-9M2T6GQJ0L"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9M2T6GQJ0L');
+    </script><title>How to Run OpenClaw for Under $30/Month (The Complete Cost Guide) | AgentPuter Blog</title><link rel="stylesheet" href="/_astro/_slug_.DM3EUOA_.css">
+<link rel="stylesheet" href="/_astro/_slug_.CUcOCpHJ.css">
+<link rel="stylesheet" href="/_astro/_slug_.CxhqtQFk.css"><script type="module" src="/_astro/hoisted.Bl-zZglg.js"></script></head> <body class="min-h-screen">   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Run OpenClaw for Under $30/Month (The Complete Cost Guide)","description":"One user spent $254 in two weeks. Federico Viticci hit $3,600 in a month. Someone woke up to a $141 surprise from overnight heartbeats. Six places OpenClaw burns tokens, what 3.7 and 3.8 changed, and how real users cut their bills from hundreds to under $30 — without giving up anything that matters.","datePublished":"2026-03-09","dateModified":"2026-03-09","author":{"@type":"Organization","name":"AgentPuter Lab","url":"https://www.agentputer.com"},"publisher":{"@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":{"@type":"ImageObject","url":"https://www.agentputer.com/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.agentputer.com/blog/18-cost-guide/"},"keywords":"OpenClaw, Cost Optimization, Model Routing, Ollama, Budget, Heartbeat, lossless-claw"}</script> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.agentputer.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.agentputer.com/blog/"},{"@type":"ListItem","position":3,"name":"How to Run OpenClaw for Under $30/Month (The Complete Cost Guide)"}]}</script> <header class="fixed top-0 left-0 right-0 z-50 bg-dark-primary md:bg-dark-primary/95 md:backdrop-blur-lg border-b border-accent/20"> <nav class="max-w-7xl mx-auto px-6 lg:px-20 h-20 flex items-center justify-between"> <!-- Logo --> <a href="/" class="flex items-center gap-2 group"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <!-- Desktop Navigation --> <div class="hidden md:flex items-center gap-8 font-mono"> <a href="/features" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/features
+</a> <a href="/tools" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/tools
+</a> <a href="/pricing" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/pricing
+</a> <a href="/blog/" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/blog
+</a> <a href="/docs" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/docs
+</a> <!-- Desktop 语言切换器 --><div class="lang-switcher relative"> <button class="lang-btn flex items-center gap-1.5 text-text-secondary hover:text-accent transition-colors text-sm font-mono cursor-pointer" aria-label="Switch language" aria-expanded="false"> <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <circle cx="12" cy="12" r="10" stroke-width="1.5"></circle> <path stroke-width="1.5" d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path> </svg> <span>EN</span> <svg class="w-3 h-3 opacity-40 transition-transform lang-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </button> <!-- 下拉菜单 --> <div class="lang-dropdown hidden absolute right-0 top-full mt-2 py-1 bg-[#1a1a1a] border border-[#333] rounded-lg shadow-xl min-w-[160px] z-[100]"> <a href="/blog/18-cost-guide/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-accent bg-accent/10" data-lang="en"> <span>English</span> <span class="text-xs text-accent">EN</span> </a><a href="/zh/blog/18-cost-guide/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="zh"> <span>中文</span> <span class="text-xs text-text-dark">中文</span> </a><a href="/ja/blog/18-cost-guide/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ja"> <span>日本語</span> <span class="text-xs text-text-dark">JA</span> </a><a href="/ko/blog/18-cost-guide/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ko"> <span>한국어</span> <span class="text-xs text-text-dark">KO</span> </a><a href="/es/blog/18-cost-guide/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="es"> <span>Español</span> <span class="text-xs text-text-dark">ES</span> </a><a href="/pt-br/blog/18-cost-guide/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="pt-br"> <span>Português</span> <span class="text-xs text-text-dark">PT</span> </a><a href="/de/blog/18-cost-guide/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="de"> <span>Deutsch</span> <span class="text-xs text-text-dark">DE</span> </a><a href="/fr/blog/18-cost-guide/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="fr"> <span>Français</span> <span class="text-xs text-text-dark">FR</span> </a> </div> </div> <!-- Mobile 语言列表（平铺，不用下拉） --> <div class="lang-mobile hidden"> <div class="flex flex-wrap gap-2"> <a href="/blog/18-cost-guide/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-accent border-accent/40 bg-accent/10" data-lang="en"> English </a><a href="/zh/blog/18-cost-guide/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="zh"> 中文 </a><a href="/ja/blog/18-cost-guide/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ja"> 日本語 </a><a href="/ko/blog/18-cost-guide/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ko"> 한국어 </a><a href="/es/blog/18-cost-guide/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="es"> Español </a><a href="/pt-br/blog/18-cost-guide/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="pt-br"> Português </a><a href="/de/blog/18-cost-guide/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="de"> Deutsch </a><a href="/fr/blog/18-cost-guide/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="fr"> Français </a> </div> </div>  <a href="https://app.agentputer.com/sign-up" class="text-sm py-2.5 px-6 bg-accent text-dark-primary font-bold rounded hover:bg-accent-dark transition-colors">
+[GET STARTED]
+</a> </div> <!-- Mobile Menu Button --> <button id="mobile-menu-btn" class="md:hidden p-2 text-text-secondary hover:text-white" aria-label="Toggle menu"> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </nav> <!-- Mobile Menu --> <div id="mobile-menu" class="hidden md:hidden bg-dark-secondary border-t border-dark-tertiary"> <div class="px-6 py-4 space-y-4"> <a href="/features" class="block hover:text-white transition-colors text-text-secondary">
+Features
+</a> <a href="/tools" class="block hover:text-white transition-colors text-text-secondary">
+Tools
+</a> <a href="/pricing" class="block hover:text-white transition-colors text-text-secondary">
+Pricing
+</a> <a href="/blog/" class="block hover:text-white transition-colors text-text-secondary">
+Blog
+</a> <a href="/docs" class="block hover:text-white transition-colors text-text-secondary">
+Docs
+</a> <div class="lang-mobile-wrapper"></div> <a href="https://app.agentputer.com/sign-up" class="btn-primary w-full justify-center text-sm py-3">
+Get Started
+</a> </div> </div> </header>  <main class="relative z-10 pt-28 pb-20"> <article class="max-w-4xl mx-auto px-6 lg:px-8"> <!-- 面包屑导航 --> <nav class="mb-8 font-mono text-sm"> <a href="/" class="text-text-muted hover:text-accent transition-colors">~</a> <span class="text-text-dark mx-2">/</span> <a href="/blog/" class="text-text-muted hover:text-accent transition-colors">blog</a> <span class="text-text-dark mx-2">/</span> <span class="text-accent">article</span> </nav> <!-- 文章元信息头部 --> <header class="mb-12"> <!-- 标签 --> <div class="flex flex-wrap gap-2 mb-6"> <span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#OpenClaw </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Cost Optimization </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Model Routing </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Ollama </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Budget </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Heartbeat </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#lossless-claw </span> </div> <!-- 标题 --> <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6"> How to Run OpenClaw for Under $30/Month (The Complete Cost Guide) </h1> <!-- 描述 --> <p class="text-lg text-text-secondary leading-relaxed mb-8"> One user spent $254 in two weeks. Federico Viticci hit $3,600 in a month. Someone woke up to a $141 surprise from overnight heartbeats. Six places OpenClaw burns tokens, what 3.7 and 3.8 changed, and how real users cut their bills from hundreds to under $30 — without giving up anything that matters. </p> <!-- 元信息行 --> <div class="flex flex-wrap items-center gap-6 text-sm font-mono text-text-muted border-t border-b border-accent/20 py-4"> <div class="flex items-center gap-2"> <span class="text-terminal-cyan">@</span> <span class="text-text-secondary">AgentPuter Lab</span> </div> <div class="flex items-center gap-2"> <span class="text-terminal-orange">$</span> <time datetime="2026-03-09" class="text-text-secondary">March 9, 2026</time> </div> <div class="flex items-center gap-2"> <span class="text-terminal-blue">~</span> <span class="text-text-secondary">20 min read</span> </div> </div> </header> <!-- 文章正文 --> <div class="prose prose-invert prose-terminal max-w-none">  <h1 id="how-to-run-openclaw-for-under-30month-the-complete-cost-guide">How to Run OpenClaw for Under $30/Month (The Complete Cost Guide)</h1>
+<p>AgentPuter · March 2026 · ~20 min · #OpenClaw #CostOptimization #ModelRouting #Ollama #Budget</p>
+<blockquote>
+<p><strong>Sources:</strong></p>
+<ul>
+<li><a href="https://www.reddit.com/r/PromptEngineering/comments/1rktirf/how_to_stop_burning_money_on_openclaw/">How to stop burning money on OpenClaw</a> — r/PromptEngineering</li>
+<li><a href="https://github.com/openclaw/openclaw/discussions/12267">Best affordable LLM right now (Feb 2026)</a> — GitHub Discussion #12267</li>
+<li><a href="https://medium.com/@tentenco/how-the-memos-plugin-cuts-openclaw-token-costs-by-72-9a6948fe7aef">How the MemOS Plugin Cuts OpenClaw Token Costs by 70%</a> — Medium, Mar 4, 2026</li>
+<li><a href="https://github.com/iblai/iblai-openclaw-router">ibl.ai OpenClaw Router</a> — GitHub</li>
+<li><a href="https://blog.salad.com/reduce-your-openclaw-llm-costs-saladcloud-guide/">Reduce Your OpenClaw LLM Costs: SaladCloud Guide</a> — SaladCloud Blog, Feb 9, 2026</li>
+<li><a href="https://help.apiyi.com/en/openclaw-token-cost-optimization-guide-en.html">Why is OpenClaw so token-intensive? 6 reasons analyzed</a> — Apiyi Blog, Feb 2026</li>
+<li><a href="https://www.youtube.com/watch?v=-MtzLiQ9w1c">How I Run 19 OpenClaw Agents for $6/Month</a> — YouTube, Mar 1, 2026</li>
+<li><a href="https://github.com/openclaw/openclaw/releases/tag/v2026.3.7">OpenClaw 2026.3.7 Release Notes</a> — GitHub</li>
+<li><a href="https://github.com/openclaw/openclaw/releases/tag/v2026.3.8">OpenClaw 2026.3.8 Release Notes</a> — GitHub</li>
+</ul>
+</blockquote>
+<hr>
+<p>Last week we covered how <a href="/blog/lossless-claw">lossless-claw fixes OpenClaw’s memory ceiling</a> — keeping your agent’s context intact across week-long sessions. But there’s a second question the community asks even more often than “why does my agent forget?”:</p>
+<p><em>“Why does my agent cost so much?”</em></p>
+<p>One user spent $254 in two weeks. Another hit $800 in a month. Tech blogger Federico Viticci racked up a <a href="https://medium.com/@reza.ra/openclaw-the-ai-agent-that-burns-through-your-api-budget-and-how-to-fix-it-050fc57552c9">$3,600 monthly bill</a> running intensive multi-channel automation. Someone woke up to a $141 surprise because their heartbeat was running Opus overnight.</p>
+<p>These aren’t power users pushing the limits. These are normal setups with normal usage.</p>
+<p>OpenClaw is free. The models it calls are not. And because OpenClaw is designed to run 24/7 — checking in, browsing, thinking, heartbeating — the costs compound in ways that most people don’t expect until the invoice arrives.</p>
+<p>This post is the guide that should have shipped with OpenClaw. We’ll walk through exactly where the money goes, what the latest releases (3.7 and 3.8) changed to help, and how real users have cut their bills from hundreds to under $30 a month — without giving up anything that matters.</p>
+<hr>
+<h2 id="where-the-money-actually-goes">Where the Money Actually Goes</h2>
+<p>Before you can cut costs, you need to understand the six places OpenClaw burns tokens. Most users only think about the first one.</p>
+<h3 id="1-system-context-every-single-call">1. System Context (Every Single Call)</h3>
+<p>Every time OpenClaw makes an API call, it loads your <code>SOUL.md</code>, <code>AGENTS.md</code>, and other bootstrap files into the prompt. These aren’t loaded once — they’re sent with <strong>every request</strong>. If your SOUL.md is 85KB (21,400 tokens), that’s 21,400 tokens billed before the model even reads your message.</p>
+<p>One user on r/LocalLLaMA <a href="https://www.reddit.com/r/LocalLLaMA/comments/1r3ro5h/">cut their bootstrap from 85KB to 27KB</a> — a 69.8% reduction — by removing three-month-old project background that was loaded every time but almost never referenced.</p>
+<h3 id="2-conversation-history-it-only-grows">2. Conversation History (It Only Grows)</h3>
+<p>Your session history grows with every exchange. After a few hours of active use, you’re carrying tens of thousands of tokens in history. All of it tags along with every new request. This is the single biggest cost driver for heavy users — and the reason <a href="/blog/lossless-claw">lossless-claw</a> matters (more on that below).</p>
+<h3 id="3-heartbeat-the-silent-killer">3. Heartbeat (The Silent Killer)</h3>
+<p>OpenClaw’s heartbeat runs every 30 minutes by default. Each check is a full API call with all your system context included. On Opus, that’s a meaningful expense — 48 heartbeats per day, each carrying your full system prompt.</p>
+<p>One user reported spending $50 in a single day on heartbeats alone. Another had <a href="https://blog.salad.com/reduce-your-openclaw-llm-costs-saladcloud-guide/">5.7 million tokens consumed overnight</a> — most of it from heartbeats and scheduled tasks they’d forgotten were running.</p>
+<h3 id="4-sub-agent-spawning">4. Sub-Agent Spawning</h3>
+<p>When your main agent delegates to sub-agents, each one spins up with its own context, its own memory, its own model calls. Users running multi-agent setups (one for writing, one for research, one for coding) are paying context overhead for every agent — and losing context on every handoff.</p>
+<h3 id="5-tool-outputs">5. Tool Outputs</h3>
+<p>Browser scrapes, file reads, search results — tool outputs get stored in the transcript and resent with subsequent messages. A single web scrape can dump thousands of tokens into your history that persist for the rest of the session.</p>
+<h3 id="6-model-choice">6. Model Choice</h3>
+<p>Without routing, every single request — including a heartbeat that just checks “anything new?” — goes to your primary model. If that’s Opus at $5/$25 per million tokens, you’re paying premium rates for work that Haiku could handle at $1/$5.</p>
+<hr>
+<h2 id="if-you-havent-started-yet-the-free-way-in">If You Haven’t Started Yet: The Free Way In</h2>
+<p>Before we get to optimization, a note for anyone who hasn’t set up OpenClaw yet.</p>
+<p>You don’t need to spend a dollar to try it. <strong>Gemini 2.5 Flash-Lite</strong> has a <a href="https://ai.google.dev/gemini-api/docs/pricing">free tier</a> with generous daily quotas — enough to run a basic agent for light personal use. MiniMax M2.5 Standard at $0.15/$1.20 per million tokens is the next step up — less than a penny per typical agent interaction.</p>
+<p>The minimal setup:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json5"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#9ECBFF">  agents</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">    defaults</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">      model</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"google/gemini-2.5-flash-lite"</span><span style="color:#FDAEB7;font-style:italic">  //</span><span style="color:#FDAEB7;font-style:italic"> free</span><span style="color:#FDAEB7;font-style:italic"> tier</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>Connect one channel (just Telegram or WebChat), keep SOUL.md short, and you have a working personal agent at zero cost. Scale up from there.</p>
+<hr>
+<h2 id="what-37-and-38-changed-cost-relevant-features">What 3.7 and 3.8 Changed (Cost-Relevant Features)</h2>
+<p>The last two releases included several features that directly affect costs. Here’s what matters:</p>
+<h3 id="from-37-march-8">From 3.7 (March 8)</h3>
+<p><strong>Context Engine Plugin API + lossless-claw.</strong> The <a href="/blog/lossless-claw">lossless-claw plugin</a> keeps your active context in the 30–100K token range no matter how long the conversation runs. Without it, sessions either overflow (forcing compaction, which loses information) or you manually reset (losing everything). Either way, you end up redoing work — which means more tokens. lossless-claw’s author reports zero-maintenance context management across week-long sessions.</p>
+<p><strong>MiniMax-M2.5-highspeed as first-class model.</strong> No longer a hack — it’s properly wired in the model catalog, onboarding, and routing. This is a fast, cheap model that handles 80% of routine agent work.</p>
+<p><strong>Ollama embeddings for memory search.</strong> Your long-term memory can now stay fully local. No API calls for memory retrieval.</p>
+<p><strong>Docker multi-stage slim builds.</strong> Smaller container images = cheaper hosting if you’re running on a cloud VPS.</p>
+<h3 id="from-38-march-9--today">From 3.8 (March 9 — today)</h3>
+<p><strong><code>openclaw backup create</code> and <code>openclaw backup verify</code>.</strong> Not directly a cost feature, but if you’ve ever lost a configuration and had to rebuild — that’s wasted time and tokens re-establishing context with your agent.</p>
+<p><strong>Brave web search LLM-context mode.</strong> <code>tools.web.search.brave.mode: "llm-context"</code> returns extracted grounding snippets instead of raw page content. Structured search results mean fewer follow-up tokens to parse and re-query.</p>
+<p><strong>Talk mode silence timeout.</strong> <code>talk.silenceTimeoutMs</code> lets you control when voice input auto-sends. Prevents premature sends that waste a round-trip API call on half a sentence.</p>
+<p><strong>GPT-5.4 context window fix.</strong> The 1,050,000-token context window and 128K max output tokens for <code>openai-codex/gpt-5.4</code> are now correctly applied. If you’re on a Codex subscription, this means fewer context-overflow compactions.</p>
+<hr>
+<h2 id="strategy-1-check-your-bill-5-minutes-zero-cost">Strategy 1: Check Your Bill (5 Minutes, Zero Cost)</h2>
+<p>Every user who cut their bill says the same thing: the fix was not a specific technique — it was seeing where the money went.</p>
+<p>Log into your API provider dashboard right now. Look at per-day spending. Find the spikes. A user on <a href="https://www.reddit.com/r/LocalLLM/comments/1rl30k1/i_tracked_every_dollar_my_openclaw_agents_spent/">r/openclaw tracked every dollar for 30 days</a> across four agents and found that 70% of their 18,000 monthly API calls were “dead simple” — FAQ answers, formatting, one-line summaries — that absolutely didn’t need their primary model.</p>
+<p>Inside OpenClaw, use <code>/status</code> to see the current session’s model and token count. Use <code>/usage full</code> to get per-response cost breakdowns. You can’t optimize what you can’t measure.</p>
+<hr>
+<h2 id="strategy-2-fix-your-heartbeat-one-config-change-saves-3050month">Strategy 2: Fix Your Heartbeat (One Config Change, Saves $30–50/Month)</h2>
+<p>The heartbeat is the most common source of unexpected costs. Default: every 30 minutes, full API call, primary model. That’s 48 calls per day, each carrying your full system prompt.</p>
+<p><strong>Reduce the frequency:</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json5"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#9ECBFF">  agents</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">    defaults</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">      heartbeat</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">        intervalMinutes</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">120</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>That takes you from 48 to 12 calls per day — a 75% reduction in heartbeat costs with minimal impact on responsiveness.</p>
+<p><strong>Route heartbeats to a cheap model.</strong> If you’re using a routing proxy (see Strategy 5), heartbeats get auto-classified as “light” and sent to Haiku. If using a local model via Ollama, heartbeats cost $0.</p>
+<hr>
+<h2 id="strategy-3-trim-your-soulmd-delete-text-save-70">Strategy 3: Trim Your SOUL.md (Delete Text, Save 70%)</h2>
+<p>Every token in your system prompt gets billed on every call. This is the multiplicative cost most people miss.</p>
+<p>A real example from the community:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Metric</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td>SOUL.md size</td><td>85 KB (21,400 tokens)</td><td>27 KB (6,472 tokens)</td></tr><tr><td>Reduction</td><td>—</td><td>69.8%</td></tr><tr><td>Monthly impact (24/7 agent)</td><td>~$45 just for bootstrap overhead</td><td>~$14</td></tr></tbody></table>
+<p>Open your SOUL.md. Read every line. Ask: “Does the agent actually need this on every single call?” Project-specific context from three months ago? Move it to a skill. Historical notes? Move them to a reference file. Your system prompt should be lean and timeless.</p>
+<p>Also: use <code>/new</code> when switching between unrelated tasks. Don’t carry a 50,000-token conversation about project A into project B.</p>
+<hr>
+<h2 id="strategy-4-enable-prompt-caching-one-line-saves-40-on-input">Strategy 4: Enable Prompt Caching (One Line, Saves 40% on Input)</h2>
+<p>This is the easiest win that the article’s source data repeatedly highlights.</p>
+<p>Anthropic supports automatic prompt caching for Claude models. Because OpenClaw sends the same system prompt (SOUL.md + AGENTS.md) on every call, it’s a perfect caching candidate. The first call pays full price; subsequent calls within the cache window get the system prompt tokens at a 90% discount.</p>
+<p>A user <a href="https://www.reddit.com/r/openclaw/comments/1rl2z70/i_tracked_every_dollar_my_openclaw_agents_spent/">tracking costs over 30 days</a> reported: <em>“Enabling prompt caching cut the input token cost for support by around 40%. Probably the easiest win.”</em></p>
+<p>For Anthropic models, prompt caching is enabled by default in recent OpenClaw versions. For other providers, check if your model supports it — Google’s Gemini models also offer <a href="https://ai.google.dev/gemini-api/docs/pricing">context caching</a> at significant discounts.</p>
+<hr>
+<h2 id="strategy-5-route-models-by-task-saves-7090">Strategy 5: Route Models by Task (Saves 70–90%)</h2>
+<p>This is the highest-impact structural change. The idea: not every request deserves your most expensive model.</p>
+<p>A heartbeat check that asks “anything new in my inbox?” doesn’t need Opus. A message classification (“is this urgent?”) doesn’t need Sonnet. These are Haiku-level tasks.</p>
+<p>Here’s a real cost comparison from the community:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Setup</th><th>Monthly Cost</th><th>Notes</th></tr></thead><tbody><tr><td>Everything on Opus</td><td>$347</td><td>Default single-model config</td></tr><tr><td>Routed (Haiku/Sonnet/Opus)</td><td>$68</td><td>Same workload, same quality</td></tr><tr><td>Everything on Opus</td><td>$150</td><td>Lighter workload</td></tr><tr><td>Routed</td><td>$35</td><td>Same user, same tasks</td></tr></tbody></table>
+<p><strong>How to do it — Option A: Manual config</strong></p>
+<p>Set your default model to something cheap and use Opus only where you explicitly need it:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json5"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#9ECBFF">  agents</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">    defaults</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">      model</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"anthropic/claude-haiku-4-5"</span><span style="color:#E1E4E8">,  </span><span style="color:#6A737D">// default for everything</span></span>
+<span class="line"><span style="color:#9ECBFF">      subagents</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">        model</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"anthropic/claude-haiku-4-5"</span><span style="color:#E1E4E8">, </span><span style="color:#6A737D">// sub-agents too</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>Then switch to a stronger model when you need reasoning:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>/model claude-opus-4-6</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>When you’re done with the complex task, switch back:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>/model claude-haiku-4-5</span></span>
+<span class="line"><span></span></span></code></pre>
+<p><strong>How to do it — Option B: Auto-routing proxy</strong></p>
+<p>Several open-source routers now exist that classify each request and route automatically:</p>
+<ul>
+<li><a href="https://github.com/iblai/iblai-openclaw-router"><strong>ibl.ai OpenClaw Router</strong></a> — zero-dependency Node.js proxy, scores requests across 14 dimensions in &#x3C;1ms, routes to Light (Haiku) / Medium (Sonnet) / Heavy (Opus). Runs locally, no data sent to third parties.</li>
+<li><a href="https://github.com/BlockRunAI/ClawRouter"><strong>ClawRouter</strong></a> — 15-dimension local scoring, community reports ~90% savings vs always-Opus.</li>
+</ul>
+<p>Both sit between OpenClaw and the API endpoint. Install, point your config at the local proxy, and routing happens automatically.</p>
+<p><strong>How to do it — Option C: Use the model fallback system</strong></p>
+<p>OpenClaw natively supports fallback chains:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json5"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#9ECBFF">  agents</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">    defaults</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">      model</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">        primary</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"anthropic/claude-sonnet-4-6"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">        fallbacks</span><span style="color:#E1E4E8">: [</span></span>
+<span class="line"><span style="color:#9ECBFF">          "anthropic/claude-haiku-4-5"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">          "minimax/MiniMax-M2.5-highspeed"</span></span>
+<span class="line"><span style="color:#E1E4E8">        ]</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>This isn’t routing by complexity — it’s a safety net for rate limits and outages. But combined with per-channel or per-agent model assignment, you can route different workloads to different price tiers.</p>
+<hr>
+<h2 id="strategy-6-one-agent-many-skills-the-biggest-savings-nobody-talks-about">Strategy 6: One Agent, Many Skills (The Biggest Savings Nobody Talks About)</h2>
+<p>This comes directly from the <a href="https://www.reddit.com/r/PromptEngineering/comments/1rktirf/how_to_stop_burning_money_on_openclaw/">r/PromptEngineering cost guide</a>:</p>
+<blockquote>
+<p><em>“One user went from spending hundreds per week on a multi-agent setup to $90 per month with a single agent and a dozen skills. The quality went up because context stopped getting lost between handoffs.”</em></p>
+</blockquote>
+<p>Every agent instance has overhead: its own system prompt, its own memory, its own context window. Running five agents means paying five times the bootstrap cost on every call.</p>
+<p>OpenClaw Skills are markdown files that give your agent new capabilities without spawning a new instance. Same brain, same memory, same context. A skill for writing, a skill for research, a skill for coding — all running in one agent session.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>~/.openclaw/workspace/skills/</span></span>
+<span class="line"><span>├── research/SKILL.md</span></span>
+<span class="line"><span>├── writing/SKILL.md</span></span>
+<span class="line"><span>├── coding/SKILL.md</span></span>
+<span class="line"><span>└── calendar/SKILL.md</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>The agent picks the right skill based on what you ask it to do. No handoff. No context loss. No duplicated bootstrap tokens.</p>
+<p><strong>When to use multi-agent:</strong> When you genuinely need parallel execution — multiple tasks running simultaneously, not sequentially. For everything else, skills are cheaper and better.</p>
+<hr>
+<h2 id="strategy-7-run-local-models-for-routine-work-zero-marginal-cost">Strategy 7: Run Local Models for Routine Work (Zero Marginal Cost)</h2>
+<p>Running a model on your own hardware means every inference is free after the initial setup.</p>
+<p><strong>What works for OpenClaw:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Model</th><th>Hardware</th><th>Speed</th><th>Good For</th></tr></thead><tbody><tr><td>Qwen 3 32B</td><td>RTX 4090</td><td>40+ tok/s</td><td>General agent work</td></tr><tr><td>Qwen 3 14B</td><td>RTX 3060 / Mac Mini M2</td><td>25+ tok/s</td><td>Heartbeats, classification</td></tr><tr><td>Llama 3.3 70B</td><td>2x RTX 4090</td><td>20+ tok/s</td><td>Code, complex reasoning</td></tr></tbody></table>
+<p><strong>Setup with Ollama:</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6A737D"># Install Ollama</span></span>
+<span class="line"><span style="color:#B392F0">curl</span><span style="color:#79B8FF"> -fsSL</span><span style="color:#9ECBFF"> https://ollama.com/install.sh</span><span style="color:#F97583"> |</span><span style="color:#B392F0"> sh</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Pull your model</span></span>
+<span class="line"><span style="color:#B392F0">ollama</span><span style="color:#9ECBFF"> pull</span><span style="color:#9ECBFF"> qwen3:32b</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># OpenClaw config</span></span>
+<span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#B392F0">  "models"</span><span style="color:#79B8FF">:</span><span style="color:#9ECBFF"> {</span></span>
+<span class="line"><span style="color:#B392F0">    "providers"</span><span style="color:#79B8FF">:</span><span style="color:#9ECBFF"> {</span></span>
+<span class="line"><span style="color:#B392F0">      "ollama"</span><span style="color:#79B8FF">:</span><span style="color:#9ECBFF"> {</span></span>
+<span class="line"><span style="color:#B392F0">        "baseUrl"</span><span style="color:#79B8FF">:</span><span style="color:#9ECBFF"> "http://localhost:11434"</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>OpenClaw 3.7+ supports Ollama embeddings natively for memory search, so your long-term memory also stays local.</p>
+<p><strong>The hybrid approach</strong> (what most cost-conscious users do): local model as default for routine tasks, cloud API (Sonnet or Opus) only when the agent needs deep reasoning. One YouTube creator documented running <a href="https://www.youtube.com/watch?v=-MtzLiQ9w1c">19 agents for $6/month</a> using MiniMax M2.5 for general work and only routing to frontier models for complex tasks.</p>
+<p><strong>Use vector memory instead of raw context.</strong> OpenClaw’s memory search pulls relevant memories via embedding search rather than loading everything into the prompt. With Ollama embeddings (3.7+), this is both smarter and free:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json5"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#9ECBFF">  memory</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">    provider</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"lancedb"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">    embeddings</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">      provider</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"ollama"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">      model</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"nomic-embed-text"</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p><strong>Install lossless-claw.</strong> As covered in <a href="/blog/lossless-claw">our previous post</a>, the lossless-claw plugin keeps active context between 30K–100K tokens through incremental summarization. You never hit the ceiling that forces emergency compaction, and you never lose information that forces you to redo work.</p>
+<hr>
+<h2 id="2026-model-price-guide">2026 Model Price Guide</h2>
+<p>Model pricing changes fast. Here’s where things stand as of March 2026:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Model</th><th>Input (per 1M tokens)</th><th>Output (per 1M tokens)</th><th>Best For</th><th>Source</th></tr></thead><tbody><tr><td><strong>GLM-4.7-FlashX</strong></td><td>$0.07</td><td>$0.40</td><td>Budget extraction, simple queries</td><td>Z.AI</td></tr><tr><td><strong>Gemini 2.5 Flash-Lite</strong></td><td>$0.10</td><td>$0.40</td><td>Light tasks, 1M context window</td><td><a href="https://ai.google.dev/gemini-api/docs/pricing">Google</a></td></tr><tr><td><strong>MiniMax M2.5 Standard</strong></td><td>$0.15</td><td>$1.20</td><td>General agent work, 197K context</td><td><a href="https://www.minimax.io/news/minimax-m25">MiniMax</a></td></tr><tr><td><strong>Claude Haiku 4.5</strong></td><td>$1.00</td><td>$5.00</td><td>Heartbeats, classification, formatting</td><td>Anthropic</td></tr><tr><td><strong>Claude Sonnet 4.6</strong></td><td>$3.00</td><td>$15.00</td><td>Structured tasks, code review</td><td>Anthropic</td></tr><tr><td><strong>Claude Opus 4.6</strong></td><td>$5.00</td><td>$25.00</td><td>Complex reasoning, architecture</td><td><a href="https://www.anthropic.com/claude/opus">Anthropic</a></td></tr><tr><td><strong>Ollama (local)</strong></td><td>$0</td><td>$0</td><td>Heartbeats, embeddings, routine tasks</td><td>Self-hosted</td></tr></tbody></table>
+<p>The math is simple: if 80% of your agent’s calls are routine and you route them to Haiku ($1/$5) instead of Opus ($5/$25), you’ve cut your bill by 80% on those calls. Add prompt caching, a trimmed SOUL.md, and local models for heartbeats and embeddings, and a $200/month agent drops to under $30.</p>
+<hr>
+<h2 id="putting-it-all-together-the-30month-config">Putting It All Together: The $30/Month Config</h2>
+<p>Here’s a real-world configuration for a productive 24/7 OpenClaw agent that keeps costs under $30/month:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json5"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#9ECBFF">  agents</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">    defaults</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#6A737D">      // Sonnet for your main interaction — strong enough for real work</span></span>
+<span class="line"><span style="color:#9ECBFF">      model</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"anthropic/claude-sonnet-4-6"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">      // Sub-agents use Haiku by default</span></span>
+<span class="line"><span style="color:#9ECBFF">      subagents</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">        model</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"anthropic/claude-haiku-4-5"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">        runTimeoutSeconds</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">120</span></span>
+<span class="line"><span style="color:#E1E4E8">      },</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">      // Heartbeat: local model, longer interval</span></span>
+<span class="line"><span style="color:#9ECBFF">      heartbeat</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">        intervalMinutes</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">120</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#6A737D">        // Or route to Haiku if no local model</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  },</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">  // Local Ollama for embeddings (free memory search)</span></span>
+<span class="line"><span style="color:#9ECBFF">  memory</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">    provider</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"lancedb"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">    embeddings</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">      provider</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"ollama"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">      model</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"nomic-embed-text"</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  },</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">  // lossless-claw to prevent context blowup</span></span>
+<span class="line"><span style="color:#9ECBFF">  plugins</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">    slots</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">      contextEngine</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"lossless-claw"</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  },</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">  // Brave search with LLM-context mode (fewer follow-up tokens)</span></span>
+<span class="line"><span style="color:#9ECBFF">  tools</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">    web</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">      search</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">        brave</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">          mode</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"llm-context"</span></span>
+<span class="line"><span style="color:#E1E4E8">        }</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p><strong>Monthly cost breakdown (estimated, 30 days):</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Component</th><th>Tokens/day</th><th>Model</th><th>Cost/month</th></tr></thead><tbody><tr><td>Main interaction (~2 hr active)</td><td>~80K (50K in + 30K out)</td><td>Sonnet</td><td>~$18</td></tr><tr><td>Sub-agent calls</td><td>~30K</td><td>Haiku</td><td>~$1.50</td></tr><tr><td>Heartbeat (12/day)</td><td>~30K</td><td>Local/Haiku</td><td>$0–$1</td></tr><tr><td>Memory embeddings</td><td>—</td><td>Local (Ollama)</td><td>$0</td></tr><tr><td>Web search follow-ups</td><td>~20K</td><td>Sonnet</td><td>~$2</td></tr><tr><td>Prompt caching savings</td><td>—</td><td>—</td><td>–$4</td></tr><tr><td><strong>Total</strong></td><td></td><td></td><td><strong>~$19–22</strong></td></tr></tbody></table>
+<p><em>Calculation: Main interaction = 50K input × $3/M × 30 = $4.50, plus 30K output × $15/M × 30 = $13.50 = $18/month. Prompt caching reduces repeated system prompt input by ~40%.</em></p>
+<p>That’s a fully functional, always-on agent with web browsing, memory, and multi-step reasoning — for less than a Netflix subscription.</p>
+<hr>
+<h2 id="the-5-minute-checklist">The 5-Minute Checklist</h2>
+<p>If you don’t do anything else, do these five things today:</p>
+<p><strong>1. Check your bill.</strong> Log into your API provider dashboard. Look at per-day spending. Find the spikes.</p>
+<p><strong>2. Extend your heartbeat interval.</strong> Add <code>heartbeat.intervalMinutes: 120</code> to your config. Instant savings.</p>
+<p><strong>3. Check your SOUL.md size.</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">wc</span><span style="color:#79B8FF"> -c</span><span style="color:#9ECBFF"> ~/.openclaw/workspace/SOUL.md</span></span>
+<span class="line"></span></code></pre>
+<p>If it’s over 30KB, trim it. Move project-specific context to skills.</p>
+<p><strong>4. Set a sub-agent model.</strong> Add <code>agents.defaults.subagents.model</code> to your config. Don’t let sub-agents inherit your expensive primary model.</p>
+<p><strong>5. Install lossless-claw.</strong> <code>openclaw plugins install lossless-claw</code>. Prevents the context blowup → compaction → redo-work cycle that silently doubles your token spend.</p>
+<hr>
+<h2 id="whats-coming">What’s Coming</h2>
+<p>The OpenClaw ecosystem is converging on the cost problem from multiple directions:</p>
+<ul>
+<li><strong>MemOS Cloud Plugin</strong> reported <a href="https://medium.com/@tentenco/how-the-memos-plugin-cuts-openclaw-token-costs-by-72-9a6948fe7aef">72% token reduction</a> on the LOCOMO long-conversation benchmark by offloading memory to a dedicated system</li>
+<li><strong>QMD</strong> (by Shopify co-founder Tobi Lütke) provides 60–97% token savings through local semantic search</li>
+<li><strong>Auto-routing proxies</strong> like ibl.ai Router and ClawRouter are making manual model selection obsolete</li>
+<li>The <strong>Context Engine API</strong> opened in 3.7 means the community can build entirely new approaches to context efficiency</li>
+</ul>
+<p>The trend is clear: the agent runtime is becoming cost-aware at every layer. Context management, memory search, model routing, and tool output handling are all being optimized simultaneously. The $200/month OpenClaw bill is becoming a solved problem for anyone willing to spend 30 minutes on configuration.</p>
+<hr>
+<p><em>Running OpenClaw on a budget? Share your monthly cost and configuration in the comments. We’re collecting data for a community cost benchmark — the goal is to find the lowest possible cost for each tier of agent capability.</em></p>
+<p><em>Next up: <a href="/blog/openclaw-vs-nanobot">OpenClaw vs Nanobot</a> — when a 4,000-line minimal agent from the University of Hong Kong might actually be the right choice.</em></p>
+<hr>
+<p><em>Sources: <a href="https://www.reddit.com/r/PromptEngineering/comments/1rktirf/how_to_stop_burning_money_on_openclaw/">r/PromptEngineering cost guide</a> · <a href="https://github.com/openclaw/openclaw/discussions/12267">GitHub Discussion #12267</a> · <a href="https://medium.com/@tentenco/how-the-memos-plugin-cuts-openclaw-token-costs-by-72-9a6948fe7aef">MemOS Plugin analysis</a> · <a href="https://github.com/iblai/iblai-openclaw-router">ibl.ai Router</a> · <a href="https://blog.salad.com/reduce-your-openclaw-llm-costs-saladcloud-guide/">SaladCloud cost guide</a> · <a href="https://help.apiyi.com/en/openclaw-token-cost-optimization-guide-en.html">Apiyi token analysis</a> · <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.3.7">OpenClaw 3.7</a> · <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.3.8">OpenClaw 3.8</a></em></p>  </div> <!-- 返回博客列表 --> <footer class="mt-16 pt-8 border-t border-accent/20"> <a href="/blog/" class="inline-flex items-center gap-2 font-mono text-sm text-text-muted hover:text-accent transition-colors group"> <span class="group-hover:-translate-x-1 transition-transform">&lt;-</span> <span>Back to all posts</span> </a> </footer> </article> </main> <footer class="bg-dark-secondary border-t border-accent/20"> <div class="max-w-7xl mx-auto px-6 lg:px-20 py-12 lg:py-16"> <!-- Top Section --> <div class="flex flex-col lg:flex-row justify-between gap-12 mb-12"> <!-- Brand --> <div class="lg:max-w-xs"> <a href="/" class="inline-block mb-4"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <p class="text-text-muted text-sm font-mono"> <span class="text-terminal-cyan">//</span> Your AI Never Sleeps
+</p> </div> <!-- Links Grid --> <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 font-mono"> <!-- Product --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/product</h4> <ul class="space-y-3"> <li> <a href="/features" class="text-text-muted text-sm hover:text-accent transition-colors"> Features </a> </li><li> <a href="/pricing" class="text-text-muted text-sm hover:text-accent transition-colors"> Pricing </a> </li><li> <a href="/docs" class="text-text-muted text-sm hover:text-accent transition-colors"> Docs </a> </li> </ul> </div> <!-- Company --> <div> <h4 class="text-terminal-orange font-bold mb-4 text-sm">/company</h4> <ul class="space-y-3"> <li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> About </a> </li><li> <a href="/blog/" class="text-text-muted text-sm hover:text-accent transition-colors"> Blog </a> </li> </ul> </div> <!-- Contact --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/contact</h4> <ul class="space-y-3"> <li> <a href="/cdn-cgi/l/email-protection#ef809c8c8e9d958e82809d8eded6d6d6dfd8af88828e8683c18c8082" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> <span class="__cf_email__" data-cfemail="b0dfc3d3d1c2cad1dddfc2d1818989898087f0d7ddd1d9dc9ed3dfdd">[email&#160;protected]</span> </a> </li><li> <a href="https://twitter.com/agentputer" target="_blank" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Twitter </a> </li><li> <a href="https://discord.gg/agentputer" target="_blank" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Discord </a> </li> </ul> </div> <!-- Legal --> <div> <h4 class="text-terminal-blue font-bold mb-4 text-sm">/legal</h4> <ul class="space-y-3"> <li> <a href="/privacy" class="text-text-muted text-sm hover:text-accent transition-colors"> Privacy </a> </li><li> <a href="/terms" class="text-text-muted text-sm hover:text-accent transition-colors"> Terms </a> </li><li> <a href="/privacy#data-security" class="text-text-muted text-sm hover:text-accent transition-colors"> Security </a> </li> </ul> </div> </div> </div> <!-- Divider --> <div class="border-t border-accent/20 pt-8"> <div class="flex flex-col md:flex-row justify-between items-center gap-4 font-mono"> <!-- Copyright --> <p class="text-text-dark text-sm">
+/* © 2026 AgentPuter. All rights reserved. */
+</p> <!-- Social Links --> <div class="flex items-center gap-6"> <a href="https://github.com/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors"> GitHub </a> </div> </div> </div> </div> </footer>  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"db97590b14994206be9f2eaec90a9494","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html> 

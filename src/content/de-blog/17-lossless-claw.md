@@ -1,7 +1,7 @@
 ---
 title: "OpenClaw hat gerade sein größtes Problem gelöst. Das ist, was lossless-claw wirklich macht."
 description: "Die Standard-Komprimierung von OpenClaw wird einmal ausgelöst, fasst alles zusammen und verwirft die Originale. Je länger Ihr Agent läuft, desto mehr vergisst er. Version 2026.3.7 hat die Kontext-Engine für Plugins geöffnet. lossless-claw ist das erste davon – ein DAG-basiertes System, das jede Nachricht vollständig speichert und es Agenten ermöglicht, exakte historische Details bei Bedarf abzurufen."
-date: "2026
+date: "2026-03-07"
 Lesezeit: "18 Min."
 tags: ["OpenClaw", "lossless-claw", "Context Engine", "Memory", "Plugin", "Long-Running Agents", "LCM"]
 featured: true

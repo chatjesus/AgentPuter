@@ -1,9 +1,4 @@
 ---
-title: "如何以每月不到 30 美元的成本運行 OpenClaw（完整成本指南）"
-description: "一位使用者在兩週內花費了 254 美元。Federico Viticci 一個月的帳單高達 3,
-tags: ["OpenClaw", "成本最佳化", "模型路由", "Ollama", "預算", "心跳", "lossless-claw"]
-featured: true
----
 
 # 如何以每月低於 30 美元的成本運行 OpenClaw（完整
 > - [目前最實惠的 LLM (2026 年 2 月)](https://github.com/openclaw/openclaw/discussions/12267) — GitHub 討論區 #12267

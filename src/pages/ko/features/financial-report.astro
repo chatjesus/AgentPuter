@@ -1,0 +1,203 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/ko/Header.astro';
+import Footer from '../../../components/ko/Footer.astro';
+---
+
+<Layout
+  title="분기 재무 보고서 자동화 — AgentPuter"
+  description="Upload raw data, get a 28-page professional PDF in 2 minutes."
+>
+  <Header activePage="features" />
+  <main class="relative z-10">
+
+    <!-- Hero -->
+    <section class="relative pt-32 pb-16 lg:pt-40 lg:pb-20 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] to-[#0D0D14]"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(38BDF84D,transparent_60%)]" style="background: radial-gradient(ellipse at top left, #38BDF80D, transparent 60%)"></div>
+      <div class="relative max-w-5xl mx-auto px-6 lg:px-20">
+        <a href="/ko/features" class="inline-flex items-center gap-2 text-xs font-mono text-[#4B5563] hover:text-[#38BDF8] transition-colors mb-8">
+          ← 기능 페이지로 돌아가기
+        </a>
+        <div class="flex flex-wrap gap-3 mb-5">
+          <span class="text-xs font-bold font-mono px-2.5 py-1 rounded text-[#38BDF8] bg-[#38BDF8]/10">FINANCE</span>
+          <span class="text-xs font-mono text-[#4A4A6A] px-2.5 py-1 rounded border border-[#1E1E2E]">ap-docs</span>
+          <span class="text-xs font-mono text-[#4A4A6A] px-2.5 py-1 rounded border border-[#1E1E2E]">LibreOffice</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
+          분기 재무 보고서<br/>자동화
+        </h1>
+        <p class="text-[#9CA3AF] text-lg mb-10 max-w-2xl">데이터 업로드 → AI가 차트 생성 → 전문 PDF 내보내기</p>
+        <div class="flex flex-wrap gap-3">
+              <span class="inline-flex items-center gap-2 px-4 py-2 bg-[#111111] border border-[#38BDF8]/20 rounded-full text-xs text-[#94A3B8] font-mono">① CSV / 스프레드시트 업로드</span>
+              <span class="inline-flex items-center gap-2 px-4 py-2 bg-[#111111] border border-[#38BDF8]/20 rounded-full text-xs text-[#94A3B8] font-mono">② 에이전트가 구조화 + 차트 작성</span>
+              <span class="inline-flex items-center gap-2 px-4 py-2 bg-[#111111] border border-[#38BDF8]/20 rounded-full text-xs text-[#94A3B8] font-mono">③ 28페이지 PDF 내보내기</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Session Log -->
+    <section class="py-12 lg:py-20">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20">
+        <p class="font-mono text-xs font-semibold tracking-[0.2em] mb-8" style="color:#38BDF8">// 에이전트 세션 로그</p>
+        <div class="flex flex-col gap-4">
+
+          <div class="flex items-start gap-4">
+            <div class="shrink-0 w-8 h-8 rounded-full bg-[#1E293B] flex items-center justify-center text-xs font-mono text-[#94A3B8]">U</div>
+            <div class="bg-[#111827] border border-[#1E293B] rounded-2xl rounded-tl-sm px-5 py-4 max-w-xl">
+              <p class="text-[#E2E8F0] text-sm">"영업 데이터로 Q1 재무 보고서를 만들어주세요. 차트, 요약 표 포함해서 PDF로 내보내주세요."</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 flex-row-reverse">
+            <div class="shrink-0 w-8 h-8 rounded-full border flex items-center justify-center text-xs font-mono" style="background:#0C1020;border-color:#38BDF84D;color:#38BDF8">AP</div>
+            <div class="rounded-2xl rounded-tr-sm px-5 py-4 max-w-xl border" style="background:#0D1020;border-color:#38BDF826">
+              <p class="text-[#94A3B8] text-xs font-mono mb-3">// 실행 순서 계획 중</p>
+              <ul class="text-[#CBD5E1] text-sm space-y-1.5">
+                <li class="flex gap-2"><span class="text-[#38BDF8]">→</span> Q1-sales.csv 파싱 (147행, 6열)</li>
+                <li class="flex gap-2"><span class="text-[#38BDF8]">→</span> 합계, 전월 대비 성장률, 카테고리 분류 계산</li>
+                <li class="flex gap-2"><span class="text-[#38BDF8]">→</span> ap-docs chart로 막대 + 꺾은선 차트 생성</li>
+                <li class="flex gap-2"><span class="text-[#38BDF8]">→</span> 기업용 보고서 템플릿 적용</li>
+                <li class="flex gap-2"><span class="text-[#38BDF8]">→</span> 자동 생성 목차 포함 PDF로 내보내기</li>
+              </ul>
+            </div>
+          </div>
+
+          
+          <div class="bg-[#080810] border border-[#1E1E2E] rounded-2xl p-6 font-mono text-xs">
+            <div class="flex items-center gap-2 mb-5">
+              <span class="w-3 h-3 rounded-full bg-[#FF5F57]"></span><span class="w-3 h-3 rounded-full bg-[#FEBC2E]"></span><span class="w-3 h-3 rounded-full bg-[#28C840]"></span>
+              <span class="text-[#4B5563] ml-2">agentputer — ap-docs executor</span>
+            </div>
+            <div class="space-y-1.5">
+              <p><span class="text-[#2A2A3A]">$ </span><span class="text-[#94A3B8]">ap-docs new --type report --template enterprise-q1</span></p>
+              <p class="text-[#4ADE80] pl-4">✓ Created: Q1-Financial-Report.docx (template applied)</p>
+              <p class="mt-3"><span class="text-[#2A2A3A]">$ </span><span class="text-[#94A3B8]">ap-docs chart --data q1-sales.csv --type bar --title "Monthly Revenue"</span></p>
+              <p class="text-[#4ADE80] pl-4">✓ Chart inserted: 1920×800px, 3 data series</p>
+              <p class="mt-3"><span class="text-[#2A2A3A]">$ </span><span class="text-[#94A3B8]">ap-docs table --data q1-summary.csv --style financial</span></p>
+              <p class="text-[#4ADE80] pl-4">✓ Summary table: 6 columns × 14 rows, auto-formatted</p>
+              <p class="mt-3"><span class="text-[#2A2A3A]">$ </span><span class="text-[#94A3B8]">ap-docs export --pdf --toc --pages-auto</span></p>
+              <p class="text-[#4ADE80] pl-4">✓ Exported: Q1-Financial-Report.pdf — 28 pages</p>
+            </div>
+            <div class="mt-5 pt-4 border-t border-[#1E1E2E] flex items-center justify-between">
+              <span class="text-[#4B5563]">elapsed: 1m 47s</span>
+              <div class="flex items-center gap-2 rounded-lg px-3 py-1.5 border" style="background:#0A1A0F;border-color:#38BDF833">
+                <span style="color:#38BDF8">📄</span><span style="color:#38BDF8">Q1-Financial-Report.pdf</span><span class="text-[#4B5563] ml-2">28 pages · 2.4 MB</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Capabilities -->
+    <section class="py-12 lg:py-16 bg-[#080810]">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20">
+        <p class="font-mono text-xs font-semibold tracking-[0.2em] mb-8" style="color:#38BDF8">// 이 시나리오에서 지원하는 기능</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="flex gap-4 bg-[#0D0D1A] border border-[#1E1E2E] rounded-xl p-5">
+              <span class="text-2xl shrink-0 mt-0.5">📊</span>
+              <div>
+                <h3 class="text-white text-sm font-semibold mb-1">다중 차트 생성</h3>
+                <p class="text-[#6B7280] text-xs leading-relaxed">CSV/Excel 데이터에서 막대, 꺾은선, 원형, 복합 차트 자동 삽입.</p>
+              </div>
+            </div>
+            <div class="flex gap-4 bg-[#0D0D1A] border border-[#1E1E2E] rounded-xl p-5">
+              <span class="text-2xl shrink-0 mt-0.5">📋</span>
+              <div>
+                <h3 class="text-white text-sm font-semibold mb-1">기업용 템플릿</h3>
+                <p class="text-[#6B7280] text-xs leading-relaxed">로고, 헤더, 표준 푸터가 포함된 브랜드 .dotx 템플릿 적용.</p>
+              </div>
+            </div>
+            <div class="flex gap-4 bg-[#0D0D1A] border border-[#1E1E2E] rounded-xl p-5">
+              <span class="text-2xl shrink-0 mt-0.5">📑</span>
+              <div>
+                <h3 class="text-white text-sm font-semibold mb-1">자동 목차 + 페이지 번호</h3>
+                <p class="text-[#6B7280] text-xs leading-relaxed">제목에서 목차 자동 생성. 페이지 번호, 섹션 구분.</p>
+              </div>
+            </div>
+            <div class="flex gap-4 bg-[#0D0D1A] border border-[#1E1E2E] rounded-xl p-5">
+              <span class="text-2xl shrink-0 mt-0.5">🔢</span>
+              <div>
+                <h3 class="text-white text-sm font-semibold mb-1">수식 & 매크로 실행</h3>
+                <p class="text-[#6B7280] text-xs leading-relaxed">LibreOffice Basic 매크로로 합계 계산 및 조건부 서식 적용.</p>
+              </div>
+            </div>
+            <div class="flex gap-4 bg-[#0D0D1A] border border-[#1E1E2E] rounded-xl p-5">
+              <span class="text-2xl shrink-0 mt-0.5">📄</span>
+              <div>
+                <h3 class="text-white text-sm font-semibold mb-1">멀티 포맷 내보내기</h3>
+                <p class="text-[#6B7280] text-xs leading-relaxed">PDF, DOCX, XLSX 또는 ODS로 출력. 글꼴과 레이아웃 유지.</p>
+              </div>
+            </div>
+            <div class="flex gap-4 bg-[#0D0D1A] border border-[#1E1E2E] rounded-xl p-5">
+              <span class="text-2xl shrink-0 mt-0.5">⚡</span>
+              <div>
+                <h3 class="text-white text-sm font-semibold mb-1">배치 보고서 생성</h3>
+                <p class="text-[#6B7280] text-xs leading-relaxed">동일 템플릿으로 50개 지역/부서 병렬 처리.</p>
+              </div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Other Scenarios -->
+    <section class="py-12 lg:py-16">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20">
+        <p class="font-mono text-xs text-[#4B5563] font-semibold tracking-[0.2em] mb-6">// 다른 시나리오</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <a href="/ko/features/design-poster" class="group flex items-center gap-4 bg-[#111111] hover:bg-[#161622] border border-[#1E1E2E] hover:border-[#38BDF8]/20 rounded-xl px-5 py-4 transition-all">
+              <span class="text-2xl">🎨</span>
+              <div class="flex-1 min-w-0">
+                <span class="text-xs font-mono text-[#4A4A6A] block mb-0.5">DESIGN</span>
+                <span class="text-sm text-[#94A3B8] group-hover:text-white transition-colors truncate block">마케팅 포스터 일괄 생성</span>
+              </div>
+              <span class="text-[#2A2A3A] group-hover:text-[#38BDF8] transition-colors">→</span>
+            </a>
+            <a href="/ko/features/system-diagram" class="group flex items-center gap-4 bg-[#111111] hover:bg-[#161622] border border-[#1E1E2E] hover:border-[#38BDF8]/20 rounded-xl px-5 py-4 transition-all">
+              <span class="text-2xl">📐</span>
+              <div class="flex-1 min-w-0">
+                <span class="text-xs font-mono text-[#4A4A6A] block mb-0.5">ENGINEERING</span>
+                <span class="text-sm text-[#94A3B8] group-hover:text-white transition-colors truncate block">시스템 아키텍처 자동 작도</span>
+              </div>
+              <span class="text-[#2A2A3A] group-hover:text-[#38BDF8] transition-colors">→</span>
+            </a>
+            <a href="/ko/features/audio-production" class="group flex items-center gap-4 bg-[#111111] hover:bg-[#161622] border border-[#1E1E2E] hover:border-[#38BDF8]/20 rounded-xl px-5 py-4 transition-all">
+              <span class="text-2xl">🎵</span>
+              <div class="flex-1 min-w-0">
+                <span class="text-xs font-mono text-[#4A4A6A] block mb-0.5">AUDIO</span>
+                <span class="text-sm text-[#94A3B8] group-hover:text-white transition-colors truncate block">팟캐스트 & 오디오 후반 작업</span>
+              </div>
+              <span class="text-[#2A2A3A] group-hover:text-[#38BDF8] transition-colors">→</span>
+            </a>
+            <a href="/ko/features/tech-docs" class="group flex items-center gap-4 bg-[#111111] hover:bg-[#161622] border border-[#1E1E2E] hover:border-[#38BDF8]/20 rounded-xl px-5 py-4 transition-all">
+              <span class="text-2xl">📝</span>
+              <div class="flex-1 min-w-0">
+                <span class="text-xs font-mono text-[#4A4A6A] block mb-0.5">DOCS</span>
+                <span class="text-sm text-[#94A3B8] group-hover:text-white transition-colors truncate block">기술 문서 자동 생성기</span>
+              </div>
+              <span class="text-[#2A2A3A] group-hover:text-[#38BDF8] transition-colors">→</span>
+            </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-12 lg:py-20">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20">
+        <div class="rounded-2xl p-8 md:p-12 text-center border" style="background:#0D1020;border-color:#38BDF833">
+          <p class="font-mono text-xs tracking-[0.2em] mb-4" style="color:#38BDF8">// 에이전트 배포</p>
+          <h2 class="text-white text-2xl md:text-3xl font-bold mb-4">보고서 자동화를 시작할 준비가 됐나요?</h2>
+          <p class="text-[#6B7280] text-sm mb-8 max-w-md mx-auto">AgentPuter가 전체 워크플로우를 처리합니다 — 원시 데이터에서 이사회용 PDF까지. 더 이상 수동 포맷팅은 없습니다.</p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="https://app.agentputer.com/sign-up" class="btn-primary text-sm py-3 px-8 font-mono">[시작하기]</a>
+            <a href="/ko/features" class="btn-secondary text-sm py-3 px-8 font-mono">[모든 시나리오]</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>

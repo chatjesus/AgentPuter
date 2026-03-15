@@ -1,0 +1,468 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Gemini 3.1 Pro scored 69.2% on MCP Atlas — the benchmark built to test exactly what OpenClaw does. Claude Opus 4.6 is still the official recommendation. We break down five benchmarks, five models, and which configuration wins for your actual workflow."><meta name="theme-color" content="#0D0D0D"><meta name="generator" content="Astro v4.16.19"><!-- Canonical URL --><link rel="canonical" href="https://www.agentputer.com/blog/11-model-showdown/"><!-- hreflang 多语言标签 --><link rel="alternate" hreflang="en" href="https://www.agentputer.com/blog/11-model-showdown/"><link rel="alternate" hreflang="zh-CN" href="https://www.agentputer.com/zh/blog/11-model-showdown/"><link rel="alternate" hreflang="ja" href="https://www.agentputer.com/ja/blog/11-model-showdown/"><link rel="alternate" hreflang="ko" href="https://www.agentputer.com/ko/blog/11-model-showdown/"><link rel="alternate" hreflang="es" href="https://www.agentputer.com/es/blog/11-model-showdown/"><link rel="alternate" hreflang="pt-BR" href="https://www.agentputer.com/pt-br/blog/11-model-showdown/"><link rel="alternate" hreflang="de" href="https://www.agentputer.com/de/blog/11-model-showdown/"><link rel="alternate" hreflang="fr" href="https://www.agentputer.com/fr/blog/11-model-showdown/"><link rel="alternate" hreflang="zh-TW" href="https://www.agentputer.com/zh-tw/blog/11-model-showdown/"><link rel="alternate" hreflang="x-default" href="https://www.agentputer.com/blog/11-model-showdown/"><!-- Keywords（各语言本地化） --><meta name="keywords" content="OpenClaw, Gemini 3.1 Pro, Claude Opus 4.6, Claude Sonnet 4.6, MCP Atlas, AI Models, Benchmark"><!-- Open Graph --><meta property="og:title" content="The AI Brain Showdown: Gemini 3.1 Pro Just Dropped. Which Model Runs the Best OpenClaw Agent? | AgentPuter Blog"><meta property="og:description" content="Gemini 3.1 Pro scored 69.2% on MCP Atlas — the benchmark built to test exactly what OpenClaw does. Claude Opus 4.6 is still the official recommendation. We break down five benchmarks, five models, and which configuration wins for your actual workflow."><meta property="og:type" content="article"><meta property="og:url" content="https://www.agentputer.com/blog/11-model-showdown/"><meta property="og:image" content="https://www.agentputer.com/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:site_name" content="AgentPuter"><meta property="og:locale" content="en_US"><meta property="og:locale:alternate" content="zh_CN"><meta property="og:locale:alternate" content="ja_JP"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="es_ES"><meta property="og:locale:alternate" content="pt_BR"><meta property="og:locale:alternate" content="de_DE"><meta property="og:locale:alternate" content="fr_FR"><meta property="og:locale:alternate" content="zh_TW"><!-- Article-specific OG tags --><meta property="article:published_time" content="2026-02-19"><meta property="article:author" content="AgentPuter Lab"><meta property="article:tag" content="OpenClaw"><meta property="article:tag" content="Gemini 3.1 Pro"><meta property="article:tag" content="Claude Opus 4.6"><meta property="article:tag" content="Claude Sonnet 4.6"><meta property="article:tag" content="MCP Atlas"><meta property="article:tag" content="AI Models"><meta property="article:tag" content="Benchmark"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@agentputer"><meta name="twitter:creator" content="@agentputer"><meta name="twitter:title" content="The AI Brain Showdown: Gemini 3.1 Pro Just Dropped. Which Model Runs the Best OpenClaw Agent? | AgentPuter Blog"><meta name="twitter:description" content="Gemini 3.1 Pro scored 69.2% on MCP Atlas — the benchmark built to test exactly what OpenClaw does. Claude Opus 4.6 is still the official recommendation. We break down five benchmarks, five models, and which configuration wins for your actual workflow."><meta name="twitter:image" content="https://www.agentputer.com/og-default.png"><!-- Favicon --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/favicon.svg"><!-- 字体：preconnect + LCP 关键字体直接预加载 --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- 直接预加载 LCP 关键字体文件（JetBrains Mono Bold Latin，H1 使用） --><link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8L6tTOlOVk6OThhvA.woff2"><!-- 字体 CSS 阻塞加载（配合 preconnect 延迟极低，确保 LCP 时字体可用） --><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"><!-- Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":"https://www.agentputer.com/favicon.svg","description":"Your AI Agent's dedicated cloud runtime. AgentPuter keeps your AI running 24/7.","sameAs":["https://twitter.com/agentputer","https://github.com/agentputer","https://discord.gg/agentputer"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"AgentPuter","url":"https://www.agentputer.com","inLanguage":"en","availableLanguage":[{"@type":"Language","name":"English","alternateName":"en"},{"@type":"Language","name":"中文","alternateName":"zh-CN"},{"@type":"Language","name":"繁體中文","alternateName":"zh-TW"},{"@type":"Language","name":"日本語","alternateName":"ja"},{"@type":"Language","name":"한국어","alternateName":"ko"},{"@type":"Language","name":"Español","alternateName":"es"},{"@type":"Language","name":"Português","alternateName":"pt-BR"},{"@type":"Language","name":"Deutsch","alternateName":"de"},{"@type":"Language","name":"Français","alternateName":"fr"}],"description":"Your AI Agent's dedicated cloud runtime."}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.agentputer.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.agentputer.com/blog/"},{"@type":"ListItem","position":3,"name":"11 model showdown","item":"https://www.agentputer.com/blog/11-model-showdown/"}]}</script><!-- 页面专属结构化数据插槽 --><!-- 浏览器语言自动检测：移到 head 阻塞执行，避免渲染后跳转导致 CLS --><script>
+    (function() {
+      if (localStorage.getItem('agentputer-lang')) return;
+
+      var langMap = {
+        'zh': '/zh', 'zh-cn': '/zh', 'zh-tw': '/zh-tw', 'zh-hk': '/zh-tw',
+        'ja': '/ja', 'ko': '/ko',
+        'es': '/es', 'es-419': '/es',
+        'pt': '/pt-br', 'pt-br': '/pt-br',
+        'de': '/de', 'fr': '/fr',
+      };
+
+      var path = window.location.pathname;
+      if (/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)(\/|$)/.test(path)) {
+        var m = path.match(/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)/);
+        if (m) localStorage.setItem('agentputer-lang', m[1]);
+        return;
+      }
+
+      var langs = navigator.languages || [navigator.language];
+      for (var i = 0; i < langs.length; i++) {
+        var bl = langs[i].toLowerCase();
+        if (langMap[bl]) {
+          var target = path === '/' ? langMap[bl] + '/' : langMap[bl] + path;
+          localStorage.setItem('agentputer-lang', bl);
+          window.location.replace(target);
+          return;
+        }
+        var primary = bl.split('-')[0];
+        if (primary !== bl && langMap[primary]) {
+          var target2 = path === '/' ? langMap[primary] + '/' : langMap[primary] + path;
+          localStorage.setItem('agentputer-lang', primary);
+          window.location.replace(target2);
+          return;
+        }
+      }
+      localStorage.setItem('agentputer-lang', 'en');
+    })();
+    </script><!-- Google Analytics 4 --><script async src="https://www.googletagmanager.com/gtag/js?id=G-9M2T6GQJ0L"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9M2T6GQJ0L');
+    </script><title>The AI Brain Showdown: Gemini 3.1 Pro Just Dropped. Which Model Runs the Best OpenClaw Agent? | AgentPuter Blog</title><link rel="stylesheet" href="/_astro/_slug_.DM3EUOA_.css">
+<link rel="stylesheet" href="/_astro/_slug_.CUcOCpHJ.css">
+<link rel="stylesheet" href="/_astro/_slug_.CxhqtQFk.css"><script type="module" src="/_astro/hoisted.Bl-zZglg.js"></script></head> <body class="min-h-screen">   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"The AI Brain Showdown: Gemini 3.1 Pro Just Dropped. Which Model Runs the Best OpenClaw Agent?","description":"Gemini 3.1 Pro scored 69.2% on MCP Atlas — the benchmark built to test exactly what OpenClaw does. Claude Opus 4.6 is still the official recommendation. We break down five benchmarks, five models, and which configuration wins for your actual workflow.","datePublished":"2026-02-19","dateModified":"2026-02-19","author":{"@type":"Organization","name":"AgentPuter Lab","url":"https://www.agentputer.com"},"publisher":{"@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":{"@type":"ImageObject","url":"https://www.agentputer.com/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.agentputer.com/blog/11-model-showdown/"},"keywords":"OpenClaw, Gemini 3.1 Pro, Claude Opus 4.6, Claude Sonnet 4.6, MCP Atlas, AI Models, Benchmark"}</script> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.agentputer.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.agentputer.com/blog/"},{"@type":"ListItem","position":3,"name":"The AI Brain Showdown: Gemini 3.1 Pro Just Dropped. Which Model Runs the Best OpenClaw Agent?"}]}</script> <header class="fixed top-0 left-0 right-0 z-50 bg-dark-primary md:bg-dark-primary/95 md:backdrop-blur-lg border-b border-accent/20"> <nav class="max-w-7xl mx-auto px-6 lg:px-20 h-20 flex items-center justify-between"> <!-- Logo --> <a href="/" class="flex items-center gap-2 group"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <!-- Desktop Navigation --> <div class="hidden md:flex items-center gap-8 font-mono"> <a href="/features" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/features
+</a> <a href="/tools" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/tools
+</a> <a href="/pricing" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/pricing
+</a> <a href="/blog/" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/blog
+</a> <a href="/docs" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/docs
+</a> <!-- Desktop 语言切换器 --><div class="lang-switcher relative"> <button class="lang-btn flex items-center gap-1.5 text-text-secondary hover:text-accent transition-colors text-sm font-mono cursor-pointer" aria-label="Switch language" aria-expanded="false"> <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <circle cx="12" cy="12" r="10" stroke-width="1.5"></circle> <path stroke-width="1.5" d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path> </svg> <span>EN</span> <svg class="w-3 h-3 opacity-40 transition-transform lang-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </button> <!-- 下拉菜单 --> <div class="lang-dropdown hidden absolute right-0 top-full mt-2 py-1 bg-[#1a1a1a] border border-[#333] rounded-lg shadow-xl min-w-[160px] z-[100]"> <a href="/blog/11-model-showdown/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-accent bg-accent/10" data-lang="en"> <span>English</span> <span class="text-xs text-accent">EN</span> </a><a href="/zh/blog/11-model-showdown/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="zh"> <span>中文</span> <span class="text-xs text-text-dark">中文</span> </a><a href="/ja/blog/11-model-showdown/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ja"> <span>日本語</span> <span class="text-xs text-text-dark">JA</span> </a><a href="/ko/blog/11-model-showdown/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ko"> <span>한국어</span> <span class="text-xs text-text-dark">KO</span> </a><a href="/es/blog/11-model-showdown/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="es"> <span>Español</span> <span class="text-xs text-text-dark">ES</span> </a><a href="/pt-br/blog/11-model-showdown/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="pt-br"> <span>Português</span> <span class="text-xs text-text-dark">PT</span> </a><a href="/de/blog/11-model-showdown/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="de"> <span>Deutsch</span> <span class="text-xs text-text-dark">DE</span> </a><a href="/fr/blog/11-model-showdown/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="fr"> <span>Français</span> <span class="text-xs text-text-dark">FR</span> </a> </div> </div> <!-- Mobile 语言列表（平铺，不用下拉） --> <div class="lang-mobile hidden"> <div class="flex flex-wrap gap-2"> <a href="/blog/11-model-showdown/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-accent border-accent/40 bg-accent/10" data-lang="en"> English </a><a href="/zh/blog/11-model-showdown/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="zh"> 中文 </a><a href="/ja/blog/11-model-showdown/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ja"> 日本語 </a><a href="/ko/blog/11-model-showdown/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ko"> 한국어 </a><a href="/es/blog/11-model-showdown/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="es"> Español </a><a href="/pt-br/blog/11-model-showdown/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="pt-br"> Português </a><a href="/de/blog/11-model-showdown/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="de"> Deutsch </a><a href="/fr/blog/11-model-showdown/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="fr"> Français </a> </div> </div>  <a href="https://app.agentputer.com/sign-up" class="text-sm py-2.5 px-6 bg-accent text-dark-primary font-bold rounded hover:bg-accent-dark transition-colors">
+[GET STARTED]
+</a> </div> <!-- Mobile Menu Button --> <button id="mobile-menu-btn" class="md:hidden p-2 text-text-secondary hover:text-white" aria-label="Toggle menu"> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </nav> <!-- Mobile Menu --> <div id="mobile-menu" class="hidden md:hidden bg-dark-secondary border-t border-dark-tertiary"> <div class="px-6 py-4 space-y-4"> <a href="/features" class="block hover:text-white transition-colors text-text-secondary">
+Features
+</a> <a href="/tools" class="block hover:text-white transition-colors text-text-secondary">
+Tools
+</a> <a href="/pricing" class="block hover:text-white transition-colors text-text-secondary">
+Pricing
+</a> <a href="/blog/" class="block hover:text-white transition-colors text-text-secondary">
+Blog
+</a> <a href="/docs" class="block hover:text-white transition-colors text-text-secondary">
+Docs
+</a> <div class="lang-mobile-wrapper"></div> <a href="https://app.agentputer.com/sign-up" class="btn-primary w-full justify-center text-sm py-3">
+Get Started
+</a> </div> </div> </header>  <main class="relative z-10 pt-28 pb-20"> <article class="max-w-4xl mx-auto px-6 lg:px-8"> <!-- 面包屑导航 --> <nav class="mb-8 font-mono text-sm"> <a href="/" class="text-text-muted hover:text-accent transition-colors">~</a> <span class="text-text-dark mx-2">/</span> <a href="/blog/" class="text-text-muted hover:text-accent transition-colors">blog</a> <span class="text-text-dark mx-2">/</span> <span class="text-accent">article</span> </nav> <!-- 文章元信息头部 --> <header class="mb-12"> <!-- 标签 --> <div class="flex flex-wrap gap-2 mb-6"> <span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#OpenClaw </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Gemini 3.1 Pro </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Claude Opus 4.6 </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Claude Sonnet 4.6 </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#MCP Atlas </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#AI Models </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Benchmark </span> </div> <!-- 标题 --> <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6"> The AI Brain Showdown: Gemini 3.1 Pro Just Dropped. Which Model Runs the Best OpenClaw Agent? </h1> <!-- 描述 --> <p class="text-lg text-text-secondary leading-relaxed mb-8"> Gemini 3.1 Pro scored 69.2% on MCP Atlas — the benchmark built to test exactly what OpenClaw does. Claude Opus 4.6 is still the official recommendation. We break down five benchmarks, five models, and which configuration wins for your actual workflow. </p> <!-- 元信息行 --> <div class="flex flex-wrap items-center gap-6 text-sm font-mono text-text-muted border-t border-b border-accent/20 py-4"> <div class="flex items-center gap-2"> <span class="text-terminal-cyan">@</span> <span class="text-text-secondary">AgentPuter Lab</span> </div> <div class="flex items-center gap-2"> <span class="text-terminal-orange">$</span> <time datetime="2026-02-19" class="text-text-secondary">February 19, 2026</time> </div> <div class="flex items-center gap-2"> <span class="text-terminal-blue">~</span> <span class="text-text-secondary">14 min read</span> </div> </div> </header> <!-- 文章正文 --> <div class="prose prose-invert prose-terminal max-w-none">  <h1 id="the-ai-brain-showdown-gemini-31-pro-just-dropped-which-model-runs-the-best-openclaw-agent">The AI Brain Showdown: Gemini 3.1 Pro Just Dropped. Which Model Runs the Best OpenClaw Agent?</h1>
+<p><strong>Two days ago, Anthropic shipped Claude Sonnet 4.6. Yesterday, Google shipped Gemini 3.1 Pro. The benchmark that actually matters for OpenClaw users shows a surprising winner — and it’s creating a genuine debate.</strong></p>
+<p><em>Agent Infrastructure Series · Part 11 | Research date: February 19, 2026</em></p>
+<hr>
+<p>Two days ago — February 17 — Anthropic released Claude Sonnet 4.6.</p>
+<p>Yesterday — February 19 — Google released Gemini 3.1 Pro.</p>
+<p>The benchmark table Google published alongside the release has been circulating widely. One row in particular stopped OpenClaw users mid-scroll: <strong>MCP Atlas</strong>.</p>
+<p>MCP Atlas is a benchmark built by Scale AI’s research team (arxiv 2602.00933). It uses 36 real MCP servers, 220 tools, and 1,000 tasks specifically designed to evaluate how well an AI model can discover, select, and orchestrate multi-step tool calls across multiple servers — without being told which tools to use upfront.</p>
+<p>That’s not an abstract definition. That’s exactly what OpenClaw does every time you run a Skill.</p>
+<p><strong>Gemini 3.1 Pro scored 69.2% on MCP Atlas. Claude Opus 4.6 scored 59.5%.</strong></p>
+<p>And yet, the OpenClaw official documentation’s recommended default configuration is still:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{ </span><span style="color:#79B8FF">"model"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"primary"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"anthropic/claude-opus-4-6"</span><span style="color:#E1E4E8"> } }</span></span>
+<span class="line"></span></code></pre>
+<p>Both of these things are true at the same time. Here’s why — and what it means for how you should configure your agent today.</p>
+<hr>
+<h2 id="first-most-benchmarks-are-the-wrong-question">First: Most Benchmarks Are the Wrong Question</h2>
+<p>Before comparing models, we need to establish what to measure. The standard AI benchmark circuit — Humanity’s Last Exam, GPQA Diamond, MMLU — tests knowledge recall and reasoning about academic topics. For a general-purpose chatbot, these matter. For an OpenClaw agent managing your email, calendar, GitHub repos, and browser, they’re almost irrelevant.</p>
+<p>The benchmarks that actually predict agent performance:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Benchmark</th><th>What it tests</th><th>OpenClaw relevance</th></tr></thead><tbody><tr><td><strong>MCP Atlas</strong></td><td>Cross-server tool discovery, selection, and multi-step orchestration (36 real MCP servers, 220 tools)</td><td>★★★★★ This is literally what OpenClaw Skills do</td></tr><tr><td><strong>APEX-Agents</strong></td><td>Long-horizon, multi-step professional tasks</td><td>★★★★★ Real-world agent workflows</td></tr><tr><td><strong>τ2-bench</strong></td><td>Tool-use stability in retail and telecom simulations</td><td>★★★★★ Production reliability</td></tr><tr><td><strong>GDPval-AA Elo</strong></td><td>Expert-task ELO across high-value knowledge work</td><td>★★★★ Composite professional performance</td></tr><tr><td><strong>BrowseComp</strong></td><td>Agentic web search with multi-hop reasoning</td><td>★★★★ Browser and Search Skills</td></tr><tr><td>Terminal-Bench 2.0</td><td>Terminal command execution accuracy</td><td>★★★★ System administration Skills</td></tr><tr><td>SWE-Bench Verified</td><td>Single-attempt code bug repair</td><td>★★★ Coding Skills (useful, not primary)</td></tr><tr><td>ARC-AGI-2</td><td>Novel abstract logic patterns</td><td>★★★ Complex planning tasks</td></tr><tr><td>GPQA Diamond / MMLU</td><td>Graduate-level knowledge recall</td><td>★★ OpenClaw isn’t taking exams</td></tr></tbody></table>
+<p>With that filter, here’s how the contenders actually compare.</p>
+<hr>
+<h2 id="the-contenders">The Contenders</h2>
+<h3 id="gemini-31-pro--the-new-challenger">Gemini 3.1 Pro — The New Challenger</h3>
+<p>Released yesterday (February 19), Gemini 3.1 Pro is Google’s upgraded core reasoning layer — the intelligence that powers Gemini Deep Think, now rolling out to developers through the Gemini API, Vertex AI, and Google AI Studio.</p>
+<p><strong>Where it leads:</strong></p>
+<ul>
+<li><strong>MCP Atlas: 69.2%</strong> — highest of all models tested, nearly 10 points ahead of Claude Opus 4.6 (59.5%)</li>
+<li><strong>APEX-Agents: 33.5%</strong> — highest of all models tested</li>
+<li><strong>SWE-Bench Verified: 80.6%</strong> — effectively ties Claude Opus 4.6 (80.8%) on coding reliability</li>
+<li><strong>BrowseComp: 85.9%</strong> — highest of all models tested (all models benchmarked with tool-assisted browsing: search + Python + browse)</li>
+<li><strong>ARC-AGI-2: 77.1%</strong> — more than double Gemini 3 Pro’s 31.1%, well ahead of Opus 4.6 (68.8%)</li>
+<li><strong>1M token context window</strong> — matches Claude’s context scale; no Context Compaction API</li>
+</ul>
+<p><strong>Where it falls short:</strong></p>
+<ul>
+<li><strong>GDPval-AA Elo: 1317</strong> — 300+ Elo points behind Claude Sonnet 4.6 (1633) and Opus 4.6 (1606) on expert professional tasks evaluated by human raters</li>
+<li><strong>SWE-Bench Pro: 54.2%</strong> — behind GPT-5.3-Codex (56.8%)</li>
+<li><strong>Humanity’s Last Exam (with tools): 51.4%</strong> — behind Opus 4.6 (53.1%)</li>
+<li><strong>Pricing:</strong> $2 per million input tokens, $12 per million output tokens (standard, ≤200K context); $4/$18 above 200K — same rate as Gemini 3 Pro, now at 2x+ the reasoning performance</li>
+</ul>
+<p><strong>How to use it in OpenClaw:</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#F97583">export</span><span style="color:#E1E4E8"> GEMINI_API_KEY</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"your-google-ai-studio-key"</span></span>
+<span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> models</span><span style="color:#9ECBFF"> set</span><span style="color:#9ECBFF"> google/gemini-3.1-pro-preview</span></span>
+<span class="line"></span></code></pre>
+<hr>
+<h3 id="claude-opus-46--the-incumbent">Claude Opus 4.6 — The Incumbent</h3>
+<p>Released February 5, Claude Opus 4.6 is what OpenClaw’s official documentation recommends and what most ClawHub developers have been debugging their Skills against for weeks.</p>
+<p><strong>Where it leads:</strong></p>
+<ul>
+<li><strong>SWE-Bench Verified: 80.8%</strong> — highest of all models</li>
+<li><strong>Humanity’s Last Exam (with tools): 53.1%</strong> — highest of all models</li>
+<li><strong>τ2-bench Telecom: 99.3%</strong> — tied for highest with Gemini 3.1 Pro (also 99.3%)</li>
+<li><strong>GDPval-AA Elo: 1606</strong> — second overall, behind only Claude Sonnet 4.6</li>
+</ul>
+<p><strong>Where it falls short:</strong></p>
+<ul>
+<li><strong>MCP Atlas: 59.5%</strong> — nearly 10 percentage points behind Gemini 3.1 Pro on the benchmark most aligned with OpenClaw’s architecture</li>
+<li><strong>Cost:</strong> $5 per million input tokens, $25 per million output tokens (standard, up to 200K context). When tasks exceed 200K tokens, pricing shifts to $10/$37.50 — applied to all tokens in the request, not just the excess</li>
+</ul>
+<p><strong>Key new features (February 5 release):</strong></p>
+<ul>
+<li><strong>1M token context window (beta):</strong> The first Opus-class model to reach this scale. Access requires meeting Anthropic tier requirements</li>
+<li><strong>Context Compaction API (beta):</strong> Automatically summarizes older conversation segments as sessions approach context limits, enabling long-running agent tasks without manual interruption — a capability Gemini 3.1 Pro currently does not have</li>
+<li><strong>Agent Teams (alpha):</strong> Multiple specialized sub-agents running in parallel (frontend/backend/testing simultaneously), available in Claude Code v2.1.32+ and the Cowork platform</li>
+<li><strong>Adaptive Thinking (4 levels):</strong> Automatically adjusts reasoning depth — low/medium/high/max — to control token consumption on simpler tasks</li>
+<li><strong>128K output tokens:</strong> Doubled from the previous generation</li>
+</ul>
+<p><strong>How to use it in OpenClaw:</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> models</span><span style="color:#9ECBFF"> set</span><span style="color:#9ECBFF"> anthropic/claude-opus-4-6</span></span>
+<span class="line"></span></code></pre>
+<hr>
+<h3 id="claude-sonnet-46--the-hidden-standout">Claude Sonnet 4.6 — The Hidden Standout</h3>
+<p>Released February 17, Sonnet 4.6 contains the benchmark result most people find genuinely surprising:</p>
+<p><strong>GDPval-AA Elo: 1633 — the highest score of any model in the comparison.</strong></p>
+<p>This isn’t a niche measurement. GDPval-AA evaluates performance on high-value professional tasks — the kind of knowledge work where errors have real consequences. Claude Sonnet 4.6 outranks Claude Opus 4.6 (1606), GPT-5.2 (1462), and Gemini 3.1 Pro (1317) on this measure.</p>
+<p>It also beats Gemini 3.1 Pro on τ2-bench Retail (91.7% vs 90.8%) and ties on MRCR v2 long-context retrieval (84.9%). In internal testing, Claude Code users preferred Sonnet 4.6 over Opus 4.5 in 59% of head-to-head comparisons.</p>
+<p><strong>Pricing is unchanged from Sonnet 4.5:</strong> $3 per million input tokens, $15 per million output tokens — 60% the cost of Opus 4.6 at standard rates, and about one-fifth the cost when long-context pricing applies. Like Opus 4.6, Sonnet 4.6 also includes the 1M token context window (beta), Context Compaction API, and Adaptive Thinking.</p>
+<p><strong>How to use it in OpenClaw:</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> models</span><span style="color:#9ECBFF"> set</span><span style="color:#9ECBFF"> anthropic/claude-sonnet-4-6</span></span>
+<span class="line"></span></code></pre>
+<hr>
+<h3 id="gpt-53-codex--the-coding-specialist">GPT-5.3-Codex — The Coding Specialist</h3>
+<p>GPT-5.3-Codex belongs in a separate category from the general-purpose agent discussion. It’s a specialist:</p>
+<ul>
+<li><strong>SWE-Bench Pro: 56.8%</strong> — highest of all models, beating Gemini 3.1 Pro (54.2%)</li>
+<li><strong>Terminal-Bench 2.0: 77.3%</strong> — highest on OpenAI’s Codex harness (self-reported); on the standard Terminus-2 harness, Gemini 3.1 Pro leads at 68.5%</li>
+<li><strong>APEX-Agents: 23.0%</strong> — lowest of all models tested</li>
+</ul>
+<p>For OpenClaw workflows centered on code — automated debugging, refactoring, CI/CD pipeline management — Codex 5.3 is worth evaluating. For general agent orchestration, it’s not the right choice.</p>
+<p><strong>How to use it in OpenClaw:</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> onboard</span><span style="color:#79B8FF"> --auth-choice</span><span style="color:#9ECBFF"> openai-codex</span></span>
+<span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> models</span><span style="color:#9ECBFF"> set</span><span style="color:#9ECBFF"> openai-codex/gpt-5.3-codex</span></span>
+<span class="line"></span></code></pre>
+<hr>
+<h3 id="kimi-k25--the-cost-disruptor">Kimi K2.5 — The Cost Disruptor</h3>
+<p>Not in the official benchmark table, but worth knowing: Kimi K2.5 from Moonshot AI currently ranks #1 on tool-selection tasks in the OpenRouter agent leaderboard, and usage has surged sharply this week. OpenClaw’s official documentation includes native support:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> models</span><span style="color:#9ECBFF"> set</span><span style="color:#9ECBFF"> moonshot/kimi-k2.5</span></span>
+<span class="line"></span></code></pre>
+<p>For cost-sensitive workflows — especially those with Chinese-language context — Kimi K2.5 offers competitive agent performance at a fraction of Claude’s API cost. It’s the fastest-growing model among Chinese-language OpenClaw deployments right now.</p>
+<hr>
+<h2 id="five-benchmarks-side-by-side">Five Benchmarks, Side by Side</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Benchmark</th><th>Gemini 3.1 Pro</th><th>Opus 4.6</th><th>Sonnet 4.6</th><th>GPT-5.3-Codex</th><th>Winner</th></tr></thead><tbody><tr><td><strong>MCP Atlas</strong> (tool orchestration)</td><td><strong>69.2%</strong></td><td>59.5%</td><td>61.3%</td><td>—</td><td>🏆 Gemini</td></tr><tr><td><strong>APEX-Agents</strong> (long-horizon)</td><td><strong>33.5%</strong></td><td>29.8%</td><td>—</td><td>23.0%</td><td>🏆 Gemini</td></tr><tr><td><strong>GDPval-AA Elo</strong> (expert tasks)</td><td>1317</td><td>1606</td><td><strong>1633</strong></td><td>—</td><td>🏆 Sonnet</td></tr><tr><td><strong>τ2-bench Retail</strong> (tool reliability)</td><td>90.8%</td><td><strong>91.9%</strong></td><td>91.7%</td><td>—</td><td>🏆 Opus</td></tr><tr><td><strong>BrowseComp</strong> (agentic search)</td><td><strong>85.9%</strong></td><td>84.0%</td><td>74.7%</td><td>—</td><td>🏆 Gemini</td></tr><tr><td>SWE-Bench Pro (coding)</td><td>54.2%</td><td>—</td><td>—</td><td><strong>56.8%</strong></td><td>🏆 Codex</td></tr></tbody></table>
+<p>Gemini 3.1 Pro wins 3 of 5 core agentic benchmarks. Claude Sonnet 4.6 tops the expert task ELO. Claude Opus 4.6 leads on tool reliability. GPT-5.3-Codex owns coding. No single model wins everything — and the right answer depends on which benchmarks match your actual OpenClaw workflow.</p>
+<hr>
+<h2 id="which-model-for-which-workflow">Which Model for Which Workflow?</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>OpenClaw Use Case</th><th>Recommended Model</th><th>Core Reason</th></tr></thead><tbody><tr><td>Email triage + calendar management (gog, mail Skills)</td><td><strong>Sonnet 4.6</strong></td><td>GDPval-AA 1633 (global #1), strong on professional tasks, 40% cheaper than Opus</td></tr><tr><td>Complex cross-system automation (10+ step chains)</td><td><strong>Gemini 3.1 Pro</strong></td><td>MCP Atlas 69.2%, built for cross-server multi-step orchestration</td></tr><tr><td>Long-running projects + persistent memory (SOUL.md, para-second-brain)</td><td><strong>Opus 4.6</strong></td><td>Context Compaction API + 1M window = sessions that survive hours of tool calls</td></tr><tr><td>Browser automation + intelligence gathering</td><td><strong>Gemini 3.1 Pro</strong></td><td>BrowseComp 85.9%, highest agentic search score</td></tr><tr><td>Code debugging / development sprints</td><td><strong>GPT-5.3-Codex or Opus 4.6</strong></td><td>Codex for raw repair accuracy (self-reported); Gemini and Opus essentially tied on SWE-Bench Verified (80.6% vs 80.8%)</td></tr><tr><td>Daily lightweight tasks, high-frequency chat</td><td><strong>Sonnet 4.6</strong></td><td>Best cost-to-performance ratio — ~$0.90 per 100 complex steps</td></tr><tr><td>Budget-constrained, Chinese-language workflows</td><td><strong>Kimi K2.5</strong></td><td>#1 tool selection on OpenRouter leaderboard, fraction of Claude’s cost</td></tr><tr><td>Zero budget / privacy-first</td><td><strong>Gemini 2.5 Flash (free) or Ollama</strong></td><td>1,500 free requests/day; fully local alternatives via Ollama</td></tr></tbody></table>
+<p><strong>Cost at a glance (100-step complex workflow):</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Model</th><th>Estimated cost</th><th>Notes</th></tr></thead><tbody><tr><td>Gemini 2.5 Flash</td><td><strong>$0</strong> (free tier)</td><td>1,500 req/day via Google AI Studio</td></tr><tr><td>Kimi K2.5</td><td>~$0.03</td><td>Moonshot API</td></tr><tr><td>Sonnet 4.6</td><td>~$0.90</td><td>$3/$15 per M tokens</td></tr><tr><td>Gemini 3.1 Pro</td><td>~$0.60</td><td>$2/$12 per M tokens (≤200K); $4/$18 above 200K</td></tr><tr><td>Opus 4.6</td><td>~$3.60</td><td>Triggers long-context rate above 200K tokens</td></tr></tbody></table>
+<hr>
+<h2 id="why-is-the-community-still-using-claude">Why Is the Community Still Using Claude?</h2>
+<p>The real question: if Gemini 3.1 Pro leads on MCP Atlas — the benchmark most relevant to OpenClaw’s architecture — why hasn’t the community switched?</p>
+<p><strong>Reason 1: Standardized benchmarks vs. production Skill quality</strong></p>
+<p>MCP Atlas tests models against 36 well-structured, schema-compliant MCP servers. OpenClaw’s 3,286 community Skills vary enormously — some SKILL.md files have vague tool descriptions, incomplete error handling, and non-standard formatting. Claude handles malformed tool calls with higher tolerance and better recovery. Gemini’s higher benchmark scores assume clean, well-formed inputs. In production, a model’s ability to recover from bad inputs often matters more than its score on well-formed ones.</p>
+<p><strong>Reason 2: The ecosystem was built around Claude’s behavior</strong></p>
+<p>Thousands of ClawHub Skills were developed and debugged against Claude’s specific tool-calling conventions, response patterns, and error recovery sequences. Switching models isn’t just changing a config value — it’s recalibrating how your entire Skills stack behaves. That’s a real migration cost that benchmark numbers don’t capture.</p>
+<p><strong>Reason 3: Context Compaction API is a meaningful practical moat</strong></p>
+<p>Both models now have 1M token context windows. But Claude Opus 4.6 (and Sonnet 4.6) include Context Compaction API — which automatically summarizes older conversation as sessions approach the limit, enabling indefinitely long agent runs without manual restarts. For OpenClaw sessions running for hours across hundreds of tool calls, this is a capability Gemini 3.1 Pro currently does not have.</p>
+<p><strong>The bottom line:</strong> Gemini 3.1 Pro is the most compelling model to test right now — especially for cross-system automation and browser workflows. But “it scores higher on this benchmark” and “it will perform better in your specific OpenClaw setup” are different claims. Test it on your actual workflows before deciding.</p>
+<hr>
+<h2 id="how-to-switch-models-in-openclaw">How to Switch Models in OpenClaw</h2>
+<p>OpenClaw uses <code>provider/model</code> notation for all LLM references. Switching is a single command:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6A737D"># See current model</span></span>
+<span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> models</span><span style="color:#9ECBFF"> list</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Switch to Gemini 3.1 Pro (set GEMINI_API_KEY from Google AI Studio first)</span></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#E1E4E8"> GEMINI_API_KEY</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"your-key"</span></span>
+<span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> models</span><span style="color:#9ECBFF"> set</span><span style="color:#9ECBFF"> google/gemini-3.1-pro-preview</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Switch back to Claude Opus 4.6 (official recommended default)</span></span>
+<span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> models</span><span style="color:#9ECBFF"> set</span><span style="color:#9ECBFF"> anthropic/claude-opus-4-6</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Switch to Sonnet 4.6 (better cost efficiency)</span></span>
+<span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> models</span><span style="color:#9ECBFF"> set</span><span style="color:#9ECBFF"> anthropic/claude-sonnet-4-6</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Switch to GPT-5.3-Codex (OAuth login required)</span></span>
+<span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> onboard</span><span style="color:#79B8FF"> --auth-choice</span><span style="color:#9ECBFF"> openai-codex</span></span>
+<span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> models</span><span style="color:#9ECBFF"> set</span><span style="color:#9ECBFF"> openai-codex/gpt-5.3-codex</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Kimi K2.5 (cost-sensitive / Chinese-language)</span></span>
+<span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> models</span><span style="color:#9ECBFF"> set</span><span style="color:#9ECBFF"> moonshot/kimi-k2.5</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Fully local model via Ollama (free, private)</span></span>
+<span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> models</span><span style="color:#9ECBFF"> set</span><span style="color:#9ECBFF"> ollama/qwen3.5</span></span>
+<span class="line"></span></code></pre>
+<p>Or set it in your config file (<code>~/.openclaw/openclaw.json</code>):</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "agents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "defaults"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      "model"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">        "primary"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"google/gemini-3.1-pro-preview"</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<blockquote>
+<p><strong>One important note:</strong> OpenClaw does not currently support automatic per-task model routing in a single config — there’s no built-in way to say “use Gemini for browser tasks, Claude for reasoning tasks” automatically. Power users achieve this by running multiple OpenClaw instances with different model configurations, coordinated via the Agent2Agent protocol. For most users: pick one model and benchmark it against your actual workflow.</p>
+</blockquote>
+<hr>
+<h2 id="if-you-dont-want-to-deal-with-any-of-this-tinyclaw">If You Don’t Want to Deal with Any of This: TinyClaw</h2>
+<p>Here’s a fair description of the situation: six model contenders, ten relevant benchmarks, different winners in different scenarios, API keys to manage, context pricing thresholds to track, and a major new model release every eleven days.</p>
+<p>Most OpenClaw users don’t want to manage this constantly. They want an agent that works.</p>
+<p><a href="https://tinyclaw.dev">TinyClaw</a> handles the model decision for you:</p>
+<ol>
+<li><strong>60-second deployment</strong> — OpenClaw running in under a minute, no Node.js setup</li>
+<li><strong>Smart model recommendation</strong> — recommends the best model for your workflow based on actual usage patterns</li>
+<li><strong>One-click model switching</strong> — Gemini 3.1 Pro launched yesterday; TinyClaw already supports it</li>
+<li><strong>Cost controls</strong> — built-in usage dashboard with monthly budget caps</li>
+</ol>
+<p>The model landscape changes every eleven days. TinyClaw tracks it so you don’t have to.</p>
+<p>→ <a href="https://tinyclaw.dev">tinyclaw.dev</a> · Free to start · Your agent running in 60 seconds</p>
+<hr>
+<h2 id="the-bigger-picture">The Bigger Picture</h2>
+<p>Gemini 3.1 Pro: February 19.
+Claude Sonnet 4.6: February 17.
+Claude Opus 4.6: February 5.
+Days between the last three major releases: <strong>eleven</strong>.</p>
+<p>This pace means your OpenClaw configuration has a shorter shelf life than it used to. The model that’s optimal today has a real chance of being suboptimal by next month.</p>
+<p>The practical response isn’t to re-evaluate every benchmark table as it comes out. It’s to understand which three or four benchmarks actually predict performance in your specific workflow — and know which levers to pull when a better option emerges.</p>
+<p>For cross-system automation and browser workflows: test Gemini 3.1 Pro.
+For expert professional tasks on a budget: Sonnet 4.6.
+For long-running sessions where context persistence is critical: Opus 4.6 with Context Compaction.
+For pure code work: GPT-5.3-Codex.</p>
+<p>For everyone else: <a href="https://tinyclaw.dev">TinyClaw</a>.</p>
+<hr>
+<p><em>Benchmark data: Gemini 3.1 Pro official benchmark table (Google DeepMind, February 19, 2026). MCP Atlas methodology: Scale AI Research, arxiv 2602.00933, scale.com/research/mcpatlas. Pricing: Anthropic official documentation (platform.claude.com/docs/en/about-claude/pricing). OpenClaw model configuration: docs.openclaw.ai/providers and docs.openclaw.ai/concepts/model-providers. Gemini 3.1 Pro pricing: $2/$12 per M tokens (standard, ≤200K); $4/$18 above 200K.</em></p>
+<p><em>New to OpenClaw? → <a href="https://tinyclaw.dev">TinyClaw</a> deploys it in 60 seconds. Running OpenClaw at scale? → <a href="https://www.agentputer.com/">AgentPuter</a> for 24/7 managed cloud hosting.</em></p>  </div> <!-- 返回博客列表 --> <footer class="mt-16 pt-8 border-t border-accent/20"> <a href="/blog/" class="inline-flex items-center gap-2 font-mono text-sm text-text-muted hover:text-accent transition-colors group"> <span class="group-hover:-translate-x-1 transition-transform">&lt;-</span> <span>Back to all posts</span> </a> </footer> </article> </main> <footer class="bg-dark-secondary border-t border-accent/20"> <div class="max-w-7xl mx-auto px-6 lg:px-20 py-12 lg:py-16"> <!-- Top Section --> <div class="flex flex-col lg:flex-row justify-between gap-12 mb-12"> <!-- Brand --> <div class="lg:max-w-xs"> <a href="/" class="inline-block mb-4"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <p class="text-text-muted text-sm font-mono"> <span class="text-terminal-cyan">//</span> Your AI Never Sleeps
+</p> </div> <!-- Links Grid --> <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 font-mono"> <!-- Product --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/product</h4> <ul class="space-y-3"> <li> <a href="/features" class="text-text-muted text-sm hover:text-accent transition-colors"> Features </a> </li><li> <a href="/pricing" class="text-text-muted text-sm hover:text-accent transition-colors"> Pricing </a> </li><li> <a href="/docs" class="text-text-muted text-sm hover:text-accent transition-colors"> Docs </a> </li> </ul> </div> <!-- Company --> <div> <h4 class="text-terminal-orange font-bold mb-4 text-sm">/company</h4> <ul class="space-y-3"> <li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> About </a> </li><li> <a href="/blog/" class="text-text-muted text-sm hover:text-accent transition-colors"> Blog </a> </li> </ul> </div> <!-- Contact --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/contact</h4> <ul class="space-y-3"> <li> <a href="/cdn-cgi/l/email-protection#dfb0acbcbeada5beb2b0adbeeee6e6e6efe89fb8b2beb6b3f1bcb0b2" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> <span class="__cf_email__" data-cfemail="3b5448585a49415a5654495a0a0202020b0c7b5c565a525715585456">[email&#160;protected]</span> </a> </li><li> <a href="https://twitter.com/agentputer" target="_blank" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Twitter </a> </li><li> <a href="https://discord.gg/agentputer" target="_blank" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Discord </a> </li> </ul> </div> <!-- Legal --> <div> <h4 class="text-terminal-blue font-bold mb-4 text-sm">/legal</h4> <ul class="space-y-3"> <li> <a href="/privacy" class="text-text-muted text-sm hover:text-accent transition-colors"> Privacy </a> </li><li> <a href="/terms" class="text-text-muted text-sm hover:text-accent transition-colors"> Terms </a> </li><li> <a href="/privacy#data-security" class="text-text-muted text-sm hover:text-accent transition-colors"> Security </a> </li> </ul> </div> </div> </div> <!-- Divider --> <div class="border-t border-accent/20 pt-8"> <div class="flex flex-col md:flex-row justify-between items-center gap-4 font-mono"> <!-- Copyright --> <p class="text-text-dark text-sm">
+/* © 2026 AgentPuter. All rights reserved. */
+</p> <!-- Social Links --> <div class="flex items-center gap-6"> <a href="https://github.com/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors"> GitHub </a> </div> </div> </div> </div> </footer>  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"db97590b14994206be9f2eaec90a9494","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html> 

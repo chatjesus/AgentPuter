@@ -1,0 +1,467 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Gemini 3.1 Pro 在专为 AI Agent 设计的 MCP Atlas 基准上拿了 69.2% 全场最高，但 OpenClaw 官方文档推荐的默认模型还是 Claude Opus 4.6。5 个 benchmark、5 个选手，我们把该看的数据全理了一遍。"><meta name="theme-color" content="#0D0D0D"><meta name="generator" content="Astro v4.16.19"><!-- Canonical URL --><link rel="canonical" href="https://www.agentputer.com/zh/blog/11-model-showdown/"><!-- hreflang 多语言标签 --><link rel="alternate" hreflang="en" href="https://www.agentputer.com/blog/11-model-showdown/"><link rel="alternate" hreflang="zh-CN" href="https://www.agentputer.com/zh/blog/11-model-showdown/"><link rel="alternate" hreflang="ja" href="https://www.agentputer.com/ja/blog/11-model-showdown/"><link rel="alternate" hreflang="ko" href="https://www.agentputer.com/ko/blog/11-model-showdown/"><link rel="alternate" hreflang="es" href="https://www.agentputer.com/es/blog/11-model-showdown/"><link rel="alternate" hreflang="pt-BR" href="https://www.agentputer.com/pt-br/blog/11-model-showdown/"><link rel="alternate" hreflang="de" href="https://www.agentputer.com/de/blog/11-model-showdown/"><link rel="alternate" hreflang="fr" href="https://www.agentputer.com/fr/blog/11-model-showdown/"><link rel="alternate" hreflang="zh-TW" href="https://www.agentputer.com/zh-tw/blog/11-model-showdown/"><link rel="alternate" hreflang="x-default" href="https://www.agentputer.com/blog/11-model-showdown/"><!-- Keywords（各语言本地化） --><meta name="keywords" content="OpenClaw, Gemini 3.1 Pro, Claude Opus 4.6, Claude Sonnet 4.6, MCP Atlas, AI 模型, Benchmark 对比"><!-- Open Graph --><meta property="og:title" content="AI 脑子大乱斗：Gemini 3.1 Pro 刚上线，OpenClaw 该换模型了吗？ | AgentPuter 博客"><meta property="og:description" content="Gemini 3.1 Pro 在专为 AI Agent 设计的 MCP Atlas 基准上拿了 69.2% 全场最高，但 OpenClaw 官方文档推荐的默认模型还是 Claude Opus 4.6。5 个 benchmark、5 个选手，我们把该看的数据全理了一遍。"><meta property="og:type" content="article"><meta property="og:url" content="https://www.agentputer.com/zh/blog/11-model-showdown/"><meta property="og:image" content="https://www.agentputer.com/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:site_name" content="AgentPuter"><meta property="og:locale" content="zh_CN"><meta property="og:locale:alternate" content="en_US"><meta property="og:locale:alternate" content="ja_JP"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="es_ES"><meta property="og:locale:alternate" content="pt_BR"><meta property="og:locale:alternate" content="de_DE"><meta property="og:locale:alternate" content="fr_FR"><meta property="og:locale:alternate" content="zh_TW"><!-- Article-specific OG tags --><meta property="article:published_time" content="2026-02-19"><meta property="article:author" content="AgentPuter Lab"><meta property="article:tag" content="OpenClaw"><meta property="article:tag" content="Gemini 3.1 Pro"><meta property="article:tag" content="Claude Opus 4.6"><meta property="article:tag" content="Claude Sonnet 4.6"><meta property="article:tag" content="MCP Atlas"><meta property="article:tag" content="AI 模型"><meta property="article:tag" content="Benchmark 对比"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@agentputer"><meta name="twitter:creator" content="@agentputer"><meta name="twitter:title" content="AI 脑子大乱斗：Gemini 3.1 Pro 刚上线，OpenClaw 该换模型了吗？ | AgentPuter 博客"><meta name="twitter:description" content="Gemini 3.1 Pro 在专为 AI Agent 设计的 MCP Atlas 基准上拿了 69.2% 全场最高，但 OpenClaw 官方文档推荐的默认模型还是 Claude Opus 4.6。5 个 benchmark、5 个选手，我们把该看的数据全理了一遍。"><meta name="twitter:image" content="https://www.agentputer.com/og-default.png"><!-- Favicon --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/favicon.svg"><!-- 字体：preconnect + LCP 关键字体直接预加载 --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- 直接预加载 LCP 关键字体文件（JetBrains Mono Bold Latin，H1 使用） --><link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8L6tTOlOVk6OThhvA.woff2"><!-- 字体 CSS 阻塞加载（配合 preconnect 延迟极低，确保 LCP 时字体可用） --><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"><!-- Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":"https://www.agentputer.com/favicon.svg","description":"Your AI Agent's dedicated cloud runtime. AgentPuter keeps your AI running 24/7.","sameAs":["https://twitter.com/agentputer","https://github.com/agentputer","https://discord.gg/agentputer"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"AgentPuter","url":"https://www.agentputer.com","inLanguage":"zh-CN","availableLanguage":[{"@type":"Language","name":"English","alternateName":"en"},{"@type":"Language","name":"中文","alternateName":"zh-CN"},{"@type":"Language","name":"繁體中文","alternateName":"zh-TW"},{"@type":"Language","name":"日本語","alternateName":"ja"},{"@type":"Language","name":"한국어","alternateName":"ko"},{"@type":"Language","name":"Español","alternateName":"es"},{"@type":"Language","name":"Português","alternateName":"pt-BR"},{"@type":"Language","name":"Deutsch","alternateName":"de"},{"@type":"Language","name":"Français","alternateName":"fr"}],"description":"Your AI Agent's dedicated cloud runtime."}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.agentputer.com/zh/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.agentputer.com/zh/blog/"},{"@type":"ListItem","position":3,"name":"11 model showdown","item":"https://www.agentputer.com/zh/blog/11-model-showdown/"}]}</script><!-- 页面专属结构化数据插槽 --><!-- 浏览器语言自动检测：移到 head 阻塞执行，避免渲染后跳转导致 CLS --><script>
+    (function() {
+      if (localStorage.getItem('agentputer-lang')) return;
+
+      var langMap = {
+        'zh': '/zh', 'zh-cn': '/zh', 'zh-tw': '/zh-tw', 'zh-hk': '/zh-tw',
+        'ja': '/ja', 'ko': '/ko',
+        'es': '/es', 'es-419': '/es',
+        'pt': '/pt-br', 'pt-br': '/pt-br',
+        'de': '/de', 'fr': '/fr',
+      };
+
+      var path = window.location.pathname;
+      if (/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)(\/|$)/.test(path)) {
+        var m = path.match(/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)/);
+        if (m) localStorage.setItem('agentputer-lang', m[1]);
+        return;
+      }
+
+      var langs = navigator.languages || [navigator.language];
+      for (var i = 0; i < langs.length; i++) {
+        var bl = langs[i].toLowerCase();
+        if (langMap[bl]) {
+          var target = path === '/' ? langMap[bl] + '/' : langMap[bl] + path;
+          localStorage.setItem('agentputer-lang', bl);
+          window.location.replace(target);
+          return;
+        }
+        var primary = bl.split('-')[0];
+        if (primary !== bl && langMap[primary]) {
+          var target2 = path === '/' ? langMap[primary] + '/' : langMap[primary] + path;
+          localStorage.setItem('agentputer-lang', primary);
+          window.location.replace(target2);
+          return;
+        }
+      }
+      localStorage.setItem('agentputer-lang', 'en');
+    })();
+    </script><!-- Google Analytics 4 --><script async src="https://www.googletagmanager.com/gtag/js?id=G-9M2T6GQJ0L"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9M2T6GQJ0L');
+    </script><title>AI 脑子大乱斗：Gemini 3.1 Pro 刚上线，OpenClaw 该换模型了吗？ | AgentPuter 博客</title><link rel="stylesheet" href="/_astro/_slug_.DM3EUOA_.css">
+<link rel="stylesheet" href="/_astro/_slug_.CUcOCpHJ.css">
+<link rel="stylesheet" href="/_astro/_slug_.CxhqtQFk.css"><script type="module" src="/_astro/hoisted.59JzbWNo.js"></script></head> <body class="min-h-screen">   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"AI 脑子大乱斗：Gemini 3.1 Pro 刚上线，OpenClaw 该换模型了吗？","description":"Gemini 3.1 Pro 在专为 AI Agent 设计的 MCP Atlas 基准上拿了 69.2% 全场最高，但 OpenClaw 官方文档推荐的默认模型还是 Claude Opus 4.6。5 个 benchmark、5 个选手，我们把该看的数据全理了一遍。","datePublished":"2026-02-19","dateModified":"2026-02-19","inLanguage":"zh-CN","author":{"@type":"Organization","name":"AgentPuter Lab","url":"https://www.agentputer.com"},"publisher":{"@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":{"@type":"ImageObject","url":"https://www.agentputer.com/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.agentputer.com/zh/blog/11-model-showdown/"},"keywords":"OpenClaw, Gemini 3.1 Pro, Claude Opus 4.6, Claude Sonnet 4.6, MCP Atlas, AI 模型, Benchmark 对比"}</script> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://www.agentputer.com/zh/"},{"@type":"ListItem","position":2,"name":"博客","item":"https://www.agentputer.com/zh/blog/"},{"@type":"ListItem","position":3,"name":"AI 脑子大乱斗：Gemini 3.1 Pro 刚上线，OpenClaw 该换模型了吗？"}]}</script> <header class="fixed top-0 left-0 right-0 z-50 bg-dark-primary md:bg-dark-primary/95 md:backdrop-blur-lg border-b border-accent/20"> <nav class="max-w-7xl mx-auto px-6 lg:px-20 h-20 flex items-center justify-between"> <!-- Logo --> <a href="/zh/" class="flex items-center gap-2 group"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <!-- Desktop Navigation --> <div class="hidden md:flex items-center gap-8 font-mono"> <a href="/zh/features" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/功能
+</a> <a href="#pricing" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/价格
+</a> <a href="/zh/blog/" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/博客
+</a> <a href="/zh/docs" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/文档
+</a> <!-- Desktop 语言切换器 --><div class="lang-switcher relative"> <button class="lang-btn flex items-center gap-1.5 text-text-secondary hover:text-accent transition-colors text-sm font-mono cursor-pointer" aria-label="Switch language" aria-expanded="false"> <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <circle cx="12" cy="12" r="10" stroke-width="1.5"></circle> <path stroke-width="1.5" d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path> </svg> <span>中文</span> <svg class="w-3 h-3 opacity-40 transition-transform lang-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </button> <!-- 下拉菜单 --> <div class="lang-dropdown hidden absolute right-0 top-full mt-2 py-1 bg-[#1a1a1a] border border-[#333] rounded-lg shadow-xl min-w-[160px] z-[100]"> <a href="/blog/11-model-showdown/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="en"> <span>English</span> <span class="text-xs text-text-dark">EN</span> </a><a href="/zh/blog/11-model-showdown/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-accent bg-accent/10" data-lang="zh"> <span>中文</span> <span class="text-xs text-accent">中文</span> </a><a href="/ja/blog/11-model-showdown/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ja"> <span>日本語</span> <span class="text-xs text-text-dark">JA</span> </a><a href="/ko/blog/11-model-showdown/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ko"> <span>한국어</span> <span class="text-xs text-text-dark">KO</span> </a><a href="/es/blog/11-model-showdown/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="es"> <span>Español</span> <span class="text-xs text-text-dark">ES</span> </a><a href="/pt-br/blog/11-model-showdown/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="pt-br"> <span>Português</span> <span class="text-xs text-text-dark">PT</span> </a><a href="/de/blog/11-model-showdown/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="de"> <span>Deutsch</span> <span class="text-xs text-text-dark">DE</span> </a><a href="/fr/blog/11-model-showdown/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="fr"> <span>Français</span> <span class="text-xs text-text-dark">FR</span> </a> </div> </div> <!-- Mobile 语言列表（平铺，不用下拉） --> <div class="lang-mobile hidden"> <div class="flex flex-wrap gap-2"> <a href="/blog/11-model-showdown/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="en"> English </a><a href="/zh/blog/11-model-showdown/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-accent border-accent/40 bg-accent/10" data-lang="zh"> 中文 </a><a href="/ja/blog/11-model-showdown/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ja"> 日本語 </a><a href="/ko/blog/11-model-showdown/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ko"> 한국어 </a><a href="/es/blog/11-model-showdown/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="es"> Español </a><a href="/pt-br/blog/11-model-showdown/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="pt-br"> Português </a><a href="/de/blog/11-model-showdown/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="de"> Deutsch </a><a href="/fr/blog/11-model-showdown/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="fr"> Français </a> </div> </div>  <a href="https://app.agentputer.com/sign-up" class="text-sm py-2.5 px-6 bg-accent text-dark-primary font-bold rounded hover:bg-accent-dark transition-colors">
+[开始]
+</a> </div> <!-- Mobile Menu Button --> <button id="mobile-menu-btn-zh" class="md:hidden p-2 text-text-secondary hover:text-white" aria-label="Toggle menu"> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </nav> <!-- Mobile Menu --> <div id="mobile-menu-zh" class="hidden md:hidden bg-dark-secondary border-t border-dark-tertiary"> <div class="px-6 py-4 space-y-4"> <a href="/zh/features" class="block text-text-secondary hover:text-white transition-colors">
+功能
+</a> <a href="#pricing" class="block text-text-secondary hover:text-white transition-colors">
+价格
+</a> <a href="/zh/blog/" class="block text-text-secondary hover:text-white transition-colors">
+博客
+</a> <a href="/zh/docs" class="block text-text-secondary hover:text-white transition-colors">
+文档
+</a> <div class="lang-mobile-wrapper"></div> <a href="https://app.agentputer.com/sign-up" class="btn-primary w-full justify-center text-sm py-3">
+开始使用
+</a> </div> </div> </header>  <main class="relative z-10 pt-28 pb-20"> <article class="max-w-4xl mx-auto px-6 lg:px-8"> <!-- 面包屑导航 --> <nav class="mb-8 font-mono text-sm"> <a href="/zh/" class="text-text-muted hover:text-accent transition-colors">~</a> <span class="text-text-dark mx-2">/</span> <a href="/zh/blog/" class="text-text-muted hover:text-accent transition-colors">博客</a> <span class="text-text-dark mx-2">/</span> <span class="text-accent">文章</span> </nav> <!-- 文章元信息头部 --> <header class="mb-12"> <!-- 标签 --> <div class="flex flex-wrap gap-2 mb-6"> <span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#OpenClaw </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Gemini 3.1 Pro </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Claude Opus 4.6 </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Claude Sonnet 4.6 </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#MCP Atlas </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#AI 模型 </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Benchmark 对比 </span> </div> <!-- 标题 --> <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6"> AI 脑子大乱斗：Gemini 3.1 Pro 刚上线，OpenClaw 该换模型了吗？ </h1> <!-- 描述 --> <p class="text-lg text-text-secondary leading-relaxed mb-8"> Gemini 3.1 Pro 在专为 AI Agent 设计的 MCP Atlas 基准上拿了 69.2% 全场最高，但 OpenClaw 官方文档推荐的默认模型还是 Claude Opus 4.6。5 个 benchmark、5 个选手，我们把该看的数据全理了一遍。 </p> <!-- 元信息行 --> <div class="flex flex-wrap items-center gap-6 text-sm font-mono text-text-muted border-t border-b border-accent/20 py-4"> <div class="flex items-center gap-2"> <span class="text-terminal-cyan">@</span> <span class="text-text-secondary">AgentPuter Lab</span> </div> <div class="flex items-center gap-2"> <span class="text-terminal-orange">$</span> <time datetime="2026-02-19" class="text-text-secondary">2026年2月19日</time> </div> <div class="flex items-center gap-2"> <span class="text-terminal-blue">~</span> <span class="text-text-secondary">阅读 14 分钟</span> </div> </div> </header> <!-- 文章正文 --> <div class="prose prose-invert prose-terminal max-w-none">  <h1 id="ai-脑子大乱斗gemini-31-pro-刚上线openclaw-该换模型了吗">AI 脑子大乱斗：Gemini 3.1 Pro 刚上线，OpenClaw 该换模型了吗？</h1>
+<p><strong>两天前 Anthropic 发布 Claude Sonnet 4.6，昨天 Google 发布 Gemini 3.1 Pro。对 OpenClaw 用户真正重要的那项基准测试，结果让人意外——而官方文档推荐的默认模型还没变。</strong></p>
+<p><em>Agent 基础设施系列 · 第十一篇 | 研究日期：2026年2月19日</em></p>
+<hr>
+<p>两天前——2月17日——Anthropic 发布了 Claude Sonnet 4.6。</p>
+<p>昨天——2月19日——Google 发布了 Gemini 3.1 Pro。</p>
+<p>Google 随发布一起公布了一张 benchmark 对比表，在 X 上广泛流传。OpenClaw 用户在其中一行数据前停住了脚：<strong>MCP Atlas</strong>。</p>
+<p>MCP Atlas 是 Scale AI 研究团队发布的开源基准（arxiv 2602.00933）。它用 36 个真实的 MCP 服务器、220 个工具、1000 个任务，专门测试 AI 模型在不被告知工具名称的情况下，自主发现工具、跨服务器编排 3-6 次工具调用完成复杂目标的能力。</p>
+<p>这不是抽象的描述。这正是 OpenClaw 每次运行 Skill 时在做的事。</p>
+<p><strong>Gemini 3.1 Pro 在 MCP Atlas 上拿了 69.2%，Claude Opus 4.6 拿了 59.5%。</strong></p>
+<p>但 OpenClaw 官方文档里的推荐默认配置，还是：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{ </span><span style="color:#79B8FF">"model"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"primary"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"anthropic/claude-opus-4-6"</span><span style="color:#E1E4E8"> } }</span></span>
+<span class="line"></span></code></pre>
+<p>这两件事同时成立。下面讲清楚为什么，以及你今天应该怎么配置。</p>
+<hr>
+<h2 id="先搞清楚哪些-benchmark-对-openclaw-真的重要">先搞清楚：哪些 Benchmark 对 OpenClaw 真的重要？</h2>
+<p>先把坐标系对好，再看数字。</p>
+<p>标准 AI benchmark 竞技场——Humanity’s Last Exam、GPQA Diamond、MMLU——测的是知识记忆和学术推理，对通用聊天机器人有参考价值。但对一个管邮件、控日历、监控 GitHub、控制浏览器的 OpenClaw Agent 来说，这些几乎没有预测价值。</p>
+<p>真正能预测 Agent 表现的基准：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>基准测试</th><th>测什么</th><th>对 OpenClaw 的相关性</th></tr></thead><tbody><tr><td><strong>MCP Atlas</strong></td><td>跨服务器工具发现、选择、多步编排（36 个真实 MCP 服务器）</td><td>★★★★★ 这就是 OpenClaw Skills 做的事</td></tr><tr><td><strong>APEX-Agents</strong></td><td>长周期、多步专业 Agent 任务</td><td>★★★★★ 真实工作流场景</td></tr><tr><td><strong>τ2-bench</strong></td><td>工具调用稳定性（零售/电信场景）</td><td>★★★★★ 生产可靠性</td></tr><tr><td><strong>GDPval-AA Elo</strong></td><td>高价值专业任务 ELO 综合</td><td>★★★★ 接近真实商业场景</td></tr><tr><td><strong>BrowseComp</strong></td><td>网页搜索 + 多跳推理</td><td>★★★★ Browser/Search 类 Skills</td></tr><tr><td>Terminal-Bench 2.0</td><td>终端命令执行稳定性</td><td>★★★★ 系统操作类 Skills</td></tr><tr><td>SWE-Bench Verified</td><td>单次代码 Bug 修复</td><td>★★★ Coding Skills 有参考</td></tr><tr><td>ARC-AGI-2</td><td>抽象新颖逻辑推理</td><td>★★★ 复杂规划任务</td></tr><tr><td>GPQA Diamond / MMLU</td><td>研究生级知识题</td><td>★★ OpenClaw 不考研</td></tr></tbody></table>
+<p>记住这张表，再看下面每个选手。</p>
+<hr>
+<h2 id="四位主要选手">四位主要选手</h2>
+<h3 id="gemini-31-pro新人挑战者">Gemini 3.1 Pro——新人挑战者</h3>
+<p>昨天（2月19日）发布，Gemini 3.1 Pro 是 Google 的核心推理基础层升级版——Gemini Deep Think 背后的底层智力，今天开始向开发者通过 Gemini API、Vertex AI 和 Google AI Studio 开放。</p>
+<p><strong>领先的地方：</strong></p>
+<ul>
+<li><strong>MCP Atlas: 69.2%</strong>——全场最高，领先 Claude Opus 4.6（59.5%）近 10 个百分点</li>
+<li><strong>APEX-Agents: 33.5%</strong>——全场最高</li>
+<li><strong>SWE-Bench Verified: 80.6%</strong>——与 Claude Opus 4.6（80.8%）几乎并列，代码修复能力常被低估</li>
+<li><strong>BrowseComp: 85.9%</strong>——全场最高（所有模型均在工具辅助下测试：搜索 + Python + 浏览器，非裸模型）</li>
+<li><strong>ARC-AGI-2: 77.1%</strong>——是上代 Gemini 3 Pro（31.1%）的 2.5 倍，大幅领先 Opus 4.6（68.8%）</li>
+<li><strong>1M tokens 上下文窗口</strong>——与 Claude 持平；但无 Context Compaction API</li>
+</ul>
+<p><strong>落后的地方：</strong></p>
+<ul>
+<li><strong>GDPval-AA Elo: 1317</strong>——显著落后 Claude Sonnet 4.6（1633）和 Opus 4.6（1606）。在以人工评估为基础的专家任务排名上，Gemini 3.1 Pro 与 Claude 系列差距超过 300 Elo</li>
+<li><strong>SWE-Bench Pro: 54.2%</strong>——被 GPT-5.3-Codex（56.8%）超越</li>
+<li><strong>Humanity’s Last Exam（含工具）: 51.4%</strong>——低于 Opus 4.6（53.1%）</li>
+<li><strong>定价：</strong> $2 输入/$12 输出（per M tokens，≤200K context）；超 200K 切换至 $4/$18——与上代 Gemini 3 Pro 定价相同，推理性能翻倍以上</li>
+</ul>
+<p><strong>如何在 OpenClaw 中使用：</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#F97583">export</span><span style="color:#E1E4E8"> GEMINI_API_KEY</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"你的 Google AI Studio Key"</span></span>
+<span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> models</span><span style="color:#9ECBFF"> set</span><span style="color:#9ECBFF"> google/gemini-3.1-pro-preview</span></span>
+<span class="line"></span></code></pre>
+<hr>
+<h3 id="claude-opus-46卫冕王者">Claude Opus 4.6——卫冕王者</h3>
+<p>2月5日发布，Claude Opus 4.6 是 OpenClaw 官方文档的推荐默认模型，也是 ClawHub 社区开发者已经对着调试 Skills 好几周的模型。</p>
+<p><strong>领先的地方：</strong></p>
+<ul>
+<li><strong>SWE-Bench Verified: 80.8%</strong>——全场最高</li>
+<li><strong>Humanity’s Last Exam（含工具）: 53.1%</strong>——全场最高</li>
+<li><strong>τ2-bench Telecom: 99.3%</strong>——与 Gemini 3.1 Pro（同样 99.3%）并列全场最高</li>
+<li><strong>GDPval-AA Elo: 1606</strong>——全场第二，仅次于 Sonnet 4.6</li>
+</ul>
+<p><strong>落后的地方：</strong></p>
+<ul>
+<li><strong>MCP Atlas: 59.5%</strong>——在与 OpenClaw 架构最相关的基准上，比 Gemini 3.1 Pro 低近 10 个百分点</li>
+<li><strong>成本：</strong> 标准定价 $5 输入/$25 输出（per M tokens，≤200K 上下文）。超过 200K tokens 后，整个请求切换至 $10/$37.50——是所有 token，不只是超出部分</li>
+</ul>
+<p><strong>2月5日发布的关键新特性：</strong></p>
+<ul>
+<li><strong>1M tokens 上下文窗口（beta）：</strong> Opus 级别的首次突破。访问需满足 Anthropic 的 tier 要求</li>
+<li><strong>Context Compaction API（beta）：</strong> 当会话接近上下文上限时，自动压缩历史记录，让长任务不中断继续运行。Gemini 3.1 Pro 目前没有这个能力</li>
+<li><strong>Agent Teams（alpha）：</strong> 多个专业子 Agent 并行协作（前端/后端/测试同时工作），在 Claude Code v2.1.32+ 和 Cowork 平台可用</li>
+<li><strong>Adaptive Thinking（4档）：</strong> 自动根据任务难度调节推理深度（low/medium/high/max），可配置控制 token 消耗</li>
+<li><strong>128K 输出 tokens：</strong> 较上代翻倍</li>
+</ul>
+<p><strong>如何在 OpenClaw 中使用：</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> models</span><span style="color:#9ECBFF"> set</span><span style="color:#9ECBFF"> anthropic/claude-opus-4-6</span></span>
+<span class="line"></span></code></pre>
+<hr>
+<h3 id="claude-sonnet-46隐藏的黑马">Claude Sonnet 4.6——隐藏的黑马</h3>
+<p>2月17日发布。Sonnet 4.6 里有一条 benchmark 数据让很多人感到意外：</p>
+<p><strong>GDPval-AA Elo: 1633——全场所有模型中最高。</strong></p>
+<p>这不是小众指标。GDPval-AA 衡量的是高价值专业任务的综合表现——错误会有真实后果的那种工作。Claude Sonnet 4.6 在这项上超过了 Claude Opus 4.6（1606）、GPT-5.2（1462）和 Gemini 3.1 Pro（1317）。</p>
+<p>它还在 τ2-bench Retail 上超过 Gemini 3.1 Pro（91.7% vs 90.8%），在 MRCR v2 长上下文检索上与 Gemini 3.1 Pro 并列（84.9%）。在内部测试中，Claude Code 用户在 Sonnet 4.6 vs Opus 4.5 的直接对比中，有 59% 更倾向选择 Sonnet 4.6。</p>
+<p><strong>定价与 Sonnet 4.5 一致，未涨价：</strong> $3 输入/$15 输出（per M tokens，≤200K），长上下文为 $6/$30。这是 Opus 4.6 标准价格的 60%——如果频繁触发长上下文定价，差距更大。</p>
+<p>和 Opus 4.6 一样，Sonnet 4.6 也拥有 1M tokens 上下文（beta）、Context Compaction API 和 Adaptive Thinking。</p>
+<p><strong>如何在 OpenClaw 中使用：</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> models</span><span style="color:#9ECBFF"> set</span><span style="color:#9ECBFF"> anthropic/claude-sonnet-4-6</span></span>
+<span class="line"></span></code></pre>
+<hr>
+<h3 id="gpt-53-codex代码专项选手">GPT-5.3-Codex——代码专项选手</h3>
+<p>GPT-5.3-Codex 属于单独的品类，不应该放在通用 Agent 讨论里：</p>
+<ul>
+<li><strong>SWE-Bench Pro: 56.8%</strong>——全场最高，超过 Gemini 3.1 Pro（54.2%）</li>
+<li><strong>Terminal-Bench 2.0: 77.3%</strong>——OpenAI 自有 Codex harness 自报数据；标准 Terminus-2 harness 下 Gemini 3.1 Pro（68.5%）实际领先 Codex（64.7%）</li>
+<li><strong>APEX-Agents: 23.0%</strong>——全场垫底</li>
+</ul>
+<p>如果你的 OpenClaw 工作流以代码为核心——自动 Debug、重构、CI/CD 管理——Codex 5.3 值得测试。对于通用 Agent 编排，它不是正确的工具。</p>
+<p><strong>如何在 OpenClaw 中使用：</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> onboard</span><span style="color:#79B8FF"> --auth-choice</span><span style="color:#9ECBFF"> openai-codex</span></span>
+<span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> models</span><span style="color:#9ECBFF"> set</span><span style="color:#9ECBFF"> openai-codex/gpt-5.3-codex</span></span>
+<span class="line"></span></code></pre>
+<hr>
+<h3 id="kimi-k25搅局的性价比选手">Kimi K2.5——搅局的性价比选手</h3>
+<p>没有出现在官方 benchmark 表里，但值得关注：来自月之暗面（Moonshot AI）的 Kimi K2.5，目前在 OpenRouter Agent 工具选择排行榜上排名第一，本周用量激增。OpenClaw 官方文档原生支持：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> models</span><span style="color:#9ECBFF"> set</span><span style="color:#9ECBFF"> moonshot/kimi-k2.5</span></span>
+<span class="line"></span></code></pre>
+<p>对于成本敏感的工作流——尤其是中文语境任务——Kimi K2.5 以远低于 Claude 的价格提供有竞争力的 Agent 表现。它是当前中文 OpenClaw 部署中增长最快的模型。</p>
+<hr>
+<h2 id="关键数据一眼看穿">关键数据一眼看穿</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>基准测试</th><th>Gemini 3.1 Pro</th><th>Opus 4.6</th><th>Sonnet 4.6</th><th>GPT-5.3-Codex</th><th>胜者</th></tr></thead><tbody><tr><td><strong>MCP Atlas</strong>（工具编排）</td><td><strong>69.2%</strong></td><td>59.5%</td><td>61.3%</td><td>—</td><td>🏆 Gemini</td></tr><tr><td><strong>APEX-Agents</strong>（长周期任务）</td><td><strong>33.5%</strong></td><td>29.8%</td><td>—</td><td>23.0%</td><td>🏆 Gemini</td></tr><tr><td><strong>GDPval-AA Elo</strong>（专家任务）</td><td>1317</td><td>1606</td><td><strong>1633</strong></td><td>—</td><td>🏆 Sonnet</td></tr><tr><td><strong>τ2-bench Retail</strong>（工具稳定性）</td><td>90.8%</td><td><strong>91.9%</strong></td><td>91.7%</td><td>—</td><td>🏆 Opus</td></tr><tr><td><strong>BrowseComp</strong>（搜索推理）</td><td><strong>85.9%</strong></td><td>84.0%</td><td>74.7%</td><td>—</td><td>🏆 Gemini</td></tr><tr><td>SWE-Bench Pro（代码修复）</td><td>54.2%</td><td>—</td><td>—</td><td><strong>56.8%</strong></td><td>🏆 Codex</td></tr></tbody></table>
+<p>Gemini 3.1 Pro 赢了 5 项核心 Agent 指标中的 3 项。Claude Sonnet 4.6 拿下专家任务 ELO 第一。Claude Opus 4.6 工具稳定性最强。GPT-5.3-Codex 独占代码赛道。</p>
+<p>没有一个模型在所有维度都赢——关键是看哪些基准最接近你真实的工作流。</p>
+<hr>
+<h2 id="不同场景选哪个">不同场景选哪个？</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>OpenClaw 使用场景</th><th>推荐模型</th><th>核心理由</th></tr></thead><tbody><tr><td>邮件处理 + 日历管理（gog、mail 类 Skills）</td><td><strong>Sonnet 4.6</strong></td><td>GDPval-AA 1633 全场第一，处理专业事务最稳，成本是 Opus 的 60%</td></tr><tr><td>复杂跨系统工作流（10 步+链式任务）</td><td><strong>Gemini 3.1 Pro</strong></td><td>MCP Atlas 69.2%，专为跨服务器多步工具编排设计</td></tr><tr><td>长期记忆 + 项目管理（SOUL.md、para-second-brain）</td><td><strong>Opus 4.6</strong></td><td>Context Compaction API + 1M tokens，长任务不中断</td></tr><tr><td>浏览器自动化 + 情报收集</td><td><strong>Gemini 3.1 Pro</strong></td><td>BrowseComp 85.9% 全场最高</td></tr><tr><td>代码 Debug / 开发 Sprint</td><td><strong>GPT-5.3-Codex 或 Opus 4.6</strong></td><td>Codex 自报分数最高；但 Gemini 3.1 Pro（SWE-Bench Verified 80.6%）与 Opus（80.8%）几乎持平</td></tr><tr><td>每日轻量任务、高频对话</td><td><strong>Sonnet 4.6</strong></td><td>性价比最优，100 步任务约 $0.90 vs Opus 的 $3.60</td></tr><tr><td>中文语境 + 成本敏感</td><td><strong>Kimi K2.5</strong></td><td>原生中文支持，工具选择排名 #1，价格远低于 Claude</td></tr><tr><td>零预算 / 本地隐私优先</td><td><strong>Gemini 2.5 Flash（免费）或 Ollama</strong></td><td>AI Studio 每天免费 1500 次；完全本地可选 Qwen 3.5</td></tr></tbody></table>
+<p><strong>价格速查（100 步复杂工作流，约 60 万 tokens）：</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>模型</th><th>预估成本</th><th>说明</th></tr></thead><tbody><tr><td>Gemini 2.5 Flash</td><td><strong>$0</strong>（免费额度内）</td><td>AI Studio 每天 1500 次免费</td></tr><tr><td>Kimi K2.5</td><td>~$0.03</td><td>Moonshot API</td></tr><tr><td>Sonnet 4.6</td><td>~$0.90</td><td>$3/$15 per M tokens</td></tr><tr><td>Gemini 3.1 Pro</td><td>~$0.60</td><td>$2/$12 per M tokens（≤200K）；超 200K 为 $4/$18</td></tr><tr><td>Opus 4.6</td><td>~$3.60</td><td>超 200K 触发长上下文定价</td></tr></tbody></table>
+<hr>
+<h2 id="社区真相gemini-赢了-benchmark为什么用户还在用-claude">社区真相：Gemini 赢了 benchmark，为什么用户还在用 Claude？</h2>
+<p>这是个值得正面回答的问题：如果 Gemini 3.1 Pro 在最相关的 Agent benchmark 上领先，OpenClaw 社区为什么没有切换？</p>
+<p><strong>原因一：标准化基准 ≠ 生产级 Skills 的混乱现实</strong></p>
+<p>MCP Atlas 使用 36 个设计良好、schema 规范的 MCP 服务器。但 OpenClaw 的 3286 个社区 Skills 质量参差不齐——有些 SKILL.md 工具描述模糊、错误处理缺失、格式不规范。Claude 对格式不严格的工具调用有更高容忍度和更强的错误恢复能力；Gemini 更依赖输入的严格性。在生产环境里，处理写得烂的 Skills 的能力，有时比处理好 Skills 的 benchmark 分数更重要。</p>
+<p><strong>原因二：整个生态是基于 Claude 的行为特征调优的</strong></p>
+<p>ClawHub 上大量 Skills 的提示词写法、工具调用格式、错误恢复模式，都是开发者对着 Claude 反复测试调整出来的。切换模型不只是改一行配置——是重新适配整套 Skills 的行为预期。这是 benchmark 数字体现不出来的真实迁移成本。</p>
+<p><strong>原因三：Context Compaction API 是 Gemini 目前没有的护城河</strong></p>
+<p>两家模型现在都有 1M tokens 上下文窗口。但 Claude Opus 4.6（和 Sonnet 4.6）独有 Context Compaction API——当会话接近上下文极限时自动压缩历史，让任务可以无限期持续运行。对于跑几个小时、经过数百次工具调用的 OpenClaw 会话，这是 Gemini 3.1 Pro 当前没有的实用能力。</p>
+<p><strong>实话实说：</strong> Gemini 3.1 Pro 是当前最值得测试的新选手——尤其是跨系统自动化和浏览器类工作流。但”benchmark 上应该更好”和”在你的具体 OpenClaw 环境里确实更好”是两个不同的命题。测试之前，不下结论。</p>
+<hr>
+<h2 id="怎么在-openclaw-里切换模型">怎么在 OpenClaw 里切换模型？</h2>
+<p>OpenClaw 用 <code>provider/model</code> 格式统一引用所有 LLM，切换是一行命令：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6A737D"># 查看当前使用的模型</span></span>
+<span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> models</span><span style="color:#9ECBFF"> list</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># 切换到 Gemini 3.1 Pro（先设置 GEMINI_API_KEY）</span></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#E1E4E8"> GEMINI_API_KEY</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"你的 Key"</span></span>
+<span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> models</span><span style="color:#9ECBFF"> set</span><span style="color:#9ECBFF"> google/gemini-3.1-pro-preview</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># 切换回 Claude Opus 4.6（官方推荐默认）</span></span>
+<span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> models</span><span style="color:#9ECBFF"> set</span><span style="color:#9ECBFF"> anthropic/claude-opus-4-6</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># 切换到 Sonnet 4.6（更好的性价比）</span></span>
+<span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> models</span><span style="color:#9ECBFF"> set</span><span style="color:#9ECBFF"> anthropic/claude-sonnet-4-6</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># 切换到 GPT-5.3-Codex（需要 OAuth 登录）</span></span>
+<span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> onboard</span><span style="color:#79B8FF"> --auth-choice</span><span style="color:#9ECBFF"> openai-codex</span></span>
+<span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> models</span><span style="color:#9ECBFF"> set</span><span style="color:#9ECBFF"> openai-codex/gpt-5.3-codex</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Kimi K2.5（中文语境 / 成本敏感）</span></span>
+<span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> models</span><span style="color:#9ECBFF"> set</span><span style="color:#9ECBFF"> moonshot/kimi-k2.5</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># 本地模型（Ollama，完全免费）</span></span>
+<span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> models</span><span style="color:#9ECBFF"> set</span><span style="color:#9ECBFF"> ollama/qwen3.5</span></span>
+<span class="line"></span></code></pre>
+<p>也可以写进配置文件（<code>~/.openclaw/openclaw.json</code>）：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "agents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "defaults"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      "model"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">        "primary"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"google/gemini-3.1-pro-preview"</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<blockquote>
+<p><strong>重要提醒：</strong> OpenClaw 目前不支持在单个配置里对不同任务自动分配不同模型（没有内置的跨任务模型路由）。高级玩法是运行多个 OpenClaw 实例、分别配置不同模型，通过 Agent2Agent 协议协同。对大多数用户来说：选一个模型，在你的真实工作流上跑跑看。</p>
+</blockquote>
+<hr>
+<h2 id="不想管这些用-tinyclaw">不想管这些？用 TinyClaw</h2>
+<p>以上内容的真实描述是：6 个选手、10 项关键基准、不同场景不同答案、API Key 要管理、上下文定价阈值要追踪、每 11 天就有新模型发布……</p>
+<p>大多数 OpenClaw 用户不想持续管理这些。他们只想要一个能用的 Agent。</p>
+<p><a href="https://tinyclaw.dev">TinyClaw</a> 把这个问题直接消灭了：</p>
+<ol>
+<li><strong>60 秒一键部署</strong>——OpenClaw 在 1 分钟内跑起来，零 Node.js 配置</li>
+<li><strong>智能模型推荐</strong>——根据你的实际使用习惯推荐最优模型</li>
+<li><strong>一键切换模型</strong>——昨天 Gemini 3.1 Pro 上线，TinyClaw 已经支持接入</li>
+<li><strong>成本可控</strong>——内置用量仪表盘，设置月度预算上限</li>
+</ol>
+<p>模型大战每 11 天打一轮。TinyClaw 替你跟进。</p>
+<p>→ <a href="https://tinyclaw.dev">tinyclaw.dev</a> · 免费开始 · 60 秒建好你的 Agent</p>
+<hr>
+<h2 id="更大的格局">更大的格局</h2>
+<p>Gemini 3.1 Pro：2月19日上线。
+Claude Sonnet 4.6：2月17日上线。
+Claude Opus 4.6：2月5日上线。
+三次大模型发布之间的间隔：<strong>11 天。</strong></p>
+<p>这个节奏意味着你的 OpenClaw 最优配置有了保质期。今天最优的模型，下个月很可能不再是。</p>
+<p>实际的应对方式不是追着每张新 benchmark 表跑。而是搞清楚哪三四项基准真正能预测你的具体工作流表现——然后知道该在什么时候切换。</p>
+<p>跨系统自动化和浏览器任务：测 Gemini 3.1 Pro。
+专业事务处理 + 控制成本：Sonnet 4.6。
+长任务 + 上下文持久化：Opus 4.6 + Context Compaction。
+纯代码工作：GPT-5.3-Codex。</p>
+<p>搞不定这些：<a href="https://tinyclaw.dev">TinyClaw</a>。</p>
+<hr>
+<p><em>数据来源：Gemini 3.1 Pro 官方 benchmark 表（Google DeepMind，2026年2月19日）。MCP Atlas 方法论：Scale AI Research，arxiv 2602.00933，scale.com/research/mcpatlas。定价数据：Anthropic 官方文档（platform.claude.com/docs/en/about-claude/pricing）。OpenClaw 模型配置：docs.openclaw.ai/providers。Gemini 3.1 Pro 定价：$2/$12 per M tokens（标准，≤200K）；超 200K 为 $4/$18。</em></p>
+<p><em>刚接触 OpenClaw？→ <a href="https://tinyclaw.dev">TinyClaw</a> 60 秒一键部署。OpenClaw 已在规模运行？→ <a href="https://www.agentputer.com/">AgentPuter</a> 云端 24/7 托管。</em></p>  </div> <!-- 返回博客列表 --> <footer class="mt-16 pt-8 border-t border-accent/20"> <a href="/zh/blog/" class="inline-flex items-center gap-2 font-mono text-sm text-text-muted hover:text-accent transition-colors group"> <span class="group-hover:-translate-x-1 transition-transform">&lt;-</span> <span>返回所有文章</span> </a> </footer> </article> </main> <footer class="bg-dark-secondary border-t border-accent/20"> <div class="max-w-7xl mx-auto px-6 lg:px-20 py-12 lg:py-16"> <!-- Top Section --> <div class="flex flex-col lg:flex-row justify-between gap-12 mb-12"> <!-- Brand --> <div class="lg:max-w-xs"> <a href="/zh/" class="inline-block mb-4"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <p class="text-text-muted text-sm font-mono"> <span class="text-terminal-cyan">//</span> 你的 AI 永不休眠
+</p> </div> <!-- Links Grid --> <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 font-mono"> <!-- Product --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/产品</h4> <ul class="space-y-3"> <li> <a href="/zh/features" class="text-text-muted text-sm hover:text-accent transition-colors"> 功能 </a> </li><li> <a href="#pricing" class="text-text-muted text-sm hover:text-accent transition-colors"> 价格 </a> </li><li> <a href="/zh/docs" class="text-text-muted text-sm hover:text-accent transition-colors"> 文档 </a> </li> </ul> </div> <!-- Company --> <div> <h4 class="text-terminal-orange font-bold mb-4 text-sm">/公司</h4> <ul class="space-y-3"> <li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 关于 </a> </li><li> <a href="/zh/blog/" class="text-text-muted text-sm hover:text-accent transition-colors"> 博客 </a> </li><li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 招聘 </a> </li> </ul> </div> <!-- Contact --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/联系</h4> <ul class="space-y-3"> <li> <a href="/cdn-cgi/l/email-protection#83ecf0e0e2f1f9e2eeecf1e2b2bababab3b4c3e4eee2eaefade0ecee" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> <span class="__cf_email__" data-cfemail="7d120e1e1c0f071c10120f1c4c4444444d4a3d1a101c1411531e1210">[email&#160;protected]</span> </a> </li><li> <a href="https://twitter.com/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Twitter </a> </li><li> <a href="https://discord.gg/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Discord </a> </li> </ul> </div> <!-- Legal --> <div> <h4 class="text-terminal-blue font-bold mb-4 text-sm">/法律</h4> <ul class="space-y-3"> <li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 隐私 </a> </li><li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 条款 </a> </li><li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 安全 </a> </li> </ul> </div> </div> </div> <!-- Divider --> <div class="border-t border-accent/20 pt-8"> <div class="flex flex-col md:flex-row justify-between items-center gap-4 font-mono"> <!-- Copyright --> <p class="text-text-dark text-sm">
+/* © 2026 AgentPuter. 保留所有权利。 */
+</p> <!-- Social Links --> <div class="flex items-center gap-6"> <a href="https://github.com/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors"> GitHub </a> </div> </div> </div> </div> </footer>  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"db97590b14994206be9f2eaec90a9494","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html> 

@@ -1,10 +1,4 @@
 ---
-title: "OpenClaw 刚刚修复了其最大的问题。为您揭示 lossless-claw 的真正作用。"
-description: "OpenClaw 的默认压缩机制仅触发一次，它会总结所有内容，然后丢弃原始内容。您的智能体运行时间越长，
-readingTime: "18 分钟"
-tags: ["OpenClaw", "lossless-claw", "上下文引擎", "记忆", "插件", "长期运行代理", "LCM"]
-featured: true
----
 
 # OpenClaw 刚刚解决了其最大的问题。本文将为你揭示 lossless-claw 的真正作用。
 

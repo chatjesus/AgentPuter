@@ -1,0 +1,296 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="2月，Anthropic 研究员花 $20,000 让 16 个 Claude Agent 并行写了一个 C 编译器。OpenClaw 的 Sub-Agent 系统让你用同样的架构跑晨报——成本只要 $0.03。"><meta name="theme-color" content="#0D0D0D"><meta name="generator" content="Astro v4.16.19"><!-- Canonical URL --><link rel="canonical" href="https://www.agentputer.com/zh/blog/12-agent-teams/"><!-- hreflang 多语言标签 --><link rel="alternate" hreflang="en" href="https://www.agentputer.com/blog/12-agent-teams/"><link rel="alternate" hreflang="zh-CN" href="https://www.agentputer.com/zh/blog/12-agent-teams/"><link rel="alternate" hreflang="ja" href="https://www.agentputer.com/ja/blog/12-agent-teams/"><link rel="alternate" hreflang="ko" href="https://www.agentputer.com/ko/blog/12-agent-teams/"><link rel="alternate" hreflang="es" href="https://www.agentputer.com/es/blog/12-agent-teams/"><link rel="alternate" hreflang="pt-BR" href="https://www.agentputer.com/pt-br/blog/12-agent-teams/"><link rel="alternate" hreflang="de" href="https://www.agentputer.com/de/blog/12-agent-teams/"><link rel="alternate" hreflang="fr" href="https://www.agentputer.com/fr/blog/12-agent-teams/"><link rel="alternate" hreflang="zh-TW" href="https://www.agentputer.com/zh-tw/blog/12-agent-teams/"><link rel="alternate" hreflang="x-default" href="https://www.agentputer.com/blog/12-agent-teams/"><!-- Keywords（各语言本地化） --><meta name="keywords" content="OpenClaw, Sub-Agents, Agent 团队, 并行 Agent, sessions_spawn, Claude Code"><!-- Open Graph --><meta property="og:title" content="一个 Agent 变成一支团队：OpenClaw Sub-Agents 实战指南 | AgentPuter 博客"><meta property="og:description" content="2月，Anthropic 研究员花 $20,000 让 16 个 Claude Agent 并行写了一个 C 编译器。OpenClaw 的 Sub-Agent 系统让你用同样的架构跑晨报——成本只要 $0.03。"><meta property="og:type" content="article"><meta property="og:url" content="https://www.agentputer.com/zh/blog/12-agent-teams/"><meta property="og:image" content="https://www.agentputer.com/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:site_name" content="AgentPuter"><meta property="og:locale" content="zh_CN"><meta property="og:locale:alternate" content="en_US"><meta property="og:locale:alternate" content="ja_JP"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="es_ES"><meta property="og:locale:alternate" content="pt_BR"><meta property="og:locale:alternate" content="de_DE"><meta property="og:locale:alternate" content="fr_FR"><meta property="og:locale:alternate" content="zh_TW"><!-- Article-specific OG tags --><meta property="article:published_time" content="2026-02-20"><meta property="article:author" content="AgentPuter Lab"><meta property="article:tag" content="OpenClaw"><meta property="article:tag" content="Sub-Agents"><meta property="article:tag" content="Agent 团队"><meta property="article:tag" content="并行 Agent"><meta property="article:tag" content="sessions_spawn"><meta property="article:tag" content="Claude Code"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@agentputer"><meta name="twitter:creator" content="@agentputer"><meta name="twitter:title" content="一个 Agent 变成一支团队：OpenClaw Sub-Agents 实战指南 | AgentPuter 博客"><meta name="twitter:description" content="2月，Anthropic 研究员花 $20,000 让 16 个 Claude Agent 并行写了一个 C 编译器。OpenClaw 的 Sub-Agent 系统让你用同样的架构跑晨报——成本只要 $0.03。"><meta name="twitter:image" content="https://www.agentputer.com/og-default.png"><!-- Favicon --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/favicon.svg"><!-- 字体：preconnect + LCP 关键字体直接预加载 --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- 直接预加载 LCP 关键字体文件（JetBrains Mono Bold Latin，H1 使用） --><link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8L6tTOlOVk6OThhvA.woff2"><!-- 字体 CSS 阻塞加载（配合 preconnect 延迟极低，确保 LCP 时字体可用） --><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"><!-- Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":"https://www.agentputer.com/favicon.svg","description":"Your AI Agent's dedicated cloud runtime. AgentPuter keeps your AI running 24/7.","sameAs":["https://twitter.com/agentputer","https://github.com/agentputer","https://discord.gg/agentputer"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"AgentPuter","url":"https://www.agentputer.com","inLanguage":"zh-CN","availableLanguage":[{"@type":"Language","name":"English","alternateName":"en"},{"@type":"Language","name":"中文","alternateName":"zh-CN"},{"@type":"Language","name":"繁體中文","alternateName":"zh-TW"},{"@type":"Language","name":"日本語","alternateName":"ja"},{"@type":"Language","name":"한국어","alternateName":"ko"},{"@type":"Language","name":"Español","alternateName":"es"},{"@type":"Language","name":"Português","alternateName":"pt-BR"},{"@type":"Language","name":"Deutsch","alternateName":"de"},{"@type":"Language","name":"Français","alternateName":"fr"}],"description":"Your AI Agent's dedicated cloud runtime."}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.agentputer.com/zh/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.agentputer.com/zh/blog/"},{"@type":"ListItem","position":3,"name":"12 agent teams","item":"https://www.agentputer.com/zh/blog/12-agent-teams/"}]}</script><!-- 页面专属结构化数据插槽 --><!-- 浏览器语言自动检测：移到 head 阻塞执行，避免渲染后跳转导致 CLS --><script>
+    (function() {
+      if (localStorage.getItem('agentputer-lang')) return;
+
+      var langMap = {
+        'zh': '/zh', 'zh-cn': '/zh', 'zh-tw': '/zh-tw', 'zh-hk': '/zh-tw',
+        'ja': '/ja', 'ko': '/ko',
+        'es': '/es', 'es-419': '/es',
+        'pt': '/pt-br', 'pt-br': '/pt-br',
+        'de': '/de', 'fr': '/fr',
+      };
+
+      var path = window.location.pathname;
+      if (/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)(\/|$)/.test(path)) {
+        var m = path.match(/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)/);
+        if (m) localStorage.setItem('agentputer-lang', m[1]);
+        return;
+      }
+
+      var langs = navigator.languages || [navigator.language];
+      for (var i = 0; i < langs.length; i++) {
+        var bl = langs[i].toLowerCase();
+        if (langMap[bl]) {
+          var target = path === '/' ? langMap[bl] + '/' : langMap[bl] + path;
+          localStorage.setItem('agentputer-lang', bl);
+          window.location.replace(target);
+          return;
+        }
+        var primary = bl.split('-')[0];
+        if (primary !== bl && langMap[primary]) {
+          var target2 = path === '/' ? langMap[primary] + '/' : langMap[primary] + path;
+          localStorage.setItem('agentputer-lang', primary);
+          window.location.replace(target2);
+          return;
+        }
+      }
+      localStorage.setItem('agentputer-lang', 'en');
+    })();
+    </script><!-- Google Analytics 4 --><script async src="https://www.googletagmanager.com/gtag/js?id=G-9M2T6GQJ0L"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9M2T6GQJ0L');
+    </script><title>一个 Agent 变成一支团队：OpenClaw Sub-Agents 实战指南 | AgentPuter 博客</title><link rel="stylesheet" href="/_astro/_slug_.DM3EUOA_.css">
+<link rel="stylesheet" href="/_astro/_slug_.CUcOCpHJ.css">
+<link rel="stylesheet" href="/_astro/_slug_.CxhqtQFk.css"><script type="module" src="/_astro/hoisted.59JzbWNo.js"></script></head> <body class="min-h-screen">   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"一个 Agent 变成一支团队：OpenClaw Sub-Agents 实战指南","description":"2月，Anthropic 研究员花 $20,000 让 16 个 Claude Agent 并行写了一个 C 编译器。OpenClaw 的 Sub-Agent 系统让你用同样的架构跑晨报——成本只要 $0.03。","datePublished":"2026-02-20","dateModified":"2026-02-20","inLanguage":"zh-CN","author":{"@type":"Organization","name":"AgentPuter Lab","url":"https://www.agentputer.com"},"publisher":{"@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":{"@type":"ImageObject","url":"https://www.agentputer.com/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.agentputer.com/zh/blog/12-agent-teams/"},"keywords":"OpenClaw, Sub-Agents, Agent 团队, 并行 Agent, sessions_spawn, Claude Code"}</script> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://www.agentputer.com/zh/"},{"@type":"ListItem","position":2,"name":"博客","item":"https://www.agentputer.com/zh/blog/"},{"@type":"ListItem","position":3,"name":"一个 Agent 变成一支团队：OpenClaw Sub-Agents 实战指南"}]}</script> <header class="fixed top-0 left-0 right-0 z-50 bg-dark-primary md:bg-dark-primary/95 md:backdrop-blur-lg border-b border-accent/20"> <nav class="max-w-7xl mx-auto px-6 lg:px-20 h-20 flex items-center justify-between"> <!-- Logo --> <a href="/zh/" class="flex items-center gap-2 group"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <!-- Desktop Navigation --> <div class="hidden md:flex items-center gap-8 font-mono"> <a href="/zh/features" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/功能
+</a> <a href="#pricing" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/价格
+</a> <a href="/zh/blog/" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/博客
+</a> <a href="/zh/docs" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/文档
+</a> <!-- Desktop 语言切换器 --><div class="lang-switcher relative"> <button class="lang-btn flex items-center gap-1.5 text-text-secondary hover:text-accent transition-colors text-sm font-mono cursor-pointer" aria-label="Switch language" aria-expanded="false"> <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <circle cx="12" cy="12" r="10" stroke-width="1.5"></circle> <path stroke-width="1.5" d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path> </svg> <span>中文</span> <svg class="w-3 h-3 opacity-40 transition-transform lang-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </button> <!-- 下拉菜单 --> <div class="lang-dropdown hidden absolute right-0 top-full mt-2 py-1 bg-[#1a1a1a] border border-[#333] rounded-lg shadow-xl min-w-[160px] z-[100]"> <a href="/blog/12-agent-teams/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="en"> <span>English</span> <span class="text-xs text-text-dark">EN</span> </a><a href="/zh/blog/12-agent-teams/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-accent bg-accent/10" data-lang="zh"> <span>中文</span> <span class="text-xs text-accent">中文</span> </a><a href="/ja/blog/12-agent-teams/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ja"> <span>日本語</span> <span class="text-xs text-text-dark">JA</span> </a><a href="/ko/blog/12-agent-teams/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ko"> <span>한국어</span> <span class="text-xs text-text-dark">KO</span> </a><a href="/es/blog/12-agent-teams/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="es"> <span>Español</span> <span class="text-xs text-text-dark">ES</span> </a><a href="/pt-br/blog/12-agent-teams/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="pt-br"> <span>Português</span> <span class="text-xs text-text-dark">PT</span> </a><a href="/de/blog/12-agent-teams/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="de"> <span>Deutsch</span> <span class="text-xs text-text-dark">DE</span> </a><a href="/fr/blog/12-agent-teams/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="fr"> <span>Français</span> <span class="text-xs text-text-dark">FR</span> </a> </div> </div> <!-- Mobile 语言列表（平铺，不用下拉） --> <div class="lang-mobile hidden"> <div class="flex flex-wrap gap-2"> <a href="/blog/12-agent-teams/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="en"> English </a><a href="/zh/blog/12-agent-teams/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-accent border-accent/40 bg-accent/10" data-lang="zh"> 中文 </a><a href="/ja/blog/12-agent-teams/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ja"> 日本語 </a><a href="/ko/blog/12-agent-teams/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ko"> 한국어 </a><a href="/es/blog/12-agent-teams/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="es"> Español </a><a href="/pt-br/blog/12-agent-teams/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="pt-br"> Português </a><a href="/de/blog/12-agent-teams/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="de"> Deutsch </a><a href="/fr/blog/12-agent-teams/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="fr"> Français </a> </div> </div>  <a href="https://app.agentputer.com/sign-up" class="text-sm py-2.5 px-6 bg-accent text-dark-primary font-bold rounded hover:bg-accent-dark transition-colors">
+[开始]
+</a> </div> <!-- Mobile Menu Button --> <button id="mobile-menu-btn-zh" class="md:hidden p-2 text-text-secondary hover:text-white" aria-label="Toggle menu"> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </nav> <!-- Mobile Menu --> <div id="mobile-menu-zh" class="hidden md:hidden bg-dark-secondary border-t border-dark-tertiary"> <div class="px-6 py-4 space-y-4"> <a href="/zh/features" class="block text-text-secondary hover:text-white transition-colors">
+功能
+</a> <a href="#pricing" class="block text-text-secondary hover:text-white transition-colors">
+价格
+</a> <a href="/zh/blog/" class="block text-text-secondary hover:text-white transition-colors">
+博客
+</a> <a href="/zh/docs" class="block text-text-secondary hover:text-white transition-colors">
+文档
+</a> <div class="lang-mobile-wrapper"></div> <a href="https://app.agentputer.com/sign-up" class="btn-primary w-full justify-center text-sm py-3">
+开始使用
+</a> </div> </div> </header>  <main class="relative z-10 pt-28 pb-20"> <article class="max-w-4xl mx-auto px-6 lg:px-8"> <!-- 面包屑导航 --> <nav class="mb-8 font-mono text-sm"> <a href="/zh/" class="text-text-muted hover:text-accent transition-colors">~</a> <span class="text-text-dark mx-2">/</span> <a href="/zh/blog/" class="text-text-muted hover:text-accent transition-colors">博客</a> <span class="text-text-dark mx-2">/</span> <span class="text-accent">文章</span> </nav> <!-- 文章元信息头部 --> <header class="mb-12"> <!-- 标签 --> <div class="flex flex-wrap gap-2 mb-6"> <span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#OpenClaw </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Sub-Agents </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Agent 团队 </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#并行 Agent </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#sessions_spawn </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Claude Code </span> </div> <!-- 标题 --> <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6"> 一个 Agent 变成一支团队：OpenClaw Sub-Agents 实战指南 </h1> <!-- 描述 --> <p class="text-lg text-text-secondary leading-relaxed mb-8"> 2月，Anthropic 研究员花 $20,000 让 16 个 Claude Agent 并行写了一个 C 编译器。OpenClaw 的 Sub-Agent 系统让你用同样的架构跑晨报——成本只要 $0.03。 </p> <!-- 元信息行 --> <div class="flex flex-wrap items-center gap-6 text-sm font-mono text-text-muted border-t border-b border-accent/20 py-4"> <div class="flex items-center gap-2"> <span class="text-terminal-cyan">@</span> <span class="text-text-secondary">AgentPuter Lab</span> </div> <div class="flex items-center gap-2"> <span class="text-terminal-orange">$</span> <time datetime="2026-02-20" class="text-text-secondary">2026年2月20日</time> </div> <div class="flex items-center gap-2"> <span class="text-terminal-blue">~</span> <span class="text-text-secondary">阅读 10 分钟</span> </div> </div> </header> <!-- 文章正文 --> <div class="prose prose-invert prose-terminal max-w-none">  <h1 id="一个-agent-变成一支团队openclaw-sub-agents-实战指南">一个 Agent 变成一支团队：OpenClaw Sub-Agents 实战指南</h1>
+<p><strong>2月，Anthropic 的一位研究员花了 $20,000 让 16 个 Claude Agent 并行写了一个 C 编译器。OpenClaw 的 Sub-Agent 系统让你能用同样的架构跑你的晨报——成本只要 $0.03。</strong></p>
+<p><em>Agent 基础设施系列 · 第十二篇</em></p>
+<hr>
+<p>这个月，Anthropic 研究员 Nicholas Carlini 发表了一项实验，比起软件工程，它更像是某种生物进化实验。</p>
+<p>他让 16 个 Claude Opus 4.6 实例并行工作了两周。它们产生了近 2,000 个编程会话，消耗了 20 亿个输入 token，花了不到 $20,000 的 API 费用。</p>
+<p>结果呢？一个 10 万行的 Rust C 编译器，从零写成，能编译 x86、ARM 和 RISC-V 架构的 Linux 6.9 内核。它甚至能运行 Doom。</p>
+<p>这不是某个光鲜亮丽的”一键生成 App”按钮的演示。这是用最基础的协调原语——每个 Agent 独立的 Docker 容器、共享 Git 仓库、文件锁——搭建出来的粗糙研究原型。</p>
+<p>我们大多数人这周没有 $20,000 可以拿来烧 API。但是，Carlini 使用的架构模式——<strong>将一个巨大的目标拆解为并行任务，分发给独立的 Agent 执行</strong>——正是 OpenClaw <strong>Sub-Agent</strong> 系统的核心逻辑。</p>
+<p>你可以用同样的逻辑，把你的晨报生成时间从 40 秒缩短到 20 秒。而且成本只要几分钱。</p>
+<hr>
+<h2 id="先搞清楚别把这三个概念混了">先搞清楚：别把这三个概念混了</h2>
+<p>现在社区里有三个听起来很像的”多 Agent”概念，但它们完全是不同的东西。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>概念</th><th>是什么</th><th>在哪用</th></tr></thead><tbody><tr><td><strong>Claude Code Agent Teams</strong></td><td>Anthropic 的 <code>claude</code> CLI 里的实验性功能。队友之间可以通过”Mailbox”直接互发消息。</td><td><strong>Claude Code</strong>（编程工具，Alpha 阶段）</td></tr><tr><td><strong>$20K 编译器实验</strong></td><td>Nicholas Carlini 的研究原型。用 Git 和文件锁协调，没有中央调度器，没有聊天界面。</td><td><strong>研究论文</strong>（不是产品）</td></tr><tr><td><strong>OpenClaw Sub-Agents</strong></td><td>OpenClaw 内置的 <code>sessions_spawn</code> 工具。主 Agent 将任务分发给后台工蜂 Agent，工蜂完成后汇报结果。</td><td><strong>OpenClaw</strong>（通用 Agent 平台）</td></tr></tbody></table>
+<p><strong>这篇文章讲的是 OpenClaw Sub-Agents。</strong> 它是这三者中唯一一个今天就能用于通用自动化任务的生产级功能。</p>
+<hr>
+<h2 id="openclaw-sub-agents-是怎么工作的">OpenClaw Sub-Agents 是怎么工作的？</h2>
+<p>不再是一个 Agent 顺序做完所有事——由一个”主 Agent”生成”子 Agent”在后台并行工作。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>主 Agent（Main, Depth 0）</span></span>
+<span class="line"><span>    │</span></span>
+<span class="line"><span>    ├── sessions_spawn(task="调研竞品 A")</span></span>
+<span class="line"><span>    │       └── 子 Agent A（Depth 1，独立会话）</span></span>
+<span class="line"><span>    │               └── 工作... 工作... → 汇报结果</span></span>
+<span class="line"><span>    │</span></span>
+<span class="line"><span>    ├── sessions_spawn(task="调研竞品 B")</span></span>
+<span class="line"><span>    │       └── 子 Agent B（Depth 1，独立会话）</span></span>
+<span class="line"><span>    │               └── 工作... 工作... → 汇报结果</span></span>
+<span class="line"><span>    │</span></span>
+<span class="line"><span>    └── 收到所有结果 → 合成最终报告</span></span>
+<span class="line"><span></span></span></code></pre>
+<h3 id="关键行为">关键行为</h3>
+<ol>
+<li><strong>完全非阻塞：</strong> <code>sessions_spawn</code> 命令立即返回一个 <code>runId</code>。主 Agent 不需要等待，可以继续工作或生成更多子 Agent。</li>
+<li><strong>上下文隔离：</strong> 每个子 Agent 都在全新的会话中运行。它们<strong>不继承</strong>主 Agent 的聊天记录。这保持了它们上下文窗口的干净和专注。</li>
+<li><strong>选择性记忆：</strong> 子 Agent 会加载 <code>AGENTS.md</code> 和 <code>TOOLS.md</code>，但<strong>不会</strong>加载 <code>SOUL.md</code>、<code>IDENTITY.md</code> 或 <code>USER.md</code>。它们是临时的工蜂，不是你的个性化助手。</li>
+<li><strong>并发控制：</strong> 默认情况下，单个 Agent 最多可以生成 5 个活跃子 Agent。全局并发限制为 8，以防 API 速率限制。</li>
+</ol>
+<h3 id="命令格式">命令格式</h3>
+<p>工具是 <code>sessions_spawn</code>。注意参数名是 <code>task</code>，不是 <code>instruction</code>。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#B392F0">sessions_spawn</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#E1E4E8">  task: </span><span style="color:#9ECBFF">"搜索 HackerNews 上最新的 AI 头条并返回 Top 5"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">  model: </span><span style="color:#9ECBFF">"gpt-4o-mini"</span><span style="color:#E1E4E8">,         </span><span style="color:#6A737D">// 给工蜂用便宜的模型</span></span>
+<span class="line"><span style="color:#E1E4E8">  runTimeoutSeconds: </span><span style="color:#79B8FF">120</span><span style="color:#E1E4E8">,       </span><span style="color:#6A737D">// 安全熔断</span></span>
+<span class="line"><span style="color:#E1E4E8">  label: </span><span style="color:#9ECBFF">"news-fetcher"</span><span style="color:#E1E4E8">,        </span><span style="color:#6A737D">// 用于日志追踪</span></span>
+<span class="line"><span style="color:#E1E4E8">  cleanup: </span><span style="color:#9ECBFF">"delete"</span><span style="color:#6A737D">             // 完成后自动删除会话</span></span>
+<span class="line"><span style="color:#E1E4E8">})</span></span>
+<span class="line"></span></code></pre>
+<hr>
+<h2 id="四种实战架构模式">四种实战架构模式</h2>
+<h3 id="模式一协调者--工人最常用">模式一：协调者 + 工人（最常用）</h3>
+<p>这是调研或批量处理的标准模式。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>主 Agent（协调者）</span></span>
+<span class="line"><span>  ├── 工人 A：调研 Notion 的定价模式</span></span>
+<span class="line"><span>  ├── 工人 B：调研 Linear 的定价模式</span></span>
+<span class="line"><span>  └── 工人 C：调研 Monday.com 的定价模式</span></span>
+<span class="line"><span>主 Agent 将输入合并为一张定价对比表。</span></span>
+<span class="line"><span></span></span></code></pre>
+<p><strong>为什么有效：</strong> 如果顺序执行，主 Agent 的上下文窗口会被三个定价页面的原始 HTML 填满。通过并行化，每个工人处理原始数据，只返回结构化的摘要。</p>
+<p><strong>推荐工人模型：</strong> <code>gpt-4o-mini</code> 或 <code>gemini-2.5-flash</code>（低成本）。</p>
+<h3 id="模式二流水线the-pipeline">模式二：流水线（The Pipeline）</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>子 Agent 1：抓取原始数据（web-search skill）</span></span>
+<span class="line"><span>      ↓</span></span>
+<span class="line"><span>子 Agent 2：清洗和结构化数据（reasoning skill）</span></span>
+<span class="line"><span>      ↓</span></span>
+<span class="line"><span>子 Agent 3：生成洞察（analysis skill）</span></span>
+<span class="line"><span>      ↓</span></span>
+<span class="line"><span>主 Agent：格式化输出</span></span>
+<span class="line"><span></span></span></code></pre>
+<p><strong>为什么有效：</strong> 它隔离了过程中的”脏活”。负责高价值分析的 Agent 永远不会看到步骤 1 里那些乱七八糟的 HTML 代码。</p>
+<h3 id="模式三专家路由specialist-routing">模式三：专家路由（Specialist Routing）</h3>
+<p>主 Agent 不再是通才，而是充当路由器。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>主 Agent（路由器）</span></span>
+<span class="line"><span>  ├── "安排个会议"   → Google Calendar 专家 Agent</span></span>
+<span class="line"><span>  ├── "写封邮件"     → 写作专家 Agent</span></span>
+<span class="line"><span>  └── "研究这个话题" → 网络搜索专家 Agent</span></span>
+<span class="line"><span></span></span></code></pre>
+<p><strong>专家提示：</strong> 因为子 Agent 不加载 <code>SOUL.md</code>，你应该把路由逻辑写在 <strong><code>AGENTS.md</code></strong> 里。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#79B8FF;font-weight:bold">## AGENTS.md 路由规则</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">当路由任务给子 Agent 时：</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8"> 日历请求：使用 google-calendar 和 google-workspace skills 生成</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8"> 研究请求：使用 web-search skill 生成，模型使用 gpt-4o-mini</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8"> 写作请求：生成时显式注入写作风格上下文</span></span>
+<span class="line"></span></code></pre>
+<h3 id="模式四fan-out--fan-in晨报场景">模式四：Fan-Out / Fan-In（晨报场景）</h3>
+<p>这是并行 Agent 的”Hello World”。</p>
+<p><strong>顺序执行（旧方法）：</strong> 查天气 (5s) → 查日历 (5s) → 查邮件 (10s) → 查新闻 (10s) → 总结 (5s)。总计：<strong>~35 秒。</strong></p>
+<p><strong>并行执行（新方法）：</strong>
+7:00 AM → 主 Agent 瞬间生成 4 个工人：</p>
+<ul>
+<li><strong>Agent A：</strong> 查旧金山的 AccuWeather 预报</li>
+<li><strong>Agent B：</strong> 读今天的 Google Calendar 会议</li>
+<li><strong>Agent C：</strong> 摘要 Gmail 未读邮件（标出紧急项）</li>
+<li><strong>Agent D：</strong> 获取 HackerNews + TechCrunch 头条</li>
+</ul>
+<p>总时间取决于最慢的那个 Agent (~15s) + 合成时间 (5s) = <strong>~20 秒。</strong></p>
+<hr>
+<h2 id="关键成本策略聪明的老板便宜的实习生">关键成本策略：“聪明的老板，便宜的实习生”</h2>
+<p>Sub-Agent 最大的风险是成本倍增。如果你生成 5 个 Agent，它们都用 Claude Opus 4.6，你的 API 账单直接乘 5。</p>
+<p>解决方案是显式的模型分配。</p>
+<p><strong>老板（主 Agent）：</strong> 需要高推理能力来拆解任务和合成结果。</p>
+<ul>
+<li><strong>模型：</strong> <code>anthropic/claude-opus-4-6</code> 或 <code>claude-sonnet-4-6</code></li>
+</ul>
+<p><strong>实习生（工人）：</strong> 通常执行清晰、有边界的任务（总结这个，找那个）。</p>
+<ul>
+<li><strong>模型：</strong> <code>openai/gpt-4o-mini</code> 或 <code>google/gemini-2.5-flash</code></li>
+</ul>
+<p>你可以在配置文件里设置默认值，以防意外：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "agents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "defaults"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      "subagents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">        "model"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"openai/gpt-4o-mini"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">        "maxSpawnDepth"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">        "maxChildrenPerAgent"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">5</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<hr>
+<h2 id="进阶调度者模式depth-2">进阶：调度者模式（Depth 2）</h2>
+<p>默认情况下，OpenClaw 设置 <code>maxSpawnDepth: 1</code>，意味着子 Agent 不能再生成它自己的子 Agent。</p>
+<p>对于复杂项目，你可以开启 Depth 2：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{ </span><span style="color:#79B8FF">"agents"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"defaults"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"subagents"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"maxSpawnDepth"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8"> } } } }</span></span>
+<span class="line"></span></code></pre>
+<p>这启用了一个三层层级结构：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>主 Agent（CEO）</span></span>
+<span class="line"><span>  └── 调度者 Agent（经理）— 拥有 sessions_spawn 权限</span></span>
+<span class="line"><span>        ├── 工人 A（实习生）— 无法再 spawn</span></span>
+<span class="line"><span>        ├── 工人 B（实习生）</span></span>
+<span class="line"><span>        └── 工人 C（实习生）</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>这反映了 $20K 编译器实验的结构：设定一个高层目标，一个自主实体管理拆解，个体工人执行具体片段。</p>
+<hr>
+<h2 id="openclaw-vs-claude-code-agent-teams">OpenClaw vs. Claude Code Agent Teams</h2>
+<p>两者都存在，该用哪个？</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="left">特性</th><th align="left">OpenClaw Sub-Agents</th><th align="left">Claude Code Agent Teams</th></tr></thead><tbody><tr><td align="left"><strong>目标受众</strong></td><td align="left">通用自动化（邮件、研究、运维）</td><td align="left">编程与软件工程</td></tr><tr><td align="left"><strong>通信模式</strong></td><td align="left">轮辐式（工人向主 Agent 汇报）</td><td align="left">网状（队友之间互发消息）</td></tr><tr><td align="left"><strong>成熟度</strong></td><td align="left">生产级功能</td><td align="left">Alpha / 实验性</td></tr><tr><td align="left"><strong>设置</strong></td><td align="left">内置，无需配置</td><td align="left">需要编辑 <code>settings.json</code></td></tr><tr><td align="left"><strong>上下文</strong></td><td align="left">每个 Agent 独立</td><td align="left">每个 Agent 独立</td></tr></tbody></table>
+<p>如果你在写编译器，用 Claude Code。如果你在构建个人助手或业务工作流，用 OpenClaw。</p>
+<hr>
+<h2 id="实际限制">实际限制</h2>
+<ol>
+<li><strong>单向通信：</strong> 子 Agent 只能向父 Agent “汇报”（announce back）。它们不能在任务中途向父 Agent 提问澄清。</li>
+<li><strong>没有 <code>SOUL.md</code>：</strong> 记住，子 Agent 是白板。如果你希望它们有个性或遵守特定行为规则，必须将这些指令包含在 <code>task</code> 提示词或 <code>AGENTS.md</code> 中。</li>
+<li><strong>并发限制：</strong> 不要试图一次生成 50 个 Agent。你会瞬间撞上 API 速率限制。默认上限是 8 个并发会话。</li>
+</ol>
+<hr>
+<h2 id="不想管这些用-tinyclaw">不想管这些？用 TinyClaw</h2>
+<p>管理并行 Agent 架构、配置 <code>maxSpawnDepth</code>、监控多个模型的 token 成本……这些都很复杂。</p>
+<p><a href="https://tinyclaw.dev">TinyClaw</a> 简化了这一切：</p>
+<ul>
+<li><strong>成本护栏：</strong> 内置仪表盘，精确显示你的”实习生”们花了多少钱。</li>
+<li><strong>智能默认值：</strong> 开箱即用的优化子 Agent 配置。</li>
+<li><strong>一键部署：</strong> 60 秒内运行一个配置好的 OpenClaw 实例。</li>
+</ul>
+<p>运行一个 Agent 团队不需要花 $20,000。从一个晨报开始吧。</p>
+<p>→ <a href="https://tinyclaw.dev">tinyclaw.dev</a> · 免费开始 · 60 秒建好你的 Agent 团队</p>
+<hr>
+<p><em>数据来源：Anthropic Engineering Blog (“Building a C compiler with a team of parallel Claudes”, Feb 2026); OpenClaw Documentation (docs.openclaw.ai/tools/subagents).</em></p>
+<p><em>需要 Agent 团队 24/7 在线？查看 <a href="https://www.agentputer.com/">AgentPuter</a> 托管云服务。</em></p>  </div> <!-- 返回博客列表 --> <footer class="mt-16 pt-8 border-t border-accent/20"> <a href="/zh/blog/" class="inline-flex items-center gap-2 font-mono text-sm text-text-muted hover:text-accent transition-colors group"> <span class="group-hover:-translate-x-1 transition-transform">&lt;-</span> <span>返回所有文章</span> </a> </footer> </article> </main> <footer class="bg-dark-secondary border-t border-accent/20"> <div class="max-w-7xl mx-auto px-6 lg:px-20 py-12 lg:py-16"> <!-- Top Section --> <div class="flex flex-col lg:flex-row justify-between gap-12 mb-12"> <!-- Brand --> <div class="lg:max-w-xs"> <a href="/zh/" class="inline-block mb-4"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <p class="text-text-muted text-sm font-mono"> <span class="text-terminal-cyan">//</span> 你的 AI 永不休眠
+</p> </div> <!-- Links Grid --> <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 font-mono"> <!-- Product --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/产品</h4> <ul class="space-y-3"> <li> <a href="/zh/features" class="text-text-muted text-sm hover:text-accent transition-colors"> 功能 </a> </li><li> <a href="#pricing" class="text-text-muted text-sm hover:text-accent transition-colors"> 价格 </a> </li><li> <a href="/zh/docs" class="text-text-muted text-sm hover:text-accent transition-colors"> 文档 </a> </li> </ul> </div> <!-- Company --> <div> <h4 class="text-terminal-orange font-bold mb-4 text-sm">/公司</h4> <ul class="space-y-3"> <li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 关于 </a> </li><li> <a href="/zh/blog/" class="text-text-muted text-sm hover:text-accent transition-colors"> 博客 </a> </li><li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 招聘 </a> </li> </ul> </div> <!-- Contact --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/联系</h4> <ul class="space-y-3"> <li> <a href="/cdn-cgi/l/email-protection#3c534f5f5d4e465d51534e5d0d0505050c0b7c5b515d5550125f5351" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> <span class="__cf_email__" data-cfemail="701f031311020a111d1f021141494949404730171d11191c5e131f1d">[email&#160;protected]</span> </a> </li><li> <a href="https://twitter.com/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Twitter </a> </li><li> <a href="https://discord.gg/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Discord </a> </li> </ul> </div> <!-- Legal --> <div> <h4 class="text-terminal-blue font-bold mb-4 text-sm">/法律</h4> <ul class="space-y-3"> <li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 隐私 </a> </li><li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 条款 </a> </li><li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 安全 </a> </li> </ul> </div> </div> </div> <!-- Divider --> <div class="border-t border-accent/20 pt-8"> <div class="flex flex-col md:flex-row justify-between items-center gap-4 font-mono"> <!-- Copyright --> <p class="text-text-dark text-sm">
+/* © 2026 AgentPuter. 保留所有权利。 */
+</p> <!-- Social Links --> <div class="flex items-center gap-6"> <a href="https://github.com/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors"> GitHub </a> </div> </div> </div> </div> </footer>  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"db97590b14994206be9f2eaec90a9494","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html> 

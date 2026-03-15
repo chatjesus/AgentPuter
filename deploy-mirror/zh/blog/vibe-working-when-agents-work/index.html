@@ -1,0 +1,201 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="企业 AI 每天能帮分析师省下 1.5 小时——但最好的 Agent 在多应用任务上仍然有 50% 的失败率。单点提效和端到端自动化之间的这道鸿沟，就是真正的机会。"><meta name="theme-color" content="#0D0D0D"><meta name="generator" content="Astro v4.16.19"><!-- Canonical URL --><link rel="canonical" href="https://www.agentputer.com/zh/blog/vibe-working-when-agents-work/"><!-- hreflang 多语言标签 --><link rel="alternate" hreflang="en" href="https://www.agentputer.com/blog/vibe-working-when-agents-work/"><link rel="alternate" hreflang="zh-CN" href="https://www.agentputer.com/zh/blog/vibe-working-when-agents-work/"><link rel="alternate" hreflang="ja" href="https://www.agentputer.com/ja/blog/vibe-working-when-agents-work/"><link rel="alternate" hreflang="ko" href="https://www.agentputer.com/ko/blog/vibe-working-when-agents-work/"><link rel="alternate" hreflang="es" href="https://www.agentputer.com/es/blog/vibe-working-when-agents-work/"><link rel="alternate" hreflang="pt-BR" href="https://www.agentputer.com/pt-br/blog/vibe-working-when-agents-work/"><link rel="alternate" hreflang="de" href="https://www.agentputer.com/de/blog/vibe-working-when-agents-work/"><link rel="alternate" hreflang="fr" href="https://www.agentputer.com/fr/blog/vibe-working-when-agents-work/"><link rel="alternate" hreflang="zh-TW" href="https://www.agentputer.com/zh-tw/blog/vibe-working-when-agents-work/"><link rel="alternate" hreflang="x-default" href="https://www.agentputer.com/blog/vibe-working-when-agents-work/"><!-- Keywords（各语言本地化） --><meta name="keywords" content="Vibe Working, Office Skills, AgentPuter, 效率工具, AI Agent"><!-- Open Graph --><meta property="og:title" content="Vibe Working：当&#34;跟 Agent 说一句话&#34;真的管用的时候 | AgentPuter 博客"><meta property="og:description" content="企业 AI 每天能帮分析师省下 1.5 小时——但最好的 Agent 在多应用任务上仍然有 50% 的失败率。单点提效和端到端自动化之间的这道鸿沟，就是真正的机会。"><meta property="og:type" content="article"><meta property="og:url" content="https://www.agentputer.com/zh/blog/vibe-working-when-agents-work/"><meta property="og:image" content="https://www.agentputer.com/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:site_name" content="AgentPuter"><meta property="og:locale" content="zh_CN"><meta property="og:locale:alternate" content="en_US"><meta property="og:locale:alternate" content="ja_JP"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="es_ES"><meta property="og:locale:alternate" content="pt_BR"><meta property="og:locale:alternate" content="de_DE"><meta property="og:locale:alternate" content="fr_FR"><meta property="og:locale:alternate" content="zh_TW"><!-- Article-specific OG tags --><meta property="article:published_time" content="2026-02-12"><meta property="article:author" content="AgentPuter Lab"><meta property="article:tag" content="Vibe Working"><meta property="article:tag" content="Office Skills"><meta property="article:tag" content="AgentPuter"><meta property="article:tag" content="效率工具"><meta property="article:tag" content="AI Agent"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@agentputer"><meta name="twitter:creator" content="@agentputer"><meta name="twitter:title" content="Vibe Working：当&#34;跟 Agent 说一句话&#34;真的管用的时候 | AgentPuter 博客"><meta name="twitter:description" content="企业 AI 每天能帮分析师省下 1.5 小时——但最好的 Agent 在多应用任务上仍然有 50% 的失败率。单点提效和端到端自动化之间的这道鸿沟，就是真正的机会。"><meta name="twitter:image" content="https://www.agentputer.com/og-default.png"><!-- Favicon --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/favicon.svg"><!-- 字体：preconnect + LCP 关键字体直接预加载 --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- 直接预加载 LCP 关键字体文件（JetBrains Mono Bold Latin，H1 使用） --><link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8L6tTOlOVk6OThhvA.woff2"><!-- 字体 CSS 阻塞加载（配合 preconnect 延迟极低，确保 LCP 时字体可用） --><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"><!-- Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":"https://www.agentputer.com/favicon.svg","description":"Your AI Agent's dedicated cloud runtime. AgentPuter keeps your AI running 24/7.","sameAs":["https://twitter.com/agentputer","https://github.com/agentputer","https://discord.gg/agentputer"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"AgentPuter","url":"https://www.agentputer.com","inLanguage":"zh-CN","availableLanguage":[{"@type":"Language","name":"English","alternateName":"en"},{"@type":"Language","name":"中文","alternateName":"zh-CN"},{"@type":"Language","name":"繁體中文","alternateName":"zh-TW"},{"@type":"Language","name":"日本語","alternateName":"ja"},{"@type":"Language","name":"한국어","alternateName":"ko"},{"@type":"Language","name":"Español","alternateName":"es"},{"@type":"Language","name":"Português","alternateName":"pt-BR"},{"@type":"Language","name":"Deutsch","alternateName":"de"},{"@type":"Language","name":"Français","alternateName":"fr"}],"description":"Your AI Agent's dedicated cloud runtime."}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.agentputer.com/zh/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.agentputer.com/zh/blog/"},{"@type":"ListItem","position":3,"name":"Vibe working when agents work","item":"https://www.agentputer.com/zh/blog/vibe-working-when-agents-work/"}]}</script><!-- 页面专属结构化数据插槽 --><!-- 浏览器语言自动检测：移到 head 阻塞执行，避免渲染后跳转导致 CLS --><script>
+    (function() {
+      if (localStorage.getItem('agentputer-lang')) return;
+
+      var langMap = {
+        'zh': '/zh', 'zh-cn': '/zh', 'zh-tw': '/zh-tw', 'zh-hk': '/zh-tw',
+        'ja': '/ja', 'ko': '/ko',
+        'es': '/es', 'es-419': '/es',
+        'pt': '/pt-br', 'pt-br': '/pt-br',
+        'de': '/de', 'fr': '/fr',
+      };
+
+      var path = window.location.pathname;
+      if (/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)(\/|$)/.test(path)) {
+        var m = path.match(/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)/);
+        if (m) localStorage.setItem('agentputer-lang', m[1]);
+        return;
+      }
+
+      var langs = navigator.languages || [navigator.language];
+      for (var i = 0; i < langs.length; i++) {
+        var bl = langs[i].toLowerCase();
+        if (langMap[bl]) {
+          var target = path === '/' ? langMap[bl] + '/' : langMap[bl] + path;
+          localStorage.setItem('agentputer-lang', bl);
+          window.location.replace(target);
+          return;
+        }
+        var primary = bl.split('-')[0];
+        if (primary !== bl && langMap[primary]) {
+          var target2 = path === '/' ? langMap[primary] + '/' : langMap[primary] + path;
+          localStorage.setItem('agentputer-lang', primary);
+          window.location.replace(target2);
+          return;
+        }
+      }
+      localStorage.setItem('agentputer-lang', 'en');
+    })();
+    </script><!-- Google Analytics 4 --><script async src="https://www.googletagmanager.com/gtag/js?id=G-9M2T6GQJ0L"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9M2T6GQJ0L');
+    </script><title>Vibe Working：当&quot;跟 Agent 说一句话&quot;真的管用的时候 | AgentPuter 博客</title><link rel="stylesheet" href="/_astro/_slug_.DM3EUOA_.css">
+<link rel="stylesheet" href="/_astro/_slug_.CUcOCpHJ.css">
+<link rel="stylesheet" href="/_astro/_slug_.CxhqtQFk.css"><script type="module" src="/_astro/hoisted.59JzbWNo.js"></script></head> <body class="min-h-screen">   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Vibe Working：当\"跟 Agent 说一句话\"真的管用的时候","description":"企业 AI 每天能帮分析师省下 1.5 小时——但最好的 Agent 在多应用任务上仍然有 50% 的失败率。单点提效和端到端自动化之间的这道鸿沟，就是真正的机会。","datePublished":"2026-02-12","dateModified":"2026-02-12","inLanguage":"zh-CN","author":{"@type":"Organization","name":"AgentPuter Lab","url":"https://www.agentputer.com"},"publisher":{"@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":{"@type":"ImageObject","url":"https://www.agentputer.com/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.agentputer.com/zh/blog/vibe-working-when-agents-work/"},"keywords":"Vibe Working, Office Skills, AgentPuter, 效率工具, AI Agent"}</script> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://www.agentputer.com/zh/"},{"@type":"ListItem","position":2,"name":"博客","item":"https://www.agentputer.com/zh/blog/"},{"@type":"ListItem","position":3,"name":"Vibe Working：当\"跟 Agent 说一句话\"真的管用的时候"}]}</script> <header class="fixed top-0 left-0 right-0 z-50 bg-dark-primary md:bg-dark-primary/95 md:backdrop-blur-lg border-b border-accent/20"> <nav class="max-w-7xl mx-auto px-6 lg:px-20 h-20 flex items-center justify-between"> <!-- Logo --> <a href="/zh/" class="flex items-center gap-2 group"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <!-- Desktop Navigation --> <div class="hidden md:flex items-center gap-8 font-mono"> <a href="/zh/features" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/功能
+</a> <a href="#pricing" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/价格
+</a> <a href="/zh/blog/" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/博客
+</a> <a href="/zh/docs" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/文档
+</a> <!-- Desktop 语言切换器 --><div class="lang-switcher relative"> <button class="lang-btn flex items-center gap-1.5 text-text-secondary hover:text-accent transition-colors text-sm font-mono cursor-pointer" aria-label="Switch language" aria-expanded="false"> <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <circle cx="12" cy="12" r="10" stroke-width="1.5"></circle> <path stroke-width="1.5" d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path> </svg> <span>中文</span> <svg class="w-3 h-3 opacity-40 transition-transform lang-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </button> <!-- 下拉菜单 --> <div class="lang-dropdown hidden absolute right-0 top-full mt-2 py-1 bg-[#1a1a1a] border border-[#333] rounded-lg shadow-xl min-w-[160px] z-[100]"> <a href="/blog/vibe-working-when-agents-work/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="en"> <span>English</span> <span class="text-xs text-text-dark">EN</span> </a><a href="/zh/blog/vibe-working-when-agents-work/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-accent bg-accent/10" data-lang="zh"> <span>中文</span> <span class="text-xs text-accent">中文</span> </a><a href="/ja/blog/vibe-working-when-agents-work/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ja"> <span>日本語</span> <span class="text-xs text-text-dark">JA</span> </a><a href="/ko/blog/vibe-working-when-agents-work/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ko"> <span>한국어</span> <span class="text-xs text-text-dark">KO</span> </a><a href="/es/blog/vibe-working-when-agents-work/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="es"> <span>Español</span> <span class="text-xs text-text-dark">ES</span> </a><a href="/pt-br/blog/vibe-working-when-agents-work/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="pt-br"> <span>Português</span> <span class="text-xs text-text-dark">PT</span> </a><a href="/de/blog/vibe-working-when-agents-work/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="de"> <span>Deutsch</span> <span class="text-xs text-text-dark">DE</span> </a><a href="/fr/blog/vibe-working-when-agents-work/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="fr"> <span>Français</span> <span class="text-xs text-text-dark">FR</span> </a> </div> </div> <!-- Mobile 语言列表（平铺，不用下拉） --> <div class="lang-mobile hidden"> <div class="flex flex-wrap gap-2"> <a href="/blog/vibe-working-when-agents-work/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="en"> English </a><a href="/zh/blog/vibe-working-when-agents-work/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-accent border-accent/40 bg-accent/10" data-lang="zh"> 中文 </a><a href="/ja/blog/vibe-working-when-agents-work/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ja"> 日本語 </a><a href="/ko/blog/vibe-working-when-agents-work/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ko"> 한국어 </a><a href="/es/blog/vibe-working-when-agents-work/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="es"> Español </a><a href="/pt-br/blog/vibe-working-when-agents-work/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="pt-br"> Português </a><a href="/de/blog/vibe-working-when-agents-work/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="de"> Deutsch </a><a href="/fr/blog/vibe-working-when-agents-work/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="fr"> Français </a> </div> </div>  <a href="https://app.agentputer.com/sign-up" class="text-sm py-2.5 px-6 bg-accent text-dark-primary font-bold rounded hover:bg-accent-dark transition-colors">
+[开始]
+</a> </div> <!-- Mobile Menu Button --> <button id="mobile-menu-btn-zh" class="md:hidden p-2 text-text-secondary hover:text-white" aria-label="Toggle menu"> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </nav> <!-- Mobile Menu --> <div id="mobile-menu-zh" class="hidden md:hidden bg-dark-secondary border-t border-dark-tertiary"> <div class="px-6 py-4 space-y-4"> <a href="/zh/features" class="block text-text-secondary hover:text-white transition-colors">
+功能
+</a> <a href="#pricing" class="block text-text-secondary hover:text-white transition-colors">
+价格
+</a> <a href="/zh/blog/" class="block text-text-secondary hover:text-white transition-colors">
+博客
+</a> <a href="/zh/docs" class="block text-text-secondary hover:text-white transition-colors">
+文档
+</a> <div class="lang-mobile-wrapper"></div> <a href="https://app.agentputer.com/sign-up" class="btn-primary w-full justify-center text-sm py-3">
+开始使用
+</a> </div> </div> </header>  <main class="relative z-10 pt-28 pb-20"> <article class="max-w-4xl mx-auto px-6 lg:px-8"> <!-- 面包屑导航 --> <nav class="mb-8 font-mono text-sm"> <a href="/zh/" class="text-text-muted hover:text-accent transition-colors">~</a> <span class="text-text-dark mx-2">/</span> <a href="/zh/blog/" class="text-text-muted hover:text-accent transition-colors">博客</a> <span class="text-text-dark mx-2">/</span> <span class="text-accent">文章</span> </nav> <!-- 文章元信息头部 --> <header class="mb-12"> <!-- 标签 --> <div class="flex flex-wrap gap-2 mb-6"> <span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Vibe Working </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Office Skills </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#AgentPuter </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#效率工具 </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#AI Agent </span> </div> <!-- 标题 --> <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6"> Vibe Working：当&quot;跟 Agent 说一句话&quot;真的管用的时候 </h1> <!-- 描述 --> <p class="text-lg text-text-secondary leading-relaxed mb-8"> 企业 AI 每天能帮分析师省下 1.5 小时——但最好的 Agent 在多应用任务上仍然有 50% 的失败率。单点提效和端到端自动化之间的这道鸿沟，就是真正的机会。 </p> <!-- 元信息行 --> <div class="flex flex-wrap items-center gap-6 text-sm font-mono text-text-muted border-t border-b border-accent/20 py-4"> <div class="flex items-center gap-2"> <span class="text-terminal-cyan">@</span> <span class="text-text-secondary">AgentPuter Lab</span> </div> <div class="flex items-center gap-2"> <span class="text-terminal-orange">$</span> <time datetime="2026-02-12" class="text-text-secondary">2026年2月12日</time> </div> <div class="flex items-center gap-2"> <span class="text-terminal-blue">~</span> <span class="text-text-secondary">阅读 12 min</span> </div> </div> </header> <!-- 文章正文 --> <div class="prose prose-invert prose-terminal max-w-none">  <p>前三篇文章，我们走了一条线：从 OpenClaw 这个产品 → 到 Brain-Body-Soul 的架构 → 到 Skills + Gateway + MCP 的能力栈。</p>
+<p>我们一直说”Skills 会改变日常工作”。是时候拿出来看看了。</p>
+<hr>
+<h2 id="一微软管它叫-vibe-working">一、微软管它叫 Vibe Working</h2>
+<p>2025 年 9 月 29 日，微软在 Microsoft 365 Copilot 里上线了两个新功能，并给它们起名：<strong>Vibe Working</strong>。</p>
+<p><strong>Agent Mode</strong> 进了 Excel 和 Word。你输入一句话——<em>“帮我做一个贷款摊销计算器，按月拆分还款明细”</em>——Agent 不止是给你一个公式。它会创建工作表、写公式、生成图表、验证结果、发现问题、自动修复，反复迭代直到输出通过校验。多步骤，自我纠错。</p>
+<p><strong>Office Agent</strong> 进了 Copilot 聊天窗口。你说*“用这个季度数据做一个能给董事会看的 PPT”*，它直接出一套成品幻灯片。不是一个带占位符的模板——是一份填好你真实数据、排好版的 deck。</p>
+<p>这个名字可以追溯到 Andrej Karpathy。2025 年 2 月 2 日，这位 OpenAI 创始成员发推说：<em>“有一种新的编程方式我称之为 ‘vibe coding’——你完全沉浸在氛围（vibe）中，拥抱指数级增长，甚至忘掉代码本身的存在。”</em> 七个月后，微软把这个想法从代码搬到了电子表格、文档和幻灯片上：<strong>你提供意图，Agent 交付成品。</strong></p>
+<p>不用再跟 VLOOKUP 较劲了。不用再手动排 47 页 PPT 了。不用再在三个 Excel 和一个 Word 之间复制粘贴了。</p>
+<p>至少，承诺是这样的。微软自家的 <strong>SpreadsheetBench</strong> 测试显示，Excel 中的 Agent Mode 在复杂任务上的准确率是 <strong>57.2%</strong>。比手动操作强，但离”完全可靠”还有很远的路。</p>
+<hr>
+<h2 id="二承诺与现实">二、承诺与现实</h2>
+<p>研究数据揭示了真实情况。</p>
+<p>针对办公自动化的基准测试（如 SpreadsheetBench）让顶尖模型执行真实的工作流：筛选数据集、交叉核对表格、生成分析摘要。这些事情一个称职的办公人员每天闭着眼睛就能做。</p>
+<p><strong>即使是最强的系统，失败率也接近一半。</strong> 研究人员的结论很直白：性能仍然”远低于真实办公工作流所需的人类准确度标准”。</p>
+<p>失败的模式很有意思：</p>
+<ul>
+<li><strong>操作重复</strong>——Agent 反复执行同一个动作，浪费 token，有时甚至破坏了已有的结果。</li>
+<li><strong>幻觉引用</strong>——它信心满满地编辑了一个只有 10 行的表格里的 B14 单元格。</li>
+<li><strong>应用切换失败</strong>——数据从 Excel 到 Word 再到邮件，上下文断裂的概率比你想的高得多。</li>
+<li><strong>长链路漂移</strong>——超过 10 个步骤的任务，Agent 会逐渐忘掉最初的目标。</li>
+</ul>
+<p>但演示和日常工具之间的这个差距，不仅仅是技术问题。微软 AI 红队发布了一份 Agent 系统失效模式分类，最可怕的发现不是幻觉——而是<strong>人类监管的失效</strong>。</p>
+<p>当 Agent 生成的表格<em>看起来</em>是对的，用户就不再检查公式了。当它起草的邮件<em>读起来</em>是对的，用户没细看就点了发送。真正的风险不是 Agent 搞错了，而是人类不再注意它错了。</p>
+<p>这就是 Vibe Working 的核心张力：Agent 越能干，盲目信任它的风险就越大。</p>
+<hr>
+<h2 id="三四个场景改造前-vs-改造后">三、四个场景：改造前 vs 改造后</h2>
+<p>在深入我们的方案之前，先看看已经在真实世界中测得的数据。</p>
+<p>一项 <strong>NBER 实地研究</strong>（已被 <em>American Economic Review: Insights</em> 有条件接收）追踪了 66 家公司的 <strong>7,137 名知识工作者</strong>，为期六个月。使用集成 AI 工具的员工在邮件上花费的时间减少了 <strong>25–31%</strong>——每周大约节省 2 到 3 小时。</p>
+<ul>
+<li><strong>摩根士丹利（Morgan Stanley）</strong> 的金融分析师在研究和报告准备上每天节省 <strong>1.5 小时</strong>。</li>
+<li><strong>Repsol</strong> 运行了一项 Copilot 试点，发现员工平均每周节省 <strong>121 分钟</strong>，且产出质量提升了 16.2%。</li>
+<li><strong>World Wide Technology</strong> 向 941 名用户部署了 Copilot，测得每周节省 <strong>446 小时</strong>——主要用于会议摘要、邮件起草和报告生成。</li>
+</ul>
+<p>这些数字是真实的。但 NBER 研究中一个被忽视的发现同样重要：尽管在邮件上省了几个小时，<strong>员工整体任务的数量或构成并没有显著变化</strong>。员工可以加速他们独立控制的事情——但他们无法改变需要与他人协作的工作流。AI 加速了细胞，但没有重塑有机体。</p>
+<p>这是关键洞察。现有工具节省的是<em>单个</em>应用内<em>单个</em>任务的时间。困难的部分——准确率掉到 50% 的部分——是当 Agent 需要跨多个应用串联任务并交付完整成品的时候。</p>
+<p>这正是基于 Skills 的编排发挥作用的地方。以下是我们正在构建和测试的场景。</p>
+<h3 id="场景-1季度销售报表">场景 1：季度销售报表</h3>
+<p><strong>以前：</strong> 你从 CRM 里导出三个 CSV。粘到 Excel 里。花 40 分钟做透视表、写 SUMIFS 公式、加条件格式、画图表。然后把图表复制到 Word 里，写一段分析，发邮件给领导。全程耗时：约 2 小时。</p>
+<p><strong>现在：</strong> 你跟 Agent 说：<em>“拉 Q4 的销售数据，按区域和产品线拆分，标出环比下降超过 15% 的部分，出一份带图表的报告。”</em></p>
+<p>底层发生了什么：</p>
+<ul>
+<li>一个 <strong>销售报表 Skill</strong> 被激活——它知道标准报表结构、哪些指标重要、怎么标异常。</li>
+<li>Skill 编排 <strong>MCP 工具</strong>：一个连 CRM 数据库，一个写 Excel，一个生成 Word。</li>
+<li><strong>Gateway</strong> 管理整个会话——CRM 查询要 30 秒不会超时，Excel 写入失败会重试。</li>
+<li>你拿到一份排好版的 Excel 和一份 Word 摘要。耗时：约 3 分钟。</li>
+</ul>
+<p>Agent 没有临场发挥。它照着菜谱做菜——这个菜谱里编码了你们公司季度报表的结构。</p>
+<h3 id="场景-2会议纪要">场景 2：会议纪要</h3>
+<p><strong>以前：</strong> 你坐了 45 分钟会议，潦草记了几笔。结束后花 20 分钟整理——按话题分类、提取 action item、发给参会人。有一半的时候你漏了东西，还得回去听录音。</p>
+<p><strong>现在：</strong> 你说：<em>“把昨天产品同步会的录音转成文字，按话题整理，提取 action item（标上负责人和截止日期），然后把摘要发给所有参会人。”</em></p>
+<p>底层发生了什么：</p>
+<ul>
+<li>一个 <strong>会议纪要 Skill</strong> 被激活——它知道怎么区分决策、待办和背景讨论。</li>
+<li><strong>MCP 工具</strong> 负责转录（Whisper API）、查日历（谁参会了）、发邮件。</li>
+<li>Skill 使用你们团队的格式——不是通用模板，是你们实际使用的纪要结构。</li>
+</ul>
+<p>输出看起来像人写的，因为 Skill 是按你们团队写纪要的方式训练的。</p>
+<h3 id="场景-3合同风险审查">场景 3：合同风险审查</h3>
+<p><strong>以前：</strong> 法务发来 30 页供应商合同。你通读一遍。标出看着不太对的条款。和公司的标准条款交叉对比。写一份风险摘要。这事基本上要花半个下午。</p>
+<p><strong>现在：</strong> 你说：<em>“用公司的标准条款审查这份供应商合同。标出偏差，按风险等级评分，给我一份能发给法务的摘要。”</em></p>
+<p>底层发生了什么：</p>
+<ul>
+<li>一个 <strong>合同审查 Skill</strong> 被激活——它知道你们公司的标准条款、常见风险模式、法务偏好的风险评级方式。</li>
+<li><strong>MCP 工具</strong> 负责 PDF 解析、文本提取和结构化对比。</li>
+<li><strong>Gateway</strong> 执行访问控制——合同数据留在安全运行时里，绝不离开沙箱。</li>
+</ul>
+<p>4 分钟出一份结构化的风险报告。法务仍然做最终审核——Agent 替代的不是律师的判断，是判断之前那 3 小时的阅读和标注。</p>
+<h3 id="场景-4邮件分拣">场景 4：邮件分拣</h3>
+<p><strong>以前：</strong> 周一早上，127 封未读邮件。你花 45 分钟扫标题、打开邮件、在脑子里分类（紧急/知悉/需回复/垃圾），然后起草回复。等你处理完，又来了三封紧急邮件。</p>
+<p><strong>现在：</strong> 你说：<em>“整理一下我的收件箱。直属下属和客户的紧急邮件标出来。只需要回’收到’的帮我起草回复。其余的用三句话概括。”</em></p>
+<p>底层发生了什么：</p>
+<ul>
+<li>一个 <strong>邮件分拣 Skill</strong> 被激活——它知道谁是你的直属下属、哪些客户是优先级、你语境里”紧急”是什么意思。</li>
+<li><strong>MCP 工具</strong> 连你的邮箱，拉消息，起草回复。</li>
+<li><strong>Gateway</strong> 确保没有邮件内容被存储到会话之外——任务结束，数据即焚。</li>
+</ul>
+<p>6 分钟处理完 127 封邮件。你改了两封草稿，确认其他的，继续干别的事。</p>
+<hr>
+<h2 id="四为什么能跑通以及为什么还跑不通">四、为什么能跑通（以及为什么还跑不通）</h2>
+<p>四个场景有一个共同模式，值得说明白。</p>
+<p><strong>跑通的原因：</strong></p>
+<ol>
+<li><strong>Skill 编码了领域知识。</strong> 不是一个通用 prompt——是一套结构化指令，知道你们公司的报表格式、团队的纪要风格、法务的风险评级标准。这就是为什么基于 Skill 的方案比裸 prompt 靠谱。</li>
+<li><strong>MCP 工具解决连接问题。</strong> Agent 不用自己”搞明白”怎么连 CRM 或者怎么解析 PDF。MCP 提供现成的、测试过的集成。Skill 指令”用这个工具”，MCP 处理协议层。</li>
+<li><strong>Gateway 让一切不掉链子。</strong> 会话状态不会在任务中途消失。某一步失败了 Gateway 会重试或回滚。权限是隔离的——合同审查 Skill 碰不到你的邮件，邮件 Skill 碰不到合同。</li>
+</ol>
+<p><strong>还跑不通的地方：</strong></p>
+<ol>
+<li><strong>跨应用、多步骤的工作流。</strong> 当任务跨越 4 个以上应用时，通过率会显著下降。上下文碎片化是目前最大的未解难题。</li>
+<li><strong>模糊的意图。</strong> “把这个报告搞好一点”不够用。Agent 需要明确的意图——“标出下降超过 15% 的指标”是可执行的，“做好看一点”不是。Vibe Working 要求用户说清楚”做完”是什么样子。</li>
+<li><strong>首次配置。</strong> Skill 需要先学会你们公司的规矩才能复现它们。第一次季度报表要花心思配置。第 20 次只要 3 分钟。</li>
+</ol>
+<hr>
+<h2 id="五现有方案差在哪">五、现有方案差在哪</h2>
+<p>微软的 Vibe Working 功能是很好的演示。但当前方案有结构性限制。</p>
+<p><strong>Copilot 锁在微软生态里。</strong> Agent Mode 在 Excel 和 Word 里跑。但你的数据可能在 Google Sheets，CRM 是 Salesforce，会议录音在飞书或 Otter.ai。你需要的是跨生态编排，不是在一个围墙花园里闭环。</p>
+<p><strong>没有跨会话的记忆。</strong> Copilot 不记得上个月的报告用了什么图表样式，也不知道法务偏好三级风险评分。每次会话从头开始。Skill 解决这个问题——知识在 Skill 文件里，不在会话里。</p>
+<p><strong>没有安全隔离。</strong> Copilot 处理你的供应商合同时，数据去了哪里？走的 OpenAI 的 API？Anthropic 的？（微软两个都用。）事实上，微软文档明确指出：<strong>Microsoft 365 Copilot 中的 Anthropic 模型明确不属于欧盟数据边界（EU Data Boundary）的范畴</strong>。如果你是运行 Agent Mode 的欧洲企业，部分数据可能会在美国 AWS 上处理。涉及敏感文档的时候，你需要一个有明确数据边界的运行时——有沙箱的 Gateway，不是一个连着云端 API 的聊天窗口。</p>
+<p><strong>准确率还不是产品级的。</strong> SpreadsheetBench 显示 Excel 任务准确率为 57.2%——而且这是微软自家的功能在基准测试上的表现。学术研究（如 SheetBrain, SheetAgent）表明，即使是专用的神经符号系统也需要显式的验证模块来防止数据损坏。光靠模型的原生智商，无论多强，还不足以支撑生产级的办公自动化。</p>
+<hr>
+<h2 id="六我们的做法">六、我们的做法</h2>
+<p>AgentPuter 的 Vibe Working 能力栈有三层——和上一篇文章一样：</p>
+<p><strong>Skills</strong> 定义每个场景的剧本。销售报表 Skill、会议纪要 Skill 和合同审查 Skill 各不相同。每个都编码了特定的领域知识、步骤序列、工具要求和输出格式。</p>
+<p><strong>Agent Gateway</strong> 编排执行。它加载正确的 Skill，路由 MCP 工具调用，管理会话状态，执行权限，处理失败。Gateway 是系统在 12 步工作流的第 7 步不崩溃的原因。</p>
+<p><strong>MCP 工具</strong> 负责实际连接——数据库查询、文件读写、邮件 API、日历查找、PDF 解析。标准化、测试过、容器化。</p>
+<p>和 Copilot 比，三个不同点：</p>
+<ol>
+<li><strong>生态中立。</strong> 我们的 Gateway 跨 Google Workspace、Microsoft 365、Salesforce、Slack、Notion——你的数据在哪，我们就去哪。不锁定任何一个生态。</li>
+<li><strong>持久化知识。</strong> Skill 跨会话记住你的规矩。第 20 次季度报表和第 2 次一样快，因为 Skill 已经知道你的格式、指标和受众。</li>
+<li><strong>安全优先的运行时。</strong> 每个 Skill 在沙箱里执行。合同数据碰不到邮件 Skill 的上下文。会话数据默认临时存储，除非显式持久化。每一步都有审计日志。</li>
+</ol>
+<hr>
+<h2 id="写在最后">写在最后</h2>
+<p>Vibe Working 是一个好名字。你说一句话，Agent 交付成品——这就是所有人在建的终局。</p>
+<p>但实话实说：我们还没到那一步。Demo 和日常工具之间的鸿沟是真实的。办公工作流 ~50% 的通过率说明：光靠模型的智商不够。</p>
+<p>弥合这个差距靠的不是更聪明的模型，是模型周围的基础设施：</p>
+<ul>
+<li><strong>Skills</strong> 用经过验证的流程约束 Agent，而不是让它自由发挥</li>
+<li><strong>Gateway</strong> 让多步骤任务不脱轨——有重试、有回滚、有访问控制</li>
+<li><strong>MCP 工具</strong> 提供测试过的、可靠的集成，而不是让 Agent 自己去摸索 API</li>
+</ul>
+<p>四篇文章下来，我们从拆一个爆款开源项目开始，一步步拼出了 Agent 基础设施到底需要什么。</p>
+<p>结论其实很简单：<strong>帮你做季度报表的那个 Agent，不比 ChatGPT 更聪明。它只是有更好的指令、更可靠的运行时、和正确接入的工具。</strong> 那项 NBER 研究里的 7,137 名员工不需要更聪明的模型。他们需要的是围绕现有模型构建的更好基础设施。</p>
+<p>这就是 Vibe Working。不是氛围（Vibes）。是基础设施（Infrastructure）。</p>
+<hr>
+<p><em>这是系列的第四篇。我们从 OpenClaw 讲到了 Skills 和 MCP，现在回到地面看能力栈实际交付了什么。接下来，我们将转向商业模式：如何通过 Agent 平台真正赚钱？如果你有一个想被自动化的办公流程——或者你试过但没搞定的——我们很想听听。</em></p>  </div> <!-- 返回博客列表 --> <footer class="mt-16 pt-8 border-t border-accent/20"> <a href="/zh/blog/" class="inline-flex items-center gap-2 font-mono text-sm text-text-muted hover:text-accent transition-colors group"> <span class="group-hover:-translate-x-1 transition-transform">&lt;-</span> <span>返回所有文章</span> </a> </footer> </article> </main> <footer class="bg-dark-secondary border-t border-accent/20"> <div class="max-w-7xl mx-auto px-6 lg:px-20 py-12 lg:py-16"> <!-- Top Section --> <div class="flex flex-col lg:flex-row justify-between gap-12 mb-12"> <!-- Brand --> <div class="lg:max-w-xs"> <a href="/zh/" class="inline-block mb-4"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <p class="text-text-muted text-sm font-mono"> <span class="text-terminal-cyan">//</span> 你的 AI 永不休眠
+</p> </div> <!-- Links Grid --> <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 font-mono"> <!-- Product --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/产品</h4> <ul class="space-y-3"> <li> <a href="/zh/features" class="text-text-muted text-sm hover:text-accent transition-colors"> 功能 </a> </li><li> <a href="#pricing" class="text-text-muted text-sm hover:text-accent transition-colors"> 价格 </a> </li><li> <a href="/zh/docs" class="text-text-muted text-sm hover:text-accent transition-colors"> 文档 </a> </li> </ul> </div> <!-- Company --> <div> <h4 class="text-terminal-orange font-bold mb-4 text-sm">/公司</h4> <ul class="space-y-3"> <li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 关于 </a> </li><li> <a href="/zh/blog/" class="text-text-muted text-sm hover:text-accent transition-colors"> 博客 </a> </li><li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 招聘 </a> </li> </ul> </div> <!-- Contact --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/联系</h4> <ul class="space-y-3"> <li> <a href="/cdn-cgi/l/email-protection#5639253537242c373b392437676f6f6f666116313b373f3a7835393b" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> <span class="__cf_email__" data-cfemail="a1ced2c2c0d3dbc0ccced3c0909898989196e1c6ccc0c8cd8fc2cecc">[email&#160;protected]</span> </a> </li><li> <a href="https://twitter.com/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Twitter </a> </li><li> <a href="https://discord.gg/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Discord </a> </li> </ul> </div> <!-- Legal --> <div> <h4 class="text-terminal-blue font-bold mb-4 text-sm">/法律</h4> <ul class="space-y-3"> <li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 隐私 </a> </li><li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 条款 </a> </li><li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 安全 </a> </li> </ul> </div> </div> </div> <!-- Divider --> <div class="border-t border-accent/20 pt-8"> <div class="flex flex-col md:flex-row justify-between items-center gap-4 font-mono"> <!-- Copyright --> <p class="text-text-dark text-sm">
+/* © 2026 AgentPuter. 保留所有权利。 */
+</p> <!-- Social Links --> <div class="flex items-center gap-6"> <a href="https://github.com/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors"> GitHub </a> </div> </div> </div> </div> </footer>  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"db97590b14994206be9f2eaec90a9494","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html> 

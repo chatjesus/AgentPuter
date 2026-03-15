@@ -1,0 +1,1 @@
+import"./LanguageSwitcher.astro_astro_type_script_index_0_lang.BiPt5_v-.js";const e=document.getElementById("mobile-menu-btn-zh"),n=document.getElementById("mobile-menu-zh");e?.addEventListener("click",()=>{n?.classList.toggle("hidden")});

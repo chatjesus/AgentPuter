@@ -1,6 +1,6 @@
 ---
 title: "OpenClaw를 월 $30 미만으로 실행하는 방법 (완벽한 비용 가이드)"
-description: "한 사용자는 2주 만에 254달러를, 페데리코 비티치는 한 달 만에 3,
+description: "한 사용자는 2주 만에 254달러를, 페데리코 비티치는 한 달 만에 3,000달러 이상을 지출했습니다. OpenClaw를 월 $30 미만으로 실행하는 완벽한 비용 가이드."
 tags: ["OpenClaw", "비용 최적화", "모델 라우팅", "Ollama", "예산", "하트비트", "lossless-claw"]
 featured: true
 ---

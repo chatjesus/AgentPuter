@@ -1,0 +1,630 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="maxSpawnDepth defaults to 1, not infinite. SOUL.md is invisible to sub-agents. cleanup keeps files forever unless you change it. 30 production-tested tips to close the gap between 'works' and 'well-configured'."><meta name="theme-color" content="#0D0D0D"><meta name="generator" content="Astro v4.16.19"><!-- Canonical URL --><link rel="canonical" href="https://www.agentputer.com/blog/14-openclaw-tips/"><!-- hreflang 多语言标签 --><link rel="alternate" hreflang="en" href="https://www.agentputer.com/blog/14-openclaw-tips/"><link rel="alternate" hreflang="zh-CN" href="https://www.agentputer.com/zh/blog/14-openclaw-tips/"><link rel="alternate" hreflang="ja" href="https://www.agentputer.com/ja/blog/14-openclaw-tips/"><link rel="alternate" hreflang="ko" href="https://www.agentputer.com/ko/blog/14-openclaw-tips/"><link rel="alternate" hreflang="es" href="https://www.agentputer.com/es/blog/14-openclaw-tips/"><link rel="alternate" hreflang="pt-BR" href="https://www.agentputer.com/pt-br/blog/14-openclaw-tips/"><link rel="alternate" hreflang="de" href="https://www.agentputer.com/de/blog/14-openclaw-tips/"><link rel="alternate" hreflang="fr" href="https://www.agentputer.com/fr/blog/14-openclaw-tips/"><link rel="alternate" hreflang="zh-TW" href="https://www.agentputer.com/zh-tw/blog/14-openclaw-tips/"><link rel="alternate" hreflang="x-default" href="https://www.agentputer.com/blog/14-openclaw-tips/"><!-- Keywords（各语言本地化） --><meta name="keywords" content="OpenClaw, Configuration, Sub-Agents, Skills, Cost Control, Security, Tips"><!-- Open Graph --><meta property="og:title" content="OpenClaw Power User Guide: 30 Tips Nobody Tells You | AgentPuter Blog"><meta property="og:description" content="maxSpawnDepth defaults to 1, not infinite. SOUL.md is invisible to sub-agents. cleanup keeps files forever unless you change it. 30 production-tested tips to close the gap between 'works' and 'well-configured'."><meta property="og:type" content="article"><meta property="og:url" content="https://www.agentputer.com/blog/14-openclaw-tips/"><meta property="og:image" content="https://www.agentputer.com/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:site_name" content="AgentPuter"><meta property="og:locale" content="en_US"><meta property="og:locale:alternate" content="zh_CN"><meta property="og:locale:alternate" content="ja_JP"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="es_ES"><meta property="og:locale:alternate" content="pt_BR"><meta property="og:locale:alternate" content="de_DE"><meta property="og:locale:alternate" content="fr_FR"><meta property="og:locale:alternate" content="zh_TW"><!-- Article-specific OG tags --><meta property="article:published_time" content="2026-02-21"><meta property="article:author" content="AgentPuter Lab"><meta property="article:tag" content="OpenClaw"><meta property="article:tag" content="Configuration"><meta property="article:tag" content="Sub-Agents"><meta property="article:tag" content="Skills"><meta property="article:tag" content="Cost Control"><meta property="article:tag" content="Security"><meta property="article:tag" content="Tips"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@agentputer"><meta name="twitter:creator" content="@agentputer"><meta name="twitter:title" content="OpenClaw Power User Guide: 30 Tips Nobody Tells You | AgentPuter Blog"><meta name="twitter:description" content="maxSpawnDepth defaults to 1, not infinite. SOUL.md is invisible to sub-agents. cleanup keeps files forever unless you change it. 30 production-tested tips to close the gap between 'works' and 'well-configured'."><meta name="twitter:image" content="https://www.agentputer.com/og-default.png"><!-- Favicon --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/favicon.svg"><!-- 字体：preconnect + LCP 关键字体直接预加载 --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- 直接预加载 LCP 关键字体文件（JetBrains Mono Bold Latin，H1 使用） --><link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8L6tTOlOVk6OThhvA.woff2"><!-- 字体 CSS 阻塞加载（配合 preconnect 延迟极低，确保 LCP 时字体可用） --><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"><!-- Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":"https://www.agentputer.com/favicon.svg","description":"Your AI Agent's dedicated cloud runtime. AgentPuter keeps your AI running 24/7.","sameAs":["https://twitter.com/agentputer","https://github.com/agentputer","https://discord.gg/agentputer"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"AgentPuter","url":"https://www.agentputer.com","inLanguage":"en","availableLanguage":[{"@type":"Language","name":"English","alternateName":"en"},{"@type":"Language","name":"中文","alternateName":"zh-CN"},{"@type":"Language","name":"繁體中文","alternateName":"zh-TW"},{"@type":"Language","name":"日本語","alternateName":"ja"},{"@type":"Language","name":"한국어","alternateName":"ko"},{"@type":"Language","name":"Español","alternateName":"es"},{"@type":"Language","name":"Português","alternateName":"pt-BR"},{"@type":"Language","name":"Deutsch","alternateName":"de"},{"@type":"Language","name":"Français","alternateName":"fr"}],"description":"Your AI Agent's dedicated cloud runtime."}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.agentputer.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.agentputer.com/blog/"},{"@type":"ListItem","position":3,"name":"14 openclaw tips","item":"https://www.agentputer.com/blog/14-openclaw-tips/"}]}</script><!-- 页面专属结构化数据插槽 --><!-- 浏览器语言自动检测：移到 head 阻塞执行，避免渲染后跳转导致 CLS --><script>
+    (function() {
+      if (localStorage.getItem('agentputer-lang')) return;
+
+      var langMap = {
+        'zh': '/zh', 'zh-cn': '/zh', 'zh-tw': '/zh-tw', 'zh-hk': '/zh-tw',
+        'ja': '/ja', 'ko': '/ko',
+        'es': '/es', 'es-419': '/es',
+        'pt': '/pt-br', 'pt-br': '/pt-br',
+        'de': '/de', 'fr': '/fr',
+      };
+
+      var path = window.location.pathname;
+      if (/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)(\/|$)/.test(path)) {
+        var m = path.match(/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)/);
+        if (m) localStorage.setItem('agentputer-lang', m[1]);
+        return;
+      }
+
+      var langs = navigator.languages || [navigator.language];
+      for (var i = 0; i < langs.length; i++) {
+        var bl = langs[i].toLowerCase();
+        if (langMap[bl]) {
+          var target = path === '/' ? langMap[bl] + '/' : langMap[bl] + path;
+          localStorage.setItem('agentputer-lang', bl);
+          window.location.replace(target);
+          return;
+        }
+        var primary = bl.split('-')[0];
+        if (primary !== bl && langMap[primary]) {
+          var target2 = path === '/' ? langMap[primary] + '/' : langMap[primary] + path;
+          localStorage.setItem('agentputer-lang', primary);
+          window.location.replace(target2);
+          return;
+        }
+      }
+      localStorage.setItem('agentputer-lang', 'en');
+    })();
+    </script><!-- Google Analytics 4 --><script async src="https://www.googletagmanager.com/gtag/js?id=G-9M2T6GQJ0L"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9M2T6GQJ0L');
+    </script><title>OpenClaw Power User Guide: 30 Tips Nobody Tells You | AgentPuter Blog</title><link rel="stylesheet" href="/_astro/_slug_.DM3EUOA_.css">
+<link rel="stylesheet" href="/_astro/_slug_.CUcOCpHJ.css">
+<link rel="stylesheet" href="/_astro/_slug_.CxhqtQFk.css"><script type="module" src="/_astro/hoisted.Bl-zZglg.js"></script></head> <body class="min-h-screen">   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"OpenClaw Power User Guide: 30 Tips Nobody Tells You","description":"maxSpawnDepth defaults to 1, not infinite. SOUL.md is invisible to sub-agents. cleanup keeps files forever unless you change it. 30 production-tested tips to close the gap between 'works' and 'well-configured'.","datePublished":"2026-02-21","dateModified":"2026-02-21","author":{"@type":"Organization","name":"AgentPuter Lab","url":"https://www.agentputer.com"},"publisher":{"@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":{"@type":"ImageObject","url":"https://www.agentputer.com/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.agentputer.com/blog/14-openclaw-tips/"},"keywords":"OpenClaw, Configuration, Sub-Agents, Skills, Cost Control, Security, Tips"}</script> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.agentputer.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.agentputer.com/blog/"},{"@type":"ListItem","position":3,"name":"OpenClaw Power User Guide: 30 Tips Nobody Tells You"}]}</script> <header class="fixed top-0 left-0 right-0 z-50 bg-dark-primary md:bg-dark-primary/95 md:backdrop-blur-lg border-b border-accent/20"> <nav class="max-w-7xl mx-auto px-6 lg:px-20 h-20 flex items-center justify-between"> <!-- Logo --> <a href="/" class="flex items-center gap-2 group"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <!-- Desktop Navigation --> <div class="hidden md:flex items-center gap-8 font-mono"> <a href="/features" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/features
+</a> <a href="/tools" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/tools
+</a> <a href="/pricing" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/pricing
+</a> <a href="/blog/" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/blog
+</a> <a href="/docs" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/docs
+</a> <!-- Desktop 语言切换器 --><div class="lang-switcher relative"> <button class="lang-btn flex items-center gap-1.5 text-text-secondary hover:text-accent transition-colors text-sm font-mono cursor-pointer" aria-label="Switch language" aria-expanded="false"> <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <circle cx="12" cy="12" r="10" stroke-width="1.5"></circle> <path stroke-width="1.5" d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path> </svg> <span>EN</span> <svg class="w-3 h-3 opacity-40 transition-transform lang-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </button> <!-- 下拉菜单 --> <div class="lang-dropdown hidden absolute right-0 top-full mt-2 py-1 bg-[#1a1a1a] border border-[#333] rounded-lg shadow-xl min-w-[160px] z-[100]"> <a href="/blog/14-openclaw-tips/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-accent bg-accent/10" data-lang="en"> <span>English</span> <span class="text-xs text-accent">EN</span> </a><a href="/zh/blog/14-openclaw-tips/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="zh"> <span>中文</span> <span class="text-xs text-text-dark">中文</span> </a><a href="/ja/blog/14-openclaw-tips/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ja"> <span>日本語</span> <span class="text-xs text-text-dark">JA</span> </a><a href="/ko/blog/14-openclaw-tips/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ko"> <span>한국어</span> <span class="text-xs text-text-dark">KO</span> </a><a href="/es/blog/14-openclaw-tips/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="es"> <span>Español</span> <span class="text-xs text-text-dark">ES</span> </a><a href="/pt-br/blog/14-openclaw-tips/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="pt-br"> <span>Português</span> <span class="text-xs text-text-dark">PT</span> </a><a href="/de/blog/14-openclaw-tips/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="de"> <span>Deutsch</span> <span class="text-xs text-text-dark">DE</span> </a><a href="/fr/blog/14-openclaw-tips/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="fr"> <span>Français</span> <span class="text-xs text-text-dark">FR</span> </a> </div> </div> <!-- Mobile 语言列表（平铺，不用下拉） --> <div class="lang-mobile hidden"> <div class="flex flex-wrap gap-2"> <a href="/blog/14-openclaw-tips/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-accent border-accent/40 bg-accent/10" data-lang="en"> English </a><a href="/zh/blog/14-openclaw-tips/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="zh"> 中文 </a><a href="/ja/blog/14-openclaw-tips/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ja"> 日本語 </a><a href="/ko/blog/14-openclaw-tips/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ko"> 한국어 </a><a href="/es/blog/14-openclaw-tips/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="es"> Español </a><a href="/pt-br/blog/14-openclaw-tips/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="pt-br"> Português </a><a href="/de/blog/14-openclaw-tips/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="de"> Deutsch </a><a href="/fr/blog/14-openclaw-tips/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="fr"> Français </a> </div> </div>  <a href="https://app.agentputer.com/sign-up" class="text-sm py-2.5 px-6 bg-accent text-dark-primary font-bold rounded hover:bg-accent-dark transition-colors">
+[GET STARTED]
+</a> </div> <!-- Mobile Menu Button --> <button id="mobile-menu-btn" class="md:hidden p-2 text-text-secondary hover:text-white" aria-label="Toggle menu"> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </nav> <!-- Mobile Menu --> <div id="mobile-menu" class="hidden md:hidden bg-dark-secondary border-t border-dark-tertiary"> <div class="px-6 py-4 space-y-4"> <a href="/features" class="block hover:text-white transition-colors text-text-secondary">
+Features
+</a> <a href="/tools" class="block hover:text-white transition-colors text-text-secondary">
+Tools
+</a> <a href="/pricing" class="block hover:text-white transition-colors text-text-secondary">
+Pricing
+</a> <a href="/blog/" class="block hover:text-white transition-colors text-text-secondary">
+Blog
+</a> <a href="/docs" class="block hover:text-white transition-colors text-text-secondary">
+Docs
+</a> <div class="lang-mobile-wrapper"></div> <a href="https://app.agentputer.com/sign-up" class="btn-primary w-full justify-center text-sm py-3">
+Get Started
+</a> </div> </div> </header>  <main class="relative z-10 pt-28 pb-20"> <article class="max-w-4xl mx-auto px-6 lg:px-8"> <!-- 面包屑导航 --> <nav class="mb-8 font-mono text-sm"> <a href="/" class="text-text-muted hover:text-accent transition-colors">~</a> <span class="text-text-dark mx-2">/</span> <a href="/blog/" class="text-text-muted hover:text-accent transition-colors">blog</a> <span class="text-text-dark mx-2">/</span> <span class="text-accent">article</span> </nav> <!-- 文章元信息头部 --> <header class="mb-12"> <!-- 标签 --> <div class="flex flex-wrap gap-2 mb-6"> <span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#OpenClaw </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Configuration </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Sub-Agents </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Skills </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Cost Control </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Security </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Tips </span> </div> <!-- 标题 --> <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6"> OpenClaw Power User Guide: 30 Tips Nobody Tells You </h1> <!-- 描述 --> <p class="text-lg text-text-secondary leading-relaxed mb-8"> maxSpawnDepth defaults to 1, not infinite. SOUL.md is invisible to sub-agents. cleanup keeps files forever unless you change it. 30 production-tested tips to close the gap between &#39;works&#39; and &#39;well-configured&#39;. </p> <!-- 元信息行 --> <div class="flex flex-wrap items-center gap-6 text-sm font-mono text-text-muted border-t border-b border-accent/20 py-4"> <div class="flex items-center gap-2"> <span class="text-terminal-cyan">@</span> <span class="text-text-secondary">AgentPuter Lab</span> </div> <div class="flex items-center gap-2"> <span class="text-terminal-orange">$</span> <time datetime="2026-02-21" class="text-text-secondary">February 21, 2026</time> </div> <div class="flex items-center gap-2"> <span class="text-terminal-blue">~</span> <span class="text-text-secondary">18 min read</span> </div> </div> </header> <!-- 文章正文 --> <div class="prose prose-invert prose-terminal max-w-none">  <h1 id="openclaw-power-user-guide-30-tips-nobody-tells-you">OpenClaw Power User Guide: 30 Tips Nobody Tells You</h1>
+<p><em>OpenClaw Community · February 2026</em></p>
+<p>Most people install OpenClaw, get one agent running, and figure they’re done. They’re not wrong — it works. But “works” and “well-configured” are different things, and the gap between them shows up in your API bill, your debugging sessions, and whether your sub-agents do what you actually told them.</p>
+<p>These 30 tips come from production use and a careful read of the official docs. Some are obvious in hindsight. Most aren’t obvious at all.</p>
+<hr>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#chapter-1">Configuration Fundamentals (Tips 01–08)</a></li>
+<li><a href="#chapter-2">Skill Selection and Usage (Tips 09–14)</a></li>
+<li><a href="#chapter-3">Sub-Agent Architecture (Tips 15–20)</a></li>
+<li><a href="#chapter-4">Cost Control (Tips 21–25)</a></li>
+<li><a href="#chapter-5">Debugging and Security (Tips 26–30)</a></li>
+<li><a href="#tinyclaw">Skip All of This: TinyClaw</a></li>
+</ol>
+<hr>
+<h2 id="configuration-fundamentals-chapter-1">Configuration Fundamentals {#chapter-1}</h2>
+<hr>
+<h3 id="01-agentsmd-vs-soulmd-where-sub-agents-actually-look">01. AGENTS.md vs SOUL.md: where sub-agents actually look</h3>
+<p>OpenClaw loads files in a three-level hierarchy:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>~/.openclaw/SOUL.md   ← global</span></span>
+<span class="line"><span>./SOUL.md             ← project</span></span>
+<span class="line"><span>AGENTS.md + TOOLS.md  ← session (what sub-agents see)</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>Sub-agents load only <code>AGENTS.md</code> and <code>TOOLS.md</code>. Everything else — <code>SOUL.md</code>, <code>IDENTITY.md</code>, <code>USER.md</code>, <code>HEARTBEAT.md</code>, <code>BOOTSTRAP.md</code> — is invisible to them.</p>
+<p>This trips up a lot of people. They write routing logic in <code>SOUL.md</code>, deploy a fan-out architecture, and then spend an hour wondering why sub-agents aren’t routing correctly. They’re not routing correctly because they can’t see the instructions.</p>
+<p>Anything a sub-agent needs — routing rules, persona constraints, tool allowlists — goes in <code>AGENTS.md</code>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#79B8FF;font-weight:bold"># AGENTS.md</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold">## Routing</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8"> Finance questions → finance-agent</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8"> Code review → code-reviewer</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8"> Research → research-storm</span></span>
+<span class="line"></span></code></pre>
+<p>Simple rule: if a sub-agent needs to know it, it can’t live in <code>SOUL.md</code>.</p>
+<hr>
+<h3 id="02-model-strings-need-the-provider-prefix">02. Model strings need the provider prefix</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{ </span><span style="color:#79B8FF">"model"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"claude-opus-4-6"</span><span style="color:#E1E4E8"> }     ← will break</span></span>
+<span class="line"><span style="color:#E1E4E8">{ </span><span style="color:#79B8FF">"model"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"anthropic/claude-opus-4-6"</span><span style="color:#E1E4E8"> }  ← correct</span></span>
+<span class="line"></span></code></pre>
+<p>The format is <code>provider/model-name</code>. Without it, the model router can fail silently when two providers have similar names — and they do.</p>
+<p>Common strings as of February 2026:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Model</th><th>Good for</th></tr></thead><tbody><tr><td><code>anthropic/claude-opus-4-6</code></td><td>Anything requiring real reasoning</td></tr><tr><td><code>anthropic/claude-sonnet-4-6</code></td><td>Most things — near-Opus quality, much cheaper</td></tr><tr><td><code>anthropic/claude-haiku-4-5</code></td><td>Execution tasks where speed matters more than depth</td></tr><tr><td><code>google/gemini-3.1-pro-preview</code></td><td>Long documents, multimodal inputs</td></tr><tr><td><code>openai/gpt-4o-mini</code></td><td>Summarization, classification, format conversion</td></tr><tr><td><code>ollama/qwen2.5</code></td><td>Anything that can’t leave your network</td></tr></tbody></table>
+<p>To set the global default for sub-agents:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "agents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "defaults"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      "subagents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">        "model"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"anthropic/claude-haiku-4-5"</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<hr>
+<h3 id="03-keep-api-keys-out-of-configjson">03. Keep API keys out of config.json</h3>
+<p>Every month someone pushes an OpenClaw config to a public GitHub repo with keys inline. GitGuardian finds it within minutes.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6A737D"># .env</span></span>
+<span class="line"><span style="color:#E1E4E8">ANTHROPIC_API_KEY</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">sk-ant-...</span></span>
+<span class="line"><span style="color:#E1E4E8">OPENAI_API_KEY</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">sk-...</span></span>
+<span class="line"><span style="color:#E1E4E8">GOOGLE_API_KEY</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">AIza...</span></span>
+<span class="line"><span style="color:#E1E4E8">CONTEXT7_API_KEY</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># .gitignore</span></span>
+<span class="line"><span style="color:#B392F0">.env</span></span>
+<span class="line"><span style="color:#B392F0">.env.local</span></span>
+<span class="line"><span style="color:#B392F0">.env.*</span></span>
+<span class="line"></span></code></pre>
+<p>OpenClaw reads <code>.env</code> automatically. There’s no reason to put keys anywhere else.</p>
+<hr>
+<h3 id="04-maxspawndepth-defaults-to-1">04. maxSpawnDepth defaults to 1</h3>
+<p>If you’ve seen <code>SpawnDepthExceeded</code> and didn’t know why, this is why.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "agents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "defaults"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      "subagents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">        "maxSpawnDepth"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">2</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>Default is 1 — one level of sub-agents. Maximum is 5, but in practice 2 covers almost every real architecture. Depth-2 leaf nodes can’t spawn further; trying to go deeper throws runtime errors that are annoying to trace.</p>
+<p>What depth 2 actually looks like:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Main Agent</span></span>
+<span class="line"><span>├── Research Agent   (can't spawn further)</span></span>
+<span class="line"><span>├── Analysis Agent   (can't spawn further)</span></span>
+<span class="line"><span>└── Writer Agent     (can't spawn further)</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>Unless you have a specific reason to need three-level nesting, leave it at 2.</p>
+<hr>
+<h3 id="05-runtimeoutseconds-defaults-to-0">05. runTimeoutSeconds defaults to 0</h3>
+<p>Zero means no timeout. A stuck sub-agent runs forever.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "agents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "defaults"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      "subagents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">        "runTimeoutSeconds"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">120</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>120 seconds works for most tasks. Data-heavy agents sometimes need 300. The key thing to understand: hitting the timeout stops execution but doesn’t delete the session. You need <code>cleanup</code> for that (Tip 06), and you need to distinguish timeout from actual failure when debugging (Tip 27).</p>
+<hr>
+<h3 id="06-cleanup-defaults-to-keep--change-it">06. cleanup defaults to “keep” — change it</h3>
+<p>Every completed session leaves files. With the default <code>keep</code>, they accumulate indefinitely.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "agents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "defaults"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      "subagents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">        "cleanup"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"delete"</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>“delete” is a misnomer — it renames the transcript to <code>*.deleted.*</code> rather than removing it. Your history is preserved; your working directory stays clean. Sessions that aren’t cleaned up sit around until the 60-minute auto-archive, which is a long time if you’re running agents frequently.</p>
+<hr>
+<h3 id="07-connect-context7-to-stop-agents-from-hallucinating-apis">07. Connect context7 to stop agents from hallucinating APIs</h3>
+<p>This is the single highest-impact MCP you can add for development workflows. Agents query real-time official documentation instead of guessing from training data that’s months or years old.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "mcpServers"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "context7"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      "command"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"npx"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      "args"</span><span style="color:#E1E4E8">: [</span><span style="color:#9ECBFF">"-y"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"@upstash/context7-mcp@latest"</span><span style="color:#E1E4E8">]</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>API key is optional — get one free at <code>context7.com/dashboard</code> if you hit rate limits. Once connected, add <code>use context7</code> to any prompt where you need current docs.</p>
+<p>Ask <em>“how do Server Actions work in the latest Next.js?”</em> and you get actual current documentation, not something from 2023 beta.</p>
+<hr>
+<h3 id="08-toolsmd-is-your-permission-boundary">08. TOOLS.md is your permission boundary</h3>
+<p>Without <code>TOOLS.md</code>, agents can call anything available.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#79B8FF;font-weight:bold"># TOOLS.md</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">deny: ["gateway", "cron", "billing", "admin_delete"]</span></span>
+<span class="line"></span></code></pre>
+<p><code>deny</code> overrides <code>allow</code>. In multi-agent setups this matters more than it seems — if one skill gets compromised, a permissive <code>TOOLS.md</code> lets the blast radius spread across your whole agent graph.</p>
+<hr>
+<h2 id="skill-selection-and-usage-chapter-2">Skill Selection and Usage {#chapter-2}</h2>
+<hr>
+<h3 id="09-the-safety-score-is-not-decoration">09. The safety score is not decoration</h3>
+<p>Both ClawHub and agentskills.io show a safety score for every skill. Read it.</p>
+<ul>
+<li><strong>A/B (80+):</strong> Fine for production</li>
+<li><strong>C (70–79):</strong> Check what OAuth scopes it requests before installing</li>
+<li><strong>D (≤69):</strong> Test in a sandbox. Seriously.</li>
+</ul>
+<p>In February 2026, the ClawHavoc incident pulled 341 skills from ClawHub. They contained prompt injection payloads — some subtle enough that manual inspection would have missed them. The safety score is automated analysis catching what you can’t see at a glance.</p>
+<hr>
+<h3 id="10-self-improvement-the-one-skill-that-actually-gets-smarter-over-time">10. self-improvement: the one skill that actually gets smarter over time</h3>
+<p><code>self-improvement</code> logs errors, corrections, and knowledge gaps from every session to <code>.learnings/ERRORS.md</code>. Before the next session starts, the agent reads that file back — so it enters already knowing what went wrong last time.</p>
+<p>No extra setup. No second skill required. Install it, run the same recurring task for two weeks, and compare. The compounding is real.</p>
+<hr>
+<h3 id="11-skill-load-order-later-wins">11. Skill load order: later wins</h3>
+<p>Load order is <code>TOOLS.md</code> → <code>AGENTS.md</code> → <code>SKILL.md</code>. If a skill defines a tool with the same name as something in your <code>AGENTS.md</code>, the skill’s version takes over.</p>
+<p>This is sometimes what you want (skills can intentionally extend your base config), sometimes not (a careless skill silently clobbers something important). If you have custom tool definitions, check a skill’s tool list before installing.</p>
+<hr>
+<h3 id="12-writing-a-custom-skill-is-simpler-than-you-think">12. Writing a custom skill is simpler than you think</h3>
+<p>The minimum viable <code>SKILL.md</code> has three sections:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#79B8FF;font-weight:bold"># my-skill/SKILL.md</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold">## What I do</span></span>
+<span class="line"><span style="color:#E1E4E8">Analyze CSV sales data and generate weekly summaries.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold">## When to use me</span></span>
+<span class="line"><span style="color:#E1E4E8">After a sales period closes, when you have a CRM export.</span></span>
+<span class="line"><span style="color:#E1E4E8">Not for real-time data or non-sales datasets.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold">## How I work</span></span>
+<span class="line"><span style="color:#FFAB70">1.</span><span style="color:#E1E4E8"> Read the CSV from the path in the task prompt</span></span>
+<span class="line"><span style="color:#FFAB70">2.</span><span style="color:#E1E4E8"> Calculate totals, top performers, period-over-period delta</span></span>
+<span class="line"><span style="color:#FFAB70">3.</span><span style="color:#E1E4E8"> Format as a Markdown table</span></span>
+<span class="line"><span style="color:#FFAB70">4.</span><span style="color:#E1E4E8"> Save to output/sales_summary_[</span><span style="color:#DBEDFF;text-decoration:underline">date</span><span style="color:#E1E4E8">].md</span></span>
+<span class="line"></span></code></pre>
+<p>That’s it. Agents can follow plain English instructions. You don’t need to learn a special syntax.</p>
+<hr>
+<h3 id="13-clawhub-vs-agentskillsio-different-tools-for-different-jobs">13. ClawHub vs agentskills.io: different tools for different jobs</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>clawhub.ai</th><th>agentskills.io</th></tr></thead><tbody><tr><td>Catalog size</td><td>3,286 skills</td><td>19,309 skills</td></tr><tr><td>Curation</td><td>Safety-audited, curated</td><td>Community submissions, long tail</td></tr><tr><td>Best for</td><td>Production use</td><td>Finding niche skills ClawHub doesn’t have</td></tr></tbody></table>
+<p>They’re not competitors. Use ClawHub by default; switch to agentskills.io when you need something specific that ClawHub doesn’t carry.</p>
+<hr>
+<h3 id="14-proactive-agent--cron-what-autonomous-actually-means">14. proactive-agent + Cron: what “autonomous” actually means</h3>
+<p><code>proactive-agent</code> supports WAL (crash recovery, context persistence across restarts), autonomous Cron scheduling, and context restoration after interruption.</p>
+<p>A concrete example of what this enables:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Schedule: daily at 08:00</span></span>
+<span class="line"><span>Task: Summarize yesterday's GitHub Issues and PRs.</span></span>
+<span class="line"><span>      Pull today's calendar. Flag any scheduling conflicts.</span></span>
+<span class="line"><span>      Post digest to Slack #morning-brief.</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>No button to press. No human in the loop. It just runs. This is the point where agents stop feeling like tools and start feeling like infrastructure.</p>
+<hr>
+<h2 id="sub-agent-architecture-chapter-3">Sub-Agent Architecture {#chapter-3}</h2>
+<hr>
+<h3 id="15-fan-out-the-most-impactful-change-most-teams-havent-made">15. Fan-out: the most impactful change most teams haven’t made</h3>
+<p>Sequential:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Main → fetch data (12s) → summarize news (11s) → check calendar (7s) → analyze tasks (5s)</span></span>
+<span class="line"><span>Total: 35 seconds</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>Fan-out:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#E1E4E8">sessions_spawn(</span><span style="color:#FFAB70">task</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"fetch market data"</span><span style="color:#E1E4E8">,  </span><span style="color:#FFAB70">label</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"market-data"</span><span style="color:#E1E4E8">,    </span><span style="color:#FFAB70">model</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"anthropic/claude-haiku-4-5"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">sessions_spawn(</span><span style="color:#FFAB70">task</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"summarize news"</span><span style="color:#E1E4E8">,     </span><span style="color:#FFAB70">label</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"news-summary"</span><span style="color:#E1E4E8">,   </span><span style="color:#FFAB70">model</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"anthropic/claude-haiku-4-5"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">sessions_spawn(</span><span style="color:#FFAB70">task</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"check calendar"</span><span style="color:#E1E4E8">,     </span><span style="color:#FFAB70">label</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"cal-check"</span><span style="color:#E1E4E8">,      </span><span style="color:#FFAB70">model</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"anthropic/claude-haiku-4-5"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">sessions_spawn(</span><span style="color:#FFAB70">task</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"analyze yesterday"</span><span style="color:#E1E4E8">,  </span><span style="color:#FFAB70">label</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"task-analysis"</span><span style="color:#E1E4E8">,  </span><span style="color:#FFAB70">model</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"anthropic/claude-haiku-4-5"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#6A737D"># main agent keeps moving, all four run in parallel</span></span>
+<span class="line"><span style="color:#E1E4E8">Total: </span><span style="color:#F97583">~</span><span style="color:#79B8FF">20</span><span style="color:#E1E4E8"> seconds</span></span>
+<span class="line"></span></code></pre>
+<p><code>sessions_spawn</code> returns a <code>runId</code> immediately and doesn’t block. The main agent continues. This one change — restructuring sequential work into fan-out — shaves 30–40% off latency for morning-brief style workflows.</p>
+<hr>
+<h3 id="16-use-haiku-for-sub-agents-by-default-opus-for-the-exceptions">16. Use Haiku for sub-agents by default, Opus for the exceptions</h3>
+<p>Set Haiku globally, override when you actually need reasoning:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "agents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "defaults"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      "subagents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">        "model"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"anthropic/claude-haiku-4-5"</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#6A737D"># Override for the one task that actually needs it</span></span>
+<span class="line"><span style="color:#E1E4E8">sessions_spawn(</span></span>
+<span class="line"><span style="color:#FFAB70">    task</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"design the data model for multi-tenant billing"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#FFAB70">    label</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"billing-schema"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#FFAB70">    model</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"anthropic/claude-opus-4-6"</span></span>
+<span class="line"><span style="color:#E1E4E8">)</span></span>
+<span class="line"></span></code></pre>
+<p>In practice: Haiku handles 80%+ of execution tasks without meaningful quality loss. The cost difference is real — 50–60% reduction in API spend for typical fan-out architectures.</p>
+<hr>
+<h3 id="17-routing-logic-in-agentsmd-not-soulmd">17. Routing logic in AGENTS.md, not SOUL.md</h3>
+<p>Worth repeating since it causes silent failures every time:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#79B8FF;font-weight:bold"># ❌ In SOUL.md — sub-agents cannot see this</span></span>
+<span class="line"><span style="color:#E1E4E8">When the user asks about finances, delegate to finance-agent.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold"># ✅ In AGENTS.md — sub-agents can see this</span></span>
+<span class="line"><span style="color:#E1E4E8">When the user asks about finances, delegate to finance-agent.</span></span>
+<span class="line"></span></code></pre>
+<p>If your routing breaks and you don’t know why, check this first.</p>
+<hr>
+<h3 id="18-always-label-your-sub-agents">18. Always label your sub-agents</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#6A737D"># ❌</span></span>
+<span class="line"><span style="color:#E1E4E8">sessions_spawn(</span><span style="color:#FFAB70">task</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"analyze Q4 numbers"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># ✅</span></span>
+<span class="line"><span style="color:#E1E4E8">sessions_spawn(</span></span>
+<span class="line"><span style="color:#FFAB70">    task</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"analyze Q4 numbers"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#FFAB70">    label</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"q4-sales-analysis-2026"</span></span>
+<span class="line"><span style="color:#E1E4E8">)</span></span>
+<span class="line"></span></code></pre>
+<p>Without a label, <code>/subagents list</code> gives you a wall of anonymous sessions. When one fails at 3am and you’re trying to figure out which one, the label is what makes the difference between a five-second diagnosis and a twenty-minute archaeology project.</p>
+<hr>
+<h3 id="19-sub-agents-cant-ask-questions--write-prompts-accordingly">19. Sub-agents can’t ask questions — write prompts accordingly</h3>
+<p>The <code>announce</code> mechanism goes one way: sub-agent reports back on completion. It can’t pause to ask a clarifying question mid-run.</p>
+<p>This means your task prompt has to contain everything the agent needs:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#6A737D"># ❌ Too vague — will produce garbage or nothing</span></span>
+<span class="line"><span style="color:#E1E4E8">sessions_spawn(</span><span style="color:#FFAB70">task</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"analyze the data"</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">label</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"analysis"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># ✅ Self-contained</span></span>
+<span class="line"><span style="color:#E1E4E8">sessions_spawn(</span></span>
+<span class="line"><span style="color:#FFAB70">    task</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"""</span></span>
+<span class="line"><span style="color:#9ECBFF">    Analyze /data/sales_jan_2026.csv.</span></span>
+<span class="line"><span style="color:#9ECBFF">    Output: 1) Total monthly revenue, 2) Top 5 products by units,</span></span>
+<span class="line"><span style="color:#9ECBFF">    3) MoM change vs /data/sales_dec_2025.csv.</span></span>
+<span class="line"><span style="color:#9ECBFF">    Format: Markdown table. Save to /output/jan_2026_report.md.</span></span>
+<span class="line"><span style="color:#9ECBFF">    If either file is missing, write to /output/errors.log and stop.</span></span>
+<span class="line"><span style="color:#9ECBFF">    """</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#FFAB70">    label</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"jan-2026-analysis"</span></span>
+<span class="line"><span style="color:#E1E4E8">)</span></span>
+<span class="line"></span></code></pre>
+<p>Think of it as writing instructions for someone who’s going into a room, closing the door, and can’t come back out to ask you anything.</p>
+<hr>
+<h3 id="20-watch-your-concurrency-limits">20. Watch your concurrency limits</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "agents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "defaults"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      "subagents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">        "maxChildrenPerAgent"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">5</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">        "maxConcurrent"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">3</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p><code>maxChildrenPerAgent</code> caps how many sub-agents one parent can spawn (default: 5). <code>maxConcurrent</code> is the global ceiling on parallel agents (default: 8).</p>
+<p>Hitting either limit doesn’t crash anything — agents queue — but latency goes up. If you’re on a personal API plan with lower rate limits, dropping <code>maxConcurrent</code> to 3 or 4 avoids 429s. On an enterprise plan, you can push it higher.</p>
+<hr>
+<h2 id="cost-control-chapter-4">Cost Control {#chapter-4}</h2>
+<hr>
+<h3 id="21-install-save-money-for-automatic-model-routing">21. Install save-money for automatic model routing</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> install</span><span style="color:#9ECBFF"> save-money</span></span>
+<span class="line"></span></code></pre>
+<p>The skill watches task complexity and routes to the cheapest model that can handle it: Haiku for classification and formatting, Sonnet for standard generation, Opus for anything requiring actual reasoning. Threshold is configurable.</p>
+<p>Users consistently report 50%+ monthly cost reduction. The routing isn’t perfect, but it doesn’t need to be — even routing 60% of tasks to Haiku instead of Opus adds up fast.</p>
+<hr>
+<h3 id="22-context-compaction-for-sessions-that-run-long">22. Context Compaction for sessions that run long</h3>
+<p>Claude Opus and Sonnet 4.6 both support Context Compaction. When conversation history gets long, compaction summarizes intelligently instead of truncating. You keep coherence; you don’t hit the wall.</p>
+<p>Most relevant for research agents that run over multiple hours, iterative document editing, and long debugging sessions. If your agents regularly approach context limits, turn this on.</p>
+<hr>
+<h3 id="23-openclaw-usage-run-it-actually-look-at-it">23. openclaw usage: run it, actually look at it</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> usage</span></span>
+<span class="line"></span></code></pre>
+<p>Breaks down token consumption by session, model, and tool. Most people run this once, glance at the total, and close it. The value is in the per-agent breakdown.</p>
+<p>What to look for: one sub-agent using 5× more tokens than the rest (prompt is too long), a tool called 20 times in a single session (agent is looping), Opus on tasks that Sonnet could handle (misconfigured routing). These patterns pay for themselves to fix.</p>
+<hr>
+<h3 id="24-pin-gpt-4o-mini-for-summarization-and-classification">24. Pin gpt-4o-mini for summarization and classification</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "tasks"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "summarize"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"model"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"openai/gpt-4o-mini"</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#79B8FF">    "classify"</span><span style="color:#E1E4E8">:  { </span><span style="color:#79B8FF">"model"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"openai/gpt-4o-mini"</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#79B8FF">    "translate"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"model"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"openai/gpt-4o-mini"</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#79B8FF">    "format"</span><span style="color:#E1E4E8">:    { </span><span style="color:#79B8FF">"model"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"openai/gpt-4o-mini"</span><span style="color:#E1E4E8"> }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>For these task types, accuracy doesn’t meaningfully differ between GPT-4o-mini and Opus. Cost does — about 80% less. Point the cheap model at cheap work; save the expensive model for the cases where it actually matters.</p>
+<hr>
+<h3 id="25-sensitive-data-goes-through-a-local-model">25. Sensitive data goes through a local model</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "mcpServers"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "local-llm"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      "model"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"ollama/qwen2.5"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      "baseUrl"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"http://localhost:11434"</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>Financial records, employee data, internal documents — anything that shouldn’t leave your network goes to Ollama. Qwen2.5 runs well on local hardware (multiple size options from 0.5B to 72B), supports 128K context, and handles function calling. It’s slower than cloud APIs, but for sensitive workloads that’s the tradeoff you make.</p>
+<hr>
+<h2 id="debugging-and-security-chapter-5">Debugging and Security {#chapter-5}</h2>
+<hr>
+<h3 id="26-verbose-logs-before-anything-else">26. Verbose logs before anything else</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> debug</span><span style="color:#79B8FF"> --verbose</span></span>
+<span class="line"><span style="color:#B392F0">/subagents</span><span style="color:#9ECBFF"> log</span><span style="color:#F97583"> &#x3C;</span><span style="color:#9ECBFF">runI</span><span style="color:#E1E4E8">d</span><span style="color:#F97583">></span></span>
+<span class="line"></span></code></pre>
+<p>The verbose log shows every tool call, every routing decision, and the full context at each step. Nine times out of ten, the issue is obvious the moment you see the log — the agent tried to call a tool that doesn’t exist, got stuck in a retry loop, or was working from a prompt that didn’t include the information it needed.</p>
+<p>Don’t debug by hypothesis when you can just read what happened.</p>
+<hr>
+<h3 id="27-timeout-and-failure-look-different--treat-them-differently">27. Timeout and failure look different — treat them differently</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">/subagents</span><span style="color:#9ECBFF"> list</span></span>
+<span class="line"></span></code></pre>
+<p>Check the <code>status</code> column before doing anything:</p>
+<ul>
+<li><code>timeout</code> — the agent ran past <code>runTimeoutSeconds</code>. Increase the limit, rerun. Running again with the same config reproduces the timeout.</li>
+<li><code>error</code> — actual failure. Open the log, find the error message.</li>
+</ul>
+<p>They need different fixes. Treating a timeout as a failure sends you in the wrong direction.</p>
+<hr>
+<h3 id="28-scan-installed-skills-with-clawdefender">28. Scan installed skills with clawdefender</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">clawdefender</span><span style="color:#9ECBFF"> scan</span><span style="color:#79B8FF"> --all</span></span>
+<span class="line"></span></code></pre>
+<p>After ClawHavoc, this is something you should run on any existing installation, not just new ones. It catches prompt injection, command injection, credential harvesting, and scope creep in OAuth requests — the four things that made 341 skills dangerous without looking dangerous.</p>
+<p>If a skill fails, uninstall it and find an alternative with a higher safety score. There’s no safe way to “partially trust” a skill that’s trying to exfiltrate credentials.</p>
+<hr>
+<h3 id="29-oauth-scope-ask-for-exactly-what-you-need">29. OAuth scope: ask for exactly what you need</h3>
+<p>Every scope you grant is a scope that can be abused if a skill is compromised:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Don’t request</th><th>Request instead</th></tr></thead><tbody><tr><td><code>calendar:*</code></td><td><code>calendar:read</code></td></tr><tr><td><code>email:*</code></td><td><code>email:send</code></td></tr><tr><td><code>files:readwrite</code></td><td><code>files:read</code></td></tr><tr><td><code>contacts:*</code></td><td><code>contacts:read</code></td></tr></tbody></table>
+<p>A calendar-reading skill doesn’t need write access. An email-drafting skill doesn’t need to delete messages. Scope requests that exceed what the skill description promises are a red flag worth investigating before authorizing.</p>
+<hr>
+<h3 id="30-tinyclaw-has-all-of-this-pre-configured">30. TinyClaw has all of this pre-configured</h3>
+<p>The configuration in this guide — timeout settings, cleanup policies, model routing, security defaults — is already baked into TinyClaw. If you’d rather skip the setup and get a production-ready instance running in under a minute:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>tinyclaw.dev → pick a model → pick a channel → deploy</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>The 30 tips above still apply once you’re running. They give you a better starting point.</p>
+<hr>
+<h2 id="skip-all-of-this-tinyclaw-tinyclaw">Skip All of This: TinyClaw {#tinyclaw}</h2>
+<p>Manual OpenClaw setup, if you know the steps, takes about an hour:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Step</th><th>Time</th></tr></thead><tbody><tr><td>Provision a server</td><td>15 min</td></tr><tr><td>Configure SSH keys</td><td>10 min</td></tr><tr><td>Install Node.js</td><td>5 min</td></tr><tr><td>Install and configure OpenClaw</td><td>17 min</td></tr><tr><td>Connect to an AI provider</td><td>10 min</td></tr><tr><td><strong>Total</strong></td><td><strong>~60 min</strong></td></tr></tbody></table>
+<p>If you’re non-technical, multiply by 10 — you have to learn each step before doing it.</p>
+<p>TinyClaw skips this entirely. Servers are pre-provisioned, the environment is already configured. You pick three things:</p>
+<p><strong>Model:</strong> Claude Opus 4.6, GPT-5.2, or Gemini 3.1 Pro</p>
+<p><strong>Channel:</strong> Telegram, Discord, or WhatsApp</p>
+<p><strong>Account:</strong> Sign in with Google.</p>
+<p>That’s the whole process. Under a minute.</p>
+<p>What you can do immediately after:</p>
+<ul>
+<li>Read and summarize email, draft replies</li>
+<li>Meeting reminders and schedule conflict detection</li>
+<li>Track expenses from receipts</li>
+<li>Research competitors, screen leads</li>
+<li>Standup summaries, OKR tracking</li>
+<li>Draft contracts, job descriptions, social posts</li>
+<li>Price comparison, coupon lookup</li>
+</ul>
+<p>And anything else you can describe in a sentence. Server slots are limited — check availability at <a href="https://tinyclaw.dev">tinyclaw.dev</a>.</p>
+<hr>
+<h2 id="quick-reference">Quick Reference</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Chapter</th><th>Tips</th><th>Read When</th></tr></thead><tbody><tr><td>Configuration</td><td>01–08</td><td>Before touching config</td></tr><tr><td>Skills</td><td>09–14</td><td>Before installing anything</td></tr><tr><td>Sub-Agents</td><td>15–20</td><td>Before building multi-agent workflows</td></tr><tr><td>Cost</td><td>21–25</td><td>After your first real workload</td></tr><tr><td>Debug &#x26; Security</td><td>26–30</td><td>When things break</td></tr></tbody></table>
+<hr>
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="https://docs.openclaw.ai">docs.openclaw.ai</a> — official documentation</li>
+<li><a href="https://clawhub.ai">clawhub.ai</a> — curated skills, safety-audited</li>
+<li><a href="https://agentskills.io">agentskills.io</a> — wider catalog, longer tail</li>
+<li><a href="https://tinyclaw.dev">tinyclaw.dev</a> — one-click deploy</li>
+<li><a href="https://agentputer.com">agentputer.com</a> — 24/7 cloud hosting</li>
+</ul>
+<hr>
+<p><em>Sources: OpenClaw docs (docs.openclaw.ai) · ClawHub safety data (Feb 2026) · Anthropic model docs (docs.anthropic.com) · context7 docs (context7.com)</em></p>  </div> <!-- 返回博客列表 --> <footer class="mt-16 pt-8 border-t border-accent/20"> <a href="/blog/" class="inline-flex items-center gap-2 font-mono text-sm text-text-muted hover:text-accent transition-colors group"> <span class="group-hover:-translate-x-1 transition-transform">&lt;-</span> <span>Back to all posts</span> </a> </footer> </article> </main> <footer class="bg-dark-secondary border-t border-accent/20"> <div class="max-w-7xl mx-auto px-6 lg:px-20 py-12 lg:py-16"> <!-- Top Section --> <div class="flex flex-col lg:flex-row justify-between gap-12 mb-12"> <!-- Brand --> <div class="lg:max-w-xs"> <a href="/" class="inline-block mb-4"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <p class="text-text-muted text-sm font-mono"> <span class="text-terminal-cyan">//</span> Your AI Never Sleeps
+</p> </div> <!-- Links Grid --> <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 font-mono"> <!-- Product --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/product</h4> <ul class="space-y-3"> <li> <a href="/features" class="text-text-muted text-sm hover:text-accent transition-colors"> Features </a> </li><li> <a href="/pricing" class="text-text-muted text-sm hover:text-accent transition-colors"> Pricing </a> </li><li> <a href="/docs" class="text-text-muted text-sm hover:text-accent transition-colors"> Docs </a> </li> </ul> </div> <!-- Company --> <div> <h4 class="text-terminal-orange font-bold mb-4 text-sm">/company</h4> <ul class="space-y-3"> <li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> About </a> </li><li> <a href="/blog/" class="text-text-muted text-sm hover:text-accent transition-colors"> Blog </a> </li> </ul> </div> <!-- Contact --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/contact</h4> <ul class="space-y-3"> <li> <a href="/cdn-cgi/l/email-protection#1e716d7d7f6c647f73716c7f2f2727272e295e79737f7772307d7173" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> <span class="__cf_email__" data-cfemail="2b4458484a59514a4644594a1a1212121b1c6b4c464a424705484446">[email&#160;protected]</span> </a> </li><li> <a href="https://twitter.com/agentputer" target="_blank" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Twitter </a> </li><li> <a href="https://discord.gg/agentputer" target="_blank" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Discord </a> </li> </ul> </div> <!-- Legal --> <div> <h4 class="text-terminal-blue font-bold mb-4 text-sm">/legal</h4> <ul class="space-y-3"> <li> <a href="/privacy" class="text-text-muted text-sm hover:text-accent transition-colors"> Privacy </a> </li><li> <a href="/terms" class="text-text-muted text-sm hover:text-accent transition-colors"> Terms </a> </li><li> <a href="/privacy#data-security" class="text-text-muted text-sm hover:text-accent transition-colors"> Security </a> </li> </ul> </div> </div> </div> <!-- Divider --> <div class="border-t border-accent/20 pt-8"> <div class="flex flex-col md:flex-row justify-between items-center gap-4 font-mono"> <!-- Copyright --> <p class="text-text-dark text-sm">
+/* © 2026 AgentPuter. All rights reserved. */
+</p> <!-- Social Links --> <div class="flex items-center gap-6"> <a href="https://github.com/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors"> GitHub </a> </div> </div> </div> </div> </footer>  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"db97590b14994206be9f2eaec90a9494","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html> 

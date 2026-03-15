@@ -1,10 +1,4 @@
 ---
-title: "OpenClaw 剛修復了其最大痛點。為您揭曉 lossless-claw 的真正功能。"
-description: "OpenClaw 的預設壓縮機制只會觸發一次，它會總結所有內容，然後丟棄原始訊息。
-readingTime: "18 分鐘"
-tags: ["OpenClaw", "lossless-claw", "情境引擎", "記憶", "外掛", "長期運作代理人", "LCM"]
-featured: true
----
 
 # OpenClaw 解決了
 > - [功能：可插拔情境系統，適用於 OpenClaw 的 LCM](https://github.com/openclaw/openclaw/discussions/22251) — 討論區 #22251，@jalehman，2026年2月20日

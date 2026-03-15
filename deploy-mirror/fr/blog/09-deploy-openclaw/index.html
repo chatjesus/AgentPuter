@@ -1,0 +1,735 @@
+<!DOCTYPE html><html lang="fr"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="OpenClaw a dépassé les 207 000 étoiles GitHub cette semaine. Voici comment le configurer réellement — du bare metal au cloud en un clic — sans les lacunes que la plupart des tutoriels laissent."><meta name="theme-color" content="#0D0D0D"><meta name="generator" content="Astro v4.16.19"><!-- Canonical URL --><link rel="canonical" href="https://www.agentputer.com/fr/blog/09-deploy-openclaw/"><!-- hreflang 多语言标签 --><link rel="alternate" hreflang="en" href="https://www.agentputer.com/blog/09-deploy-openclaw/"><link rel="alternate" hreflang="zh-CN" href="https://www.agentputer.com/zh/blog/09-deploy-openclaw/"><link rel="alternate" hreflang="ja" href="https://www.agentputer.com/ja/blog/09-deploy-openclaw/"><link rel="alternate" hreflang="ko" href="https://www.agentputer.com/ko/blog/09-deploy-openclaw/"><link rel="alternate" hreflang="es" href="https://www.agentputer.com/es/blog/09-deploy-openclaw/"><link rel="alternate" hreflang="pt-BR" href="https://www.agentputer.com/pt-br/blog/09-deploy-openclaw/"><link rel="alternate" hreflang="de" href="https://www.agentputer.com/de/blog/09-deploy-openclaw/"><link rel="alternate" hreflang="fr" href="https://www.agentputer.com/fr/blog/09-deploy-openclaw/"><link rel="alternate" hreflang="zh-TW" href="https://www.agentputer.com/zh-tw/blog/09-deploy-openclaw/"><link rel="alternate" hreflang="x-default" href="https://www.agentputer.com/blog/09-deploy-openclaw/"><!-- Keywords（各语言本地化） --><meta name="keywords" content="OpenClaw, Deployment, AI Agent, Mac Mini, AgentPuter, TinyClaw, Tutorial"><!-- Open Graph --><meta property="og:title" content="Quatre façons de déployer OpenClaw : Mac Mini, VPS, Pod Cloud, ou en moins de 60 secondes | Blog AgentPuter"><meta property="og:description" content="OpenClaw a dépassé les 207 000 étoiles GitHub cette semaine. Voici comment le configurer réellement — du bare metal au cloud en un clic — sans les lacunes que la plupart des tutoriels laissent."><meta property="og:type" content="article"><meta property="og:url" content="https://www.agentputer.com/fr/blog/09-deploy-openclaw/"><meta property="og:image" content="https://www.agentputer.com/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:site_name" content="AgentPuter"><meta property="og:locale" content="fr_FR"><meta property="og:locale:alternate" content="en_US"><meta property="og:locale:alternate" content="zh_CN"><meta property="og:locale:alternate" content="ja_JP"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="es_ES"><meta property="og:locale:alternate" content="pt_BR"><meta property="og:locale:alternate" content="de_DE"><meta property="og:locale:alternate" content="zh_TW"><!-- Article-specific OG tags --><meta property="article:published_time" content="2026-02-18"><meta property="article:author" content="AgentPuter Lab"><meta property="article:tag" content="OpenClaw"><meta property="article:tag" content="Deployment"><meta property="article:tag" content="AI Agent"><meta property="article:tag" content="Mac Mini"><meta property="article:tag" content="AgentPuter"><meta property="article:tag" content="TinyClaw"><meta property="article:tag" content="Tutorial"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@agentputer"><meta name="twitter:creator" content="@agentputer"><meta name="twitter:title" content="Quatre façons de déployer OpenClaw : Mac Mini, VPS, Pod Cloud, ou en moins de 60 secondes | Blog AgentPuter"><meta name="twitter:description" content="OpenClaw a dépassé les 207 000 étoiles GitHub cette semaine. Voici comment le configurer réellement — du bare metal au cloud en un clic — sans les lacunes que la plupart des tutoriels laissent."><meta name="twitter:image" content="https://www.agentputer.com/og-default.png"><!-- Favicon --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/favicon.svg"><!-- 字体：preconnect + LCP 关键字体直接预加载 --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- 直接预加载 LCP 关键字体文件（JetBrains Mono Bold Latin，H1 使用） --><link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8L6tTOlOVk6OThhvA.woff2"><!-- 字体 CSS 阻塞加载（配合 preconnect 延迟极低，确保 LCP 时字体可用） --><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"><!-- Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":"https://www.agentputer.com/favicon.svg","description":"Your AI Agent's dedicated cloud runtime. AgentPuter keeps your AI running 24/7.","sameAs":["https://twitter.com/agentputer","https://github.com/agentputer","https://discord.gg/agentputer"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"AgentPuter","url":"https://www.agentputer.com","inLanguage":"fr","availableLanguage":[{"@type":"Language","name":"English","alternateName":"en"},{"@type":"Language","name":"中文","alternateName":"zh-CN"},{"@type":"Language","name":"繁體中文","alternateName":"zh-TW"},{"@type":"Language","name":"日本語","alternateName":"ja"},{"@type":"Language","name":"한국어","alternateName":"ko"},{"@type":"Language","name":"Español","alternateName":"es"},{"@type":"Language","name":"Português","alternateName":"pt-BR"},{"@type":"Language","name":"Deutsch","alternateName":"de"},{"@type":"Language","name":"Français","alternateName":"fr"}],"description":"Your AI Agent's dedicated cloud runtime."}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.agentputer.com/fr/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.agentputer.com/fr/blog/"},{"@type":"ListItem","position":3,"name":"09 deploy openclaw","item":"https://www.agentputer.com/fr/blog/09-deploy-openclaw/"}]}</script><!-- 页面专属结构化数据插槽 --><!-- 浏览器语言自动检测：移到 head 阻塞执行，避免渲染后跳转导致 CLS --><script>
+    (function() {
+      if (localStorage.getItem('agentputer-lang')) return;
+
+      var langMap = {
+        'zh': '/zh', 'zh-cn': '/zh', 'zh-tw': '/zh-tw', 'zh-hk': '/zh-tw',
+        'ja': '/ja', 'ko': '/ko',
+        'es': '/es', 'es-419': '/es',
+        'pt': '/pt-br', 'pt-br': '/pt-br',
+        'de': '/de', 'fr': '/fr',
+      };
+
+      var path = window.location.pathname;
+      if (/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)(\/|$)/.test(path)) {
+        var m = path.match(/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)/);
+        if (m) localStorage.setItem('agentputer-lang', m[1]);
+        return;
+      }
+
+      var langs = navigator.languages || [navigator.language];
+      for (var i = 0; i < langs.length; i++) {
+        var bl = langs[i].toLowerCase();
+        if (langMap[bl]) {
+          var target = path === '/' ? langMap[bl] + '/' : langMap[bl] + path;
+          localStorage.setItem('agentputer-lang', bl);
+          window.location.replace(target);
+          return;
+        }
+        var primary = bl.split('-')[0];
+        if (primary !== bl && langMap[primary]) {
+          var target2 = path === '/' ? langMap[primary] + '/' : langMap[primary] + path;
+          localStorage.setItem('agentputer-lang', primary);
+          window.location.replace(target2);
+          return;
+        }
+      }
+      localStorage.setItem('agentputer-lang', 'en');
+    })();
+    </script><!-- Google Analytics 4 --><script async src="https://www.googletagmanager.com/gtag/js?id=G-9M2T6GQJ0L"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9M2T6GQJ0L');
+    </script><title>Quatre façons de déployer OpenClaw : Mac Mini, VPS, Pod Cloud, ou en moins de 60 secondes | Blog AgentPuter</title><link rel="stylesheet" href="/_astro/_slug_.DM3EUOA_.css">
+<link rel="stylesheet" href="/_astro/_slug_.CUcOCpHJ.css">
+<link rel="stylesheet" href="/_astro/_slug_.CxhqtQFk.css"><script type="module" src="/_astro/hoisted.CReWVP5t.js"></script></head> <body class="min-h-screen">   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Quatre façons de déployer OpenClaw : Mac Mini, VPS, Pod Cloud, ou en moins de 60 secondes","description":"OpenClaw a dépassé les 207 000 étoiles GitHub cette semaine. Voici comment le configurer réellement — du bare metal au cloud en un clic — sans les lacunes que la plupart des tutoriels laissent.","datePublished":"2026-02-18","dateModified":"2026-02-18","inLanguage":"fr","author":{"@type":"Organization","name":"AgentPuter Lab","url":"https://www.agentputer.com"},"publisher":{"@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":{"@type":"ImageObject","url":"https://www.agentputer.com/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.agentputer.com/fr/blog/09-deploy-openclaw/"},"keywords":"OpenClaw, Deployment, AI Agent, Mac Mini, AgentPuter, TinyClaw, Tutorial"}</script> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.agentputer.com/fr/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.agentputer.com/fr/blog/"},{"@type":"ListItem","position":3,"name":"Quatre façons de déployer OpenClaw : Mac Mini, VPS, Pod Cloud, ou en moins de 60 secondes"}]}</script> <header class="fixed top-0 left-0 right-0 z-50 bg-dark-primary md:bg-dark-primary/95 md:backdrop-blur-lg border-b border-accent/20"> <nav class="max-w-7xl mx-auto px-6 lg:px-20 h-20 flex items-center justify-between"> <!-- Logo --> <a href="/fr/" class="flex items-center gap-2 group"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <!-- Desktop Navigation --> <div class="hidden md:flex items-center gap-8 font-mono"> <a href="/fr/features" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/fonctionnalités
+</a> <a href="/tools" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/outils
+</a> <a href="#pricing" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/tarifs
+</a> <a href="/fr/blog/" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/blog
+</a> <a href="/fr/docs" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/docs
+</a> <!-- Desktop 语言切换器 --><div class="lang-switcher relative"> <button class="lang-btn flex items-center gap-1.5 text-text-secondary hover:text-accent transition-colors text-sm font-mono cursor-pointer" aria-label="Switch language" aria-expanded="false"> <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <circle cx="12" cy="12" r="10" stroke-width="1.5"></circle> <path stroke-width="1.5" d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path> </svg> <span>FR</span> <svg class="w-3 h-3 opacity-40 transition-transform lang-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </button> <!-- 下拉菜单 --> <div class="lang-dropdown hidden absolute right-0 top-full mt-2 py-1 bg-[#1a1a1a] border border-[#333] rounded-lg shadow-xl min-w-[160px] z-[100]"> <a href="/blog/09-deploy-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="en"> <span>English</span> <span class="text-xs text-text-dark">EN</span> </a><a href="/zh/blog/09-deploy-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="zh"> <span>中文</span> <span class="text-xs text-text-dark">中文</span> </a><a href="/ja/blog/09-deploy-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ja"> <span>日本語</span> <span class="text-xs text-text-dark">JA</span> </a><a href="/ko/blog/09-deploy-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ko"> <span>한국어</span> <span class="text-xs text-text-dark">KO</span> </a><a href="/es/blog/09-deploy-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="es"> <span>Español</span> <span class="text-xs text-text-dark">ES</span> </a><a href="/pt-br/blog/09-deploy-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="pt-br"> <span>Português</span> <span class="text-xs text-text-dark">PT</span> </a><a href="/de/blog/09-deploy-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="de"> <span>Deutsch</span> <span class="text-xs text-text-dark">DE</span> </a><a href="/fr/blog/09-deploy-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-accent bg-accent/10" data-lang="fr"> <span>Français</span> <span class="text-xs text-accent">FR</span> </a> </div> </div> <!-- Mobile 语言列表（平铺，不用下拉） --> <div class="lang-mobile hidden"> <div class="flex flex-wrap gap-2"> <a href="/blog/09-deploy-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="en"> English </a><a href="/zh/blog/09-deploy-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="zh"> 中文 </a><a href="/ja/blog/09-deploy-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ja"> 日本語 </a><a href="/ko/blog/09-deploy-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ko"> 한국어 </a><a href="/es/blog/09-deploy-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="es"> Español </a><a href="/pt-br/blog/09-deploy-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="pt-br"> Português </a><a href="/de/blog/09-deploy-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="de"> Deutsch </a><a href="/fr/blog/09-deploy-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-accent border-accent/40 bg-accent/10" data-lang="fr"> Français </a> </div> </div>  <a href="https://app.agentputer.com/sign-up" class="text-sm py-2.5 px-6 bg-accent text-dark-primary font-bold rounded hover:bg-accent-dark transition-colors">
+[COMMENCER]
+</a> </div> <!-- Mobile Menu Button --> <button id="mobile-menu-btn-fr" class="md:hidden p-2 text-text-secondary hover:text-white" aria-label="Ouvrir le menu"> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </nav> <!-- Mobile Menu --> <div id="mobile-menu-fr" class="hidden md:hidden bg-dark-secondary border-t border-dark-tertiary"> <div class="px-6 py-4 space-y-4"> <a href="/fr/features" class="block hover:text-white transition-colors text-text-secondary">
+fonctionnalités
+</a> <a href="/tools" class="block hover:text-white transition-colors text-text-secondary">
+outils
+</a> <a href="#pricing" class="block hover:text-white transition-colors text-text-secondary">
+tarifs
+</a> <a href="/fr/blog/" class="block hover:text-white transition-colors text-text-secondary">
+blog
+</a> <a href="/fr/docs" class="block hover:text-white transition-colors text-text-secondary">
+docs
+</a> <div class="lang-mobile-wrapper"></div> <a href="https://app.agentputer.com/sign-up" class="btn-primary w-full justify-center text-sm py-3">
+Commencer
+</a> </div> </div> </header>  <main class="relative z-10 pt-28 pb-20"> <article class="max-w-4xl mx-auto px-6 lg:px-8"> <!-- Fil d'Ariane --> <nav class="mb-8 font-mono text-sm"> <a href="/fr/" class="text-text-muted hover:text-accent transition-colors">~</a> <span class="text-text-dark mx-2">/</span> <a href="/fr/blog/" class="text-text-muted hover:text-accent transition-colors">Blog</a> <span class="text-text-dark mx-2">/</span> <span class="text-accent">Article</span> </nav> <!-- En-tête des métadonnées de l'article --> <header class="mb-12"> <!-- Tags --> <div class="flex flex-wrap gap-2 mb-6"> <span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#OpenClaw </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Deployment </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#AI Agent </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Mac Mini </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#AgentPuter </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#TinyClaw </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Tutorial </span> </div> <!-- Titre --> <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6"> Quatre façons de déployer OpenClaw : Mac Mini, VPS, Pod Cloud, ou en moins de 60 secondes </h1> <!-- Description --> <p class="text-lg text-text-secondary leading-relaxed mb-8"> OpenClaw a dépassé les 207 000 étoiles GitHub cette semaine. Voici comment le configurer réellement — du bare metal au cloud en un clic — sans les lacunes que la plupart des tutoriels laissent. </p> <!-- Ligne de métadonnées --> <div class="flex flex-wrap items-center gap-6 text-sm font-mono text-text-muted border-t border-b border-accent/20 py-4"> <div class="flex items-center gap-2"> <span class="text-terminal-cyan">@</span> <span class="text-text-secondary">AgentPuter Lab</span> </div> <div class="flex items-center gap-2"> <span class="text-terminal-orange">$</span> <time datetime="2026-02-18" class="text-text-secondary">18 février 2026</time> </div> <div class="flex items-center gap-2"> <span class="text-terminal-blue">~</span> <span class="text-text-secondary">20 min de lecture</span> </div> </div> </header> <!-- Corps de l'article --> <div class="prose prose-invert prose-terminal max-w-none">  <p><em>Partie 9 de la série sur l’infrastructure des agents</em></p>
+<hr>
+<p>OpenClaw est le projet d’IA open-source à la croissance la plus rapide sur GitHub en ce moment : 207 000 étoiles, 38 000 forks, 683 contributeurs, plus de 12 000 commits. Le rédacteur de MacStories, Federico Viticci, a consommé 180 millions de tokens avec son instance « Navi » et l’a qualifié de « la chose qui a changé ma façon d’utiliser l’IA. » Les Mac Mini ont été en rupture de stock dans les Apple Stores de plusieurs villes — en partie parce que les gens voulaient une machine dédiée et toujours allumée pour l’exécuter.</p>
+<p>Vous voulez l’essayer. La question est : comment le configurez-vous réellement ?</p>
+<p>Les tutoriels existants se divisent en deux catégories : soit ils supposent que vous savez déjà ce qu’est <code>systemd</code>, soit ils sautent trois étapes et vous laissent face à une erreur. Ce guide couvre quatre approches — de la construction de votre propre serveur local au déploiement en moins de 60 secondes — afin que vous puissiez choisir celle qui correspond à votre niveau de compétence et à vos priorités.</p>
+<p><strong>Les quatre approches :</strong></p>
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parcours</th><th>Temps</th><th>Niveau de compétence</th><th>Idéal pour</th></tr></thead><tbody><tr><td>A. Mac Mini</td><td>15–30 min</td><td>Bases du terminal</td><td>Confidentialité en priorité, contrôle total</td></tr><tr><td>B1. VPS autogéré</td><td>15–30 min</td><td>SSH + ops Linux</td><td>Développeurs, conformité</td></tr><tr><td>B2. AgentPuter</td><td>~2 min</td><td>CLI de base</td><td>Multi-agent, zéro DevOps</td></tr><tr><td>C. TinyClaw</td><td>&#x3C; 1 min</td><td>Aucun</td><td>Tout le monde</td></tr></tbody></table>
+<hr>
+<hr>
+<h2 id="dabord--quest-ce-quopenclaw--version-30-secondes">D’abord : Qu’est-ce qu’OpenClaw ? (Version 30 secondes)</h2>
+<p>OpenClaw n’est pas un autre chatbot que vous consultez dans un navigateur. C’est un <strong>assistant IA personnel qui fonctionne 24h/24 et 7j/7 en arrière-plan</strong> et qui vous parle via les applications de messagerie que vous utilisez déjà — WhatsApp, Telegram, Slack, Discord, Google Chat, Signal, iMessage (via BlueBubbles), Microsoft Teams, WebChat, Matrix, et d’autres. Douze canaux, et la liste s’allonge.</p>
+<p>Ce qui le différencie de ChatGPT :</p>
+<ul>
+<li><strong>Mémoire persistante.</strong> OpenClaw dispose d’un fichier <code>SOUL.md</code> qui définit qui il est pour <em>vous</em> — votre nom, vos préférences, votre style de travail, votre fuseau horaire. Il se souvient d’une session à l’autre.</li>
+<li><strong>Actions dans le monde réel.</strong> Il lit vos e-mails, gère votre calendrier, intervient sur vos fichiers, contrôle les appareils domestiques connectés, effectue des recherches et rédige des brouillons de réponses — de manière autonome.</li>
+<li><strong>Voix et canevas.</strong> Les modes Voice Wake et Talk (propulsés par ElevenLabs) vous permettent de lui parler en mode mains libres. Live Canvas (A2UI) lui fournit un espace de travail visuel.</li>
+<li><strong>Priorité au local.</strong> Vos données restent sur votre machine. Pas d’entraînement sur vos conversations. Pas de cloud tiers, sauf si vous en choisissez un.</li>
+</ul>
+<hr>
+<p><strong>Ce qu’il vous faut pour l’exécuter :</strong></p>
+<ul>
+<li>Une machine exécutant <strong>Node.js 22+</strong> (macOS, Linux, ou Windows via WSL2)</li>
+<li>Un abonnement à un modèle d’IA : <strong>clé API Anthropic ou OAuth Claude Pro/Max</strong> (fortement recommandé par le créateur du projet), ou OpenAI / Google Gemini</li>
+<li>La recommandation officielle : <strong>Anthropic Pro/Max + Opus 4.6</strong> — meilleures performances sur les contextes longs et la plus forte résistance à l’injection de prompt parmi les modèles pris en charge</li>
+</ul>
+<hr>
+<hr>
+<h2 id="voie-a--mac-mini--le-serveur-local">Voie A : Mac Mini — Le serveur local</h2>
+<p><strong>Pour qui :</strong> Vous possédez (ou souhaitez posséder) un Mac Mini. Vous voulez un contrôle 100 % local. La souveraineté des données est importante pour vous. Vous souhaitez une intégration avec iMessage et la fonction Voice Wake.</p>
+<h3 id="matériel">Matériel</h3>
+<p>Un Mac Mini M4 modèle de base (599 $) est plus que suffisant : 16 Go de mémoire unifiée, 256 Go de stockage. Il consomme 5 à 10 W au repos — soit environ 15 $ par an en électricité. Il est silencieux, toujours allumé, et prend en charge nativement iMessage via BlueBubbles, ce qu’aucun déploiement cloud ne peut égaler.</p>
+<p>Si vous achetez un modèle reconditionné, un M2 avec 16 Go fonctionne aussi très bien. Évitez les modèles avec 8 Go — OpenClaw ainsi que la fenêtre de contexte du modèle utiliseront le swap en cas de forte sollicitation, et l’utilisation du swap sur un SSD réduit la durée de vie du disque.</p>
+<h3 id="prérequis">Prérequis</h3>
+<p>Avant de commencer, assurez-vous d’avoir :</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" checked disabled> macOS 13 (Ventura) ou une version plus récente</li>
+<li class="task-list-item"><input type="checkbox" checked disabled> Homebrew installé (<code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code>)</li>
+<li class="task-list-item"><input type="checkbox" checked disabled> Node.js 22+ (<code>brew install node@22</code>, puis vérifiez avec <code>node --version</code>)</li>
+<li class="task-list-item"><input type="checkbox" checked disabled> Une clé API Anthropic, ou un abonnement Claude Pro (20 $/mois) / Max (100 $/mois) pour la connexion OAuth</li>
+<li class="task-list-item"><input type="checkbox" checked disabled> Un compte Telegram (le canal le plus simple pour commencer)</li>
+</ul>
+<h3 id="installation-étape-par-étape">Installation étape par étape</h3>
+<p><strong>Étape 1 : Installer OpenClaw globalement</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> install</span><span style="color:#79B8FF"> -g</span><span style="color:#9ECBFF"> openclaw@latest</span></span>
+<span class="line"></span></code></pre>
+<p>Vous pouvez aussi utiliser pnpm (<code>pnpm add -g openclaw@latest</code>) ou bun. Les trois sont officiellement pris en charge.</p>
+<p>Vous devriez voir une sortie se terminant par quelque chose comme :</p>
+<hr>
+<p>1 paquet ajouté en 12s</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span></span></span>
+<span class="line"><span>Vérifiez l'installation :</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>```bash</span></span>
+<span class="line"><span>openclaw --version</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>Sortie attendue : <code>2026.2.17</code> (ou le numéro de la dernière version).</p>
+<p><strong>Étape 2 : Exécuter l’assistant d’intégration</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> onboard</span><span style="color:#79B8FF"> --install-daemon</span></span>
+<span class="line"></span></code></pre>
+<p>L’assistant vous guide à travers toutes les étapes de manière interactive :</p>
+<ol>
+<li><strong>Choisissez votre modèle.</strong> Sélectionnez Anthropic Claude (recommandé). Si vous avez un abonnement Claude Pro/Max, choisissez la connexion OAuth — aucune gestion de clé API n’est nécessaire.</li>
+<li><strong>Saisissez votre clé API ou authentifiez-vous via OAuth.</strong></li>
+<li><strong>Choisissez un canal de messagerie.</strong> Telegram est le plus simple pour commencer. L’assistant vous indiquera d’envoyer un message à @BotFather sur Telegram, de créer un nouveau bot avec <code>/newbot</code>, et de coller le jeton en retour.</li>
+<li><strong>Installez le démon d’arrière-plan.</strong> Sur macOS, cela crée un service <code>launchd</code> pour que OpenClaw survive aux redémarrages et s’exécute même lorsque le terminal est fermé.</li>
+</ol>
+<p>L’ensemble du processus prend environ 5 minutes.</p>
+<p><strong>Étape 3 : Vérifier l’installation</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> doctor</span></span>
+<span class="line"></span></code></pre>
+<p>C’est l’outil de diagnostic officiel. Il vérifie la version de votre Node.js, la connectivité de la passerelle (Gateway), la configuration du canal, l’accès au modèle et l’état du démon. Chaque vérification devrait afficher une coche verte. Si quelque chose est jaune ou rouge, l’outil de diagnostic vous indiquera exactement ce qu’il faut corriger.</p>
+<p><strong>Étape 4 : Associer votre premier appareil</strong></p>
+<hr>
+<p>Ouvrez Telegram et envoyez n’importe quel message à votre nouveau bot. Le bot répondra avec un <strong>code de jumelage</strong> — c’est le mécanisme de sécurité par défaut d’OpenClaw. Les expéditeurs inconnus reçoivent un code ; ils ne peuvent pas interagir avec votre assistant tant que vous ne les avez pas approuvés.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> pairing</span><span style="color:#9ECBFF"> approve</span><span style="color:#9ECBFF"> telegram</span><span style="color:#F97583"> &#x3C;</span><span style="color:#9ECBFF">COD</span><span style="color:#E1E4E8">E</span><span style="color:#F97583">></span></span>
+<span class="line"></span></code></pre>
+<p>C’est tout. Votre bot est maintenant actif. Envoyez-lui « Que sais-tu faire ? » et regardez-le répondre.</p>
+<blockquote>
+<p><strong>Dépannage :</strong> Si le bot ne répond pas, exécutez d’abord <code>openclaw doctor</code>. Problèmes courants : le démon n’a pas démarré (exécutez à nouveau <code>openclaw onboard --install-daemon</code>), ou le jeton Telegram contient une faute de frappe (vérifiez <code>~/.openclaw/openclaw.json</code>).</p>
+</blockquote>
+<h3 id="après-linstallation">Après l’installation</h3>
+<p>Trois choses à faire immédiatement :</p>
+<ol>
+<li>
+<p><strong>Rédigez votre SOUL.md.</strong> Ouvrez <code>~/.openclaw/workspace/SOUL.md</code> dans n’importe quel éditeur de texte. Indiquez-lui votre nom, ce que vous faites, vos préférences de communication, votre fuseau horaire. Ce n’est pas une invite — c’est un fichier d’identité qui persiste à travers chaque conversation.</p>
+</li>
+<li>
+<p><strong>Connectez vos outils.</strong> Gmail (via Pub/Sub), Google Calendar, Notion, Todoist, Slack — OpenClaw se connecte via les outils MCP et les Compétences. L’assistant de configuration vous a peut-être déjà demandé certains d’entre eux.</p>
+</li>
+<li>
+<p><strong>Exécutez une vraie tâche.</strong> Ne commencez pas par « raconte-moi une blague ». Essayez : « Résume mes e-mails non lus et classe-les par priorité » ou « Qu’y a-t-il à mon agenda demain et ai-je des conflits ? »</p>
+</li>
+</ol>
+<h3 id="coûts-réels">Coûts réels</h3>
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Article</th><th>Coût</th></tr></thead><tbody><tr><td>Matériel</td><td>599 $ en une seule fois (Mac Mini M4 de base)</td></tr><tr><td>API (utilisation modérée)</td><td>15–50 $/mois (ou 20 $/mois avec un abonnement Claude Pro)</td></tr><tr><td>API (utilisation intensive)</td><td>100–300 $/mois (niveau Viticci)</td></tr><tr><td>Électricité</td><td>~15 $/an</td></tr><tr><td>Temps d’installation</td><td>15–30 minutes</td></tr></tbody></table>
+<hr>
+<hr>
+<h2 id="parcours-b--déploiement-cloud--autogéré-ou-agentputer">Parcours B : Déploiement Cloud — Autogéré ou AgentPuter</h2>
+<p><strong>Pour qui :</strong> Vous n’avez pas de Mac. Vous utilisez Linux ou Windows. Vous voulez accéder à votre assistant de n’importe où. Vous avez besoin d’une disponibilité réelle 24h/24 et 7j/7, pas d’un mode « mon ordinateur portable est allumé ».</p>
+<p>Il existe deux approches pour le déploiement cloud : <strong>gérer votre propre serveur</strong> (contrôle total, responsabilité totale) ou <strong>utiliser AgentPuter</strong> (un environnement d’exécution cloud conçu spécifiquement pour les agents IA, sans DevOps). Nous aborderons les deux.</p>
+<hr>
+<h3 id="b1--vps-autogéré">B1 : VPS Autogéré</h3>
+<p><strong>Pour qui :</strong> Vous connaissez SSH. Vous voulez un accès root. Votre entreprise exige une infrastructure auto-hébergée. Vous optimisez les coûts.</p>
+<h4 id="choisir-un-serveur">Choisir un serveur</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Fournisseur</th><th>Configuration minimale</th><th>Coût mensuel</th></tr></thead><tbody><tr><td>Hetzner</td><td>2 vCPU, 4 Go de RAM, 20 Go SSD</td><td>~5 $/mois</td></tr><tr><td>DigitalOcean</td><td>2 vCPU, 4 Go de RAM, 25 Go SSD</td><td>~12 $/mois</td></tr><tr><td>Vultr</td><td>2 vCPU, 4 Go de RAM, 25 Go SSD</td><td>~12 $/mois</td></tr></tbody></table>
+<blockquote>
+<p><strong>Avertissement :</strong> Ne descendez pas en dessous de 4 Go de RAM. Avec Docker, 2 Go entraîneront un OOM-kill du processus. Faites-moi confiance sur ce point.</p>
+</blockquote>
+<p>OS : Ubuntu 22.04 LTS.</p>
+<p><strong>Utilisateurs de Windows :</strong> Vous n’avez pas besoin d’un VPS. OpenClaw supporte officiellement Windows via WSL2, et le README le marque comme « fortement recommandé ». Installez WSL2, puis suivez les mêmes instructions pour Linux ci-dessous.</p>
+<h4 id="option-a--installation-directe-recommandée-pour-les-débutants">Option A : Installation directe (Recommandée pour les débutants)</h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">ssh</span><span style="color:#9ECBFF"> root@votre-ip-serveur</span></span>
+<span class="line"></span></code></pre>
+<hr>
+<h1 id="installer-nodejs-22">Installer Node.js 22</h1>
+<p>curl -fsSL <a href="https://deb.nodesource.com/setup_22.x">https://deb.nodesource.com/setup_22.x</a> | sudo -E bash -
+sudo apt-get install -y nodejs</p>
+<h1 id="installer-openclaw">Installer OpenClaw</h1>
+<p>npm install -g openclaw@latest</p>
+<h1 id="lancer-lassistant">Lancer l’assistant</h1>
+<p>openclaw onboard —install-daemon</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span></span></span>
+<span class="line"><span>Sur Linux, le démon s'installe en tant que service utilisateur `systemd` au lieu de `launchd`. Tout le reste est identique au chemin du Mac Mini — l'assistant s'en charge.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Vérifier :</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>```bash</span></span>
+<span class="line"><span>openclaw doctor</span></span>
+<span class="line"><span></span></span></code></pre>
+<h4 id="option-b--docker-compose-niveau-production">Option B : Docker Compose (Niveau Production)</h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> clone</span><span style="color:#9ECBFF"> https://github.com/openclaw/openclaw.git</span></span>
+<span class="line"><span style="color:#79B8FF">cd</span><span style="color:#9ECBFF"> openclaw</span></span>
+<span class="line"><span style="color:#B392F0">./docker-setup.sh</span></span>
+<span class="line"></span></code></pre>
+<p>Avantages :</p>
+<ul>
+<li>Isolation des processus — OpenClaw s’exécute dans son propre conteneur</li>
+<li>Redémarrage en une seule commande : <code>docker compose restart</code></li>
+<li>Gestion des journaux intégrée</li>
+<li>Mode bac à sable (sandbox) : définissez <code>sandbox.mode: "non-main"</code> pour exécuter les sessions de groupe/canal dans des conteneurs Docker isolés</li>
+</ul>
+<p>Inconvénients :</p>
+<ul>
+<li>Nécessite Docker Engine 24+</li>
+<li>Une couche d’abstraction supplémentaire à déboguer</li>
+</ul>
+<p>Le tableau de bord de la passerelle (Gateway) est disponible à l’adresse <code>http://localhost:18789</code> — mais uniquement localement, ce qui nous amène à la partie la plus importante.</p>
+<h4 id="accès-à-distance--faites-le-correctement">Accès à distance : Faites-le correctement</h4>
+<blockquote>
+<p><strong>Ceci n’est pas optionnel.</strong> La CVE-2026-25253 a démontré que l’exposition directe du port de la passerelle (Gateway) à internet permet l’exfiltration de jetons menant à l’exécution de code à distance. Ne le faites pas.</p>
+</blockquote>
+<p><strong>Recommandé : Tailscale Serve/Funnel</strong></p>
+<p>Tailscale vous offre une surcouche de réseau privé. OpenClaw dispose d’un support de premier ordre :</p>
+<hr>
+<p>{
+“gateway”: {
+“tailscale”: {
+“mode”: “serve”
+}
+}
+}</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span></span></span>
+<span class="line"><span>- `"serve"` — accessible uniquement au sein de votre réseau Tailscale (le plus sécurisé)</span></span>
+<span class="line"><span>- `"funnel"` — HTTPS public, mais nécessite une authentification par mot de passe (`gateway.auth.mode: "password"`)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**Alternative : tunnel SSH**</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>```bash</span></span>
+<span class="line"><span>ssh -L 18789:localhost:18789 utilisateur@ip-de-votre-serveur</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>Ensuite, accédez au tableau de bord à l’adresse <code>http://localhost:18789</code> sur votre machine locale.</p>
+<h4 id="sauvegarde">Sauvegarde</h4>
+<p>L’intégralité de l’état d’OpenClaw se trouve dans <code>~/.openclaw/</code> :</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Chemin</th><th>Contenu</th></tr></thead><tbody><tr><td><code>openclaw.json</code></td><td>Configuration principale</td></tr><tr><td><code>workspace/</code></td><td>SOUL.md, AGENTS.md, TOOLS.md, skills/</td></tr><tr><td><code>credentials/</code></td><td>Identifiants des canaux (session WhatsApp, jeton Telegram, etc.)</td></tr></tbody></table>
+<p>Sauvegardez ce répertoire quotidiennement. Une simple tâche cron fait l’affaire :</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">tar</span><span style="color:#9ECBFF"> czf</span><span style="color:#9ECBFF"> ~/openclaw-backup-</span><span style="color:#E1E4E8">$(</span><span style="color:#B392F0">date</span><span style="color:#9ECBFF"> +%Y%m%d</span><span style="color:#E1E4E8">)</span><span style="color:#9ECBFF">.tar.gz</span><span style="color:#9ECBFF"> ~/.openclaw/</span></span>
+<span class="line"></span></code></pre>
+<h4 id="les-inconvénients-de-lautogestion">Les inconvénients de l’autogestion</h4>
+<p>J’utilise OpenClaw sur un VPS autogéré depuis trois mois. Voici ce que j’ai appris :</p>
+<hr>
+<ul>
+<li>Vous devez installer Node.js, configurer systemd, mettre en place Tailscale et gérer le TLS vous-même.</li>
+<li>Les jetons OAuth expirent. Si vous dormez dans un fuseau horaire différent, votre connexion WhatsApp se coupe à 3 heures du matin et votre agent devient silencieux jusqu’à ce que vous vous réveilliez et vous ré-authentifiiez.</li>
+<li>Après un redémarrage du serveur (mise à jour du noyau, maintenance du fournisseur), OpenClaw ne redémarre pas toujours correctement. Vous apprenez à écrire des scripts de récupération.</li>
+<li>L’exécution de plusieurs agents nécessite une isolation manuelle des processus et une allocation des ressources.</li>
+</ul>
+<p><strong>En une phrase : un VPS auto-géré vous offre une liberté maximale, mais vous êtes aussi votre propre équipe DevOps.</strong></p>
+<p>Si ce dernier paragraphe vous a fatigué, il existe une autre solution.</p>
+<hr>
+<h3 id="b2--agentputer--un-environnement-dexécution-cloud-conçu-pour-les-agents-ia">B2 : AgentPuter — Un environnement d’exécution cloud conçu pour les agents IA</h3>
+<p><strong>À qui cela s’adresse :</strong> Vous voulez un déploiement cloud sans le DevOps. Vous avez besoin d’un support multi-agent. Vous attachez de l’importance à une fiabilité 24/7 avec des garanties de SLA.</p>
+<h4 id="quest-ce-que-agentputer">Qu’est-ce que AgentPuter ?</h4>
+<p><a href="https://www.agentputer.com/">AgentPuter</a> n’est pas un VPS générique. C’est un <strong>environnement d’exécution cloud dédié, conçu spécifiquement pour les agents IA</strong> — OpenClaw, ClawBot, MoltBot, et les agents personnalisés. Considérez-le comme un « Heroku pour les assistants IA » : vous ne gérez ni le serveur, ni le conteneur, ni le démon. Vous obtenez un Pod qui ne s’arrête jamais.</p>
+<p>Il résout les quatre points de friction des VPS auto-gérés :</p>
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Problèmes avec un VPS autogéré</th><th>Solution d’AgentPuter</th></tr></thead><tbody><tr><td>Redémarrages du serveur = agent hors ligne</td><td>Le Pod fonctionne 24h/24 et 7j/7 avec récupération automatique et SLA de disponibilité</td></tr><tr><td>Expiration des jetons OAuth = reconnexion manuelle</td><td>Gestion des jetons côté serveur avec actualisation automatique</td></tr><tr><td>Les agents consomment le CPU/la mémoire locale</td><td>Ressources isolées dans le cloud ; votre machine locale n’est pas affectée</td></tr><tr><td>Accès uniquement depuis le même réseau</td><td>Contrôlez vos agents depuis n’importe quel appareil, n’importe où</td></tr></tbody></table>
+<h4 id="déploiement-en-trois-étapes">Déploiement en trois étapes</h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6A737D"># Étape 1 : Créez votre Pod</span></span>
+<span class="line"><span style="color:#B392F0">agentputer</span><span style="color:#9ECBFF"> create</span><span style="color:#9ECBFF"> openclaw</span></span>
+<span class="line"><span style="color:#6A737D"># → Alloue un environnement cloud, choisissez votre configuration</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Étape 2 : Connectez vos services</span></span>
+<span class="line"><span style="color:#B392F0">agentputer</span><span style="color:#9ECBFF"> connect</span></span>
+<span class="line"><span style="color:#6A737D"># → Autorisez Google, Notion, Slack, etc. Identifiants stockés de manière sécurisée dans le pod</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Étape 3 : Déployez OpenClaw</span></span>
+<span class="line"><span style="color:#B392F0">agentputer</span><span style="color:#9ECBFF"> deploy</span><span style="color:#9ECBFF"> openclaw</span></span>
+<span class="line"><span style="color:#6A737D"># → Votre agent commence à travailler 24h/24 et 7j/7. WhatsApp, Telegram, Discord — tous les canaux sont actifs</span></span>
+<span class="line"></span></code></pre>
+<p>Temps total : environ 2 minutes.</p>
+<h4 id="pourquoi-agentputer-se-démarque">Pourquoi AgentPuter se démarque</h4>
+<hr>
+<ul>
+<li><strong>Exécution parallèle multi-agent.</strong> Exécutez ClawBot (assistant personnel) + MoltBot (calendrier/planification) + un agent de recherche personnalisé dans le même Pod, chacun avec des ressources isolées.</li>
+<li><strong>Authentification qui n’expire jamais.</strong> Les jetons OAuth sont maintenus côté serveur avec un rafraîchissement automatique. Votre connexion WhatsApp ne s’interrompra pas à 3 heures du matin parce qu’un jeton a expiré.</li>
+<li><strong>Accès depuis n’importe où.</strong> Téléphone, tablette, un autre ordinateur — votre IA vous suit, et non l’inverse.</li>
+<li><strong>Statut actuel :</strong> Accès anticipé. Demandez un code d’invitation sur <a href="https://www.agentputer.com/">agentputer.com</a> — les codes sont envoyés sous 24 heures.</li>
+</ul>
+<h4 id="agentputer-vs-vps-autogéré">AgentPuter vs. VPS autogéré</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>VPS autogéré</th><th>AgentPuter</th></tr></thead><tbody><tr><td>Temps de déploiement</td><td>15–30 minutes</td><td>~2 minutes</td></tr><tr><td>Opérations</td><td>Vous gérez systemd, Tailscale, la sauvegarde, TLS</td><td>Zéro opération — le Pod est maintenu automatiquement</td></tr><tr><td>Multi-agent</td><td>Isolation manuelle</td><td>Support natif du parallélisme</td></tr><tr><td>Gestion de l’authentification</td><td>Gestion manuelle de l’expiration des jetons</td><td>Rafraîchissement automatique</td></tr><tr><td>Coût mensuel</td><td>VPS 5–24 $ + frais d’API</td><td>Abonnement Pod + frais d’API</td></tr><tr><td>Contrôle</td><td>Accès root à 100 %</td><td>Limité à l’environnement du Pod</td></tr><tr><td>Idéal pour</td><td>Compétences solides en opérations / conformité</td><td>Recherche de simplicité / utilisateurs multi-agent</td></tr></tbody></table>
+<hr>
+<hr>
+<h2 id="parcours-c--tinyclaw--60-secondes-zéro-terminal">Parcours C : TinyClaw — 60 secondes, Zéro terminal</h2>
+<p><strong>À qui s’adresse ce parcours :</strong> Vous ne voulez pas apprendre les outils en ligne de commande. Vous ne voulez pas gérer de serveurs. Vous voulez simplement <em>utiliser</em> un assistant IA, pas en <em>installer</em> un. Vous voulez l’essayer tout de suite.</p>
+<h3 id="pourquoi-ce-parcours-existe">Pourquoi ce parcours existe</h3>
+<p>Le parcours A nécessite 599 $ et de savoir ce qu’est Node.js. Le parcours B (autogéré) nécessite SSH, Docker et Tailscale. Même AgentPuter, bien que beaucoup plus simple, implique toujours une CLI et un code d’invitation.</p>
+<p>La plupart des gens voient <code>npm install -g</code> et ferment l’onglet.</p>
+<p>Les 207 000 étoiles d’OpenClaw prouvent que la demande est réelle. Le goulot d’étranglement n’est pas le produit — c’est la barrière du déploiement. TinyClaw l’élimine.</p>
+<h3 id="quest-ce-que-tinyclaw">Qu’est-ce que TinyClaw ?</h3>
+<p><a href="https://tinyclaw.dev">TinyClaw</a> est le produit grand public développé par l’équipe d’<a href="https://www.agentputer.com/">AgentPuter</a>. Si AgentPuter est « le cloud d’agents IA pour les développeurs », TinyClaw est « le point d’entrée des agents IA pour tout le monde ».</p>
+<p><strong>Trois étapes pour être opérationnel :</strong></p>
+<ol>
+<li><strong>Choisissez votre modèle</strong> — Claude Opus 4.6, GPT-5.2 ou Gemini 3</li>
+<li><strong>Choisissez votre canal</strong> — Telegram (Discord et WhatsApp bientôt disponibles)</li>
+<li><strong>Connectez-vous avec Google</strong> → déploiement terminé</li>
+</ol>
+<p>Pas de serveur. Pas de SSH. Pas de Node.js. Pas de terminal. L’infrastructure est préconfigurée et n’attend que de vous être attribuée.</p>
+<p><strong>Du clic à la première conversation avec votre assistant IA : moins de 60 secondes.</strong></p>
+<h3 id="ce-que-vous-pouvez-en-faire">Ce que vous pouvez en faire</h3>
+<p>Une fois déployé, votre OpenClaw hébergé sur TinyClaw peut :</p>
+<hr>
+<ul>
+<li>Lire, résumer et rédiger des réponses à vos e-mails</li>
+<li>Gérer votre calendrier, définir des rappels, résoudre les conflits d’horaire</li>
+<li>Résumer des documents, rédiger des contrats, générer des factures</li>
+<li>Suivre les dépenses, comparer les prix, aider à la préparation des déclarations de revenus</li>
+<li>Mener des recherches concurrentielles, rédiger des publications pour les réseaux sociaux, suivre les OKR</li>
+<li>Surveiller les flux d’actualités, réserver des voyages</li>
+<li>Apprendre de nouvelles capacités par le langage naturel — dites-lui simplement ce dont vous avez besoin</li>
+</ul>
+<h3 id="la-comparaison-ultime">La Comparaison Ultime</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>Mac Mini</th><th>VPS autogéré</th><th>AgentPuter</th><th>TinyClaw</th></tr></thead><tbody><tr><td>Temps de déploiement</td><td>15–30 min</td><td>15–30 min</td><td>~2 min</td><td>&#x3C; 1 min</td></tr><tr><td>Compétence technique</td><td>Terminal</td><td>SSH + ops</td><td>CLI de base</td><td>Aucune (GUI uniquement)</td></tr><tr><td>Coût du matériel</td><td>599 $</td><td>0 $</td><td>0 $</td><td>0 $</td></tr><tr><td>Coût mensuel</td><td>API uniquement</td><td>VPS + API</td><td>Pod + API</td><td>Hébergement + API</td></tr><tr><td>Emplacement des données</td><td>100 % local</td><td>Votre VPS</td><td>Cloud AgentPuter</td><td>Cloud TinyClaw</td></tr><tr><td>Fiabilité 24/7</td><td>Dépend de votre Mac</td><td>Dépend de vos ops</td><td>Garanti par SLA</td><td>Garanti par SLA</td></tr><tr><td>Multi-agent</td><td>Configuration manuelle</td><td>Isolation manuelle</td><td>Parallèle natif</td><td>Agent unique</td></tr><tr><td>Gestion de l’authentification</td><td>Manuelle</td><td>Manuelle</td><td>Actualisation auto.</td><td>Automatique</td></tr><tr><td>iMessage</td><td>Oui (BlueBubbles)</td><td>Non</td><td>Non</td><td>Non</td></tr><tr><td>Réveil vocal</td><td>Oui (app macOS)</td><td>Non</td><td>Non</td><td>Non</td></tr><tr><td>Windows</td><td>Non</td><td>Oui (WSL2)</td><td>Oui (CLI)</td><td>Oui (navigateur)</td></tr><tr><td>Idéal pour</td><td>Confidentialité / utilisateurs avancés</td><td>DevOps / conformité</td><td>Développeurs / multi-agent</td><td>Tout le monde</td></tr></tbody></table>
+<hr>
+<hr>
+<h2 id="après-la-configuration--7-étapes-pour-transformer-votre-openclaw-de-jouet-en-employé">Après la configuration : 7 étapes pour transformer votre OpenClaw de jouet en employé</h2>
+<p>Quelle que soit la voie que vous avez choisie, l’installation n’est que le début. Voici comment le rendre réellement utile :</p>
+<h3 id="1-rédigez-votre-soulmd">1. Rédigez votre SOUL.md</h3>
+<p>Emplacement : <code>~/.openclaw/workspace/SOUL.md</code></p>
+<p>Ce n’est pas une invite système. C’est un fichier d’identité. Indiquez-lui :</p>
+<ul>
+<li>Votre nom, votre poste et ce que vous faites</li>
+<li>Votre style de communication (formel ? décontracté ? des listes à puces ?)</li>
+<li>Votre fuseau horaire et vos heures de travail</li>
+<li>Vos préférences (« Je préfère le Markdown », « Ne jamais planifier de réunions avant 10h »)</li>
+</ul>
+<p>Plus vous êtes précis, moins vous aurez besoin de vous répéter.</p>
+<h3 id="2-exécutez-openclaw-doctor">2. Exécutez <code>openclaw doctor</code></h3>
+<p>Faites-le après la configuration, après chaque mise à niveau, et chaque fois que quelque chose semble anormal. Il vérifie tout — version de Node, santé de la passerelle, connectivité des canaux, accès au modèle, statut du démon — et vous indique exactement ce qu’il faut corriger.</p>
+<h3 id="3-apprenez-les-commandes-de-chat">3. Apprenez les commandes de chat</h3>
+<p>Celles-ci fonctionnent dans n’importe quel canal connecté — Telegram, WhatsApp, Slack, Discord :</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Commande</th><th>Ce qu’elle fait</th></tr></thead><tbody><tr><td><code>/status</code></td><td>Affiche le modèle actuel, l’utilisation des jetons, les informations de session</td></tr><tr><td><code>/new</code> ou <code>/reset</code></td><td>Réinitialise la session de conversation</td></tr><tr><td><code>/compact</code></td><td>Compresse le contexte pour économiser des jetons</td></tr><tr><td><code>/think high</code></td><td>Active le mode de réflexion approfondie (Opus 4.6)</td></tr><tr><td><code>/verbose on</code></td><td>Réponses plus détaillées</td></tr><tr><td><code>/usage full</code></td><td>Affiche la consommation de jetons après chaque réponse</td></tr></tbody></table>
+<hr>
+<p>Ce sont vos contrôles quotidiens. La commande <code>/compact</code> seule peut vous faire économiser de 30 à 40 % sur les coûts des jetons dans les longues conversations.</p>
+<h3 id="4-connectez-vos-outils">4. Connectez vos outils</h3>
+<p>OpenClaw utilise les outils MCP (Model Context Protocol) et les Skills pour s’intégrer aux services externes :</p>
+<ul>
+<li><strong>Gmail</strong> — via Pub/Sub pour des notifications d’e-mails en temps réel</li>
+<li><strong>Google Calendar</strong> — lire, créer et modifier des événements</li>
+<li><strong>Notion / Todoist / Linear</strong> — gestion de tâches</li>
+<li><strong>Slack</strong> — à la fois comme canal et comme outil</li>
+<li><strong>Navigateur</strong> — OpenClaw peut contrôler une instance Chrome dédiée</li>
+</ul>
+<h3 id="5-implantez-des-graines-de-mémoire">5. Implantez des graines de mémoire</h3>
+<p>Donnez-lui un contexte initial dont il se souviendra pour toujours :</p>
+<blockquote>
+<p>« J’ai une réunion d’équipe tous les lundis à 10h. Le nom de ma responsable est Sarah. Je préfère les réponses en Markdown. Je travaille sur le lancement du T1 pour le Projet Atlas. »</p>
+</blockquote>
+<p>Ces faits persistent en mémoire et éclairent chaque interaction future.</p>
+<h3 id="6-exécutez-un-flux-de-travail-réel">6. Exécutez un flux de travail réel</h3>
+<p>Ne le testez pas avec des futilités. Donnez-lui du travail :</p>
+<ul>
+<li>« Résume mes e-mails non lus et trie-les par priorité »</li>
+<li>« Qu’y a-t-il sur mon calendrier cette semaine ? Signale les conflits »</li>
+<li>« Recherche les 5 principaux concurrents pour [produit] et donne-moi un tableau comparatif »</li>
+<li>« Rédige une réponse à l’e-mail de [personne] — ton professionnel, accepte la réunion mais suggère plutôt jeudi »</li>
+</ul>
+<h3 id="7-installez-les-skills-de-la-communauté">7. Installez les Skills de la communauté</h3>
+<hr>
+<p>Activez <strong>ClawHub</strong> dans votre configuration et votre agent pourra automatiquement rechercher et installer de nouvelles Compétences au besoin. Vous pouvez également parcourir manuellement sur <a href="https://skillsmp.com">SkillsMP</a> — la place de marché propose des milliers de Compétences contribuées par la communauté pour tout, de l’intégration Jira au suivi du prix des vols.</p>
+<hr>
+<hr>
+<h2 id="faq">FAQ</h2>
+<p><strong>Combien coûte l’API ?</strong>
+Utilisation légère : ~15 $/mois. Modérée : 30–50 $/mois. Intensive (niveau Viticci) : 100–300 $/mois. Alternativement, un abonnement Claude Pro (20 $/mois) ou Max (100 $/mois) vous permet de vous authentifier via OAuth sans avoir à gérer les clés d’API séparément.</p>
+<p><strong>Quel est le meilleur modèle ?</strong>
+Le créateur du projet recommande vivement <strong>Claude Opus 4.6</strong> — il offre les meilleures performances sur les contextes longs et la plus forte résistance à l’injection de prompt. GPT-5.2 et Gemini 3 sont également pris en charge. Choisissez celui pour lequel vous avez déjà un abonnement.</p>
+<p><strong>Est-ce sécurisé ?</strong>
+Par défaut, OpenClaw utilise l’<strong>appairage par MP</strong> — tout expéditeur inconnu reçoit un code d’appairage et ne peut pas interagir avec votre assistant tant que vous ne l’avez pas approuvé avec <code>openclaw pairing approve</code>. Les déploiements locaux conservent toutes les données sur votre machine. Pour l’accès à distance, utilisez Tailscale — n’exposez jamais le port de la passerelle (18789) directement à Internet.</p>
+<p><strong>Prend-il en charge le chinois ?</strong>
+Oui. Les modèles sous-jacents prennent en charge le chinois nativement. Il existe un site de documentation communautaire sur clawd.org.cn, et il fonctionne avec des modèles nationaux comme DeepSeek, Moonshot Kimi et Qwen.</p>
+<p><strong>Fonctionne-t-il sur Windows ?</strong>
+Oui, via WSL2 (Windows Subsystem for Linux) — officiellement pris en charge et vivement recommandé. Ou utilisez TinyClaw pour une expérience basée sur le navigateur sans aucune configuration locale.</p>
+<hr>
+<p><strong>En quoi est-ce différent de ChatGPT Plus ?</strong>
+ChatGPT attend que vous veniez à lui. OpenClaw vient à vous — via WhatsApp, Telegram, Slack, où que vous soyez. ChatGPT n’a pas de mémoire persistante entre les sessions ; OpenClaw, si. ChatGPT ne peut pas agir sur vos fichiers ou vos e-mails ; OpenClaw, si. ChatGPT ne prend pas en charge Voice Wake ou Live Canvas ; OpenClaw, si.</p>
+<p><strong>Un problème est survenu. Que faire ?</strong>
+Exécutez <code>openclaw doctor</code>. Il effectue un auto-diagnostic et fournit des instructions de réparation ciblées. Le Discord de la communauté compte plus de 5 000 membres actifs qui peuvent aider avec les cas particuliers.</p>
+<p><strong>Comment mettre à jour ?</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> update</span><span style="color:#79B8FF"> --channel</span><span style="color:#9ECBFF"> stable</span></span>
+<span class="line"></span></code></pre>
+<p>Il existe aussi les canaux <code>beta</code> et <code>dev</code> si vous voulez des fonctionnalités de pointe.</p>
+<hr>
+<hr>
+<h2 id="conclusion">Conclusion</h2>
+<p>Quatre chemins, une destination : votre propre assistant IA 24/7.</p>
+<ul>
+<li><strong>Mac Mini</strong> si vous êtes un utilisateur expérimenté qui veut un contrôle total, le réveil vocal et iMessage.</li>
+<li><strong>VPS autogéré</strong> si vous êtes un développeur qui veut un accès root et une flexibilité maximale.</li>
+<li><strong><a href="https://www.agentputer.com/">AgentPuter</a></strong> si vous voulez la fiabilité du cloud, le support multi-agent et zéro DevOps.</li>
+<li><strong><a href="https://tinyclaw.dev">TinyClaw</a></strong> si vous voulez simplement que ça fonctionne — 60 secondes, sans terminal.</li>
+</ul>
+<p>Ces chemins ne s’excluent pas mutuellement. Vous pouvez commencer avec TinyClaw pour faire l’expérience d’OpenClaw en moins d’une minute, passer à AgentPuter quand vous voulez exécuter plusieurs agents, et finalement construire une configuration entièrement souveraine sur un Mac Mini quand vous serez prêt pour un contrôle total.</p>
+<p>Ceci est la partie 9 de notre série sur l’infrastructure des agents. Nous avons abordé <a href="/blog/agent-needs-its-own-computer/">pourquoi votre agent a besoin de son propre ordinateur</a>, l’<a href="/blog/dissecting-openclaw-architecture/">architecture</a> d’OpenClaw, l’<a href="/blog/agent-skills-ecosystem/">écosystème de compétences</a>, les <a href="/blog/vibe-working-when-agents-work/">flux de travail d’entreprise</a>, l’<a href="/blog/deep-dive-clawdbot-breakout-agent/">analyse approfondie de ClawdBot</a>, les <a href="/blog/who-makes-money-from-openclaw/">modèles économiques</a>, et <a href="/blog/openclaw-creator-joins-openai/">ce que cela signifie lorsque son créateur rejoint OpenAI</a>. Aujourd’hui, c’était le chapitre « faites-le vous-même ».</p>
+<hr>
+<p>Si votre déploiement a réussi, dites-le-nous dans les commentaires ou sur Discord : <strong>quel nom avez-vous donné à votre agent, et quelle a été la première tâche réelle que vous lui avez confiée ?</strong></p>
+<hr>
+<p><em>Références :</em></p>
+<ul>
+<li><a href="https://github.com/openclaw/openclaw">Dépôt GitHub OpenClaw</a> (207K étoiles, v2026.2.17)</li>
+<li><a href="https://www.agentputer.com/">AgentPuter — L’environnement d’exécution cloud 24/7 de votre agent IA</a></li>
+<li><a href="https://tinyclaw.dev">TinyClaw — Déploiement d’OpenClaw en un clic</a></li>
+<li><a href="https://docs.openclaw.ai">Documentation officielle d’OpenClaw</a></li>
+<li>CVE-2026-25253 — Exfiltration de jeton de la passerelle OpenClaw (référencé dans notre analyse de sécurité)</li>
+</ul>  </div> <!-- Retour à la liste du blog --> <footer class="mt-16 pt-8 border-t border-accent/20"> <a href="/fr/blog/" class="inline-flex items-center gap-2 font-mono text-sm text-text-muted hover:text-accent transition-colors group"> <span class="group-hover:-translate-x-1 transition-transform">&lt;-</span> <span>Retour à tous les articles</span> </a> </footer> </article> </main> <footer class="bg-dark-secondary border-t border-accent/20"> <div class="max-w-7xl mx-auto px-6 lg:px-20 py-12 lg:py-16"> <!-- Top Section --> <div class="flex flex-col lg:flex-row justify-between gap-12 mb-12"> <!-- Brand --> <div class="lg:max-w-xs"> <a href="/fr/" class="inline-block mb-4"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <p class="text-text-muted text-sm font-mono"> <span class="text-terminal-cyan">//</span> Votre IA ne dort jamais
+</p> </div> <!-- Links Grid --> <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 font-mono"> <!-- Product --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/produit</h4> <ul class="space-y-3"> <li> <a href="/fr/features" class="text-text-muted text-sm hover:text-accent transition-colors"> Fonctionnalités </a> </li><li> <a href="/pricing" class="text-text-muted text-sm hover:text-accent transition-colors"> Tarifs </a> </li><li> <a href="/fr/docs" class="text-text-muted text-sm hover:text-accent transition-colors"> Docs </a> </li> </ul> </div> <!-- Company --> <div> <h4 class="text-terminal-orange font-bold mb-4 text-sm">/entreprise</h4> <ul class="space-y-3"> <li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> À propos </a> </li><li> <a href="/fr/blog/" class="text-text-muted text-sm hover:text-accent transition-colors"> Blog </a> </li> </ul> </div> <!-- Contact --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/contact</h4> <ul class="space-y-3"> <li> <a href="/cdn-cgi/l/email-protection#402f332321323a212d2f322171797979707700272d21292c6e232f2d" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> <span class="__cf_email__" data-cfemail="b7d8c4d4d6c5cdd6dad8c5d6868e8e8e8780f7d0dad6dedb99d4d8da">[email&#160;protected]</span> </a> </li><li> <a href="https://twitter.com/agentputer" target="_blank" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Twitter </a> </li><li> <a href="https://discord.gg/agentputer" target="_blank" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Discord </a> </li> </ul> </div> <!-- Legal --> <div> <h4 class="text-terminal-blue font-bold mb-4 text-sm">/légal</h4> <ul class="space-y-3"> <li> <a href="/privacy" class="text-text-muted text-sm hover:text-accent transition-colors"> Confidentialité </a> </li><li> <a href="/terms" class="text-text-muted text-sm hover:text-accent transition-colors"> Conditions </a> </li><li> <a href="/privacy#data-security" class="text-text-muted text-sm hover:text-accent transition-colors"> Sécurité </a> </li> </ul> </div> </div> </div> <!-- Divider --> <div class="border-t border-accent/20 pt-8"> <div class="flex flex-col md:flex-row justify-between items-center gap-4 font-mono"> <!-- Copyright --> <p class="text-text-dark text-sm">
+/* © 2026 AgentPuter. Tous droits réservés. */
+</p> <!-- Social Links --> <div class="flex items-center gap-6"> <a href="https://github.com/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors"> GitHub </a> </div> </div> </div> </div> </footer>  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"db97590b14994206be9f2eaec90a9494","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html> 

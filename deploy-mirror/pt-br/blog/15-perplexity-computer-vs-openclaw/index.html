@@ -1,0 +1,380 @@
+<!DOCTYPE html><html lang="pt-BR"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Em 25 de fevereiro, a Perplexity lançou o Computer — uma IA na nuvem que orquestra 19 modelos, executa subagentes em paralelo e realiza tarefas de forma autônoma por US$ 200/mês. Veja o que os usuários do OpenClaw já têm, o que não têm, e o que isso significa para a corrida das plataformas de agentes."><meta name="theme-color" content="#0D0D0D"><meta name="generator" content="Astro v4.16.19"><!-- Canonical URL --><link rel="canonical" href="https://www.agentputer.com/pt-br/blog/15-perplexity-computer-vs-openclaw/"><!-- hreflang 多语言标签 --><link rel="alternate" hreflang="en" href="https://www.agentputer.com/blog/15-perplexity-computer-vs-openclaw/"><link rel="alternate" hreflang="zh-CN" href="https://www.agentputer.com/zh/blog/15-perplexity-computer-vs-openclaw/"><link rel="alternate" hreflang="ja" href="https://www.agentputer.com/ja/blog/15-perplexity-computer-vs-openclaw/"><link rel="alternate" hreflang="ko" href="https://www.agentputer.com/ko/blog/15-perplexity-computer-vs-openclaw/"><link rel="alternate" hreflang="es" href="https://www.agentputer.com/es/blog/15-perplexity-computer-vs-openclaw/"><link rel="alternate" hreflang="pt-BR" href="https://www.agentputer.com/pt-br/blog/15-perplexity-computer-vs-openclaw/"><link rel="alternate" hreflang="de" href="https://www.agentputer.com/de/blog/15-perplexity-computer-vs-openclaw/"><link rel="alternate" hreflang="fr" href="https://www.agentputer.com/fr/blog/15-perplexity-computer-vs-openclaw/"><link rel="alternate" hreflang="zh-TW" href="https://www.agentputer.com/zh-tw/blog/15-perplexity-computer-vs-openclaw/"><link rel="alternate" hreflang="x-default" href="https://www.agentputer.com/blog/15-perplexity-computer-vs-openclaw/"><!-- Keywords（各语言本地化） --><meta name="keywords" content="OpenClaw, Perplexity, Agente de IA, Multiagente, Plataforma de Agentes"><!-- Open Graph --><meta property="og:title" content="Perplexity Acaba de Construir o que os Usuários do OpenClaw Já Executavam por Conta Própria | Blog AgentPuter"><meta property="og:description" content="Em 25 de fevereiro, a Perplexity lançou o Computer — uma IA na nuvem que orquestra 19 modelos, executa subagentes em paralelo e realiza tarefas de forma autônoma por US$ 200/mês. Veja o que os usuários do OpenClaw já têm, o que não têm, e o que isso significa para a corrida das plataformas de agentes."><meta property="og:type" content="article"><meta property="og:url" content="https://www.agentputer.com/pt-br/blog/15-perplexity-computer-vs-openclaw/"><meta property="og:image" content="https://www.agentputer.com/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:site_name" content="AgentPuter"><meta property="og:locale" content="pt_BR"><meta property="og:locale:alternate" content="en_US"><meta property="og:locale:alternate" content="zh_CN"><meta property="og:locale:alternate" content="ja_JP"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="es_ES"><meta property="og:locale:alternate" content="de_DE"><meta property="og:locale:alternate" content="fr_FR"><meta property="og:locale:alternate" content="zh_TW"><!-- Article-specific OG tags --><meta property="article:published_time" content="2026-02-28"><meta property="article:author" content="AgentPuter Lab"><meta property="article:tag" content="OpenClaw"><meta property="article:tag" content="Perplexity"><meta property="article:tag" content="Agente de IA"><meta property="article:tag" content="Multiagente"><meta property="article:tag" content="Plataforma de Agentes"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@agentputer"><meta name="twitter:creator" content="@agentputer"><meta name="twitter:title" content="Perplexity Acaba de Construir o que os Usuários do OpenClaw Já Executavam por Conta Própria | Blog AgentPuter"><meta name="twitter:description" content="Em 25 de fevereiro, a Perplexity lançou o Computer — uma IA na nuvem que orquestra 19 modelos, executa subagentes em paralelo e realiza tarefas de forma autônoma por US$ 200/mês. Veja o que os usuários do OpenClaw já têm, o que não têm, e o que isso significa para a corrida das plataformas de agentes."><meta name="twitter:image" content="https://www.agentputer.com/og-default.png"><!-- Favicon --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/favicon.svg"><!-- 字体：preconnect + LCP 关键字体直接预加载 --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- 直接预加载 LCP 关键字体文件（JetBrains Mono Bold Latin，H1 使用） --><link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8L6tTOlOVk6OThhvA.woff2"><!-- 字体 CSS 阻塞加载（配合 preconnect 延迟极低，确保 LCP 时字体可用） --><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"><!-- Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":"https://www.agentputer.com/favicon.svg","description":"Your AI Agent's dedicated cloud runtime. AgentPuter keeps your AI running 24/7.","sameAs":["https://twitter.com/agentputer","https://github.com/agentputer","https://discord.gg/agentputer"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"AgentPuter","url":"https://www.agentputer.com","inLanguage":"pt-BR","availableLanguage":[{"@type":"Language","name":"English","alternateName":"en"},{"@type":"Language","name":"中文","alternateName":"zh-CN"},{"@type":"Language","name":"繁體中文","alternateName":"zh-TW"},{"@type":"Language","name":"日本語","alternateName":"ja"},{"@type":"Language","name":"한국어","alternateName":"ko"},{"@type":"Language","name":"Español","alternateName":"es"},{"@type":"Language","name":"Português","alternateName":"pt-BR"},{"@type":"Language","name":"Deutsch","alternateName":"de"},{"@type":"Language","name":"Français","alternateName":"fr"}],"description":"Your AI Agent's dedicated cloud runtime."}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.agentputer.com/pt-br/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.agentputer.com/pt-br/blog/"},{"@type":"ListItem","position":3,"name":"15 perplexity computer vs openclaw","item":"https://www.agentputer.com/pt-br/blog/15-perplexity-computer-vs-openclaw/"}]}</script><!-- 页面专属结构化数据插槽 --><!-- 浏览器语言自动检测：移到 head 阻塞执行，避免渲染后跳转导致 CLS --><script>
+    (function() {
+      if (localStorage.getItem('agentputer-lang')) return;
+
+      var langMap = {
+        'zh': '/zh', 'zh-cn': '/zh', 'zh-tw': '/zh-tw', 'zh-hk': '/zh-tw',
+        'ja': '/ja', 'ko': '/ko',
+        'es': '/es', 'es-419': '/es',
+        'pt': '/pt-br', 'pt-br': '/pt-br',
+        'de': '/de', 'fr': '/fr',
+      };
+
+      var path = window.location.pathname;
+      if (/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)(\/|$)/.test(path)) {
+        var m = path.match(/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)/);
+        if (m) localStorage.setItem('agentputer-lang', m[1]);
+        return;
+      }
+
+      var langs = navigator.languages || [navigator.language];
+      for (var i = 0; i < langs.length; i++) {
+        var bl = langs[i].toLowerCase();
+        if (langMap[bl]) {
+          var target = path === '/' ? langMap[bl] + '/' : langMap[bl] + path;
+          localStorage.setItem('agentputer-lang', bl);
+          window.location.replace(target);
+          return;
+        }
+        var primary = bl.split('-')[0];
+        if (primary !== bl && langMap[primary]) {
+          var target2 = path === '/' ? langMap[primary] + '/' : langMap[primary] + path;
+          localStorage.setItem('agentputer-lang', primary);
+          window.location.replace(target2);
+          return;
+        }
+      }
+      localStorage.setItem('agentputer-lang', 'en');
+    })();
+    </script><!-- Google Analytics 4 --><script async src="https://www.googletagmanager.com/gtag/js?id=G-9M2T6GQJ0L"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9M2T6GQJ0L');
+    </script><title>Perplexity Acaba de Construir o que os Usuários do OpenClaw Já Executavam por Conta Própria | Blog AgentPuter</title><link rel="stylesheet" href="/_astro/_slug_.DM3EUOA_.css">
+<link rel="stylesheet" href="/_astro/_slug_.CUcOCpHJ.css">
+<link rel="stylesheet" href="/_astro/_slug_.CxhqtQFk.css"><script type="module" src="/_astro/hoisted.eVEf7vT7.js"></script></head> <body class="min-h-screen">   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Perplexity Acaba de Construir o que os Usuários do OpenClaw Já Executavam por Conta Própria","description":"Em 25 de fevereiro, a Perplexity lançou o Computer — uma IA na nuvem que orquestra 19 modelos, executa subagentes em paralelo e realiza tarefas de forma autônoma por US$ 200/mês. Veja o que os usuários do OpenClaw já têm, o que não têm, e o que isso significa para a corrida das plataformas de agentes.","datePublished":"2026-02-28","dateModified":"2026-02-28","inLanguage":"pt-BR","author":{"@type":"Organization","name":"AgentPuter Lab","url":"https://www.agentputer.com"},"publisher":{"@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":{"@type":"ImageObject","url":"https://www.agentputer.com/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.agentputer.com/pt-br/blog/15-perplexity-computer-vs-openclaw/"},"keywords":"OpenClaw, Perplexity, Agente de IA, Multiagente, Plataforma de Agentes"}</script> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://www.agentputer.com/pt-br/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.agentputer.com/pt-br/blog/"},{"@type":"ListItem","position":3,"name":"Perplexity Acaba de Construir o que os Usuários do OpenClaw Já Executavam por Conta Própria"}]}</script> <header class="fixed top-0 left-0 right-0 z-50 bg-dark-primary md:bg-dark-primary/95 md:backdrop-blur-lg border-b border-accent/20"> <nav class="max-w-7xl mx-auto px-6 lg:px-20 h-20 flex items-center justify-between"> <!-- Logo --> <a href="/pt-br/" class="flex items-center gap-2 group"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <!-- Desktop Navigation --> <div class="hidden md:flex items-center gap-8 font-mono"> <a href="/pt-br/features" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/recursos
+</a> <a href="/tools" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/ferramentas
+</a> <a href="#pricing" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/preços
+</a> <a href="/pt-br/blog/" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/blog
+</a> <a href="/pt-br/docs" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/docs
+</a> <!-- Desktop 语言切换器 --><div class="lang-switcher relative"> <button class="lang-btn flex items-center gap-1.5 text-text-secondary hover:text-accent transition-colors text-sm font-mono cursor-pointer" aria-label="Switch language" aria-expanded="false"> <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <circle cx="12" cy="12" r="10" stroke-width="1.5"></circle> <path stroke-width="1.5" d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path> </svg> <span>PT</span> <svg class="w-3 h-3 opacity-40 transition-transform lang-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </button> <!-- 下拉菜单 --> <div class="lang-dropdown hidden absolute right-0 top-full mt-2 py-1 bg-[#1a1a1a] border border-[#333] rounded-lg shadow-xl min-w-[160px] z-[100]"> <a href="/blog/15-perplexity-computer-vs-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="en"> <span>English</span> <span class="text-xs text-text-dark">EN</span> </a><a href="/zh/blog/15-perplexity-computer-vs-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="zh"> <span>中文</span> <span class="text-xs text-text-dark">中文</span> </a><a href="/ja/blog/15-perplexity-computer-vs-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ja"> <span>日本語</span> <span class="text-xs text-text-dark">JA</span> </a><a href="/ko/blog/15-perplexity-computer-vs-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ko"> <span>한국어</span> <span class="text-xs text-text-dark">KO</span> </a><a href="/es/blog/15-perplexity-computer-vs-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="es"> <span>Español</span> <span class="text-xs text-text-dark">ES</span> </a><a href="/pt-br/blog/15-perplexity-computer-vs-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-accent bg-accent/10" data-lang="pt-br"> <span>Português</span> <span class="text-xs text-accent">PT</span> </a><a href="/de/blog/15-perplexity-computer-vs-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="de"> <span>Deutsch</span> <span class="text-xs text-text-dark">DE</span> </a><a href="/fr/blog/15-perplexity-computer-vs-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="fr"> <span>Français</span> <span class="text-xs text-text-dark">FR</span> </a> </div> </div> <!-- Mobile 语言列表（平铺，不用下拉） --> <div class="lang-mobile hidden"> <div class="flex flex-wrap gap-2"> <a href="/blog/15-perplexity-computer-vs-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="en"> English </a><a href="/zh/blog/15-perplexity-computer-vs-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="zh"> 中文 </a><a href="/ja/blog/15-perplexity-computer-vs-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ja"> 日本語 </a><a href="/ko/blog/15-perplexity-computer-vs-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ko"> 한국어 </a><a href="/es/blog/15-perplexity-computer-vs-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="es"> Español </a><a href="/pt-br/blog/15-perplexity-computer-vs-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-accent border-accent/40 bg-accent/10" data-lang="pt-br"> Português </a><a href="/de/blog/15-perplexity-computer-vs-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="de"> Deutsch </a><a href="/fr/blog/15-perplexity-computer-vs-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="fr"> Français </a> </div> </div>  <a href="https://app.agentputer.com/sign-up" class="text-sm py-2.5 px-6 bg-accent text-dark-primary font-bold rounded hover:bg-accent-dark transition-colors">
+[COMEÇAR]
+</a> </div> <!-- Mobile Menu Button --> <button id="mobile-menu-btn-ptbr" class="md:hidden p-2 text-text-secondary hover:text-white" aria-label="Abrir menu"> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </nav> <!-- Mobile Menu --> <div id="mobile-menu-ptbr" class="hidden md:hidden bg-dark-secondary border-t border-dark-tertiary"> <div class="px-6 py-4 space-y-4"> <a href="/pt-br/features" class="block hover:text-white transition-colors text-text-secondary">
+recursos
+</a> <a href="/tools" class="block hover:text-white transition-colors text-text-secondary">
+ferramentas
+</a> <a href="#pricing" class="block hover:text-white transition-colors text-text-secondary">
+preços
+</a> <a href="/pt-br/blog/" class="block hover:text-white transition-colors text-text-secondary">
+blog
+</a> <a href="/pt-br/docs" class="block hover:text-white transition-colors text-text-secondary">
+docs
+</a> <div class="lang-mobile-wrapper"></div> <a href="https://app.agentputer.com/sign-up" class="btn-primary w-full justify-center text-sm py-3">
+Começar
+</a> </div> </div> </header>  <main class="relative z-10 pt-28 pb-20"> <article class="max-w-4xl mx-auto px-6 lg:px-8"> <!-- Navegação breadcrumb --> <nav class="mb-8 font-mono text-sm"> <a href="/pt-br/" class="text-text-muted hover:text-accent transition-colors">~</a> <span class="text-text-dark mx-2">/</span> <a href="/pt-br/blog/" class="text-text-muted hover:text-accent transition-colors">Blog</a> <span class="text-text-dark mx-2">/</span> <span class="text-accent">Artigo</span> </nav> <!-- Cabeçalho de metadados do artigo --> <header class="mb-12"> <!-- Tags --> <div class="flex flex-wrap gap-2 mb-6"> <span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#OpenClaw </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Perplexity </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Agente de IA </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Multiagente </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Plataforma de Agentes </span> </div> <!-- Título --> <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6"> Perplexity Acaba de Construir o que os Usuários do OpenClaw Já Executavam por Conta Própria </h1> <!-- Descrição --> <p class="text-lg text-text-secondary leading-relaxed mb-8"> Em 25 de fevereiro, a Perplexity lançou o Computer — uma IA na nuvem que orquestra 19 modelos, executa subagentes em paralelo e realiza tarefas de forma autônoma por US$ 200/mês. Veja o que os usuários do OpenClaw já têm, o que não têm, e o que isso significa para a corrida das plataformas de agentes. </p> <!-- Linha de metadados --> <div class="flex flex-wrap items-center gap-6 text-sm font-mono text-text-muted border-t border-b border-accent/20 py-4"> <div class="flex items-center gap-2"> <span class="text-terminal-cyan">@</span> <span class="text-text-secondary">AgentPuter Lab</span> </div> <div class="flex items-center gap-2"> <span class="text-terminal-orange">$</span> <time datetime="2026-02-28" class="text-text-secondary">28 de fevereiro de 2026</time> </div> <div class="flex items-center gap-2"> <span class="text-terminal-blue">~</span> <span class="text-text-secondary">Leitura de 14 min</span> </div> </div> </header> <!-- Corpo do artigo --> <div class="prose prose-invert prose-terminal max-w-none">  <p>Em 25 de fevereiro, o Perplexity lançou o “Computer” — um sistema de IA em nuvem que orquestra 19 modelos, executa subagentes em paralelo, mantém um sistema de arquivos e navegador persistentes e executa tarefas de forma autônoma por longos períodos. Disponível para assinantes do Perplexity Max por US$ 200/mês, o que inclui 10.000 créditos.
+O resumo do Ars Technica sobre o produto: <em>“Então, existe o OpenClaw, que você poderia perceber como o predecessor imediato deste conceito.”</em></p>
+<p>Este artigo aborda o que o Perplexity Computer realmente é, onde ele converge com o OpenClaw, onde eles divergem, e
+5. <a href="#does-better">No que o Perplexity é melhor</a>
+6. <a href="#who-for">Para quem cada um realmente é</a>
+7. <a href="#platform-race">O que isso significa para a corrida das plataformas de agentes</a></p>
+<hr>
+<h2 id="1-o-que-o-perplexity-computer-realmente-é-what-it-is">1. O que o Perplexity Computer realmente é {#what-it-is}</h2>
+<p>A proposta: descreva um resultado em linguagem simples e o Computador descobre como chegar lá. “Planeje e execute uma campanha de marketing digital para o meu restaurante.” “Crie para mim um app para Android que me ajude a acompanhar minhas leituras.” Você não está escrevendo prompts ou
+Por trás dessa interface, o Computador divide a solicitação em subtarefas estruturadas, delega cada uma ao mais adequado de seus 19 modelos disponíveis para aquela etapa específica e as executa — algumas em paralelo, outras em série — até que o trabalho seja concluído.</p>
+<p><strong>A pilha de modelos:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Modelo</th><th>Função</th></tr></thead><tbody><tr><td>Claude Opus 4.6</td><td>Motor principal de raciocínio e orquestração</td></tr><tr><td>ChatGPT 5.2</td><td>Recuperação de contexto longo, pesquisa ampla na web</td></tr><tr><td>Gemini</td><td>Pesquisa aprofund</td></tr><tr><td>Veo 3.1</td><td>Geração de vídeo</td></tr><tr><td>Grok</td><td>Tarefas leves e sensíveis à velocidade</td></tr></tbody></table>
+<p>19 modelos no total — a tabela acima mostra os principais modelos nomeados. Opus é a camada de orquestração; ele decide qual modelo lida com qual subtarefa. Você não configura nada disso. Isso acontece de forma invisível.
+<strong>O ambiente:</strong> Cada tarefa é executada em um ambiente de computação em nuvem isolado com acesso a um sistema de arquivos real, um navegador real e integrações de ferramentas pré-construídas. Nada é executado na sua máquina local. As integrações são selecionadas pela Perplexity — sem plugins de terceiros, sem servidores MCP personalizados.
+<strong>Preços:</strong> US$ 200/mês pelo Perplexity Max, que inclui 10.000 créditos. O computador consome créditos enquanto é executado — o uso não é ilimitado. Você pode definir limites de gastos por subagente, o que lhe dá
+<strong>Uma ressalva sobre a linguagem de marketing:</strong> A Perplexity diz que o Computer é “capaz de funcionar por horas ou até meses”. O produto foi lançado em 25 de fevereiro. Ninguém ainda verificou a alegação de vários meses em um fluxo de trabalho real. Considere isso uma aspiração até que haja relatos de usuários para respaldá-la.</p>
+<hr>
+<h2 id="2-a-ideia-central-é-a-mesma-same-idea">2. A Ideia Central é a Mesma {#same-idea}</h2>
+<p><a href="https://agentputer.com/blog/agent-needs-its-own-computer/">Blog da AgentPuter #01</a> (4 de fevereiro de 2026):</p>
+<blockquote>
+<p><em>“Os Agentes de IA são notavelmente capazes — mas eles não têm um lar, nenhum espaço de trabalho persistente, nenhum computador próprio.”</em></p>
+</blockquote>
+<p>O Perplexity Computer é uma implementação comercial exatamente dessa tese.
+Este não é um caso do Perplexity lendo aquela postagem e construindo um produto. O Perplexity iniciou experimentos internos em janeiro — antes da publicação do Blog #01. São várias equipes chegando à mesma conclusão de forma independente. O que, por si só, é um sinal: o problema é real e óbvio o suficiente para que diferentes organizações o estejam resolvendo sem coordenação.</p>
+<p>O paralelo estrutural é difícil de ignorar:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Conceito</th><th>Perplexity Computer</th><th>OpenClaw</th></tr></thead><tbody><tr><td>Espaço de trabalho persistente</td><td>Sistema de arquivos na nuvem por tarefa</td><td><code>~/.openclaw/data/</code></td></tr><tr><td>Roteamento multimodelo</td><td>19 modelos, orquestrados pelo Opus</td><td><code>model.fallbacks</code> + <code>modelByChannel</code></td></tr><tr><td>Coordenação de subagentes</td><td>Decomposição de tarefas → delegação a agentes</td><td><code>sessions_spawn</code> fan-out</td></tr><tr><td>Autonomia de longa duração</td><td>Declarado: de horas a meses</td><td>Cron + <code>runTimeoutSeconds</code></td></tr><tr><td>Navegador real</td><td>Integrado</td><td><code>browser_snapshot</code>, <code>browser_navigate</code></td></tr><tr><td>Arquivos de contexto do agente</td><td>Gerenciados pela plataforma, não visíveis ao usuário</td><td><code>SOUL.md</code>, <code>USER.md</code>, <code>HEARTBEAT.md</code></td></tr><tr><td>Controles de gastos</td><td>Limites de crédito por subagente</td><td><code>runTimeoutSeconds</code> (proxy baseado em tempo)</td></tr></tbody></table>
+<p>As decisões de design correspondem quase que diretamente. Armazenamento persistente, acesso a navegador, roteamento multimodelo, paralelismo de subagentes, autonomia de longa duração — essas não são funcionalidades que o Perplexity inventou. São funcionalidades que a comunidade OpenClaw tem usado, de forma configurável, desde o ano passado.
+O criador do OpenClaw, Peter Steinberger, entrou para a OpenAI em fevereiro. Altman descreveu os agentes pessoais como algo que “rapidamente se tornará central para nossas ofertas de produtos” e disse que o futuro “será extremamente multiagente”. A Anthropic lançou o Claude Cowork em janeiro. Toda a indústria está agora produtizando o padrão de infraestrutura que a comunidade de código aberto do OpenClaw construiu primeiro.</p>
+<hr>
+<h2 id="3-onde-divergem-diverge">3. Onde Divergem {#diverge}</h2>
+<p>As ideias são idênticas. A filosofia de execução é oposta.
+A Ars Technica resumiu bem: <em>“Se o OpenClaw fosse a web aberta das ferramentas de agentes de IA, então o Computer seria a App Store da Apple.”</em></p>
+<p>Essa analogia é precisa e vale a pena refletir sobre ela. A web aberta permite que você crie qualquer coisa e acesse qualquer coisa — ao custo de segurança, confiabilidade e da exigência de sofisticação técnica. A App Store limita o que você pode criar e acessar — e, em troca, oferece uma experiência curada, mais segura e mais consistente.</p>
+<p>Nenhuma das duas está errada. Elas atendem a usuários diferentes com prioridades diferentes.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Dimensão</th><th>Perplexity Computer</th><th>OpenClaw</th></tr></thead><tbody><tr><td>Onde é executado</td><td>Apenas na nuvem</td><td>Máquina local, VPS auto-hospedado ou TinyClaw</td></tr><tr><td>Modelo de integração</td><td>Integrações de plataforma selecionadas</td><td>Open Skills + ecossistema MCP</td></tr><tr><td>Configuração</td><td>Gerenciado pela plataforma, invisível para o usuário</td><td><code>openclaw.json</code>, controle total do usuário</td></tr><tr><td>Modelo de segurança</td><td>A plataforma é responsável</td><td>O usuário é responsável</td></tr><tr><td>Limite de personalização</td><td>Baixo — use o que o Perplexity oferece</td><td>Alto — configure qualquer coisa</td></tr><tr><td>Transparência</td><td>Caixa-preta</td><td>Transcrição completa via <code>sessions_history</code></td></tr><tr><td>Localização dos dados</td><td>Nuvem da Perplexity</td><td>Sua máquina ou seu servidor</td></tr><tr><td>Controles de gastos</td><td>Limites de crédito por subagente</td><td><code>runTimeoutSeconds</code> (proxy de tempo)</td></tr></tbody></table>
+<p>A troca segue consistentemente em uma direção: a Perplexity abre mão do controle em troca de simplicidade e segurança; o OpenClaw abre mão da simplicidade em troca de controle e extensibilidade.</p>
+<hr>
+<h2 id="4-o-que-a-perplexity-não-pode-fazer-cant-do">4. O que a Perplexity não pode fazer {#cant-do}</h2>
+<p>Estes não são casos isolados — são capacidades que os usuários do OpenClaw consideram essenciais.</p>
+<p><strong>SOUL.md — identidade persistente do agente</strong></p>
+<p>No OpenClaw, o <code>SOUL.md</code> é um arquivo que molda como o agente pensa e se comporta
+O Perplexity Computer não tem equivalente. Toda tarefa começa a partir dos padrões da plataforma. Você não pode escrever um conjunto de instruções persistente, não pode definir como o agente deve lidar com ambiguidades, nem dar a ele uma personalidade que persista. O agente com o qual você trabalha hoje não
+O OpenClaw executa workflows agendados de forma autônoma. “Todo dia útil às 7:50, puxe a atividade de ontem do GitHub, resuma os PRs que precisam de revisão e envie um resumo para o Telegram.” Ninguém aperta um botão. O agente é disparado no horário agendado, realiza o trabalho e entrega o resultado — esteja você acordado ou não.</p>
+<p>Não há equivalente no Perplexity Computer. Os workflows de longa duração que o Perplexity suporta ainda exigem que um humano os inicie.</p>
+<p><strong>Recebimento por webhook</strong>
+O OpenClaw expõe um endpoint <code>/hooks/agent</code>. Um Webhook do GitHub é disparado quando um PR é aberto; o agente lê o diff, executa uma revisão e posta o feedback no Slack — tudo sem envolvimento humano. O evento externo aciona o fluxo de trabalho.
+Se o seu fluxo de trabalho acessa arquivos na sua máquina — lendo código de um repositório local, processando documentos no seu sistema de arquivos, interagindo com aplicativos locais — o Perplexity Computer não consegue acessá-los. Tudo é executado no ambiente de nuvem da Per
+O ecossistema do OpenClaw inclui milhares de Skills no ClawHub e em agentskills.io, além de suporte para servidores MCP personalizados. Você pode instalar uma Skill que se conecta às suas ferramentas internas, escrever uma Skill personalizada que codifica o fluxo de trabalho da sua organização, ou conectar um servidor
+<code>sessions_history</code> no OpenClaw fornece a você uma transcrição completa e inspecionável de tudo o que o agente fez: cada chamada de ferramenta, cada resposta do modelo, cada ponto de decisão. Quando algo dá errado, você pode ler exatamente o que aconteceu.</p>
+<p>O Perplexity Computer</p>
+<h2 id="5-o-que-o-perplexity-faz-melhor-does-better">5. O que o Perplexity faz melhor {#does-better}</h2>
+<p>É importante ser honesto sobre o que os $200/mês compram. Várias destas são vantagens genuínas, não apenas marketing.</p>
+<p><strong>Configuração zero</strong></p>
+<p>Nenhum servidor para
+No OpenClaw, mesmo com o TinyClaw cuidando da infraestrutura, ainda existe uma etapa de configuração significativa: conectar canais, escrever o SOUL.md, configurar a pilha de modelos, decidir os agendamentos Cron. Para um usuário não técnico, essa lacuna é significativa.</p>
+<p><strong>19-roteamento de modelos no qual você nunca pensa</strong>
+O Opus decide qual dos 19 modelos lida com cada subtarefa. Você não especifica “use o Gemini para pesquisa, use o Nano Banana para imagens, use o Grok para tarefas leves”. Esse roteamento ocorre automaticamente com base no que o sistema da Perplexity determinou que funciona melhor.
+No OpenClaw, construir um roteamento multi-modelo equivalente exige configuração intencional: definir <code>subagents.model</code>, usar <code>modelByChannel</code>, escrever <code>model.fallbacks</code>, potencialmente escrever uma lógica de roteamento personalizada em <code>AGENTS.md</code>. É factível — mas dá trabalho.</p>
+<p><strong>Limites de gastos por subagente</strong>
+Esta é a única área em que o Perplexity tem algo que o OpenClaw explicitamente não tem. Limites de gastos baseados em crédito permitem que você diga: “esta subtarefa de pesquisa não deve gastar mais do que X”. Isso é um controle de custos direto em dólares no nível
+Navegador, execução de código, geração de imagem, geração de vídeo — tudo isso funciona de imediato, sem depuração, sem gerenciamento de credenciais. No OpenClaw, cada capacidade requer ou a instalação de uma Skill, uma configuração de servidor MCP, ou uma chave de API. O resultado é mais poderoso uma vez configurado; o custo de configuração é real.</p>
+<p><strong>Sem superfície de ataque de plugins não verificados</strong>
+O incidente ClawHavoc é a ilustração mais clara do risco. Em fevereiro de 2026, 341 skills maliciosas foram descobertas no ClawHub em um ataque coordenado à cadeia de suprimentos. A carga útil principal era o Atomic Stealer (AMOS) — um ladrão de credenciais para macOS que visava carteiras de criptomoedas, chaves de API e senhas de navegador. Cerca de 300.000 usuários ativos do OpenClaw foram potencialmente expostos. O modelo de upload aberto do ClawHub — exigindo apenas uma conta com 7 dias de existência e uma conta do GitHub — tornou trivialmente fácil para os invasores publicarem em escala.
+O modelo fechado do Perplexity Computer elimina completamente esta superfície de ataque. Você não pode instalar uma skill maliciosa porque não é possível instalar nenhuma.</p>
+<p><strong>Responsabilidade comercial</strong></p>
+<p>$200/mês garantem um contrato de suporte, um SLA e uma organização que é responsável</p>
+<h2 id="6-para-quem-cada-um-realmente-é-who-for">6. Para Quem Cada Um Realmente É {#who-for}</h2>
+<p>Eles não estão competindo pelo mesmo usuário. Isso é importante porque enquadrá-los como concorrentes leva à conclusão errada sobre qual deles usar.</p>
+<p><strong>Perplexity Computer:</strong>
+O usuário que mais se beneficia do Perplexity Computer tem workflows na nuvem, não precisa mexer em arquivos locais ou ser acionado por eventos externos, sente-se confortável com uma plataforma gerenciando todas as decisões de roteamento e infraestrutura, e valoriza o “simplesmente funciona” em vez de “eu entendo exatamente o que está fazendo”.
+Um consultor de marketing automatizando a pesquisa de concorrentes. Um escritor usando IA para auxiliar na pesquisa e nos rascunhos. O proprietário de uma pequena empresa que deseja automatizar fluxos de trabalho de comunicação com o cliente que funcionam inteiramente em serviços de nuvem. Para esses usuários, a camada de configuração do OpenClaw é um atrito — não um valor. O Perplexity Computer remove esse atrito por US$ 200/mês.</p>
+<p><strong>OpenClaw:</strong>
+O usuário que mais se beneficia do OpenClaw tem requisitos de infraestrutura específicos: acesso a arquivos locais, fluxos de trabalho autônomos acionados por Cron, manipulação de eventos orientada por Webhook, Skills personalizadas para ferramentas proprietárias, ou requisitos de residência de dados que tornam “executado na nuvem da Perplexity” um impeditivo.
+Um engenheiro que quer um bot de revisão de PR. Um desenvolvedor que precisa de agentes que trabalhem com código em um repositório local. Uma equipe de operações que precisa de fluxos de trabalho de monitoramento autônomos executando na infraestrutura interna. Um pesquisador
+O teste mais claro: se o seu fluxo de trabalho precisa começar sem intervenção humana (Cron ou Webhook), ou precisa acessar arquivos que não estão na nuvem da Perplexity, você é um usuário do OpenClaw. Se os seus fluxos de trabalho são iniciados por você e residem inteiramente em serviços de nuvem, vale a pena avaliar o Perplexity Computer.</p>
+<p>Ambos os grupos existem. Ambos crescerão. O mercado de infraestrutura de agentes é grande o suficiente para ambas as abordagens, e as duas provavelmente continuarão a divergir em vez de convergir.</p>
+<hr>
+<h2 id="7-o-que-isso-significa-para-a-corrida-das-plataformas-de-agentes-platform-race">7. O que isso significa para a Corrida das Plataformas de Agentes {#platform-race}</h2>
+<p><strong>A tese da infraestrutura está consolidada.</strong></p>
+<p>No início de 2025, “agentes precisam de seu próprio ambiente de computação persistente” era uma afirmação que você precisava defender. Em fevereiro de 2026, é um produto pelo qual a Perplexity está cobrando US$ 200/mês, a OpenAI está incorporando em seu roadmap, e a Anthropic está lançando como Claude Cowork. O debate sobre se isso é uma categoria de produto real acabou. É uma categoria de produto real.
+A competição agora é sobre quem possui a camada de infraestrutura — e não sobre se a camada de infraestrutura existe.</p>
+<p><strong>O pipeline de código aberto para comercialização está seguindo o cronograma.</strong>
+A OpenAI contratou o criador do OpenClaw. A Perplexity criou um produto com base no conceito. A Anthropic criou o Claude Cowork. O padrão corresponde ao que aconteceu com Linux → Red Hat → AWS, com Android → Samsung, com Git → GitHub. O código aberto define a categoria e prova o conceito; os players comerciais o transformam em produto para adoção em massa.
+A pergunta que vale a pena ser feita para o ecossistema OpenClaw: a versão aberta e configurável mantém seu valor distinto à medida que as versões fechadas e refinadas melhoram? A resposta, historicamente, é sim — mas a proposta de valor precisa permanecer clara. “Controle total, qualquer infraestrutura, ecossistema extensível” é uma posição coerente. “Uma versão um pouco mais barata do Perplexity Computer com mais configuração” não é.</p>
+<p><strong>US$ 200/mês com limites de crédito estabelece o que o mercado pode suportar.</strong>
+Esse é o preço atual para a versão mais refinada, de configuração zero e orquestrada por 19 modelos desta capacidade. Ela vem com 10.000 créditos incluídos — o uso não é ilimitado.
+O TinyClaw implanta a mesma arquitetura multiagente subjacente em menos de um minuto, a um custo significativamente menor, com acesso a agendamento Cron, Webhooks, arquivos locais e a todo o ecossistema de Skills do OpenClaw. A proposta de
+O mercado é real. A corrida pela infraestrutura começou. O OpenClaw foi o protótipo de código aberto que provou o conceito. O Perplexity Computer é uma das primeiras grandes apostas comerciais nele. Vem mais por aí.</p>
+<hr>
+<h2 id="referência-rápida">Referência Rápida</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>Perplexity Computer</th><th>OpenClaw + TinyClaw</th></tr></thead><tbody><tr><td>Preço</td><td>$200/mês (10 mil créditos incluídos)</td><td>Código aberto + preços do TinyClaw</td></tr><tr><td>Tempo de configuração</td><td>Segundos</td><td>Minutos a horas</td></tr><tr><td>Número de modelos</td><td>19 (roteados automaticamente pelo Opus)</td><td>Configurável (qualquer provedor)</td></tr><tr><td>Limites de gastos</td><td>Baseado em créditos, por subagente</td><td>Baseado em tempo (<code>runTimeoutSeconds</code>)</td></tr><tr><td>---</td><td>---</td><td>---</td></tr><tr><td>Personalização</td><td>Baixa</td><td>Alta</td></tr><tr><td>Acesso a arquivos locais</td><td>Não</td><td>Sim</td></tr><tr><td>Cron / tarefas agendadas</td><td>Não</td><td>Sim</td></tr><tr><td>Recebimento por webhook</td><td>Não</td><td>Sim</td></tr><tr><td>Habilidades personalizadas / plugins</td><td>Não</td><td>Sim (ClawHub, agentskills.io)</td></tr><tr><td>Identidade de agente persistente</td><td>Não</td><td>Sim (<code>SOUL.md</code>)</td></tr><tr><td>Localização dos dados</td><td>Nuvem da Perplexity</td><td>Sua escolha</td></tr><tr><td>Trilha de auditoria completa</td><td>Não</td><td>Sim (<code>sessions_history</code>)</td></tr></tbody></table>
+<hr>
+<h2 id="recursos">Recursos</h2>
+<ul>
+<li><a href="https://www.perplexity.ai/hub/blog/introducing-perplexity-computer">Anúncio do Perplexity Computer</a></li>
+<li><a href="https://arstechnica.com/ai/2026/02/perplexity-announces-computer-an-ai-agent-that-assigns-work-to-other-ai-agents/">Ars Technica: Perplexity anuncia o “Computer”</a></li>
+<li><a href="https://agentputer.com/">agentputer.com</a> — hospedagem em nuvem 24/7 para o OpenClaw</li>
+<li><a href="https://tinyclaw.dev/">tinyclaw.dev</a> — implantação com um clique</li>
+<li><a href="https://docs.openclaw.ai/">docs.openclaw.ai</a> — documentação do OpenClaw</li>
+<li><a href="https://github.com/openclaw/openclaw">github.com/openclaw/openclaw</a> — repositório OpenClaw</li>
+</ul>
+<hr>
+<p><em>Fontes: blog da Perplexity · Ars Technica · TechCrunch · The Verge · gHacks · The Tech Outlook · Fev 2026</em></p>  </div> <!-- Voltar para a lista do blog --> <footer class="mt-16 pt-8 border-t border-accent/20"> <a href="/pt-br/blog/" class="inline-flex items-center gap-2 font-mono text-sm text-text-muted hover:text-accent transition-colors group"> <span class="group-hover:-translate-x-1 transition-transform">&lt;-</span> <span>Voltar para todos os artigos</span> </a> </footer> </article> </main> <footer class="bg-dark-secondary border-t border-accent/20"> <div class="max-w-7xl mx-auto px-6 lg:px-20 py-12 lg:py-16"> <!-- Seção Superior --> <div class="flex flex-col lg:flex-row justify-between gap-12 mb-12"> <!-- Marca --> <div class="lg:max-w-xs"> <a href="/pt-br/" class="inline-block mb-4"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <p class="text-text-muted text-sm font-mono"> <span class="text-terminal-cyan">//</span> Sua IA Nunca Dorme
+</p> </div> <!-- Grade de Links --> <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 font-mono"> <!-- Produto --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/product</h4> <ul class="space-y-3"> <li> <a href="/pt-br/features" class="text-text-muted text-sm hover:text-accent transition-colors"> Recursos </a> </li><li> <a href="/pricing" class="text-text-muted text-sm hover:text-accent transition-colors"> Preços </a> </li><li> <a href="/pt-br/docs" class="text-text-muted text-sm hover:text-accent transition-colors"> Docs </a> </li> </ul> </div> <!-- Empresa --> <div> <h4 class="text-terminal-orange font-bold mb-4 text-sm">/company</h4> <ul class="space-y-3"> <li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> Sobre </a> </li><li> <a href="/pt-br/blog/" class="text-text-muted text-sm hover:text-accent transition-colors"> Blog </a> </li> </ul> </div> <!-- Contato --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/contact</h4> <ul class="space-y-3"> <li> <a href="/cdn-cgi/l/email-protection#c4abb7a7a5b6bea5a9abb6a5f5fdfdfdf4f384a3a9a5ada8eaa7aba9" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> <span class="__cf_email__" data-cfemail="7619051517040c171b190417474f4f4f464136111b171f1a5815191b">[email&#160;protected]</span> </a> </li><li> <a href="https://twitter.com/agentputer" target="_blank" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Twitter </a> </li><li> <a href="https://discord.gg/agentputer" target="_blank" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Discord </a> </li> </ul> </div> <!-- Jurídico --> <div> <h4 class="text-terminal-blue font-bold mb-4 text-sm">/legal</h4> <ul class="space-y-3"> <li> <a href="/privacy" class="text-text-muted text-sm hover:text-accent transition-colors"> Privacidade </a> </li><li> <a href="/terms" class="text-text-muted text-sm hover:text-accent transition-colors"> Termos </a> </li><li> <a href="/privacy#data-security" class="text-text-muted text-sm hover:text-accent transition-colors"> Segurança </a> </li> </ul> </div> </div> </div> <!-- Divisor --> <div class="border-t border-accent/20 pt-8"> <div class="flex flex-col md:flex-row justify-between items-center gap-4 font-mono"> <!-- Direitos Autorais --> <p class="text-text-dark text-sm">
+/* © 2026 AgentPuter. Todos os direitos reservados. */
+</p> <!-- Links Sociais --> <div class="flex items-center gap-6"> <a href="https://github.com/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors"> GitHub </a> </div> </div> </div> </div> </footer>  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"db97590b14994206be9f2eaec90a9494","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html> 

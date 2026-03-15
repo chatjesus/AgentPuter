@@ -1,0 +1,576 @@
+<!DOCTYPE html><html lang="fr"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="maxSpawnDepth est à 1 par défaut, pas à l'infini. SOUL.md est invisible pour les sous-agents. cleanup conserve les fichiers indéfiniment à moins que vous ne le modifiiez. 30 astuces testées en production pour combler l'écart entre 'ça fonctionne' et 'bien configuré'."><meta name="theme-color" content="#0D0D0D"><meta name="generator" content="Astro v4.16.19"><!-- Canonical URL --><link rel="canonical" href="https://www.agentputer.com/fr/blog/14-openclaw-tips/"><!-- hreflang 多语言标签 --><link rel="alternate" hreflang="en" href="https://www.agentputer.com/blog/14-openclaw-tips/"><link rel="alternate" hreflang="zh-CN" href="https://www.agentputer.com/zh/blog/14-openclaw-tips/"><link rel="alternate" hreflang="ja" href="https://www.agentputer.com/ja/blog/14-openclaw-tips/"><link rel="alternate" hreflang="ko" href="https://www.agentputer.com/ko/blog/14-openclaw-tips/"><link rel="alternate" hreflang="es" href="https://www.agentputer.com/es/blog/14-openclaw-tips/"><link rel="alternate" hreflang="pt-BR" href="https://www.agentputer.com/pt-br/blog/14-openclaw-tips/"><link rel="alternate" hreflang="de" href="https://www.agentputer.com/de/blog/14-openclaw-tips/"><link rel="alternate" hreflang="fr" href="https://www.agentputer.com/fr/blog/14-openclaw-tips/"><link rel="alternate" hreflang="zh-TW" href="https://www.agentputer.com/zh-tw/blog/14-openclaw-tips/"><link rel="alternate" hreflang="x-default" href="https://www.agentputer.com/blog/14-openclaw-tips/"><!-- Keywords（各语言本地化） --><meta name="keywords" content="OpenClaw, Configuration, Sub-Agents, Skills, Cost Control, Security, Tips"><!-- Open Graph --><meta property="og:title" content="Guide de l'utilisateur avancé d'OpenClaw : 30 astuces que personne ne vous dit | Blog AgentPuter"><meta property="og:description" content="maxSpawnDepth est à 1 par défaut, pas à l'infini. SOUL.md est invisible pour les sous-agents. cleanup conserve les fichiers indéfiniment à moins que vous ne le modifiiez. 30 astuces testées en production pour combler l'écart entre 'ça fonctionne' et 'bien configuré'."><meta property="og:type" content="article"><meta property="og:url" content="https://www.agentputer.com/fr/blog/14-openclaw-tips/"><meta property="og:image" content="https://www.agentputer.com/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:site_name" content="AgentPuter"><meta property="og:locale" content="fr_FR"><meta property="og:locale:alternate" content="en_US"><meta property="og:locale:alternate" content="zh_CN"><meta property="og:locale:alternate" content="ja_JP"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="es_ES"><meta property="og:locale:alternate" content="pt_BR"><meta property="og:locale:alternate" content="de_DE"><meta property="og:locale:alternate" content="zh_TW"><!-- Article-specific OG tags --><meta property="article:published_time" content="2026-02-21"><meta property="article:author" content="AgentPuter Lab"><meta property="article:tag" content="OpenClaw"><meta property="article:tag" content="Configuration"><meta property="article:tag" content="Sub-Agents"><meta property="article:tag" content="Skills"><meta property="article:tag" content="Cost Control"><meta property="article:tag" content="Security"><meta property="article:tag" content="Tips"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@agentputer"><meta name="twitter:creator" content="@agentputer"><meta name="twitter:title" content="Guide de l'utilisateur avancé d'OpenClaw : 30 astuces que personne ne vous dit | Blog AgentPuter"><meta name="twitter:description" content="maxSpawnDepth est à 1 par défaut, pas à l'infini. SOUL.md est invisible pour les sous-agents. cleanup conserve les fichiers indéfiniment à moins que vous ne le modifiiez. 30 astuces testées en production pour combler l'écart entre 'ça fonctionne' et 'bien configuré'."><meta name="twitter:image" content="https://www.agentputer.com/og-default.png"><!-- Favicon --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/favicon.svg"><!-- 字体：preconnect + LCP 关键字体直接预加载 --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- 直接预加载 LCP 关键字体文件（JetBrains Mono Bold Latin，H1 使用） --><link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8L6tTOlOVk6OThhvA.woff2"><!-- 字体 CSS 阻塞加载（配合 preconnect 延迟极低，确保 LCP 时字体可用） --><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"><!-- Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":"https://www.agentputer.com/favicon.svg","description":"Your AI Agent's dedicated cloud runtime. AgentPuter keeps your AI running 24/7.","sameAs":["https://twitter.com/agentputer","https://github.com/agentputer","https://discord.gg/agentputer"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"AgentPuter","url":"https://www.agentputer.com","inLanguage":"fr","availableLanguage":[{"@type":"Language","name":"English","alternateName":"en"},{"@type":"Language","name":"中文","alternateName":"zh-CN"},{"@type":"Language","name":"繁體中文","alternateName":"zh-TW"},{"@type":"Language","name":"日本語","alternateName":"ja"},{"@type":"Language","name":"한국어","alternateName":"ko"},{"@type":"Language","name":"Español","alternateName":"es"},{"@type":"Language","name":"Português","alternateName":"pt-BR"},{"@type":"Language","name":"Deutsch","alternateName":"de"},{"@type":"Language","name":"Français","alternateName":"fr"}],"description":"Your AI Agent's dedicated cloud runtime."}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.agentputer.com/fr/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.agentputer.com/fr/blog/"},{"@type":"ListItem","position":3,"name":"14 openclaw tips","item":"https://www.agentputer.com/fr/blog/14-openclaw-tips/"}]}</script><!-- 页面专属结构化数据插槽 --><!-- 浏览器语言自动检测：移到 head 阻塞执行，避免渲染后跳转导致 CLS --><script>
+    (function() {
+      if (localStorage.getItem('agentputer-lang')) return;
+
+      var langMap = {
+        'zh': '/zh', 'zh-cn': '/zh', 'zh-tw': '/zh-tw', 'zh-hk': '/zh-tw',
+        'ja': '/ja', 'ko': '/ko',
+        'es': '/es', 'es-419': '/es',
+        'pt': '/pt-br', 'pt-br': '/pt-br',
+        'de': '/de', 'fr': '/fr',
+      };
+
+      var path = window.location.pathname;
+      if (/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)(\/|$)/.test(path)) {
+        var m = path.match(/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)/);
+        if (m) localStorage.setItem('agentputer-lang', m[1]);
+        return;
+      }
+
+      var langs = navigator.languages || [navigator.language];
+      for (var i = 0; i < langs.length; i++) {
+        var bl = langs[i].toLowerCase();
+        if (langMap[bl]) {
+          var target = path === '/' ? langMap[bl] + '/' : langMap[bl] + path;
+          localStorage.setItem('agentputer-lang', bl);
+          window.location.replace(target);
+          return;
+        }
+        var primary = bl.split('-')[0];
+        if (primary !== bl && langMap[primary]) {
+          var target2 = path === '/' ? langMap[primary] + '/' : langMap[primary] + path;
+          localStorage.setItem('agentputer-lang', primary);
+          window.location.replace(target2);
+          return;
+        }
+      }
+      localStorage.setItem('agentputer-lang', 'en');
+    })();
+    </script><!-- Google Analytics 4 --><script async src="https://www.googletagmanager.com/gtag/js?id=G-9M2T6GQJ0L"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9M2T6GQJ0L');
+    </script><title>Guide de l&#39;utilisateur avancé d&#39;OpenClaw : 30 astuces que personne ne vous dit | Blog AgentPuter</title><link rel="stylesheet" href="/_astro/_slug_.DM3EUOA_.css">
+<link rel="stylesheet" href="/_astro/_slug_.CUcOCpHJ.css">
+<link rel="stylesheet" href="/_astro/_slug_.CxhqtQFk.css"><script type="module" src="/_astro/hoisted.CReWVP5t.js"></script></head> <body class="min-h-screen">   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Guide de l'utilisateur avancé d'OpenClaw : 30 astuces que personne ne vous dit","description":"maxSpawnDepth est à 1 par défaut, pas à l'infini. SOUL.md est invisible pour les sous-agents. cleanup conserve les fichiers indéfiniment à moins que vous ne le modifiiez. 30 astuces testées en production pour combler l'écart entre 'ça fonctionne' et 'bien configuré'.","datePublished":"2026-02-21","dateModified":"2026-02-21","inLanguage":"fr","author":{"@type":"Organization","name":"AgentPuter Lab","url":"https://www.agentputer.com"},"publisher":{"@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":{"@type":"ImageObject","url":"https://www.agentputer.com/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.agentputer.com/fr/blog/14-openclaw-tips/"},"keywords":"OpenClaw, Configuration, Sub-Agents, Skills, Cost Control, Security, Tips"}</script> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.agentputer.com/fr/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.agentputer.com/fr/blog/"},{"@type":"ListItem","position":3,"name":"Guide de l'utilisateur avancé d'OpenClaw : 30 astuces que personne ne vous dit"}]}</script> <header class="fixed top-0 left-0 right-0 z-50 bg-dark-primary md:bg-dark-primary/95 md:backdrop-blur-lg border-b border-accent/20"> <nav class="max-w-7xl mx-auto px-6 lg:px-20 h-20 flex items-center justify-between"> <!-- Logo --> <a href="/fr/" class="flex items-center gap-2 group"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <!-- Desktop Navigation --> <div class="hidden md:flex items-center gap-8 font-mono"> <a href="/fr/features" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/fonctionnalités
+</a> <a href="/tools" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/outils
+</a> <a href="#pricing" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/tarifs
+</a> <a href="/fr/blog/" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/blog
+</a> <a href="/fr/docs" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/docs
+</a> <!-- Desktop 语言切换器 --><div class="lang-switcher relative"> <button class="lang-btn flex items-center gap-1.5 text-text-secondary hover:text-accent transition-colors text-sm font-mono cursor-pointer" aria-label="Switch language" aria-expanded="false"> <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <circle cx="12" cy="12" r="10" stroke-width="1.5"></circle> <path stroke-width="1.5" d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path> </svg> <span>FR</span> <svg class="w-3 h-3 opacity-40 transition-transform lang-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </button> <!-- 下拉菜单 --> <div class="lang-dropdown hidden absolute right-0 top-full mt-2 py-1 bg-[#1a1a1a] border border-[#333] rounded-lg shadow-xl min-w-[160px] z-[100]"> <a href="/blog/14-openclaw-tips/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="en"> <span>English</span> <span class="text-xs text-text-dark">EN</span> </a><a href="/zh/blog/14-openclaw-tips/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="zh"> <span>中文</span> <span class="text-xs text-text-dark">中文</span> </a><a href="/ja/blog/14-openclaw-tips/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ja"> <span>日本語</span> <span class="text-xs text-text-dark">JA</span> </a><a href="/ko/blog/14-openclaw-tips/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ko"> <span>한국어</span> <span class="text-xs text-text-dark">KO</span> </a><a href="/es/blog/14-openclaw-tips/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="es"> <span>Español</span> <span class="text-xs text-text-dark">ES</span> </a><a href="/pt-br/blog/14-openclaw-tips/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="pt-br"> <span>Português</span> <span class="text-xs text-text-dark">PT</span> </a><a href="/de/blog/14-openclaw-tips/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="de"> <span>Deutsch</span> <span class="text-xs text-text-dark">DE</span> </a><a href="/fr/blog/14-openclaw-tips/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-accent bg-accent/10" data-lang="fr"> <span>Français</span> <span class="text-xs text-accent">FR</span> </a> </div> </div> <!-- Mobile 语言列表（平铺，不用下拉） --> <div class="lang-mobile hidden"> <div class="flex flex-wrap gap-2"> <a href="/blog/14-openclaw-tips/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="en"> English </a><a href="/zh/blog/14-openclaw-tips/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="zh"> 中文 </a><a href="/ja/blog/14-openclaw-tips/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ja"> 日本語 </a><a href="/ko/blog/14-openclaw-tips/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ko"> 한국어 </a><a href="/es/blog/14-openclaw-tips/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="es"> Español </a><a href="/pt-br/blog/14-openclaw-tips/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="pt-br"> Português </a><a href="/de/blog/14-openclaw-tips/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="de"> Deutsch </a><a href="/fr/blog/14-openclaw-tips/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-accent border-accent/40 bg-accent/10" data-lang="fr"> Français </a> </div> </div>  <a href="https://app.agentputer.com/sign-up" class="text-sm py-2.5 px-6 bg-accent text-dark-primary font-bold rounded hover:bg-accent-dark transition-colors">
+[COMMENCER]
+</a> </div> <!-- Mobile Menu Button --> <button id="mobile-menu-btn-fr" class="md:hidden p-2 text-text-secondary hover:text-white" aria-label="Ouvrir le menu"> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </nav> <!-- Mobile Menu --> <div id="mobile-menu-fr" class="hidden md:hidden bg-dark-secondary border-t border-dark-tertiary"> <div class="px-6 py-4 space-y-4"> <a href="/fr/features" class="block hover:text-white transition-colors text-text-secondary">
+fonctionnalités
+</a> <a href="/tools" class="block hover:text-white transition-colors text-text-secondary">
+outils
+</a> <a href="#pricing" class="block hover:text-white transition-colors text-text-secondary">
+tarifs
+</a> <a href="/fr/blog/" class="block hover:text-white transition-colors text-text-secondary">
+blog
+</a> <a href="/fr/docs" class="block hover:text-white transition-colors text-text-secondary">
+docs
+</a> <div class="lang-mobile-wrapper"></div> <a href="https://app.agentputer.com/sign-up" class="btn-primary w-full justify-center text-sm py-3">
+Commencer
+</a> </div> </div> </header>  <main class="relative z-10 pt-28 pb-20"> <article class="max-w-4xl mx-auto px-6 lg:px-8"> <!-- Fil d'Ariane --> <nav class="mb-8 font-mono text-sm"> <a href="/fr/" class="text-text-muted hover:text-accent transition-colors">~</a> <span class="text-text-dark mx-2">/</span> <a href="/fr/blog/" class="text-text-muted hover:text-accent transition-colors">Blog</a> <span class="text-text-dark mx-2">/</span> <span class="text-accent">Article</span> </nav> <!-- En-tête des métadonnées de l'article --> <header class="mb-12"> <!-- Tags --> <div class="flex flex-wrap gap-2 mb-6"> <span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#OpenClaw </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Configuration </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Sub-Agents </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Skills </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Cost Control </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Security </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Tips </span> </div> <!-- Titre --> <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6"> Guide de l&#39;utilisateur avancé d&#39;OpenClaw : 30 astuces que personne ne vous dit </h1> <!-- Description --> <p class="text-lg text-text-secondary leading-relaxed mb-8"> maxSpawnDepth est à 1 par défaut, pas à l&#39;infini. SOUL.md est invisible pour les sous-agents. cleanup conserve les fichiers indéfiniment à moins que vous ne le modifiiez. 30 astuces testées en production pour combler l&#39;écart entre &#39;ça fonctionne&#39; et &#39;bien configuré&#39;. </p> <!-- Ligne de métadonnées --> <div class="flex flex-wrap items-center gap-6 text-sm font-mono text-text-muted border-t border-b border-accent/20 py-4"> <div class="flex items-center gap-2"> <span class="text-terminal-cyan">@</span> <span class="text-text-secondary">AgentPuter Lab</span> </div> <div class="flex items-center gap-2"> <span class="text-terminal-orange">$</span> <time datetime="2026-02-21" class="text-text-secondary">21 février 2026</time> </div> <div class="flex items-center gap-2"> <span class="text-terminal-blue">~</span> <span class="text-text-secondary">18 min de lecture</span> </div> </div> </header> <!-- Corps de l'article --> <div class="prose prose-invert prose-terminal max-w-none">  <hr>
+<h1 id="guide-de-lutilisateur-avancé-dopenclaw--30-astuces-que-personne-ne-vous-dit">Guide de l’utilisateur avancé d’OpenClaw : 30 astuces que personne ne vous dit</h1>
+<p><em>Communauté OpenClaw · Février 2026</em></p>
+<p>La plupart des gens installent OpenClaw, lancent un agent, et pensent que c</p>
+<hr>
+<p>Ces 30 astuces sont issues de l’utilisation en production et d’une lecture attentive de la documentation officielle. Certaines sont évidentes avec le recul. La plupart ne le sont pas du tout.</p>
+<hr>
+<hr>
+<h2 id="table-des-matières">Table des matières</h2>
+<ol>
+<li><a href="#chapter-1">Principes de base de la configuration (Conseils 01–08)</a></li>
+<li><a href="#chapter-2">Sélection et utilisation des compétences (Conseils 09–14)</a></li>
+<li><a href="#chapter-3">Architecture des sous-agents (Conseils 15–20)</a></li>
+<li><a href="#chapter-4">Maîtrise des coûts (Conseils 21–25)</a></li>
+<li><a href="#chapter-5">Débogage et sécurité (Conseils 26–30)</a></li>
+<li><a href="#tinyclaw">Ignorez tout ceci : TinyClaw</a></li>
+</ol>
+<hr>
+<hr>
+<h2 id="fondamentaux-de-la-configuration-chapter-1">Fondamentaux de la configuration {#chapter-1}</h2>
+<hr>
+<h3 id="01-agentsmd-vs-soulmd--ce-que-les-sous-agents-consultent-réellement">01. AGENTS.md vs SOUL.md : ce que les sous-agents consultent réellement</h3>
+<p>OpenClaw charge les fichiers selon une hiérarchie à trois niveaux :</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>~/.open</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Cela déroute beaucoup de gens. Ils écrivent la logique de routage dans `SOUL.md`, déploient une architecture fan-out, puis passent une heure à se demander pourquoi les sous-agents n'effectuent pas le routage correctement. Ils ne le font pas correctement parce qu</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>## Routage</span></span>
+<span class="line"><span>- Questions financières → finance-agent</span></span>
+<span class="line"><span>- Revue de code → code-reviewer</span></span>
+<span class="line"><span>- Recherche → research-storm</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>Règle simple : si un sous-agent a besoin de le savoir, cela ne peut pas se trouver dans <code>SOUL.md</code>.</p>
+<hr>
+<p>Chaînes courantes en date de février 2026 :</p>
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Modèle</th><th>Idéal pour</th></tr></thead><tbody><tr><td><code>anthropic/claude-opus-4-6</code></td><td>Tout ce qui nécessite un véritable raisonnement</td></tr><tr><td><code>anthropic/claude-sonnet-4-6</code></td><td>La plupart des choses — qualité proche d’Opus, beaucoup moins cher</td></tr><tr><td><code>anthropic/claude-haiku-4-5</code></td><td>Tâches d’exécution où la vitesse prime sur la profondeur</td></tr><tr><td><code>google/gemini-3.1-pro-preview</code></td><td>Documents longs, entrées multimodales</td></tr><tr><td><code>openai/gpt-4o-mini</code></td><td>Résumé, classification, conversion de format</td></tr><tr><td><code>ollama/qwen2.5</code></td><td>Tout ce qui ne peut pas quitter votre réseau</td></tr></tbody></table>
+<hr>
+<p>Pour définir la valeur par défaut globale pour les sous-agents :</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "agents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "defaults"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      "subagents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">        "model"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"anthropic/claude-haiku-4-5"</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">OpenClaw</span><span style="color:#FDAEB7;font-style:italic"> lit</span><span style="color:#FDAEB7;font-style:italic"> `.env`</span><span style="color:#FDAEB7;font-style:italic"> automatiquement.</span><span style="color:#FDAEB7;font-style:italic"> Il</span><span style="color:#FDAEB7;font-style:italic"> n'y</span><span style="color:#FDAEB7;font-style:italic"> a</span><span style="color:#FDAEB7;font-style:italic"> aucune</span><span style="color:#FDAEB7;font-style:italic"> raison</span><span style="color:#FDAEB7;font-style:italic"> de</span><span style="color:#FDAEB7;font-style:italic"> mettre</span><span style="color:#FDAEB7;font-style:italic"> les</span><span style="color:#FDAEB7;font-style:italic"> clés</span><span style="color:#FDAEB7;font-style:italic"> ailleurs.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">###</span><span style="color:#79B8FF"> 04</span><span style="color:#FDAEB7;font-style:italic">.</span><span style="color:#FDAEB7;font-style:italic"> maxSpawnDepth</span><span style="color:#FDAEB7;font-style:italic"> par</span><span style="color:#FDAEB7;font-style:italic"> défaut</span><span style="color:#FDAEB7;font-style:italic"> à</span><span style="color:#79B8FF"> 1</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">Si</span><span style="color:#FDAEB7;font-style:italic"> vous</span><span style="color:#FDAEB7;font-style:italic"> avez</span><span style="color:#FDAEB7;font-style:italic"> vu</span><span style="color:#FDAEB7;font-style:italic"> `SpawnDepthExceeded`</span><span style="color:#FDAEB7;font-style:italic"> et</span><span style="color:#FDAEB7;font-style:italic"> que</span><span style="color:#FDAEB7;font-style:italic"> vous</span><span style="color:#FDAEB7;font-style:italic"> ne</span><span style="color:#FDAEB7;font-style:italic"> saviez</span><span style="color:#FDAEB7;font-style:italic"> pas</span><span style="color:#FDAEB7;font-style:italic"> pourquoi</span><span style="color:#E1E4E8">, </span><span style="color:#FDAEB7;font-style:italic">en</span><span style="color:#FDAEB7;font-style:italic"> voici</span><span style="color:#FDAEB7;font-style:italic"> la</span><span style="color:#FDAEB7;font-style:italic"> raison.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">```json</span></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "agents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "defaults"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      "subagents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">        "maxSpawnDepth"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">2</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<hr>
+<p>La valeur par défaut est 1 — un niveau de sous-agents. Le maximum est 5, mais en pratique, 2 couvre presque toutes les architectures réelles. Les nœuds feuilles de profondeur 2 ne peuvent pas en générer d’autres ; tenter d’aller plus en profondeur</p>
+<hr>
+<h3 id="05-la-valeur-par-défaut-de-runtimeoutseconds-est-0">05. La valeur par défaut de runTimeoutSeconds est 0</h3>
+<p>Zéro signifie aucun délai d’attente. Un sous-agent bloqué s’exécute indéfiniment.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "agents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "defaults"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">120</span><span style="color:#FDAEB7;font-style:italic"> secondes</span><span style="color:#FDAEB7;font-style:italic"> suffisent</span><span style="color:#FDAEB7;font-style:italic"> pour</span><span style="color:#FDAEB7;font-style:italic"> la</span><span style="color:#FDAEB7;font-style:italic"> plupart</span><span style="color:#FDAEB7;font-style:italic"> des</span><span style="color:#FDAEB7;font-style:italic"> tâches.</span><span style="color:#FDAEB7;font-style:italic"> Les</span><span style="color:#FDAEB7;font-style:italic"> agents</span><span style="color:#FDAEB7;font-style:italic"> gourmands</span><span style="color:#FDAEB7;font-style:italic"> en</span><span style="color:#FDAEB7;font-style:italic"> données</span><span style="color:#FDAEB7;font-style:italic"> ont</span><span style="color:#FDAEB7;font-style:italic"> parfois</span><span style="color:#FDAEB7;font-style:italic"> besoin</span><span style="color:#FDAEB7;font-style:italic"> de</span><span style="color:#FDAEB7;font-style:italic"> 300.</span><span style="color:#FDAEB7;font-style:italic"> L'essentiel</span><span style="color:#FDAEB7;font-style:italic"> à</span><span style="color:#FDAEB7;font-style:italic"> comprendre</span><span style="color:#E1E4E8"> : </span><span style="color:#FDAEB7;font-style:italic">l'expiration</span><span style="color:#FDAEB7;font-style:italic"> du</span><span style="color:#FDAEB7;font-style:italic"> délai</span><span style="color:#FDAEB7;font-style:italic"> arrête</span><span style="color:#FDAEB7;font-style:italic"> l'exécution</span><span style="color:#FDAEB7;font-style:italic"> mais</span><span style="color:#FDAEB7;font-style:italic"> ne</span><span style="color:#FDAEB7;font-style:italic"> supprime</span><span style="color:#FDAEB7;font-style:italic"> pas</span><span style="color:#FDAEB7;font-style:italic"> la</span><span style="color:#FDAEB7;font-style:italic"> session.</span><span style="color:#FDAEB7;font-style:italic"> Vous</span><span style="color:#FDAEB7;font-style:italic"> avez</span><span style="color:#FDAEB7;font-style:italic"> besoin</span><span style="color:#FDAEB7;font-style:italic"> de</span><span style="color:#FDAEB7;font-style:italic"> `cleanup`</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "agents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "defaults"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      "subagents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">        "cleanup"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"delete"</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>Le terme « delete » est trompeur — il renomme la transcription en <code>*.deleted.*</code> plutôt que de la supprimer. Votre historique est conservé ; votre répertoire de travail reste propre. Les sessions qui ne sont pas nettoyées restent en attente jusqu’à l’auto-archivage de 60 minutes, ce qui est long si vous exécutez des agents fréquemment.</p>
+<hr>
+<h3 id="07-connecter-context7-pour-empêcher-les-agents-dhalluciner-des-api">07. Connecter context7 pour empêcher les agents d’halluciner des API</h3>
+<hr>
+<p>Il s’agit du MCP ayant le plus grand impact que vous pouvez ajouter pour les flux de travail de développement. Les agents interrogent la documentation officielle en temps réel au lieu de deviner à partir de données d’entraînement datant de plusieurs mois ou années.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">Demandez</span><span style="color:#FDAEB7;font-style:italic"> *</span><span style="color:#79B8FF">"comment fonctionnent les Server Actions dans la dernière version de Next.js ?"</span><span style="color:#FDAEB7;font-style:italic">*</span><span style="color:#FDAEB7;font-style:italic"> et</span><span style="color:#FDAEB7;font-style:italic"> vous</span><span style="color:#FDAEB7;font-style:italic"> obtiendrez</span><span style="color:#FDAEB7;font-style:italic"> la</span><span style="color:#FDAEB7;font-style:italic"> documentation</span><span style="color:#FDAEB7;font-style:italic"> actuelle,</span><span style="color:#FDAEB7;font-style:italic"> et</span><span style="color:#FDAEB7;font-style:italic"> non</span><span style="color:#FDAEB7;font-style:italic"> une</span><span style="color:#FDAEB7;font-style:italic"> version</span><span style="color:#FDAEB7;font-style:italic"> bêta</span><span style="color:#FDAEB7;font-style:italic"> de</span><span style="color:#FDAEB7;font-style:italic"> 2023.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">###</span><span style="color:#FDAEB7;font-style:italic"> 08.</span><span style="color:#FDAEB7;font-style:italic"> TOOLS.md</span><span style="color:#FDAEB7;font-style:italic"> est</span><span style="color:#FDAEB7;font-style:italic"> votre</span><span style="color:#FDAEB7;font-style:italic"> limite</span><span style="color:#FDAEB7;font-style:italic"> de</span><span style="color:#FDAEB7;font-style:italic"> permissions</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">Sans</span><span style="color:#FDAEB7;font-style:italic"> `TOOLS</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">`refuser`</span><span style="color:#FDAEB7;font-style:italic"> l'emporte</span><span style="color:#FDAEB7;font-style:italic"> sur</span><span style="color:#FDAEB7;font-style:italic"> `autoriser`.</span><span style="color:#FDAEB7;font-style:italic"> Dans</span><span style="color:#FDAEB7;font-style:italic"> les</span><span style="color:#FDAEB7;font-style:italic"> configurations</span><span style="color:#FDAEB7;font-style:italic"> multi-agents,</span><span style="color:#FDAEB7;font-style:italic"> cela</span><span style="color:#FDAEB7;font-style:italic"> a</span><span style="color:#FDAEB7;font-style:italic"> plus</span><span style="color:#FDAEB7;font-style:italic"> d'importance</span><span style="color:#FDAEB7;font-style:italic"> qu'il</span><span style="color:#FDAEB7;font-style:italic"> n'y</span><span style="color:#FDAEB7;font-style:italic"> paraît</span><span style="color:#FDAEB7;font-style:italic"> —</span><span style="color:#FDAEB7;font-style:italic"> si</span><span style="color:#FDAEB7;font-style:italic"> une</span><span style="color:#FDAEB7;font-style:italic"> compétence</span><span style="color:#FDAEB7;font-style:italic"> est</span><span style="color:#FDAEB7;font-style:italic"> compromise,</span><span style="color:#FDAEB7;font-style:italic"> un</span><span style="color:#FDAEB7;font-style:italic"> fichier</span><span style="color:#FDAEB7;font-style:italic"> `TOOLS.md`</span><span style="color:#FDAEB7;font-style:italic"> permissif</span><span style="color:#FDAEB7;font-style:italic"> permet</span><span style="color:#FDAEB7;font-style:italic"> à</span><span style="color:#FDAEB7;font-style:italic"> l'onde</span><span style="color:#FDAEB7;font-style:italic"> de</span><span style="color:#FDAEB7;font-style:italic"> choc</span><span style="color:#FDAEB7;font-style:italic"> de</span><span style="color:#FDAEB7;font-style:italic"> se</span><span style="color:#FDAEB7;font-style:italic"> propager</span><span style="color:#FDAEB7;font-style:italic"> à</span><span style="color:#FDAEB7;font-style:italic"> travers</span><span style="color:#FDAEB7;font-style:italic"> tout</span><span style="color:#FDAEB7;font-style:italic"> votre</span><span style="color:#FDAEB7;font-style:italic"> graphe</span><span style="color:#FDAEB7;font-style:italic"> d'agents.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">##</span><span style="color:#FDAEB7;font-style:italic"> Sélection</span><span style="color:#FDAEB7;font-style:italic"> et</span><span style="color:#FDAEB7;font-style:italic"> Utilisation</span><span style="color:#FDAEB7;font-style:italic"> des</span><span style="color:#FDAEB7;font-style:italic"> Compétences</span><span style="color:#FDAEB7;font-style:italic"> {#chapter-2</span><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">### </span><span style="color:#79B8FF">09</span><span style="color:#E1E4E8">. Le score de sécurité n'est pas une décoration</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">ClawHub et agentskills.io affichent tous deux un score de sécurité pour chaque compétence. Lisez-le.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">- **A/B (</span><span style="color:#79B8FF">80</span><span style="color:#E1E4E8">+) :** Convient à la production</span></span>
+<span class="line"><span style="color:#E1E4E8">- **C (</span><span style="color:#79B8FF">70</span><span style="color:#E1E4E8">–</span><span style="color:#79B8FF">79</span><span style="color:#E1E4E8">) :** Vérifiez les portées OAuth qu'elle demande avant de l'installer</span></span>
+<span class="line"><span style="color:#E1E4E8">- **D (≤</span><span style="color:#79B8FF">69</span><span style="color:#E1E4E8">) :** Testez dans un bac à sable. Sérieusement.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">En février </span><span style="color:#79B8FF">2026</span><span style="color:#E1E4E8">, l'incident ClawHavoc a retiré </span><span style="color:#79B8FF">341</span><span style="color:#E1E4E8"> compétences de ClawHub. Elles contenaient des charges utiles d'injection de prompt — dont certaines étaient si subtiles qu'une inspection manuelle ne les aurait pas détectées. Le score</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">`self-improvement` consigne les erreurs, les corrections et les lacunes de connaissances de chaque session dans `.learnings/ERRORS.md`. Avant que la session suivante ne commence, l'agent relit ce fichier — il commence donc en sachant déjà ce qui a mal tourné la dernière fois.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">Aucune configuration supplémentaire. Aucune deuxième compétence requise. Installez-le, exécutez la même tâche récurrente pendant deux semaines, et comparez. L'effet cumulé est réel.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">### </span><span style="color:#79B8FF">11</span><span style="color:#E1E4E8">. Ordre de chargement des compétences : le dernier l'emporte</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">L'ordre de chargement est le suivant : `TOOLS.md` → `AGENTS.md` → `SKILL.md`. Si un skill définit un outil avec le même nom qu'un élément de votre `AGENTS.md`, la version du skill prend le dessus.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">Le `SKILL.md` minimal viable comporte trois sections :</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">```markdown</span></span>
+<span class="line"><span style="color:#E1E4E8"># my-skill/SKILL.md</span></span>
+<span class="line"></span></code></pre>
+<hr>
+<h2 id="ce-que-je-fais">Ce que je fais</h2>
+<p>Analyser les données de ventes CSV et générer des résumés hebdomadaires.</p>
+<hr>
+<h2 id="quand-mutiliser">Quand m’utiliser</h2>
+<p>Après la clôture d’une période de vente, lorsque vous disposez d’un export CRM.
+Ne pas utiliser pour les données en temps réel ou les ensembles de données non commerciaux.</p>
+<hr>
+<h2 id="comment-je-travaille">Comment je travaille</h2>
+<ol>
+<li>Lire le fichier CSV à partir du chemin indiqué dans l’invite de la tâche</li>
+<li>Calculer les totaux, les meilleures performances et le delta d’une période à l’autre</li>
+<li>Mettre en forme en tableau Markdown</li>
+<li>Enregistrer dans output/sales_summary_[date].md</li>
+</ol>
+<p>C’est tout. Les agents peuvent suivre des instructions en langage courant. Vous n’avez pas besoin d’apprendre une syntaxe spéciale.</p>
+<hr>
+<h3 id="13-clawhub-vs-agentskillsio--des-outils-différents-pour-des-tâches-différentes">13. ClawHub vs agentskills.io : des outils différents pour des tâches différentes</h3>
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>clawhub.ai</th><th>agentskills.io</th></tr></thead><tbody><tr><td>Taille du catalogue</td><td>3 286 compétences</td><td>19 309 compétences</td></tr><tr><td>Curation</td><td>Auditées pour la sécurité, sélectionnées</td><td>Soumissions de la</td></tr></tbody></table>
+<hr>
+<p><code>proactive-agent</code> prend en charge le WAL (récupération après plantage, persistance du contexte entre les redémarrages), la planification Cron autonome et la restauration du contexte après une interruption.</p>
+<p>Un exemple concret de ce que cela permet :</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Plan</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Aucun bouton à presser. Aucune intervention humaine. Ça s'exécute tout seul. C'est à ce moment que les agents cessent d'être perçus comme des outils et commencent à s'apparenter à une infrastructure.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>## Architecture de sous-agents {#chapter-3}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>### 15. Distribution en éventail (Fan-out) : le changement le plus impactant que la plupart des équipes n'ont pas encore fait</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Séquentiel :</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>Principal → récupérer les</p>
+<hr>
+<p>Distribution en éventail :</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#E1E4E8">sessions_spawn(</span><span style="color:#FFAB70">task</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"récupérer les données du marché"</span><span style="color:#E1E4E8">,  </span><span style="color:#FFAB70">label</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"market-data"</span><span style="color:#E1E4E8">,    </span><span style="color:#FFAB70">model</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"anthropic/claude-haiku-4-5"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">sessions_spawn(</span><span style="color:#FFAB70">task</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"résumer les actualités"</span><span style="color:#E1E4E8">,             </span><span style="color:#FFAB70">label</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">--</span><span style="color:#F97583">-</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">`sessions_spawn`</span><span style="color:#E1E4E8"> renvoie immédiatement un </span><span style="color:#FDAEB7;font-style:italic">`runId`</span><span style="color:#E1E4E8"> et n</span><span style="color:#9ECBFF">'est pas bloquant. L'</span><span style="color:#E1E4E8">agent principal </span><span style="color:#F97583">continue</span><span style="color:#E1E4E8">. Cette seule modification — restructurer le travail séquentiel en fan</span><span style="color:#F97583">-</span><span style="color:#E1E4E8">out — réduit la latence de </span><span style="color:#79B8FF">30</span><span style="color:#E1E4E8"> à </span><span style="color:#79B8FF">40</span><span style="color:#F97583"> %</span><span style="color:#E1E4E8"> pour les flux de</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">--</span><span style="color:#F97583">-</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Surcharge pour la seule tâche qui en a vraiment besoin</span></span>
+<span class="line"><span style="color:#E1E4E8">sessions_spawn(</span></span>
+<span class="line"><span style="color:#FFAB70">    task</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"concevoir le modèle de données pour la facturation multi-locataire"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#FFAB70">    label</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"billing-schema"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#FFAB70">    model</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"anthropic/claude-opus-4-6"</span></span>
+<span class="line"><span style="color:#E1E4E8">)</span></span>
+<span class="line"></span></code></pre>
+<p>En pratique : Haiku gère plus de 80 % des tâches d’exécution sans perte de qualité significative. La différence de coût est réelle — une réduction de 50 à 60 % des dépenses d’API pour les architectures typiques en éventail (fan-out).</p>
+<hr>
+<h3 id="17-logique-de-routage-dans-agentsmd-et-non-dans-soulmd">17. Logique de routage dans AGENTS.md, et non dans SOUL.md</h3>
+<hr>
+<p>À répéter, car cela provoque des échecs silencieux à chaque fois :</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#79B8FF;font-weight:bold"># ❌ Dans SOUL.md — les sous-agents ne peuvent pas voir ceci</span></span>
+<span class="line"><span style="color:#E1E4E8">Lorsque l'utilisateur pose des questions sur les finances, déléguer à finance-agent.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold"># ✅</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold"># ✅</span></span>
+<span class="line"><span style="color:#E1E4E8">sessions_spawn(</span></span>
+<span class="line"><span style="color:#E1E4E8">    task="analyser les chiffres du T4",</span></span>
+<span class="line"><span style="color:#E1E4E8">    label="q4-sales-analysis-2026"</span></span>
+<span class="line"><span style="color:#E1E4E8">)</span></span>
+<span class="line"></span></code></pre>
+<p>Sans étiquette, <code>/subagents list</code> vous renvoie un mur de sessions anonymes.</p>
+<hr>
+<p>Le mécanisme <code>announce</code> est unidirectionnel : le sous-agent rend compte une fois sa tâche terminée. Il ne peut pas s’interrompre pour poser une question de clarification en cours d’exécution.</p>
+<p>Cela signifie que votre invite de tâche doit contenir tout ce dont l’agent a besoin :</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#6A737D"># ❌ Trop vague — produira des résultats inutilisables ou rien du tout</span></span>
+<span class="line"><span style="color:#E1E4E8">sessions_spawn(</span><span style="color:#FFAB70">task</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"analyser les données"</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">label</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"analyse"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"></span></code></pre>
+<hr>
+<h1 id="-autonome">✅ Autonome</h1>
+<p>sessions_spawn(
+task="""
+Analyser /data/sales_jan_2026.csv.
+Sortie : 1) Revenu mensuel total, 2) Top 5 des produits par unités,
+3) Variation mensuelle par rapport à /data/sales_dec_2025.csv.
+Format : Tableau Markdown. Enregistrer dans /output/jan_2026_report.md.
+Si l’un ou l’autre des fichiers est manquant, écrire dans /output/errors.log et s’arrêter.
+""",
+label=“jan-2026-analysis”
+)</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Imaginez que vous écrivez des instructions pour quelqu'un qui entre dans une pièce, ferme la porte et ne peut plus en sortir pour vous poser des questions.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>### 20. Surveillez vos limites de concurrence</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>```json</span></span>
+<span class="line"><span>{</span></span>
+<span class="line"><span>  "agents": {</span></span>
+<span class="line"><span>    "defaults": {</span></span>
+<span class="line"><span>      "subagents": {</span></span>
+<span class="line"><span>        "maxChildrenPerAgent": 5,</span></span>
+<span class="line"><span>        "maxConcurrent": 3</span></span>
+<span class="line"><span>      }</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span>  }</span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span></code></pre>
+<p><code>maxChildrenPerAgent</code> limite le nombre de sous-agents qu’un parent peut générer (par défaut : 5). <code>maxConcurrent</code> est le plafond global du nombre d’agents parallèles (par défaut : 8).</p>
+<hr>
+<p>L’atteinte de l’une ou l’autre de ces limites ne provoque aucun plantage — les agents sont mis en file d’attente — mais la latence augmente. Si vous utilisez un forfait API personnel avec des limites de débit plus basses, réduire <code>maxConcurrent</code> à 3 ou 4 évite les erreurs 429. Avec un forfait d’entreprise, vous pouvez l’augmenter.</p>
+<hr>
+<hr>
+<h2 id="contrôle-des-coûts-chapter-4">Contrôle des coûts {#chapter-4}</h2>
+<hr>
+<h3 id="21-installer-save-money-pour-le-routage-automatique-des-modèles">21. Installer save-money pour le routage automatique des modèles</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> install</span><span style="color:#9ECBFF"> save-money</span></span>
+<span class="line"></span></code></pre>
+<p>La compétence surveille la complexité de la tâche et la dirige vers le modèle le moins cher capable de la traiter : Haiku pour la classification et le formatage, Sonnet pour la génération standard, Opus pour tout ce qui nécessite un raisonnement réel. Le seuil est configurable.</p>
+<hr>
+<p>Les utilisateurs signalent systématiquement une réduction des coûts mensuels de 50 % ou plus. Le routage n’est pas parfait, mais il n’a pas besoin de l’être — même en orientant 60 % des tâches vers Haiku au lieu d’Op</p>
+<hr>
+<p>Particulièrement pertinent pour les agents de recherche qui s’exécutent pendant plusieurs heures, l’édition itérative de documents et les longues sessions de débogage. Si vos agents approchent régulièrement des limites de contexte, activez cette option.</p>
+<hr>
+<h3 id="23-utilisation-d">23. utilisation d</h3>
+<hr>
+<p>Éléments à surveiller : un sous-agent utilisant 5 fois plus de jetons que les autres (l’invite est trop longue), un outil appelé 20 fois dans une seule session (l’agent est en boucle), Opus sur des tâches que Sonnet pourrait gérer (routage mal configuré). La correction de ces schémas est rapidement amortie.</p>
+<hr>
+<h3 id="24-épingler-gpt-4o-mini-pour-la-synthèse-et-la-classification">24. Épingler gpt-4o-mini pour la synthèse et la classification</h3>
+<hr>
+<p>{
+“tasks”: {
+“summarize”: { “model”: “openai/gpt-4o-mini” },
+“classify”:  { “model”: “openai/gpt-4o-mini” },
+“translate”: { “</p>
+<hr>
+<h3 id="25-les-données-sensibles-passent-par-un-modèle-local">25. Les données sensibles passent par un modèle local</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "mcpServers"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "local-llm"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      "model"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"ollama/qwen2.5"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      "baseUrl"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"http://localhost:11434"</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<hr>
+<p>Dossiers financiers, données des employés, documents internes — tout ce qui ne doit pas quitter votre réseau est envoyé à Ollama. Qwen2.5 fonctionne bien sur du matériel local (plusieurs options de taille de 0,5B à 72B), prend en charge un contexte de 128K et gère l’appel de fonctions. Il est plus lent que les API cloud, mais pour les charges de travail sensibles, c’est le compromis à faire.</p>
+<hr>
+<hr>
+<h2 id="débogage-et-sécurité-chapter-5">Débogage et Sécurité {#chapter-5}</h2>
+<hr>
+<h3 id="26-les-logs-verbeux-avant-toute-chose">26. Les logs verbeux avant toute chose</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> debug</span><span style="color:#79B8FF"> --verbose</span></span>
+<span class="line"><span style="color:#B392F0">/subagents</span><span style="color:#9ECBFF"> log</span><span style="color:#F97583"> &#x3C;</span><span style="color:#9ECBFF">runI</span><span style="color:#E1E4E8">d</span><span style="color:#F97583">></span></span>
+<span class="line"></span></code></pre>
+<p>Le log verbeux affiche chaque appel d’outil, chaque décision de routage et le contexte complet à chaque étape. Neuf fois sur dix, le problème est évident dès que vous consultez le log — l’agent a essayé d’appeler un outil qui n’existe pas, s’est retrouvé coincé dans une boucle de réessai, ou travaillait à partir d’un prompt qui n’incluait pas les informations dont il avait besoin.</p>
+<hr>
+<p>Ne déboguez pas par hypothèse quand vous pouvez simplement lire ce qui s’est passé.</p>
+<hr>
+<h3 id="27-les-timeouts-et-les-échecs-sont-différents--traitez-les-différemment">27. Les timeouts et les échecs sont différents — traitez-les différemment</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">/subagents</span><span style="color:#9ECBFF"> list</span></span>
+<span class="line"></span></code></pre>
+<p>Vérifiez la colonne `</p>
+<hr>
+<p>Ils nécessitent des correctifs différents. Traiter un timeout comme un échec vous envoie dans la mauvaise direction.</p>
+<hr>
+<h3 id="28-analyser-les-skills-installées-avec-clawdefender">28. Analyser les skills installées avec clawdefender</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">clawdefender</span><span style="color:#9ECBFF"> scan</span><span style="color:#79B8FF"> --all</span></span>
+<span class="line"></span></code></pre>
+<p>Après ClawHavoc, c’</p>
+<hr>
+<p>Si une compétence échoue, désinstallez-la et trouvez une alternative avec un score de sécurité plus élevé. Il n’y a pas de moyen sûr de « faire partiellement confiance » à une compétence qui essaie d’exfiltrer des informations d’identification.</p>
+<hr>
+<h3 id=""></h3>
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Ne pas demander</th><th>Demander plutôt</th></tr></thead><tbody><tr><td><code>calendar:*</code></td><td><code>calendar:read</code></td></tr><tr><td><code>email:*</code></td><td><code>email:send</code></td></tr><tr><td><code>files:readwrite</code></td><td><code>files:read</code></td></tr><tr><td><code>contacts:*</code></td><td></td></tr></tbody></table>
+<hr>
+<p>La configuration de ce guide — paramètres de délai d’attente, politiques de nettoyage, routage des modèles, paramètres de sécurité par défaut — est déjà intégrée à TinyClaw. Si vous préférez sauter la configuration et lancer une instance prête pour la production en moins d’une minute :</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>tinyclaw.dev → choisissez un modèle → choisissez un</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>## Passez Tout Ceci : TinyClaw {#tinyclaw}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>La configuration manuelle d'OpenClaw, si vous connaissez les étapes, prend environ une heure :</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>| Étape | Temps |</span></span>
+<span class="line"><span>|------|------|</span></span>
+<span class="line"><span>| Provisionner un serveur | 15 min |</span></span>
+<span class="line"><span>| Configurer les clés SSH | 10 min |</span></span>
+<span class="line"><span>| Installer Node.js | 5 min |</span></span>
+<span class="line"><span>| Installer et configurer OpenClaw | 17 min |</span></span>
+<span class="line"><span>| Se connecter à un fournisseur d'IA | 10 min |</span></span>
+<span class="line"><span>| **Total** | **~60 min** |</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Si vous n'avez pas de profil technique, multipliez par 10 — vous devez apprendre chaque étape avant de la réaliser.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>TinyClaw ignore complètement cette étape. Les serveurs sont pré-provisionnés, l'environnement est déjà configuré. Vous choisissez trois choses :</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**Modèle :** Claude Opus 4.6, GPT-5.2, ou Gemini 3.1 Pro</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**Canal :</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>- Lire et résumer les e-mails, rédiger des brouillons de réponses</span></span>
+<span class="line"><span>- Rappels de réunion et détection de conflits d'horaire</span></span>
+<span class="line"><span>- Suivre les dépenses à partir des reçus</span></span>
+<span class="line"><span>- Rechercher des concurrents, filtrer des prospects</span></span>
+<span class="line"><span>- Résumés de stand-up, suivi des OKR</span></span>
+<span class="line"><span>- Rédiger des contrats, des descriptions de poste, des publications pour les réseaux sociaux</span></span>
+<span class="line"><span>- Comparaison de prix, recherche de coupons</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Et tout ce que vous pouvez décrire en une phrase. Les places sur le serveur sont limitées — vérifiez la disponibilité sur [tinyclaw.dev](https://tinyclaw.dev).</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>## Référence rapide</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>| Chapitre | Conseils | À lire quand |</span></span>
+<span class="line"><span>|---------|------|-----------|</span></span>
+<span class="line"><span>| Configuration | 01–08 | Avant de toucher à la configuration |</span></span>
+<span class="line"><span>| Compétences | 09–14 | Avant d'installer quoi que ce soit |</span></span>
+<span class="line"><span>| Sous-agents | 15–20 | Avant de créer des flux de travail multi-agents |</span></span>
+<span class="line"><span>| Coût | 21–25 | Après votre première charge de travail réelle |</span></span>
+<span class="line"><span>| Débogage et sécurité | 26–30 | En cas de problème |</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>## Ressources</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>- [docs.openclaw.ai](https://docs.openclaw.ai) — documentation officielle</span></span>
+<span class="line"><span>- [clawhub.ai](https://clawhub.ai) — compétences sélectionnées, auditées pour la sécurité</span></span>
+<span class="line"><span>- [agentskills.io](https://agentskills.io) — catalogue plus large, longue traîne</span></span>
+<span class="line"><span>- [tinyclaw.dev](https://tinyclaw.dev) — déploiement en un clic</span></span>
+<span class="line"><span>- [agentputer.com](https://agentputer.com) — hébergement cloud 24/7</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>*Sources : Documentation OpenClaw (docs.openclaw.ai) · Données de sécurité de ClawHub (février 2026) · Documentation des modèles Anthropic (docs.anthropic.com) · Documentation de context7 (context7.com)*</span></span>
+<span class="line"><span></span></span></code></pre>  </div> <!-- Retour à la liste du blog --> <footer class="mt-16 pt-8 border-t border-accent/20"> <a href="/fr/blog/" class="inline-flex items-center gap-2 font-mono text-sm text-text-muted hover:text-accent transition-colors group"> <span class="group-hover:-translate-x-1 transition-transform">&lt;-</span> <span>Retour à tous les articles</span> </a> </footer> </article> </main> <footer class="bg-dark-secondary border-t border-accent/20"> <div class="max-w-7xl mx-auto px-6 lg:px-20 py-12 lg:py-16"> <!-- Top Section --> <div class="flex flex-col lg:flex-row justify-between gap-12 mb-12"> <!-- Brand --> <div class="lg:max-w-xs"> <a href="/fr/" class="inline-block mb-4"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <p class="text-text-muted text-sm font-mono"> <span class="text-terminal-cyan">//</span> Votre IA ne dort jamais
+</p> </div> <!-- Links Grid --> <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 font-mono"> <!-- Product --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/produit</h4> <ul class="space-y-3"> <li> <a href="/fr/features" class="text-text-muted text-sm hover:text-accent transition-colors"> Fonctionnalités </a> </li><li> <a href="/pricing" class="text-text-muted text-sm hover:text-accent transition-colors"> Tarifs </a> </li><li> <a href="/fr/docs" class="text-text-muted text-sm hover:text-accent transition-colors"> Docs </a> </li> </ul> </div> <!-- Company --> <div> <h4 class="text-terminal-orange font-bold mb-4 text-sm">/entreprise</h4> <ul class="space-y-3"> <li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> À propos </a> </li><li> <a href="/fr/blog/" class="text-text-muted text-sm hover:text-accent transition-colors"> Blog </a> </li> </ul> </div> <!-- Contact --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/contact</h4> <ul class="space-y-3"> <li> <a href="/cdn-cgi/l/email-protection#503f233331222a313d3f223161696969606710373d31393c7e333f3d" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> <span class="__cf_email__" data-cfemail="85eaf6e6e4f7ffe4e8eaf7e4b4bcbcbcb5b2c5e2e8e4ece9abe6eae8">[email&#160;protected]</span> </a> </li><li> <a href="https://twitter.com/agentputer" target="_blank" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Twitter </a> </li><li> <a href="https://discord.gg/agentputer" target="_blank" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Discord </a> </li> </ul> </div> <!-- Legal --> <div> <h4 class="text-terminal-blue font-bold mb-4 text-sm">/légal</h4> <ul class="space-y-3"> <li> <a href="/privacy" class="text-text-muted text-sm hover:text-accent transition-colors"> Confidentialité </a> </li><li> <a href="/terms" class="text-text-muted text-sm hover:text-accent transition-colors"> Conditions </a> </li><li> <a href="/privacy#data-security" class="text-text-muted text-sm hover:text-accent transition-colors"> Sécurité </a> </li> </ul> </div> </div> </div> <!-- Divider --> <div class="border-t border-accent/20 pt-8"> <div class="flex flex-col md:flex-row justify-between items-center gap-4 font-mono"> <!-- Copyright --> <p class="text-text-dark text-sm">
+/* © 2026 AgentPuter. Tous droits réservés. */
+</p> <!-- Social Links --> <div class="flex items-center gap-6"> <a href="https://github.com/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors"> GitHub </a> </div> </div> </div> </div> </footer>  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"db97590b14994206be9f2eaec90a9494","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html> 

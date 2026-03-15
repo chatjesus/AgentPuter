@@ -1,0 +1,734 @@
+<!DOCTYPE html><html lang="ja"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="OpenClawは今週、GitHubで207,000スターを突破しました。ベアメタルからワンクリッククラウドまで、ほとんどのチュートリアルが省いている部分を補完し、実際にセットアップする方法を解説します。"><meta name="theme-color" content="#0D0D0D"><meta name="generator" content="Astro v4.16.19"><!-- Canonical URL --><link rel="canonical" href="https://www.agentputer.com/ja/blog/09-deploy-openclaw/"><!-- hreflang 多语言标签 --><link rel="alternate" hreflang="en" href="https://www.agentputer.com/blog/09-deploy-openclaw/"><link rel="alternate" hreflang="zh-CN" href="https://www.agentputer.com/zh/blog/09-deploy-openclaw/"><link rel="alternate" hreflang="ja" href="https://www.agentputer.com/ja/blog/09-deploy-openclaw/"><link rel="alternate" hreflang="ko" href="https://www.agentputer.com/ko/blog/09-deploy-openclaw/"><link rel="alternate" hreflang="es" href="https://www.agentputer.com/es/blog/09-deploy-openclaw/"><link rel="alternate" hreflang="pt-BR" href="https://www.agentputer.com/pt-br/blog/09-deploy-openclaw/"><link rel="alternate" hreflang="de" href="https://www.agentputer.com/de/blog/09-deploy-openclaw/"><link rel="alternate" hreflang="fr" href="https://www.agentputer.com/fr/blog/09-deploy-openclaw/"><link rel="alternate" hreflang="zh-TW" href="https://www.agentputer.com/zh-tw/blog/09-deploy-openclaw/"><link rel="alternate" hreflang="x-default" href="https://www.agentputer.com/blog/09-deploy-openclaw/"><!-- Keywords（各语言本地化） --><meta name="keywords" content="OpenClaw, Deployment, AI Agent, Mac Mini, AgentPuter, TinyClaw, Tutorial"><!-- Open Graph --><meta property="og:title" content="OpenClawをデプロイする4つの方法：Mac Mini、VPS、クラウドポッド、または60秒未満 | AgentPuter ブログ"><meta property="og:description" content="OpenClawは今週、GitHubで207,000スターを突破しました。ベアメタルからワンクリッククラウドまで、ほとんどのチュートリアルが省いている部分を補完し、実際にセットアップする方法を解説します。"><meta property="og:type" content="article"><meta property="og:url" content="https://www.agentputer.com/ja/blog/09-deploy-openclaw/"><meta property="og:image" content="https://www.agentputer.com/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:site_name" content="AgentPuter"><meta property="og:locale" content="ja_JP"><meta property="og:locale:alternate" content="en_US"><meta property="og:locale:alternate" content="zh_CN"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="es_ES"><meta property="og:locale:alternate" content="pt_BR"><meta property="og:locale:alternate" content="de_DE"><meta property="og:locale:alternate" content="fr_FR"><meta property="og:locale:alternate" content="zh_TW"><!-- Article-specific OG tags --><meta property="article:published_time" content="2026-02-18"><meta property="article:author" content="AgentPuter Lab"><meta property="article:tag" content="OpenClaw"><meta property="article:tag" content="Deployment"><meta property="article:tag" content="AI Agent"><meta property="article:tag" content="Mac Mini"><meta property="article:tag" content="AgentPuter"><meta property="article:tag" content="TinyClaw"><meta property="article:tag" content="Tutorial"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@agentputer"><meta name="twitter:creator" content="@agentputer"><meta name="twitter:title" content="OpenClawをデプロイする4つの方法：Mac Mini、VPS、クラウドポッド、または60秒未満 | AgentPuter ブログ"><meta name="twitter:description" content="OpenClawは今週、GitHubで207,000スターを突破しました。ベアメタルからワンクリッククラウドまで、ほとんどのチュートリアルが省いている部分を補完し、実際にセットアップする方法を解説します。"><meta name="twitter:image" content="https://www.agentputer.com/og-default.png"><!-- Favicon --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/favicon.svg"><!-- 字体：preconnect + LCP 关键字体直接预加载 --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- 直接预加载 LCP 关键字体文件（JetBrains Mono Bold Latin，H1 使用） --><link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8L6tTOlOVk6OThhvA.woff2"><!-- 字体 CSS 阻塞加载（配合 preconnect 延迟极低，确保 LCP 时字体可用） --><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"><!-- Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":"https://www.agentputer.com/favicon.svg","description":"Your AI Agent's dedicated cloud runtime. AgentPuter keeps your AI running 24/7.","sameAs":["https://twitter.com/agentputer","https://github.com/agentputer","https://discord.gg/agentputer"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"AgentPuter","url":"https://www.agentputer.com","inLanguage":"ja","availableLanguage":[{"@type":"Language","name":"English","alternateName":"en"},{"@type":"Language","name":"中文","alternateName":"zh-CN"},{"@type":"Language","name":"繁體中文","alternateName":"zh-TW"},{"@type":"Language","name":"日本語","alternateName":"ja"},{"@type":"Language","name":"한국어","alternateName":"ko"},{"@type":"Language","name":"Español","alternateName":"es"},{"@type":"Language","name":"Português","alternateName":"pt-BR"},{"@type":"Language","name":"Deutsch","alternateName":"de"},{"@type":"Language","name":"Français","alternateName":"fr"}],"description":"Your AI Agent's dedicated cloud runtime."}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.agentputer.com/ja/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.agentputer.com/ja/blog/"},{"@type":"ListItem","position":3,"name":"09 deploy openclaw","item":"https://www.agentputer.com/ja/blog/09-deploy-openclaw/"}]}</script><!-- 页面专属结构化数据插槽 --><!-- 浏览器语言自动检测：移到 head 阻塞执行，避免渲染后跳转导致 CLS --><script>
+    (function() {
+      if (localStorage.getItem('agentputer-lang')) return;
+
+      var langMap = {
+        'zh': '/zh', 'zh-cn': '/zh', 'zh-tw': '/zh-tw', 'zh-hk': '/zh-tw',
+        'ja': '/ja', 'ko': '/ko',
+        'es': '/es', 'es-419': '/es',
+        'pt': '/pt-br', 'pt-br': '/pt-br',
+        'de': '/de', 'fr': '/fr',
+      };
+
+      var path = window.location.pathname;
+      if (/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)(\/|$)/.test(path)) {
+        var m = path.match(/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)/);
+        if (m) localStorage.setItem('agentputer-lang', m[1]);
+        return;
+      }
+
+      var langs = navigator.languages || [navigator.language];
+      for (var i = 0; i < langs.length; i++) {
+        var bl = langs[i].toLowerCase();
+        if (langMap[bl]) {
+          var target = path === '/' ? langMap[bl] + '/' : langMap[bl] + path;
+          localStorage.setItem('agentputer-lang', bl);
+          window.location.replace(target);
+          return;
+        }
+        var primary = bl.split('-')[0];
+        if (primary !== bl && langMap[primary]) {
+          var target2 = path === '/' ? langMap[primary] + '/' : langMap[primary] + path;
+          localStorage.setItem('agentputer-lang', primary);
+          window.location.replace(target2);
+          return;
+        }
+      }
+      localStorage.setItem('agentputer-lang', 'en');
+    })();
+    </script><!-- Google Analytics 4 --><script async src="https://www.googletagmanager.com/gtag/js?id=G-9M2T6GQJ0L"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9M2T6GQJ0L');
+    </script><title>OpenClawをデプロイする4つの方法：Mac Mini、VPS、クラウドポッド、または60秒未満 | AgentPuter ブログ</title><link rel="stylesheet" href="/_astro/_slug_.DM3EUOA_.css">
+<link rel="stylesheet" href="/_astro/_slug_.CUcOCpHJ.css">
+<link rel="stylesheet" href="/_astro/_slug_.CxhqtQFk.css"><script type="module" src="/_astro/hoisted.BCrxlVsq.js"></script></head> <body class="min-h-screen">   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"OpenClawをデプロイする4つの方法：Mac Mini、VPS、クラウドポッド、または60秒未満","description":"OpenClawは今週、GitHubで207,000スターを突破しました。ベアメタルからワンクリッククラウドまで、ほとんどのチュートリアルが省いている部分を補完し、実際にセットアップする方法を解説します。","datePublished":"2026-02-18","dateModified":"2026-02-18","inLanguage":"ja","author":{"@type":"Organization","name":"AgentPuter Lab","url":"https://www.agentputer.com"},"publisher":{"@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":{"@type":"ImageObject","url":"https://www.agentputer.com/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.agentputer.com/ja/blog/09-deploy-openclaw/"},"keywords":"OpenClaw, Deployment, AI Agent, Mac Mini, AgentPuter, TinyClaw, Tutorial"}</script> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.agentputer.com/ja/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://www.agentputer.com/ja/blog/"},{"@type":"ListItem","position":3,"name":"OpenClawをデプロイする4つの方法：Mac Mini、VPS、クラウドポッド、または60秒未満"}]}</script> <header class="fixed top-0 left-0 right-0 z-50 bg-dark-primary md:bg-dark-primary/95 md:backdrop-blur-lg border-b border-accent/20"> <nav class="max-w-7xl mx-auto px-6 lg:px-20 h-20 flex items-center justify-between"> <!-- Logo --> <a href="/ja/" class="flex items-center gap-2 group"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <!-- Desktop Navigation --> <div class="hidden md:flex items-center gap-8 font-mono"> <a href="/ja/features" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/機能
+</a> <a href="/tools" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/ツール
+</a> <a href="#pricing" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/料金
+</a> <a href="/ja/blog/" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/ブログ
+</a> <a href="/ja/docs" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/ドキュメント
+</a> <!-- Desktop 语言切换器 --><div class="lang-switcher relative"> <button class="lang-btn flex items-center gap-1.5 text-text-secondary hover:text-accent transition-colors text-sm font-mono cursor-pointer" aria-label="Switch language" aria-expanded="false"> <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <circle cx="12" cy="12" r="10" stroke-width="1.5"></circle> <path stroke-width="1.5" d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path> </svg> <span>JA</span> <svg class="w-3 h-3 opacity-40 transition-transform lang-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </button> <!-- 下拉菜单 --> <div class="lang-dropdown hidden absolute right-0 top-full mt-2 py-1 bg-[#1a1a1a] border border-[#333] rounded-lg shadow-xl min-w-[160px] z-[100]"> <a href="/blog/09-deploy-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="en"> <span>English</span> <span class="text-xs text-text-dark">EN</span> </a><a href="/zh/blog/09-deploy-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="zh"> <span>中文</span> <span class="text-xs text-text-dark">中文</span> </a><a href="/ja/blog/09-deploy-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-accent bg-accent/10" data-lang="ja"> <span>日本語</span> <span class="text-xs text-accent">JA</span> </a><a href="/ko/blog/09-deploy-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ko"> <span>한국어</span> <span class="text-xs text-text-dark">KO</span> </a><a href="/es/blog/09-deploy-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="es"> <span>Español</span> <span class="text-xs text-text-dark">ES</span> </a><a href="/pt-br/blog/09-deploy-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="pt-br"> <span>Português</span> <span class="text-xs text-text-dark">PT</span> </a><a href="/de/blog/09-deploy-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="de"> <span>Deutsch</span> <span class="text-xs text-text-dark">DE</span> </a><a href="/fr/blog/09-deploy-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="fr"> <span>Français</span> <span class="text-xs text-text-dark">FR</span> </a> </div> </div> <!-- Mobile 语言列表（平铺，不用下拉） --> <div class="lang-mobile hidden"> <div class="flex flex-wrap gap-2"> <a href="/blog/09-deploy-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="en"> English </a><a href="/zh/blog/09-deploy-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="zh"> 中文 </a><a href="/ja/blog/09-deploy-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-accent border-accent/40 bg-accent/10" data-lang="ja"> 日本語 </a><a href="/ko/blog/09-deploy-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ko"> 한국어 </a><a href="/es/blog/09-deploy-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="es"> Español </a><a href="/pt-br/blog/09-deploy-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="pt-br"> Português </a><a href="/de/blog/09-deploy-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="de"> Deutsch </a><a href="/fr/blog/09-deploy-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="fr"> Français </a> </div> </div>  <a href="https://app.agentputer.com/sign-up" class="text-sm py-2.5 px-6 bg-accent text-dark-primary font-bold rounded hover:bg-accent-dark transition-colors">
+[DEPLOY]
+</a> </div> <!-- Mobile Menu Button --> <button id="mobile-menu-btn-ja" class="md:hidden p-2 text-text-secondary hover:text-white" aria-label="メニューを開閉"> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </nav> <!-- Mobile Menu --> <div id="mobile-menu-ja" class="hidden md:hidden bg-dark-secondary border-t border-dark-tertiary"> <div class="px-6 py-4 space-y-4"> <a href="/ja/features" class="block hover:text-white transition-colors text-text-secondary">
+機能
+</a> <a href="/tools" class="block hover:text-white transition-colors text-text-secondary">
+ツール
+</a> <a href="#pricing" class="block hover:text-white transition-colors text-text-secondary">
+料金
+</a> <a href="/ja/blog/" class="block hover:text-white transition-colors text-text-secondary">
+ブログ
+</a> <a href="/ja/docs" class="block hover:text-white transition-colors text-text-secondary">
+ドキュメント
+</a> <div class="lang-mobile-wrapper"></div> <a href="https://app.agentputer.com/sign-up" class="btn-primary w-full justify-center text-sm py-3">
+利用開始
+</a> </div> </div> </header>  <main class="relative z-10 pt-28 pb-20"> <article class="max-w-4xl mx-auto px-6 lg:px-8"> <!-- パンくずリストナビゲーション --> <nav class="mb-8 font-mono text-sm"> <a href="/ja/" class="text-text-muted hover:text-accent transition-colors">~</a> <span class="text-text-dark mx-2">/</span> <a href="/ja/blog/" class="text-text-muted hover:text-accent transition-colors">ブログ</a> <span class="text-text-dark mx-2">/</span> <span class="text-accent">記事</span> </nav> <!-- 記事メタ情報ヘッダー --> <header class="mb-12"> <!-- タグ --> <div class="flex flex-wrap gap-2 mb-6"> <span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#OpenClaw </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Deployment </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#AI Agent </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Mac Mini </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#AgentPuter </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#TinyClaw </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Tutorial </span> </div> <!-- タイトル --> <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6"> OpenClawをデプロイする4つの方法：Mac Mini、VPS、クラウドポッド、または60秒未満 </h1> <!-- 説明 --> <p class="text-lg text-text-secondary leading-relaxed mb-8"> OpenClawは今週、GitHubで207,000スターを突破しました。ベアメタルからワンクリッククラウドまで、ほとんどのチュートリアルが省いている部分を補完し、実際にセットアップする方法を解説します。 </p> <!-- メタ情報行 --> <div class="flex flex-wrap items-center gap-6 text-sm font-mono text-text-muted border-t border-b border-accent/20 py-4"> <div class="flex items-center gap-2"> <span class="text-terminal-cyan">@</span> <span class="text-text-secondary">AgentPuter Lab</span> </div> <div class="flex items-center gap-2"> <span class="text-terminal-orange">$</span> <time datetime="2026-02-18" class="text-text-secondary">2026年2月18日</time> </div> <div class="flex items-center gap-2"> <span class="text-terminal-blue">~</span> <span class="text-text-secondary">読了時間 20 min</span> </div> </div> </header> <!-- 記事本文 --> <div class="prose prose-invert prose-terminal max-w-none">  <p><em>エージェントインフラストラクチャシリーズ パート9</em></p>
+<hr>
+<p>OpenClawは現在、GitHubで最も急成長しているオープンソースAIプロジェクトです。スター数は20万7000、フォーク数は3万8000、コントリビューターは683人、コミット数は1万2000を超えています。MacStoriesの編集者であるFederico Viticci氏は、自身のインスタンス「Navi」で1億8000万トークンを消費し、「私のAIの使い方を変えたもの」と評しました。複数の都市のApple StoreでMac Miniが売り切れました。その一因は、人々がそれを実行するための専用の常時稼働マシンを求めたからです。</p>
+<p>あなたも試してみたいはずです。問題は、実際にどうやってセットアップするのか、ということです。</p>
+<p>既存のチュートリアルは2つのタイプに分かれます。<code>systemd</code>が何かをすでに知っていることを前提としているか、あるいは3つのステップを飛ばしてエラー画面を前に途方に暮れさせるかのどちらかです。このガイドでは、独自のローカルサーバーを構築する方法から60秒未満でデプロイする方法まで、4つの方法を解説します。あなたのスキルレベルや優先順位に合ったものを選ぶことができます。</p>
+<p><strong>4つの方法：</strong></p>
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>パス</th><th>時間</th><th>スキルレベル</th><th>最適な対象</th></tr></thead><tbody><tr><td>A. Mac Mini</td><td>15～30分</td><td>ターミナルの基礎</td><td>プライバシー第一、完全なコントロール</td></tr><tr><td>B1. 自己管理VPS</td><td>15～30分</td><td>SSH + Linuxの運用</td><td>開発者、コンプライアンス</td></tr><tr><td>B2. AgentPuter</td><td>約2分</td><td>基本的なCLI</td><td>マルチエージェント、DevOps不要</td></tr><tr><td>C. TinyClaw</td><td>1分未満</td><td>不要</td><td>すべての人</td></tr></tbody></table>
+<hr>
+<hr>
+<h2 id="まず最初にopenclawとは30秒版">まず最初に：OpenClawとは？（30秒版）</h2>
+<p>OpenClawは、ブラウザでアクセスするような単なるチャットボットではありません。<strong>バックグラウンドで24時間365日稼働し</strong>、あなたが普段使っているメッセージングアプリ — WhatsApp、Telegram、Slack、Discord、Google Chat、Signal、iMessage (BlueBubbles経由)、Microsoft Teams、WebChat、Matrixなど — を通じてあなたと対話する<strong>パーソナルAIアシスタント</strong>です。対応チャネルは12種類以上あり、現在も増え続けています。</p>
+<p>ChatGPTとの違い：</p>
+<ul>
+<li><strong>永続的な記憶。</strong> OpenClawには<code>SOUL.md</code>というファイルがあり、<em>あなた</em>にとってそれが何者であるか — あなたの名前、好み、仕事のスタイル、タイムゾーンなどを定義します。セッションを越えて記憶を保持します。</li>
+<li><strong>現実世界でのアクション。</strong> メールの読み取り、カレンダーの管理、ファイルの操作、スマートホームデバイスの制御、調査、返信の下書き作成などを — 自律的に行います。</li>
+<li><strong>音声とキャンバス。</strong> Voice WakeとTalk Mode（ElevenLabs搭載）により、ハンズフリーで対話できます。Live Canvas (A2UI) は、視覚的なワークスペースを提供します。</li>
+<li><strong>ローカルファースト。</strong> あなたのデータはあなたのマシン上に留まります。あなたの会話がトレーニングに使用されることはありません。あなたが選択しない限り、第三者のクラウドは使用されません。</li>
+</ul>
+<hr>
+<p><strong>実行に必要なもの:</strong></p>
+<ul>
+<li>**Node.js 22+**が動作するマシン (macOS、Linux、またはWSL2経由のWindows)</li>
+<li>AIモデルのサブスクリプション: <strong>Anthropic APIキーまたはClaude Pro/Max OAuth</strong> (プロジェクト作成者が強く推奨)、またはOpenAI / Google Gemini</li>
+<li>公式の推奨: <strong>Anthropic Pro/Max + Opus 4.6</strong> — 対応モデルの中で最高の長文コンテキスト性能と最も強力なプロンプトインジェクション耐性</li>
+</ul>
+<hr>
+<hr>
+<h2 id="パスa-mac-mini--ローカルサーバー">パスA: Mac Mini — ローカルサーバー</h2>
+<p><strong>対象者:</strong> Mac Miniを所有している（または欲しいと思っている）方。100%ローカルでの管理を望み、データ主権を重視し、iMessage連携や音声起動（Voice Wake）を利用したい方。</p>
+<h3 id="ハードウェア">ハードウェア</h3>
+<p>Mac Mini M4のベースモデル（599ドル）で十分すぎるほどです。スペックは16GBのユニファイドメモリ、256GBのストレージです。アイドル時の消費電力は5～10Wで、年間の電気代は約15ドル程度。静音で常時稼働し、BlueBubblesを介してiMessageをネイティブにサポートします。これは、どのクラウドデプロイメントにも真似できない利点です。</p>
+<p>整備済み製品を購入する場合、16GBメモリ搭載のM2モデルでも問題なく動作します。8GBモデルは避けてください。高負荷時にOpenClawとモデルのコンテキストウィンドウがスワップを発生させ、SSD上でのスワップはドライブの寿命を縮める原因となります。</p>
+<h3 id="前提条件">前提条件</h3>
+<p>開始する前に、以下のものが揃っていることを確認してください:</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" checked disabled> macOS 13 (Ventura) 以降</li>
+<li class="task-list-item"><input type="checkbox" checked disabled> Homebrewがインストール済みであること (<code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code>)</li>
+<li class="task-list-item"><input type="checkbox" checked disabled> Node.js 22以降 (<code>brew install node@22</code>でインストール後、<code>node --version</code>で確認)</li>
+<li class="task-list-item"><input type="checkbox" checked disabled> Anthropic APIキー、またはOAuthログイン用のClaude Pro（月額20ドル）/ Max（月額100ドル）のサブスクリプション</li>
+<li class="task-list-item"><input type="checkbox" checked disabled> Telegramアカウント（最初に始めるチャネルとして最も簡単です）</li>
+</ul>
+<h3 id="インストール手順">インストール手順</h3>
+<p><strong>ステップ1: OpenClawをグローバルにインストールする</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> install</span><span style="color:#79B8FF"> -g</span><span style="color:#9ECBFF"> openclaw@latest</span></span>
+<span class="line"></span></code></pre>
+<p>pnpm (<code>pnpm add -g openclaw@latest</code>) や bun も使用できます。これら3つすべてが公式にサポートされています。</p>
+<p>以下のような内容で終わる出力が表示されるはずです:</p>
+<hr>
+<p>12秒で1個のパッケージを追加しました</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span></span></span>
+<span class="line"><span>インストールの確認:</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>```bash</span></span>
+<span class="line"><span>openclaw --version</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>期待される出力: <code>2026.2.17</code> (または最新のリリース番号)。</p>
+<p><strong>ステップ2: オンボーディングウィザードの実行</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> onboard</span><span style="color:#79B8FF"> --install-daemon</span></span>
+<span class="line"></span></code></pre>
+<p>ウィザードが対話形式ですべてを案内します:</p>
+<ol>
+<li><strong>モデルを選択します。</strong> Anthropic Claude (推奨) を選択してください。Claude Pro/Max のサブスクリプションをお持ちの場合は、OAuth ログインを選択してください — API キーの管理は不要です。</li>
+<li><strong>API キーを入力するか、OAuth で認証します。</strong></li>
+<li><strong>メッセージングチャンネルを選択します。</strong> Telegram が最も簡単に始められます。ウィザードの指示に従い、Telegram で @BotFather にメッセージを送り、<code>/newbot</code> で新しいボットを作成し、トークンを貼り付けてください。</li>
+<li><strong>バックグラウンドデーモンをインストールします。</strong> macOS では、これにより <code>launchd</code> サービスが作成され、OpenClaw は再起動後も、ターミナルが閉じられても実行され続けます。</li>
+</ol>
+<p>プロセス全体は約5分で完了します。</p>
+<p><strong>ステップ3: インストールの検証</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> doctor</span></span>
+<span class="line"></span></code></pre>
+<p>これは公式の診断ツールです。Node.js のバージョン、Gateway との接続性、チャンネル設定、モデルへのアクセス、デーモンのステータスをチェックします。すべてのチェック項目に緑色のチェックマークが表示されるはずです。黄色や赤色の項目がある場合、doctor が修正すべき点を正確に教えてくれます。</p>
+<p><strong>ステップ4: 最初のデバイスをペアリングする</strong></p>
+<hr>
+<p>Telegramを開き、新しいボットに何かメッセージを送ってください。ボットが<strong>ペアリングコード</strong>を返信します — これはOpenClawのデフォルトのセキュリティメカニズムです。知らない送信者にはコードが送られ、あなたが承認するまでアシスタントと対話することはできません。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> pairing</span><span style="color:#9ECBFF"> approve</span><span style="color:#9ECBFF"> telegram</span><span style="color:#F97583"> &#x3C;</span><span style="color:#9ECBFF">COD</span><span style="color:#E1E4E8">E</span><span style="color:#F97583">></span></span>
+<span class="line"></span></code></pre>
+<p>これで完了です。ボットが稼働を開始しました。「何ができる？」と送って、その応答を見てみましょう。</p>
+<blockquote>
+<p><strong>トラブルシューティング：</strong> ボットが応答しない場合は、まず<code>openclaw doctor</code>を実行してください。よくある問題：デーモンが起動していない（<code>openclaw onboard --install-daemon</code>を再度実行してください）、またはTelegramのトークンに誤字がある（<code>~/.openclaw/openclaw.json</code>を確認してください）。</p>
+</blockquote>
+<h3 id="インストール後">インストール後</h3>
+<p>すぐに行うべき3つのこと：</p>
+<ol>
+<li>
+<p><strong>SOUL.mdを作成する。</strong> 任意のテキストエディタで<code>~/.openclaw/workspace/SOUL.md</code>を開きます。あなたの名前、職業、コミュニケーションの好み、タイムゾーンを記述してください。これはプロンプトではありません — すべての会話で持続するアイデンティティファイルです。</p>
+</li>
+<li>
+<p><strong>ツールを接続する。</strong> Gmail (Pub/Sub経由)、Google Calendar、Notion、Todoist、Slack — OpenClawはMCPツールとスキルを通じて接続します。ウィザードがすでにこれらのいくつかについて尋ねているかもしれません。</p>
+</li>
+<li>
+<p><strong>実際のタスクを実行する。</strong> 「ジョークを言って」から始めないでください。「未読メールを要約して優先度順に並べ替えて」や「明日のカレンダーの予定は？何か重複してる？」などを試してみてください。</p>
+</li>
+</ol>
+<h3 id="実際のコスト">実際のコスト</h3>
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>項目</th><th>コスト</th></tr></thead><tbody><tr><td>ハードウェア</td><td>$599 1回限り (Mac Mini M4 ベース)</td></tr><tr><td>API (中程度の使用)</td><td>$15–50/月 (またはClaude Proサブスクリプションで$20/月)</td></tr><tr><td>API (ヘビーユース)</td><td>$100–300/月 (Viticciレベル)</td></tr><tr><td>電気代</td><td>約$15/年</td></tr><tr><td>セットアップ時間</td><td>15–30分</td></tr></tbody></table>
+<hr>
+<hr>
+<h2 id="パスb-クラウドデプロイメント--自己管理またはagentputer">パスB: クラウドデプロイメント — 自己管理またはAgentPuter</h2>
+<p><strong>対象者:</strong> Macを持っていない方。LinuxまたはWindowsを使用している方。どこからでもアシスタントにアクセスしたい方。「ラップトップが開いている」状態ではなく、真の24時間365日のアップタイムが必要な方。</p>
+<p>クラウドデプロイメントには2つのアプローチがあります。<strong>自分でサーバーを管理する</strong>（完全なコントロール、完全な責任）か、<strong>AgentPuterを使用する</strong>（AIエージェント専用に構築されたクラウドランタイム、DevOps不要）かです。両方について説明します。</p>
+<hr>
+<h3 id="b1-自己管理vps">B1: 自己管理VPS</h3>
+<p><strong>対象者:</strong> SSHの知識がある方。rootアクセスが必要な方。会社が自己ホスト型のインフラを要求している方。コストを最適化したい方。</p>
+<h4 id="サーバーの選択">サーバーの選択</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>プロバイダー</th><th>最低スペック</th><th>月額費用</th></tr></thead><tbody><tr><td>Hetzner</td><td>2 vCPU, 4GB RAM, 20GB SSD</td><td>約$5/月</td></tr><tr><td>DigitalOcean</td><td>2 vCPU, 4GB RAM, 25GB SSD</td><td>約$12/月</td></tr><tr><td>Vultr</td><td>2 vCPU, 4GB RAM, 25GB SSD</td><td>約$12/月</td></tr></tbody></table>
+<blockquote>
+<p><strong>警告:</strong> RAMは4GB未満にしないでください。Dockerを使用する場合、2GBではプロセスがOOMキルされます。これは間違いありません。</p>
+</blockquote>
+<p>OS: Ubuntu 22.04 LTS。</p>
+<p><strong>Windowsユーザーの方へ:</strong> VPSは必要ありません。OpenClawはWSL2を介してWindowsを公式にサポートしており、READMEでは「強く推奨」とされています。WSL2をインストールし、その後は以下のLinuxと同じ手順に従ってください。</p>
+<h4 id="オプションa-直接インストール-初心者向け推奨">オプションA: 直接インストール (初心者向け推奨)</h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">ssh</span><span style="color:#9ECBFF"> root@your-server-ip</span></span>
+<span class="line"></span></code></pre>
+<hr>
+<h1 id="nodejs-22のインストール">Node.js 22のインストール</h1>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -</span></span>
+<span class="line"><span>sudo apt-get install -y nodejs</span></span>
+<span class="line"><span></span></span></code></pre>
+<h1 id="openclawのインストール">OpenClawのインストール</h1>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>npm install -g openclaw@latest</span></span>
+<span class="line"><span></span></span></code></pre>
+<h1 id="ウィザードの実行">ウィザードの実行</h1>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>openclaw onboard --install-daemon</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>Linuxでは、デーモンは<code>launchd</code>の代わりに<code>systemd</code>のユーザーサービスとしてインストールされます。それ以外のすべてはMac miniのパスと同じで、ウィザードが処理します。</p>
+<p>確認:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> doctor</span></span>
+<span class="line"></span></code></pre>
+<h4 id="オプションb-docker-compose-本番環境グレード">オプションB: Docker Compose (本番環境グレード)</h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> clone</span><span style="color:#9ECBFF"> https://github.com/openclaw/openclaw.git</span></span>
+<span class="line"><span style="color:#79B8FF">cd</span><span style="color:#9ECBFF"> openclaw</span></span>
+<span class="line"><span style="color:#B392F0">./docker-setup.sh</span></span>
+<span class="line"></span></code></pre>
+<p>利点:</p>
+<ul>
+<li>プロセス分離 — OpenClawは独自のコンテナで実行されます</li>
+<li>ワンコマンドでの再起動: <code>docker compose restart</code></li>
+<li>組み込みのログ管理</li>
+<li>サンドボックスモード: <code>sandbox.mode: "non-main"</code>を設定すると、グループ/チャンネルセッションを分離されたDockerコンテナで実行します</li>
+</ul>
+<p>欠点:</p>
+<ul>
+<li>Docker Engine 24+が必要です</li>
+<li>デバッグするための抽象化レイヤーがもう1つ増える</li>
+</ul>
+<p>Gatewayダッシュボードは<code>http://localhost:18789</code>で利用可能ですが、ローカルからのみです。ここからが最も重要な部分です。</p>
+<h4 id="リモートアクセス-正しく設定しましょう">リモートアクセス: 正しく設定しましょう</h4>
+<blockquote>
+<p><strong>これは任意ではありません。</strong> CVE-2026-25253は、Gatewayポートを直接インターネットに公開すると、トークンの抜き取りが可能になり、リモートコード実行につながることを実証しました。絶対にやめてください。</p>
+</blockquote>
+<p><strong>推奨: Tailscale Serve/Funnel</strong></p>
+<p>Tailscaleはプライベートネットワークオーバーレイを提供します。OpenClawは第一級のサポートを提供しています:</p>
+<hr>
+<p>{
+“gateway”: {
+“tailscale”: {
+“mode”: “serve”
+}
+}
+}</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span></span></span>
+<span class="line"><span>- `"serve"` — Tailscaleネットワーク内でのみアクセス可能（最も安全）</span></span>
+<span class="line"><span>- `"funnel"` — 公開HTTPSですが、パスワード認証が必要です (`gateway.auth.mode: "password"`)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**代替案: SSHトンネル**</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>```bash</span></span>
+<span class="line"><span>ssh -L 18789:localhost:18789 user@your-server-ip</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>その後、ローカルマシン上の <code>http://localhost:18789</code> でダッシュボードにアクセスします。</p>
+<h4 id="バックアップ">バックアップ</h4>
+<p>OpenClawの全ての状態は <code>~/.openclaw/</code> に保存されています：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>パス</th><th>内容</th></tr></thead><tbody><tr><td><code>openclaw.json</code></td><td>メイン設定</td></tr><tr><td><code>workspace/</code></td><td>SOUL.md, AGENTS.md, TOOLS.md, skills/</td></tr><tr><td><code>credentials/</code></td><td>チャンネルの認証情報（WhatsAppセッション、Telegramトークンなど）</td></tr></tbody></table>
+<p>これを毎日バックアップしてください。簡単なcronジョブで実現できます：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">tar</span><span style="color:#9ECBFF"> czf</span><span style="color:#9ECBFF"> ~/openclaw-backup-</span><span style="color:#E1E4E8">$(</span><span style="color:#B392F0">date</span><span style="color:#9ECBFF"> +%Y%m%d</span><span style="color:#E1E4E8">)</span><span style="color:#9ECBFF">.tar.gz</span><span style="color:#9ECBFF"> ~/.openclaw/</span></span>
+<span class="line"></span></code></pre>
+<h4 id="自己管理の難しさ">自己管理の難しさ</h4>
+<p>私は3ヶ月間、自己管理のVPSでOpenClawを運用してきました。以下は私が学んだことです：</p>
+<hr>
+<ul>
+<li>Node.jsのインストール、systemdの設定、Tailscaleのセットアップ、そしてTLSの処理を自分で行う必要があります。</li>
+<li>OAuthトークンは期限切れになります。もしあなたが異なるタイムゾーンで寝ている場合、WhatsApp接続は午前3時に切れ、あなたが起きて再認証するまでエージェントは沈黙します。</li>
+<li>サーバーの再起動後（カーネルアップデート、プロバイダーのメンテナンス）、OpenClawは必ずしもクリーンに復帰するとは限りません。リカバマスクリプトを書くことを覚えるようになります。</li>
+<li>複数のエージェントを実行するには、手動でのプロセス分離とリソース割り当てが必要です。</li>
+</ul>
+<p><strong>一言で言えば、自己管理のVPSは最大限の自由を与えてくれますが、同時にあなた自身がDevOpsチームでもあるということです。</strong></p>
+<p>もし最後の段落を読んで疲れたなら、別の方法があります。</p>
+<hr>
+<h3 id="b2-agentputer--aiエージェントのために作られたクラウドランタイム">B2: AgentPuter — AIエージェントのために作られたクラウドランタイム</h3>
+<p><strong>対象者:</strong> DevOpsなしでクラウドにデプロイしたい方。マルチエージェントのサポートが必要な方。SLA保証付きの24時間365日の信頼性を重視する方。</p>
+<h4 id="agentputerとは">AgentPuterとは？</h4>
+<p><a href="https://www.agentputer.com/">AgentPuter</a>は汎用的なVPSではありません。これは、OpenClaw、ClawBot、MoltBot、そしてカスタムエージェントといった<strong>AIエージェント専用に設計された専用のクラウドランタイム</strong>です。「AIアシスタント版Heroku」と考えてください。サーバー、コンテナ、デーモンの管理は不要です。シャットダウンすることのない<code>Pod</code>を手に入れることができます。</p>
+<p>これは、自己管理VPSの4つの問題点を解決します。</p>
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>自己管理VPSの問題点</th><th>AgentPuterによる解決策</th></tr></thead><tbody><tr><td>サーバーの再起動 = エージェントのオフライン</td><td>自動復旧と稼働時間SLAによりPodは24時間365日稼働</td></tr><tr><td>OAuthトークンの有効期限切れ = 手動での再ログイン</td><td>自動更新付きのサーバーサイドでのトークン管理</td></tr><tr><td>エージェントがローカルのCPU/メモリを消費</td><td>クラウドで分離されたリソース。ローカルマシンへの影響なし</td></tr><tr><td>同一ネットワークからのみアクセス可能</td><td>どこからでも、どのデバイスからでもエージェントを操作</td></tr></tbody></table>
+<h4 id="3ステップでのデプロイ">3ステップでのデプロイ</h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6A737D"># ステップ1: Podを作成</span></span>
+<span class="line"><span style="color:#B392F0">agentputer</span><span style="color:#9ECBFF"> create</span><span style="color:#9ECBFF"> openclaw</span></span>
+<span class="line"><span style="color:#6A737D"># → クラウド環境を割り当て、設定を選択</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># ステップ2: サービスを接続</span></span>
+<span class="line"><span style="color:#B392F0">agentputer</span><span style="color:#9ECBFF"> connect</span></span>
+<span class="line"><span style="color:#6A737D"># → Google、Notion、Slackなどを認証。認証情報はPod内に安全に保存</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># ステップ3: OpenClawをデプロイ</span></span>
+<span class="line"><span style="color:#B392F0">agentputer</span><span style="color:#9ECBFF"> deploy</span><span style="color:#9ECBFF"> openclaw</span></span>
+<span class="line"><span style="color:#6A737D"># → エージェントが24時間365日稼働開始。WhatsApp、Telegram、Discord — すべてのチャネルが有効になります</span></span>
+<span class="line"></span></code></pre>
+<p>所要時間: 約2分</p>
+<h4 id="agentputerが優れている理由">AgentPuterが優れている理由</h4>
+<hr>
+<ul>
+<li><strong>マルチエージェントの並列実行。</strong> ClawBot（パーソナルアシスタント）+ MoltBot（カレンダー/スケジュール管理）+ カスタムリサーチエージェントを、それぞれ分離されたリソースを持つ同じPod内で実行します。</li>
+<li><strong>期限切れのない認証。</strong> OAuthトークンはサーバーサイドで自動更新され、維持されます。トークンの有効期限切れで午前3時にWhatsAppの接続が切れることはありません。</li>
+<li><strong>どこからでもアクセス。</strong> スマートフォン、タブレット、他のコンピューター — あなたがAIを追いかけるのではなく、AIがあなたについてきます。</li>
+<li><strong>現在のステータス：</strong> アーリーアクセス。<a href="https://www.agentputer.com/">agentputer.com</a>で招待コードをリクエストしてください — コードは24時間以内に送信されます。</li>
+</ul>
+<h4 id="agentputer-vs-自己管理vps">AgentPuter vs. 自己管理VPS</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>自己管理VPS</th><th>AgentPuter</th></tr></thead><tbody><tr><td>デプロイ時間</td><td>15〜30分</td><td>約2分</td></tr><tr><td>運用</td><td>systemd、Tailscale、バックアップ、TLSを自分で管理</td><td>運用不要 — Podは自動でメンテナンスされます</td></tr><tr><td>マルチエージェント</td><td>手動での分離</td><td>ネイティブで並列サポート</td></tr><tr><td>認証管理</td><td>トークンの有効期限切れを手動で処理</td><td>自動更新</td></tr><tr><td>月額費用</td><td>VPS $5〜24 + API料金</td><td>Podのサブスクリプション + API料金</td></tr><tr><td>コントロール</td><td>100%のrootアクセス</td><td>Pod環境に限定</td></tr><tr><td>最適なユーザー</td><td>高い運用スキルを持つ/コンプライアンス要件があるユーザー</td><td>シンプルさを求める/マルチエージェントを利用するユーザー</td></tr></tbody></table>
+<hr>
+<hr>
+<h2 id="パスc-tinyclaw--60秒ターミナル不要">パスC: TinyClaw — 60秒、ターミナル不要</h2>
+<p><strong>対象者:</strong> コマンドラインツールを学びたくない方。サーバーを管理したくない方。AIアシスタントを<em>インストール</em>するのではなく、ただ<em>使いたい</em>だけの方。今すぐ試してみたい方。</p>
+<h3 id="このパスが存在する理由">このパスが存在する理由</h3>
+<p>パスAでは599ドルとNode.jsが何かを知っていることが必要です。パスB（自己管理）ではSSH、Docker、Tailscaleが必要です。AgentPuterでさえ、はるかにシンプルですが、それでもCLIと招待コードが必要です。</p>
+<p>ほとんどの人は<code>npm install -g</code>を見てタブを閉じてしまいます。</p>
+<p>OpenClawの207,000個のスターは、需要が本物であることを証明しています。ボトルネックは製品ではなく、デプロイの障壁です。TinyClawはそれを取り除きます。</p>
+<h3 id="tinyclawとは">TinyClawとは？</h3>
+<p><a href="https://tinyclaw.dev">TinyClaw</a>は、<a href="https://www.agentputer.com/">AgentPuter</a>チームが構築したコンシューマー向けの製品です。AgentPuterが「開発者のためのAIエージェントクラウド」であるなら、TinyClawは「みんなのAIエージェントへの入り口」です。</p>
+<p><strong>公開までの3つのステップ:</strong></p>
+<ol>
+<li><strong>モデルを選択</strong> — Claude Opus 4.6、GPT-5.2、またはGemini 3</li>
+<li><strong>チャネルを選択</strong> — Telegram（DiscordとWhatsAppは近日公開予定）</li>
+<li><strong>Googleでサインイン</strong> → デプロイ完了</li>
+</ol>
+<p>サーバー不要。SSH不要。Node.js不要。ターミナル不要。インフラストラクチャは事前に設定されており、あなたに割り当てられるのを待っています。</p>
+<p><strong>クリックしてからAIアシスタントとの最初の会話まで：60秒未満。</strong></p>
+<h3 id="これで何ができるか">これで何ができるか</h3>
+<p>デプロイされると、TinyClawでホストされたOpenClawは次のことができます：</p>
+<hr>
+<ul>
+<li>メールの読み取り、要約、返信の下書き</li>
+<li>カレンダーの管理、リマインダーの設定、スケジュールの競合解決</li>
+<li>ドキュメントの要約、契約書の下書き、請求書の作成</li>
+<li>経費の追跡、価格の比較、税務申告の補助</li>
+<li>競合調査の実施、ソーシャルメディア投稿の下書き、OKRの追跡</li>
+<li>ニュースフィードの監視、旅行の予約</li>
+<li>自然言語を通じて新しい能力を学習 — 必要なことを伝えるだけ</li>
+</ul>
+<h3 id="究極の比較">究極の比較</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>Mac Mini</th><th>自己管理VPS</th><th>AgentPuter</th><th>TinyClaw</th></tr></thead><tbody><tr><td>デプロイ時間</td><td>15～30分</td><td>15～30分</td><td>約2分</td><td>1分未満</td></tr><tr><td>技術スキル</td><td>ターミナル</td><td>SSH + 運用</td><td>基本的なCLI</td><td>不要（GUIのみ）</td></tr><tr><td>ハードウェア費用</td><td>$599</td><td>$0</td><td>$0</td><td>$0</td></tr><tr><td>月額費用</td><td>APIのみ</td><td>VPS + API</td><td>Pod + API</td><td>ホスティング + API</td></tr><tr><td>データ所在地</td><td>100%ローカル</td><td>あなたのVPS</td><td>AgentPuterクラウド</td><td>TinyClawクラウド</td></tr><tr><td>24時間365日の信頼性</td><td>お使いのMacに依存</td><td>あなたの運用に依存</td><td>SLA保証付き</td><td>SLA保証付き</td></tr><tr><td>マルチエージェント</td><td>手動設定</td><td>手動での分離</td><td>ネイティブで並列</td><td>シングルエージェント</td></tr><tr><td>認証管理</td><td>手動</td><td>手動</td><td>自動更新</td><td>自動</td></tr><tr><td>iMessage</td><td>はい (BlueBubbles)</td><td>いいえ</td><td>いいえ</td><td>いいえ</td></tr><tr><td>音声起動</td><td>はい (macOSアプリ)</td><td>いいえ</td><td>いいえ</td><td>いいえ</td></tr><tr><td>Windows</td><td>いいえ</td><td>はい (WSL2)</td><td>はい (CLI)</td><td>はい (ブラウザ)</td></tr><tr><td>最適なユーザー</td><td>プライバシー重視 / パワーユーザー</td><td>DevOps / コンプライアンス</td><td>開発者 / マルチエージェント</td><td>すべての人</td></tr></tbody></table>
+<hr>
+<hr>
+<h2 id="セットアップ後-あなたのopenclawをおもちゃから従業員に変えるための7つのステップ">セットアップ後: あなたのOpenClawを「おもちゃ」から「従業員」に変えるための7つのステップ</h2>
+<p>どのパスを選択したかにかかわらず、インストールはほんの始まりに過ぎません。ここでは、それを実際に役立つものにする方法を紹介します。</p>
+<h3 id="1-soulmdを記述する">1. SOUL.mdを記述する</h3>
+<p>場所: <code>~/.openclaw/workspace/SOUL.md</code></p>
+<p>これはシステムプロンプトではありません。アイデンティティファイルです。次の情報を伝えてください。</p>
+<ul>
+<li>あなたの名前、役職、そして何をしているか</li>
+<li>あなたのコミュニケーションスタイル（フォーマル？カジュアル？箇条書き？）</li>
+<li>あなたのタイムゾーンと勤務時間</li>
+<li>あなたの好み（「Markdownを好む」、「午前10時より前に会議をスケジュールしない」など）</li>
+</ul>
+<p>具体的に記述すればするほど、同じことを繰り返す必要がなくなります。</p>
+<h3 id="2-openclaw-doctorを実行する">2. <code>openclaw doctor</code>を実行する</h3>
+<p>セットアップ後、アップグレードごと、そして何かがおかしいと感じたときはいつでもこれを実行してください。これは、Nodeのバージョン、Gatewayのヘルス状態、チャネルの接続性、モデルへのアクセス、デーモンのステータスなど、すべてをチェックし、何を修正すべきかを正確に教えてくれます。</p>
+<h3 id="3-チャットコマンドを学ぶ">3. チャットコマンドを学ぶ</h3>
+<p>これらは、接続されているどのチャネル（Telegram、WhatsApp、Slack、Discord）でも機能します。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>コマンド</th><th>機能</th></tr></thead><tbody><tr><td><code>/status</code></td><td>現在のモデル、トークン使用量、セッション情報を表示します</td></tr><tr><td><code>/new</code> または <code>/reset</code></td><td>会話セッションをリセットします</td></tr><tr><td><code>/compact</code></td><td>コンテキストを圧縮してトークンを節約します</td></tr><tr><td><code>/think high</code></td><td>ディープシンキングモード（Opus 4.6）を有効にします</td></tr><tr><td><code>/verbose on</code></td><td>より詳細な応答を返します</td></tr><tr><td><code>/usage full</code></td><td>各返信後のトークン消費量を表示します</td></tr></tbody></table>
+<hr>
+<p>これらは日常的に使用するコントロールです。<code>/compact</code> だけで、長い会話におけるトークンコストを30～40%節約できます。</p>
+<h3 id="4-ツールを接続する">4. ツールを接続する</h3>
+<p>OpenClawはMCP (Model Context Protocol) ツールとスキルを使用して、外部サービスと連携します:</p>
+<ul>
+<li><strong>Gmail</strong> — Pub/Sub経由でリアルタイムのメール通知</li>
+<li><strong>Google Calendar</strong> — イベントの読み取り、作成、変更</li>
+<li><strong>Notion / Todoist / Linear</strong> — タスク管理</li>
+<li><strong>Slack</strong> — チャネルとして、またツールとして</li>
+<li><strong>ブラウザ</strong> — OpenClawは専用のChromeインスタンスを制御できます</li>
+</ul>
+<h3 id="5-記憶の種を植える">5. 記憶の種を植える</h3>
+<p>永久に記憶される初期コンテキストを与えます:</p>
+<blockquote>
+<p>「毎週月曜日の午前10時にチームミーティングがあります。私の上司の名前はSarahです。回答はMarkdown形式を希望します。現在、Project Atlasの第1四半期ローンチに取り組んでいます。」</p>
+</blockquote>
+<p>これらの事実は記憶に残り、その後のすべての対話に反映されます。</p>
+<h3 id="6-実際のワークフローを実行する">6. 実際のワークフローを実行する</h3>
+<p>些細なことでテストしないでください。仕事を与えましょう:</p>
+<ul>
+<li>「未読メールを要約し、優先度順に並べ替えて」</li>
+<li>「今週のカレンダーの予定は？重複があれば指摘して」</li>
+<li>「[製品名]の競合上位5社を調査し、比較表を作成して」</li>
+<li>「[人物名]からのメールへの返信を下書きして — プロフェッショナルなトーンで、会議は承諾しつつ、代わりに木曜日を提案して」</li>
+</ul>
+<h3 id="7-コミュニティスキルをインストールする">7. コミュニティスキルをインストールする</h3>
+<hr>
+<p>設定で<strong>ClawHub</strong>を有効にすると、エージェントが必要に応じて新しいスキルを自動的に検索し、インストールできるようになります。また、<a href="https://skillsmp.com">SkillsMP</a>で手動で閲覧することもできます — このマーケットプレイスには、Jira連携から航空券の価格追跡まで、あらゆる用途に対応するコミュニティ提供のスキルが数千も揃っています。</p>
+<hr>
+<hr>
+<h2 id="よくある質問">よくある質問</h2>
+<p><strong>APIの費用はいくらですか？</strong>
+ライトな使用：月額約15ドル。中程度の使用：月額30〜50ドル。ヘビーな使用（Viticciレベル）：月額100〜300ドル。あるいは、Claude Pro（月額20ドル）またはMax（月額100ドル）のサブスクリプションを利用すれば、APIキーを別途管理することなく、OAuth経由で認証できます。</p>
+<p><strong>どのモデルが最適ですか？</strong>
+プロジェクトの作成者は<strong>Claude Opus 4.6</strong>を強く推奨しています — 長文コンテキストのパフォーマンスが最も優れており、プロンプトインジェクションに対する耐性が最も強力です。GPT-5.2とGemini 3もサポートされています。すでにサブスクリプションをお持ちのモデルを選択してください。</p>
+<p><strong>セキュリティは安全ですか？</strong>
+デフォルトでは、OpenClawは<strong>DMペアリング</strong>を使用します — 未知の送信者にはペアリングコードが送信され、あなたが<code>openclaw pairing approve</code>で承認するまでアシスタントと対話することはできません。ローカルでのデプロイでは、すべてのデータはあなたのマシン上に保持されます。リモートアクセスにはTailscaleを使用してください — ゲートウェイポート（18789）を直接インターネットに公開しないでください。</p>
+<p><strong>中国語はサポートされていますか？</strong>
+はい。基盤となるモデルはネイティブで中国語をサポートしています。clawd.org.cnにコミュニティのドキュメントサイトがあり、DeepSeek、Moonshot Kimi、Qwenなどの国内モデルでも動作します。</p>
+<p><strong>Windowsで動作しますか？</strong>
+はい、WSL2（Windows Subsystem for Linux）経由で動作します — これは公式にサポートされており、強く推奨されています。または、TinyClawを使用すれば、ローカルでのセットアップなしでブラウザベースの体験が可能です。</p>
+<hr>
+<p><strong>ChatGPT Plusとの違いは何ですか？</strong>
+ChatGPTはあなたが訪問するのを待ちます。OpenClawは、WhatsApp、Telegram、Slackなど、あなたがどこにいてもあなたに連絡します。ChatGPTにはセッションをまたいだ永続的なメモリがありませんが、OpenClawにはあります。ChatGPTはあなたのファイルやメールを操作できませんが、OpenClawはできます。ChatGPTはVoice WakeやLive Canvasをサポートしていませんが、OpenClawはサポートしています。</p>
+<p><strong>何か問題が発生しました。どうすればよいですか？</strong>
+<code>openclaw doctor</code>を実行してください。自動診断を行い、的を絞った修正手順を提供します。コミュニティのDiscordには5,000人以上のアクティブメンバーがおり、エッジケースの解決を手伝ってくれます。</p>
+<p><strong>アップデートするにはどうすればよいですか？</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> update</span><span style="color:#79B8FF"> --channel</span><span style="color:#9ECBFF"> stable</span></span>
+<span class="line"></span></code></pre>
+<p>最先端の機能が必要な場合は、<code>beta</code>および<code>dev</code>チャンネルもあります。</p>
+<hr>
+<hr>
+<h2 id="おわりに">おわりに</h2>
+<p>4つの道、1つの目的地：あなた自身の24時間365日稼働するAIアシスタントです。</p>
+<ul>
+<li><strong>Mac Mini</strong>：完全なコントロール、音声起動、iMessageを求めるパワーユーザー向け。</li>
+<li><strong>自己管理型VPS</strong>：ルートアクセスと最大限の柔軟性を求める開発者向け。</li>
+<li><strong><a href="https://www.agentputer.com/">AgentPuter</a></strong>：クラウドの信頼性、マルチエージェント対応、そしてDevOps不要を求める方向け。</li>
+<li><strong><a href="https://tinyclaw.dev">TinyClaw</a></strong>：とにかく動けばいいという方向け — 60秒、ターミナル不要。</li>
+</ul>
+<p>これらの道は互いに排他的ではありません。まずTinyClawで始めて1分以内にOpenClawを体験し、複数のエージェントを実行したくなったらAgentPuterに移行し、そして最終的に、完全なコントロールの準備ができた時にMac Miniで完全に独立したセットアップを構築することができます。</p>
+<p>これは、私たちのエージェントインフラストラクチャシリーズのパート9です。これまで、<a href="/blog/agent-needs-its-own-computer/">なぜエージェントが自分自身のコンピューターを必要とするのか</a>、OpenClawの<a href="/blog/dissecting-openclaw-architecture/">アーキテクチャ</a>、<a href="/blog/agent-skills-ecosystem/">スキルエコシステム</a>、<a href="/blog/vibe-working-when-agents-work/">エンタープライズワークフロー</a>、<a href="/blog/deep-dive-clawdbot-breakout-agent/">ClawdBotの詳細な解説</a>、<a href="/blog/who-makes-money-from-openclaw/">ビジネスモデル</a>、そして<a href="/blog/openclaw-creator-joins-openai/">そのクリエイターがOpenAIに参加したことの意味</a>について取り上げてきました。本日は「do it yourself」の章でした。</p>
+<hr>
+<p>デプロイに成功した方は、コメント欄やDiscordでぜひ教えてください：<strong>エージェントに付けた名前と、最初に与えた実際のタスクは何でしたか？</strong></p>
+<hr>
+<p><em>参考資料：</em></p>
+<ul>
+<li><a href="https://github.com/openclaw/openclaw">OpenClaw GitHubリポジトリ</a> (20.7万スター、v2026.2.17)</li>
+<li><a href="https://www.agentputer.com/">AgentPuter — AIエージェントのための24時間365日稼働のクラウドランタイム</a></li>
+<li><a href="https://tinyclaw.dev">TinyClaw — ワンクリックOpenClawデプロイ</a></li>
+<li><a href="https://docs.openclaw.ai">OpenClaw 公式ドキュメント</a></li>
+<li>CVE-2026-25253 — OpenClawゲートウェイのトークン漏えい (セキュリティ分析にて言及)</li>
+</ul>  </div> <!-- ブログ一覧に戻る --> <footer class="mt-16 pt-8 border-t border-accent/20"> <a href="/ja/blog/" class="inline-flex items-center gap-2 font-mono text-sm text-text-muted hover:text-accent transition-colors group"> <span class="group-hover:-translate-x-1 transition-transform">&lt;-</span> <span>すべての記事に戻る</span> </a> </footer> </article> </main> <footer class="bg-dark-secondary border-t border-accent/20"> <div class="max-w-7xl mx-auto px-6 lg:px-20 py-12 lg:py-16"> <!-- 上部セクション --> <div class="flex flex-col lg:flex-row justify-between gap-12 mb-12"> <!-- ブランド --> <div class="lg:max-w-xs"> <a href="/ja/" class="inline-block mb-4"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <p class="text-text-muted text-sm font-mono"> <span class="text-terminal-cyan">//</span> あなたのAIは眠らない
+</p> </div> <!-- リンクグリッド --> <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 font-mono"> <!-- 製品 --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/product</h4> <ul class="space-y-3"> <li> <a href="/ja/features" class="text-text-muted text-sm hover:text-accent transition-colors"> 機能 </a> </li><li> <a href="/pricing" class="text-text-muted text-sm hover:text-accent transition-colors"> 料金 </a> </li><li> <a href="/ja/docs" class="text-text-muted text-sm hover:text-accent transition-colors"> ドキュメント </a> </li> </ul> </div> <!-- 会社 --> <div> <h4 class="text-terminal-orange font-bold mb-4 text-sm">/company</h4> <ul class="space-y-3"> <li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> AgentPuterについて </a> </li><li> <a href="/ja/blog/" class="text-text-muted text-sm hover:text-accent transition-colors"> ブログ </a> </li> </ul> </div> <!-- お問い合わせ --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/contact</h4> <ul class="space-y-3"> <li> <a href="/cdn-cgi/l/email-protection#4629352527343c272b293427777f7f7f767106212b272f2a6825292b" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> <span class="__cf_email__" data-cfemail="2c435f4f4d5e564d41435e4d1d1515151c1b6c4b414d4540024f4341">[email&#160;protected]</span> </a> </li><li> <a href="https://twitter.com/agentputer" target="_blank" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Twitter </a> </li><li> <a href="https://discord.gg/agentputer" target="_blank" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Discord </a> </li> </ul> </div> <!-- 法務 --> <div> <h4 class="text-terminal-blue font-bold mb-4 text-sm">/legal</h4> <ul class="space-y-3"> <li> <a href="/privacy" class="text-text-muted text-sm hover:text-accent transition-colors"> プライバシーポリシー </a> </li><li> <a href="/terms" class="text-text-muted text-sm hover:text-accent transition-colors"> 利用規約 </a> </li><li> <a href="/privacy#data-security" class="text-text-muted text-sm hover:text-accent transition-colors"> セキュリティ </a> </li> </ul> </div> </div> </div> <!-- 区切り線 --> <div class="border-t border-accent/20 pt-8"> <div class="flex flex-col md:flex-row justify-between items-center gap-4 font-mono"> <!-- コピーライト --> <p class="text-text-dark text-sm">
+/* © 2026 AgentPuter. 全著作権所有。 */
+</p> <!-- ソーシャルリンク --> <div class="flex items-center gap-6"> <a href="https://github.com/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors"> GitHub </a> </div> </div> </div> </div> </footer>  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"db97590b14994206be9f2eaec90a9494","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html> 

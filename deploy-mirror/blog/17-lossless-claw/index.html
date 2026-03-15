@@ -1,0 +1,347 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="OpenClaw's default compaction fires once, summarizes everything, discards the originals. The longer your agent runs, the more it forgets. Version 2026.3.7 opened the context engine to plugins. lossless-claw is the first one — a DAG-based system that stores every message in full and lets agents retrieve exact historical detail on demand."><meta name="theme-color" content="#0D0D0D"><meta name="generator" content="Astro v4.16.19"><!-- Canonical URL --><link rel="canonical" href="https://www.agentputer.com/blog/17-lossless-claw/"><!-- hreflang 多语言标签 --><link rel="alternate" hreflang="en" href="https://www.agentputer.com/blog/17-lossless-claw/"><link rel="alternate" hreflang="zh-CN" href="https://www.agentputer.com/zh/blog/17-lossless-claw/"><link rel="alternate" hreflang="ja" href="https://www.agentputer.com/ja/blog/17-lossless-claw/"><link rel="alternate" hreflang="ko" href="https://www.agentputer.com/ko/blog/17-lossless-claw/"><link rel="alternate" hreflang="es" href="https://www.agentputer.com/es/blog/17-lossless-claw/"><link rel="alternate" hreflang="pt-BR" href="https://www.agentputer.com/pt-br/blog/17-lossless-claw/"><link rel="alternate" hreflang="de" href="https://www.agentputer.com/de/blog/17-lossless-claw/"><link rel="alternate" hreflang="fr" href="https://www.agentputer.com/fr/blog/17-lossless-claw/"><link rel="alternate" hreflang="zh-TW" href="https://www.agentputer.com/zh-tw/blog/17-lossless-claw/"><link rel="alternate" hreflang="x-default" href="https://www.agentputer.com/blog/17-lossless-claw/"><!-- Keywords（各语言本地化） --><meta name="keywords" content="OpenClaw, lossless-claw, Context Engine, Memory, Plugin, Long-Running Agents, LCM"><!-- Open Graph --><meta property="og:title" content="OpenClaw Just Fixed Its Biggest Problem. Here's What lossless-claw Actually Does. | AgentPuter Blog"><meta property="og:description" content="OpenClaw's default compaction fires once, summarizes everything, discards the originals. The longer your agent runs, the more it forgets. Version 2026.3.7 opened the context engine to plugins. lossless-claw is the first one — a DAG-based system that stores every message in full and lets agents retrieve exact historical detail on demand."><meta property="og:type" content="article"><meta property="og:url" content="https://www.agentputer.com/blog/17-lossless-claw/"><meta property="og:image" content="https://www.agentputer.com/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:site_name" content="AgentPuter"><meta property="og:locale" content="en_US"><meta property="og:locale:alternate" content="zh_CN"><meta property="og:locale:alternate" content="ja_JP"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="es_ES"><meta property="og:locale:alternate" content="pt_BR"><meta property="og:locale:alternate" content="de_DE"><meta property="og:locale:alternate" content="fr_FR"><meta property="og:locale:alternate" content="zh_TW"><!-- Article-specific OG tags --><meta property="article:published_time" content="2026-03-08"><meta property="article:author" content="AgentPuter Lab"><meta property="article:tag" content="OpenClaw"><meta property="article:tag" content="lossless-claw"><meta property="article:tag" content="Context Engine"><meta property="article:tag" content="Memory"><meta property="article:tag" content="Plugin"><meta property="article:tag" content="Long-Running Agents"><meta property="article:tag" content="LCM"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@agentputer"><meta name="twitter:creator" content="@agentputer"><meta name="twitter:title" content="OpenClaw Just Fixed Its Biggest Problem. Here's What lossless-claw Actually Does. | AgentPuter Blog"><meta name="twitter:description" content="OpenClaw's default compaction fires once, summarizes everything, discards the originals. The longer your agent runs, the more it forgets. Version 2026.3.7 opened the context engine to plugins. lossless-claw is the first one — a DAG-based system that stores every message in full and lets agents retrieve exact historical detail on demand."><meta name="twitter:image" content="https://www.agentputer.com/og-default.png"><!-- Favicon --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/favicon.svg"><!-- 字体：preconnect + LCP 关键字体直接预加载 --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- 直接预加载 LCP 关键字体文件（JetBrains Mono Bold Latin，H1 使用） --><link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8L6tTOlOVk6OThhvA.woff2"><!-- 字体 CSS 阻塞加载（配合 preconnect 延迟极低，确保 LCP 时字体可用） --><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"><!-- Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":"https://www.agentputer.com/favicon.svg","description":"Your AI Agent's dedicated cloud runtime. AgentPuter keeps your AI running 24/7.","sameAs":["https://twitter.com/agentputer","https://github.com/agentputer","https://discord.gg/agentputer"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"AgentPuter","url":"https://www.agentputer.com","inLanguage":"en","availableLanguage":[{"@type":"Language","name":"English","alternateName":"en"},{"@type":"Language","name":"中文","alternateName":"zh-CN"},{"@type":"Language","name":"繁體中文","alternateName":"zh-TW"},{"@type":"Language","name":"日本語","alternateName":"ja"},{"@type":"Language","name":"한국어","alternateName":"ko"},{"@type":"Language","name":"Español","alternateName":"es"},{"@type":"Language","name":"Português","alternateName":"pt-BR"},{"@type":"Language","name":"Deutsch","alternateName":"de"},{"@type":"Language","name":"Français","alternateName":"fr"}],"description":"Your AI Agent's dedicated cloud runtime."}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.agentputer.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.agentputer.com/blog/"},{"@type":"ListItem","position":3,"name":"17 lossless claw","item":"https://www.agentputer.com/blog/17-lossless-claw/"}]}</script><!-- 页面专属结构化数据插槽 --><!-- 浏览器语言自动检测：移到 head 阻塞执行，避免渲染后跳转导致 CLS --><script>
+    (function() {
+      if (localStorage.getItem('agentputer-lang')) return;
+
+      var langMap = {
+        'zh': '/zh', 'zh-cn': '/zh', 'zh-tw': '/zh-tw', 'zh-hk': '/zh-tw',
+        'ja': '/ja', 'ko': '/ko',
+        'es': '/es', 'es-419': '/es',
+        'pt': '/pt-br', 'pt-br': '/pt-br',
+        'de': '/de', 'fr': '/fr',
+      };
+
+      var path = window.location.pathname;
+      if (/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)(\/|$)/.test(path)) {
+        var m = path.match(/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)/);
+        if (m) localStorage.setItem('agentputer-lang', m[1]);
+        return;
+      }
+
+      var langs = navigator.languages || [navigator.language];
+      for (var i = 0; i < langs.length; i++) {
+        var bl = langs[i].toLowerCase();
+        if (langMap[bl]) {
+          var target = path === '/' ? langMap[bl] + '/' : langMap[bl] + path;
+          localStorage.setItem('agentputer-lang', bl);
+          window.location.replace(target);
+          return;
+        }
+        var primary = bl.split('-')[0];
+        if (primary !== bl && langMap[primary]) {
+          var target2 = path === '/' ? langMap[primary] + '/' : langMap[primary] + path;
+          localStorage.setItem('agentputer-lang', primary);
+          window.location.replace(target2);
+          return;
+        }
+      }
+      localStorage.setItem('agentputer-lang', 'en');
+    })();
+    </script><!-- Google Analytics 4 --><script async src="https://www.googletagmanager.com/gtag/js?id=G-9M2T6GQJ0L"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9M2T6GQJ0L');
+    </script><title>OpenClaw Just Fixed Its Biggest Problem. Here&#39;s What lossless-claw Actually Does. | AgentPuter Blog</title><link rel="stylesheet" href="/_astro/_slug_.DM3EUOA_.css">
+<link rel="stylesheet" href="/_astro/_slug_.CUcOCpHJ.css">
+<link rel="stylesheet" href="/_astro/_slug_.CxhqtQFk.css"><script type="module" src="/_astro/hoisted.Bl-zZglg.js"></script></head> <body class="min-h-screen">   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"OpenClaw Just Fixed Its Biggest Problem. Here's What lossless-claw Actually Does.","description":"OpenClaw's default compaction fires once, summarizes everything, discards the originals. The longer your agent runs, the more it forgets. Version 2026.3.7 opened the context engine to plugins. lossless-claw is the first one — a DAG-based system that stores every message in full and lets agents retrieve exact historical detail on demand.","datePublished":"2026-03-08","dateModified":"2026-03-08","author":{"@type":"Organization","name":"AgentPuter Lab","url":"https://www.agentputer.com"},"publisher":{"@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":{"@type":"ImageObject","url":"https://www.agentputer.com/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.agentputer.com/blog/17-lossless-claw/"},"keywords":"OpenClaw, lossless-claw, Context Engine, Memory, Plugin, Long-Running Agents, LCM"}</script> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.agentputer.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.agentputer.com/blog/"},{"@type":"ListItem","position":3,"name":"OpenClaw Just Fixed Its Biggest Problem. Here's What lossless-claw Actually Does."}]}</script> <header class="fixed top-0 left-0 right-0 z-50 bg-dark-primary md:bg-dark-primary/95 md:backdrop-blur-lg border-b border-accent/20"> <nav class="max-w-7xl mx-auto px-6 lg:px-20 h-20 flex items-center justify-between"> <!-- Logo --> <a href="/" class="flex items-center gap-2 group"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <!-- Desktop Navigation --> <div class="hidden md:flex items-center gap-8 font-mono"> <a href="/features" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/features
+</a> <a href="/tools" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/tools
+</a> <a href="/pricing" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/pricing
+</a> <a href="/blog/" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/blog
+</a> <a href="/docs" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/docs
+</a> <!-- Desktop 语言切换器 --><div class="lang-switcher relative"> <button class="lang-btn flex items-center gap-1.5 text-text-secondary hover:text-accent transition-colors text-sm font-mono cursor-pointer" aria-label="Switch language" aria-expanded="false"> <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <circle cx="12" cy="12" r="10" stroke-width="1.5"></circle> <path stroke-width="1.5" d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path> </svg> <span>EN</span> <svg class="w-3 h-3 opacity-40 transition-transform lang-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </button> <!-- 下拉菜单 --> <div class="lang-dropdown hidden absolute right-0 top-full mt-2 py-1 bg-[#1a1a1a] border border-[#333] rounded-lg shadow-xl min-w-[160px] z-[100]"> <a href="/blog/17-lossless-claw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-accent bg-accent/10" data-lang="en"> <span>English</span> <span class="text-xs text-accent">EN</span> </a><a href="/zh/blog/17-lossless-claw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="zh"> <span>中文</span> <span class="text-xs text-text-dark">中文</span> </a><a href="/ja/blog/17-lossless-claw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ja"> <span>日本語</span> <span class="text-xs text-text-dark">JA</span> </a><a href="/ko/blog/17-lossless-claw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ko"> <span>한국어</span> <span class="text-xs text-text-dark">KO</span> </a><a href="/es/blog/17-lossless-claw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="es"> <span>Español</span> <span class="text-xs text-text-dark">ES</span> </a><a href="/pt-br/blog/17-lossless-claw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="pt-br"> <span>Português</span> <span class="text-xs text-text-dark">PT</span> </a><a href="/de/blog/17-lossless-claw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="de"> <span>Deutsch</span> <span class="text-xs text-text-dark">DE</span> </a><a href="/fr/blog/17-lossless-claw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="fr"> <span>Français</span> <span class="text-xs text-text-dark">FR</span> </a> </div> </div> <!-- Mobile 语言列表（平铺，不用下拉） --> <div class="lang-mobile hidden"> <div class="flex flex-wrap gap-2"> <a href="/blog/17-lossless-claw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-accent border-accent/40 bg-accent/10" data-lang="en"> English </a><a href="/zh/blog/17-lossless-claw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="zh"> 中文 </a><a href="/ja/blog/17-lossless-claw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ja"> 日本語 </a><a href="/ko/blog/17-lossless-claw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ko"> 한국어 </a><a href="/es/blog/17-lossless-claw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="es"> Español </a><a href="/pt-br/blog/17-lossless-claw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="pt-br"> Português </a><a href="/de/blog/17-lossless-claw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="de"> Deutsch </a><a href="/fr/blog/17-lossless-claw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="fr"> Français </a> </div> </div>  <a href="https://app.agentputer.com/sign-up" class="text-sm py-2.5 px-6 bg-accent text-dark-primary font-bold rounded hover:bg-accent-dark transition-colors">
+[GET STARTED]
+</a> </div> <!-- Mobile Menu Button --> <button id="mobile-menu-btn" class="md:hidden p-2 text-text-secondary hover:text-white" aria-label="Toggle menu"> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </nav> <!-- Mobile Menu --> <div id="mobile-menu" class="hidden md:hidden bg-dark-secondary border-t border-dark-tertiary"> <div class="px-6 py-4 space-y-4"> <a href="/features" class="block hover:text-white transition-colors text-text-secondary">
+Features
+</a> <a href="/tools" class="block hover:text-white transition-colors text-text-secondary">
+Tools
+</a> <a href="/pricing" class="block hover:text-white transition-colors text-text-secondary">
+Pricing
+</a> <a href="/blog/" class="block hover:text-white transition-colors text-text-secondary">
+Blog
+</a> <a href="/docs" class="block hover:text-white transition-colors text-text-secondary">
+Docs
+</a> <div class="lang-mobile-wrapper"></div> <a href="https://app.agentputer.com/sign-up" class="btn-primary w-full justify-center text-sm py-3">
+Get Started
+</a> </div> </div> </header>  <main class="relative z-10 pt-28 pb-20"> <article class="max-w-4xl mx-auto px-6 lg:px-8"> <!-- 面包屑导航 --> <nav class="mb-8 font-mono text-sm"> <a href="/" class="text-text-muted hover:text-accent transition-colors">~</a> <span class="text-text-dark mx-2">/</span> <a href="/blog/" class="text-text-muted hover:text-accent transition-colors">blog</a> <span class="text-text-dark mx-2">/</span> <span class="text-accent">article</span> </nav> <!-- 文章元信息头部 --> <header class="mb-12"> <!-- 标签 --> <div class="flex flex-wrap gap-2 mb-6"> <span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#OpenClaw </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#lossless-claw </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Context Engine </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Memory </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Plugin </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Long-Running Agents </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#LCM </span> </div> <!-- 标题 --> <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6"> OpenClaw Just Fixed Its Biggest Problem. Here&#39;s What lossless-claw Actually Does. </h1> <!-- 描述 --> <p class="text-lg text-text-secondary leading-relaxed mb-8"> OpenClaw&#39;s default compaction fires once, summarizes everything, discards the originals. The longer your agent runs, the more it forgets. Version 2026.3.7 opened the context engine to plugins. lossless-claw is the first one — a DAG-based system that stores every message in full and lets agents retrieve exact historical detail on demand. </p> <!-- 元信息行 --> <div class="flex flex-wrap items-center gap-6 text-sm font-mono text-text-muted border-t border-b border-accent/20 py-4"> <div class="flex items-center gap-2"> <span class="text-terminal-cyan">@</span> <span class="text-text-secondary">AgentPuter Lab</span> </div> <div class="flex items-center gap-2"> <span class="text-terminal-orange">$</span> <time datetime="2026-03-08" class="text-text-secondary">March 8, 2026</time> </div> <div class="flex items-center gap-2"> <span class="text-terminal-blue">~</span> <span class="text-text-secondary">18 min read</span> </div> </div> </header> <!-- 文章正文 --> <div class="prose prose-invert prose-terminal max-w-none">  <h1 id="openclaw-just-fixed-its-biggest-problem-heres-what-lossless-claw-actually-does">OpenClaw Just Fixed Its Biggest Problem. Here’s What lossless-claw Actually Does.</h1>
+<p>AgentPuter · March 2026 · ~18 min · #OpenClaw #lossless-claw #ContextEngine #LongRunningAgents #Plugin</p>
+<blockquote>
+<p><strong>Sources:</strong></p>
+<ul>
+<li><a href="https://github.com/Martian-Engineering/lossless-claw">Martian-Engineering/lossless-claw</a> — GitHub repo</li>
+<li><a href="https://github.com/openclaw/openclaw/discussions/22251">Feature: pluggable context systems, LCM for OpenClaw</a> — Discussion #22251, @jalehman, Feb 20, 2026</li>
+<li><a href="https://github.com/openclaw/openclaw/releases/tag/v2026.3.7">OpenClaw 2026.3.7 Release Notes</a> — GitHub</li>
+<li><a href="https://x.com/chrysb/status/2030526852146549140">Chrys Bader @chrysb</a> — Twitter, Mar 8, 2026</li>
+<li><a href="https://papers.voltropy.com/LCM">LCM: Lossless Context Management</a> — Ehrlich &#x26; Blackman</li>
+</ul>
+</blockquote>
+<hr>
+<p>Picture this: you’ve had an OpenClaw agent running a research project for three hours. It’s been browsing, taking notes, cross-referencing sources, building up a picture of something complex. Then it hits its context limit.</p>
+<p>Compaction fires.</p>
+<p>The next message it sends you reads like it just woke up with amnesia. The specific file path it found two hours ago — gone. The decision you made together about which approach to take — summarized into a single vague sentence. The whole thread of reasoning that led you somewhere useful — collapsed into a paragraph that loses the detail that made it matter.</p>
+<p>You’ve been here. Every OpenClaw user has been here.</p>
+<p>This isn’t a bug. It’s by design — and until March 8, 2026, it was the only option any agent had.</p>
+<p>OpenClaw 2026.3.7 changed that.</p>
+<hr>
+<h2 id="the-problem-with-context-compaction-its-not-what-you-think">The Problem With Context Compaction (It’s Not What You Think)</h2>
+<p>The standard framing is that compaction is a memory management problem. Token limits are finite. When a conversation grows too long, something has to give. The agent summarizes the oldest parts and continues.</p>
+<p>That framing makes it sound like a reasonable engineering trade-off.</p>
+<p>It isn’t. Here’s why.</p>
+<p>When OpenClaw’s default compaction fires, it does a <strong>one-shot summarization</strong>: the oldest messages get collapsed into a single summary block, that block gets written back into the transcript, and the originals are discarded. The summary is what the model works with going forward. There’s no retrieving what was compacted. It’s gone.</p>
+<p><a href="https://github.com/jalehman">@jalehman</a> — the developer who built lossless-claw — described the situation precisely in <a href="https://github.com/openclaw/openclaw/discussions/22251">Discussion #22251</a>:</p>
+<blockquote>
+<p><em>“OpenClaw’s compaction does a one-shot summarization when the context window fills up. It works as a safety net, but it’s lossy — it doesn’t preserve temporal structure, and there’s no way to recover detail after compaction fires. This isn’t unique to OpenClaw. This is what all agents do.”</em></p>
+</blockquote>
+<p>That last sentence matters. This isn’t an OpenClaw-specific flaw. ChatGPT does this. Claude does this. Every agent framework does this. The entire field has been operating on the assumption that lossy compression is the only option.</p>
+<p><strong>The practical consequences are significant:</strong></p>
+<p>For single-session conversations that wrap up in under an hour, compaction is a minor annoyance at worst. The agent keeps most of what matters and you carry on.</p>
+<p>For long-running agents — the ones people are actually deploying to run 24/7, to handle projects that span days or weeks, to coordinate between sub-agents across dozens of tasks — compaction is a structural ceiling. Your agent gets dumber the longer it runs. The most valuable thing about a persistent agent is that it accumulates context and builds on it. Compaction systematically destroys that value.</p>
+<p>There’s a reason experienced OpenClaw users have developed workarounds: manually running <code>/compact</code> at strategic moments, structuring SOUL.md to force key facts to survive compaction, breaking projects into isolated sessions with handoff notes. These are coping mechanisms for a fundamental architectural limitation.</p>
+<hr>
+<h2 id="what-202637-actually-changed-the-real-news">What 2026.3.7 Actually Changed (The Real News)</h2>
+<p>The headline you’ll see on Twitter is “lossless-claw — an OpenClaw plugin that gives your agent perfect memory.” That’s true, but it’s not the actual news.</p>
+<p>The actual news is what had to happen in the OpenClaw core before lossless-claw could exist.</p>
+<p>Before version 2026.3.7, OpenClaw’s context management was <strong>hardcoded into core</strong>. There was no way to swap it out, extend it, or experiment with alternatives without forking the entire codebase. The compaction logic — when it fires, how it summarizes, what it preserves — was baked in. Anyone who wanted to try a different approach had to maintain their own fork of OpenClaw in parallel. That’s not a viable path for a plugin.</p>
+<p>The PR that @jalehman submitted — <a href="https://github.com/openclaw/openclaw/pull/22201">#22201</a> — didn’t just add lossless-claw support. It <strong>extracted context management into a pluggable interface</strong>. From the 3.7 release notes:</p>
+<blockquote>
+<p><em>“add ContextEngine plugin slot with full lifecycle hooks (bootstrap, ingest, assemble, compact, afterTurn, prepareSubagentSpawn, onSubagentEnded), slot-based registry with config-driven resolution, LegacyContextEngine wrapper preserving existing compaction behavior…”</em></p>
+</blockquote>
+<p>What that means in practice: OpenClaw now has a defined interface for context management. Any plugin that implements that interface can replace the built-in engine entirely. The default behavior is preserved — <code>LegacyContextEngine</code> is still the fallback if you configure nothing — but the door is now open.</p>
+<p>Here’s the interface:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="typescript"><code><span class="line"><span style="color:#6A737D">// OpenClaw 2026.3.7 — Context Engine Plugin Interface</span></span>
+<span class="line"><span style="color:#F97583">interface</span><span style="color:#B392F0"> ContextEngine</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#B392F0">  bootstrap</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">ctx</span><span style="color:#E1E4E8">)</span><span style="color:#F97583">:</span><span style="color:#B392F0">           Promise</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#79B8FF">void</span><span style="color:#E1E4E8">>           </span><span style="color:#6A737D">// initialize DB, indexes</span></span>
+<span class="line"><span style="color:#B392F0">  ingest</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">msg</span><span style="color:#E1E4E8">)</span><span style="color:#F97583">:</span><span style="color:#B392F0">              Promise</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#79B8FF">void</span><span style="color:#E1E4E8">>           </span><span style="color:#6A737D">// archive every message as it arrives</span></span>
+<span class="line"><span style="color:#B392F0">  assemble</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">opts</span><span style="color:#E1E4E8">)</span><span style="color:#F97583">:</span><span style="color:#B392F0">           Promise</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#B392F0">AgentMessage</span><span style="color:#E1E4E8">[]> </span><span style="color:#6A737D">// build model context each turn</span></span>
+<span class="line"><span style="color:#B392F0">  compact</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">ctx</span><span style="color:#E1E4E8">)</span><span style="color:#F97583">:</span><span style="color:#B392F0">             Promise</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#79B8FF">void</span><span style="color:#E1E4E8">>           </span><span style="color:#6A737D">// handle compaction trigger</span></span>
+<span class="line"><span style="color:#B392F0">  afterTurn</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">ctx</span><span style="color:#E1E4E8">)</span><span style="color:#F97583">:</span><span style="color:#B392F0">           Promise</span><span style="color:#E1E4E8">&#x3C;</span><span style="color:#79B8FF">void</span><span style="color:#E1E4E8">>           </span><span style="color:#6A737D">// post-turn processing</span></span>
+<span class="line"><span style="color:#B392F0">  prepareSubagentSpawn</span><span style="color:#E1E4E8">()</span><span style="color:#F97583">:</span><span style="color:#E1E4E8">   ...                     </span><span style="color:#6A737D">// pass context to spawned sub-agents</span></span>
+<span class="line"><span style="color:#B392F0">  onSubagentEnded</span><span style="color:#E1E4E8">()</span><span style="color:#F97583">:</span><span style="color:#E1E4E8">        ...                     </span><span style="color:#6A737D">// reconcile after sub-agent completes</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>This is a complete lifecycle. Every moment that involves context — ingestion, assembly, compaction, sub-agent handoff — is now a hook that a plugin can intercept and replace.</p>
+<p>To use an alternative context engine, the configuration is a single line:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "plugins"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "slots"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      "contextEngine"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"lossless-claw"</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>If you don’t add this line, nothing changes. Zero behavior difference from previous versions. The migration path is completely opt-in.</p>
+<hr>
+<h2 id="how-lossless-claw-works">How lossless-claw Works</h2>
+<p>lossless-claw is the first implementation of this interface. It’s built on the <a href="https://papers.voltropy.com/LCM">LCM (Lossless Context Management) paper</a> by Ehrlich and Blackman — researchers who later endorsed the plugin directly. One of the paper’s co-authors, <a href="https://github.com/belisarius222">@belisarius222</a>, wrote in the GitHub discussion:</p>
+<blockquote>
+<p><em>“Josh has made so many improvements on it that I think it should really be called LCM 2.0.”</em></p>
+</blockquote>
+<p>The core premise is a reframe of the entire problem.</p>
+<p>Standard compaction waits for overflow to happen, then reacts. By the time it fires, you’ve already lost the ability to preserve context properly — you’re doing emergency triage on a pile of messages that have built up over hours. The result is inevitably lossy.</p>
+<p>lossless-claw doesn’t wait. It works <strong>continuously and asynchronously in the background</strong>, making incremental summarization decisions after each exchange, before any overflow crisis occurs. The summaries it creates are not flat text. They’re structured nodes in a graph, linked back to the original messages they came from.</p>
+<h3 id="the-architecture-a-dag-of-memory">The Architecture: A DAG of Memory</h3>
+<p>Every message that enters an lossless-claw session gets persisted immediately to a <strong>SQLite database</strong>. Not summarized — stored in full. This is the source of truth. It never gets deleted.</p>
+<p>As the conversation grows, lossless-claw creates <strong>summary nodes</strong> over groups of older messages. Those summaries are connected to the original messages in a <strong>DAG (directed acyclic graph)</strong>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Raw messages (stored in full in SQLite, never deleted)</span></span>
+<span class="line"><span>      ↓</span></span>
+<span class="line"><span>  Level-1 summaries (cover 8-16 messages)</span></span>
+<span class="line"><span>      ↓</span></span>
+<span class="line"><span>  Level-2 summaries (cover multiple Level-1 summaries)</span></span>
+<span class="line"><span>      ↓</span></span>
+<span class="line"><span>  Level-3 summaries (capture major project phases)</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>The summaries get progressively more abstract as they go up the tree — detailed and chronological near the bottom, broad and thematic near the top. Each summary carries metadata: the IDs of its source nodes, timestamps, depth, descendant count.</p>
+<p>When it’s time to assemble context for a new turn, the engine works like this:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>[Protected fresh tail: most recent N raw messages]</span></span>
+<span class="line"><span>           +</span></span>
+<span class="line"><span>[Summary nodes filling the remaining token budget, oldest to newest]</span></span>
+<span class="line"><span>           +</span></span>
+<span class="line"><span>[Any details the agent explicitly requests via lcm_expand]</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>The model sees recent messages in full, and older material as a hierarchy of summaries. Here’s what a summary node actually looks like in the model’s context:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="xml"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">summary</span><span style="color:#B392F0"> id</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"sum_abc123"</span><span style="color:#B392F0"> kind</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"condensed"</span><span style="color:#B392F0"> depth</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"1"</span></span>
+<span class="line"><span style="color:#B392F0">         descendant_count</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"8"</span></span>
+<span class="line"><span style="color:#B392F0">         earliest_at</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"2026-02-17T07:37:00"</span></span>
+<span class="line"><span style="color:#B392F0">         latest_at</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"2026-02-17T15:43:00"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">parents</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">summary_ref</span><span style="color:#B392F0"> id</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"sum_def456"</span><span style="color:#E1E4E8"> /></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;/</span><span style="color:#85E89D">parents</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">content</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    During this session the agent investigated three pricing strategies</span></span>
+<span class="line"><span style="color:#E1E4E8">    for the API tier. Concluded that usage-based was preferable due to</span></span>
+<span class="line"><span style="color:#E1E4E8">    [reasons]. Key file written: /workspace/pricing-analysis.md.</span></span>
+<span class="line"><span style="color:#E1E4E8">    Next step agreed: validate with finance team data.</span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;/</span><span style="color:#85E89D">content</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">summary</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span></code></pre>
+<p>The agent knows this is a summary. It knows when it covers, how many messages it represents, and where to look if it needs more.</p>
+<h3 id="the-three-retrieval-tools">The Three Retrieval Tools</h3>
+<p>When a summary isn’t enough — when the agent needs the exact file path, the precise wording of a decision, the actual data from a specific research session — it has three tools to reach back into history:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Tool</th><th>What it does</th></tr></thead><tbody><tr><td><code>lcm_grep</code></td><td>Full-text search across all stored messages</td></tr><tr><td><code>lcm_describe</code></td><td>Get a summary of a specific historical period</td></tr><tr><td><code>lcm_expand</code></td><td>Expand a summary back into its source messages</td></tr></tbody></table>
+<p><code>lcm_expand</code> is the key one. Instead of loading the entire expansion into the main context — which would defeat the purpose — it uses a <strong>sub-agent</strong> to read the expanded content and return only the specific detail that was asked for. The source material is accessed without blowing up the active context window.</p>
+<p>This is what @jalehman means by the book analogy in his proposal: <em>“it’s like being able to flip back to any page in the book.”</em> The book isn’t destroyed when you put it down. It’s on the shelf. You can look up anything.</p>
+<hr>
+<h2 id="does-it-actually-work-the-numbers">Does It Actually Work? The Numbers</h2>
+<p>@jalehman spent nine days building lossless-claw before merging the PR, running it on his own agents for the final week. His assessment in <a href="https://github.com/openclaw/openclaw/discussions/22251">Discussion #22251</a>:</p>
+<blockquote>
+<p><em>“Imagine never needing to run /compact or /new again. […] have been incredibly impressed with the results: a conversation that feels like it never loses information (because in a way it doesn’t), always operates within the 30-100k token range, requires zero maintenance.”</em></p>
+</blockquote>
+<p>For a more quantitative picture: community developer <a href="https://x.com/chrysb/status/2030526852146549140">@chrysb reported early benchmark results</a> on Twitter the day of the release. Using the <strong>OOLONG benchmark</strong> — a test suite specifically designed to evaluate long-context retention and task continuity — with Opus 4.6 as the model for both:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>System</th><th>OOLONG Score</th><th>Notes</th></tr></thead><tbody><tr><td>lossless-claw + OpenClaw</td><td><strong>74.8</strong></td><td>Gap widens with context length</td></tr><tr><td>Claude Code (default)</td><td>70.3</td><td>Standard sliding window</td></tr><tr><td>OpenClaw default</td><td>~68 (estimated)</td><td>One-shot compaction</td></tr></tbody></table>
+<p>These are community-reported numbers, not official benchmarks, and they’ll evolve as more people run tests. But the directional finding holds up structurally: <strong>the longer the context gets, the more lossless-claw’s advantage compounds</strong>, because it’s the exact scenario where lossy compaction does the most damage.</p>
+<p>The LCM paper’s co-author @belisarius222 noted one specific improvement @jalehman made over the original paper implementation: <strong>capped input length for summarization</strong>. In the original LCM, summarizing very long content could itself overflow context, cause unpredictable behavior, and introduce edge cases. The capped approach keeps each summarization step predictable, which also makes the system more reliable for the <code>lcm_expand</code> sub-agent calls.</p>
+<hr>
+<h2 id="installing-and-configuring-lossless-claw">Installing and Configuring lossless-claw</h2>
+<p><strong>Prerequisite: OpenClaw 2026.3.7 or later.</strong> The Context Engine plugin slot doesn’t exist in earlier versions.</p>
+<blockquote>
+<p><strong>Heads up:</strong> The initial 2026.3.7 release has a known P1 registry bug (<a href="https://github.com/openclaw/openclaw/issues/40096">Issue #40096</a>) where the context-engine module is split across bundle chunks, causing lossless-claw to fail with “Context engine ‘lossless-claw’ is not registered.” The fix landed in PR #40115. Verify your installed version includes this patch before proceeding — run <code>openclaw --version</code> and check the OpenClaw changelog for 3.7.x.</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6A737D"># Verify your version first</span></span>
+<span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#79B8FF"> --version</span></span>
+<span class="line"><span style="color:#6A737D"># Should show: openclaw 2026.3.7 or higher (with the registry fix)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Install the plugin</span></span>
+<span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> plugins</span><span style="color:#9ECBFF"> install</span><span style="color:#9ECBFF"> lossless-claw</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Restart the gateway</span></span>
+<span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> restart</span></span>
+<span class="line"></span></code></pre>
+<p>In most cases, <code>openclaw plugins install</code> will auto-configure the contextEngine slot. To verify it’s active:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> config</span><span style="color:#9ECBFF"> show</span><span style="color:#F97583"> |</span><span style="color:#B392F0"> grep</span><span style="color:#9ECBFF"> contextEngine</span></span>
+<span class="line"><span style="color:#6A737D"># Expected: contextEngine: "lossless-claw"</span></span>
+<span class="line"></span></code></pre>
+<p>If you need to set it manually, add this to your config:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json5"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#9ECBFF">  plugins</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">    slots</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">      contextEngine</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"lossless-claw"</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<h3 id="who-should-enable-it">Who Should Enable It</h3>
+<p>lossless-claw is not the right choice for every OpenClaw setup. It adds overhead — both in storage (SQLite database that grows with your conversation history) and in token usage (the summarization process itself consumes tokens).</p>
+<p><strong>Enable lossless-claw if:</strong></p>
+<ul>
+<li>Your agent runs 24/7 and handles ongoing projects</li>
+<li>You’re doing multi-session research where continuity matters</li>
+<li>You’re running sub-agent systems where context handoff is critical</li>
+<li>You’ve ever lost important information to compaction and had to start over</li>
+</ul>
+<p><strong>Stick with the default engine if:</strong></p>
+<ul>
+<li>You’re using OpenClaw primarily for single-session tasks that complete in under an hour</li>
+<li>You’re running high-frequency short tasks (cron jobs, daily summaries, one-shot queries)</li>
+<li>You’re highly cost-sensitive and haven’t hit compaction problems yet</li>
+</ul>
+<h3 id="managing-the-token-cost">Managing the Token Cost</h3>
+<p>lossless-claw uses an LLM to generate summaries. That costs tokens. For most long-running workflows, the savings from avoiding session resets far outweigh the summarization overhead — but if you’re cost-conscious, there’s a smart way to configure this:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json5"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#9ECBFF">  agents</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">    defaults</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">      model</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"anthropic/claude-opus-4-6"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#9ECBFF">  plugins</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">    slots</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">      contextEngine</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"lossless-claw"</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>The lossless-claw documentation recommends using a fast, cheap model for the background summarization work — something like <code>anthropic/claude-haiku-4-5</code> or <code>MiniMax-M2.5-highspeed</code> — while keeping your primary reasoning model unchanged. Check the <a href="https://github.com/Martian-Engineering/lossless-claw">lossless-claw README</a> for the exact config key to point summarization at a different model. The summarization task is straightforward enough that a smaller model handles it well, and the cost difference is significant.</p>
+<p>@jalehman’s implementation also aims to keep active context in the <strong>30-100k token range</strong> through the adaptive summarization cadence — so token usage stays predictable even as conversation history grows indefinitely.</p>
+<hr>
+<h2 id="what-this-unlocks-beyond-lossless-claw">What This Unlocks Beyond lossless-claw</h2>
+<p>The lossless-claw plugin itself is valuable. But the bigger shift is what the Context Engine API makes possible for the community going forward.</p>
+<p>Before 3.7, every attempt to improve context management in OpenClaw hit the same wall: it was hardcoded. You could write skills that tried to manage state externally. You could structure your SOUL.md to preserve key facts. You could run manual <code>/compact</code> at strategic moments. None of those approaches could touch the core mechanism.</p>
+<p>Now the interface is open.</p>
+<p>A few directions already being discussed in the community:</p>
+<p><strong>Vector search as a storage backend.</strong> SQLite full-text search is good for keyword queries. A vector embedding backend would support semantic search — finding conceptually relevant historical content even when the exact words aren’t there. @belisarius222’s original Volt implementation used this approach.</p>
+<p><strong>RAG-integrated context engines.</strong> An engine that draws not just on the conversation history but on an external knowledge base — your Notion workspace, your codebase, your document library — assembled dynamically each turn based on what the current task needs.</p>
+<p><strong>Shared memory pools across agents.</strong> A context engine that multiple agents can read and write to simultaneously, enabling true multi-agent knowledge sharing without having to route everything through a central coordinator.</p>
+<p><strong>Obsidian / Notion as the memory backend.</strong> Rather than a local SQLite database, persist everything into a structured external workspace where you can browse and edit it yourself. Your agent’s memory becomes auditable and searchable from outside the agent.</p>
+<p>These aren’t speculative. They’re natural extensions of the same interface that lossless-claw already implements.</p>
+<p>From an infrastructure standpoint, this is how mature platforms evolve. OpenClaw shipped browser automation, then opened the browser tool to customization. It shipped skills, then built ClawHub to distribute them. It shipped context management, then opened the context engine. The pattern is consistent: build it first, then make it extensible.</p>
+<p>Context management is the most fundamental layer in an agent system. It determines what the agent knows, how it reasons over time, and what it can actually accomplish across long-running tasks. Opening it up is not a minor feature. It’s an architectural decision about who controls the agent’s memory.</p>
+<hr>
+<h2 id="what-else-changed-in-37">What Else Changed in 3.7</h2>
+<p>lossless-claw got the most attention, but two other features in the 3.7 release are worth noting:</p>
+<p><strong>Per-topic agent routing in Telegram.</strong> Forum groups can now route different topics to different agents. One Telegram group, multiple specialized agents — each handling a different topic thread with isolated sessions. This has been a requested feature for multi-agent team setups for months.</p>
+<p><strong>iOS App Store Connect prep.</strong> Bundle identifiers, Fastlane automation, screenshot metadata — all the infrastructure for an App Store submission is now in the codebase. OpenClaw on mobile is coming.</p>
+<hr>
+<h2 id="the-upshot">The Upshot</h2>
+<p>OpenClaw has had a silent ceiling since day one: the longer your agent runs, the more it forgets. Every serious use case eventually hits it. The community has been working around it for months with SOUL.md tricks, manual compaction timing, and careful session management.</p>
+<p>3.7 doesn’t just fix the symptom. It opens the problem to the community.</p>
+<p>lossless-claw is the first answer — a DAG-based summarization system that stores everything, summarizes incrementally, and lets agents retrieve exact historical detail on demand. Early community benchmark numbers show it outperforming Claude Code’s default engine at every context length tested, with the gap widening as conversations get longer.</p>
+<p>If you’ve ever had an agent forget something it shouldn’t have, this release is for you.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> update</span></span>
+<span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> plugins</span><span style="color:#9ECBFF"> install</span><span style="color:#9ECBFF"> lossless-claw</span></span>
+<span class="line"></span></code></pre>
+<p>That’s the whole migration.</p>
+<hr>
+<p><em>How long before your agents hit compaction? And what do you lose when they do? Drop it in the comments — we’re tracking how different workflow types experience context degradation, and we want the data.</em></p>
+<p><em>Next up: <a href="/blog/openclaw-vs-nanobot">OpenClaw vs Nanobot</a> — a 4,000-line minimal agent from researchers at the University of Hong Kong. When does “less is more” actually apply to agent infrastructure?</em></p>
+<hr>
+<p><em>Sources: <a href="https://github.com/Martian-Engineering/lossless-claw">Martian-Engineering/lossless-claw</a> · <a href="https://github.com/openclaw/openclaw/discussions/22251">OpenClaw Discussion #22251</a> · <a href="https://github.com/openclaw/openclaw/releases/tag/v2026.3.7">OpenClaw 2026.3.7 Release Notes</a> · <a href="https://x.com/chrysb/status/2030526852146549140">Chrys Bader @chrysb</a> · <a href="https://papers.voltropy.com/LCM">LCM Paper, Ehrlich &#x26; Blackman</a></em></p>  </div> <!-- 返回博客列表 --> <footer class="mt-16 pt-8 border-t border-accent/20"> <a href="/blog/" class="inline-flex items-center gap-2 font-mono text-sm text-text-muted hover:text-accent transition-colors group"> <span class="group-hover:-translate-x-1 transition-transform">&lt;-</span> <span>Back to all posts</span> </a> </footer> </article> </main> <footer class="bg-dark-secondary border-t border-accent/20"> <div class="max-w-7xl mx-auto px-6 lg:px-20 py-12 lg:py-16"> <!-- Top Section --> <div class="flex flex-col lg:flex-row justify-between gap-12 mb-12"> <!-- Brand --> <div class="lg:max-w-xs"> <a href="/" class="inline-block mb-4"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <p class="text-text-muted text-sm font-mono"> <span class="text-terminal-cyan">//</span> Your AI Never Sleeps
+</p> </div> <!-- Links Grid --> <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 font-mono"> <!-- Product --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/product</h4> <ul class="space-y-3"> <li> <a href="/features" class="text-text-muted text-sm hover:text-accent transition-colors"> Features </a> </li><li> <a href="/pricing" class="text-text-muted text-sm hover:text-accent transition-colors"> Pricing </a> </li><li> <a href="/docs" class="text-text-muted text-sm hover:text-accent transition-colors"> Docs </a> </li> </ul> </div> <!-- Company --> <div> <h4 class="text-terminal-orange font-bold mb-4 text-sm">/company</h4> <ul class="space-y-3"> <li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> About </a> </li><li> <a href="/blog/" class="text-text-muted text-sm hover:text-accent transition-colors"> Blog </a> </li> </ul> </div> <!-- Contact --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/contact</h4> <ul class="space-y-3"> <li> <a href="/cdn-cgi/l/email-protection#5639253537242c373b392437676f6f6f666116313b373f3a7835393b" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> <span class="__cf_email__" data-cfemail="305f435351424a515d5f425101090909000770575d51595c1e535f5d">[email&#160;protected]</span> </a> </li><li> <a href="https://twitter.com/agentputer" target="_blank" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Twitter </a> </li><li> <a href="https://discord.gg/agentputer" target="_blank" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Discord </a> </li> </ul> </div> <!-- Legal --> <div> <h4 class="text-terminal-blue font-bold mb-4 text-sm">/legal</h4> <ul class="space-y-3"> <li> <a href="/privacy" class="text-text-muted text-sm hover:text-accent transition-colors"> Privacy </a> </li><li> <a href="/terms" class="text-text-muted text-sm hover:text-accent transition-colors"> Terms </a> </li><li> <a href="/privacy#data-security" class="text-text-muted text-sm hover:text-accent transition-colors"> Security </a> </li> </ul> </div> </div> </div> <!-- Divider --> <div class="border-t border-accent/20 pt-8"> <div class="flex flex-col md:flex-row justify-between items-center gap-4 font-mono"> <!-- Copyright --> <p class="text-text-dark text-sm">
+/* © 2026 AgentPuter. All rights reserved. */
+</p> <!-- Social Links --> <div class="flex items-center gap-6"> <a href="https://github.com/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors"> GitHub </a> </div> </div> </div> </div> </footer>  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"db97590b14994206be9f2eaec90a9494","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html> 

@@ -1,0 +1,661 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Not tutorials. Not demos. Four structural patterns extracted from 148 community replies, two Reddit threads, 85+ categorized use cases, and enterprise deployment notes. The morning briefing agent, 10-agent Mission Control, $90→$45/month cost optimization, and more."><meta name="theme-color" content="#0D0D0D"><meta name="generator" content="Astro v4.16.19"><!-- Canonical URL --><link rel="canonical" href="https://www.agentputer.com/blog/16-real-workflows/"><!-- hreflang 多语言标签 --><link rel="alternate" hreflang="en" href="https://www.agentputer.com/blog/16-real-workflows/"><link rel="alternate" hreflang="zh-CN" href="https://www.agentputer.com/zh/blog/16-real-workflows/"><link rel="alternate" hreflang="ja" href="https://www.agentputer.com/ja/blog/16-real-workflows/"><link rel="alternate" hreflang="ko" href="https://www.agentputer.com/ko/blog/16-real-workflows/"><link rel="alternate" hreflang="es" href="https://www.agentputer.com/es/blog/16-real-workflows/"><link rel="alternate" hreflang="pt-BR" href="https://www.agentputer.com/pt-br/blog/16-real-workflows/"><link rel="alternate" hreflang="de" href="https://www.agentputer.com/de/blog/16-real-workflows/"><link rel="alternate" hreflang="fr" href="https://www.agentputer.com/fr/blog/16-real-workflows/"><link rel="alternate" hreflang="zh-TW" href="https://www.agentputer.com/zh-tw/blog/16-real-workflows/"><link rel="alternate" hreflang="x-default" href="https://www.agentputer.com/blog/16-real-workflows/"><!-- Keywords（各语言本地化） --><meta name="keywords" content="OpenClaw, Workflows, Real World, Multi-Agent, Community, Use Cases, Productivity"><!-- Open Graph --><meta property="og:title" content="Real OpenClaw Workflows: What 85+ Users Actually Build (2026) | AgentPuter Blog"><meta property="og:description" content="Not tutorials. Not demos. Four structural patterns extracted from 148 community replies, two Reddit threads, 85+ categorized use cases, and enterprise deployment notes. The morning briefing agent, 10-agent Mission Control, $90→$45/month cost optimization, and more."><meta property="og:type" content="article"><meta property="og:url" content="https://www.agentputer.com/blog/16-real-workflows/"><meta property="og:image" content="https://www.agentputer.com/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:site_name" content="AgentPuter"><meta property="og:locale" content="en_US"><meta property="og:locale:alternate" content="zh_CN"><meta property="og:locale:alternate" content="ja_JP"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="es_ES"><meta property="og:locale:alternate" content="pt_BR"><meta property="og:locale:alternate" content="de_DE"><meta property="og:locale:alternate" content="fr_FR"><meta property="og:locale:alternate" content="zh_TW"><!-- Article-specific OG tags --><meta property="article:published_time" content="2026-03-02"><meta property="article:author" content="AgentPuter Lab"><meta property="article:tag" content="OpenClaw"><meta property="article:tag" content="Workflows"><meta property="article:tag" content="Real World"><meta property="article:tag" content="Multi-Agent"><meta property="article:tag" content="Community"><meta property="article:tag" content="Use Cases"><meta property="article:tag" content="Productivity"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@agentputer"><meta name="twitter:creator" content="@agentputer"><meta name="twitter:title" content="Real OpenClaw Workflows: What 85+ Users Actually Build (2026) | AgentPuter Blog"><meta name="twitter:description" content="Not tutorials. Not demos. Four structural patterns extracted from 148 community replies, two Reddit threads, 85+ categorized use cases, and enterprise deployment notes. The morning briefing agent, 10-agent Mission Control, $90→$45/month cost optimization, and more."><meta name="twitter:image" content="https://www.agentputer.com/og-default.png"><!-- Favicon --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/favicon.svg"><!-- 字体：preconnect + LCP 关键字体直接预加载 --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- 直接预加载 LCP 关键字体文件（JetBrains Mono Bold Latin，H1 使用） --><link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8L6tTOlOVk6OThhvA.woff2"><!-- 字体 CSS 阻塞加载（配合 preconnect 延迟极低，确保 LCP 时字体可用） --><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"><!-- Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":"https://www.agentputer.com/favicon.svg","description":"Your AI Agent's dedicated cloud runtime. AgentPuter keeps your AI running 24/7.","sameAs":["https://twitter.com/agentputer","https://github.com/agentputer","https://discord.gg/agentputer"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"AgentPuter","url":"https://www.agentputer.com","inLanguage":"en","availableLanguage":[{"@type":"Language","name":"English","alternateName":"en"},{"@type":"Language","name":"中文","alternateName":"zh-CN"},{"@type":"Language","name":"繁體中文","alternateName":"zh-TW"},{"@type":"Language","name":"日本語","alternateName":"ja"},{"@type":"Language","name":"한국어","alternateName":"ko"},{"@type":"Language","name":"Español","alternateName":"es"},{"@type":"Language","name":"Português","alternateName":"pt-BR"},{"@type":"Language","name":"Deutsch","alternateName":"de"},{"@type":"Language","name":"Français","alternateName":"fr"}],"description":"Your AI Agent's dedicated cloud runtime."}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.agentputer.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.agentputer.com/blog/"},{"@type":"ListItem","position":3,"name":"16 real workflows","item":"https://www.agentputer.com/blog/16-real-workflows/"}]}</script><!-- 页面专属结构化数据插槽 --><!-- 浏览器语言自动检测：移到 head 阻塞执行，避免渲染后跳转导致 CLS --><script>
+    (function() {
+      if (localStorage.getItem('agentputer-lang')) return;
+
+      var langMap = {
+        'zh': '/zh', 'zh-cn': '/zh', 'zh-tw': '/zh-tw', 'zh-hk': '/zh-tw',
+        'ja': '/ja', 'ko': '/ko',
+        'es': '/es', 'es-419': '/es',
+        'pt': '/pt-br', 'pt-br': '/pt-br',
+        'de': '/de', 'fr': '/fr',
+      };
+
+      var path = window.location.pathname;
+      if (/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)(\/|$)/.test(path)) {
+        var m = path.match(/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)/);
+        if (m) localStorage.setItem('agentputer-lang', m[1]);
+        return;
+      }
+
+      var langs = navigator.languages || [navigator.language];
+      for (var i = 0; i < langs.length; i++) {
+        var bl = langs[i].toLowerCase();
+        if (langMap[bl]) {
+          var target = path === '/' ? langMap[bl] + '/' : langMap[bl] + path;
+          localStorage.setItem('agentputer-lang', bl);
+          window.location.replace(target);
+          return;
+        }
+        var primary = bl.split('-')[0];
+        if (primary !== bl && langMap[primary]) {
+          var target2 = path === '/' ? langMap[primary] + '/' : langMap[primary] + path;
+          localStorage.setItem('agentputer-lang', primary);
+          window.location.replace(target2);
+          return;
+        }
+      }
+      localStorage.setItem('agentputer-lang', 'en');
+    })();
+    </script><!-- Google Analytics 4 --><script async src="https://www.googletagmanager.com/gtag/js?id=G-9M2T6GQJ0L"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9M2T6GQJ0L');
+    </script><title>Real OpenClaw Workflows: What 85+ Users Actually Build (2026) | AgentPuter Blog</title><link rel="stylesheet" href="/_astro/_slug_.DM3EUOA_.css">
+<link rel="stylesheet" href="/_astro/_slug_.CUcOCpHJ.css">
+<link rel="stylesheet" href="/_astro/_slug_.CxhqtQFk.css"><script type="module" src="/_astro/hoisted.Bl-zZglg.js"></script></head> <body class="min-h-screen">   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Real OpenClaw Workflows: What 85+ Users Actually Build (2026)","description":"Not tutorials. Not demos. Four structural patterns extracted from 148 community replies, two Reddit threads, 85+ categorized use cases, and enterprise deployment notes. The morning briefing agent, 10-agent Mission Control, $90→$45/month cost optimization, and more.","datePublished":"2026-03-02","dateModified":"2026-03-02","author":{"@type":"Organization","name":"AgentPuter Lab","url":"https://www.agentputer.com"},"publisher":{"@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":{"@type":"ImageObject","url":"https://www.agentputer.com/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.agentputer.com/blog/16-real-workflows/"},"keywords":"OpenClaw, Workflows, Real World, Multi-Agent, Community, Use Cases, Productivity"}</script> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.agentputer.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.agentputer.com/blog/"},{"@type":"ListItem","position":3,"name":"Real OpenClaw Workflows: What 85+ Users Actually Build (2026)"}]}</script> <header class="fixed top-0 left-0 right-0 z-50 bg-dark-primary md:bg-dark-primary/95 md:backdrop-blur-lg border-b border-accent/20"> <nav class="max-w-7xl mx-auto px-6 lg:px-20 h-20 flex items-center justify-between"> <!-- Logo --> <a href="/" class="flex items-center gap-2 group"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <!-- Desktop Navigation --> <div class="hidden md:flex items-center gap-8 font-mono"> <a href="/features" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/features
+</a> <a href="/tools" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/tools
+</a> <a href="/pricing" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/pricing
+</a> <a href="/blog/" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/blog
+</a> <a href="/docs" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/docs
+</a> <!-- Desktop 语言切换器 --><div class="lang-switcher relative"> <button class="lang-btn flex items-center gap-1.5 text-text-secondary hover:text-accent transition-colors text-sm font-mono cursor-pointer" aria-label="Switch language" aria-expanded="false"> <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <circle cx="12" cy="12" r="10" stroke-width="1.5"></circle> <path stroke-width="1.5" d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path> </svg> <span>EN</span> <svg class="w-3 h-3 opacity-40 transition-transform lang-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </button> <!-- 下拉菜单 --> <div class="lang-dropdown hidden absolute right-0 top-full mt-2 py-1 bg-[#1a1a1a] border border-[#333] rounded-lg shadow-xl min-w-[160px] z-[100]"> <a href="/blog/16-real-workflows/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-accent bg-accent/10" data-lang="en"> <span>English</span> <span class="text-xs text-accent">EN</span> </a><a href="/zh/blog/16-real-workflows/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="zh"> <span>中文</span> <span class="text-xs text-text-dark">中文</span> </a><a href="/ja/blog/16-real-workflows/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ja"> <span>日本語</span> <span class="text-xs text-text-dark">JA</span> </a><a href="/ko/blog/16-real-workflows/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ko"> <span>한국어</span> <span class="text-xs text-text-dark">KO</span> </a><a href="/es/blog/16-real-workflows/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="es"> <span>Español</span> <span class="text-xs text-text-dark">ES</span> </a><a href="/pt-br/blog/16-real-workflows/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="pt-br"> <span>Português</span> <span class="text-xs text-text-dark">PT</span> </a><a href="/de/blog/16-real-workflows/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="de"> <span>Deutsch</span> <span class="text-xs text-text-dark">DE</span> </a><a href="/fr/blog/16-real-workflows/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="fr"> <span>Français</span> <span class="text-xs text-text-dark">FR</span> </a> </div> </div> <!-- Mobile 语言列表（平铺，不用下拉） --> <div class="lang-mobile hidden"> <div class="flex flex-wrap gap-2"> <a href="/blog/16-real-workflows/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-accent border-accent/40 bg-accent/10" data-lang="en"> English </a><a href="/zh/blog/16-real-workflows/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="zh"> 中文 </a><a href="/ja/blog/16-real-workflows/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ja"> 日本語 </a><a href="/ko/blog/16-real-workflows/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ko"> 한국어 </a><a href="/es/blog/16-real-workflows/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="es"> Español </a><a href="/pt-br/blog/16-real-workflows/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="pt-br"> Português </a><a href="/de/blog/16-real-workflows/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="de"> Deutsch </a><a href="/fr/blog/16-real-workflows/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="fr"> Français </a> </div> </div>  <a href="https://app.agentputer.com/sign-up" class="text-sm py-2.5 px-6 bg-accent text-dark-primary font-bold rounded hover:bg-accent-dark transition-colors">
+[GET STARTED]
+</a> </div> <!-- Mobile Menu Button --> <button id="mobile-menu-btn" class="md:hidden p-2 text-text-secondary hover:text-white" aria-label="Toggle menu"> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </nav> <!-- Mobile Menu --> <div id="mobile-menu" class="hidden md:hidden bg-dark-secondary border-t border-dark-tertiary"> <div class="px-6 py-4 space-y-4"> <a href="/features" class="block hover:text-white transition-colors text-text-secondary">
+Features
+</a> <a href="/tools" class="block hover:text-white transition-colors text-text-secondary">
+Tools
+</a> <a href="/pricing" class="block hover:text-white transition-colors text-text-secondary">
+Pricing
+</a> <a href="/blog/" class="block hover:text-white transition-colors text-text-secondary">
+Blog
+</a> <a href="/docs" class="block hover:text-white transition-colors text-text-secondary">
+Docs
+</a> <div class="lang-mobile-wrapper"></div> <a href="https://app.agentputer.com/sign-up" class="btn-primary w-full justify-center text-sm py-3">
+Get Started
+</a> </div> </div> </header>  <main class="relative z-10 pt-28 pb-20"> <article class="max-w-4xl mx-auto px-6 lg:px-8"> <!-- 面包屑导航 --> <nav class="mb-8 font-mono text-sm"> <a href="/" class="text-text-muted hover:text-accent transition-colors">~</a> <span class="text-text-dark mx-2">/</span> <a href="/blog/" class="text-text-muted hover:text-accent transition-colors">blog</a> <span class="text-text-dark mx-2">/</span> <span class="text-accent">article</span> </nav> <!-- 文章元信息头部 --> <header class="mb-12"> <!-- 标签 --> <div class="flex flex-wrap gap-2 mb-6"> <span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#OpenClaw </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Workflows </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Real World </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Multi-Agent </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Community </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Use Cases </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Productivity </span> </div> <!-- 标题 --> <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6"> Real OpenClaw Workflows: What 85+ Users Actually Build (2026) </h1> <!-- 描述 --> <p class="text-lg text-text-secondary leading-relaxed mb-8"> Not tutorials. Not demos. Four structural patterns extracted from 148 community replies, two Reddit threads, 85+ categorized use cases, and enterprise deployment notes. The morning briefing agent, 10-agent Mission Control, $90→$45/month cost optimization, and more. </p> <!-- 元信息行 --> <div class="flex flex-wrap items-center gap-6 text-sm font-mono text-text-muted border-t border-b border-accent/20 py-4"> <div class="flex items-center gap-2"> <span class="text-terminal-cyan">@</span> <span class="text-text-secondary">AgentPuter Lab</span> </div> <div class="flex items-center gap-2"> <span class="text-terminal-orange">$</span> <time datetime="2026-03-02" class="text-text-secondary">March 2, 2026</time> </div> <div class="flex items-center gap-2"> <span class="text-terminal-blue">~</span> <span class="text-text-secondary">25 min read</span> </div> </div> </header> <!-- 文章正文 --> <div class="prose prose-invert prose-terminal max-w-none">  <h1 id="real-openclaw-workflows-what-85-users-actually-build-2026">Real OpenClaw Workflows: What 85+ Users Actually Build (2026)</h1>
+<p>AgentPuter · March 2026 · ~25 min · #OpenClaw #Workflows #RealWorld #MultiAgent #Community</p>
+<p>Last week we covered what can go wrong when OpenClaw is misconfigured — supply chain attacks, 91% prompt injection success rates, and the ClawHavoc incident that hit 135,000 exposed instances. That’s the risk side of the equation.</p>
+<p>This is the other side.</p>
+<p>Every tutorial shows you a hello-world agent. This post doesn’t.</p>
+<p>What follows is a direct extraction from three months of community output: 148 replies to a single tweet, two active Reddit threads, a curated database of 85+ categorized use cases, and production deployment notes from a managed services firm running OpenClaw for Australian enterprises. Where the original author is identifiable, they’re credited. Where the story is composite, the source is noted.</p>
+<p>The goal isn’t inspiration. It’s pattern recognition. There are four structural patterns that keep appearing across every use case. Once you see them, you’ll stop asking “what should I build with OpenClaw?” and start asking “which pattern fits the problem I have right now?”</p>
+<blockquote>
+<p><strong>Sources:</strong></p>
+<ul>
+<li><a href="https://grahammann.net/blog/every-openclaw-use-case">Every OpenClaw Use Case I Could Find (85+)</a> — grahammann.net, Feb 13, 2026</li>
+<li><a href="https://www.reddit.com/r/LocalLLaMA/comments/1r3ro5h/">r/LocalLLaMA: 3 weeks with OpenClaw as daily driver</a> — Reddit</li>
+<li><a href="https://www.reddit.com/r/openclaw/comments/1r8lci1/">r/openclaw: My OpenClaw is useful!</a> — Reddit</li>
+<li><a href="https://ohmyopenclaw.ai/blog/openclaw-productivity-automation-workflows-2026/">5 OpenClaw Productivity Workflows That Actually Replace Tab-Switching</a> — Oh My OpenClaw, Feb 24, 2026</li>
+<li><a href="https://www.serif.ai/openclaw">OpenClaw Use Cases — What People Actually Use It For</a> — Serif.ai, Feb 9, 2026</li>
+<li><a href="https://www.tldl.io/blog/openclaw-use-cases-2026">OpenClaw Use Cases 2026: 25+ Real Examples</a> — TLDL, Feb 23, 2026</li>
+<li><a href="https://team400.ai/blog/2026-02-openclaw-production-enterprise">Running OpenClaw in Production</a> — Team 400, Feb 10, 2026</li>
+</ul>
+</blockquote>
+<hr>
+<p>【插图 01-grahammann-article.png】
+<em>grahammann.net — “Every OpenClaw Use Case I Could Find (85+)”, Feb 13, 2026. Based on 148 replies to Lenny’s tweet and the Clawverse gallery.</em></p>
+<hr>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#four-patterns">The Four Big Patterns</a></li>
+<li><a href="#workflow-01">Workflow 01: The Morning Briefing Agent</a></li>
+<li><a href="#workflow-02">Workflow 02: Multi-Agent Content Pipeline</a></li>
+<li><a href="#workflow-03">Workflow 03: 4-Agent Market Research Team</a></li>
+<li><a href="#workflow-04">Workflow 04: Client Delivery via Telegram</a></li>
+<li><a href="#workflow-05">Workflow 05: From $90 → $45/Month</a></li>
+<li><a href="#workflow-06">Workflow 06: The Design Agency’s Monday Morning</a></li>
+<li><a href="#workflow-07">Workflow 07: The 10-Agent Mission Control</a></li>
+<li><a href="#infra-stack">The Universal Infrastructure Stack</a></li>
+<li><a href="#adoption-data">What the Adoption Data Actually Shows</a></li>
+<li><a href="#enterprise">Enterprise Reality Check</a></li>
+<li><a href="#where-to-start">Where to Start</a></li>
+<li><a href="#appendix">Appendix: 85+ Use Cases by Category</a></li>
+</ol>
+<hr>
+<h2 id="the-four-big-patterns-four-patterns">The Four Big Patterns {#four-patterns}</h2>
+<p>Graham Mann spent time going through 148 replies to Lenny Rachitsky’s tweet asking what people actually build with OpenClaw. He also read through the Clawverse community gallery and Brandon Wang’s writeup. After organizing 85+ use cases, four structural patterns appeared across almost every power user setup:</p>
+<p><strong>Always-on agents.</strong> Most people who get serious about OpenClaw run it 24/7 on a Mac Mini, a cheap VPS, or a Raspberry Pi. The agent isn’t something you open and close like a chat app. It’s running. It has context about your schedule, your ongoing projects, your standing instructions. Closing it would be like turning off your phone.</p>
+<p><strong>Messaging as the interface.</strong> Telegram appears in 15+ use cases. WhatsApp in 7+. iMessage and Discord each in multiple setups. The consistent choice is a messaging app you already use, not a new dashboard. The people doing the most impressive things with OpenClaw are mostly doing them through a chat interface on their phone.</p>
+<p><strong>Overnight work.</strong> The single most repeated pattern: assign a task before you go to bed, wake up to results. This sounds like a fantasy when you first hear it, but it’s what dozens of people describe as their baseline. The agent doesn’t need sleep, doesn’t need you to be at your desk, and has access to whatever tools you’ve given it.</p>
+<p><strong>Multi-agent teams.</strong> Several power users run 4-10 specialized agents that coordinate through shared databases, not through a single monolithic agent. Each agent has a defined role, defined tools, and a limited context. The coordination overhead is lower than you’d expect when the agents are well-scoped.</p>
+<p>These four patterns aren’t four different approaches. They’re usually the same setup. Always-on, reachable by message, runs overnight, organized into specialized agents.</p>
+<hr>
+<h2 id="workflow-01-the-morning-briefing-agent-workflow-01">Workflow 01: The Morning Briefing Agent {#workflow-01}</h2>
+<p><strong>Source:</strong> Multiple — <a href="https://x.com/chrysb">@chrysb</a> via grahammann.net, <a href="https://x.com/mbogoroch18">@mbogoroch18</a>, Serif.ai use case #2</p>
+<p>This is the most common starting point in the community, and probably the right one.</p>
+<p>The setup: a cron job fires every morning and sends a structured summary to your Telegram, WhatsApp, or iMessage. What’s in the summary depends on what you’ve wired up. The minimal version covers calendar events for the day and a few unread email highlights. The fuller version adds task lists, news sources, stock or crypto alerts, weather, and meeting prep for whoever you’re seeing that day.</p>
+<p>One user (@chrysb) calls it a “Chief of Staff” agent. Every morning, it delivers briefings with deal prep, tech news, and meeting context. That same agent self-reflects every night and adjusts based on what was useful.</p>
+<p>A sales professional (@mbogoroch18) gets a different version: customer talking points, deal prep, and tech news formatted for conversations with enterprise buyers — delivered to WhatsApp before the first meeting.</p>
+<p>The core config looks like this:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "cron"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "jobs"</span><span style="color:#E1E4E8">: [</span></span>
+<span class="line"><span style="color:#E1E4E8">      {</span></span>
+<span class="line"><span style="color:#79B8FF">        "schedule"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"0 7 * * 1-5"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">        "message"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Generate my morning briefing: today's calendar events, top 3 unread emails, any tasks due today. Format for Telegram. Keep it under 400 words."</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">        "channel"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"telegram"</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    ]</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>What makes this more than a simple cron job is SOUL.md. Users who store standing instructions in SOUL.md get a briefing calibrated to their role and preferences — not a generic summary, but one that already knows you care about the enterprise pipeline and not the inbound form submissions, or that you always want weather before an outdoor run, or that Friday briefings should include the weekend’s key dates.</p>
+<p><strong>The why it works:</strong> You stop being a hub that processes inputs from five apps every morning. The agent does the aggregation. You make the decisions.</p>
+<p>Serif.ai describes this as “starting every day with an edge.” Whether you call it that or not, the practical effect is: the first twenty minutes of your day stop being administrative.</p>
+<blockquote>
+<p><em>“I use it to triage inbox, auto-schedule 1:1s from WhatsApp messages. It automatically declined 14 bad meeting invites. The agent said no for you.”</em>
+— <a href="https://x.com/eouaooo">@eouaooo</a>, via grahammann.net</p>
+</blockquote>
+<hr>
+<h2 id="workflow-02-multi-agent-content-pipeline-workflow-02">Workflow 02: Multi-Agent Content Pipeline {#workflow-02}</h2>
+<p><strong>Source:</strong> <a href="https://www.reddit.com/r/LocalLLaMA/comments/1r3ro5h/3_weeks_with_openclaw_as_daily_driver_what_worked/">r/LocalLLaMA thread</a> — 3 weeks running OpenClaw as a daily driver on AWS</p>
+<p>This case came with actual numbers, which is rare enough to be worth quoting in detail.</p>
+<p>The setup: five isolated agents running on AWS with Claude APIs.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Agent</th><th>Role</th></tr></thead><tbody><tr><td>Writer</td><td>First drafts, based on research output</td></tr><tr><td>Editor</td><td>Applies a 100-point quality rubric to reject or pass drafts</td></tr><tr><td>Researcher</td><td>Pulls sources, fact-checks claims, hands off to Writer</td></tr><tr><td>Coder</td><td>Handles any automation tasks, script generation</td></tr><tr><td>Pipeline Manager</td><td>Orchestrates the sequence, manages the queue</td></tr></tbody></table>
+<p>Output over the three-week period: approximately 30 drafts generated. Rejection rate: ~40%. That 40% number is important — it means the Editor agent is actually doing something. A quality gate that rejects nothing is just adding latency.</p>
+<p>The cost breakdown is where this gets instructive. Claude Haiku handled approximately 80% of the automated tasks — the routing decisions, the short classification calls, the formatting passes. Haiku is roughly 10-20x cheaper than Sonnet or Opus for those tasks. The operator’s framing: “Use Haiku as the workhorse and Sonnet as the thinking step.”</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "agents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "list"</span><span style="color:#E1E4E8">: [</span></span>
+<span class="line"><span style="color:#E1E4E8">      {</span></span>
+<span class="line"><span style="color:#79B8FF">        "id"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"pipeline-manager"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">        "model"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"claude-opus-4.6"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">        "params"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"context1m"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">false</span><span style="color:#E1E4E8"> }</span></span>
+<span class="line"><span style="color:#E1E4E8">      },</span></span>
+<span class="line"><span style="color:#E1E4E8">      {</span></span>
+<span class="line"><span style="color:#79B8FF">        "id"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"researcher"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">        "model"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"claude-sonnet-4.6"</span></span>
+<span class="line"><span style="color:#E1E4E8">      },</span></span>
+<span class="line"><span style="color:#E1E4E8">      {</span></span>
+<span class="line"><span style="color:#79B8FF">        "id"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"writer"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">        "model"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"claude-sonnet-4.6"</span></span>
+<span class="line"><span style="color:#E1E4E8">      },</span></span>
+<span class="line"><span style="color:#E1E4E8">      {</span></span>
+<span class="line"><span style="color:#79B8FF">        "id"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"editor"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">        "model"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"claude-haiku-4.5"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">        "params"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"context1m"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">false</span><span style="color:#E1E4E8"> }</span></span>
+<span class="line"><span style="color:#E1E4E8">      },</span></span>
+<span class="line"><span style="color:#E1E4E8">      {</span></span>
+<span class="line"><span style="color:#79B8FF">        "id"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"coder"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">        "model"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"claude-haiku-4.5"</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    ]</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>Two specific bugs they hit and how they fixed them:</p>
+<p><strong>Bug 1: Cron jobs ignoring context changes.</strong> The Pipeline Manager would start a new run without checking whether the previous run’s outputs had been updated. Fix: added a pre-flight check using <code>DECISIONS.md</code> — a file that logs what decisions were made and what state the pipeline is in. The cron job reads DECISIONS.md before doing anything.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#79B8FF;font-weight:bold">## Pipeline State</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8;font-weight:bold">**Last run:**</span><span style="color:#E1E4E8"> 2026-02-14 06:45 UTC</span></span>
+<span class="line"><span style="color:#E1E4E8;font-weight:bold">**Queue status:**</span><span style="color:#E1E4E8"> 3 drafts pending Editor review</span></span>
+<span class="line"><span style="color:#E1E4E8;font-weight:bold">**Do not start new Researcher cycle until queue is empty**</span></span>
+<span class="line"><span style="color:#E1E4E8;font-weight:bold">**Reason:**</span><span style="color:#E1E4E8"> Editor is rate-limited on Anthropic; backing off 30 min</span></span>
+<span class="line"></span></code></pre>
+<p><strong>Bug 2: Internal reasoning leaking into user messages.</strong> When the pipeline sent summaries back through the main agent, reasoning traces from sub-agents were appearing in the output. Fix: <code>deliver:false</code> on all sub-agents that aren’t the final output step. This flag tells the sub-agent to complete its work and pass results back to the orchestrator, but not to format or “deliver” a message to the user.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "agents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "list"</span><span style="color:#E1E4E8">: [</span></span>
+<span class="line"><span style="color:#E1E4E8">      {</span></span>
+<span class="line"><span style="color:#79B8FF">        "id"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"researcher"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">        "deliver"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">false</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    ]</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>The full pipeline now runs overnight, three times a week. Morning review takes about fifteen minutes: scan the queue in Notion, approve or reject Editor decisions, occasionally push back a piece for another Researcher pass.</p>
+<hr>
+<h2 id="workflow-03-4-agent-market-research-team-workflow-03">Workflow 03: 4-Agent Market Research Team {#workflow-03}</h2>
+<p><strong>Source:</strong> <a href="https://www.reddit.com/r/openclaw/comments/1r8lci1/">r/openclaw: My OpenClaw is useful!</a> — MacBook Pro, MiniMax 2.5</p>
+<p>Four agents, running on a single MacBook Pro, each with a different focus:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Agent</th><th>Name</th><th>Task</th></tr></thead><tbody><tr><td>Research</td><td>Tib</td><td>Rotates through B2B / B2C / AI2AI idea buckets every 15 min</td></tr><tr><td>Market</td><td>Vector</td><td>Scans Kalshi &#x26; Polymarket for prediction signals</td></tr><tr><td>Environment</td><td>Bou</td><td>Watches for new releases and security issues</td></tr><tr><td>Control</td><td>Gus</td><td>30-minute status reports via Telegram; orchestrates the others</td></tr></tbody></table>
+<p>What makes this setup interesting structurally: each agent has its own SOUL.md and its own memory rotation log. The memory rotation log is a file that tracks what the agent has already investigated, so it doesn’t repeat work across runs.</p>
+<p>The SOUL.md files give each agent a distinct personality and role boundary. Tib’s SOUL.md specifies it should surface novel angles — not just report what exists, but identify adjacency opportunities. Gus’s SOUL.md specifies that it’s a coordinator, not a researcher: it synthesizes inputs from the other three and surfaces conflicts when two agents are drawing contradictory conclusions.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span># Tib's SOUL.md (excerpt)</span></span>
+<span class="line"><span>You are Tib, a B2B/B2C/AI2AI market researcher.</span></span>
+<span class="line"><span>Rotate between idea buckets on a 15-minute schedule.</span></span>
+<span class="line"><span>Your job is to surface *novel* angles, not to summarize what already exists.</span></span>
+<span class="line"><span>Do not repeat anything logged in MEMORY_ROTATION.md from the past 72 hours.</span></span>
+<span class="line"><span>Log every investigated angle in MEMORY_ROTATION.md before exiting.</span></span>
+<span class="line"><span></span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span># Gus's SOUL.md (excerpt)</span></span>
+<span class="line"><span>You are Gus, the control agent for a four-agent research team.</span></span>
+<span class="line"><span>You do not perform primary research.</span></span>
+<span class="line"><span>Every 30 minutes: aggregate reports from Tib, Vector, and Bou.</span></span>
+<span class="line"><span>Format a 200-word Telegram summary: [SIGNAL] items first, then [NOISE],</span></span>
+<span class="line"><span>then [ALERT] if any agent has flagged a security issue.</span></span>
+<span class="line"><span>Surface conflicts between agents explicitly.</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>The 30-minute Telegram report format makes Gus’s output scannable on a phone: three buckets (SIGNAL / NOISE / ALERT), short, actionable. The user’s role: review the SIGNAL bucket and escalate anything that warrants deeper research.</p>
+<p><strong>Cost note:</strong> This setup uses MiniMax 2.5 as the base model for all four agents. Tib alone makes ~96 query cycles per 24 hours at 15-minute intervals.</p>
+<hr>
+<h2 id="workflow-04-client-delivery-via-telegram-workflow-04">Workflow 04: Client Delivery via Telegram {#workflow-04}</h2>
+<p><strong>Source:</strong> <a href="https://x.com/ad_astra999">@ad_astra999</a> and <a href="https://x.com/jlehman_">@jlehman_</a> via <a href="https://grahammann.net/blog/every-openclaw-use-case">grahammann.net</a></p>
+<p>This one describes a complete client delivery pipeline for a web development agency, controlled entirely through Telegram:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Client sends a change request</span></span>
+<span class="line"><span>    ↓</span></span>
+<span class="line"><span>Client voice message → [transcribed to text]</span></span>
+<span class="line"><span>    ↓</span></span>
+<span class="line"><span>OpenClaw receives request in Telegram</span></span>
+<span class="line"><span>    ↓</span></span>
+<span class="line"><span>Coding sub-agent spins up → interprets request → opens codebase</span></span>
+<span class="line"><span>    ↓</span></span>
+<span class="line"><span>Changes made on a test branch</span></span>
+<span class="line"><span>    ↓</span></span>
+<span class="line"><span>Preview link generated and sent back via Telegram</span></span>
+<span class="line"><span>    ↓</span></span>
+<span class="line"><span>Client approves or requests revisions</span></span>
+<span class="line"><span>    ↓</span></span>
+<span class="line"><span>Approved → deploy to production</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>Support emails go through the same system: incoming support mail is automatically converted into a formatted change report, which becomes a task in the queue.</p>
+<p>The operator’s setup: the coding sub-agent has SSH access to the deployment server, read/write access to the GitHub repo, and a Telegram channel per client. The main agent acts as a router — it receives messages from multiple client channels and assigns them to the right sub-agent based on which project the message is about.</p>
+<p>A second person who built something similar: @jlehman_ described building an entire product — Pagedrop — from idea to deployment over a weekend via Telegram messages. “Built architecture, bought domain, set up infrastructure, landing page, GitHub OAuth, payments. All via text messages from normal weekend activities.”</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "channels"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "list"</span><span style="color:#E1E4E8">: [</span></span>
+<span class="line"><span style="color:#E1E4E8">      {</span></span>
+<span class="line"><span style="color:#79B8FF">        "id"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"client-acme"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">        "type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"telegram"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">        "params"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">          "project"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"acme-website"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">          "codebase"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"/repos/acme"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">          "deployBranch"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"main"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">          "stagingUrl"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"https://staging.acme.example.com"</span></span>
+<span class="line"><span style="color:#E1E4E8">        }</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    ]</span></span>
+<span class="line"><span style="color:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#79B8FF">  "agents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "list"</span><span style="color:#E1E4E8">: [</span></span>
+<span class="line"><span style="color:#E1E4E8">      {</span></span>
+<span class="line"><span style="color:#79B8FF">        "id"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"web-coder"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">        "model"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"claude-sonnet-4.6"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">        "skills"</span><span style="color:#E1E4E8">: [</span><span style="color:#9ECBFF">"git"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"ssh"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"browser"</span><span style="color:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#79B8FF">        "runTimeoutSeconds"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">600</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    ]</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p><strong>What actually saves time here:</strong> not the automation of the coding itself, but the elimination of the status update loop. The whole cycle — request, build, preview, approve, deploy — happens within Telegram. No email threads. No “let me check and get back to you.”</p>
+<hr>
+<h2 id="workflow-05-from-90-to-45month-workflow-05">Workflow 05: From $90 to $45/Month {#workflow-05}</h2>
+<p><strong>Source:</strong> r/LocalLLaMA production notes and ohmyopenclaw.ai deployment documentation</p>
+<p>Starting state: ~$90/month. Mostly Sonnet calls for everything, including tasks that don’t need Sonnet.</p>
+<p><strong>Intervention 1: Bootstrap context reduction.</strong></p>
+<p>The agent’s bootstrap context — the files loaded at startup — was 85KB / 21,400 tokens. Most of it was accumulated SOUL.md content, old USER.md entries, and outdated project notes that were still loading because nobody had pruned them.</p>
+<p>After audit: reduced to 27KB / 6,472 tokens. <strong>That’s a 69.8% reduction in the tokens billed on every single session start.</strong> On an agent that gets started multiple times per day across multiple cron jobs, this compounds fast.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6A737D"># Check what's actually loading at bootstrap</span></span>
+<span class="line"><span style="color:#B392F0">openclaw</span><span style="color:#9ECBFF"> doctor</span><span style="color:#79B8FF"> --verbose</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># List all memory files by size</span></span>
+<span class="line"><span style="color:#B392F0">ls</span><span style="color:#79B8FF"> -lh</span><span style="color:#9ECBFF"> ~/.openclaw/memory/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Review what's being loaded</span></span>
+<span class="line"><span style="color:#B392F0">cat</span><span style="color:#9ECBFF"> ~/.openclaw/memory/USER.md</span></span>
+<span class="line"><span style="color:#B392F0">cat</span><span style="color:#9ECBFF"> ~/.openclaw/SOUL.md</span></span>
+<span class="line"></span></code></pre>
+<p>Anything in USER.md or SOUL.md that describes a project you finished three months ago is costing you tokens. Archive it to a separate file that doesn’t load at bootstrap.</p>
+<p><strong>Intervention 2: Haiku for routine tasks.</strong></p>
+<ul>
+<li>Message routing and classification → switched to Haiku</li>
+<li>Short formatting passes → switched to Haiku</li>
+<li>Summary generation (&#x3C; 500 words) → switched to Haiku</li>
+<li>Complex analysis and planning → kept Sonnet</li>
+<li>Orchestration decisions → kept Sonnet</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "channels"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "modelByChannel"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      "telegram"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"claude-haiku-4.5"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      "cron-router"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"claude-haiku-4.5"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      "analysis"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"claude-sonnet-4.6"</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>Haiku at classification speed handles ~80% of the call volume. Sonnet only fires when there’s actual reasoning to do.</p>
+<p><strong>Intervention 3: OpenAI Batch API for embeddings.</strong></p>
+<p>Memory operations were using synchronous embedding calls. Switched to the Batch API, which costs 50% less and runs off-peak. Latency tradeoff: batch results come back within 24 hours. For memory operations that don’t need to be synchronous (storing a meeting note, indexing a document), this is an easy win.</p>
+<p><strong>End state:</strong> ~$45/month. Same capability. Half the cost.</p>
+<p>The meta-lesson: most unexpected OpenClaw bills come from two sources. Bloated bootstrap context that loads tokens you don’t need. And using a high-capability model for tasks that don’t require high capability.</p>
+<hr>
+<h2 id="workflow-06-the-design-agencys-monday-morning-workflow-06">Workflow 06: The Design Agency’s Monday Morning {#workflow-06}</h2>
+<p>【插图 02-ohmyopenclaw-workflows.png】
+<em>Oh My OpenClaw — “5 OpenClaw Productivity Workflows That Actually Replace Tab-Switching”, Feb 24, 2026. Five documented workflow combinations with measured before-and-after time savings.</em></p>
+<p><strong>Source:</strong> <a href="https://ohmyopenclaw.ai/blog/openclaw-productivity-automation-workflows-2026/">ohmyopenclaw.ai</a> — Oh My OpenClaw, Feb 24, 2026</p>
+<p>Setup: a 12-person design agency using OpenClaw with three skills chained together — ClickUp, cal-com, and Gmail.</p>
+<p><strong>Before:</strong> Five apps, five logins. Total time before starting work: 30 minutes.</p>
+<p><strong>After:</strong> Open Telegram, type “Monday briefing.” Agent pulls ClickUp tasks, calendar events, unread emails, Slack mentions, and time-tracking summary. Read in 2 minutes. Working by 9:15.</p>
+<p><strong>Measured outcome:</strong> Monday morning review from 30 minutes to 8 minutes.</p>
+<p>Task creation from emails dropped from 4 steps to one message:</p>
+<blockquote>
+<p><em>“The Acme logo revision email came in Friday. Create a ClickUp task for it, due Wednesday, assigned to Tomoko.”</em></p>
+</blockquote>
+<p>The same team also documented the client reporting workflow: every Friday, previously 90 minutes of manual data entry across three client reports. After adding a ClickUp + time-tracking + Google Sheets chain: 30 minutes total for all three.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">clawhub</span><span style="color:#9ECBFF"> install</span><span style="color:#9ECBFF"> clickup</span></span>
+<span class="line"><span style="color:#B392F0">clawhub</span><span style="color:#9ECBFF"> install</span><span style="color:#9ECBFF"> cal-com</span></span>
+<span class="line"><span style="color:#B392F0">clawhub</span><span style="color:#9ECBFF"> install</span><span style="color:#9ECBFF"> meeting-notes</span></span>
+<span class="line"><span style="color:#B392F0">clawhub</span><span style="color:#9ECBFF"> install</span><span style="color:#9ECBFF"> mission-control</span></span>
+<span class="line"></span></code></pre>
+<p><strong>Key principle:</strong> start with two skills, not five. Install ClickUp and cal-com. Get comfortable using them together for one week. Then add email. The best workflows emerge from actual use patterns, not from designing a perfect system upfront.</p>
+<hr>
+<h2 id="workflow-07-the-10-agent-mission-control-workflow-07">Workflow 07: The 10-Agent Mission Control {#workflow-07}</h2>
+<p><strong>Source:</strong> <a href="https://x.com/pbteja1998">@pbteja1998</a> via <a href="https://grahammann.net/blog/every-openclaw-use-case">grahammann.net</a> (credit: <a href="https://x.com/nQaze">@nQaze</a>)</p>
+<p>Ten agents. One shared Convex database. 15-minute heartbeat cycles. Daily standups. @mention notifications between agents.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Agent</th><th>Role</th></tr></thead><tbody><tr><td>Squad Lead</td><td>Orchestrator; assigns tasks, resolves conflicts</td></tr><tr><td>Product Analyst</td><td>Monitors product metrics and competitive landscape</td></tr><tr><td>Customer Researcher</td><td>Manages customer feedback queue</td></tr><tr><td>SEO Analyst</td><td>Keyword tracking, content gap analysis</td></tr><tr><td>Content Writer</td><td>Drafts content assigned by Squad Lead</td></tr><tr><td>Social Media Manager</td><td>Schedules and posts across platforms</td></tr><tr><td>Designer</td><td>Generates assets, coordinates with Figma</td></tr><tr><td>Email Marketing</td><td>Manages sequences and campaign performance</td></tr><tr><td>Developer</td><td>Code tasks, PR creation, test runs</td></tr><tr><td>Documentation</td><td>Keeps internal docs up to date</td></tr></tbody></table>
+<p>The heartbeat cycle: every 15 minutes, each agent writes a status update to the shared Convex database. Squad Lead reads all status updates, identifies blockers, and re-assigns if needed.</p>
+<p><strong>Practical lessons from this design:</strong></p>
+<p><strong>1. A shared database beats shared memory files.</strong> When agents need to coordinate, a structured database (Convex, Supabase, SQLite with a schema) is more reliable than passing messages through memory files. It handles concurrent writes, provides query capability, and gives you an audit trail.</p>
+<p><strong>2. Heartbeats surface silent failures.</strong> An agent that stops writing heartbeat updates is either stuck or dead. Without heartbeats, you wouldn’t know until something downstream broke.</p>
+<p><strong>3. Scope limits prevent cascade failures.</strong> Each agent has a defined set of tools and a defined scope of responsibility. Scope limits make hallucinations fail safely instead of silently.</p>
+<p><strong>4. One human touchpoint.</strong> The operator’s role: review the morning standup in Slack, check the Telegram mention log, handle what Squad Lead escalates. Not manage ten agents directly — manage one summary.</p>
+<hr>
+<h2 id="the-universal-infrastructure-stack-infra-stack">The Universal Infrastructure Stack {#infra-stack}</h2>
+<p>Looking across all 85+ use cases, the infrastructure choices converge.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Control Surface</span></span>
+<span class="line"><span>  Telegram  (15+ mentions — clear leader)</span></span>
+<span class="line"><span>  WhatsApp  (7+ mentions)</span></span>
+<span class="line"><span>  Slack     (8+ mentions, workplace setups)</span></span>
+<span class="line"><span>  Discord   (5+ mentions, multi-agent setups)</span></span>
+<span class="line"><span>  iMessage  (3+ mentions, personal/family)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Compute (Always-On)</span></span>
+<span class="line"><span>  Mac Mini   — most common home server choice</span></span>
+<span class="line"><span>  Mac Studio — heavy workloads, local inference</span></span>
+<span class="line"><span>  Raspberry Pi — lightweight, low-power tasks</span></span>
+<span class="line"><span>  Railway/Render VPS — cheapest cron runner</span></span>
+<span class="line"><span>  AWS/GCP — when you need scale or compliance</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Memory / State</span></span>
+<span class="line"><span>  GitHub     — config, SOUL.md, DECISIONS.md</span></span>
+<span class="line"><span>  Notion     — task queues, long-form context</span></span>
+<span class="line"><span>  Obsidian   — personal knowledge, notes</span></span>
+<span class="line"><span>  SQLite     — structured agent coordination</span></span>
+<span class="line"><span>  Supabase   — multi-agent shared database</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Specialized Plumbing (by use case)</span></span>
+<span class="line"><span>  Twilio     — actual phone calls (ElevenLabs voice)</span></span>
+<span class="line"><span>  SeatsAero  — award flight search</span></span>
+<span class="line"><span>  Kalshi     — prediction market execution</span></span>
+<span class="line"><span>  moomoo     — trading API</span></span>
+<span class="line"><span>  Home Assistant — smart home control</span></span>
+<span class="line"><span>  Garmin Connect — fitness data</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>The GitHub-for-config pattern deserves specific mention. Several power users version-control their entire OpenClaw configuration in a private Git repo.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#79B8FF">cd</span><span style="color:#9ECBFF"> ~/.openclaw</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> init</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> add</span><span style="color:#9ECBFF"> .</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> commit</span><span style="color:#79B8FF"> -m</span><span style="color:#9ECBFF"> "initial openclaw config — feb 2026"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># After any config change</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> add</span><span style="color:#79B8FF"> -A</span><span style="color:#E1E4E8"> &#x26;&#x26; </span><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> commit</span><span style="color:#79B8FF"> -m</span><span style="color:#9ECBFF"> "tighten bootstrap context: removed old project files"</span></span>
+<span class="line"></span></code></pre>
+<p>This gives you rollback when an update breaks something, diff history when behavior changes unexpectedly, and easy deployment to a new machine.</p>
+<hr>
+<h2 id="what-the-adoption-data-actually-shows-adoption-data">What the Adoption Data Actually Shows {#adoption-data}</h2>
+<p>【插图 05-tldl-use-cases.png】
+<em>TLDL — “OpenClaw Use Cases 2026: 25+ Real Examples”, Feb 23, 2026. Survey of 100+ users across adoption categories.</em></p>
+<p>TLDL surveyed 100+ OpenClaw users:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Category</th><th>Adoption</th><th>Satisfaction</th></tr></thead><tbody><tr><td>Content automation</td><td>35%</td><td>4.5/5</td></tr><tr><td>Research &#x26; data</td><td>28%</td><td>4.3/5</td></tr><tr><td>Email management</td><td>20%</td><td>4.0/5</td></tr><tr><td>Coding assistance</td><td>15%</td><td>4.8/5</td></tr></tbody></table>
+<p><strong>Coding has the highest satisfaction score but the lowest adoption.</strong> Developers who set up coding workflows are very happy with them, but most people setting up OpenClaw don’t start there.</p>
+<p><strong>Content automation has the widest adoption.</strong> This is where most people start, because the value is immediately visible. You run a cron job, you get a summary in Telegram, you see it working in 20 minutes.</p>
+<p>The survey also notes a common progression: users start with content automation, then branch into research and productivity as they get comfortable. Nobody starts with 10 agents. They start with one cron job.</p>
+<hr>
+<h2 id="enterprise-reality-check-enterprise">Enterprise Reality Check {#enterprise}</h2>
+<p>【插图 04-team400-enterprise.png】
+<em>Team 400 — “Running OpenClaw in Production”, Feb 10, 2026. Enterprise deployment lessons from a managed service provider.</em></p>
+<p>Team 400, a managed services firm running OpenClaw for Australian businesses:</p>
+<blockquote>
+<p>“The demo takes ten minutes. Getting through security review takes ten weeks. Most OpenClaw projects die somewhere in between.”</p>
+</blockquote>
+<p><strong>The demo-to-production gap is real.</strong> The getting-started guide covers setup. It doesn’t cover: who reviews skill code before installation, what happens when the LLM provider has an outage, how credentials are protected, or how you handle user provisioning when someone leaves the team.</p>
+<p><strong>You need a staging environment.</strong> Every OpenClaw update should hit staging first. They’ve had to roll back OpenClaw updates three times in one year — each time under 15 minutes because the rollback procedure was documented and tested in advance.</p>
+<p><strong>Cost tracking is non-negotiable at scale.</strong> “We’ve seen organisations go from a few hundred dollars a month to several thousand in the space of a week, usually because someone installed a skill that makes multiple LLM calls per user request.”</p>
+<p><strong>The operational burden:</strong> in steady state, running OpenClaw in production is 4-8 hours per week for one person.</p>
+<p>For personal use and small teams, most of this overhead doesn’t apply. But if you’re moving OpenClaw into a business context where it handles customer data or financial information, the Team 400 post is worth reading in full before you build anything.</p>
+<hr>
+<h2 id="where-to-start-where-to-start">Where to Start {#where-to-start}</h2>
+<p>【插图 03-serif-use-cases.png】
+<em>Serif.ai — “OpenClaw Use Cases: What People Actually Use It For”, Feb 9, 2026. 25 documented use cases across email, calendar, research, productivity, and business operations.</em></p>
+<p>Every power user setup started with something simple:</p>
+<p><strong>Day 1: Morning briefing cron job.</strong> Calendar + email summary delivered to Telegram at 7am. Takes 20 minutes to set up. You’ll see it work the next morning.</p>
+<p><strong>Week 1: Add a memory file.</strong> Start using <code>triple-memory-skill</code> or manual memory files to store things you tell your agent repeatedly. This is what makes your agent feel like it knows you rather than starting fresh every session.</p>
+<p><strong>Week 2-4: Chain two tools together.</strong> If you have a project management tool (ClickUp, Notion, Linear), install its skill and combine it with your calendar. One command that shows you what’s due today and what’s scheduled.</p>
+<p><strong>Month 2: First multi-agent setup.</strong> Add one sub-agent with a specific role. A research agent that runs overnight. Keep it scoped.</p>
+<p><strong>Month 3+: Overnight work.</strong> By this point you’ll have enough context about what your agent can and can’t do reliably to start assigning multi-step tasks before bed.</p>
+<p>Graham Mann’s description of where he is after one month:</p>
+<blockquote>
+<p><em>“I have an agent that knows my projects, remembers our conversations, and does useful work while I sleep. That’s enough to keep building.”</em></p>
+</blockquote>
+<p>Start there. Build from there.</p>
+<hr>
+<h2 id="quick-reference-community-sources">Quick Reference: Community Sources</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Source</th><th>Type</th><th>What It’s Good For</th></tr></thead><tbody><tr><td><a href="https://grahammann.net/blog/every-openclaw-use-case">grahammann.net/blog/every-openclaw-use-case</a></td><td>Curated list</td><td>Browsing categories, finding your use case</td></tr><tr><td><a href="https://www.reddit.com/r/openclaw/">r/openclaw</a></td><td>Community</td><td>Real setups, troubleshooting, peer feedback</td></tr><tr><td><a href="https://www.reddit.com/r/LocalLLaMA/">r/LocalLLaMA</a></td><td>Technical community</td><td>Power user setups, cost optimization</td></tr><tr><td><a href="https://ohmyopenclaw.ai/">ohmyopenclaw.ai</a></td><td>Skills directory</td><td>Finding and evaluating skills, workflow guides</td></tr><tr><td><a href="https://www.serif.ai/openclaw">serif.ai/openclaw</a></td><td>Use case directory</td><td>Industry-specific workflows</td></tr><tr><td><a href="https://www.tldl.io/blog/openclaw-use-cases-2026">tldl.io/blog/openclaw-use-cases-2026</a></td><td>Survey data</td><td>Adoption statistics, satisfaction by category</td></tr><tr><td><a href="https://team400.ai/blog/2026-02-openclaw-production-enterprise">team400.ai/blog</a></td><td>Enterprise guide</td><td>Production deployment, security, operations</td></tr><tr><td><a href="https://github.com/hesamsheikh/awesome-openclaw-usecases">github.com/hesamsheikh/awesome-openclaw-usecases</a></td><td>GitHub</td><td>Community-curated raw list</td></tr></tbody></table>
+<hr>
+<h2 id="appendix-85-use-cases-by-category-appendix">Appendix: 85+ Use Cases by Category {#appendix}</h2>
+<p><em>Condensed from <a href="https://grahammann.net/blog/every-openclaw-use-case">grahammann.net</a>. Full attribution in the source post.</em></p>
+<p><strong>Business &#x26; Sales (12)</strong>
+Lead capture and ICP outreach · automated bidding workflows · prospect research before sales calls · booking meetings at enterprise accounts · 24/7 sales outreach teams · physical therapy company management · nonprofit operations · managing 4 agency workspaces · CRM migration (1,500 contacts) · client website management via Telegram · eBay operations management · product intelligence across 29 retail stores (40TB data)</p>
+<p><strong>Coding &#x26; Dev (11)</strong>
+Building a product via Telegram over a weekend (Pagedrop) · overnight autonomous app building from Reddit trend data · iOS/web app orchestrator with App Store Connect automation · hardware projects via SSH on Raspberry Pi · custom ERP module pipeline · overnight feature development · nightly side project coding · scrum master agent for solo founders · iOS running coach app in 3 weeks · game DevOps via Slack in Kubernetes · production incident management with log tailing and rollback proposals</p>
+<p><strong>Social Media &#x26; Content (11)</strong>
+Multi-platform management for 4 X accounts · COO agent overseeing a 4-agent team with daily AI news briefings · three agents pitching stories for Every publication · automated posting across Reddit/TikTok/Discord/X · X feed scanning and auto-replies · agent that argues on X so you don’t have to · autonomous X marketing at 49 replies/day · two agents coordinating with their own shorthand · AI news portal in Indonesian slang · AI newsroom with editorial roles · overnight 4,700-line codebase review + 13,000-word analysis</p>
+<p><strong>Multi-Agent Teams (10)</strong>
+10-agent Mission Control (Convex database, 15-min heartbeats) · agent team that manages other agents (open-sourced) · 8 specialized agents running 50+ cron jobs · 4-agent Ops/creator/curator/polisher team · 4 agents in a self-hosted Matrix room · fleet dashboard with health + trading + creative agents · $1,000 given to an agent to autonomously start businesses · nearly agent-run SaaS ($550/month revenue) · agent with its own X account and API cost budget · 30-day challenge: agent earning its own money</p>
+<p><strong>Research &#x26; Analysis (7)</strong>
+Linear → Obsidian overnight research reports · meeting prep via WhatsApp · content indexing and contextual recall · overnight web research for project ideas · options flow data analysis (6 months, SQLite + vector layer) · NCAA score prediction model via Kaggle and SSH to deep learning rig · nightly repo analysis for goal alignment</p>
+<p><strong>Personal Life (7)</strong>
+Thursday dinner coordinator with group polls · dinner reservations via iMessage group chat · kids’ Minecraft server management by voice command · kids’ schedule with agent making voice calls to coaches · family meal planning + monthly relationship coaching · wedding planning from an airplane via Discord · morning family announcements via Alexa + iMessage</p>
+<p><strong>Daily Briefings (6)</strong>
+AI Chief of Staff with nightly self-reflection · daily sales briefing with customer talking points · weekly visual calendar with load-balancing suggestions · inbox triage + 14 bad meeting invites auto-declined · auto-generated PowerPoint for upcoming meetings with images · weekly market brief to Notion with Telegram link</p>
+<p><strong>Finance &#x26; Trading (5)</strong>
+Stock and crypto price alerts · crypto and options bots on Nvidia Jetson · Kalshi prediction market auto-execution · email expense tracking (14GB indexed) · spending tracking and net worth monitoring</p>
+<p><strong>Health &#x26; Fitness (4)</strong>
+Glucose + medication tracking in JSON with generated reports · Garmin watch activity feedback post-workout · 5 years of EightSleep data analysis · blood/gene/semen test comprehensive health plan</p>
+<p><strong>Travel (3)</strong>
+Flight + Airbnb itinerary builder with daily price cron job · first-class award flight finder via Telegram (SeatsAero API) · event-to-calendar automation with thorough family entries</p>
+<p><strong>Notes &#x26; Knowledge Management (4)</strong>
+Voice → Whisper transcription → structured journal → GitHub auto-commit · Obsidian interaction entirely by voice · years of saved images indexed by mood and subject · family document filing: photo/PDF → OCR → sorted Google Drive</p>
+<p><strong>Smart Home (3)</strong>
+Home Assistant full control via Telegram (garage, projector, lights, Vestaboard) · Samsung TV contextual dashboard with time-of-day displays · Dynamic Island status app to see what the agent is doing (open-sourced)</p>
+<p><strong>Creative &#x26; Fun (5)</strong>
+1v1 meme battle arena (100+ battles overnight, triggered API threshold alert) · AI matchmaking via agent-to-agent compatibility assessment · virtual world where agents walk around and trade · dog-persona assistant for building and coding · music theory learner with its own Suno account</p>
+<p><strong>Email &#x26; Communication (4)</strong>
+Auto-reply on WhatsApp in your configured tone · email campaign management to 2,400 users via Supabase + Resend · restaurant booking via actual phone calls (ElevenLabs + Twilio) · sending Billie Eilish news articles to a cousin at 3:45am daily</p>  </div> <!-- 返回博客列表 --> <footer class="mt-16 pt-8 border-t border-accent/20"> <a href="/blog/" class="inline-flex items-center gap-2 font-mono text-sm text-text-muted hover:text-accent transition-colors group"> <span class="group-hover:-translate-x-1 transition-transform">&lt;-</span> <span>Back to all posts</span> </a> </footer> </article> </main> <footer class="bg-dark-secondary border-t border-accent/20"> <div class="max-w-7xl mx-auto px-6 lg:px-20 py-12 lg:py-16"> <!-- Top Section --> <div class="flex flex-col lg:flex-row justify-between gap-12 mb-12"> <!-- Brand --> <div class="lg:max-w-xs"> <a href="/" class="inline-block mb-4"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <p class="text-text-muted text-sm font-mono"> <span class="text-terminal-cyan">//</span> Your AI Never Sleeps
+</p> </div> <!-- Links Grid --> <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 font-mono"> <!-- Product --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/product</h4> <ul class="space-y-3"> <li> <a href="/features" class="text-text-muted text-sm hover:text-accent transition-colors"> Features </a> </li><li> <a href="/pricing" class="text-text-muted text-sm hover:text-accent transition-colors"> Pricing </a> </li><li> <a href="/docs" class="text-text-muted text-sm hover:text-accent transition-colors"> Docs </a> </li> </ul> </div> <!-- Company --> <div> <h4 class="text-terminal-orange font-bold mb-4 text-sm">/company</h4> <ul class="space-y-3"> <li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> About </a> </li><li> <a href="/blog/" class="text-text-muted text-sm hover:text-accent transition-colors"> Blog </a> </li> </ul> </div> <!-- Contact --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/contact</h4> <ul class="space-y-3"> <li> <a href="/cdn-cgi/l/email-protection#d2bda1b1b3a0a8b3bfbda0b3e3ebebebe2e592b5bfb3bbbefcb1bdbf" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> <span class="__cf_email__" data-cfemail="6b0418080a19110a0604190a5a5252525b5c2b0c060a020745080406">[email&#160;protected]</span> </a> </li><li> <a href="https://twitter.com/agentputer" target="_blank" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Twitter </a> </li><li> <a href="https://discord.gg/agentputer" target="_blank" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Discord </a> </li> </ul> </div> <!-- Legal --> <div> <h4 class="text-terminal-blue font-bold mb-4 text-sm">/legal</h4> <ul class="space-y-3"> <li> <a href="/privacy" class="text-text-muted text-sm hover:text-accent transition-colors"> Privacy </a> </li><li> <a href="/terms" class="text-text-muted text-sm hover:text-accent transition-colors"> Terms </a> </li><li> <a href="/privacy#data-security" class="text-text-muted text-sm hover:text-accent transition-colors"> Security </a> </li> </ul> </div> </div> </div> <!-- Divider --> <div class="border-t border-accent/20 pt-8"> <div class="flex flex-col md:flex-row justify-between items-center gap-4 font-mono"> <!-- Copyright --> <p class="text-text-dark text-sm">
+/* © 2026 AgentPuter. All rights reserved. */
+</p> <!-- Social Links --> <div class="flex items-center gap-6"> <a href="https://github.com/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors"> GitHub </a> </div> </div> </div> </div> </footer>  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"db97590b14994206be9f2eaec90a9494","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html> 

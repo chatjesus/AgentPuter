@@ -1,0 +1,597 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="不是教程，也不是演示。四种结构性模式，提炼自 148 条社区回复、两个 Reddit 帖子、85+ 个分类用例和企业部署笔记。晨间简报 Agent、10 Agent Mission Control、$90→$45/月成本优化，以及更多。"><meta name="theme-color" content="#0D0D0D"><meta name="generator" content="Astro v4.16.19"><!-- Canonical URL --><link rel="canonical" href="https://www.agentputer.com/zh/blog/16-real-workflows/"><!-- hreflang 多语言标签 --><link rel="alternate" hreflang="en" href="https://www.agentputer.com/blog/16-real-workflows/"><link rel="alternate" hreflang="zh-CN" href="https://www.agentputer.com/zh/blog/16-real-workflows/"><link rel="alternate" hreflang="ja" href="https://www.agentputer.com/ja/blog/16-real-workflows/"><link rel="alternate" hreflang="ko" href="https://www.agentputer.com/ko/blog/16-real-workflows/"><link rel="alternate" hreflang="es" href="https://www.agentputer.com/es/blog/16-real-workflows/"><link rel="alternate" hreflang="pt-BR" href="https://www.agentputer.com/pt-br/blog/16-real-workflows/"><link rel="alternate" hreflang="de" href="https://www.agentputer.com/de/blog/16-real-workflows/"><link rel="alternate" hreflang="fr" href="https://www.agentputer.com/fr/blog/16-real-workflows/"><link rel="alternate" hreflang="zh-TW" href="https://www.agentputer.com/zh-tw/blog/16-real-workflows/"><link rel="alternate" hreflang="x-default" href="https://www.agentputer.com/blog/16-real-workflows/"><!-- Keywords（各语言本地化） --><meta name="keywords" content="OpenClaw, 工作流, 真实世界, 多智能体, 社区, 使用案例, 生产力"><!-- Open Graph --><meta property="og:title" content="真实的 OpenClaw 工作流：85+ 位用户究竟在构建什么 (2026) | AgentPuter 博客"><meta property="og:description" content="不是教程，也不是演示。四种结构性模式，提炼自 148 条社区回复、两个 Reddit 帖子、85+ 个分类用例和企业部署笔记。晨间简报 Agent、10 Agent Mission Control、$90→$45/月成本优化，以及更多。"><meta property="og:type" content="article"><meta property="og:url" content="https://www.agentputer.com/zh/blog/16-real-workflows/"><meta property="og:image" content="https://www.agentputer.com/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:site_name" content="AgentPuter"><meta property="og:locale" content="zh_CN"><meta property="og:locale:alternate" content="en_US"><meta property="og:locale:alternate" content="ja_JP"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="es_ES"><meta property="og:locale:alternate" content="pt_BR"><meta property="og:locale:alternate" content="de_DE"><meta property="og:locale:alternate" content="fr_FR"><meta property="og:locale:alternate" content="zh_TW"><!-- Article-specific OG tags --><meta property="article:published_time" content="2026-03-02"><meta property="article:author" content="AgentPuter Lab"><meta property="article:tag" content="OpenClaw"><meta property="article:tag" content="工作流"><meta property="article:tag" content="真实世界"><meta property="article:tag" content="多智能体"><meta property="article:tag" content="社区"><meta property="article:tag" content="使用案例"><meta property="article:tag" content="生产力"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@agentputer"><meta name="twitter:creator" content="@agentputer"><meta name="twitter:title" content="真实的 OpenClaw 工作流：85+ 位用户究竟在构建什么 (2026) | AgentPuter 博客"><meta name="twitter:description" content="不是教程，也不是演示。四种结构性模式，提炼自 148 条社区回复、两个 Reddit 帖子、85+ 个分类用例和企业部署笔记。晨间简报 Agent、10 Agent Mission Control、$90→$45/月成本优化，以及更多。"><meta name="twitter:image" content="https://www.agentputer.com/og-default.png"><!-- Favicon --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/favicon.svg"><!-- 字体：preconnect + LCP 关键字体直接预加载 --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- 直接预加载 LCP 关键字体文件（JetBrains Mono Bold Latin，H1 使用） --><link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8L6tTOlOVk6OThhvA.woff2"><!-- 字体 CSS 阻塞加载（配合 preconnect 延迟极低，确保 LCP 时字体可用） --><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"><!-- Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":"https://www.agentputer.com/favicon.svg","description":"Your AI Agent's dedicated cloud runtime. AgentPuter keeps your AI running 24/7.","sameAs":["https://twitter.com/agentputer","https://github.com/agentputer","https://discord.gg/agentputer"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"AgentPuter","url":"https://www.agentputer.com","inLanguage":"zh-CN","availableLanguage":[{"@type":"Language","name":"English","alternateName":"en"},{"@type":"Language","name":"中文","alternateName":"zh-CN"},{"@type":"Language","name":"繁體中文","alternateName":"zh-TW"},{"@type":"Language","name":"日本語","alternateName":"ja"},{"@type":"Language","name":"한국어","alternateName":"ko"},{"@type":"Language","name":"Español","alternateName":"es"},{"@type":"Language","name":"Português","alternateName":"pt-BR"},{"@type":"Language","name":"Deutsch","alternateName":"de"},{"@type":"Language","name":"Français","alternateName":"fr"}],"description":"Your AI Agent's dedicated cloud runtime."}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.agentputer.com/zh/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.agentputer.com/zh/blog/"},{"@type":"ListItem","position":3,"name":"16 real workflows","item":"https://www.agentputer.com/zh/blog/16-real-workflows/"}]}</script><!-- 页面专属结构化数据插槽 --><!-- 浏览器语言自动检测：移到 head 阻塞执行，避免渲染后跳转导致 CLS --><script>
+    (function() {
+      if (localStorage.getItem('agentputer-lang')) return;
+
+      var langMap = {
+        'zh': '/zh', 'zh-cn': '/zh', 'zh-tw': '/zh-tw', 'zh-hk': '/zh-tw',
+        'ja': '/ja', 'ko': '/ko',
+        'es': '/es', 'es-419': '/es',
+        'pt': '/pt-br', 'pt-br': '/pt-br',
+        'de': '/de', 'fr': '/fr',
+      };
+
+      var path = window.location.pathname;
+      if (/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)(\/|$)/.test(path)) {
+        var m = path.match(/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)/);
+        if (m) localStorage.setItem('agentputer-lang', m[1]);
+        return;
+      }
+
+      var langs = navigator.languages || [navigator.language];
+      for (var i = 0; i < langs.length; i++) {
+        var bl = langs[i].toLowerCase();
+        if (langMap[bl]) {
+          var target = path === '/' ? langMap[bl] + '/' : langMap[bl] + path;
+          localStorage.setItem('agentputer-lang', bl);
+          window.location.replace(target);
+          return;
+        }
+        var primary = bl.split('-')[0];
+        if (primary !== bl && langMap[primary]) {
+          var target2 = path === '/' ? langMap[primary] + '/' : langMap[primary] + path;
+          localStorage.setItem('agentputer-lang', primary);
+          window.location.replace(target2);
+          return;
+        }
+      }
+      localStorage.setItem('agentputer-lang', 'en');
+    })();
+    </script><!-- Google Analytics 4 --><script async src="https://www.googletagmanager.com/gtag/js?id=G-9M2T6GQJ0L"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9M2T6GQJ0L');
+    </script><title>真实的 OpenClaw 工作流：85+ 位用户究竟在构建什么 (2026) | AgentPuter 博客</title><link rel="stylesheet" href="/_astro/_slug_.DM3EUOA_.css">
+<link rel="stylesheet" href="/_astro/_slug_.CUcOCpHJ.css">
+<link rel="stylesheet" href="/_astro/_slug_.CxhqtQFk.css"><script type="module" src="/_astro/hoisted.59JzbWNo.js"></script></head> <body class="min-h-screen">   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"真实的 OpenClaw 工作流：85+ 位用户究竟在构建什么 (2026)","description":"不是教程，也不是演示。四种结构性模式，提炼自 148 条社区回复、两个 Reddit 帖子、85+ 个分类用例和企业部署笔记。晨间简报 Agent、10 Agent Mission Control、$90→$45/月成本优化，以及更多。","datePublished":"2026-03-02","dateModified":"2026-03-02","inLanguage":"zh-CN","author":{"@type":"Organization","name":"AgentPuter Lab","url":"https://www.agentputer.com"},"publisher":{"@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":{"@type":"ImageObject","url":"https://www.agentputer.com/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.agentputer.com/zh/blog/16-real-workflows/"},"keywords":"OpenClaw, 工作流, 真实世界, 多智能体, 社区, 使用案例, 生产力"}</script> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://www.agentputer.com/zh/"},{"@type":"ListItem","position":2,"name":"博客","item":"https://www.agentputer.com/zh/blog/"},{"@type":"ListItem","position":3,"name":"真实的 OpenClaw 工作流：85+ 位用户究竟在构建什么 (2026)"}]}</script> <header class="fixed top-0 left-0 right-0 z-50 bg-dark-primary md:bg-dark-primary/95 md:backdrop-blur-lg border-b border-accent/20"> <nav class="max-w-7xl mx-auto px-6 lg:px-20 h-20 flex items-center justify-between"> <!-- Logo --> <a href="/zh/" class="flex items-center gap-2 group"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <!-- Desktop Navigation --> <div class="hidden md:flex items-center gap-8 font-mono"> <a href="/zh/features" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/功能
+</a> <a href="#pricing" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/价格
+</a> <a href="/zh/blog/" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/博客
+</a> <a href="/zh/docs" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/文档
+</a> <!-- Desktop 语言切换器 --><div class="lang-switcher relative"> <button class="lang-btn flex items-center gap-1.5 text-text-secondary hover:text-accent transition-colors text-sm font-mono cursor-pointer" aria-label="Switch language" aria-expanded="false"> <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <circle cx="12" cy="12" r="10" stroke-width="1.5"></circle> <path stroke-width="1.5" d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path> </svg> <span>中文</span> <svg class="w-3 h-3 opacity-40 transition-transform lang-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </button> <!-- 下拉菜单 --> <div class="lang-dropdown hidden absolute right-0 top-full mt-2 py-1 bg-[#1a1a1a] border border-[#333] rounded-lg shadow-xl min-w-[160px] z-[100]"> <a href="/blog/16-real-workflows/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="en"> <span>English</span> <span class="text-xs text-text-dark">EN</span> </a><a href="/zh/blog/16-real-workflows/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-accent bg-accent/10" data-lang="zh"> <span>中文</span> <span class="text-xs text-accent">中文</span> </a><a href="/ja/blog/16-real-workflows/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ja"> <span>日本語</span> <span class="text-xs text-text-dark">JA</span> </a><a href="/ko/blog/16-real-workflows/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ko"> <span>한국어</span> <span class="text-xs text-text-dark">KO</span> </a><a href="/es/blog/16-real-workflows/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="es"> <span>Español</span> <span class="text-xs text-text-dark">ES</span> </a><a href="/pt-br/blog/16-real-workflows/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="pt-br"> <span>Português</span> <span class="text-xs text-text-dark">PT</span> </a><a href="/de/blog/16-real-workflows/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="de"> <span>Deutsch</span> <span class="text-xs text-text-dark">DE</span> </a><a href="/fr/blog/16-real-workflows/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="fr"> <span>Français</span> <span class="text-xs text-text-dark">FR</span> </a> </div> </div> <!-- Mobile 语言列表（平铺，不用下拉） --> <div class="lang-mobile hidden"> <div class="flex flex-wrap gap-2"> <a href="/blog/16-real-workflows/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="en"> English </a><a href="/zh/blog/16-real-workflows/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-accent border-accent/40 bg-accent/10" data-lang="zh"> 中文 </a><a href="/ja/blog/16-real-workflows/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ja"> 日本語 </a><a href="/ko/blog/16-real-workflows/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ko"> 한국어 </a><a href="/es/blog/16-real-workflows/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="es"> Español </a><a href="/pt-br/blog/16-real-workflows/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="pt-br"> Português </a><a href="/de/blog/16-real-workflows/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="de"> Deutsch </a><a href="/fr/blog/16-real-workflows/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="fr"> Français </a> </div> </div>  <a href="https://app.agentputer.com/sign-up" class="text-sm py-2.5 px-6 bg-accent text-dark-primary font-bold rounded hover:bg-accent-dark transition-colors">
+[开始]
+</a> </div> <!-- Mobile Menu Button --> <button id="mobile-menu-btn-zh" class="md:hidden p-2 text-text-secondary hover:text-white" aria-label="Toggle menu"> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </nav> <!-- Mobile Menu --> <div id="mobile-menu-zh" class="hidden md:hidden bg-dark-secondary border-t border-dark-tertiary"> <div class="px-6 py-4 space-y-4"> <a href="/zh/features" class="block text-text-secondary hover:text-white transition-colors">
+功能
+</a> <a href="#pricing" class="block text-text-secondary hover:text-white transition-colors">
+价格
+</a> <a href="/zh/blog/" class="block text-text-secondary hover:text-white transition-colors">
+博客
+</a> <a href="/zh/docs" class="block text-text-secondary hover:text-white transition-colors">
+文档
+</a> <div class="lang-mobile-wrapper"></div> <a href="https://app.agentputer.com/sign-up" class="btn-primary w-full justify-center text-sm py-3">
+开始使用
+</a> </div> </div> </header>  <main class="relative z-10 pt-28 pb-20"> <article class="max-w-4xl mx-auto px-6 lg:px-8"> <!-- 面包屑导航 --> <nav class="mb-8 font-mono text-sm"> <a href="/zh/" class="text-text-muted hover:text-accent transition-colors">~</a> <span class="text-text-dark mx-2">/</span> <a href="/zh/blog/" class="text-text-muted hover:text-accent transition-colors">博客</a> <span class="text-text-dark mx-2">/</span> <span class="text-accent">文章</span> </nav> <!-- 文章元信息头部 --> <header class="mb-12"> <!-- 标签 --> <div class="flex flex-wrap gap-2 mb-6"> <span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#OpenClaw </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#工作流 </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#真实世界 </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#多智能体 </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#社区 </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#使用案例 </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#生产力 </span> </div> <!-- 标题 --> <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6"> 真实的 OpenClaw 工作流：85+ 位用户究竟在构建什么 (2026) </h1> <!-- 描述 --> <p class="text-lg text-text-secondary leading-relaxed mb-8"> 不是教程，也不是演示。四种结构性模式，提炼自 148 条社区回复、两个 Reddit 帖子、85+ 个分类用例和企业部署笔记。晨间简报 Agent、10 Agent Mission Control、$90→$45/月成本优化，以及更多。 </p> <!-- 元信息行 --> <div class="flex flex-wrap items-center gap-6 text-sm font-mono text-text-muted border-t border-b border-accent/20 py-4"> <div class="flex items-center gap-2"> <span class="text-terminal-cyan">@</span> <span class="text-text-secondary">AgentPuter Lab</span> </div> <div class="flex items-center gap-2"> <span class="text-terminal-orange">$</span> <time datetime="2026-03-02" class="text-text-secondary">2026年3月2日</time> </div> <div class="flex items-center gap-2"> <span class="text-terminal-blue">~</span> <span class="text-text-secondary">阅读 25 min</span> </div> </div> </header> <!-- 文章正文 --> <div class="prose prose-invert prose-terminal max-w-none">  <h1 id="真实的-openclaw-工作流超过85位用户的真实构建案例-2026">真实的 OpenClaw 工作流：超过85位用户的真实构建案例 (2026)</h1>
+<p>AgentPuter · 2026年3月 · 约25分钟 · #OpenClaw #工作流 #真实世界 #多智能体 #社区
+上周我们讨论了当 OpenClaw 配置错误时可能出现的问题 —— 供应链攻击、91% 的提示注入成功率，以及波及 135,000 个暴露实例的 ClawHavoc 事件。那是等式中代表风险的一方。</p>
+<p>而这就是
+以下内容直接摘自三个月的社区产出：一条推文的 148 条回复，两个活跃的 Reddit 帖子，一个包含超过 85 个分类用例的精选数据库，以及一家为澳大利亚企业运行 OpenClaw 的托管服务公司的生产部署说明。在可以确定原作者的地方，我们都注明了出处。在故事是综合整理的情况下，我们也标注了来源。
+目标不是灵感，而是模式识别。有四种结构性模式在每个用例中反复出现。一旦你看清了它们，你将不再问“我应该用 OpenClaw 构建什么？”，而是开始问“哪种模式适合我当前遇到的问题？”</p>
+<blockquote>
+<ul>
+<li><a href="https://www.reddit.com/r/LocalLLaMA/comments/1r3ro5h/">r/LocalLLaMA: 将 OpenClaw 作为日常主力使用三周</a> — Reddit</li>
+<li><a href="https://www.reddit.com/r/openclaw/comments/1r8lci1/">r/openclaw: 我的 OpenClaw 很有用！</a> — Reddit</li>
+<li><a href="https://ohmyopenclaw.ai/blog/openclaw-productivity-automation-workflows-2026/">5 个真正能取代标签页切换的 OpenClaw 生产力工作流</a> — Oh My OpenClaw，2026 年 2 月 24 日</li>
+<li><a href="https://www.serif.ai/openclaw">OpenClaw 用例 — 人们实际上用它来做什么</a> — Serif.ai，2026 年 2 月 9 日</li>
+<li><a href="https://www.tldl.io/blog/openclaw-use-cases-2026">OpenClaw 2026 年用例：25+ 个真实示例</a> — TLDL，2026 年 2 月 23 日</li>
+<li><a href="https://team400.ai/blog/2026-02-openclaw-production-enterprise">在生产环境中运行 OpenClaw</a> — Team 400，2026 年 2 月 10 日</li>
+</ul>
+</blockquote>
+<hr>
+<p>【插图 01-grahammann-article.png】
+<em>grahammann.net — “我能找到的所有 OpenClaw 用例（超过85个）”，2026年2月13日。基于对 Lenny 推文的148条回复和 Clawverse 画廊。</em></p>
+<hr>
+<h2 id="目录">目录</h2>
+<ol>
+<li><a href="#four-patterns">四大模式</a></li>
+<li><a href="#workflow-01">工作流01：晨报代理</a></li>
+<li><a href="#workflow-02">工作流02：多代理内容管道</a></li>
+<li><a href="#workflow-03">工作流03：4代理市场研究团队</a></li>
+<li><a href="#workflow-04">工作流04：通过 Telegram 交付客户成果</a></li>
+<li><a href="#workflow-05">工作流 05：从每月90美元 → 每月45美元</a></li>
+<li><a href="#workflow-06">工作流 06：设计公司的周一早晨</a></li>
+<li>[工作流 07：1
+Graham Mann 花时间仔细研究了 Lenny Rachitsky 一条推文下的 148 条回复，该推文询问人们到底用 OpenClaw 构建了什么。他还阅读了 Clawverse 社区画廊和 Brandon Wang 的文章。在整理了超过 85 个用
+<strong>持续运行的代理。</strong> 大多数深入使用 OpenClaw 的用户会将其在 Mac mini、廉价的 VPS 或 Raspberry Pi 上 24/7 运行。这个代理不像聊天应用那样，可以随意打开和关闭。它一直在运行。它掌握着你的
+<strong>以消息应用为界面。</strong> Telegram 出现在超过15个用例中。WhatsApp 出现在超过7个用例中。iMessage 和 Discord 各自出现在多个配置中。大家一致的选择是您已在使用的消息应用，而不是一个新的仪表盘。用 OpenClaw
+<strong>夜间工作。</strong> 最常见的模式是：睡前分配一个任务，醒来就能看到结果。这初听起来像天方夜谭，但这正是数十人所描述的他们的常态。智能体不需要睡觉，不需要你守在办公桌前，并且能使用你提供给它的任何工具。
+<strong>多智能体团队。</strong> 一些高级用户会运行 4-10 个专业化智能体，它们通过共享数据库而非单个单体智能体进行协同。每个智能体都有明确的角色、明确的工具和有限的上下文。当智能体的范围明确时，协同</li>
+</ol>
+<h2 id="工作流-01晨间简报代理-workflow-01">工作流 01：晨间简报代理 {#workflow-01}</h2>
+<p><strong>来源：</strong> 多个 — <a href="https://x.com/chrysb">@chrysb</a> via grahammann.net, <a href="https://x.com/mbogoroch18">@mbogoroch18</a>, Serif.ai 用例 #2</p>
+<p>这是社区中最常见的起点，也很可能是正确的选择。
+设置如下：一个 cron 定时任务每天早上启动，向你的 Telegram、WhatsApp 或 iMessage 发送一份结构化摘要。摘要包含哪些内容取决于你的配置。最简版本涵盖当天的日历事件和几条未读邮件的重点。更完整的版本则增加了任务
+一位用户（@chrysb）称其为“参谋长”代理。每天早上，它会提供简报，内容包括交易准备、科技新闻和会议背景。同一个代理每晚都会进行自我反思，并根据有用内容进行调整。</p>
+<p>一位销售专家（@mbogoroch18）则会收到一个不同的版本：客户谈话要点、交易准备和科技新闻，这些内容已为与企业买
+“jobs”: [
+{
+“schedule”: “0 7 * * 1-5”,
+“message”: “生成我的晨间简报：今日日历事件、前 3 封未读邮件、任何今日到期的任务。为 Telegram 格式化。保持在 400 字以内。”,
+“channel”: “telegram”
+}
+]
+}
+}</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>这之所以不仅仅是一个简单的 cron 任务，是因为 SOUL.md。在 SOUL.md 中存储长期指令的用户会收到一份根据其角色和偏好校准的简报——它不是一份通用的摘要，而是已经知道你关心企业流程而非收到的表单提交</span></span>
+<span class="line"><span>**为何有效：** 你不再是每天早上处理五个应用输入的中心。代理负责聚合信息，你来做决策。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Serif.ai 将此描述为“每天都以优势开启新的一天”。无论你是否这么称呼它，实际效果是：你一天中最初的二十分钟不再是处理行政事务。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>> *“我用它来分类处理收件箱，从 WhatsApp 消息中自动安排一对一会议。它自动拒绝了 14 个不合适的会议邀请。代理替你说了‘不’。”*</span></span>
+<span class="line"><span>> — [@eouaooo](https://x.com/eouaooo)，来自 grahammann.net</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>## 工作流 02：多智能体内容管道 {#workflow-02}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**来源：**[r/LocalLLaMA 帖子](https://www.reddit.com/r/LocalLLaMA/comments/1r3ro5h/3_weeks_with_openclaw_as_daily_driver_what_worked/) — 在 AWS 上将 OpenClaw 作为日常主力运行 3 周</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>这个案例提供了具体数据，这非常罕见，值得详细引用。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>其配置为：五个独立的智能体在 AWS 上运行，使用 Claude API。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>| 智能体 | 角色 |</span></span>
+<span class="line"><span>|---|---|</span></span>
+<span class="line"><span>| 写手 | 根据研究成果撰写初稿 |</span></span>
+<span class="line"><span>| 编辑 | 应用百分制质量标准来拒绝或通过稿件 |</span></span>
+<span class="line"><span>| 研究员 | 搜集来源，核查事实，然后交接给写手 |</span></span>
+<span class="line"><span>| 程序员 | 处理任何自动化任务、脚本生成 |</span></span>
+<span class="line"><span>| 流程经理 | 编排顺序，管理队列 |</span></span>
+<span class="line"><span>三周内的产出：生成了大约 30 份草稿。拒绝率：约 40%。这个 40% 的数字很重要——这意味着编辑器代理确实在起作用。一个什么都不拒绝的质量门槛只是在增加延迟。</span></span>
+<span class="line"><span>成本明细是这件事有启发性的地方。Claude Haiku 处理了大约 80% 的自动化任务——路由决策、简短的分类调用、格式化处理。对于这些任务，Haiku 的成本大约比 Sonnet 或 Opus 便宜 10-20 倍。</span></span>
+<span class="line"><span>"params": { "context1m": false }</span></span>
+<span class="line"><span>      },</span></span>
+<span class="line"><span>      {</span></span>
+<span class="line"><span>        "id": "researcher",</span></span>
+<span class="line"><span>        "model": "claude-sonnet-4.6"</span></span>
+<span class="line"><span>      },</span></span>
+<span class="line"><span>      {</span></span>
+<span class="line"><span>        "id": "writer",</span></span>
+<span class="line"><span>        "model": "claude-sonnet-4.6"</span></span>
+<span class="line"><span>      },</span></span>
+<span class="line"><span>      {</span></span>
+<span class="line"><span>        "id": "editor",</span></span>
+<span class="line"><span>        "model": "claude-haiku-4.5",</span></span>
+<span class="line"><span>        "params": { "context1m": false }</span></span>
+<span class="line"><span>      },</span></span>
+<span class="line"><span>      {</span></span>
+<span class="line"><span>        "id": "coder",</span></span>
+<span class="line"><span>        "model": "claude-haiku-4.5"</span></span>
+<span class="line"><span>      }</span></span>
+<span class="line"><span>**漏洞 1：Cron 作业忽略上下文变化。** 管道管理器会启动一次新的运行，而不会检查上一次运行的输出是否已更新。修复：使用 `DECISIONS.md` 添加了一项预检——该文件记录了已做出的决策以及管道所处的状态。Cron 作业在执行任何操作之前会读取 DECISIONS.md。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>## 管道状态</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**上次运行：** 20</span></span>
+<span class="line"><span>**在队列清空前，请勿开始新的研究周期**</span></span>
+<span class="line"><span>**原因：** 编辑器在 Anthropic 上受到速率限制；正在退避30分钟</span></span>
+<span class="line"><span></span></span></code></pre>
+<p><strong>Bug 2：内部推理泄露到用户消息中。</strong> 当流水线通过主代理发回摘要时，子代理的推理痕迹会出现在输出中。修复：在所有非最终输出步骤的子代理上设置 <code>deliver:false</code>。该标志会告知子代理完成其工作并将结果传回给编排器，但不要格式化或“交付”消息给用户。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "agents"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "list"</span><span style="color:#E1E4E8">: [</span></span>
+<span class="line"><span style="color:#E1E4E8">      {</span></span>
+<span class="line"><span style="color:#79B8FF">        "id"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"researcher"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">"deliver"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">false</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    ]</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>现在，完整的流水线每周在夜间运行三次。早晨的审核大约需要十五分钟：浏览 Notion 中的队列，批准或拒绝“编辑”的决定，偶尔将某篇文章退回，
+四个代理，在一台 MacBook Pro 上运行，每个都有不同的侧重点：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>代理</th><th>名称</th><th>任务</th></tr></thead><tbody><tr><td>研究</td><td>Tib</td><td>每 15 分钟轮流处理 B2B / B2C / AI2AI 创意池</td></tr><tr><td>市场</td><td>Vector</td><td>扫描 Kalshi 和 Polymarket 以寻找预测信号</td></tr><tr><td>环境</td><td>Bou</td><td>关注新版本发布和安全问题</td></tr><tr><td>控制</td><td>Gus</td><td>通过 Telegram 发送 30 分钟状态报告；协调其他代理</td></tr><tr><td>此设置在结构上的有趣之处在于：每个代理都有自己的 SOUL.md 和自己的记忆轮换日志。记忆轮换日志是一个文件，用于跟踪代理已经调查过的内容，这样它在多次运行之间就不会重复工作。</td><td></td><td></td></tr><tr><td>SOUL.md 文件为每个代理赋予了独特的个性和角色边界。Tib 的 SOUL.md 规定它应该发掘新颖的角度——不仅仅是报告已有的信息，还要识别相邻机会。Gus 的 SOUL.md 规定它是一个协调者，而不是研究</td><td></td><td></td></tr><tr><td>每15分钟在不同的创意池之间轮换。</td><td></td><td></td></tr><tr><td>你的任务是发掘<em>新颖的</em>角度，而不是总结已有的内容。</td><td></td><td></td></tr><tr><td>不要重复过去72小时内已记录在 MEMORY_ROTATION.md 中的任何内容。</td><td></td><td></td></tr><tr><td>在退出前，将每个研究过的角度都记录到 MEMORY_ROTATION.md 中。</td><td></td><td></td></tr></tbody></table>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span></span></span></code></pre>
+<h1 id="gus-的-soulmd-摘录">Gus 的 SOUL.md (摘录)</h1>
+<p>你是 Gus，一个四代理研究团队的控制代理。
+你不进行一手研究。
+每30分钟：汇总来自 Tib、Vector 和 Bou 的
+格式化一篇 200 字的 Telegram 摘要：首先是 [SIGNAL] 项目，然后是 [NOISE]，最后是 [ALERT]（如果有任何智能体标记了安全问题）。
+明确地揭示智能体之间的冲突。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span></span></span>
+<span class="line"><span>这个 30 分钟的 Telegram 报告格式让 Gus 的输出在手机上易于快速浏览：分为三个类别（SIGNAL / NOISE / ALERT），内容简短、可操作。用户的角色是：审查 SIGNAL 类别，并上报任何值得更深入研究的内容。</span></span>
+<span class="line"><span>**成本说明：**此设置使用 MiniMax 2.5 作为所有四个代理的基础模型。仅 Tib 一个代理，以 15 分钟为间隔，每 24 小时就会产生约 96 个查询周期。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>## 工作流 04：通过 Telegram 进行客户交付 {#workflow-04}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**来源：**[@ad_astra999](https://x.com/ad_astra999) 和 [@jlehman_](https://x.com/jlehman_) 通过 [grahammann.net](https://grahammann.net/blog/every-openclaw-use-case)</span></span>
+<span class="line"><span>这里描述的是一个网站开发机构的完整客户交付流程，完全通过 Telegram 进行控制：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>客户发送变更请求</span></span>
+<span class="line"><span>    ↓</span></span>
+<span class="line"><span>客户语音消息 → [转录为文本]</span></span>
+<span class="line"><span>    ↓</span></span>
+<span class="line"><span>OpenClaw 在 Telegram 中接收请求</span></span>
+<span class="line"><span>    ↓</span></span>
+<span class="line"><span>编码子代理启动 → 解读请求 → 打开代码库</span></span>
+<span class="line"><span>    ↓</span></span>
+<span class="line"><span>在测试分支上进行更改</span></span>
+<span class="line"><span>    ↓</span></span>
+<span class="line"><span>生成预览链接并通过 Telegram 发回</span></span>
+<span class="line"><span>    ↓</span></span>
+<span class="line"><span>客户批准或请求修改</span></span>
+<span class="line"><span>    ↓</span></span>
+<span class="line"><span>批准 → 部署到生产环境</span></span>
+<span class="line"><span>支持邮件通过同一个系统处理：收到的支持邮件会被自动转换成格式化的变更报告，并成为队列中的一个任务。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>操作员的设置如下：编码子代理拥有对部署服务器的 SSH 访问权限、对 GitHub 仓库的读/写权限，以及每个</span></span>
+<span class="line"><span>第二位构建了类似产品的人：@jlehman_ 描述了他在一个周末内，通过 Telegram 消息，将一个完整产品——Pagedrop——从想法变为现实并完成部署的过程。“在正常的周末活动中，通过文本消息构建了架构、购买了域名、设置</span></span>
+<span class="line"><span>          "codebase": "/repos/acme",</span></span>
+<span class="line"><span>          "deployBranch": "main",</span></span>
+<span class="line"><span>          "stagingUrl": "https://staging.acme.example.com"</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>      }</span></span>
+<span class="line"><span>    ]</span></span>
+<span class="line"><span>  },</span></span>
+<span class="line"><span>  "agents": {</span></span>
+<span class="line"><span>**真正节省时间的地方在于：**不是编码本身的自动化，而是消除了状态更新的循环。整个周期——请求、构建、预览、批准、部署——都在 Telegram 内完成。没有电子邮件往来。没有“我确认一下再回复你”。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>## 工作流 05：从每月 90 美元降至 45 美元 {#workflow-05}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**来源：**r/LocalLLaMA 生产说明和 ohmyopenclaw.ai 部署文档</span></span>
+<span class="line"><span>初始状态：每月约90美元。大部分是 Sonnet 调用，用于处理所有事情，包括那些不需要 Sonnet 的任务。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**干预措施1：引导上下文削减。**</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>代理的引导上下文——即启动时加载的文件——有 85KB / 21</span></span>
+<span class="line"><span>审计后：减少到 27KB / 6,472 个 token。**这使得每次会话启动时计费的 token 数量减少了 69.8%。**对于一个每天通过多个 cron 作业多次启动的代理来说，这种效果会迅速累积。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>```bash</span></span>
+<span class="line"><span># 检查引导时实际加载的内容</span></span>
+<span class="line"><span>openclaw doctor --verbose</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 按大小列出所有内存文件</span></span>
+<span class="line"><span>ls -lh ~/.openclaw/memory/</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 查看正在加载的内容</span></span>
+<span class="line"><span>cat ~/.openclaw/memory/USER.md</span></span>
+<span class="line"><span>cat ~/.openclaw/SOUL.md</span></span>
+<span class="line"><span></span></span></code></pre>
+<p>USER.md 或 SOUL.md 中任何描述你三个月前已完成项目的内容，都在消耗你的 token。请将其归档到一个在引导启动时不会加载的单独文件中。</p>
+<p><strong>干预措施 2：使用 Haiku 处理常规任务。</strong></p>
+<ul>
+<li>消息路由和分类 → 切换到 Haiku</li>
+<li>短格式化处理 → 切换到 Haiku</li>
+<li>摘要生成（&#x3C; 500 字）→ 切换到 Haiku</li>
+<li>复杂分析和规划 → 保留使用 Sonnet</li>
+<li>编排决策 → 保留使用 Sonnet</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "channels"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "modelByChannel"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      "telegram"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"claude-haiku-4.5"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      "cron-router"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"claude-haiku-4.5"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      "analysis"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"claude-sonnet-4.6"</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>Haiku 以分类速度处理了约80%的调用量。Sonnet 仅在需要进行实际推理时才会启动。</p>
+<p>**干预措施3
+内存操作曾使用同步嵌入调用。现已切换到 Batch API，其成本降低 50% 且在非高峰时段运行。延迟方面的权衡是：批量结果会在 24 小时内返回。对于不需要同步的内存操作（例如存储会议记录、索引文档
+核心教训：大多数意想不到的 OpenClaw 账单有两个来源。一是臃肿的引导上下文，它加载了你不需要的 token。二是将高能力模型用于不需要高能力的任务。</p>
+<hr>
+<h2 id="工作流-06设计公司的周一早晨-workflow-06">工作流 06：设计公司的周一早晨 {#workflow-06}</h2>
+<p>【插图 02-ohmyopenclaw-workflows.png】
+<em>Oh My OpenClaw — “5个真正取代标签页切换的OpenClaw生产力工作流”，2026年2月24日。五个有记录的工作流组合，并附有使用前后节省时间的测量数据。</em></p>
+<p><strong>来源：</strong> <a href="https://ohmyopenclaw.ai/blog/openclaw-productivity-automation-workflows-2026/">ohmyopenclaw.ai</a> — Oh My OpenClaw，2026年2月24日</p>
+<p>设置：一家有12名员工的设计机构使用 OpenClaw，并将三个技能链接在一起 — ClickUp、cal-com 和 Gmail。
+**之前：**五个应用，五次登录。开始工作前的总耗时：30分钟。</p>
+<p>**之后：**打开 Telegram，输入“周一简报”。代理程序会拉取 ClickUp 任务、日历事件、未读邮件、Slack 提及和工时追踪摘要。2分钟内读完。9:15 开始工作。</p>
+<p>**可衡量的成果：**周一早晨的回顾时间从30分钟缩短到8分钟。</p>
+<p>从邮件创建任务的步骤从4步减少到一条消息：</p>
+<blockquote>
+<p><em>“Acme 标志修订的邮件周五收到了。为它创建一个 ClickUp 任务，截止日期为周三，分配给 Tomoko。”</em></p>
+</blockquote>
+<p>同一个团队还记录了客户报告工作流程：之前每周五，需要花 90 分钟为三
+<strong>关键原则：</strong> 从两个技能开始，而不是五个。安装 ClickUp 和 cal-com。花一周时间适应将它们一起使用。然后再加入电子邮件。最好的工作流源于实际的使用模式，而不是预先设计一个完美的系统。</p>
+<hr>
+<h2 id="工作流-0710-代理-mission-control-workflow-07">工作流 07：10 代理 Mission Control {#workflow-07}</h2>
+<p><strong>来源：</strong> <a href="https://x.com/pbteja1998">@pbteja1998</a> 通过 <a href="https://grahammann.net/blog/every-openclaw-use-case">grahammann.net</a> (致谢：<a href="https://x.com/nQaze">@nQaze</a>)
+十个代理。一个共享的 Convex 数据库。15分钟心跳周期。每日站会。代理之间的 @提及 通知。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>代理</th><th>角色</th></tr></thead><tbody><tr><td>小队主管</td><td>协调者；分配任务，解决冲突</td></tr><tr><td>产品分析师</td><td>监控产品指标和竞争格局</td></tr><tr><td>客户研究员</td><td>管理客户反馈队列</td></tr><tr><td>SEO 分析师</td><td>关键词跟踪，内容差距分析</td></tr><tr><td>内容写手</td><td>起草小队主管分配的内容</td></tr><tr><td>社交媒体经理</td><td>安排和发布跨平台内容</td></tr><tr><td>设计师</td><td>生成素材，与 Figma 协调</td></tr><tr><td>电子邮件营销</td><td>管理序列和活动表现</td></tr><tr><td>开发者</td><td>代码任务、创建 PR、运行测试</td></tr><tr><td>文档</td><td>保持内部文档最新</td></tr></tbody></table>
+<p>心跳周期：每 15 分钟，每个代理会向共享的 Convex 数据库写入一条状态更新。小队负责人读取所有状态更新，识别障碍，并在需要时重新分配任务。
+<strong>此设计中的实践经验：</strong></p>
+<p><strong>1. 共享数据库优于共享内存文件。</strong> 当智能体需要协作时，一个结构化数据库（如 Convex、Supabase、带 schema 的 SQLite）比通过内存文件传递消息更可靠。它能处理并发写入，提供查询功能，并为你提供审计追踪。
+**2. 心跳机制揭示静默故障。**一个停止写入心跳更新的智能体，要么是卡住了，要么是已经死亡。如果没有心跳机制，直到下游的某个环节崩溃，你才会发现问题。</p>
+<p>**3. 范围限制防止级联故障。**每个智能体都有一套明确定义的工具和一个明确定义的责任范围。范围限制使幻觉能够安全地失败，而不是静默地失败。
+**4. 单一人工接触点。**操作员的角色：在 Slack 中审查晨会，检查 Telegram 的提及日志，处理小队负责人上报的问题。不是直接管理十个智能体，而是管理一份摘要。</p>
+<hr>
+<h2 id="通用基础设施堆栈-infra-stack">通用基础设施堆栈 {#infra-stack</h2>
+<p>Discord （5次以上提及，多智能体设置）
+iMessage （3次以上提及，个人/家庭）</p>
+<p>计算（始终在线）
+Mac Mini — 最常见的家庭服务器选择
+Mac Studio — 重型工作负载，本地推理
+Raspberry Pi —
+SQLite — 结构化智能体协调
+Supabase — 多智能体共享数据库</p>
+<p>专用管道（按用例）
+Twilio — 实际电话通话（ElevenLabs 语音）
+SeatsAero — 奖励航班搜索
+Kalshi — 预测市场执行
+moomoo — 交易 API
+Home Assistant — 智能家居控制
+Garmin Connect — 健身数据
+将配置托管于 GitHub 的模式值得特别一提。一些高级用户会在一个私有的 Git 仓库中对他们的整个 OpenClaw 配置进行版本控制。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#79B8FF">cd</span><span style="color:#9ECBFF"> ~/.openclaw</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> init</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> add</span><span style="color:#9ECBFF"> .</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> commit</span><span style="color:#79B8FF"> -m</span><span style="color:#9ECBFF"> "初始 openclaw 配置 — 2026年2月"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># 在任何配置更改后</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> add</span><span style="color:#79B8FF"> -A</span><span style="color:#E1E4E8"> &#x26;&#x26; </span><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> commit</span><span style="color:#79B8FF"> -m</span><span style="color:#9ECBFF"> "收紧引导上下文：移除了旧的项目文件"</span></span>
+<span class="line"></span></code></pre>
+<p>当更新导致问题时，这为你提供了回滚功能；当行为发生意外变化时，你可以查看差异历史；并且可以轻松部署到新机器上。</p>
+<hr>
+<h2 id="采用数据实际显示了什么-adoption-data">采用数据实际显示了什么 {#adoption-data}</h2>
+<p>【插图 05-tldl-use-cases.png】
+<em>TLDL——《OpenClaw 2026 年用例：25+ 个真实示例》，2026 年 2 月 23 日。对不同采用类别的 100 多名用户进行的调查。</em></p>
+<p>TLDL 调查了 100 多名 OpenClaw 用户：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类别</th><th>采用率</th><th>满意度</th></tr></thead><tbody><tr><td>内容</td><td></td><td></td></tr><tr><td>研究与数据</td><td>28%</td><td>4.3/5</td></tr><tr><td>邮件管理</td><td>20%</td><td>4.0/5</td></tr><tr><td>编码辅助</td><td>15%</td><td>4.8/5</td></tr></tbody></table>
+<p><strong>编码的满意度得分最高，但采用率最低。</strong> 设置了编码工作流的开发者对它们非常满意，但大多数设置 OpenClaw 的人并不是从这里开始的。
+**内容自动化的采用率最广。**这是大多数人开始的地方，因为其价值立竿见影。你运行一个 cron 作业，在 Telegram 中收到一份摘要，20 分钟内就能看到它开始工作。</p>
+<p>调查还指出了一个常见的进阶过程
+<em>Team 400 — “在生产环境中运行 OpenClaw”，2026年2月10日。来自一家托管服务提供商的企业部署经验。</em></p>
+<p>Team 400，一家为澳大利亚企业运行 OpenClaw 的托管服务公司：</p>
+<blockquote>
+<p>“演示需要十分钟。通过安全审查需要十周。大多数 OpenClaw 项目都在此期间夭折。”
+<strong>从演示到生产的差距是真实存在的。</strong> 入门指南涵盖了设置，但并未涵盖：在安装前由谁来审查技能代码、当 LLM 提供商服务中断时会发生什么、如何保护凭据，或者当有团队成员离开时你该如何
+**你需要一个预发布环境。**每个 OpenClaw 更新都应首先部署到预发布环境。他们在一年内不得不回滚 OpenClaw 更新三次——每次都在15分钟内完成，因为回滚流程已提前记录并测试过。</p>
+</blockquote>
+<p><strong>大规模运营时，成本追踪是不可或缺的。</strong>“我们见过有组织在一周之内，月度开销从几百美元飙升到几千美元，通常是因为有人安装了一项技能，该技能会针对每个用户请求进行多次 LLM 调用。”
+**运维负担：**在稳定状态下，一个人在生产环境中运行 OpenClaw 每周需要 4-8 小时。</p>
+<p>对于个人使用和小型团队，大部分这些开销并不适用。但如果你要将 OpenClaw 应用于处理客户数据或财务信息的业务场景中，那么在构建任何东西之前，Team 400 的那篇文章值得你通篇阅读。</p>
+<hr>
+<h2 id="从何处开始-where-to-start">从何处开始 {#where-to-start}</h2>
+<p>【插图 03-serif-use-cases.png】
+<em>Serif.ai ——《OpenClaw 用例：人们实际上用它来做什么》，2026年2月9日。25个有记录的用例，涵盖电子邮件、日历、研究、生产力和业务运营。</em></p>
+<p>每个高级用户的配置都是从一些简单的事情开始的：</p>
+<p><strong>第一天：晨报 cron 任务。</strong> 日历 + 电子邮件摘要，于早上7点发送到 Telegram。设置需要20分钟。第二天早上你就能看到它的效果。
+<strong>第 1 周：添加一个记忆文件。</strong> 开始使用 <code>triple-memory-skill</code> 或手动记忆文件来存储你重复告诉代理的事情。这会让你的代理感觉它了解你，而不是每次会话都从头开始。</p>
+<p><strong>第 2-4 周：将两个工具链接在一起。</strong> 如果你有一个项目管理工具（ClickUp、Notion、Linear），安装它的技能并将其与你的日历结合起来。一个命令即可显示今天到期的任务和已安排的日程。
+<strong>第二个月：首次多智能体设置。</strong> 添加一个具有特定角色的子智能体。一个在夜间运行的研究智能体。限定其范围。</p>
+<p><strong>第三个月及以后：夜间工作。</strong> 到这个时候，你应该对你的智能体能可靠地做什么和不能做什么有了足够的了解，可以开始在睡前分配多步骤任务了。</p>
+<p>Graham Mann 对他一个月后所处阶段的描述：</p>
+<blockquote>
+<p><em>“我有一个智能体，它了解我的项目，记得我们的对话，并在我睡觉时做有用的工作。这足以让我继续构建下去。”</em></p>
+</blockquote>
+<p>就从这里开始。并以此为基础不断构建。</p>
+<hr>
+<h2 id="快速参考社区资源">快速参考：社区资源</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>来源</th><th>类型</th><th>用途</th></tr></thead><tbody><tr><td><a href="https://grahammann.net/blog/every-openclaw-use-case">grahammann.net/blog/every-openclaw-use-case</a></td><td>精选列表</td><td>浏览分类，找到你的用例</td></tr><tr><td><a href="https://www.reddit.com/r/openclaw/">r/openclaw</a></td><td>社区</td><td>真实配置、问题排查、同行反馈</td></tr><tr><td><a href="https://www.reddit.com/r/LocalLLaMA/">r/LocalLLaMA</a></td><td>技术社区</td><td>高级用户配置、成本优化</td></tr><tr><td><a href="https://ohmyopenclaw.ai/">ohmyopenclaw.ai</a></td><td>技能目录</td><td>查找和评估技能、工作流指南</td></tr><tr><td><a href="https://www.serif.ai/openclaw">serif.ai/openclaw</a></td><td>用例目录</td><td>特定行业工作流</td></tr><tr><td><a href="https://www.tldl.io/blog/openclaw-use-cases-2026">tldl.io/blog/openclaw-use-cases-2026</a></td><td>调查数据</td><td>采用统计数据，按类别划分的满意度</td></tr><tr><td><a href="https://team400.ai/blog/2026-02-openclaw-production-enterprise">team400.ai/blog</a></td><td>企业指南</td><td>生产部署、安全性、运营</td></tr><tr><td><a href="https://github.com/hesamsheikh/awesome-openclaw-usecases">github.com/hesamsheikh/awesome-openclaw-usecases</a></td><td>GitHub</td><td>社区整理的原始列表</td></tr></tbody></table>
+<hr>
+<h2 id="附录按类别划分的-85-个用例-appendix">附录：按类别划分的 85+ 个用例 {#appendix}</h2>
+<p><em>精简自 <a href="https://grahammann.net/blog/every-openclaw-use-case">grahammann.net</a>。完整署名信息见原帖。</em></p>
+<p><strong>商业与销售 (12)</strong>
+潜在客户获取与ICP外展 · 自动化竞价工作流 · 销售电话前的潜在客户研究 · 与企业客户预约会议 · 24/7全天候销售外展团队 · 物理治疗公司管理 · 非营利组织运营 · 管理4个代理机构工作区 · CRM迁移（1500个联系人） · 通过Telegram进行客户网站管理 · eBay运营管理 · 跨29家零售店的产品情报（40TB数据）</p>
+<p><strong>编码与开发 (11)</strong>
+在一个周末内通过 Telegram 构建一个产品 (Pagedrop) · 根据 Reddit 趋势数据，一夜之间自主构建应用 · 带有 App Store Connect 自动化功能的 iOS/Web 应用编排器 · 通过 SSH 在 Raspberry Pi 上进行硬件项目 · 定制 ERP 模块流水线 · 一夜之间完成功能开发 · 每晚进行副项目编码 · 为独立创始人服务的 Scrum Master 代理 · 在 3 周内开发 iOS 跑步教练应用 · 在 Kubernetes 中通过 Slack 进行游戏 DevOps · 带有日志追踪和回滚提议的生产事故管理
+<strong>社交媒体与内容 (11)</strong>
+4个X账户的多平台管理 · COO代理，监督一个4代理团队，提供每日AI新闻简报 · 三个代理为Every出版物投稿 · 跨Reddit/TikTok/Discord/X的自动发帖 · X动态扫描和自动回复 · 代您在X上辩论
+<strong>多智能体团队 (10)</strong>
+10个智能体的 Mission Control (Convex 数据库，15分钟心跳) · 用于管理其他智能体的智能体团队 (开源) · 8个专用智能体运行超过50个 cron 作业 · 4个智能体的运维/创造者/策展人/润色者团队 · 4个智能体在一个自托管的 Matrix 房间中 · 包含健康 + 交易 + 创意智能体的集群仪表板 · 给予一个智能体1000美元用于自主创业 · 近乎由智能体运营的 SaaS (月收入550美元) · 拥有自己 X 账户和 API 成本预算的智能体 · 30天挑战：智能体自己赚钱
+<strong>研究与分析 (7)</strong>
+Linear → Obsidian 隔夜研究报告 · 通过 WhatsApp 进行会议准备 · 内容索引和上下文检索 · 为项目构思进行隔夜网络研究 · 期权流数据分析（6个月，SQLite + 矢量层） · 通过 Kaggle 和 SSH
+周四晚餐协调员，带小组投票功能 · 通过 iMessage 群聊预订晚餐 · 通过语音命令管理孩子的 Minecraft 服务器 · 孩子的日程安排，由代理给教练拨打语音电话 · 家庭膳食计划 + 每月关系辅导 · 在飞机上通过 Discord 策划婚礼 · 通过 Alexa + iMessage 发布家庭晨间通知</p>
+<p><strong>每日简报 (6)</strong>
+AI 幕僚长，每晚进行自我反思 · 每日销售简报，包含客户沟通要点 · 每周可视化日历，提供工作负载均衡建议 · 收件箱分类处理 + 自动拒绝 14 个低效会议邀请 · 为即将召开的
+股票和加密货币价格提醒 · 在 Nvidia Jetson 上运行的加密货币和期权机器人 · Kalshi 预测市场自动执行 · 电子邮件费用追踪（已索引 14GB） · 支出追踪和净资产监控</p>
+<p><strong>健康与健身 (4)</strong>
+使用 JSON 格式追踪血糖和用药，并生成报告 · 锻炼后 Garmin 手表活动反馈 · 5 年的 EightSleep 数据分析 · 血液/基因/精液测试综合健康计划</p>
+<p><strong>旅行 (3)</strong>
+机票 + Airbnb 行程规划器，带有每日价格定时任务 · 通过 Telegram (SeatsAero API) 的头等舱奖励机票查找器 · 事件到日历的自动化，带有详尽的家庭成员条目</p>
+<p><strong>笔记与知识管理 (4)</strong>
+语音 → Whisper 转录 → 结构化日志 → GitHub 自动提交 · 完全通过语音与 Obsidian 交互 · 按心情和主题索引多年的已存图片 · 家庭文件归档：照片/PDF → OCR → 分类存入 Google Drive</p>
+<p><strong>智能家居 (3)</strong>
+通过 Telegram 完全控制 Home Assistant（车库、投影仪、灯光、Vestaboard）· 三星电视情境感知仪表板，可分时段显示内容 · Dynamic Island 状态应用，用于查看智能体当前活动（已开源）</p>
+<p>**创意与趣味 (
+1v1 梗图对战竞技场（一夜之间超过100场对战，触发了API阈值警报）· 通过智能体间的兼容性评估进行 AI 匹配 · 智能体在其中四处走动和交易的虚拟世界 · 用于构建和编码的狗狗人设助手 · 拥有自己 Suno 账户的乐理学习器</p>
+<p><strong>电子邮件与通信 (4)</strong>
+以您配置的语气在 WhatsApp 上自动回复 · 通过 Supabase + Resend 向 2,400 名用户进行电子邮件营销活动管理 · 通过真实电话进行餐厅预订 (ElevenLabs + Twilio) · 每天凌晨 3:45 给一位表亲发送 Billie Eilish 的新闻文章</p>  </div> <!-- 返回博客列表 --> <footer class="mt-16 pt-8 border-t border-accent/20"> <a href="/zh/blog/" class="inline-flex items-center gap-2 font-mono text-sm text-text-muted hover:text-accent transition-colors group"> <span class="group-hover:-translate-x-1 transition-transform">&lt;-</span> <span>返回所有文章</span> </a> </footer> </article> </main> <footer class="bg-dark-secondary border-t border-accent/20"> <div class="max-w-7xl mx-auto px-6 lg:px-20 py-12 lg:py-16"> <!-- Top Section --> <div class="flex flex-col lg:flex-row justify-between gap-12 mb-12"> <!-- Brand --> <div class="lg:max-w-xs"> <a href="/zh/" class="inline-block mb-4"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <p class="text-text-muted text-sm font-mono"> <span class="text-terminal-cyan">//</span> 你的 AI 永不休眠
+</p> </div> <!-- Links Grid --> <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 font-mono"> <!-- Product --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/产品</h4> <ul class="space-y-3"> <li> <a href="/zh/features" class="text-text-muted text-sm hover:text-accent transition-colors"> 功能 </a> </li><li> <a href="#pricing" class="text-text-muted text-sm hover:text-accent transition-colors"> 价格 </a> </li><li> <a href="/zh/docs" class="text-text-muted text-sm hover:text-accent transition-colors"> 文档 </a> </li> </ul> </div> <!-- Company --> <div> <h4 class="text-terminal-orange font-bold mb-4 text-sm">/公司</h4> <ul class="space-y-3"> <li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 关于 </a> </li><li> <a href="/zh/blog/" class="text-text-muted text-sm hover:text-accent transition-colors"> 博客 </a> </li><li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 招聘 </a> </li> </ul> </div> <!-- Contact --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/联系</h4> <ul class="space-y-3"> <li> <a href="/cdn-cgi/l/email-protection#d4bba7b7b5a6aeb5b9bba6b5e5ededede4e394b3b9b5bdb8fab7bbb9" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> <span class="__cf_email__" data-cfemail="701f031311020a111d1f021141494949404730171d11191c5e131f1d">[email&#160;protected]</span> </a> </li><li> <a href="https://twitter.com/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Twitter </a> </li><li> <a href="https://discord.gg/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Discord </a> </li> </ul> </div> <!-- Legal --> <div> <h4 class="text-terminal-blue font-bold mb-4 text-sm">/法律</h4> <ul class="space-y-3"> <li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 隐私 </a> </li><li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 条款 </a> </li><li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 安全 </a> </li> </ul> </div> </div> </div> <!-- Divider --> <div class="border-t border-accent/20 pt-8"> <div class="flex flex-col md:flex-row justify-between items-center gap-4 font-mono"> <!-- Copyright --> <p class="text-text-dark text-sm">
+/* © 2026 AgentPuter. 保留所有权利。 */
+</p> <!-- Social Links --> <div class="flex items-center gap-6"> <a href="https://github.com/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors"> GitHub </a> </div> </div> </div> </div> </footer>  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"db97590b14994206be9f2eaec90a9494","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html> 

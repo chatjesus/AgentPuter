@@ -1,0 +1,205 @@
+<!DOCTYPE html><html lang="zh-TW"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="OpenClaw 突破 207,000 GitHub Stars。從裸機到一鍵雲部署，完整評測四種方案的真實成本與維運難度。"><meta name="theme-color" content="#0D0D0D"><meta name="generator" content="Astro v4.16.19"><!-- Canonical URL --><link rel="canonical" href="https://www.agentputer.com/zh-tw/blog/09-deploy-openclaw/"><!-- hreflang 多语言标签 --><link rel="alternate" hreflang="en" href="https://www.agentputer.com/blog/09-deploy-openclaw/"><link rel="alternate" hreflang="zh-CN" href="https://www.agentputer.com/zh/blog/09-deploy-openclaw/"><link rel="alternate" hreflang="ja" href="https://www.agentputer.com/ja/blog/09-deploy-openclaw/"><link rel="alternate" hreflang="ko" href="https://www.agentputer.com/ko/blog/09-deploy-openclaw/"><link rel="alternate" hreflang="es" href="https://www.agentputer.com/es/blog/09-deploy-openclaw/"><link rel="alternate" hreflang="pt-BR" href="https://www.agentputer.com/pt-br/blog/09-deploy-openclaw/"><link rel="alternate" hreflang="de" href="https://www.agentputer.com/de/blog/09-deploy-openclaw/"><link rel="alternate" hreflang="fr" href="https://www.agentputer.com/fr/blog/09-deploy-openclaw/"><link rel="alternate" hreflang="zh-TW" href="https://www.agentputer.com/zh-tw/blog/09-deploy-openclaw/"><link rel="alternate" hreflang="x-default" href="https://www.agentputer.com/blog/09-deploy-openclaw/"><!-- Keywords（各语言本地化） --><meta name="keywords" content="OpenClaw, 部署, TinyClaw, VPS, Mac mini"><!-- Open Graph --><meta property="og:title" content="四種方式部署 OpenClaw：Mac mini、VPS、雲 Pod，或 60 秒搞定 | AgentPuter 部落格"><meta property="og:description" content="OpenClaw 突破 207,000 GitHub Stars。從裸機到一鍵雲部署，完整評測四種方案的真實成本與維運難度。"><meta property="og:type" content="article"><meta property="og:url" content="https://www.agentputer.com/zh-tw/blog/09-deploy-openclaw/"><meta property="og:image" content="https://www.agentputer.com/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:site_name" content="AgentPuter"><meta property="og:locale" content="zh_TW"><meta property="og:locale:alternate" content="en_US"><meta property="og:locale:alternate" content="zh_CN"><meta property="og:locale:alternate" content="ja_JP"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="es_ES"><meta property="og:locale:alternate" content="pt_BR"><meta property="og:locale:alternate" content="de_DE"><meta property="og:locale:alternate" content="fr_FR"><!-- Article-specific OG tags --><meta property="article:published_time" content="2026-01-15"><meta property="article:author" content="AgentPuter Lab"><meta property="article:tag" content="OpenClaw"><meta property="article:tag" content="部署"><meta property="article:tag" content="TinyClaw"><meta property="article:tag" content="VPS"><meta property="article:tag" content="Mac mini"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@agentputer"><meta name="twitter:creator" content="@agentputer"><meta name="twitter:title" content="四種方式部署 OpenClaw：Mac mini、VPS、雲 Pod，或 60 秒搞定 | AgentPuter 部落格"><meta name="twitter:description" content="OpenClaw 突破 207,000 GitHub Stars。從裸機到一鍵雲部署，完整評測四種方案的真實成本與維運難度。"><meta name="twitter:image" content="https://www.agentputer.com/og-default.png"><!-- Favicon --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/favicon.svg"><!-- 字体：preconnect + LCP 关键字体直接预加载 --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- 直接预加载 LCP 关键字体文件（JetBrains Mono Bold Latin，H1 使用） --><link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8L6tTOlOVk6OThhvA.woff2"><!-- 字体 CSS 阻塞加载（配合 preconnect 延迟极低，确保 LCP 时字体可用） --><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"><!-- Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":"https://www.agentputer.com/favicon.svg","description":"Your AI Agent's dedicated cloud runtime. AgentPuter keeps your AI running 24/7.","sameAs":["https://twitter.com/agentputer","https://github.com/agentputer","https://discord.gg/agentputer"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"AgentPuter","url":"https://www.agentputer.com","inLanguage":"zh-TW","availableLanguage":[{"@type":"Language","name":"English","alternateName":"en"},{"@type":"Language","name":"中文","alternateName":"zh-CN"},{"@type":"Language","name":"繁體中文","alternateName":"zh-TW"},{"@type":"Language","name":"日本語","alternateName":"ja"},{"@type":"Language","name":"한국어","alternateName":"ko"},{"@type":"Language","name":"Español","alternateName":"es"},{"@type":"Language","name":"Português","alternateName":"pt-BR"},{"@type":"Language","name":"Deutsch","alternateName":"de"},{"@type":"Language","name":"Français","alternateName":"fr"}],"description":"Your AI Agent's dedicated cloud runtime."}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.agentputer.com/zh-tw/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.agentputer.com/zh-tw/blog/"},{"@type":"ListItem","position":3,"name":"09 deploy openclaw","item":"https://www.agentputer.com/zh-tw/blog/09-deploy-openclaw/"}]}</script><!-- 页面专属结构化数据插槽 --><!-- 浏览器语言自动检测：移到 head 阻塞执行，避免渲染后跳转导致 CLS --><script>
+    (function() {
+      if (localStorage.getItem('agentputer-lang')) return;
+
+      var langMap = {
+        'zh': '/zh', 'zh-cn': '/zh', 'zh-tw': '/zh-tw', 'zh-hk': '/zh-tw',
+        'ja': '/ja', 'ko': '/ko',
+        'es': '/es', 'es-419': '/es',
+        'pt': '/pt-br', 'pt-br': '/pt-br',
+        'de': '/de', 'fr': '/fr',
+      };
+
+      var path = window.location.pathname;
+      if (/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)(\/|$)/.test(path)) {
+        var m = path.match(/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)/);
+        if (m) localStorage.setItem('agentputer-lang', m[1]);
+        return;
+      }
+
+      var langs = navigator.languages || [navigator.language];
+      for (var i = 0; i < langs.length; i++) {
+        var bl = langs[i].toLowerCase();
+        if (langMap[bl]) {
+          var target = path === '/' ? langMap[bl] + '/' : langMap[bl] + path;
+          localStorage.setItem('agentputer-lang', bl);
+          window.location.replace(target);
+          return;
+        }
+        var primary = bl.split('-')[0];
+        if (primary !== bl && langMap[primary]) {
+          var target2 = path === '/' ? langMap[primary] + '/' : langMap[primary] + path;
+          localStorage.setItem('agentputer-lang', primary);
+          window.location.replace(target2);
+          return;
+        }
+      }
+      localStorage.setItem('agentputer-lang', 'en');
+    })();
+    </script><!-- Google Analytics 4 --><script async src="https://www.googletagmanager.com/gtag/js?id=G-9M2T6GQJ0L"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9M2T6GQJ0L');
+    </script><title>四種方式部署 OpenClaw：Mac mini、VPS、雲 Pod，或 60 秒搞定 | AgentPuter 部落格</title><link rel="stylesheet" href="/_astro/_slug_.DM3EUOA_.css">
+<link rel="stylesheet" href="/_astro/_slug_.CUcOCpHJ.css">
+<link rel="stylesheet" href="/_astro/_slug_.CxhqtQFk.css"><script type="module" src="/_astro/hoisted.59JzbWNo.js"></script></head> <body class="min-h-screen">   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"四種方式部署 OpenClaw：Mac mini、VPS、雲 Pod，或 60 秒搞定","description":"OpenClaw 突破 207,000 GitHub Stars。從裸機到一鍵雲部署，完整評測四種方案的真實成本與維運難度。","datePublished":"2026-01-15","dateModified":"2026-01-15","inLanguage":"zh-TW","author":{"@type":"Organization","name":"AgentPuter Lab","url":"https://www.agentputer.com"},"publisher":{"@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":{"@type":"ImageObject","url":"https://www.agentputer.com/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.agentputer.com/zh-tw/blog/09-deploy-openclaw/"},"keywords":"OpenClaw, 部署, TinyClaw, VPS, Mac mini"}</script> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://www.agentputer.com/zh-tw/"},{"@type":"ListItem","position":2,"name":"部落格","item":"https://www.agentputer.com/zh-tw/blog/"},{"@type":"ListItem","position":3,"name":"四種方式部署 OpenClaw：Mac mini、VPS、雲 Pod，或 60 秒搞定"}]}</script> <header class="fixed top-0 left-0 right-0 z-50 bg-dark-primary md:bg-dark-primary/95 md:backdrop-blur-lg border-b border-accent/20"> <nav class="max-w-7xl mx-auto px-6 lg:px-20 h-20 flex items-center justify-between"> <!-- Logo --> <a href="/zh/" class="flex items-center gap-2 group"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <!-- Desktop Navigation --> <div class="hidden md:flex items-center gap-8 font-mono"> <a href="/zh/features" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/功能
+</a> <a href="#pricing" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/价格
+</a> <a href="/zh/blog/" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/博客
+</a> <a href="/zh/docs" class="text-text-secondary hover:text-accent transition-colors text-sm">
+/文档
+</a> <!-- Desktop 语言切换器 --><div class="lang-switcher relative"> <button class="lang-btn flex items-center gap-1.5 text-text-secondary hover:text-accent transition-colors text-sm font-mono cursor-pointer" aria-label="Switch language" aria-expanded="false"> <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <circle cx="12" cy="12" r="10" stroke-width="1.5"></circle> <path stroke-width="1.5" d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path> </svg> <span>EN</span> <svg class="w-3 h-3 opacity-40 transition-transform lang-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </button> <!-- 下拉菜单 --> <div class="lang-dropdown hidden absolute right-0 top-full mt-2 py-1 bg-[#1a1a1a] border border-[#333] rounded-lg shadow-xl min-w-[160px] z-[100]"> <a href="/zh-tw/blog/09-deploy-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-accent bg-accent/10" data-lang="en"> <span>English</span> <span class="text-xs text-accent">EN</span> </a><a href="/zh/zh-tw/blog/09-deploy-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="zh"> <span>中文</span> <span class="text-xs text-text-dark">中文</span> </a><a href="/ja/zh-tw/blog/09-deploy-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ja"> <span>日本語</span> <span class="text-xs text-text-dark">JA</span> </a><a href="/ko/zh-tw/blog/09-deploy-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ko"> <span>한국어</span> <span class="text-xs text-text-dark">KO</span> </a><a href="/es/zh-tw/blog/09-deploy-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="es"> <span>Español</span> <span class="text-xs text-text-dark">ES</span> </a><a href="/pt-br/zh-tw/blog/09-deploy-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="pt-br"> <span>Português</span> <span class="text-xs text-text-dark">PT</span> </a><a href="/de/zh-tw/blog/09-deploy-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="de"> <span>Deutsch</span> <span class="text-xs text-text-dark">DE</span> </a><a href="/fr/zh-tw/blog/09-deploy-openclaw/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="fr"> <span>Français</span> <span class="text-xs text-text-dark">FR</span> </a> </div> </div> <!-- Mobile 语言列表（平铺，不用下拉） --> <div class="lang-mobile hidden"> <div class="flex flex-wrap gap-2"> <a href="/zh-tw/blog/09-deploy-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-accent border-accent/40 bg-accent/10" data-lang="en"> English </a><a href="/zh/zh-tw/blog/09-deploy-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="zh"> 中文 </a><a href="/ja/zh-tw/blog/09-deploy-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ja"> 日本語 </a><a href="/ko/zh-tw/blog/09-deploy-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ko"> 한국어 </a><a href="/es/zh-tw/blog/09-deploy-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="es"> Español </a><a href="/pt-br/zh-tw/blog/09-deploy-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="pt-br"> Português </a><a href="/de/zh-tw/blog/09-deploy-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="de"> Deutsch </a><a href="/fr/zh-tw/blog/09-deploy-openclaw/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="fr"> Français </a> </div> </div>  <a href="https://app.agentputer.com/sign-up" class="text-sm py-2.5 px-6 bg-accent text-dark-primary font-bold rounded hover:bg-accent-dark transition-colors">
+[开始]
+</a> </div> <!-- Mobile Menu Button --> <button id="mobile-menu-btn-zh" class="md:hidden p-2 text-text-secondary hover:text-white" aria-label="Toggle menu"> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </nav> <!-- Mobile Menu --> <div id="mobile-menu-zh" class="hidden md:hidden bg-dark-secondary border-t border-dark-tertiary"> <div class="px-6 py-4 space-y-4"> <a href="/zh/features" class="block text-text-secondary hover:text-white transition-colors">
+功能
+</a> <a href="#pricing" class="block text-text-secondary hover:text-white transition-colors">
+价格
+</a> <a href="/zh/blog/" class="block text-text-secondary hover:text-white transition-colors">
+博客
+</a> <a href="/zh/docs" class="block text-text-secondary hover:text-white transition-colors">
+文档
+</a> <div class="lang-mobile-wrapper"></div> <a href="https://app.agentputer.com/sign-up" class="btn-primary w-full justify-center text-sm py-3">
+开始使用
+</a> </div> </div> </header>  <main class="relative z-10 pt-28 pb-20"> <article class="max-w-4xl mx-auto px-6 lg:px-8"> <!-- 面包屑导航 --> <nav class="mb-8 font-mono text-sm"> <a href="/zh-tw/" class="text-text-muted hover:text-accent transition-colors">~</a> <span class="text-text-dark mx-2">/</span> <a href="/zh-tw/blog/" class="text-text-muted hover:text-accent transition-colors">部落格</a> <span class="text-text-dark mx-2">/</span> <span class="text-accent">文章</span> </nav> <!-- 文章元信息头部 --> <header class="mb-12"> <!-- 标签 --> <div class="flex flex-wrap gap-2 mb-6"> <span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#OpenClaw </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#部署 </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#TinyClaw </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#VPS </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Mac mini </span> </div> <!-- 标题 --> <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6"> 四種方式部署 OpenClaw：Mac mini、VPS、雲 Pod，或 60 秒搞定 </h1> <!-- 描述 --> <p class="text-lg text-text-secondary leading-relaxed mb-8"> OpenClaw 突破 207,000 GitHub Stars。從裸機到一鍵雲部署，完整評測四種方案的真實成本與維運難度。 </p> <!-- 元信息行 --> <div class="flex flex-wrap items-center gap-6 text-sm font-mono text-text-muted border-t border-b border-accent/20 py-4"> <div class="flex items-center gap-2"> <span class="text-terminal-cyan">@</span> <span class="text-text-secondary">AgentPuter Lab</span> </div> <div class="flex items-center gap-2"> <span class="text-terminal-orange">$</span> <time datetime="2026-01-15" class="text-text-secondary">2026年1月15日</time> </div> <div class="flex items-center gap-2"> <span class="text-terminal-blue">~</span> <span class="text-text-secondary">閱讀 12 min</span> </div> </div> </header> <!-- 文章正文 --> <div class="prose prose-invert prose-terminal max-w-none">  <h2 id="先搞清楚openclaw-到底是什麼30-秒版">先搞清楚：OpenClaw 到底是什麼（30 秒版</h2>
+<ul class="contains-task-list">
+<li><strong>語音和畫布。</strong> Voice Wake + Talk Mode（ElevenLabs 驅動）讓你免持對話。Live Canvas（A2UI）給它一個可視化工作臺。</li>
+<li><strong>本地優先。</strong> 你的資料留在你的機器上。不拿你的
+Mac mini M4 基礎款（$599）綽綽有餘：16GB 統一記憶體、256GB 儲存。待機功耗 5–10W，一年電費約 15 美元。靜音、常開、</li>
+<li class="task-list-item"><input type="checkbox" checked disabled> 一個 Telegram 帳號（最簡單的入門管道）</li>
+</ul>
+<h3 id="分步安裝">分步安裝</h3>
+<p><strong>步驟 1：全域安裝 OpenClaw</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> install</span><span style="color:#79B8FF"> -g</span><span style="color:#9ECBFF"> openclaw@latest</span></span>
+<span class="line"></span></code></pre>
+<p>也可以用 pnpm（<code>pnpm add -g 3. **選訊息管道。** Telegram 是最簡單的起步選項。嚮導會讓你去找 Telegram 的 @BotFather，用 </code>/newbot` 創建一個新的 bot，然後將 token 貼回來。
+4. <strong>安裝背景守護程序。</strong> macOS 上會創建
+搞定了。你的 bot 已經上線。發一句「你能做什麼？」看看它的回應。</p>
+<blockquote>
+<p><strong>疑難排解提示：</strong> 如果 bot 沒有回應，先執行 <code>openclaw doctor</code>。常見問題：守護程序沒有啟動（重新執行 `openclaw onboard</p>
+</blockquote>
+<ol start="3">
+<li><strong>跑一個真實任務。</strong> 別從「講個笑話」開始。試試：「幫我整理未讀郵件，按優先級排序」或「明天我有什麼日程，有沒有衝突？」</li>
+</ol>
+<h3 id="真實成本">真實成本</h3>
+<p>| 項目 | 費用 |
+|------
+<strong>適合誰：</strong> 會 SSH。想要 root 權限。公司要求自建基礎設施。在意成本控制。</p>
+<h4 id="選伺服器">選伺服器</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>服務商</th><th>最低配置</th><th>月費</th></tr></thead><tbody><tr><td>Hetzner</td><td>2 v</td><td></td></tr><tr><td>ssh root@your-server-ip</td><td></td><td></td></tr></tbody></table>
+<h1 id="安裝-nodejs-22">安裝 Node.js 22</h1>
+<p>curl -fsSL <a href="https://deb.nodesource.com/setup_22.x">https://deb.nodesource.com/setup_22.x</a> | sudo -E bash -
+sudo apt-get install -y nodejs</p>
+<h1 id="安裝-openclaw">安裝 OpenClaw</h1>
+<ul>
+<li>一條命令重啟：<code>docker compose restart</code></li>
+<li>內建日誌管理</li>
+<li>沙箱模式：設定 <code>sandbox.mode: "non-main"</code> 讓群組/頻道會話跑在隔離的 Docker 容器裡</li>
+</ul>
+<h2 id="劣勢">劣勢：</h2>
+<ul>
+<li><code>"funnel"</code>——公網 HTTPS，但需要密碼認證（<code>gateway.auth.mode: "password"</code>）</li>
+</ul>
+<p><strong>備選：SSH 隧道</strong></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">ssh</span><span style="color:#79B8FF"> -L</span><span style="color:#9ECBFF"> 18789:localhost:18789</span><span style="color:#9ECBFF"> user@</span></span>
+<span class="line"><span style="color:#6A737D">#### 自管 VPS 的痛點</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">我在自管</span><span style="color:#9ECBFF"> VPS</span><span style="color:#9ECBFF"> 上跑了三個月</span><span style="color:#9ECBFF"> OpenClaw，以下是實話：</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">-</span><span style="color:#9ECBFF"> 你得自己裝</span><span style="color:#9ECBFF"> Node.js、配</span><span style="color:#9ECBFF"> systemd、搞</span><span style="color:#9ECBFF"> Tailscale、處理</span><span style="color:#9ECBFF"> TLS。</span></span>
+<span class="line"><span style="color:#B392F0">-</span><span style="color:#9ECBFF"> OAuth</span><span style="color:#9ECBFF"> token</span><span style="color:#9ECBFF"> 會過期。如果你在另一個時區睡</span></span>
+<span class="line"><span style="color:#E1E4E8">[AgentPuter](</span><span style="color:#B392F0">https://www.agentputer.com/</span><span style="color:#E1E4E8">) 不是通用 VPS。它是</span><span style="color:#F97583">**</span><span style="color:#E1E4E8">專門為 AI Agent 設計的雲端執行時</span><span style="color:#F97583">**</span><span style="color:#E1E4E8">——OpenClaw、ClawBot、MoltBot 和自訂 Agent 都能跑。可以理解為「AI 助手的 Heroku</span></span>
+<span class="line"><span style="color:#B392F0">agentputer</span><span style="color:#9ECBFF"> create</span><span style="color:#9ECBFF"> openclaw</span></span>
+<span class="line"><span style="color:#6A737D"># → 一鍵分配雲環境，選配置和資源</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># 步驟 2：連接你的服務</span></span>
+<span class="line"><span style="color:#B392F0">agentputer</span><span style="color:#9ECBFF"> connect</span></span>
+<span class="line"><span style="color:#6A737D"># → 授權 Google、Notion、Slack 等。憑證安全儲存在 Pod 內</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># 步驟 3：</span></span>
+<span class="line"><span style="color:#B392F0">-</span><span style="color:#79B8FF"> **</span><span style="color:#9ECBFF">當前狀態：</span><span style="color:#79B8FF">**</span><span style="color:#9ECBFF"> Early</span><span style="color:#9ECBFF"> Access。在</span><span style="color:#E1E4E8"> [agentputer.com](</span><span style="color:#B392F0">https://www.agentputer.com/</span><span style="color:#E1E4E8">) 申請 Invite Code，24 小時內發放。</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">#### AgentPuter vs. 自管 VPS</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">|</span><span style="color:#F97583"> |</span><span style="color:#B392F0"> 自管</span><span style="color:#9ECBFF"> VPS</span><span style="color:#F97583"> |</span><span style="color:#B392F0"> AgentPuter</span><span style="color:#F97583"> |</span></span>
+<span class="line"><span style="color:#F97583">|</span><span style="color:#B392F0">--</span><span style="color:#F97583">|</span><span style="color:#B392F0">---------</span><span style="color:#F97583">|</span><span style="color:#B392F0">------------</span><span style="color:#F97583">|</span></span>
+<span class="line"><span style="color:#F97583">|</span><span style="color:#B392F0"> 部署時間</span><span style="color:#F97583"> |</span><span style="color:#B392F0"> 15–30</span><span style="color:#9ECBFF"> 分鐘</span><span style="color:#F97583"> |</span><span style="color:#B392F0"> ~2</span><span style="color:#9ECBFF"> 分鐘</span><span style="color:#F97583"> |</span></span>
+<span class="line"><span style="color:#F97583">|</span><span style="color:#B392F0"> 維運</span></span>
+<span class="line"><span style="color:#F97583">**</span><span style="color:#E1E4E8">適合誰：</span><span style="color:#F97583">**</span><span style="color:#E1E4E8"> 不想學命令行。不想管伺服器。只想</span><span style="color:#F97583">*</span><span style="color:#E1E4E8">用</span><span style="color:#F97583">*</span><span style="color:#E1E4E8">AI 助手，不想</span><span style="color:#F97583">*</span><span style="color:#E1E4E8">裝</span><span style="color:#F97583">*</span><span style="color:#E1E4E8">。想現在就試。</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">### 為什麼需要這條路</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">路徑</span><span style="color:#9ECBFF"> A</span><span style="color:#9ECBFF"> 需要</span><span style="color:#E1E4E8"> $599 </span><span style="color:#9ECBFF">和知道</span><span style="color:#9ECBFF"> Node.js</span><span style="color:#9ECBFF"> 是什麼。</span></span>
+<span class="line"><span style="color:#B392F0">1.</span><span style="color:#79B8FF"> **</span><span style="color:#9ECBFF">選模型</span><span style="color:#79B8FF">**</span><span style="color:#9ECBFF">——Claude</span><span style="color:#9ECBFF"> Opus</span><span style="color:#79B8FF"> 4.6</span><span style="color:#9ECBFF"> /</span><span style="color:#9ECBFF"> GPT-5.2</span><span style="color:#9ECBFF"> /</span><span style="color:#9ECBFF"> Gemini</span><span style="color:#79B8FF"> 3</span></span>
+<span class="line"><span style="color:#B392F0">2.</span><span style="color:#79B8FF"> **</span><span style="color:#9ECBFF">選管道</span><span style="color:#79B8FF">**</span><span style="color:#9ECBFF">——Telegram（Discord</span><span style="color:#9ECBFF"> 和</span><span style="color:#9ECBFF"> WhatsApp</span><span style="color:#9ECBFF"> 即將支援）</span></span>
+<span class="line"><span style="color:#B392F0">3.</span><span style="color:#79B8FF"> **</span><span style="color:#9ECBFF">Google</span><span style="color:#9ECBFF"> 帳號登入</span><span style="color:#79B8FF">**</span><span style="color:#9ECBFF"> →</span><span style="color:#9ECBFF"> 部署完成</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">沒有伺服器。沒有</span></span>
+<span class="line"><span style="color:#F97583">|</span><span style="color:#B392F0"> 部署時間</span><span style="color:#F97583"> |</span><span style="color:#B392F0"> 15–30</span><span style="color:#9ECBFF"> 分鐘</span><span style="color:#F97583"> |</span><span style="color:#B392F0"> 15–30</span><span style="color:#9ECBFF"> 分鐘</span><span style="color:#F97583"> |</span><span style="color:#B392F0"> ~2</span><span style="color:#9ECBFF"> 分鐘</span><span style="color:#F97583"> |</span><span style="color:#F97583"> &#x3C;</span><span style="color:#B392F0"> 1</span><span style="color:#9ECBFF"> 分鐘</span><span style="color:#F97583"> |</span></span>
+<span class="line"><span style="color:#F97583">|</span><span style="color:#B392F0"> 技術要求</span><span style="color:#F97583"> |</span><span style="color:#B392F0"> 會用終端</span><span style="color:#F97583"> |</span><span style="color:#B392F0"> SSH</span><span style="color:#9ECBFF"> +</span><span style="color:#9ECBFF"> 維運</span><span style="color:#F97583"> |</span><span style="color:#B392F0"> 基礎</span><span style="color:#9ECBFF"> CLI</span><span style="color:#F97583"> |</span><span style="color:#B392F0"> 無（純</span><span style="color:#9ECBFF"> GUI）</span><span style="color:#F97583"> |</span></span>
+<span class="line"><span style="color:#F97583">|</span><span style="color:#B392F0"> 適合誰</span><span style="color:#F97583"> |</span><span style="color:#B392F0"> 極客</span><span style="color:#9ECBFF"> /</span><span style="color:#9ECBFF"> 隱私</span><span style="color:#F97583"> |</span><span style="color:#B392F0"> 維運強</span><span style="color:#9ECBFF"> /</span><span style="color:#9ECBFF"> 合規</span><span style="color:#F97583"> |</span><span style="color:#B392F0"> 開發者</span><span style="color:#9ECBFF"> /</span><span style="color:#9ECBFF"> 多</span><span style="color:#9ECBFF"> Agent</span><span style="color:#F97583"> |</span><span style="color:#B392F0"> 所有人</span><span style="color:#F97583"> |</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">## 裝好之後：7 步讓 OpenClaw 從玩具變成員工</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">不管你走哪條路，安裝只是開始。以下</span></span>
+<span class="line"><span style="color:#F97583">|</span><span style="color:#B392F0"> 命令</span><span style="color:#F97583"> |</span><span style="color:#B392F0"> 功能</span><span style="color:#F97583"> |</span></span>
+<span class="line"><span style="color:#F97583">|</span><span style="color:#B392F0">------</span><span style="color:#F97583">|</span><span style="color:#B392F0">------</span><span style="color:#F97583">|</span></span>
+<span class="line"><span style="color:#F97583">|</span><span style="color:#9ECBFF"> `</span><span style="color:#B392F0">/status</span><span style="color:#9ECBFF">`</span><span style="color:#F97583"> |</span><span style="color:#B392F0"> 查看當前模型、token</span><span style="color:#9ECBFF"> 用量、會話資訊</span><span style="color:#F97583"> |</span></span>
+<span class="line"><span style="color:#F97583">|</span><span style="color:#9ECBFF"> `</span><span style="color:#B392F0">/new</span><span style="color:#9ECBFF">`</span><span style="color:#B392F0"> 或</span><span style="color:#9ECBFF"> `</span><span style="color:#B392F0">/reset</span><span style="color:#9ECBFF">`</span><span style="color:#F97583"> |</span><span style="color:#B392F0"> 重置對話會話</span><span style="color:#F97583"> |</span></span>
+<span class="line"><span style="color:#F97583">|</span><span style="color:#9ECBFF"> `</span><span style="color:#B392F0">/compact</span><span style="color:#9ECBFF">`</span><span style="color:#F97583"> |</span><span style="color:#B392F0"> 壓縮上下文（省</span><span style="color:#9ECBFF"> token）</span><span style="color:#F97583"> |</span></span>
+<span class="line"><span style="color:#B392F0">-</span><span style="color:#79B8FF"> **</span><span style="color:#9ECBFF">瀏覽器</span><span style="color:#79B8FF">**</span><span style="color:#9ECBFF">——OpenClaw</span><span style="color:#9ECBFF"> 可以控制一個專用</span><span style="color:#9ECBFF"> Chrome</span><span style="color:#9ECBFF"> 實例</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">### 5. 種下記憶種子</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">給它一些初始上下文，它會永遠記住：</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">></span><span style="color:#E1E4E8"> 「我每週一上午 10 點有團隊會議。我的老闆</span></span>
+<span class="line"><span style="color:#F97583">**</span><span style="color:#E1E4E8">API 費用大概多少？</span><span style="color:#F97583">**</span></span>
+<span class="line"><span style="color:#B392F0">輕度使用約</span><span style="color:#E1E4E8"> $15</span><span style="color:#9ECBFF">/月，中度</span><span style="color:#E1E4E8"> $30</span><span style="color:#9ECBFF">–50/月，重度（Viticci</span><span style="color:#9ECBFF"> 級別）</span><span style="color:#E1E4E8">$100</span><span style="color:#9ECBFF">–300/月。也可以用</span><span style="color:#9ECBFF"> Claude</span><span style="color:#9ECBFF"> Pro</span><span style="color:#9ECBFF"> 訂閱（</span></span>
+<span class="line"><span style="color:#B392F0">支援，透過</span><span style="color:#9ECBFF"> WSL2（Windows</span><span style="color:#9ECBFF"> Subsystem</span><span style="color:#9ECBFF"> for</span><span style="color:#9ECBFF"> Linux）——官方支援且強烈推薦。或者用</span><span style="color:#9ECBFF"> TinyClaw</span><span style="color:#9ECBFF"> 雲端部署，瀏覽器直接用，零本機設定。</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">**</span><span style="color:#E1E4E8">跟 ChatGPT Plus 比有什麼區別？</span><span style="color:#F97583">**</span></span>
+<span class="line"><span style="color:#B392F0">ChatGPT</span><span style="color:#9ECBFF"> 是你去找它聊天；Open</span></span>
+<span class="line"><span style="color:#B392F0">-</span><span style="color:#79B8FF"> **</span><span style="color:#9ECBFF">Mac</span><span style="color:#9ECBFF"> mini</span><span style="color:#79B8FF">**</span><span style="color:#9ECBFF">——極客之選，完全掌控、語音喚醒、iMessage。</span></span>
+<span class="line"><span style="color:#B392F0">-</span><span style="color:#79B8FF"> **</span><span style="color:#9ECBFF">自管</span><span style="color:#9ECBFF"> VPS</span><span style="color:#79B8FF">**</span><span style="color:#9ECBFF">——開發者之選，root</span><span style="color:#9ECBFF"> 權限、最大靈活性。</span></span>
+<span class="line"><span style="color:#B392F0">-</span><span style="color:#79B8FF"> **</span><span style="color:#9ECBFF">[AgentPuter]</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">https://www.agentputer.com/</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#B392F0">這是</span><span style="color:#9ECBFF"> Agent</span><span style="color:#9ECBFF"> 基礎設施系列的第九篇。我們拆解過[為什麼</span><span style="color:#9ECBFF"> Agent</span><span style="color:#9ECBFF"> 需要自己的電腦]</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">/blog/agent-needs-its-own-computer/</span><span style="color:#E1E4E8">)</span><span style="color:#9ECBFF">、OpenClaw</span><span style="color:#9ECBFF"> 的[架構]</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">/blog/dissecting-openclaw-architecture/</span><span style="color:#E1E4E8">)</span><span style="color:#9ECBFF">、[技能生態]</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">/blog/</span></span>
+<span class="line"><span style="color:#B392F0">-</span><span style="color:#E1E4E8"> [OpenClaw </span><span style="color:#9ECBFF">GitHub</span><span style="color:#9ECBFF"> 倉庫]</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">https://github.com/openclaw/openclaw</span><span style="color:#E1E4E8">)</span><span style="color:#9ECBFF">（207K</span><span style="color:#9ECBFF"> Stars,</span><span style="color:#9ECBFF"> v2026.2.17）</span></span>
+<span class="line"><span style="color:#B392F0">-</span><span style="color:#E1E4E8"> [AgentPuter </span><span style="color:#9ECBFF">——</span><span style="color:#9ECBFF"> AI</span><span style="color:#9ECBFF"> Agent</span><span style="color:#9ECBFF"> 的</span><span style="color:#9ECBFF"> 7×24</span><span style="color:#9ECBFF"> 雲運行時]</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">https://www.agentputer.com/</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#B392F0">-</span><span style="color:#E1E4E8"> [TinyClaw </span><span style="color:#9ECBFF">——</span><span style="color:#9ECBFF"> 一鍵部署</span><span style="color:#9ECBFF"> OpenClaw]</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">https://tinyclaw.dev</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#B392F0">-</span><span style="color:#E1E4E8"> [OpenClaw </span><span style="color:#9ECBFF">官方文檔]</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">https://docs.openclaw.ai</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#B392F0">-</span><span style="color:#9ECBFF"> CVE-2026-25253</span><span style="color:#9ECBFF"> ——</span><span style="color:#9ECBFF"> OpenClaw</span><span style="color:#9ECBFF"> Gateway</span><span style="color:#9ECBFF"> Token</span><span style="color:#9ECBFF"> 竊取漏洞（詳見我們的安全分析文章）</span></span>
+<span class="line"></span></code></pre>  </div> <!-- 返回博客列表 --> <footer class="mt-16 pt-8 border-t border-accent/20"> <a href="/zh-tw/blog/" class="inline-flex items-center gap-2 font-mono text-sm text-text-muted hover:text-accent transition-colors group"> <span class="group-hover:-translate-x-1 transition-transform">&lt;-</span> <span>返回所有文章</span> </a> </footer> </article> </main> <footer class="bg-dark-secondary border-t border-accent/20"> <div class="max-w-7xl mx-auto px-6 lg:px-20 py-12 lg:py-16"> <!-- Top Section --> <div class="flex flex-col lg:flex-row justify-between gap-12 mb-12"> <!-- Brand --> <div class="lg:max-w-xs"> <a href="/zh/" class="inline-block mb-4"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <p class="text-text-muted text-sm font-mono"> <span class="text-terminal-cyan">//</span> 你的 AI 永不休眠
+</p> </div> <!-- Links Grid --> <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 font-mono"> <!-- Product --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/产品</h4> <ul class="space-y-3"> <li> <a href="/zh/features" class="text-text-muted text-sm hover:text-accent transition-colors"> 功能 </a> </li><li> <a href="#pricing" class="text-text-muted text-sm hover:text-accent transition-colors"> 价格 </a> </li><li> <a href="/zh/docs" class="text-text-muted text-sm hover:text-accent transition-colors"> 文档 </a> </li> </ul> </div> <!-- Company --> <div> <h4 class="text-terminal-orange font-bold mb-4 text-sm">/公司</h4> <ul class="space-y-3"> <li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 关于 </a> </li><li> <a href="/zh/blog/" class="text-text-muted text-sm hover:text-accent transition-colors"> 博客 </a> </li><li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 招聘 </a> </li> </ul> </div> <!-- Contact --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/联系</h4> <ul class="space-y-3"> <li> <a href="/cdn-cgi/l/email-protection#bdd2cededccfc7dcd0d2cfdc8c8484848d8afddad0dcd4d193ded2d0" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> <span class="__cf_email__" data-cfemail="99f6eafaf8ebe3f8f4f6ebf8a8a0a0a0a9aed9fef4f8f0f5b7faf6f4">[email&#160;protected]</span> </a> </li><li> <a href="https://twitter.com/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Twitter </a> </li><li> <a href="https://discord.gg/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Discord </a> </li> </ul> </div> <!-- Legal --> <div> <h4 class="text-terminal-blue font-bold mb-4 text-sm">/法律</h4> <ul class="space-y-3"> <li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 隐私 </a> </li><li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 条款 </a> </li><li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 安全 </a> </li> </ul> </div> </div> </div> <!-- Divider --> <div class="border-t border-accent/20 pt-8"> <div class="flex flex-col md:flex-row justify-between items-center gap-4 font-mono"> <!-- Copyright --> <p class="text-text-dark text-sm">
+/* © 2026 AgentPuter. 保留所有权利。 */
+</p> <!-- Social Links --> <div class="flex items-center gap-6"> <a href="https://github.com/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors"> GitHub </a> </div> </div> </div> </div> </footer>  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"db97590b14994206be9f2eaec90a9494","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html> 

@@ -1,0 +1,305 @@
+<!DOCTYPE html><html lang="fr"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Un chercheur d'Anthropic a dépensé 20 000 $ en laissant 16 agents Claude parallèles écrire un compilateur C. Le système de sous-agents d'OpenClaw vous permet d'exécuter la même architecture pour votre briefing matinal — pour environ 0,03 $. Voici comment."><meta name="theme-color" content="#0D0D0D"><meta name="generator" content="Astro v4.16.19"><!-- Canonical URL --><link rel="canonical" href="https://www.agentputer.com/fr/blog/12-agent-teams/"><!-- hreflang 多语言标签 --><link rel="alternate" hreflang="en" href="https://www.agentputer.com/blog/12-agent-teams/"><link rel="alternate" hreflang="zh-CN" href="https://www.agentputer.com/zh/blog/12-agent-teams/"><link rel="alternate" hreflang="ja" href="https://www.agentputer.com/ja/blog/12-agent-teams/"><link rel="alternate" hreflang="ko" href="https://www.agentputer.com/ko/blog/12-agent-teams/"><link rel="alternate" hreflang="es" href="https://www.agentputer.com/es/blog/12-agent-teams/"><link rel="alternate" hreflang="pt-BR" href="https://www.agentputer.com/pt-br/blog/12-agent-teams/"><link rel="alternate" hreflang="de" href="https://www.agentputer.com/de/blog/12-agent-teams/"><link rel="alternate" hreflang="fr" href="https://www.agentputer.com/fr/blog/12-agent-teams/"><link rel="alternate" hreflang="zh-TW" href="https://www.agentputer.com/zh-tw/blog/12-agent-teams/"><link rel="alternate" hreflang="x-default" href="https://www.agentputer.com/blog/12-agent-teams/"><!-- Keywords（各语言本地化） --><meta name="keywords" content="OpenClaw, Sub-Agents, Agent Teams, Parallel Agents, sessions_spawn, Claude Code"><!-- Open Graph --><meta property="og:title" content="D'un agent à une équipe : comment fonctionnent les sous-agents OpenClaw | Blog AgentPuter"><meta property="og:description" content="Un chercheur d'Anthropic a dépensé 20 000 $ en laissant 16 agents Claude parallèles écrire un compilateur C. Le système de sous-agents d'OpenClaw vous permet d'exécuter la même architecture pour votre briefing matinal — pour environ 0,03 $. Voici comment."><meta property="og:type" content="article"><meta property="og:url" content="https://www.agentputer.com/fr/blog/12-agent-teams/"><meta property="og:image" content="https://www.agentputer.com/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:site_name" content="AgentPuter"><meta property="og:locale" content="fr_FR"><meta property="og:locale:alternate" content="en_US"><meta property="og:locale:alternate" content="zh_CN"><meta property="og:locale:alternate" content="ja_JP"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="es_ES"><meta property="og:locale:alternate" content="pt_BR"><meta property="og:locale:alternate" content="de_DE"><meta property="og:locale:alternate" content="zh_TW"><!-- Article-specific OG tags --><meta property="article:published_time" content="2026-02-20"><meta property="article:author" content="AgentPuter Lab"><meta property="article:tag" content="OpenClaw"><meta property="article:tag" content="Sub-Agents"><meta property="article:tag" content="Agent Teams"><meta property="article:tag" content="Parallel Agents"><meta property="article:tag" content="sessions_spawn"><meta property="article:tag" content="Claude Code"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@agentputer"><meta name="twitter:creator" content="@agentputer"><meta name="twitter:title" content="D'un agent à une équipe : comment fonctionnent les sous-agents OpenClaw | Blog AgentPuter"><meta name="twitter:description" content="Un chercheur d'Anthropic a dépensé 20 000 $ en laissant 16 agents Claude parallèles écrire un compilateur C. Le système de sous-agents d'OpenClaw vous permet d'exécuter la même architecture pour votre briefing matinal — pour environ 0,03 $. Voici comment."><meta name="twitter:image" content="https://www.agentputer.com/og-default.png"><!-- Favicon --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/favicon.svg"><!-- 字体：preconnect + LCP 关键字体直接预加载 --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- 直接预加载 LCP 关键字体文件（JetBrains Mono Bold Latin，H1 使用） --><link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8L6tTOlOVk6OThhvA.woff2"><!-- 字体 CSS 阻塞加载（配合 preconnect 延迟极低，确保 LCP 时字体可用） --><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"><!-- Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":"https://www.agentputer.com/favicon.svg","description":"Your AI Agent's dedicated cloud runtime. AgentPuter keeps your AI running 24/7.","sameAs":["https://twitter.com/agentputer","https://github.com/agentputer","https://discord.gg/agentputer"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"AgentPuter","url":"https://www.agentputer.com","inLanguage":"fr","availableLanguage":[{"@type":"Language","name":"English","alternateName":"en"},{"@type":"Language","name":"中文","alternateName":"zh-CN"},{"@type":"Language","name":"繁體中文","alternateName":"zh-TW"},{"@type":"Language","name":"日本語","alternateName":"ja"},{"@type":"Language","name":"한국어","alternateName":"ko"},{"@type":"Language","name":"Español","alternateName":"es"},{"@type":"Language","name":"Português","alternateName":"pt-BR"},{"@type":"Language","name":"Deutsch","alternateName":"de"},{"@type":"Language","name":"Français","alternateName":"fr"}],"description":"Your AI Agent's dedicated cloud runtime."}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.agentputer.com/fr/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.agentputer.com/fr/blog/"},{"@type":"ListItem","position":3,"name":"12 agent teams","item":"https://www.agentputer.com/fr/blog/12-agent-teams/"}]}</script><!-- 页面专属结构化数据插槽 --><!-- 浏览器语言自动检测：移到 head 阻塞执行，避免渲染后跳转导致 CLS --><script>
+    (function() {
+      if (localStorage.getItem('agentputer-lang')) return;
+
+      var langMap = {
+        'zh': '/zh', 'zh-cn': '/zh', 'zh-tw': '/zh-tw', 'zh-hk': '/zh-tw',
+        'ja': '/ja', 'ko': '/ko',
+        'es': '/es', 'es-419': '/es',
+        'pt': '/pt-br', 'pt-br': '/pt-br',
+        'de': '/de', 'fr': '/fr',
+      };
+
+      var path = window.location.pathname;
+      if (/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)(\/|$)/.test(path)) {
+        var m = path.match(/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)/);
+        if (m) localStorage.setItem('agentputer-lang', m[1]);
+        return;
+      }
+
+      var langs = navigator.languages || [navigator.language];
+      for (var i = 0; i < langs.length; i++) {
+        var bl = langs[i].toLowerCase();
+        if (langMap[bl]) {
+          var target = path === '/' ? langMap[bl] + '/' : langMap[bl] + path;
+          localStorage.setItem('agentputer-lang', bl);
+          window.location.replace(target);
+          return;
+        }
+        var primary = bl.split('-')[0];
+        if (primary !== bl && langMap[primary]) {
+          var target2 = path === '/' ? langMap[primary] + '/' : langMap[primary] + path;
+          localStorage.setItem('agentputer-lang', primary);
+          window.location.replace(target2);
+          return;
+        }
+      }
+      localStorage.setItem('agentputer-lang', 'en');
+    })();
+    </script><!-- Google Analytics 4 --><script async src="https://www.googletagmanager.com/gtag/js?id=G-9M2T6GQJ0L"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9M2T6GQJ0L');
+    </script><title>D&#39;un agent à une équipe : comment fonctionnent les sous-agents OpenClaw | Blog AgentPuter</title><link rel="stylesheet" href="/_astro/_slug_.DM3EUOA_.css">
+<link rel="stylesheet" href="/_astro/_slug_.CUcOCpHJ.css">
+<link rel="stylesheet" href="/_astro/_slug_.CxhqtQFk.css"><script type="module" src="/_astro/hoisted.CReWVP5t.js"></script></head> <body class="min-h-screen">   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"D'un agent à une équipe : comment fonctionnent les sous-agents OpenClaw","description":"Un chercheur d'Anthropic a dépensé 20 000 $ en laissant 16 agents Claude parallèles écrire un compilateur C. Le système de sous-agents d'OpenClaw vous permet d'exécuter la même architecture pour votre briefing matinal — pour environ 0,03 $. Voici comment.","datePublished":"2026-02-20","dateModified":"2026-02-20","inLanguage":"fr","author":{"@type":"Organization","name":"AgentPuter Lab","url":"https://www.agentputer.com"},"publisher":{"@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":{"@type":"ImageObject","url":"https://www.agentputer.com/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.agentputer.com/fr/blog/12-agent-teams/"},"keywords":"OpenClaw, Sub-Agents, Agent Teams, Parallel Agents, sessions_spawn, Claude Code"}</script> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.agentputer.com/fr/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.agentputer.com/fr/blog/"},{"@type":"ListItem","position":3,"name":"D'un agent à une équipe : comment fonctionnent les sous-agents OpenClaw"}]}</script> <header class="fixed top-0 left-0 right-0 z-50 bg-dark-primary md:bg-dark-primary/95 md:backdrop-blur-lg border-b border-accent/20"> <nav class="max-w-7xl mx-auto px-6 lg:px-20 h-20 flex items-center justify-between"> <!-- Logo --> <a href="/fr/" class="flex items-center gap-2 group"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <!-- Desktop Navigation --> <div class="hidden md:flex items-center gap-8 font-mono"> <a href="/fr/features" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/fonctionnalités
+</a> <a href="/tools" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/outils
+</a> <a href="#pricing" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/tarifs
+</a> <a href="/fr/blog/" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/blog
+</a> <a href="/fr/docs" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/docs
+</a> <!-- Desktop 语言切换器 --><div class="lang-switcher relative"> <button class="lang-btn flex items-center gap-1.5 text-text-secondary hover:text-accent transition-colors text-sm font-mono cursor-pointer" aria-label="Switch language" aria-expanded="false"> <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <circle cx="12" cy="12" r="10" stroke-width="1.5"></circle> <path stroke-width="1.5" d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path> </svg> <span>FR</span> <svg class="w-3 h-3 opacity-40 transition-transform lang-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </button> <!-- 下拉菜单 --> <div class="lang-dropdown hidden absolute right-0 top-full mt-2 py-1 bg-[#1a1a1a] border border-[#333] rounded-lg shadow-xl min-w-[160px] z-[100]"> <a href="/blog/12-agent-teams/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="en"> <span>English</span> <span class="text-xs text-text-dark">EN</span> </a><a href="/zh/blog/12-agent-teams/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="zh"> <span>中文</span> <span class="text-xs text-text-dark">中文</span> </a><a href="/ja/blog/12-agent-teams/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ja"> <span>日本語</span> <span class="text-xs text-text-dark">JA</span> </a><a href="/ko/blog/12-agent-teams/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ko"> <span>한국어</span> <span class="text-xs text-text-dark">KO</span> </a><a href="/es/blog/12-agent-teams/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="es"> <span>Español</span> <span class="text-xs text-text-dark">ES</span> </a><a href="/pt-br/blog/12-agent-teams/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="pt-br"> <span>Português</span> <span class="text-xs text-text-dark">PT</span> </a><a href="/de/blog/12-agent-teams/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="de"> <span>Deutsch</span> <span class="text-xs text-text-dark">DE</span> </a><a href="/fr/blog/12-agent-teams/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-accent bg-accent/10" data-lang="fr"> <span>Français</span> <span class="text-xs text-accent">FR</span> </a> </div> </div> <!-- Mobile 语言列表（平铺，不用下拉） --> <div class="lang-mobile hidden"> <div class="flex flex-wrap gap-2"> <a href="/blog/12-agent-teams/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="en"> English </a><a href="/zh/blog/12-agent-teams/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="zh"> 中文 </a><a href="/ja/blog/12-agent-teams/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ja"> 日本語 </a><a href="/ko/blog/12-agent-teams/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ko"> 한국어 </a><a href="/es/blog/12-agent-teams/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="es"> Español </a><a href="/pt-br/blog/12-agent-teams/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="pt-br"> Português </a><a href="/de/blog/12-agent-teams/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="de"> Deutsch </a><a href="/fr/blog/12-agent-teams/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-accent border-accent/40 bg-accent/10" data-lang="fr"> Français </a> </div> </div>  <a href="https://app.agentputer.com/sign-up" class="text-sm py-2.5 px-6 bg-accent text-dark-primary font-bold rounded hover:bg-accent-dark transition-colors">
+[COMMENCER]
+</a> </div> <!-- Mobile Menu Button --> <button id="mobile-menu-btn-fr" class="md:hidden p-2 text-text-secondary hover:text-white" aria-label="Ouvrir le menu"> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </nav> <!-- Mobile Menu --> <div id="mobile-menu-fr" class="hidden md:hidden bg-dark-secondary border-t border-dark-tertiary"> <div class="px-6 py-4 space-y-4"> <a href="/fr/features" class="block hover:text-white transition-colors text-text-secondary">
+fonctionnalités
+</a> <a href="/tools" class="block hover:text-white transition-colors text-text-secondary">
+outils
+</a> <a href="#pricing" class="block hover:text-white transition-colors text-text-secondary">
+tarifs
+</a> <a href="/fr/blog/" class="block hover:text-white transition-colors text-text-secondary">
+blog
+</a> <a href="/fr/docs" class="block hover:text-white transition-colors text-text-secondary">
+docs
+</a> <div class="lang-mobile-wrapper"></div> <a href="https://app.agentputer.com/sign-up" class="btn-primary w-full justify-center text-sm py-3">
+Commencer
+</a> </div> </div> </header>  <main class="relative z-10 pt-28 pb-20"> <article class="max-w-4xl mx-auto px-6 lg:px-8"> <!-- Fil d'Ariane --> <nav class="mb-8 font-mono text-sm"> <a href="/fr/" class="text-text-muted hover:text-accent transition-colors">~</a> <span class="text-text-dark mx-2">/</span> <a href="/fr/blog/" class="text-text-muted hover:text-accent transition-colors">Blog</a> <span class="text-text-dark mx-2">/</span> <span class="text-accent">Article</span> </nav> <!-- En-tête des métadonnées de l'article --> <header class="mb-12"> <!-- Tags --> <div class="flex flex-wrap gap-2 mb-6"> <span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#OpenClaw </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Sub-Agents </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Agent Teams </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Parallel Agents </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#sessions_spawn </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Claude Code </span> </div> <!-- Titre --> <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6"> D&#39;un agent à une équipe : comment fonctionnent les sous-agents OpenClaw </h1> <!-- Description --> <p class="text-lg text-text-secondary leading-relaxed mb-8"> Un chercheur d&#39;Anthropic a dépensé 20 000 $ en laissant 16 agents Claude parallèles écrire un compilateur C. Le système de sous-agents d&#39;OpenClaw vous permet d&#39;exécuter la même architecture pour votre briefing matinal — pour environ 0,03 $. Voici comment. </p> <!-- Ligne de métadonnées --> <div class="flex flex-wrap items-center gap-6 text-sm font-mono text-text-muted border-t border-b border-accent/20 py-4"> <div class="flex items-center gap-2"> <span class="text-terminal-cyan">@</span> <span class="text-text-secondary">AgentPuter Lab</span> </div> <div class="flex items-center gap-2"> <span class="text-terminal-orange">$</span> <time datetime="2026-02-20" class="text-text-secondary">20 février 2026</time> </div> <div class="flex items-center gap-2"> <span class="text-terminal-blue">~</span> <span class="text-text-secondary">10 min de lecture</span> </div> </div> </header> <!-- Corps de l'article --> <div class="prose prose-invert prose-terminal max-w-none">  <hr>
+<h1 id="dun-agent-à-une-équipe--comment-fonctionnent-les-sous-agents-openclaw--et-ce-que-lexpérience-de-compilateur-à-20-000--danthropic-nous-apprend-sur-lavenir">D’un agent à une équipe : Comment fonctionnent les sous-agents OpenClaw — Et ce que l’expérience de compilateur à 20 000 $ d’Anthropic nous apprend sur l’avenir</h1>
+<p><strong>En février, un chercheur d’Anthropic a dépensé 20 000 $ pour faire écrire un compilateur C par 16 agents Claude en parallèle. Le système de sous-agents d’OpenClaw vous permet d’exécuter la même architecture pour votre briefing matinal — pour environ 0,03 $.</strong></p>
+<p><em>Série sur l’infrastructure des agents · Partie 12</em></p>
+<hr>
+<hr>
+<p>Ce mois-ci, Nicholas Carlini, chercheur chez Anthropic, a publié une expérience qui s’apparente moins à de l’ingénierie logicielle qu’à de l’évolution biologique.</p>
+<p>Il a chargé 16 instances de Claude Opus 4.6 de travailler</p>
+<hr>
+<p>Le résultat ? Un compilateur C de 100 000 lignes basé sur Rust, écrit à partir de zéro, capable de compiler le noyau Linux 6.9 pour les architectures x86, ARM et RISC-V. Il fait même tourner Doom.</p>
+<p>Ce n’était pas la démo d’un nouveau bouton « Make App » flambant neuf. C’était un prototype de recherche brut, construit avec les primitives de coordination les plus basiques : un conteneur Docker par agent, un dépôt git partagé et des verrous de fichiers — aucun orchestrateur</p>
+<hr>
+<p>La plupart d’entre nous n’avons pas 20 000 $ à dépenser en appels d’API cette semaine. Mais le modèle architectural utilisé par Carlini — décomposer un objectif massif en tâches parallèles pour des agents indépendants — est exactement ce pour quoi le système de</p>
+<hr>
+<h2 id="pour-commencer--dissipons-la-confusion">Pour commencer : Dissipons la confusion</h2>
+<p>Il y a actuellement trois concepts « multi-agents » qui circulent au sein de la communauté. Ils semblent similaires, mais ce sont des outils complètement différents.</p>
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Concept</th><th>Description</th><th>Contexte d’utilisation</th></tr></thead><tbody><tr><td><strong>Équipes d’agents Claude Code</strong></td><td>Une fonctionnalité expérimentale dans l’outil CLI <code>claude</code> d’Anthropic. Elle permet aux coéquipiers de s’envoyer des messages directement via un système de ”</td><td></td></tr></tbody></table>
+<hr>
+<p><strong>Cet article traite des sous-agents OpenClaw.</strong> C’est le seul des trois qui est aujourd’hui prêt pour la production pour des tâches d’automatisation générales.</p>
+<hr>
+<hr>
+<h2 id="comment-fonctionnent-les-sous-agents-openclaw">Comment fonctionnent les sous-agents OpenClaw</h2>
+<p>Au lieu qu’un seul agent fasse tout de manière séquentielle, un « agent principal » génère des « sous-agents » pour travailler en arrière-plan.</p>
+<hr>
+<p>Agent Principal (Profondeur 0)
+│
+├── sessions_spawn(tâche=“Rechercher le concurrent A”)
+│       └── Sous-Agent A (Profondeur 1, session isolée)
+│               └── travail… travail… → annonce les résultats
+│
+├── sessions_spawn(tâche=“Rechercher le concurrent B”)
+│       └── Sous-Agent B (Profondeur 1, session isolée)
+│               └── travail… travail… → annonce les résultats
+│
+└── Reçoit les résultats → Synthétise le rapport final</p>
+<h3 id="comportements-clés">Comportements Clés</h3>
+<hr>
+<ol>
+<li><strong>Non bloquant :</strong> La commande <code>sessions_spawn</code> renvoie immédiatement un <code>runId</code>. L’Agent Principal peut continuer à travailler ou générer d’autres agents sans attendre.</li>
+<li><strong>Isolation du contexte :</strong> Chaque Sous-Agent s’exécute dans</li>
+</ol>
+<hr>
+<h3 id="la-commande">La commande</h3>
+<p>L’outil est <code>sessions_spawn</code>. Notez que le nom du paramètre est <code>task</code>, et non <code>instruction</code>.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#B392F0">sessions_spawn</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#E1E4E8">  task: </span><span style="color:#9ECBFF">"Search for the latest HackerNews AI headlines and return top 5"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">  model: </span><span style="color:#9ECBFF">"gpt-4o-mini"</span><span style="color:#E1E4E8">,         </span><span style="color:#6A737D">// Use a cheaper model for the worker</span></span>
+<span class="line"><span style="color:#E1E4E8">  runTimeoutSeconds: </span><span style="color:#79B8FF">120</span><span style="color:#E1E4E8">,       </span><span style="color:#6A737D">// Safety cutoff</span></span>
+<span class="line"><span style="color:#E1E4E8">  label: </span><span style="color:#9ECBFF">"news-fetcher"</span><span style="color:#E1E4E8">,        </span><span style="color:#6A737D">// For your logs</span></span>
+<span class="line"><span style="color:#E1E4E8">  cleanup: </span><span style="color:#9ECBFF">"delete"</span><span style="color:#6A737D">             // Auto-delete session when done</span></span>
+<span class="line"><span style="color:#E1E4E8">})</span></span>
+<span class="line"></span></code></pre>
+<hr>
+<hr>
+<h2 id="quatre-architectures-concrètes">Quatre architectures concrètes</h2>
+<h3 id="modèle-1--coordinateur--agents-le-plus-courant">Modèle 1 : Coordinateur + Agents (Le plus courant)</h3>
+<p>Il s’agit du modèle standard pour la recherche ou le traitement par lots.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Agent principal (Coordinateur)</span></span>
+<span class="line"><span>  ├── Agent A : Rechercher le modèle de tarification</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**Pourquoi ça fonctionne :** Si vous le faisiez séquentiellement, la fenêtre de contexte de l'Agent Principal se remplirait de HTML brut provenant de trois pages de tarification différentes. En parallélisant, chaque Worker traite les données brutes et ne renvoie que le résumé structuré.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**Modèle de Worker recommandé :** `gpt-4o-mini` ou `gemini-2.5-flash` (faible coût).</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>### Modèle 2 : Le Pipeline</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Sous-agent 1 : Extraire les données brutes (compétence de recherche web)</span></span>
+<span class="line"><span>      ↓</span></span>
+<span class="line"><span>Sous-agent 2 : Nettoyer et structurer les données (compétence de raisonnement)</span></span>
+<span class="line"><span>      ↓</span></span>
+<span class="line"><span>Sous-agent 3 : Générer des aperçus</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Agent Principal (Routeur)</span></span>
+<span class="line"><span>  ├── "Planifier une réunion"   → Agent spécialiste Google Calendar</span></span>
+<span class="line"><span>  ├── "Rédiger un e-mail"       → Agent spécialiste en rédaction</span></span>
+<span class="line"><span>  └── "Faire une recherche sur ce sujet"  → Agent spécialiste en recherche web</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**Conseil de pro :** Puisque les Sous-Agents ne chargent pas `SOUL.md`, vous devriez placer votre logique de routage dans `AGENTS.md`.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>## Règles de routage de AGENTS.md</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Lors du routage des tâches vers les sous-agents :</span></span>
+<span class="line"><span>- Demandes de calendrier : lancer avec les compétences google-calendar et google-workspace</span></span>
+<span class="line"><span>- Demandes de recherche : lancer avec la compétence web-search, utiliser le modèle gpt-4o-mini</span></span>
+<span class="line"><span>- Demandes</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**Séquentiel (Ancienne méthode) :** Vérifier la météo (5s) → Vérifier le calendrier (5s) → Vérifier les e-mails (10s) → Vérifier les actualités (10s) → Résumer (5s). Total : **~35 secondes.**</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**Parallèle (Nouvelle méthode) :**</span></span>
+<span class="line"><span>7h00 → L'Agent Principal génère instantanément 4 agents travailleurs :</span></span>
+<span class="line"><span>*   **Agent A :** Prévisions AccuWeather pour San Francisco</span></span>
+<span class="line"><span>*   **Agent B :** Réunions Google Calendar pour aujourd'hui</span></span>
+<span class="line"><span>*   **Agent C :** Résumé des e-mails non lus de Gmail (signaler les éléments urgents)</span></span>
+<span class="line"><span>*   **Agent D :** Top 5 des titres de HackerNews + TechCrunch</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Le temps total est déterminé par l'agent le plus lent (~15 s) + la synthèse (5 s) = **~20 secondes.**</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>## Stratégie critique des coûts : « Patron intelligent, stagiaires bon marché »</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Le plus grand risque avec les sous-agents est la multiplication des coûts. Si vous lancez 5 agents et qu'ils utilisent tous Claude Opus 4.6, vous venez de multiplier votre facture d'</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**Les Stagiaires (Travailleurs) :** Effectuant généralement des tâches claires et délimitées (résume ceci, trouve cela).</span></span>
+<span class="line"><span>*   **Modèle :** `openai/gpt-4o-mini` ou `google/gemini-2.5-flash`</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Vous pouvez définir cette valeur par défaut dans votre configuration pour éviter les accidents :</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>```json</span></span>
+<span class="line"><span>{</span></span>
+<span class="line"><span>  "agents": {</span></span>
+<span class="line"><span>    "defaults": {</span></span>
+<span class="line"><span>      "subagents": {</span></span>
+<span class="line"><span>        "model": "openai/gpt-4o-mini",</span></span>
+<span class="line"><span>        "maxSpawnDepth": 1,</span></span>
+<span class="line"><span>        "maxChildrenPerAgent": 5</span></span>
+<span class="line"><span>      }</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span>  }</span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span></code></pre>
+<hr>
+<hr>
+<h2 id="avancé--le-modèle-orchestrateur-profondeur-2">Avancé : Le Modèle Orchestrateur (Profondeur 2)</h2>
+<p>Par défaut, OpenClaw définit <code>maxSpawnDepth: 1</code>, ce qui signifie qu’un Sous-Agent ne peut pas créer ses propres Sous-Agents.</p>
+<p>Pour les projets complexes, vous pouvez activer la Profondeur 2 :</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{ </span><span style="color:#79B8FF">"agents"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"defaults"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"subagents"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"maxSpawnDepth"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8"> } } } }</span></span>
+<span class="line"></span></code></pre>
+<p>Cela permet une hiérarchie à trois niveaux :</p>
+<hr>
+<p>Agent Principal (PDG)
+└── Agent Orchestrateur (Manager) — Possède la permission sessions_spawn
+├── Travailleur A (Stagiaire) — Ne peut pas en créer
+├── Travailleur B (Stagiaire)
+└── Travailleur C (Stagiaire)</p>
+<p>Cela reflète la structure de l’expérience du compilateur à 20 000 $ : un objectif de haut niveau est défini, une entité autonome gère la décomposition, et des travailleurs individuels exécutent les morceaux.</p>
+<hr>
+<hr>
+<h2 id="openclaw-face-aux-équipes-dagents-de-claude-code">OpenClaw face aux équipes d’agents de Claude Code</h2>
+<p>Les deux existent. Lequel devriez-vous réellement utiliser ?</p>
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="left">Fonctionnalité</th><th align="left">Sous-agents OpenClaw</th><th align="left">Équipes d’agents Claude Code</th></tr></thead><tbody><tr><td align="left"><strong>Public Cible</strong></td><td align="left">Automatisation générale (e-mails, recherche, opérations)</td><td align="left">Codage et génie logiciel</td></tr><tr><td align="left"><strong>Communication</strong></td><td align="left">Hub-and-spoke (les Workers rapportent au Main)</td><td align="left">Mesh (les coéquipiers s’envoient des messages entre eux)</td></tr><tr><td align="left"><strong>Maturité</strong></td><td align="left">Fonctionnalité prête pour la production</td><td align="left">Alpha / Expérimental</td></tr><tr><td align="left"><strong>Configuration</strong></td><td align="left">Intégré, aucune configuration requise</td><td align="left">Nécessite de modifier <code>settings.json</code></td></tr><tr><td align="left"><strong>Contexte</strong></td><td align="left">Indépendant par agent</td><td align="left">Indépendant par agent</td></tr></tbody></table>
+<hr>
+<p>Si vous construisez un compilateur, utilisez Claude Code. Si vous construisez un assistant personnel ou un flux de travail d’entreprise, utilisez OpenClaw.</p>
+<hr>
+<hr>
+<h2 id="limitations-pratiques">Limitations pratiques</h2>
+<hr>
+<ol>
+<li><strong>Communication unidirectionnelle :</strong> Les sous-agents ne peuvent que « faire un rapport » à leur parent. Ils ne peuvent pas interroger le parent pour obtenir des éclaircissements en cours de tâche.</li>
+<li><strong>Pas de <code>SOUL.md</code> :</strong></li>
+</ol>
+<hr>
+<h2 id="si-vous-ne-souhaitez-pas-gérer-cela--tinyclaw">Si vous ne souhaitez pas gérer cela : TinyClaw</h2>
+<p>Gérer les architectures d’agents parallèles, configurer <code>maxSpawnDepth</code> et surveiller les coûts en jetons sur plusieurs modèles est une tâche complexe.</p>
+<p><a href="https://tinyclaw.dev">TinyClaw</a> simplifie cela</p>
+<hr>
+<p>Gérer une équipe d’agents ne doit pas forcément coûter 20 000 $. Commencez par un briefing matinal.</p>
+<p>→ <a href="https://tinyclaw.dev">tinyclaw.dev</a> · Démarrage gratuit · Votre équipe d’agents opérationnelle en 60 secondes</p>  </div> <!-- Retour à la liste du blog --> <footer class="mt-16 pt-8 border-t border-accent/20"> <a href="/fr/blog/" class="inline-flex items-center gap-2 font-mono text-sm text-text-muted hover:text-accent transition-colors group"> <span class="group-hover:-translate-x-1 transition-transform">&lt;-</span> <span>Retour à tous les articles</span> </a> </footer> </article> </main> <footer class="bg-dark-secondary border-t border-accent/20"> <div class="max-w-7xl mx-auto px-6 lg:px-20 py-12 lg:py-16"> <!-- Top Section --> <div class="flex flex-col lg:flex-row justify-between gap-12 mb-12"> <!-- Brand --> <div class="lg:max-w-xs"> <a href="/fr/" class="inline-block mb-4"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <p class="text-text-muted text-sm font-mono"> <span class="text-terminal-cyan">//</span> Votre IA ne dort jamais
+</p> </div> <!-- Links Grid --> <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 font-mono"> <!-- Product --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/produit</h4> <ul class="space-y-3"> <li> <a href="/fr/features" class="text-text-muted text-sm hover:text-accent transition-colors"> Fonctionnalités </a> </li><li> <a href="/pricing" class="text-text-muted text-sm hover:text-accent transition-colors"> Tarifs </a> </li><li> <a href="/fr/docs" class="text-text-muted text-sm hover:text-accent transition-colors"> Docs </a> </li> </ul> </div> <!-- Company --> <div> <h4 class="text-terminal-orange font-bold mb-4 text-sm">/entreprise</h4> <ul class="space-y-3"> <li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> À propos </a> </li><li> <a href="/fr/blog/" class="text-text-muted text-sm hover:text-accent transition-colors"> Blog </a> </li> </ul> </div> <!-- Contact --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/contact</h4> <ul class="space-y-3"> <li> <a href="/cdn-cgi/l/email-protection#5639253537242c373b392437676f6f6f666116313b373f3a7835393b" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> <span class="__cf_email__" data-cfemail="046b776765767e65696b7665353d3d3d3433446369656d682a676b69">[email&#160;protected]</span> </a> </li><li> <a href="https://twitter.com/agentputer" target="_blank" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Twitter </a> </li><li> <a href="https://discord.gg/agentputer" target="_blank" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Discord </a> </li> </ul> </div> <!-- Legal --> <div> <h4 class="text-terminal-blue font-bold mb-4 text-sm">/légal</h4> <ul class="space-y-3"> <li> <a href="/privacy" class="text-text-muted text-sm hover:text-accent transition-colors"> Confidentialité </a> </li><li> <a href="/terms" class="text-text-muted text-sm hover:text-accent transition-colors"> Conditions </a> </li><li> <a href="/privacy#data-security" class="text-text-muted text-sm hover:text-accent transition-colors"> Sécurité </a> </li> </ul> </div> </div> </div> <!-- Divider --> <div class="border-t border-accent/20 pt-8"> <div class="flex flex-col md:flex-row justify-between items-center gap-4 font-mono"> <!-- Copyright --> <p class="text-text-dark text-sm">
+/* © 2026 AgentPuter. Tous droits réservés. */
+</p> <!-- Social Links --> <div class="flex items-center gap-6"> <a href="https://github.com/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors"> GitHub </a> </div> </div> </div> </div> </footer>  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"db97590b14994206be9f2eaec90a9494","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html> 

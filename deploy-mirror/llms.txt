@@ -1,0 +1,67 @@
+# AgentPuter
+
+> AgentPuter is a cloud runtime platform that gives AI agents their own dedicated computer. It deploys and manages always-on AI agents (OpenClaw, ClawBot, MoltBot) with 24/7 uptime, persistent workspaces, multi-channel messaging, and built-in cost controls.
+
+## Products
+
+- [AgentPuter Platform](https://www.agentputer.com/): Cloud infrastructure for AI agents — persistent runtime, privacy proxy, unified tool interface, and accountability logging.
+- [TinyClaw](https://tinyclaw.dev/): One-click OpenClaw deployment. No technical knowledge needed. Under 1 minute from signup to running agent. $29.99/month, 7-day free trial.
+
+## Key Features
+
+- 24/7 cloud runtime with zero downtime
+- Supports OpenClaw, ClawBot, MoltBot agent frameworks
+- Multi-channel: Telegram, Discord, WhatsApp, Slack, WebChat, Feishu
+- Privacy Proxy: PII auto-redaction, AES-256 credential encryption
+- Multi-agent support with isolated workspaces
+- Built-in cost controls and usage monitoring
+- 500+ pre-built AI skills
+- Supports Claude (Anthropic), GPT (OpenAI), Gemini (Google), Ollama (local)
+
+## Pricing
+
+- **Pro (All-in-One)**: $29.99/month — AI model, cloud hosting, messaging channels bundled. No API keys needed.
+- **Starter (Coming Soon)**: $9/month — Bring your own API key, platform hosting only.
+- **Free Trial**: 7 days, no credit card required.
+
+## Blog
+
+- [Blog Index](https://www.agentputer.com/blog/): Technical deep dives, OpenClaw guides, model comparisons, cost optimization, security, and AI agent industry analysis.
+
+### Recent Articles
+
+- [How to Run OpenClaw for Under $30/Month](https://www.agentputer.com/blog/18-cost-guide/): Complete cost optimization guide — heartbeat tuning, model routing, prompt caching, local models.
+- [What lossless-claw Actually Does](https://www.agentputer.com/blog/17-lossless-claw/): OpenClaw's Context Engine plugin API and the first lossless memory plugin.
+- [Real OpenClaw Workflows](https://www.agentputer.com/blog/16-real-workflows/): 85+ categorized use cases from the community.
+- [OpenClaw Security in 2026](https://www.agentputer.com/blog/15-openclaw-security/): Supply chain attacks, prompt injection defense, five-layer security architecture.
+- [OpenClaw Power User Guide: 30 Tips](https://www.agentputer.com/blog/14-openclaw-tips/): Production-tested configuration tips.
+- [The 3-File Architecture (SOUL.md)](https://www.agentputer.com/blog/13-soul-md/): How SOUL.md, AGENTS.md, and IDENTITY.md give agents personality and rules.
+- [How OpenClaw Sub-Agents Work](https://www.agentputer.com/blog/12-agent-teams/): Multi-agent orchestration, spawn depth, context isolation.
+- [AI Model Showdown 2026](https://www.agentputer.com/blog/11-model-showdown/): Gemini 3.1 Pro vs Claude Opus 4.6 vs GPT-5.2 for agent workloads.
+- [We Tested 5 Ways to Run OpenClaw](https://www.agentputer.com/blog/10-openclaw-review/): Mac Mini, VPS, Docker, TinyClaw comparison.
+- [Dissecting OpenClaw Architecture](https://www.agentputer.com/blog/dissecting-openclaw-architecture/): Design philosophy and technical deep dive into 174K-star project.
+
+## Documentation
+
+- [Getting Started](https://www.agentputer.com/docs/): Setup guide for AgentPuter platform.
+- [Add a Channel](https://www.agentputer.com/docs/add-channel/): Connect Telegram, Discord, WhatsApp, Slack, Feishu.
+- [Features Overview](https://www.agentputer.com/features/): Full feature breakdown with FAQ.
+
+## Languages
+
+Available in: English, 简体中文, 繁體中文, 日本語, 한국어, Español, Português, Deutsch, Français
+
+## Contact
+
+- Website: https://www.agentputer.com
+- TinyClaw: https://tinyclaw.dev
+- Email: oscarzamora199907@gmail.com
+- Twitter: https://twitter.com/agentputer
+- GitHub: https://github.com/agentputer
+
+## What We Do Not Do
+
+- We do not sell user data to third parties.
+- We do not train models on user conversations.
+- We do not provide unbounded API access without cost controls.
+- We are not a chat interface — we are infrastructure for autonomous AI agents.

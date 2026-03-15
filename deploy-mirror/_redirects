@@ -1,0 +1,3 @@
+# /sitemap.xml → /sitemap-index.xml 永久重定向
+# 很多爬虫默认请求 /sitemap.xml，Astro 生成的是 /sitemap-index.xml
+/sitemap.xml /sitemap-index.xml 301

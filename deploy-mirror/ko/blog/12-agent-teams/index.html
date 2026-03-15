@@ -1,0 +1,313 @@
+<!DOCTYPE html><html lang="ko"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="한 Anthropic 연구원이 16개의 병렬 Claude 에이전트에게 C 컴파일러를 작성시키기 위해 2만 달러를 사용했습니다. OpenClaw의 서브 에이전트 시스템을 사용하면 약 0.03달러의 비용으로 아침 브리핑을 위해 동일한 아키텍처를 실행할 수 있습니다. 그 방법을 소개합니다."><meta name="theme-color" content="#0D0D0D"><meta name="generator" content="Astro v4.16.19"><!-- Canonical URL --><link rel="canonical" href="https://www.agentputer.com/ko/blog/12-agent-teams/"><!-- hreflang 多语言标签 --><link rel="alternate" hreflang="en" href="https://www.agentputer.com/blog/12-agent-teams/"><link rel="alternate" hreflang="zh-CN" href="https://www.agentputer.com/zh/blog/12-agent-teams/"><link rel="alternate" hreflang="ja" href="https://www.agentputer.com/ja/blog/12-agent-teams/"><link rel="alternate" hreflang="ko" href="https://www.agentputer.com/ko/blog/12-agent-teams/"><link rel="alternate" hreflang="es" href="https://www.agentputer.com/es/blog/12-agent-teams/"><link rel="alternate" hreflang="pt-BR" href="https://www.agentputer.com/pt-br/blog/12-agent-teams/"><link rel="alternate" hreflang="de" href="https://www.agentputer.com/de/blog/12-agent-teams/"><link rel="alternate" hreflang="fr" href="https://www.agentputer.com/fr/blog/12-agent-teams/"><link rel="alternate" hreflang="zh-TW" href="https://www.agentputer.com/zh-tw/blog/12-agent-teams/"><link rel="alternate" hreflang="x-default" href="https://www.agentputer.com/blog/12-agent-teams/"><!-- Keywords（各语言本地化） --><meta name="keywords" content="OpenClaw, Sub-Agents, Agent Teams, Parallel Agents, sessions_spawn, Claude Code"><!-- Open Graph --><meta property="og:title" content="하나의 에이전트에서 팀으로: OpenClaw 서브 에이전트의 작동 방식 | AgentPuter 블로그"><meta property="og:description" content="한 Anthropic 연구원이 16개의 병렬 Claude 에이전트에게 C 컴파일러를 작성시키기 위해 2만 달러를 사용했습니다. OpenClaw의 서브 에이전트 시스템을 사용하면 약 0.03달러의 비용으로 아침 브리핑을 위해 동일한 아키텍처를 실행할 수 있습니다. 그 방법을 소개합니다."><meta property="og:type" content="article"><meta property="og:url" content="https://www.agentputer.com/ko/blog/12-agent-teams/"><meta property="og:image" content="https://www.agentputer.com/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:site_name" content="AgentPuter"><meta property="og:locale" content="ko_KR"><meta property="og:locale:alternate" content="en_US"><meta property="og:locale:alternate" content="zh_CN"><meta property="og:locale:alternate" content="ja_JP"><meta property="og:locale:alternate" content="es_ES"><meta property="og:locale:alternate" content="pt_BR"><meta property="og:locale:alternate" content="de_DE"><meta property="og:locale:alternate" content="fr_FR"><meta property="og:locale:alternate" content="zh_TW"><!-- Article-specific OG tags --><meta property="article:published_time" content="2026-02-20"><meta property="article:author" content="AgentPuter Lab"><meta property="article:tag" content="OpenClaw"><meta property="article:tag" content="Sub-Agents"><meta property="article:tag" content="Agent Teams"><meta property="article:tag" content="Parallel Agents"><meta property="article:tag" content="sessions_spawn"><meta property="article:tag" content="Claude Code"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@agentputer"><meta name="twitter:creator" content="@agentputer"><meta name="twitter:title" content="하나의 에이전트에서 팀으로: OpenClaw 서브 에이전트의 작동 방식 | AgentPuter 블로그"><meta name="twitter:description" content="한 Anthropic 연구원이 16개의 병렬 Claude 에이전트에게 C 컴파일러를 작성시키기 위해 2만 달러를 사용했습니다. OpenClaw의 서브 에이전트 시스템을 사용하면 약 0.03달러의 비용으로 아침 브리핑을 위해 동일한 아키텍처를 실행할 수 있습니다. 그 방법을 소개합니다."><meta name="twitter:image" content="https://www.agentputer.com/og-default.png"><!-- Favicon --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/favicon.svg"><!-- 字体：preconnect + LCP 关键字体直接预加载 --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- 直接预加载 LCP 关键字体文件（JetBrains Mono Bold Latin，H1 使用） --><link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8L6tTOlOVk6OThhvA.woff2"><!-- 字体 CSS 阻塞加载（配合 preconnect 延迟极低，确保 LCP 时字体可用） --><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"><!-- Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":"https://www.agentputer.com/favicon.svg","description":"Your AI Agent's dedicated cloud runtime. AgentPuter keeps your AI running 24/7.","sameAs":["https://twitter.com/agentputer","https://github.com/agentputer","https://discord.gg/agentputer"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"AgentPuter","url":"https://www.agentputer.com","inLanguage":"ko","availableLanguage":[{"@type":"Language","name":"English","alternateName":"en"},{"@type":"Language","name":"中文","alternateName":"zh-CN"},{"@type":"Language","name":"繁體中文","alternateName":"zh-TW"},{"@type":"Language","name":"日本語","alternateName":"ja"},{"@type":"Language","name":"한국어","alternateName":"ko"},{"@type":"Language","name":"Español","alternateName":"es"},{"@type":"Language","name":"Português","alternateName":"pt-BR"},{"@type":"Language","name":"Deutsch","alternateName":"de"},{"@type":"Language","name":"Français","alternateName":"fr"}],"description":"Your AI Agent's dedicated cloud runtime."}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.agentputer.com/ko/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.agentputer.com/ko/blog/"},{"@type":"ListItem","position":3,"name":"12 agent teams","item":"https://www.agentputer.com/ko/blog/12-agent-teams/"}]}</script><!-- 页面专属结构化数据插槽 --><!-- 浏览器语言自动检测：移到 head 阻塞执行，避免渲染后跳转导致 CLS --><script>
+    (function() {
+      if (localStorage.getItem('agentputer-lang')) return;
+
+      var langMap = {
+        'zh': '/zh', 'zh-cn': '/zh', 'zh-tw': '/zh-tw', 'zh-hk': '/zh-tw',
+        'ja': '/ja', 'ko': '/ko',
+        'es': '/es', 'es-419': '/es',
+        'pt': '/pt-br', 'pt-br': '/pt-br',
+        'de': '/de', 'fr': '/fr',
+      };
+
+      var path = window.location.pathname;
+      if (/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)(\/|$)/.test(path)) {
+        var m = path.match(/^\/(zh-tw|zh|ja|ko|es|pt-br|de|fr)/);
+        if (m) localStorage.setItem('agentputer-lang', m[1]);
+        return;
+      }
+
+      var langs = navigator.languages || [navigator.language];
+      for (var i = 0; i < langs.length; i++) {
+        var bl = langs[i].toLowerCase();
+        if (langMap[bl]) {
+          var target = path === '/' ? langMap[bl] + '/' : langMap[bl] + path;
+          localStorage.setItem('agentputer-lang', bl);
+          window.location.replace(target);
+          return;
+        }
+        var primary = bl.split('-')[0];
+        if (primary !== bl && langMap[primary]) {
+          var target2 = path === '/' ? langMap[primary] + '/' : langMap[primary] + path;
+          localStorage.setItem('agentputer-lang', primary);
+          window.location.replace(target2);
+          return;
+        }
+      }
+      localStorage.setItem('agentputer-lang', 'en');
+    })();
+    </script><!-- Google Analytics 4 --><script async src="https://www.googletagmanager.com/gtag/js?id=G-9M2T6GQJ0L"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9M2T6GQJ0L');
+    </script><title>하나의 에이전트에서 팀으로: OpenClaw 서브 에이전트의 작동 방식 | AgentPuter 블로그</title><link rel="stylesheet" href="/_astro/_slug_.DM3EUOA_.css">
+<link rel="stylesheet" href="/_astro/_slug_.CUcOCpHJ.css">
+<link rel="stylesheet" href="/_astro/_slug_.CxhqtQFk.css"><script type="module" src="/_astro/hoisted.DZCh4MZd.js"></script></head> <body class="min-h-screen">   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"하나의 에이전트에서 팀으로: OpenClaw 서브 에이전트의 작동 방식","description":"한 Anthropic 연구원이 16개의 병렬 Claude 에이전트에게 C 컴파일러를 작성시키기 위해 2만 달러를 사용했습니다. OpenClaw의 서브 에이전트 시스템을 사용하면 약 0.03달러의 비용으로 아침 브리핑을 위해 동일한 아키텍처를 실행할 수 있습니다. 그 방법을 소개합니다.","datePublished":"2026-02-20","dateModified":"2026-02-20","inLanguage":"ko","author":{"@type":"Organization","name":"AgentPuter Lab","url":"https://www.agentputer.com"},"publisher":{"@type":"Organization","name":"AgentPuter","url":"https://www.agentputer.com","logo":{"@type":"ImageObject","url":"https://www.agentputer.com/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.agentputer.com/ko/blog/12-agent-teams/"},"keywords":"OpenClaw, Sub-Agents, Agent Teams, Parallel Agents, sessions_spawn, Claude Code"}</script> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://www.agentputer.com/ko/"},{"@type":"ListItem","position":2,"name":"블로그","item":"https://www.agentputer.com/ko/blog/"},{"@type":"ListItem","position":3,"name":"하나의 에이전트에서 팀으로: OpenClaw 서브 에이전트의 작동 방식"}]}</script> <header class="fixed top-0 left-0 right-0 z-50 bg-dark-primary md:bg-dark-primary/95 md:backdrop-blur-lg border-b border-accent/20"> <nav class="max-w-7xl mx-auto px-6 lg:px-20 h-20 flex items-center justify-between"> <!-- Logo --> <a href="/ko/" class="flex items-center gap-2 group"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <!-- Desktop Navigation --> <div class="hidden md:flex items-center gap-8 font-mono"> <a href="/ko/features" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/기능
+</a> <a href="/tools" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/도구
+</a> <a href="#pricing" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/가격
+</a> <a href="/ko/blog/" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/블로그
+</a> <a href="/ko/docs" class="hover:text-accent transition-colors text-sm text-text-secondary">
+/문서
+</a> <!-- Desktop 语言切换器 --><div class="lang-switcher relative"> <button class="lang-btn flex items-center gap-1.5 text-text-secondary hover:text-accent transition-colors text-sm font-mono cursor-pointer" aria-label="Switch language" aria-expanded="false"> <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <circle cx="12" cy="12" r="10" stroke-width="1.5"></circle> <path stroke-width="1.5" d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path> </svg> <span>KO</span> <svg class="w-3 h-3 opacity-40 transition-transform lang-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </button> <!-- 下拉菜单 --> <div class="lang-dropdown hidden absolute right-0 top-full mt-2 py-1 bg-[#1a1a1a] border border-[#333] rounded-lg shadow-xl min-w-[160px] z-[100]"> <a href="/blog/12-agent-teams/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="en"> <span>English</span> <span class="text-xs text-text-dark">EN</span> </a><a href="/zh/blog/12-agent-teams/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="zh"> <span>中文</span> <span class="text-xs text-text-dark">中文</span> </a><a href="/ja/blog/12-agent-teams/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="ja"> <span>日本語</span> <span class="text-xs text-text-dark">JA</span> </a><a href="/ko/blog/12-agent-teams/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-accent bg-accent/10" data-lang="ko"> <span>한국어</span> <span class="text-xs text-accent">KO</span> </a><a href="/es/blog/12-agent-teams/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="es"> <span>Español</span> <span class="text-xs text-text-dark">ES</span> </a><a href="/pt-br/blog/12-agent-teams/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="pt-br"> <span>Português</span> <span class="text-xs text-text-dark">PT</span> </a><a href="/de/blog/12-agent-teams/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="de"> <span>Deutsch</span> <span class="text-xs text-text-dark">DE</span> </a><a href="/fr/blog/12-agent-teams/" class="flex items-center justify-between px-4 py-2 text-sm font-mono transition-colors text-text-secondary hover:text-white hover:bg-white/5" data-lang="fr"> <span>Français</span> <span class="text-xs text-text-dark">FR</span> </a> </div> </div> <!-- Mobile 语言列表（平铺，不用下拉） --> <div class="lang-mobile hidden"> <div class="flex flex-wrap gap-2"> <a href="/blog/12-agent-teams/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="en"> English </a><a href="/zh/blog/12-agent-teams/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="zh"> 中文 </a><a href="/ja/blog/12-agent-teams/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="ja"> 日本語 </a><a href="/ko/blog/12-agent-teams/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-accent border-accent/40 bg-accent/10" data-lang="ko"> 한국어 </a><a href="/es/blog/12-agent-teams/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="es"> Español </a><a href="/pt-br/blog/12-agent-teams/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="pt-br"> Português </a><a href="/de/blog/12-agent-teams/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="de"> Deutsch </a><a href="/fr/blog/12-agent-teams/" class="px-3 py-1.5 text-xs font-mono rounded border transition-colors text-text-muted border-[#333] hover:text-white hover:border-white/20" data-lang="fr"> Français </a> </div> </div>  <a href="https://app.agentputer.com/sign-up" class="text-sm py-2.5 px-6 bg-accent text-dark-primary font-bold rounded hover:bg-accent-dark transition-colors">
+[시작하기]
+</a> </div> <!-- Mobile Menu Button --> <button id="mobile-menu-btn-ko" class="md:hidden p-2 text-text-secondary hover:text-white" aria-label="메뉴 열기"> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </nav> <!-- Mobile Menu --> <div id="mobile-menu-ko" class="hidden md:hidden bg-dark-secondary border-t border-dark-tertiary"> <div class="px-6 py-4 space-y-4"> <a href="/ko/features" class="block hover:text-white transition-colors text-text-secondary">
+기능
+</a> <a href="/tools" class="block hover:text-white transition-colors text-text-secondary">
+도구
+</a> <a href="#pricing" class="block hover:text-white transition-colors text-text-secondary">
+가격
+</a> <a href="/ko/blog/" class="block hover:text-white transition-colors text-text-secondary">
+블로그
+</a> <a href="/ko/docs" class="block hover:text-white transition-colors text-text-secondary">
+문서
+</a> <div class="lang-mobile-wrapper"></div> <a href="https://app.agentputer.com/sign-up" class="btn-primary w-full justify-center text-sm py-3">
+시작하기
+</a> </div> </div> </header>  <main class="relative z-10 pt-28 pb-20"> <article class="max-w-4xl mx-auto px-6 lg:px-8"> <!-- 브레드크럼 네비게이션 --> <nav class="mb-8 font-mono text-sm"> <a href="/ko/" class="text-text-muted hover:text-accent transition-colors">~</a> <span class="text-text-dark mx-2">/</span> <a href="/ko/blog/" class="text-text-muted hover:text-accent transition-colors">블로그</a> <span class="text-text-dark mx-2">/</span> <span class="text-accent">게시물</span> </nav> <!-- 게시물 메타 정보 헤더 --> <header class="mb-12"> <!-- 태그 --> <div class="flex flex-wrap gap-2 mb-6"> <span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#OpenClaw </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Sub-Agents </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Agent Teams </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Parallel Agents </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#sessions_spawn </span><span class="px-3 py-1 text-xs font-mono bg-accent/10 text-accent border border-accent/20 rounded-full">
+#Claude Code </span> </div> <!-- 제목 --> <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6"> 하나의 에이전트에서 팀으로: OpenClaw 서브 에이전트의 작동 방식 </h1> <!-- 설명 --> <p class="text-lg text-text-secondary leading-relaxed mb-8"> 한 Anthropic 연구원이 16개의 병렬 Claude 에이전트에게 C 컴파일러를 작성시키기 위해 2만 달러를 사용했습니다. OpenClaw의 서브 에이전트 시스템을 사용하면 약 0.03달러의 비용으로 아침 브리핑을 위해 동일한 아키텍처를 실행할 수 있습니다. 그 방법을 소개합니다. </p> <!-- 메타 정보 라인 --> <div class="flex flex-wrap items-center gap-6 text-sm font-mono text-text-muted border-t border-b border-accent/20 py-4"> <div class="flex items-center gap-2"> <span class="text-terminal-cyan">@</span> <span class="text-text-secondary">AgentPuter Lab</span> </div> <div class="flex items-center gap-2"> <span class="text-terminal-orange">$</span> <time datetime="2026-02-20" class="text-text-secondary">2026년 2월 20일</time> </div> <div class="flex items-center gap-2"> <span class="text-terminal-blue">~</span> <span class="text-text-secondary">읽는 시간 10 min</span> </div> </div> </header> <!-- 게시물 본문 --> <div class="prose prose-invert prose-terminal max-w-none">  <hr>
+<h1 id="단일-에이전트에서-팀으로-openclaw-서브-에이전트의-작동-방식--그리고-anthropic의-2만-달러-컴파일러-실험이-미래에-대해-알려주는-것">단일 에이전트에서 팀으로: OpenClaw 서브 에이전트의 작동 방식 — 그리고 Anthropic의 2만 달러 컴파일러 실험이 미래에 대해 알려주는 것</h1>
+<p><strong>지난 2월, 한 Anthropic 연구원은 16개의 병렬 Claude 에이전트가 C 컴파일러를 작성하도록 하는 데 2만 달러를 사용했습니다. OpenClaw의 서브 에이전트 시스템을 사용하면 약 0.03달러의 비용으로 아침 브리핑을 위해 동일한 아키텍처를 실행할 수 있습니다.</strong></p>
+<p><em>에이전트 인프라 시리즈 · 12부</em></p>
+<hr>
+<hr>
+<p>이번 달에 Anthropic의 연구원 Nicholas Carlini는 소프트웨어 공학이라기보다는 생물학적 진화에 더 가깝게 느껴지는 실험 결과를 발표했습니다.</p>
+<p>그는 16개의 Claude Opus 4.6 인스턴스에게 2주 동안 병렬로 작업하도록 지시했습니다. 이들은 거의 2,000개의 코딩 세션을 생성했고, 20억 개의 입력 토큰을 소비했으며, API 수수료로 2만 달러가 조금 안 되는 비용이 들었습니다.</p>
+<hr>
+<p>결과는? x86, ARM, RISC-V 아키텍처용 Linux 6.9 커널을 컴파일할 수 있으며, 처음부터 직접 작성된 10만 줄의 Rust 기반 C 컴파일러였습니다. 심지어 Doom도 실행합니다.</p>
+<p>이것</p>
+<hr>
+<p>우리 대부분은 이번 주 API 호출에 2만 달러를 쓸 여유가 없습니다. 하지만 Carlini가 사용한 아키텍처 패턴, 즉 거대한 목표를 독립적인 에이전트들을 위한 병렬 작업으로 분해하는 것은 바로 OpenClaw의 **Sub-Agent</p>
+<hr>
+<h2 id="먼저-혼란스러운-점을-명확히-해봅시다">먼저: 혼란스러운 점을 명확히 해봅시다</h2>
+<p>현재 커뮤니티에는 세 가지 “멀티 에이전트” 개념이 떠돌고 있습니다. 비슷하게 들리지만, 그것들은 완전히 다른 도구입니다.</p>
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>개념</th><th>설명</th><th>사용처</th></tr></thead><tbody><tr><td><strong>Claude Code 에이전트 팀</strong></td><td>Anthropic의 <code>claude</code> CLI 도구에 있는 실험적인 기능. 팀원들이 “Mailbox” 시스템을 통해 서로에게 직접 메시지를 보낼 수 있습니다.</td><td></td></tr></tbody></table>
+<hr>
+<p><strong>이 글은 OpenClaw Sub-Agents에 관한 것입니다.</strong> 현재 세 가지 중에서 일반적인 자동화 작업에 바로 사용할 수 있는(production-ready) 것은 이것이 유일합니다.</p>
+<hr>
+<hr>
+<h2 id="openclaw-하위-에이전트의-작동-방식">OpenClaw 하위 에이전트의 작동 방식</h2>
+<p>하나의 에이전트가 모든 것을 순차적으로 처리하는 대신, “메인 에이전트”가 백그라운드에서 작업을 수행하도록 “하위 에이전트”를 생성합니다.</p>
+<hr>
+<p>메인 에이전트 (깊이 0)
+│
+├── sessions_spawn(task=“경쟁사 A 조사”)
+│       └── 하위 에이전트 A (깊이 1, 격리된 세션)
+│               └── 작업… 작업… → 결과 보고
+│
+├── sessions_spawn(task=“경쟁사 B 조사”)
+│       └── 하위 에이전트 B (깊이 1, 격리된 세션)
+│               └── 작업… 작업… → 결과 보고
+│
+└── 결과 수신 → 최종 보고서 종합</p>
+<h3 id="핵심-동작">핵심 동작</h3>
+<hr>
+<ol>
+<li><strong>논블로킹:</strong> <code>sessions_spawn</code> 명령어는 즉시 <code>runId</code>를 반환합니다. 메인 에이전트는 기다릴 필요 없이 계속 작업하거나 더 많은 에이전트를 생성할 수 있습니다.</li>
+<li>**컨텍스트 격리</li>
+</ol>
+<hr>
+<h3 id="명령어">명령어</h3>
+<p>도구는 <code>sessions_spawn</code>입니다. 파라미터 이름은 <code>instruction</code>이 아니라 <code>task</code>라는 점에 유의하세요.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#B392F0">sessions_spawn</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#E1E4E8">  task: </span><span style="color:#9ECBFF">"Search for the latest HackerNews AI headlines and return top 5"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">  model: </span><span style="color:#9ECBFF">"gpt-4o-mini"</span><span style="color:#E1E4E8">,         </span><span style="color:#6A737D">// 워커에 더 저렴한 모델 사용</span></span>
+<span class="line"><span style="color:#E1E4E8">  runTimeoutSeconds: </span><span style="color:#79B8FF">120</span><span style="color:#E1E4E8">,       </span><span style="color:#6A737D">// 안전 차단</span></span>
+<span class="line"><span style="color:#E1E4E8">  label: </span><span style="color:#9ECBFF">"news-fetcher"</span><span style="color:#E1E4E8">,        </span><span style="color:#6A737D">// 로그용</span></span>
+<span class="line"><span style="color:#E1E4E8">  cleanup: </span><span style="color:#9ECBFF">"delete"</span><span style="color:#6A737D">             // 완료 시 세션 자동 삭제</span></span>
+<span class="line"><span style="color:#E1E4E8">})</span></span>
+<span class="line"></span></code></pre>
+<hr>
+<hr>
+<h2 id="실제-사용되는-네-가지-아키텍처">실제 사용되는 네 가지 아키텍처</h2>
+<h3 id="패턴-1-코디네이터--워커-가장-일반적">패턴 1: 코디네이터 + 워커 (가장 일반적)</h3>
+<p>이는 리서치나 배치 처리를 위한 표준 패턴입니다.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>메인 에이전트 (코디네이터)</span></span>
+<span class="line"><span>  ├── 워커 A: Notion의 가격 모델 리서치</span></span>
+<span class="line"><span>  ├── 워커 B: Linear의 가격 모델 리서치</span></span>
+<span class="line"><span>  └── 워커 C: Monday.com의 가격 모델 리서치</span></span>
+<span class="line"><span>메인 에이전트는 입력들을 결합하여 가격 비교표를 만듭니다.</span></span>
+<span class="line"><span></span></span></code></pre>
+<hr>
+<p><strong>작동 원리:</strong> 이 작업을 순차적으로 수행하면 메인 에이전트의 컨텍스트 창은 세 개의 다른 가격 책정 페이지의 원시 HTML로 가득 차게 됩니다. 병렬 처리함으로써 각 워커는 원시 데이터를 처리하고 구조화된 요약 정보만 반환합니다.</p>
+<p><strong>권장 워커 모델:</strong> <code>gpt-4o-mini</code> 또는 <code>gemini-2.5-flash</code> (저비용).</p>
+<h3 id="패턴-2-파이프라인">패턴 2: 파이프라인</h3>
+<hr>
+<p>하위 에이전트 1: 원시 데이터 스크래핑 (웹 검색 기술)
+↓
+하위 에이전트 2: 데이터 정제 및 구조화 (추론 기술)
+↓
+하위 에이전트 3: 인사이트 생성 (분석 기술)
+↓
+메인 에이전트: 전달을 위한 형식 지정</p>
+<p><strong>이것이 작동하는 이유:</strong> 이는 프로세스의 “지저분한” 부분을 격리합니다. 고부가가치 분석을 수행하는 에이전트는 1단계의 원시 HTML 잡동사니를 절대 보지 않습니다.</p>
+<h3 id="패턴-3-전문가-라우팅">패턴 3: 전문가 라우팅</h3>
+<p>하나의 범용 에이전트 대신, 메인 에이전트가 라우터 역할을 합니다.</p>
+<hr>
+<p>메인 에이전트 (라우터)
+├── “회의 예약”         → Google Calendar 전문가 에이전트
+├── “이메일 초안 작성”      → 글쓰기 전문가 에이전트
+└── “이 주제에 대해 조사”     →</p>
+<hr>
+<h2 id="agentsmd-라우팅-규칙">AGENTS.md 라우팅 규칙</h2>
+<p>하위 에이전트에 작업을 라우팅할 때:</p>
+<ul>
+<li>캘린더 요청: google-calendar 및 google-workspace 스킬로 스폰</li>
+<li>리서치 요청: web-search 스킬로 스폰하고, gpt-4o-mini 모델 사용</li>
+<li>글쓰기 요청: 작업 설명에 글쓰기 컨텍스트를 명시적으로 주입하여 스폰</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span></span></span>
+<span class="line"><span>### 패턴 4: 팬아웃 / 팬인 (아침 브리핑)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>이것은 병렬 에이전트의 "Hello World"입니다.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**순차적 (기존 방식):** 날씨 확인 (5초) → 캘린더 확인 (5초) → 이메일 확인 (10초) → 뉴스 확인 (10초) → 요약 (5초). 총: **~35초.**</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**병렬적 (새로운 방식):**</span></span>
+<span class="line"><span>오전 7:00 → 메인 에이전트가 즉시 4개의 워커를 생성:</span></span>
+<span class="line"><span>*   **에이전트 A:** 샌프란시스코 AccuWeather 날씨 예보</span></span>
+<span class="line"><span>*   **에이전트 B:** 오늘의 Google Calendar 미팅</span></span>
+<span class="line"><span>*   **에이전트 C:** Gmail 읽지 않은 메일 요약 (긴급 항목 표시)</span></span>
+<span class="line"><span>*</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>총 시간은 가장 느린 에이전트(약 15초) + 종합(5초) = **약 20초**입니다.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>## 핵심 비용 전략: "똑똑한 상사, 저렴한 인턴"</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>하위 에이전트의 가장 큰 위험은 비용 증폭입니다. 만약 5개의 에이전트를 생성하고 그들 모두가 Claude Opus 4.6을 사용한다면, API 요금이 5배로 늘어납니다.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>해결책은 명시적인 모델 할당입니다.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**보스 (메인 에이전트):** 작업을 분해하고 결과를 종합하기 위해 높은</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**인턴 (작업자):** 주로 명확하고 제한된 작업(이것을 요약하고, 저것을 찾기 등)을 수행합니다.</span></span>
+<span class="line"><span>*   **모델:** `openai/gpt-4o-mini` 또는 `google/gemini-2.5-flash`</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>실수를 방지하기 위해 설정에서 이 기본값을 지정할 수 있습니다:</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>```json</span></span>
+<span class="line"><span>{</span></span>
+<span class="line"><span>  "agents": {</span></span>
+<span class="line"><span>    "defaults": {</span></span>
+<span class="line"><span>      "subagents": {</span></span>
+<span class="line"><span>        "model": "openai/gpt-4o-mini",</span></span>
+<span class="line"><span>        "maxSpawnDepth": 1,</span></span>
+<span class="line"><span>        "maxChildrenPerAgent": 5</span></span>
+<span class="line"><span>      }</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span>  }</span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span></code></pre>
+<hr>
+<hr>
+<h2 id="고급-오케스트레이터-패턴-깊이-2">고급: 오케스트레이터 패턴 (깊이 2)</h2>
+<p>기본적으로 OpenClaw는 <code>maxSpawnDepth: 1</code>로 설정되어 있으며, 이는 하위 에이전트가 자신의 하위 에이전트를 생성할 수 없음을 의미합니다.</p>
+<p>복잡한 프로젝트의 경우, 깊이 2를 활성화할 수 있습니다:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{ </span><span style="color:#79B8FF">"agents"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"defaults"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"subagents"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"maxSpawnDepth"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8"> } } } }</span></span>
+<span class="line"></span></code></pre>
+<p>이를 통해 3계층 구조를 사용할 수 있습니다:</p>
+<hr>
+<p>불가”. ‘스폰’ is also widely understood in tech/gaming contexts, but ‘생성’ is more formal and general. Let’s use ‘생성 불가’. It’s clear and correct.</p>
+<p>The instructions are: “Raw Markdown only. No code fences. Keep brands unchanged: Open</p>
+<hr>
+<h2 id="openclaw-vs-claude-code-에이전트-팀">OpenClaw vs. Claude Code 에이전트 팀</h2>
+<p>둘 다 존재합니다. 실제로 어떤 것을 사용해야 할까요?</p>
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="left">기능</th><th align="left">OpenClaw 하위 에이전트</th><th align="left">Claude Code 에이전트 팀</th></tr></thead><tbody><tr><td align="left"><strong>대상 사용자</strong></td><td align="left">일반 자동화 (이메일, 리서치, 운영)</td><td align="left">코딩 및 소프트웨어 엔지니어링</td></tr><tr><td align="left"><strong>커뮤니케이션</strong></td><td align="left">허브 앤 스포크 (작업자가 메인에 보고)</td><td align="left">메시 (팀원들이 서로 메시지 전송)</td></tr><tr><td align="left"><strong>성숙도</strong></td><td align="left">프로덕션 준비 완료 기능</td><td align="left">알파 / 실험적</td></tr><tr><td align="left"><strong>설정</strong></td><td align="left">내장형, 별도 설정 불필요</td><td align="left"><code>settings.json</code> 편집 필요</td></tr><tr><td align="left"><strong>컨텍스트</strong></td><td align="left">에이전트별로 독립적</td><td align="left">에이전트별로 독립적</td></tr></tbody></table>
+<hr>
+<p>컴파일러를 구축하고 있다면 Claude Code를 사용하세요. 개인 비서나 비즈니스 워크플로를 구축하고 있다면 OpenClaw를 사용하세요.</p>
+<hr>
+<hr>
+<h2 id="현실적인-제약-사항">현실적인 제약 사항</h2>
+<hr>
+<ol>
+<li><strong>단방향 통신:</strong> 하위 에이전트는 부모에게 보고만 할 수 있습니다. 작업 도중 설명을 요청하기 위해 부모에게 질문할 수 없습니다.</li>
+<li><strong><code>SOUL.md</code> 없음:</strong> 하위 에이전트는 백지 상태라는 것을 기억하세요. 만약 그들에게 성격이나 특정 행동 규칙을 부여하고 싶다면, 해당 지침을 <code>task</code> 프롬프트나 <code>AGENTS.md</code>에 포함해야 합니다.</li>
+<li><strong>동시성 제한:</strong> 한 번에 50개의 에이전트를 생성하려고 시도하지 마세요. 즉시 API 속도 제한에 도달하게 됩니다. 기본 상한선은 8개의 동시 세션입니다.</li>
+</ol>
+<hr>
+<hr>
+<h2 id="이런-관리가-번거롭다면-tinyclaw">이런 관리가 번거롭다면: TinyClaw</h2>
+<p>병렬 에이전트 아키텍처를 관리하고, <code>maxSpawnDepth</code>를 구성하며, 여러 모델에 걸친 토큰 비용을 모니터링하는 것은 복잡합니다.</p>
+<p><a href="https://tinyclaw.dev">TinyClaw</a>는 이 과정을 간단하게 만들어 줍니다:</p>
+<ul>
+<li><strong>비용 보호 기능:</strong> 내장된 대시보드를 통해 “인턴”들이 얼마를 지출하고 있는지 정확히 보여줍니다.</li>
+<li><strong>스마트한 기본값:</strong> 최적화된 하위 에이전트 구성을 별도의 설정 없이 바로 제공합니다.</li>
+<li><strong>원클릭 배포:</strong> 60초 안에 완전히 구성된 OpenClaw 인스턴스를 실행할 수 있습니다.</li>
+</ul>
+<hr>
+<p>에이전트 팀을 운영하는 데 20,000달러가 들 필요는 없습니다. 아침 브리핑으로 시작하세요.</p>
+<p>→ <a href="https://tinyclaw.dev">tinyclaw.dev</a> · 무료로 시작 · 60초 안에 에이전트</p>  </div> <!-- 블로그 목록으로 돌아가기 --> <footer class="mt-16 pt-8 border-t border-accent/20"> <a href="/ko/blog/" class="inline-flex items-center gap-2 font-mono text-sm text-text-muted hover:text-accent transition-colors group"> <span class="group-hover:-translate-x-1 transition-transform">&lt;-</span> <span>모든 게시물로 돌아가기</span> </a> </footer> </article> </main> <footer class="bg-dark-secondary border-t border-accent/20"> <div class="max-w-7xl mx-auto px-6 lg:px-20 py-12 lg:py-16"> <!-- 상단 섹션 --> <div class="flex flex-col lg:flex-row justify-between gap-12 mb-12"> <!-- 브랜드 --> <div class="lg:max-w-xs"> <a href="/ko/" class="inline-block mb-4"> <span class="font-mono text-xl font-bold"> <span class="text-terminal-cyan">&gt;</span><span class="text-terminal-orange">_</span> <span class="text-accent">AgentPuter</span> </span> </a> <p class="text-text-muted text-sm font-mono"> <span class="text-terminal-cyan">//</span> 당신의 AI는 잠들지 않습니다
+</p> </div> <!-- 링크 그리드 --> <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 font-mono"> <!-- 제품 --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/product</h4> <ul class="space-y-3"> <li> <a href="/ko/features" class="text-text-muted text-sm hover:text-accent transition-colors"> 기능 </a> </li><li> <a href="/pricing" class="text-text-muted text-sm hover:text-accent transition-colors"> 가격 </a> </li><li> <a href="/ko/docs" class="text-text-muted text-sm hover:text-accent transition-colors"> 문서 </a> </li> </ul> </div> <!-- 회사 --> <div> <h4 class="text-terminal-orange font-bold mb-4 text-sm">/company</h4> <ul class="space-y-3"> <li> <a href="#" class="text-text-muted text-sm hover:text-accent transition-colors"> 소개 </a> </li><li> <a href="/ko/blog/" class="text-text-muted text-sm hover:text-accent transition-colors"> 블로그 </a> </li> </ul> </div> <!-- 연락처 --> <div> <h4 class="text-terminal-cyan font-bold mb-4 text-sm">/contact</h4> <ul class="space-y-3"> <li> <a href="/cdn-cgi/l/email-protection#a0cfd3c3c1d2dac1cdcfd2c1919999999097e0c7cdc1c9cc8ec3cfcd" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> <span class="__cf_email__" data-cfemail="b0dfc3d3d1c2cad1dddfc2d1818989898087f0d7ddd1d9dc9ed3dfdd">[email&#160;protected]</span> </a> </li><li> <a href="https://twitter.com/agentputer" target="_blank" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Twitter </a> </li><li> <a href="https://discord.gg/agentputer" target="_blank" class="text-text-muted text-sm hover:text-accent transition-colors break-all"> Discord </a> </li> </ul> </div> <!-- 법률 --> <div> <h4 class="text-terminal-blue font-bold mb-4 text-sm">/legal</h4> <ul class="space-y-3"> <li> <a href="/privacy" class="text-text-muted text-sm hover:text-accent transition-colors"> 개인정보처리방침 </a> </li><li> <a href="/terms" class="text-text-muted text-sm hover:text-accent transition-colors"> 이용약관 </a> </li><li> <a href="/privacy#data-security" class="text-text-muted text-sm hover:text-accent transition-colors"> 보안 </a> </li> </ul> </div> </div> </div> <!-- 구분선 --> <div class="border-t border-accent/20 pt-8"> <div class="flex flex-col md:flex-row justify-between items-center gap-4 font-mono"> <!-- 저작권 --> <p class="text-text-dark text-sm">
+/* © 2026 AgentPuter. 모든 권리 보유. */
+</p> <!-- 소셜 링크 --> <div class="flex items-center gap-6"> <a href="https://github.com/agentputer" target="_blank" rel="noopener noreferrer" class="text-text-muted text-sm hover:text-accent transition-colors"> GitHub </a> </div> </div> </div> </div> </footer>  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"db97590b14994206be9f2eaec90a9494","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html> 

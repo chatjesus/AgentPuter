@@ -1,0 +1,173 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const otherScenarios = [
+  { slug: "financial-report",  icon: "📊", tag: "FINANCE",  title: "Quarterly Financial Report Automation" },
+  { slug: "design-poster",     icon: "🎨", tag: "DESIGN",   title: "Marketing Poster Batch Generation" },
+  { slug: "audio-production",  icon: "🎵", tag: "AUDIO",    title: "Podcast & Audio Post-Production" },
+  { slug: "tech-docs",         icon: "📝", tag: "DOCS",     title: "Technical Documentation Generator" },
+];
+---
+
+<Layout
+  title="System Architecture Auto-Drawing — AgentPuter"
+  description="Describe your microservices in plain language, get production-ready SVG architecture diagrams via Draw.io CLI."
+>
+  <Header activePage="features" />
+  <main class="relative z-10">
+
+    <!-- Hero -->
+    <section class="relative pt-32 pb-16 lg:pt-40 lg:pb-20 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] to-[#0D0D14]"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(251,191,36,0.04),transparent_60%)]"></div>
+      <div class="relative max-w-5xl mx-auto px-6 lg:px-20">
+        <a href="/features" class="inline-flex items-center gap-2 text-xs font-mono text-[#4B5563] hover:text-[#FBBF24] transition-colors mb-8">
+          ← back to features
+        </a>
+        <div class="flex flex-wrap gap-3 mb-5">
+          <span class="text-xs font-bold font-mono px-2.5 py-1 rounded text-[#FBBF24] bg-[#FBBF24]/10">ENGINEERING</span>
+          <span class="text-xs font-mono text-[#4A4A6A] px-2.5 py-1 rounded border border-[#1E1E2E]">ap-diagrams</span>
+          <span class="text-xs font-mono text-[#4A4A6A] px-2.5 py-1 rounded border border-[#1E1E2E]">Draw.io CLI</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
+          System Architecture<br/>Auto-Drawing
+        </h1>
+        <p class="text-[#9CA3AF] text-lg mb-10 max-w-2xl">
+          Describe architecture → AI layouts → Export SVG/PNG
+        </p>
+        <div class="flex flex-wrap gap-3">
+          {["① Describe in natural language", "② Agent builds draw.io graph", "③ Export SVG/PNG/PDF"].map((step) => (
+            <span class="inline-flex items-center gap-2 px-4 py-2 bg-[#111111] border border-[#FBBF24]/20 rounded-full text-xs text-[#94A3B8] font-mono">
+              {step}
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Session Log -->
+    <section class="py-12 lg:py-20">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20">
+        <p class="font-mono text-xs text-[#FBBF24] font-semibold tracking-[0.2em] mb-8">// AGENT SESSION LOG</p>
+        <div class="flex flex-col gap-4">
+
+          <div class="flex items-start gap-4">
+            <div class="shrink-0 w-8 h-8 rounded-full bg-[#1E293B] flex items-center justify-center text-xs font-mono text-[#94A3B8]">U</div>
+            <div class="bg-[#111827] border border-[#1E293B] rounded-2xl rounded-tl-sm px-5 py-4 max-w-xl">
+              <p class="text-[#E2E8F0] text-sm">"Draw a microservice architecture: API Gateway → Auth Service, User Service, Order Service. Order Service connects to Payment Service and Notification Service. All services connect to a shared Redis cache."</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 flex-row-reverse">
+            <div class="shrink-0 w-8 h-8 rounded-full bg-[#181208] border border-[#FBBF24]/30 flex items-center justify-center text-xs font-mono text-[#FBBF24]">AP</div>
+            <div class="bg-[#120F05] border border-[#FBBF24]/15 rounded-2xl rounded-tr-sm px-5 py-4 max-w-xl">
+              <p class="text-[#94A3B8] text-xs font-mono mb-3">// Parsing topology: 6 services, 7 connections</p>
+              <ul class="text-[#CBD5E1] text-sm space-y-1.5">
+                <li class="flex gap-2"><span class="text-[#FBBF24]">→</span> Create microservice diagram template</li>
+                <li class="flex gap-2"><span class="text-[#FBBF24]">→</span> Add 6 service nodes with icons</li>
+                <li class="flex gap-2"><span class="text-[#FBBF24]">→</span> Wire connections with directional arrows</li>
+                <li class="flex gap-2"><span class="text-[#FBBF24]">→</span> Add Redis cache as shared infrastructure layer</li>
+                <li class="flex gap-2"><span class="text-[#FBBF24]">→</span> Apply dark theme, export SVG + PNG</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="bg-[#080810] border border-[#1E1E2E] rounded-2xl p-6 font-mono text-xs">
+            <div class="flex items-center gap-2 mb-5">
+              <span class="w-3 h-3 rounded-full bg-[#FF5F57]"></span>
+              <span class="w-3 h-3 rounded-full bg-[#FEBC2E]"></span>
+              <span class="w-3 h-3 rounded-full bg-[#28C840]"></span>
+              <span class="text-[#4B5563] ml-2">agentputer — ap-diagrams executor</span>
+            </div>
+            <div class="space-y-1.5">
+              <p><span class="text-[#2A2A3A]">$ </span><span class="text-[#94A3B8]">ap-diagrams new --type microservice --theme dark</span></p>
+              <p class="text-[#4ADE80] pl-4">✓ Diagram initialized with microservice template</p>
+              <p class="mt-3"><span class="text-[#2A2A3A]">$ </span><span class="text-[#94A3B8]">ap-diagrams add node --label "API Gateway" --icon aws-api-gateway --x 400 --y 60</span></p>
+              <p class="text-[#4ADE80] pl-4">✓ Node added: API Gateway (entry point)</p>
+              <p class="mt-3"><span class="text-[#2A2A3A]">$ </span><span class="text-[#94A3B8]">ap-diagrams add node --labels "Auth,User,Order" --row 2 --spacing 200</span></p>
+              <p class="text-[#4ADE80] pl-4">✓ 3 service nodes auto-positioned in row 2</p>
+              <p class="mt-3"><span class="text-[#2A2A3A]">$ </span><span class="text-[#94A3B8]">ap-diagrams connect "API Gateway" --to "Auth,User,Order" --style arrow</span></p>
+              <p class="text-[#4ADE80] pl-4">✓ 3 connections wired with directional arrows</p>
+              <p class="mt-3"><span class="text-[#2A2A3A]">$ </span><span class="text-[#94A3B8]">ap-diagrams add node --label "Redis Cache" --icon redis --layer infrastructure</span></p>
+              <p class="text-[#4ADE80] pl-4">✓ Shared cache layer added at bottom</p>
+              <p class="mt-3"><span class="text-[#2A2A3A]">$ </span><span class="text-[#94A3B8]">ap-diagrams export --svg --png --fit-page</span></p>
+              <p class="text-[#4ADE80] pl-4">✓ Exported: microservice-arch.svg + microservice-arch.png</p>
+            </div>
+            <div class="mt-5 pt-4 border-t border-[#1E1E2E] flex items-center justify-between">
+              <span class="text-[#4B5563]">elapsed: 31s</span>
+              <div class="flex items-center gap-2 bg-[#120F05] border border-[#FBBF24]/20 rounded-lg px-3 py-1.5">
+                <span class="text-[#FBBF24]">📐</span>
+                <span class="text-[#FBBF24]">microservice-arch.svg</span>
+                <span class="text-[#4B5563] ml-2">Vector editable</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Capabilities -->
+    <section class="py-12 lg:py-16 bg-[#080810]">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20">
+        <p class="font-mono text-xs text-[#FBBF24] font-semibold tracking-[0.2em] mb-8">// WHAT THIS SCENARIO SUPPORTS</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {[
+            { icon: "☁️", title: "Cloud icon libraries", desc: "AWS, GCP, Azure, and Kubernetes icon sets built-in. No manual icon imports." },
+            { icon: "🔗", title: "Smart auto-routing", desc: "Connection lines auto-route around nodes. No manual drag-to-connect needed." },
+            { icon: "📊", title: "Multiple diagram types", desc: "Microservice, ER, network topology, sequence, UML, C4 model — all supported." },
+            { icon: "🎨", title: "Dark & light themes", desc: "Professional diagram themes. Consistent visual style across the entire diagram." },
+            { icon: "📄", title: "From code / schema", desc: "Generate ER diagrams from SQL schema files. Auto-detect tables and relationships." },
+            { icon: "✏️", title: "Editable SVG output", desc: "Output is a standard SVG — open and edit further in any vector tool." },
+          ].map((cap) => (
+            <div class="flex gap-4 bg-[#0D0D1A] border border-[#1E1E2E] rounded-xl p-5">
+              <span class="text-2xl shrink-0 mt-0.5">{cap.icon}</span>
+              <div>
+                <h3 class="text-white text-sm font-semibold mb-1">{cap.title}</h3>
+                <p class="text-[#6B7280] text-xs leading-relaxed">{cap.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Other Scenarios -->
+    <section class="py-12 lg:py-16">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20">
+        <p class="font-mono text-xs text-[#4B5563] font-semibold tracking-[0.2em] mb-6">// OTHER SCENARIOS</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {otherScenarios.map((s) => (
+            <a href={`/features/${s.slug}`} class="group flex items-center gap-4 bg-[#111111] hover:bg-[#161622] border border-[#1E1E2E] hover:border-[#FBBF24]/20 rounded-xl px-5 py-4 transition-all">
+              <span class="text-2xl">{s.icon}</span>
+              <div class="flex-1 min-w-0">
+                <span class="text-xs font-mono text-[#4A4A6A] block mb-0.5">{s.tag}</span>
+                <span class="text-sm text-[#94A3B8] group-hover:text-white transition-colors truncate block">{s.title}</span>
+              </div>
+              <span class="text-[#2A2A3A] group-hover:text-[#FBBF24] transition-colors">→</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-12 lg:py-20">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20">
+        <div class="bg-[#120F05] border border-[#FBBF24]/20 rounded-2xl p-8 md:p-12 text-center">
+          <p class="font-mono text-xs text-[#FBBF24] tracking-[0.2em] mb-4">// DEPLOY YOUR AGENT</p>
+          <h2 class="text-white text-2xl md:text-3xl font-bold mb-4">Stop drawing diagrams manually.</h2>
+          <p class="text-[#6B7280] text-sm mb-8 max-w-md mx-auto">Describe your system. AgentPuter builds the diagram — precise, professional, exportable. No diagramming tool required.</p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="https://app.agentputer.com/sign-up" class="btn-primary text-sm py-3 px-8 font-mono">[GET STARTED]</a>
+            <a href="/features" class="btn-secondary text-sm py-3 px-8 font-mono">[ALL SCENARIOS]</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>

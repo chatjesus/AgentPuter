@@ -1,0 +1,176 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const otherScenarios = [
+  { slug: "design-poster",     icon: "🎨", tag: "DESIGN",       title: "Marketing Poster Batch Generation" },
+  { slug: "system-diagram",    icon: "📐", tag: "ENGINEERING",  title: "System Architecture Auto-Drawing" },
+  { slug: "audio-production",  icon: "🎵", tag: "AUDIO",        title: "Podcast & Audio Post-Production" },
+  { slug: "tech-docs",         icon: "📝", tag: "DOCS",         title: "Technical Documentation Generator" },
+];
+---
+
+<Layout
+  title="Quarterly Financial Report Automation — AgentPuter"
+  description="Upload raw data, get a 28-page professional PDF in 2 minutes. AgentPuter uses LibreOffice headless to generate charts, tables, and formatted financial reports."
+>
+  <Header activePage="features" />
+  <main class="relative z-10">
+
+    <!-- Hero -->
+    <section class="relative pt-32 pb-16 lg:pt-40 lg:pb-20 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] to-[#0D0D14]"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(56,189,248,0.05),transparent_60%)]"></div>
+      <div class="relative max-w-5xl mx-auto px-6 lg:px-20">
+        <a href="/features" class="inline-flex items-center gap-2 text-xs font-mono text-[#4B5563] hover:text-[#38BDF8] transition-colors mb-8">
+          ← back to features
+        </a>
+        <div class="flex flex-wrap gap-3 mb-5">
+          <span class="text-xs font-bold font-mono px-2.5 py-1 rounded text-[#38BDF8] bg-[#38BDF8]/10">FINANCE</span>
+          <span class="text-xs font-mono text-[#4A4A6A] px-2.5 py-1 rounded border border-[#1E1E2E]">ap-docs</span>
+          <span class="text-xs font-mono text-[#4A4A6A] px-2.5 py-1 rounded border border-[#1E1E2E]">LibreOffice</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
+          Quarterly Financial Report<br/>Automation
+        </h1>
+        <p class="text-[#9CA3AF] text-lg mb-10 max-w-2xl">
+          Upload data → AI generates charts → Export professional PDF
+        </p>
+        <!-- 3-step workflow -->
+        <div class="flex flex-wrap gap-3">
+          {["① Upload CSV / spreadsheet", "② Agent structures + charts", "③ 28-page PDF exported"].map((step, i) => (
+            <span class="inline-flex items-center gap-2 px-4 py-2 bg-[#111111] border border-[#38BDF8]/20 rounded-full text-xs text-[#94A3B8] font-mono">
+              {step}
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Session Log -->
+    <section class="py-12 lg:py-20">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20">
+        <p class="font-mono text-xs text-[#38BDF8] font-semibold tracking-[0.2em] mb-8">// AGENT SESSION LOG</p>
+
+        <div class="flex flex-col gap-4">
+
+          <!-- User message -->
+          <div class="flex items-start gap-4">
+            <div class="shrink-0 w-8 h-8 rounded-full bg-[#1E293B] flex items-center justify-center text-xs font-mono text-[#94A3B8]">U</div>
+            <div class="bg-[#111827] border border-[#1E293B] rounded-2xl rounded-tl-sm px-5 py-4 max-w-xl">
+              <p class="text-[#E2E8F0] text-sm">"Generate a Q1 financial report from our sales data. Include charts, a summary table, and export as PDF."</p>
+            </div>
+          </div>
+
+          <!-- Agent plan -->
+          <div class="flex items-start gap-4 flex-row-reverse">
+            <div class="shrink-0 w-8 h-8 rounded-full bg-[#0C1929] border border-[#38BDF8]/30 flex items-center justify-center text-xs font-mono text-[#38BDF8]">AP</div>
+            <div class="bg-[#0D1520] border border-[#38BDF8]/15 rounded-2xl rounded-tr-sm px-5 py-4 max-w-xl">
+              <p class="text-[#94A3B8] text-xs font-mono mb-3">// Planning execution sequence</p>
+              <ul class="text-[#CBD5E1] text-sm space-y-1.5">
+                <li class="flex gap-2"><span class="text-[#38BDF8]">→</span> Parse Q1-sales.csv (147 rows, 6 columns)</li>
+                <li class="flex gap-2"><span class="text-[#38BDF8]">→</span> Calculate totals, MoM growth, category breakdown</li>
+                <li class="flex gap-2"><span class="text-[#38BDF8]">→</span> Generate bar + line charts via ap-docs chart</li>
+                <li class="flex gap-2"><span class="text-[#38BDF8]">→</span> Apply enterprise report template</li>
+                <li class="flex gap-2"><span class="text-[#38BDF8]">→</span> Export as PDF with auto-generated TOC</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- CLI Execution Block -->
+          <div class="bg-[#080810] border border-[#1E1E2E] rounded-2xl p-6 font-mono text-xs">
+            <div class="flex items-center gap-2 mb-5">
+              <span class="w-3 h-3 rounded-full bg-[#FF5F57]"></span>
+              <span class="w-3 h-3 rounded-full bg-[#FEBC2E]"></span>
+              <span class="w-3 h-3 rounded-full bg-[#28C840]"></span>
+              <span class="text-[#4B5563] ml-2">agentputer — ap-docs executor</span>
+            </div>
+            <div class="space-y-1.5">
+              <p><span class="text-[#2A2A3A]">$ </span><span class="text-[#94A3B8]">ap-docs new --type report --template enterprise-q1</span></p>
+              <p class="text-[#4ADE80] pl-4">✓ Created: Q1-Financial-Report.docx (template applied)</p>
+              <p class="mt-3"><span class="text-[#2A2A3A]">$ </span><span class="text-[#94A3B8]">ap-docs chart --data q1-sales.csv --type bar --title "Monthly Revenue"</span></p>
+              <p class="text-[#4ADE80] pl-4">✓ Chart inserted: 1920×800px, 3 data series</p>
+              <p class="mt-3"><span class="text-[#2A2A3A]">$ </span><span class="text-[#94A3B8]">ap-docs chart --data q1-sales.csv --type line --title "Growth Trend"</span></p>
+              <p class="text-[#4ADE80] pl-4">✓ Chart inserted: trend line with annotations</p>
+              <p class="mt-3"><span class="text-[#2A2A3A]">$ </span><span class="text-[#94A3B8]">ap-docs table --data q1-summary.csv --style financial</span></p>
+              <p class="text-[#4ADE80] pl-4">✓ Summary table: 6 columns × 14 rows, auto-formatted</p>
+              <p class="mt-3"><span class="text-[#2A2A3A]">$ </span><span class="text-[#94A3B8]">ap-docs export --pdf --toc --pages-auto</span></p>
+              <p class="text-[#4ADE80] pl-4">✓ Exported: Q1-Financial-Report.pdf — 28 pages</p>
+            </div>
+            <div class="mt-5 pt-4 border-t border-[#1E1E2E] flex items-center justify-between">
+              <span class="text-[#4B5563]">elapsed: 1m 47s</span>
+              <div class="flex items-center gap-2 bg-[#0A1A0F] border border-[#4ADE80]/20 rounded-lg px-3 py-1.5">
+                <span class="text-[#4ADE80]">📄</span>
+                <span class="text-[#4ADE80]">Q1-Financial-Report.pdf</span>
+                <span class="text-[#4B5563] ml-2">28 pages · 2.4 MB</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Capabilities -->
+    <section class="py-12 lg:py-16 bg-[#080810]">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20">
+        <p class="font-mono text-xs text-[#38BDF8] font-semibold tracking-[0.2em] mb-8">// WHAT THIS SCENARIO SUPPORTS</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {[
+            { icon: "📊", title: "Multi-chart generation", desc: "Bar, line, pie, combo charts auto-inserted from CSV/Excel data." },
+            { icon: "📋", title: "Enterprise templates", desc: "Apply branded .dotx templates with logo, headers, standard footers." },
+            { icon: "📑", title: "Auto TOC + page numbers", desc: "Table of contents generated from headings. Page numbers, section breaks." },
+            { icon: "🔢", title: "Formula & macro execution", desc: "Run LibreOffice Basic macros to compute totals, apply conditional formatting." },
+            { icon: "📄", title: "Multi-format export", desc: "Output as PDF, DOCX, XLSX, or ODS. Preserve fonts and layout." },
+            { icon: "⚡", title: "Batch report generation", desc: "Run the same template across 50 regions/departments in parallel." },
+          ].map((cap) => (
+            <div class="flex gap-4 bg-[#0D0D1A] border border-[#1E1E2E] rounded-xl p-5">
+              <span class="text-2xl shrink-0 mt-0.5">{cap.icon}</span>
+              <div>
+                <h3 class="text-white text-sm font-semibold mb-1">{cap.title}</h3>
+                <p class="text-[#6B7280] text-xs leading-relaxed">{cap.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Other Scenarios -->
+    <section class="py-12 lg:py-16">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20">
+        <p class="font-mono text-xs text-[#4B5563] font-semibold tracking-[0.2em] mb-6">// OTHER SCENARIOS</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {otherScenarios.map((s) => (
+            <a href={`/features/${s.slug}`} class="group flex items-center gap-4 bg-[#111111] hover:bg-[#161622] border border-[#1E1E2E] hover:border-[#38BDF8]/20 rounded-xl px-5 py-4 transition-all">
+              <span class="text-2xl">{s.icon}</span>
+              <div class="flex-1 min-w-0">
+                <span class="text-xs font-mono text-[#4A4A6A] block mb-0.5">{s.tag}</span>
+                <span class="text-sm text-[#94A3B8] group-hover:text-white transition-colors truncate block">{s.title}</span>
+              </div>
+              <span class="text-[#2A2A3A] group-hover:text-[#38BDF8] transition-colors">→</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-12 lg:py-20">
+      <div class="max-w-5xl mx-auto px-6 lg:px-20">
+        <div class="bg-[#0D0D1A] border border-[#38BDF8]/20 rounded-2xl p-8 md:p-12 text-center">
+          <p class="font-mono text-xs text-[#38BDF8] tracking-[0.2em] mb-4">// DEPLOY YOUR AGENT</p>
+          <h2 class="text-white text-2xl md:text-3xl font-bold mb-4">Ready to automate your reports?</h2>
+          <p class="text-[#6B7280] text-sm mb-8 max-w-md mx-auto">AgentPuter handles the full workflow — from raw data to boardroom-ready PDF. No manual formatting ever again.</p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="https://app.agentputer.com/sign-up" class="btn-primary text-sm py-3 px-8 font-mono">[GET STARTED]</a>
+            <a href="/features" class="btn-secondary text-sm py-3 px-8 font-mono">[ALL SCENARIOS]</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>
